@@ -79,6 +79,10 @@
                 <Separator/>
                 <MenuItem x:Name="HelpMenu_About" Header="About Cosmo's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
+            <MenuItem x:Name="DanoTest" Header="Dano Test" Foreground="White">
+                <MenuItem x:Name="DanoTest_StartPage" Header="[Dano] Test Startpage" Foreground="Black" Click="DanoTest_StartPage_Click"></MenuItem>
+            </MenuItem>
+            
         </Menu>
         <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="593" Margin="0,18,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
             <Canvas.Background>

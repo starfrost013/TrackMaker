@@ -7,16 +7,41 @@
              mc:Ignorable="d" 
              d:DesignHeight="417.769" d:DesignWidth="875.62">
     <UserControl.Background>
-        <LinearGradientBrush> <!-- Temporary - We will bind to settings -->
+        <LinearGradientBrush>
+            <!-- Temporary - We will bind to settings -->
             <GradientStop Offset="0.0" Color="#004080"></GradientStop>
             <GradientStop Offset="0.8" Color="#96bdfe"></GradientStop>
         </LinearGradientBrush>
     </UserControl.Background>
     <Grid>
-        <TextBlock x:Name="DanoUI_StartPage_StartHere" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Welcome to Dano!" VerticalAlignment="Top" Foreground="White" FontSize="60"/>
-        <TextBlock x:Name="DanoUI_StartPage_QuickStart" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Get Started:" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Italic"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="-4,426,0,-108" VerticalAlignment="Top" Width="100"/>
-        <Button Style="{StaticResource Dano_Core_Style_Button}" x:Name="Test" Content="Exit" HorizontalAlignment="Left" Margin="791,380,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock x:Name="DanoUI_StartPage_StartHere" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Welcome to Dano!" VerticalAlignment="Top" FontSize="60"/>
+        <TextBlock x:Name="DanoUI_StartPage_QuickStart" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Get Started:" VerticalAlignment="Top" FontSize="32" FontStyle="Italic"/>
+
+        <Button x:Name="Test" Content="Exit" HorizontalAlignment="Left" Margin="791,380,0,0" VerticalAlignment="Top" Width="75"/>
+        <Border HorizontalAlignment="Left" Height="44" Margin="10,115,0,0" VerticalAlignment="Top" Width="225" BorderBrush="#00000000">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <TextBlock x:Name="CreateTrack" TextWrapping="Wrap" Text="Create Track" FontSize="26" Margin="28,2,-18,0"/>
+        </Border>
+        <Border HorizontalAlignment="Left" Height="44" Margin="10,159,0,0" VerticalAlignment="Top" Width="225" BorderBrush="#00000000">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <TextBlock x:Name="CreateAnimation" TextWrapping="Wrap" Text="Create Animation" FontSize="26" Margin="0,2,-16,0" HorizontalAlignment="Right" Width="216"/>
+        </Border>
 
     </Grid>
 </UserControl>

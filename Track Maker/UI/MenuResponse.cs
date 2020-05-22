@@ -1,5 +1,6 @@
 ﻿using ACECalculator; // temp: integrate v2
 using AdvisoryGenerator; // temp: integrate v2
+using DanoUI; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -163,6 +164,14 @@ namespace Track_Maker
             ExportUI ExUI = new ExportUI(FormatType.Export, new ExportBestTrack());
             ExUI.Owner = this;
             ExUI.Show(); 
+        }
+
+        //Test code. remove this.
+        private void DanoTest_StartPage_Click(object sender, RoutedEventArgs e)
+        {
+            StartPageHost SPH = new StartPageHost();
+            SPH.Owner = this;
+            SPH.Show();
         }
 
     }

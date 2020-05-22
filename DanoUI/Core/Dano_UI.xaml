@@ -4,14 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI.Core"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              >
 
-    <Style TargetType="Button" x:Key="Dano_Core_Style_Button">
+    <Style TargetType="Button">
         <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
         <Setter Property="Background" Value="#00000000"></Setter>
         <Setter Property="BorderBrush" Value="#FFFFFFFF"></Setter>
         <Setter Property="BorderThickness" Value="1"></Setter>
         <Setter Property="FontSize" Value="18"></Setter>
     </Style>
+
+    <Style TargetType="Border">
+        <Setter Property="BorderBrush" Value="#FFFFFFFF"></Setter>
+        <Setter Property="CornerRadius" Value="3"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+    </Style>
+
+    <Style TargetType="MenuItem">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+    </Style>
+    
+    <Style TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
+    </Style>
+
 </ResourceDictionary>

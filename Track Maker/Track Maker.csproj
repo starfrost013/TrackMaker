@@ -98,6 +98,9 @@
     <Compile Include="Basin.cs" />
     <Compile Include="Basin2\BasinManager.cs" />
     <Compile Include="BasinLoader.cs" />
+    <Compile Include="DanoUIHost\StartPageHost.xaml.cs">
+      <DependentUpon>StartPageHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ExportPlatform\ExportFormats\BestTrack.cs" />
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
@@ -184,6 +187,10 @@
     </Compile>
     <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\Utilities.cs" />
+    <Page Include="DanoUIHost\StartPageHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="IntegratedApps\AceCalc\About\AboutWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
