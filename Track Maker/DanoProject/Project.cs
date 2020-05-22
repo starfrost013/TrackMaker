@@ -33,7 +33,7 @@ namespace Track_Maker
 
                 if (CurrentHistoryPoint > Setting.UndoDepth)
                 {
-
+                    CurrentHistoryPoint = Setting.UndoDepth;
                 }
             }
 
