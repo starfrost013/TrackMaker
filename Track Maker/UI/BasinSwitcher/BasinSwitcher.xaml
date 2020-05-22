@@ -1,0 +1,15 @@
+﻿<Window x:Class="Track_Maker.BasinSwitcher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Track_Maker"
+        mc:Ignorable="d"
+        Title="Basins" Height="450" Width="486.104" Loaded="Window_Loaded">
+    <Grid>
+        <TextBlock x:Name="SwitchBasins" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Switch Basins" VerticalAlignment="Top" FontSize="36" FontStyle="Italic"/>
+        <ListBox x:Name="BasinList" HorizontalAlignment="Left" Height="317" Margin="10,63,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding}" DisplayMemberPath="Name" Foreground="#FF3030A0"/>
+        <Button x:Name="OKButton" Content="Switch" HorizontalAlignment="Left" Margin="359,63,0,0" VerticalAlignment="Top" Width="93" FontSize="18" Click="OKButton_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="Track_Maker.SeasonManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Track_Maker"
+        mc:Ignorable="d"
+        Title="Season Manager" Height="450" Width="462.807" Loaded="Window_Loaded">
+    <Grid>
+        <TextBlock x:Name="SeasonManagerTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Edit Season" VerticalAlignment="Top" FontStyle="Italic" FontSize="36"/>
+        <TextBlock x:Name="StormListTextBlock" HorizontalAlignment="Left" Margin="10,58,0,0" TextWrapping="Wrap" Text="Storms:" VerticalAlignment="Top" FontSize="18" FontStyle="Italic"/>
+        <ListBox x:Name="StormList" HorizontalAlignment="Left" Height="292" Margin="10,91,0,0" VerticalAlignment="Top" Width="257" ItemsSource="{Binding}" DisplayMemberPath="Name" Foreground="#FF3030A0"/>
+        <Button x:Name="EditButton" Content="Rename Selected" HorizontalAlignment="Left" Margin="284,129,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="EditButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete Selected" HorizontalAlignment="Left" Margin="284,169,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="DeleteButton_Click"/>
+        <Button x:Name="OKButton" Content="Done" HorizontalAlignment="Left" Margin="313,355,0,0" VerticalAlignment="Top" Width="92" FontSize="18" Click="OKButton_Click" RenderTransformOrigin="0.337,7.738"/>
+        <Button x:Name="ModifyButton" Content="Edit Selected" HorizontalAlignment="Left" Margin="284,91,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="ModifyButton_Click"/>
+
+    </Grid>
+</Window>

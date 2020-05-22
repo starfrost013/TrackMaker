@@ -1,0 +1,4 @@
+- Storm management
+- Saving
+- Massive code cleanup - usercontrols for frequent styling, basinmanager, etc
+- Hide text option

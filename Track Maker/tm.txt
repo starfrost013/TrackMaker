@@ -1,0 +1,62 @@
+Track Maker 1.0
+Features:
+- Set storm start date at creation 
+- Real coordinates in XML for basins
+- BT and EasyTimeline export, BT import 
+- Updater
+
+Track Maker 2.0
+Features:
+- Componentized integrated apps
+- Animate tracks feature
+- IMode interface, RenderContent will be moved here
+- Basin Manager
+- Undo/Redo 2.0 - store the whole basin
+- Cone and graphic IModes
+- Zoomable and draggable map
+- Responsive design?
+- Coordinate definition tool for hypo basins
+- Basin and category system installer
+- Foundation for 3.0 and 4.0
+- Tabbed Basin view (at the very least the guts for it)
+- Dependency properties, a lot
+- "Start Page"
+- Maximised startup
+- NO MNWINDOW!
+- Unified Error System
+- CHG dialog code 
+- Layers? (PROBABLY 3.0 but maybe 2.0)
+- Remove schizophrenic 1.0 functionality in places such as AddTrackPoint.xaml.cs
+- Move functionality such as adding nodes to the node class
+- Per-node categories
+- UI-code separation
+- Codename "Dano" - feature-rich and easy to use
+
+Track Maker 3.0
+Features:
+- Google Maps API for real basins? (optional)
+- Per-node, per-object Animation scripting (keyframes?)
+- Responsive design?
+- Online collaboration with chat? 
+- Tabbed Basin view (enabled at least, maybe in 2.0)
+- Track Drawing? (small chance of 2.0)
+- Layers?
+
+Track Maker 4.0
+Features:
+- Online collaboration with chat?
+- Web and mobile versions?
+- Being able to drag nodes around - toolbar
+- Custom icons 
+
+Track Maker 5.0
+Features:
+- Hurricane season simulation with autosaving to chat?
+- Web and mobile interoperability (v4.0 maybe)
+
+Some point:
+Storm Merge tool
+Paint Dot tool
+No-restart Settings (autoupdated)
+Satellite / radar / stylised views (IView) - v6.0?
+Procedural satellite and radar
