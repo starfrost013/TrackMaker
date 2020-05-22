@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Track_Maker
 {
-    public class BasinManager // remove, project for dano
+    public class Project
     {
         public List<Basin> Basins { get; set; }
+        public Basin CurrentBasin { get; set; }
+        public string Name { get; set; }
+        
     }
 }

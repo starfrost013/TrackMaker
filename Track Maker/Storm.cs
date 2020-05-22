@@ -26,6 +26,11 @@ namespace Track_Maker
             NodeList_Deleted = new List<Node>(); 
         }
 
+        public void AddNode()
+        {
+
+        }
+
         public DateTime GetDissipationDate()
         {
             DateTime _t = FormationDate; // Create a temporary date/time. 

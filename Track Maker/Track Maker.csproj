@@ -96,7 +96,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Basin.cs" />
-    <Compile Include="Basin2\BasinManager.cs" />
+    <Compile Include="DanoProject\Project.cs" />
     <Compile Include="BasinLoader.cs" />
     <Compile Include="DanoUIHost\StartPageHost.xaml.cs">
       <DependentUpon>StartPageHost.xaml</DependentUpon>
