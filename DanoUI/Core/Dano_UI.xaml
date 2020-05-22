@@ -7,6 +7,7 @@
              mc:Ignorable="d"
              >
 
+    <!-- Button style -->
     <Style TargetType="Button">
         <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
         <Setter Property="Background" Value="#00000000"></Setter>
@@ -15,20 +16,39 @@
         <Setter Property="FontSize" Value="18"></Setter>
     </Style>
 
+    <!-- Border style -->
     <Style TargetType="Border">
         <Setter Property="BorderBrush" Value="#FFFFFFFF"></Setter>
         <Setter Property="CornerRadius" Value="3"></Setter>
         <Setter Property="BorderThickness" Value="1"></Setter>
     </Style>
 
-    <Style TargetType="MenuItem">
-        <Setter Property="FontSize" Value="12"></Setter>
-        <Setter Property="Foreground" Value="Black"></Setter>
-    </Style>
-    
+    <!-- TextBlock style -->
     <Style TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Foreground" Value="#FF000000"></Setter>
+    </Style>
+
+    <!-- Inverted TextBlock style for non-white backgrounds -->
+
+    <Style TargetType="TextBlock" x:Key="Style_TextBlock_Invert">
         <Setter Property="FontSize" Value="18"></Setter>
         <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
     </Style>
 
+    <!-- Style for menus. -->
+    <Style TargetType="MenuItem" x:Key="Style_Menu">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Foreground" Value="#00000000"></Setter>
+    </Style>
+
+    <!-- Inverted style for menus. -->
+    <Style TargetType="MenuItem" x:Key="Style_Menu_Inverted">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Foreground" Value="#00FFFFFF"></Setter>
+    </Style>
+
+    <Style TargetType="ListBox">
+        <Setter Property="Foreground" Value="#FF3030A0"></Setter>
+    </Style>
 </ResourceDictionary>

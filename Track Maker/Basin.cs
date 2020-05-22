@@ -25,7 +25,10 @@ namespace Track_Maker
         public Coordinate CoordsLower { get; set; } // The lower point of the coords of this basin
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
         public List<Storm> Storms { get; set; } // list of storms
-
+        
+        //EARLY IMPLEMENTATION
+        public Point FocusPoint { get; set; } // The zoom level of this basin.
+        public int ZoomLevel { get; set; } // The zoom level of this basin.
 
         public Basin()
         {

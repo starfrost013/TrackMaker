@@ -267,10 +267,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Core\Stylecore.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UI\Export\ExportUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

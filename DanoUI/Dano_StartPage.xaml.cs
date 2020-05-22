@@ -15,11 +15,13 @@ using System.Windows.Shapes;
 
 namespace DanoUI
 {
+    /// PLS HAVE A WALK TOMORROW
     /// <summary>
-    /// Interaction logic for StartPage.xaml
+    /// Track Maker 2.0 "Dano" StartPage
     /// </summary>
     public partial class StartPage : UserControl
     {
+        public EventHandler StartPageExit { get; set; }
         public StartPage()
         {
             InitializeComponent();
