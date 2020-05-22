@@ -6,4 +6,12 @@
              xmlns:local="clr-namespace:DanoUI.Core"
              mc:Ignorable="d" 
              >
+
+    <Style TargetType="Button" x:Key="Dano_Core_Style_Button">
+        <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
+        <Setter Property="Background" Value="#00000000"></Setter>
+        <Setter Property="BorderBrush" Value="#FFFFFFFF"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+    </Style>
 </ResourceDictionary>

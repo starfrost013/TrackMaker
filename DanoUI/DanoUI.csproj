@@ -46,16 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Core\Dano_Style.xaml.cs">
-      <DependentUpon>Dano_Style.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dano_StartPage.xaml.cs">
       <DependentUpon>Dano_StartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Core\Dano_Style.xaml">
+    <Page Include="Core\Dano_UI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

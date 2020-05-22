@@ -16,6 +16,7 @@
         <TextBlock x:Name="DanoUI_StartPage_StartHere" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Welcome to Dano!" VerticalAlignment="Top" Foreground="White" FontSize="60"/>
         <TextBlock x:Name="DanoUI_StartPage_QuickStart" HorizontalAlignment="Left" Margin="10,63,0,0" TextWrapping="Wrap" Text="Get Started:" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Italic"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="-4,426,0,-108" VerticalAlignment="Top" Width="100"/>
+        <Button Style="{StaticResource Dano_Core_Style_Button}" x:Name="Test" Content="Exit" HorizontalAlignment="Left" Margin="791,388,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </UserControl>
