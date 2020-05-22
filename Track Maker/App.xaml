@@ -7,7 +7,7 @@
          <!-- New for Dano. -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/DanoUI;component/Core/DanoUI.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/DanoUI;component/Core/Dano_UI.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

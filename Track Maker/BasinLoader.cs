@@ -70,7 +70,6 @@ namespace Track_Maker
                                 // Conversion
                                 Basin.CoordsLower = Coordinate.FromString(XmlAttribute.InnerText); 
                                 continue;
-
                             case "coordsbottomright":
                             case "Coordsbottomright":
                             case "CoordsBottomright":
