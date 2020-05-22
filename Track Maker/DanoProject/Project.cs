@@ -12,8 +12,46 @@ namespace Track_Maker
         public List<CategorySystem> CategorySystems { get; set; } /* All selectable category systems in this Project. */
         public CategorySystem SelectedCategorySystem { get; set; } /* Currently selected category system. */
         public List<Basin> History { get; set; } /* For undo/redo and the like. */ 
-        public string Name { get; set; }
+        public string Name { get; set; } /* Project name */
+        public string Path { get; set; } /* Project path */
         public Basin SelectedBasin { get; set; } /* Currently selected basin. */
+        
+        public int CurrentHistoryPoint { get; set; } /* Current history point */
+        public Project()
+        {
+            Basins = new List<Basin>();
+            History = new List<Basin>();
+            CategorySystems = new List<CategorySystem>();
+            
+        }
+
+        public void CommitToHistory()
+        {
+            if (History.Count > Setting.UndoDepth)
+            {
+                History.RemoveAt(History.Count - 1);
+
+                if (CurrentHistoryPoint > Setting.UndoDepth)
+                {
+
+                }
+            }
+
+            History.Add(SelectedBasin);
+        }
+
+        //restorehistory
+        public void Redo()
+        {
+            SelectedBasin = History[CurrentHistoryPoint];
+            CurrentHistoryPoint++;
+        }
+
+        public void Undo()
+        {
+            SelectedBasin = History[CurrentHistoryPoint];
+            CurrentHistoryPoint--; 
+        }
 
     }
 }
