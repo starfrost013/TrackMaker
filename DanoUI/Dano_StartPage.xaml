@@ -45,6 +45,6 @@
         <Border x:Name="DanoUI_StartPage_WhatsNew" HorizontalAlignment="Left" Height="235" Margin="600,125,0,0" VerticalAlignment="Top" Width="253"/>
         <TextBlock x:Name="DanoUI_StartPage_TipsText" Style="{StaticResource Style_TextBlock_Invert}" HorizontalAlignment="Left" Margin="36,238,0,0" TextWrapping="Wrap" Text="Tips:" VerticalAlignment="Top" RenderTransformOrigin="-12.86,11.664"/>
         <Border x:Name="DanoUI_StartPage_Tips" HorizontalAlignment="Left" Height="93" Margin="36,267,0,0" VerticalAlignment="Top" Width="535"/>
-        <Button x:Name="ExitButton"  HorizontalAlignment="Left" Margin="791,380,0,0" VerticalAlignment="Top" Width="75" Content="Exit" Click="ExitButton_Click"/>
+        <Button x:Name="ExitButton"  HorizontalAlignment="Left" Margin="791,380,0,0" VerticalAlignment="Top" Width="75" Content="Exit"/>
     </Grid>
 </UserControl>

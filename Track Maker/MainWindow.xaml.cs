@@ -22,7 +22,7 @@ namespace Track_Maker
     /// 
     /// Created: 2019-11-07 (Start of Development)
     /// 
-    /// Edited: 2020-05-10 (yes this was far from continuous)
+    /// Edited: 2020-05-22 ("Dano" 2.0.381.0)
     /// 
     /// Purpose: Interaction logic for MainWindow.xaml
     /// 
@@ -40,7 +40,6 @@ namespace Track_Maker
         public MainWindow()
         {
             Init();
-            Init_Phase2();
         }
 
         public void Init()
@@ -68,7 +67,7 @@ namespace Track_Maker
             LoadBasins();
             Logging.Log("Loading settings...");
             LoadSettings2();
-
+            Init_Phase2();
         }
 
         public void Init_Phase2()

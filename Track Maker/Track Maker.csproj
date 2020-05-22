@@ -122,21 +122,6 @@
     <Compile Include="IntegratedApps\AceCalc\SetStart\SetStartWindow.xaml.cs">
       <DependentUpon>SetStartWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IntegratedApps\AdvisoryGenerator\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AdvisoryGenerator\Forecast.cs" />
-    <Compile Include="IntegratedApps\AdvisoryGenerator\ForecastManager.xaml.cs">
-      <DependentUpon>ForecastManager.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AdvisoryGenerator\HelperFunctions.cs" />
-    <Compile Include="IntegratedApps\AdvisoryGenerator\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AdvisoryGenerator\Warning.cs" />
-    <Compile Include="IntegratedApps\AdvisoryGenerator\WarningManager.xaml.cs">
-      <DependentUpon>WarningManager.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Settings2\Emerald.Settings.cs" />
     <Compile Include="Settings2\SettingsStatic.cs" />
     <Compile Include="UI\About\AboutWindow.xaml.cs">
@@ -204,22 +189,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="IntegratedApps\AceCalc\SetStart\SetStartWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AdvisoryGenerator\AboutWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AdvisoryGenerator\ForecastManager.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AdvisoryGenerator\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AdvisoryGenerator\WarningManager.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -326,6 +295,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.AdvisoryGenerator\Dano.AdvisoryGenerator.csproj">
+      <Project>{f16114eb-5733-415e-9005-838a963fcb6e}</Project>
+      <Name>Dano.AdvisoryGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dano.ACECalculator\Dano.ACECalculator.csproj">
+      <Project>{d035ce54-62ce-4cfe-9a5e-f04d4424731f}</Project>
+      <Name>Dano.ACECalculator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DanoUI\DanoUI.csproj">
       <Project>{f24f47e1-4cf7-4777-b7dd-db1aec6278d9}</Project>
       <Name>DanoUI</Name>

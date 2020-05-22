@@ -1,5 +1,5 @@
-﻿using ACECalculator; // temp: integrate v2
-using AdvisoryGenerator; // temp: integrate v2
+﻿using Dano.ACECalculator; // move to dano.app.
+using Dano.AdvisoryGenerator;
 using DanoUI; 
 using System;
 using System.Collections.Generic;

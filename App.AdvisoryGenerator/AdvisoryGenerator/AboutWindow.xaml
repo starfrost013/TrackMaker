@@ -1,9 +1,9 @@
-﻿<Window x:Class="AdvisoryGenerator.AboutWindow"
+﻿<Window x:Class="Dano.AdvisoryGenerator.AboutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AdvisoryGenerator"
+        xmlns:local="clr-namespace:Dano.AdvisoryGenerator"
         mc:Ignorable="d"
         Title="About" Height="226.421" Width="838.719">
     <Grid >

@@ -1,9 +1,9 @@
-﻿<Window x:Class="AdvisoryGenerator.AdvMainWindow"
+﻿<Window x:Class="Dano.AdvisoryGenerator.AdvMainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AdvisoryGenerator"
+        xmlns:local="clr-namespace:Dano.AdvisoryGenerator"
         mc:Ignorable="d"
         Title="Advisory Generator" Height="450" Width="700">
     <Grid>
@@ -16,7 +16,7 @@
                 <MenuItem x:Name="TypeMenu_Wikitext" Header="Wikitext" IsCheckable="True" IsChecked="False" Click="TypeMenu_Wikitext_Click"></MenuItem>
                 <MenuItem x:Name="TypeMenu_MCC" Header="MCC style" IsCheckable="True" IsChecked="False" Click="TypeMenu_MCC_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="WarningsMenu" Header="Warnings + Forecasts">
+            <MenuItem x:Name="WarningsMenu" Header="Warnings &amp; Forecasts">
                 <MenuItem x:Name="WarningsMenu_AddWarnings" Header="Warning Manager" Click="WarningsMenu_AddWarnings_Click"></MenuItem>
                 <MenuItem x:Name="WarningsMenu_ForecastManager" Header="Forecast Manager" Click="WarningsMenu_ForecastManager_Click"></MenuItem>
             </MenuItem>

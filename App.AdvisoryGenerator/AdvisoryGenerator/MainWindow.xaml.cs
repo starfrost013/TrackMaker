@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AdvisoryGenerator
+namespace Dano.AdvisoryGenerator
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

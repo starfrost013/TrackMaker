@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("\"Dano\" UI Library")]
+[assembly: AssemblyTitle("Dano.AdvisoryGenerator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DanoUI")]
-[assembly: AssemblyCopyright("Copyright © Cosmo 2020")]
+[assembly: AssemblyProduct("Dano.AdvisoryGenerator")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,9 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f24f47e1-4cf7-4777-b7dd-db1aec6278d9")]
+
+// Hey RGD!
+[assembly: Guid("0000dead-0002-d15e-a5e0-122Edeadbeef")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +34,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.381.0")]
-[assembly: AssemblyFileVersion("2.0.381.0")]
+[assembly: AssemblyVersion("2.0.382.0")]
+[assembly: AssemblyFileVersion("2.0.382.0")]
