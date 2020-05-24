@@ -80,7 +80,8 @@
                 <MenuItem x:Name="HelpMenu_About" Header="About Cosmo's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="DanoTest" Header="Dano Test" Foreground="White">
-                <MenuItem x:Name="DanoTest_StartPage" Header="[Dano] Test Startpage" Foreground="Black" Click="DanoTest_StartPage_Click"></MenuItem>
+                <MenuItem x:Name="DanoTest_StartPage" Header="[Dano Test] Start Page" Foreground="Black" Click="DanoTest_StartPage_Click"></MenuItem>
+                <MenuItem x:Name="DanoTest_CreateProject" Header="[Dano Test] Create Project" Foreground="Black" Click="DanoTest_CreateProject_Click"></MenuItem>
             </MenuItem>
             
         </Menu>

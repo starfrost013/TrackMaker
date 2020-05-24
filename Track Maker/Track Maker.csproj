@@ -98,7 +98,10 @@
     <Compile Include="Basin.cs" />
     <Compile Include="DanoProject\Project.cs" />
     <Compile Include="BasinLoader.cs" />
-    <Compile Include="DanoUIHost\StartPageHost.xaml.cs">
+    <Compile Include="DanoUIHost\CreateProjectHost\CreateProjectHost.xaml.cs">
+      <DependentUpon>CreateProjectHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\StartPageHost\StartPageHost.xaml.cs">
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExportPlatform\ExportFormats\BestTrack.cs" />
@@ -106,22 +109,6 @@
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
     <Compile Include="ExportPlatform\ExportFormats\XML.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />
-    <Compile Include="IntegratedApps\AceCalc\About\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AceCalc\Core\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AceCalc\Core\StormIntensityNode.cs" />
-    <Compile Include="IntegratedApps\AceCalc\Edit\EditWindow.xaml.cs">
-      <DependentUpon>EditWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AceCalc\Misc\DeletePoint.cs" />
-    <Compile Include="IntegratedApps\AceCalc\Misc\Export.Timeline.cs" />
-    <Compile Include="IntegratedApps\AceCalc\Misc\HelperFunctions.cs" />
-    <Compile Include="IntegratedApps\AceCalc\SetStart\SetStartWindow.xaml.cs">
-      <DependentUpon>SetStartWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Settings2\Emerald.Settings.cs" />
     <Compile Include="Settings2\SettingsStatic.cs" />
     <Compile Include="UI\About\AboutWindow.xaml.cs">
@@ -172,25 +159,13 @@
     </Compile>
     <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\Utilities.cs" />
-    <Page Include="DanoUIHost\StartPageHost.xaml">
+    <Page Include="DanoUIHost\CreateProjectHost\CreateProjectHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="IntegratedApps\AceCalc\About\AboutWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="DanoUIHost\StartPageHost\StartPageHost.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AceCalc\Core\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AceCalc\Edit\EditWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AceCalc\SetStart\SetStartWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\About\AboutWindow.xaml">
       <SubType>Designer</SubType>

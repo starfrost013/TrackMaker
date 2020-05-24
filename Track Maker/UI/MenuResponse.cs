@@ -174,5 +174,13 @@ namespace Track_Maker
             SPH.Show();
         }
 
+
+        private void DanoTest_CreateProject_Click(object sender, RoutedEventArgs e)
+        {
+            CreateProjectHost CPH = new CreateProjectHost();
+            CPH.Owner = this;
+            CPH.Show();
+        }
+
     }
 }

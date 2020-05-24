@@ -15,7 +15,6 @@ namespace Track_Maker
         public string Name { get; set; } /* Project name */
         public string Path { get; set; } /* Project path */
         public Basin SelectedBasin { get; set; } /* Currently selected basin. */
-        
         public int CurrentHistoryPoint { get; set; } /* Current history point */
         public Project()
         {

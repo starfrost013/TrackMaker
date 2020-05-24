@@ -12,14 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+//Move to DanoUI.Host?
 namespace Track_Maker
 {
     /// <summary>
-    /// Interaction logic for StartPageHost.xaml
+    /// Interaction logic for CreateProjectHost.xaml
     /// </summary>
-    public partial class StartPageHost : Window
+    public partial class CreateProjectHost : Window
     {
-        public StartPageHost()
+        public CreateProjectHost()
         {
             InitializeComponent();
         }

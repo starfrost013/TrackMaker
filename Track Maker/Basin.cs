@@ -16,6 +16,8 @@ using System.Windows.Threading;
 
 namespace Track_Maker
 {
+    // Custom hemispheres?
+    public enum Hemisphere { North, South };
     public class Basin
     {
         public BitmapImage BasinImage { get; set; } // the basin image name
@@ -26,10 +28,12 @@ namespace Track_Maker
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
         public List<Storm> Storms { get; set; } // list of storms
         
-        //EARLY IMPLEMENTATION
+        //EARLY IMPLEMENTATION [DANO]
         public Point FocusPoint { get; set; } // The zoom level of this basin.
         public int ZoomLevel { get; set; } // The zoom level of this basin.
-
+        public int Year { get; set; } // THE Year
+        public Hemisphere SeasonHemisphere { get; set; } // The hemisphere
+        public int SeasonID { get; set; }
         public Basin()
         {
             Storms = new List<Storm>();
