@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="CreateProjectHost" Height="391.736" Width="814.876">
+        Title="CreateProjectHost" Height="395.455" Width="801.24">
     <Grid>
         <Dano:Dano_NewProject></Dano:Dano_NewProject>
     </Grid>

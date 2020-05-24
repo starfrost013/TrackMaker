@@ -43,7 +43,9 @@ namespace Track_Maker
             // Set up some more stuff (can we use bindings?)
 
             Settings_Tab_Appearance_DotSizeXText.Text = Settings_Tab_Appearance_DotSizeXSlider.Value.ToString();
-            Settings_Tab_Appearance_DotSizeYText.Text = Settings_Tab_Appearance_DotSizeYSlider.Value.ToString();
+            //Settings_Tab_Appearance_DotSizeYText.Text = Settings_Tab_Appearance_DotSizeYSlider.Value.ToString();
+            Settings_Tab_Appearance_DotSizeY.DataContext = Settings_Tab_Appearance_DotSizeYSlider; 
+
 
             // Ugly hack, but I can't be bothered to create a dependency property when I have half-life 2 sitting on my desktop ready to be streamed again and being almost finished with this damn project that took way too long
             // for something that isn't really a big project. for emerald, sure, but not this. Move to dependencyproperty in Dano.
@@ -116,7 +118,9 @@ namespace Track_Maker
 
         private void Settings_Tab_Appearance_DotSizeYSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Settings_Tab_Appearance_DotSizeYText.Text = Utilities.RoundNearest(Settings_Tab_Appearance_DotSizeYSlider.Value, 1).ToString();
+            // Removed in favour of bindings
+            //Settings_Tab_Appearance_DotSizeYText.Text = Utilities.RoundNearest(Settings_Tab_Appearance_DotSizeYSlider.Value, 1).ToString();
+            return; 
         }
 
         // END DANO - MOVE TO BINDINGS! //

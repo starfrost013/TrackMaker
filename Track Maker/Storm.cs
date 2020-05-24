@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Track_Maker
 {
@@ -17,7 +18,7 @@ namespace Track_Maker
         public int Id { get; set; }
         public string Name { get; set; }
         public List<Node> NodeList { get; set; }
-        public List<Node> NodeList_Deleted { get; set; } // nodes deleted using undo. 
+        public List<Node> NodeList_Deleted { get; set; } // Deprecated - Dano stores basin copies in a History now.
         public StormType StormType { get; set; }
 
         public Storm()
@@ -26,8 +27,27 @@ namespace Track_Maker
             NodeList_Deleted = new List<Node>(); 
         }
 
-        public void AddNode()
+        /// <summary>
+        /// Add a node to this storm.
+        /// </summary>
+        public void AddNode(int Intensity, int Type, Point Pos) // String in this case bad but swnabhfabg
         {
+            Node NewNode = new Node();
+
+            // Determine intensity.
+            NewNode.Intensity = Intensity;
+
+            // Get node type.
+            NewNode.NodeType = (StormType)Type; // cast to enum.
+
+            // Get id.
+            NewNode.Id = NodeList.Count;
+
+            // Set node position.
+            NewNode.Position = Pos;
+
+            // Add.
+            NodeList.Add(NewNode);
 
         }
 

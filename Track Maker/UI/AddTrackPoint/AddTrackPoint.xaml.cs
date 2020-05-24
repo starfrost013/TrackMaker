@@ -32,7 +32,18 @@ namespace Track_Maker
         {
             try
             {
-                // Dano: move to TNode.AddNodeIntensity() - add currentstorm to this
+                // Dano: move to TNode.AddNode() - add currentstorm to this
+
+                foreach (Storm Storm in MnWindow.CurrentBasin.Storms)
+                {
+                    if (Storm == MnWindow.CurrentBasin.CurrentStorm)
+                    {
+                        Storm.AddNode(Convert.ToInt32(IntensityTextBox.Text), TypeSelect.TypeBox.SelectedIndex, Pos); 
+                    }
+                }
+
+
+                /*
                 Node TNode = new Node();
                 TNode.Intensity = Convert.ToInt32(IntensityTextBox.Text);
                 
@@ -69,6 +80,7 @@ namespace Track_Maker
                         Storm.NodeList.Add(TNode);
                     }
                 }
+                */
 
                 Close();
             }
@@ -81,7 +93,7 @@ namespace Track_Maker
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Why would a hurricane be this powerful anyway?", "What?", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Hyper Mini Black Holes are stupid.", "What?", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
