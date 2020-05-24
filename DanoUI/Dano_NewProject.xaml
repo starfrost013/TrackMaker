@@ -31,7 +31,7 @@
         <Button x:Name="Dano_UI_CreateProject_NorthHemisphere" Content="Northern" HorizontalAlignment="Left" Margin="185,261,0,0" VerticalAlignment="Top" Width="107"/>
         <Button x:Name="Dano_UI_CreateProject_SouthHemisphere" Content="Southern" HorizontalAlignment="Left" Margin="352,261,0,0" VerticalAlignment="Top" Width="107"/>
         <DatePicker x:Name="Dano_UI_CreateProject_DatePicker" HorizontalAlignment="Left" Margin="527,220,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
-        <Button x:Name="Dano_UI_CreateProject_Create" Content="Create" HorizontalAlignment="Left" Margin="708,318,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.268,0.607" Height="32"/>
+        <Button x:Name="Dano_UI_CreateProject_Create" Content="Create" HorizontalAlignment="Left" Margin="694,319,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.268,0.607" Height="32"/>
 
     </Grid>
 </UserControl>

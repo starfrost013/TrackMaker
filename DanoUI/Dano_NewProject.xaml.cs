@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace DanoUI
 {
     /// <summary>
-    /// Interaction logic for Dano_Core.xaml
+    /// Interaction logic for Dano_NewProject.xaml
     /// </summary>
     public partial class Dano_NewProject : UserControl
     {
