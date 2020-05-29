@@ -182,5 +182,29 @@ namespace Track_Maker
             CPH.Show();
         }
 
+        /// <summary>
+        /// VERY TEMP! VERY TEMP! VERY TEMP!  Creates a list of strings from the names of the storms in the current basin. THIS WILL BE MOVED TO PROJECT OR BASIN IN M2! M2 IS HOSTONLY!
+        /// </summary>
+        public List<string> VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL()
+        {
+            // Create a new string list.
+            List<string> _ = new List<string();
+
+            // Iterate through all of the storms
+            foreach (Storm CurStorm in CurrentBasin.Storms)
+            {
+                _.Add(CurStorm.Name);
+            }
+
+            return _;
+        }
+
+        private void DanoTest_PortTest_Click(object sender, RoutedEventArgs e)
+        {
+            DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
+            DBSH.Owner = this;
+            DBSH.Show(); 
+        }
+
     }
 }

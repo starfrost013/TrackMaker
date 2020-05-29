@@ -17,7 +17,9 @@ using System.Windows.Threading;
 namespace Track_Maker
 {
     // Custom hemispheres?
+    public enum BasinType { Track, Animation };
     public enum Hemisphere { North, South };
+
     public class Basin
     {
         public BitmapImage BasinImage { get; set; } // the basin image name
@@ -34,6 +36,8 @@ namespace Track_Maker
         public int Year { get; set; } // THE Year
         public Hemisphere SeasonHemisphere { get; set; } // The hemisphere
         public int SeasonID { get; set; }
+        public BasinType SeasonType { get; set; } 
+
         public Basin()
         {
             Storms = new List<Storm>();

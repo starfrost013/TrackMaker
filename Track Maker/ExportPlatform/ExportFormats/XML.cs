@@ -17,7 +17,7 @@ namespace Track_Maker
     /// Version history:
     /// 1.0         v0.3.211.0  2020-04-29     Initial format. Simply save the ID, name, and nodes of each storm (intensity, position, and type).
     /// 1.1         v1.0.305.0  2020-05-15     Add formation date saving.
-    /// 1.2         v1.0.323.0  2020-05-19     Add version string.
+    /// 1.2         v2.0.390.0  2020-05-24     Use AddNode. Add version saving.
     /// </summary>
     public class ExportXML : IExportFormat
     {

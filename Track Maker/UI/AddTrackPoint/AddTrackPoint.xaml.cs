@@ -42,46 +42,6 @@ namespace Track_Maker
                     }
                 }
 
-
-                /*
-                Node TNode = new Node();
-                TNode.Intensity = Convert.ToInt32(IntensityTextBox.Text);
-                
-                // enum.parse won't work here
-
-                if (TypeSelect.TypeBox.SelectedIndex == 0)
-                {
-                    TNode.NodeType = StormType.Tropical;
-                }
-                else if (TypeSelect.TypeBox.SelectedIndex == 1)
-                {
-                    TNode.NodeType = StormType.Subtropical;
-                }
-                else if (TypeSelect.TypeBox.SelectedIndex == 2)
-                {
-                    TNode.NodeType = StormType.Extratropical;
-                }
-                else if (TypeSelect.TypeBox.SelectedIndex == 3)
-                {
-                    TNode.NodeType = StormType.InvestPTC;
-                }
-                else if (TypeSelect.TypeBox.SelectedIndex == 4)
-                {
-                    TNode.NodeType = StormType.PolarLow;
-                }
-
-                TNode.Position = Pos;
-
-                foreach (Storm Storm in MnWindow.CurrentBasin.Storms)
-                {
-                    if (Storm == MnWindow.CurrentBasin.CurrentStorm)
-                    {
-                        TNode.Id = Storm.NodeList.Count; 
-                        Storm.NodeList.Add(TNode);
-                    }
-                }
-                */
-
                 Close();
             }
             catch (FormatException)
