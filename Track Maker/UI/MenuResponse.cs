@@ -188,7 +188,7 @@ namespace Track_Maker
         public List<string> VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL()
         {
             // Create a new string list.
-            List<string> _ = new List<string();
+            List<string> _ = new List<string>();
 
             // Iterate through all of the storms
             foreach (Storm CurStorm in CurrentBasin.Storms)
