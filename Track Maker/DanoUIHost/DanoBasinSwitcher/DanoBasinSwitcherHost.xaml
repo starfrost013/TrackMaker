@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="DanoBasinSwitcherHost" Height="441.322" Width="462.81">
     <Grid>
-        <Dano:BasinSwitcher x:Name="Dano_BasinSwitcherUserControl"></Dano:BasinSwitcher>
+        <Dano:BasinSwitcher x:Name="Dano_BasinSwitcherUserControl" CloseHit="UC_Closed"></Dano:BasinSwitcher>
     </Grid>
 </Window>

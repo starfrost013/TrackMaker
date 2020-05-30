@@ -22,7 +22,7 @@ Features:
 - Dependency properties, a lot
 - "Start Page"
 - Maximised startup
-- NO MNWINDOW!
+- NO Main window shit!
 - Unified Error System
 - CHG dialog code 
 - Layers? (PROBABLY 3.0 but maybe 2.0)
@@ -30,6 +30,7 @@ Features:
 - Move functionality such as adding nodes to the node class
 - Per-node categories
 - UI-code separation
+- Help
 - Codename "Dano" - feature-rich and easy to use
 
 Track Maker 3.0
@@ -60,3 +61,4 @@ Paint Dot tool
 No-restart Settings (autoupdated)
 Satellite / radar / stylised views (IView) - v6.0?
 Procedural satellite and radar
+Procedurally generated basins like Monsoon's sim

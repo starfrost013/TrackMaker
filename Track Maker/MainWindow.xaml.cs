@@ -92,7 +92,7 @@ namespace Track_Maker
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
             UpdateLayout();
 #if DANO
-            Title = "Track Maker Dano (version 2.0; pre-release - do not use for production purposes!)";
+            Title = "Track Maker Dano (version 2.0; Milestone 1 pre-release - do not use for production purposes!)";
 #endif
             TickTimer.Start();
             Logging.Log("Initialization completed.");

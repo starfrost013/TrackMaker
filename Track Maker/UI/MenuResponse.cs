@@ -183,7 +183,7 @@ namespace Track_Maker
         }
 
         /// <summary>
-        /// VERY TEMP! VERY TEMP! VERY TEMP!  Creates a list of strings from the names of the storms in the current basin. THIS WILL BE MOVED TO PROJECT OR BASIN IN M2! M2 IS HOSTONLY!
+        /// VERY TEMP! VERY TEMP! VERY TEMP!  Creates a list of strings from the names of the storms in the current basin. Move to Project.GetBasinNames() in M2.
         /// </summary>
         public List<string> VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL()
         {
@@ -191,9 +191,9 @@ namespace Track_Maker
             List<string> _ = new List<string>();
 
             // Iterate through all of the storms
-            foreach (Storm CurStorm in CurrentBasin.Storms)
+            foreach (Basin CurBasin in BasinList)
             {
-                _.Add(CurStorm.Name);
+                _.Add(CurBasin.Name);
             }
 
             return _;
