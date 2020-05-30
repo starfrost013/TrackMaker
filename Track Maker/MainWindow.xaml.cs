@@ -55,6 +55,7 @@ namespace Track_Maker
             LOGFILE = LOGFILE.Replace(":", "-");
             Logging.Log("Welcome to the Debug Collective");
             Logging.Log("-------------------------------");
+            Logging.Log("Track Maker 'Dano' Version 2.00");
             Logging.Log("© 2019-20 Cosmo. Now Loading...");
             Logging.Log("Starting phase 1..."); // log starting.
             Catman = new CategoryManager();
@@ -92,7 +93,7 @@ namespace Track_Maker
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
             UpdateLayout();
 #if DANO
-            Title = "Track Maker Dano (version 2.0; Milestone 1 pre-release - do not use for production purposes!)";
+            Title = "Track Maker Dano (version 2.0; Milestone 2 pre-release - do not use for production purposes!)";
 #endif
             TickTimer.Start();
             Logging.Log("Initialization completed.");

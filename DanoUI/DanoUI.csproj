@@ -52,6 +52,9 @@
     <Compile Include="Dano_NewProject.xaml.cs">
       <DependentUpon>Dano_NewProject.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dano_ProjectWindow.xaml.cs">
+      <DependentUpon>Dano_ProjectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dano_StartPage.xaml.cs">
       <DependentUpon>Dano_StartPage.xaml</DependentUpon>
@@ -67,6 +70,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dano_NewProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dano_ProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

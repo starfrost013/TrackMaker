@@ -36,7 +36,7 @@ namespace Track_Maker
         {
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 #if DANO
-            CosmoTrack_Version.Text = $"Version 2.0 \"Dano\" Milestone 1 ({FVI.ProductVersion})";
+            CosmoTrack_Version.Text = $"Version 2.0 \"Dano\" Milestone 2 ({FVI.ProductVersion})";
 #else
             CosmoTrack_Version.Text = $"Version {FVI.ProductVersion}";
 #endif
