@@ -206,5 +206,13 @@ namespace Track_Maker
             DBSH.Show(); 
         }
 
+
+        private void DanoTest_ProjectWindow_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectWindowHost PWH = new ProjectWindowHost();
+            PWH.Owner = this;
+            PWH.Show();
+        }
+
     }
 }

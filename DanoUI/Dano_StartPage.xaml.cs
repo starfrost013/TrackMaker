@@ -23,6 +23,8 @@ namespace DanoUI
     {
         public EventHandler CreateAnimationHit { get; set; }
         public EventHandler CreateTrackHit { get; set; }
+        public EventHandler GetOnlineHit { get; set; }
+        public EventHandler PreferencesHit { get; set; }
         public EventHandler StartPageExit { get; set; }
         public EventHandler TipsTextPreload { get; set; }
         public EventHandler WhatsNewTextPreload { get; set; }

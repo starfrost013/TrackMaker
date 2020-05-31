@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DanoUI
 {
     /// <summary>
-    /// Interaction logic for Dano_ProjectWidnow.xaml
+    /// Interaction logic for Dano_ProjectWindow.xaml
     /// </summary>
-    public partial class Dano_ProjectWidnow : UserControl
+    public partial class Dano_ProjectWindow : UserControl
     {
-        public Dano_ProjectWidnow()
+        public Dano_ProjectWindow()
         {
             InitializeComponent();
         }

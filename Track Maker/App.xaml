@@ -1,8 +1,13 @@
-﻿<Application x:Class="Track_Maker.App"
+﻿<!-- Cosmo's Track Maker 
+    A set of tools for hurricanes 
+    Version 2.0 "Dano" [Milestone 2; 2.0.402.0] -->
+    
+    
+    <Application x:Name="Dano" x:Class="Track_Maker.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Track_Maker"
-             StartupUri="MainWindow.xaml">
+             Startup="Application_Started">
     <Application.Resources>
          <!-- New for Dano. -->
         <ResourceDictionary>

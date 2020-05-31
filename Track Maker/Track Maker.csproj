@@ -104,6 +104,9 @@
     <Compile Include="DanoUIHost\DanoBasinSwitcher\DanoBasinSwitcherHost.xaml.cs">
       <DependentUpon>DanoBasinSwitcherHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DanoUIHost\ProjectWindowHost\ProjectWindowHost.xaml.cs">
+      <DependentUpon>ProjectWindowHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DanoUIHost\StartPageHost\StartPageHost.xaml.cs">
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DanoUIHost\DanoBasinSwitcher\DanoBasinSwitcherHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\ProjectWindowHost\ProjectWindowHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,6 +297,7 @@
       <Name>DanoUI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>echo Track Maker version 1.0 "Arthur" 

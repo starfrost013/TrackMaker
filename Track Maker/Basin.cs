@@ -37,7 +37,7 @@ namespace Track_Maker
         public Hemisphere SeasonHemisphere { get; set; } // The hemisphere
         public int SeasonID { get; set; }
         public BasinType SeasonType { get; set; } 
-
+        //public List<Layer> Layers {get; set;}
         public Basin()
         {
             Storms = new List<Storm>();

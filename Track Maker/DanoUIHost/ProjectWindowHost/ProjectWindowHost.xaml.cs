@@ -15,26 +15,13 @@ using System.Windows.Shapes;
 namespace Track_Maker
 {
     /// <summary>
-    /// Interaction logic for StartPageHost.xaml
+    /// Interaction logic for ProjectWindowHost.xaml
     /// </summary>
-    public partial class StartPageHost : Window
+    public partial class ProjectWindowHost : Window
     {
-        public StartPageHost()
+        public ProjectWindowHost()
         {
             InitializeComponent();
-        }
-        
-        private void Dano_StartPage_Exit(object sender, EventArgs e)
-        {
-            Close(); 
-        }
-
-        //TODO: Types
-        private void Dano_CreateTrack(object sender, EventArgs e)
-        {
-            CreateProjectHost CPH = new CreateProjectHost();
-            CPH.ShowDialog();
-            Close();
         }
     }
 }

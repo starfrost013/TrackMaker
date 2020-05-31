@@ -74,6 +74,7 @@
                 <MenuItem x:Name="DanoTest_StartPage" Header="[Dano Test] Start Page" Foreground="Black" Click="DanoTest_StartPage_Click"></MenuItem>
                 <MenuItem x:Name="DanoTest_CreateProject" Header="[Dano Test] Create Project" Foreground="Black" Click="DanoTest_CreateProject_Click"></MenuItem>
                 <MenuItem x:Name="DanoTest_PortTest" Header="[Dano Test] Basin Manager" Foreground="Black" Click="DanoTest_PortTest_Click"></MenuItem>
+                <MenuItem x:Name="DanoTest_ProjectWindow" Header="[Dano Test] ProjectWindow" Foreground="Black" Click="DanoTest_ProjectWindow_Click"></MenuItem>
             </MenuItem>
             
         </Menu>

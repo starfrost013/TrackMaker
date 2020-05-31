@@ -62,3 +62,7 @@ No-restart Settings (autoupdated)
 Satellite / radar / stylised views (IView) - v6.0?
 Procedural satellite and radar
 Procedurally generated basins like Monsoon's sim
+Animation Music (auto-internet download)
+Line tool for track drawing
+Population centres
+Category system creation tool

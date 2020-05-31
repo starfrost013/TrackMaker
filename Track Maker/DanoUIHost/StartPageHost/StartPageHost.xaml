@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="Start Page" Height="451.24" Width="888.016">
     <Grid>
-        <Dano:StartPage StartPageExit="Dano_StartPage_Exit"/>
+        <Dano:StartPage StartPageExit="Dano_StartPage_Exit" CreateTrackHit="Dano_CreateTrack"/>
     </Grid>
 </Window>

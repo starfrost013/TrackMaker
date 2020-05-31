@@ -1,4 +1,4 @@
-﻿<Window x:Class="Track_Maker.DanoBasinSwitcherHost"
+﻿<Window x:Class="Track_Maker.ProjectWindowHost"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="Basin Switcher for Dano M2" Height="441.322" Width="462.81">
+        Title="Track Maker Dano Milestone 2 - Working on project: Untitled" Height="450" Width="800">
     <Grid>
-        <Dano:BasinSwitcher x:Name="Dano_BasinSwitcherUserControl" CloseHit="UC_Closed"></Dano:BasinSwitcher>
+        <Dano:Dano_ProjectWindow></Dano:Dano_ProjectWindow>
     </Grid>
 </Window>

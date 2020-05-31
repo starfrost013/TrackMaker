@@ -41,6 +41,12 @@
         <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
     </Style>
 
+    <!-- Header for inverted TextBlock -->
+    <Style TargetType="TextBlock" x:Key="Style_TextBlock_Invert_Header">
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
+    </Style>
+
     <!-- Style for menus. -->
     <Style TargetType="MenuItem" x:Key="Style_Menu">
         <Setter Property="FontSize" Value="12"></Setter>
@@ -53,10 +59,12 @@
         <Setter Property="Foreground" Value="#00FFFFFF"></Setter>
     </Style>
 
+    <!-- ListBox Styling -->
     <Style TargetType="ListBox">
         <Setter Property="Foreground" Value="#FF3030A0"></Setter>
     </Style>
 
+    <!-- TextBox styling -->
     <Style TargetType="TextBox">
         
         <Setter Property="Foreground" Value="#00FFFFFF"></Setter>
@@ -69,6 +77,7 @@
         
     </Style>
 
+    <!-- Styling for comboboxes -->
     <Style TargetType="ComboBox">
         
         <Setter Property="Foreground" Value="#00FFFFFF"></Setter>
@@ -81,4 +90,12 @@
 
     </Style>
 
+    <Style TargetType="ToolBarTray">
+        <Setter Property="Background" Value="#00000000"></Setter>
+    </Style>
+    
+    <Style TargetType="ToolBar">
+        <Setter Property="Background" Value="#00000000"></Setter>
+    </Style>
+    
 </ResourceDictionary>
