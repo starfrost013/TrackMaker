@@ -44,10 +44,10 @@
                 <MenuItem x:Name="FileMenu_Exit" Header="Exit" Foreground="Black" Click="FileMenu_Exit_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="EditMenu" Header="Edit" Foreground="White">
-                <MenuItem x:Name="EditMenu_Categories" Header="Categories" Foreground="Black" Click="EditMenu_Categories_Click"></MenuItem>
                 <MenuItem x:Name="EditMenu_Season" Header="Season" Foreground="Black" Click="EditMenu_Season_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="ViewMenu" Header="View" Foreground="White">
+                <MenuItem x:Name="ViewMenu_Categories" Header="Categories" Foreground="Black" Click="EditMenu_Categories_Click"></MenuItem>
                 <MenuItem x:Name="ViewMenu_Names" Header="Storm Names" Foreground="Black" IsCheckable="True" IsChecked="True" Click="ViewMenu_Names_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="StormMenu" Header="Storm" Foreground="White">
@@ -86,7 +86,7 @@
                 <!-- this is where the basin image is loaded from xml -->
             </Canvas.Background>
         </Canvas>
-        <Grid x:Name="PriscillaSidebar" HorizontalAlignment="Left" Height="599" Margin="952,10,0,0" VerticalAlignment="Top" Width="173">
+        <Grid x:Name="PriscillaSidebar" HorizontalAlignment="Left" Height="609" Margin="952,0,0,0" VerticalAlignment="Top" Width="183">
             <Grid.Background>
                 <!-- menu background -->
                 <LinearGradientBrush>

@@ -130,6 +130,7 @@
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
     <Compile Include="ExportPlatform\ExportFormats\XML.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />
+    <Compile Include="Layer\Layer.cs" />
     <Compile Include="Settings2\Emerald.Settings.cs" />
     <Compile Include="Settings2\SettingsStatic.cs" />
     <Compile Include="UI\About\AboutWindow.xaml.cs">
@@ -308,9 +309,7 @@
       <Name>DanoUI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Layer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>echo Track Maker version 1.5 (codename "Priscilla", alternative name "Kallen").

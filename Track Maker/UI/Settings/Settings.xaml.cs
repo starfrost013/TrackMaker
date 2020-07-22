@@ -118,11 +118,11 @@ namespace Track_Maker
 
         private void Settings_Tab_Appearance_DotSizeYSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            // Removed in favour of bindings
-            //Settings_Tab_Appearance_DotSizeYText.Text = Utilities.RoundNearest(Settings_Tab_Appearance_DotSizeYSlider.Value, 1).ToString();
+            // TEMP
+            Settings_Tab_Appearance_DotSizeYText.Text = Utilities.RoundNearest(Settings_Tab_Appearance_DotSizeYSlider.Value, 1).ToString();
             return; 
         }
 
-        // END DANO - MOVE TO BINDINGS! //
+        // Priscilla/Dano - MOVE TO BINDINGS! //
     }
 }
