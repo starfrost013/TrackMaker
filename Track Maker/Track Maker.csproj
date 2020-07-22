@@ -74,10 +74,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Priscilla_Debug|AnyCPU'">
     <OutputPath>bin\Priscilla_Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PRISCILLA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Priscilla_Release|AnyCPU'">
     <OutputPath>bin\Priscilla_Release\</OutputPath>
-    <DefineConstants>TRACE;DANO</DefineConstants>
+    <DefineConstants>TRACE;PRISCILLA</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -304,11 +308,14 @@
       <Name>DanoUI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Layer\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>echo Track Maker version 1.0 "Arthur" 
+    <PreBuildEvent>echo Track Maker version 1.5 (codename "Priscilla", alternative name "Kallen").
 echo Copyright © 2019-2020 Connor Hyde.
-echo Release date: May 21 (originally 19) 2020
+echo Built: %25time%25, %25date%25
 
 </PreBuildEvent>
   </PropertyGroup>

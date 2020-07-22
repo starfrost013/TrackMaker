@@ -15,6 +15,7 @@ namespace Track_Maker
         public static bool DefaultCategorySystem { get; set; } // What is the default category system at startup?
         public static bool DefaultVisibleTextNames { get; set; } // Are hurricane names visible by default at startup?
         public static Point DotSize { get; set; } // Dot size
+        public static Point LineSize { get; set; } // Line size
         public static bool EnableExperimentalMode { get; set; } // Dano experimental mode
         public static int UndoDepth { get; set; } // Amount of undos allowed
         public static bool UseGradient { get; set; } // Use the gradient

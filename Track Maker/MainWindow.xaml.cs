@@ -93,6 +93,8 @@ namespace Track_Maker
             UpdateLayout();
 #if DANO
             Title = "Track Maker Dano (version 2.0; Milestone 1 pre-release - do not use for production purposes!)";
+#elif PRISCILLA
+            Title = "Track Maker Priscilla (version 1.5 alpha)";
 #endif
             TickTimer.Start();
             Logging.Log("Initialization completed.");

@@ -31,11 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Priscilla_Debug|AnyCPU'">
-    <OutputPath>bin\Priscilla_Debug\</OutputPath>
+    <OutputPath>..\Track Maker\bin\Priscilla_Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PRISCILLA</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Priscilla_Release|AnyCPU'">
-    <OutputPath>bin\Priscilla_Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\Track Maker\bin\Priscilla_Release\</OutputPath>
+    <DefineConstants>TRACE;PRISCILLA</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
