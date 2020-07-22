@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DanoUI.PriscillaUI
+namespace DanoUI
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class LayerControl : UserControl
     {
-        public UserControl1()
+        public LayerControl()
         {
             InitializeComponent();
         }
