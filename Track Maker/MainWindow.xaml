@@ -43,6 +43,11 @@
                 <Separator/>
                 <MenuItem x:Name="FileMenu_Exit" Header="Exit" Foreground="Black" Click="FileMenu_Exit_Click"></MenuItem>
             </MenuItem>
+            
+            <MenuItem x:Name="ProjectMenu" Header="Project" Foreground="White">
+                <MenuItem x:Name="ProjectMenu_New" Header="New..." Foreground="Black" Click="ProjectMenu_New_Click" FontStyle="Italic"></MenuItem>
+            </MenuItem>
+            
             <MenuItem x:Name="EditMenu" Header="Edit" Foreground="White">
                 <MenuItem x:Name="EditMenu_Season" Header="Season" Foreground="Black" Click="EditMenu_Season_Click"></MenuItem>
             </MenuItem>

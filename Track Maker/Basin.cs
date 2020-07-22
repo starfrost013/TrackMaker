@@ -30,13 +30,16 @@ namespace Track_Maker
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
         public List<Storm> Storms { get; set; } // list of storms
         
-        //EARLY IMPLEMENTATION [DANO]
-        public Point FocusPoint { get; set; } // The zoom level of this basin.
+        // New for Dano M1 and Priscilla
+        public Point FocusPoint { get; set; } // The focus point of this basin.
         public int ZoomLevel { get; set; } // The zoom level of this basin.
         public int Year { get; set; } // THE Year
         public Hemisphere SeasonHemisphere { get; set; } // The hemisphere
         public int SeasonID { get; set; }
-        public BasinType SeasonType { get; set; } 
+        public BasinType SeasonType { get; set; }
+
+        // New for Priscilla.
+        public List<Layer> Layers { get; set; } // new: list of layers
 
         public Basin()
         {
