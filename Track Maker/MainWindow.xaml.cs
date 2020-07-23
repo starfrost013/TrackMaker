@@ -38,6 +38,10 @@ namespace Track_Maker
         public static int Debug { get; set; }  // static for debug purposes
         public string LOGFILE { get; set; } // the log file path (visiblenames moved to settings for v0.3, build 168)
         public bool Fullscreen { get; set; } // v0.2, build 148 and later. V0.9: MOVE TO SETTINGS
+        /// <summary>
+        /// New for Priscilla.
+        /// </summary>
+        public Project CurrentProject { get; set; } // not the best place to put this tbh.
         public MainWindow()
         {
             Init();
@@ -89,10 +93,11 @@ namespace Track_Maker
                     "As a result of this a small amount of information is sent to the update server,\n" +
                     "and it can be used to determine certain aspects of your activity - for example the date of each Track Maker start.\n" +
                     "ABSOLUTELY NO personal information is sent to the update server and NO PERSONAL INFORMATION EVER WILL BE SENT.\n\n" +
-                    "This information is only a byproduct of the auto-update functionality and absolutely no information is\n " +
+                    "This information is only a byproduct of the auto-update functionality and absolutely no information is\n" +
                     "directly sent by the Track Maker.\n\n" +
                     "Please note that if you choose not to check for updates, you will not be able to automatically update the Track Maker,\n" +
-                    "and you must do so manually. Do you wish to check for updates at each start of the Track Maker?", "Check for Updates?", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+                    "and you must do so manually.\n\n" +
+                    "Do you wish to check for updates at each start of the Track Maker?", "Check for Updates?", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                 {
                     EmeraldSettings.SetSetting("TelemetryConsent", "Yes");
                 }
@@ -143,7 +148,7 @@ namespace Track_Maker
 #if DANO
             Title = "Track Maker Dano (version 2.0; Milestone 1 pre-release - do not use for production purposes!)";
 #elif PRISCILLA
-            Title = "Track Maker Priscilla (version 1.5 alpha)";
+            Title = "Track Maker \"Priscilla\" (version 1.5 alpha)";
 #endif
             TickTimer.Start();
             Logging.Log("Initialization completed.");

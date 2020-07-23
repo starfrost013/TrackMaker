@@ -21,10 +21,12 @@
             </Style>
         </Grid.Resources>
         <TextBlock x:Name="PriscillaUI_Layers_LayerHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Layers" VerticalAlignment="Top" Foreground="White" Margin="5,10,0,0"/>
-        <ListView x:Name="PriscillaUI_Layers_LayerListView" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="95" Background="#80FFFFFF" Foreground="White">
+        <ListView x:Name="PriscillaUI_Layers_LayerListView" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="95" Background="#80FFFFFF" Foreground="White" ItemsSource="{Binding Source=Layers}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Layer Name" DisplayMemberBinding="{Binding Path=Name}" Width="85">
+                        
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

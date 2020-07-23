@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="About Cosmo's Track Maker" Height="269.755" Width="761.989" Loaded="Window_Loaded">
     <Grid>
-        <TextBlock x:Name="CosmoTrack" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Cosmo's Track Maker" VerticalAlignment="Top" FontSize="48"/>
+        <TextBlock x:Name="CosmoTrack" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Cosmo's Track Maker" VerticalAlignment="Top" FontSize="48"/>
         <Line X1="0" X2="762" Y1="73" Y2="73" Stroke="Black" StrokeThickness="1" SnapsToDevicePixels="True"></Line>
         <TextBlock x:Name="CosmoTrack_Version" HorizontalAlignment="Left" Margin="13,74,0,0" TextWrapping="Wrap" Text="Version " VerticalAlignment="Top" FontSize="24" Width="470"/>
         <TextBlock x:Name="CosmoTrack_Copyright" HorizontalAlignment="Left" Margin="13,111,0,0" TextWrapping="Wrap" Text="Copyright © 2019-2020 Cosmo. Open-source software under the Lesser GPL license." VerticalAlignment="Top" FontSize="14"/>

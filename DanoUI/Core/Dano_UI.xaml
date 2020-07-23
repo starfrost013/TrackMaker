@@ -21,6 +21,18 @@
         </Style.Triggers>
     </Style>
 
+    <Style TargetType="Button" x:Key="Button_Invert">
+        <Setter Property="Foreground" Value="#FF000000"></Setter>
+        <Setter Property="Background" Value="#00000000"></Setter>
+        <Setter Property="BorderBrush" Value="#FF000000"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#40FFFFFF"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <!-- Border style -->
     <Style TargetType="Border">
         <Setter Property="BorderBrush" Value="#FFFFFFFF"></Setter>

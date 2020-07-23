@@ -16,7 +16,7 @@ using System.Windows.Threading;
 
 namespace Track_Maker
 {
-    // Custom hemispheres?
+    // Custom hemispheres? (2.0+)
     public enum BasinType { Track, Animation };
     public enum Hemisphere { North, South };
 
@@ -31,8 +31,8 @@ namespace Track_Maker
         public List<Storm> Storms { get; set; } // list of storms
         
         // New for Dano M1 and Priscilla
-        public Point FocusPoint { get; set; } // The focus point of this basin.
-        public int ZoomLevel { get; set; } // The zoom level of this basin.
+        public Point FocusPoint { get; set; } // The focus point of the camera inside this basin.
+        public int ZoomLevel { get; set; } // The zoom level of the camera inside this basin.
         public int Year { get; set; } // THE Year
         public Hemisphere SeasonHemisphere { get; set; } // The hemisphere
         public int SeasonID { get; set; }
@@ -44,6 +44,7 @@ namespace Track_Maker
         public Basin()
         {
             Storms = new List<Storm>();
+            Layers = new List<Layer>(); 
         }
 
         // Dano-style API (move to Project)

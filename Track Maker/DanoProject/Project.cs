@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,32 @@ namespace Track_Maker
             Basins = new List<Basin>();
             History = new List<Basin>();
             CategorySystems = new List<CategorySystem>();
-            
+        }
+
+        public void AddBasin(string Name, string ImagePath)
+        {
+            Basin Bs = new Basin();
+            Bs.Name = Name;
+            Bs.BasinImagePath = ImagePath;
+
+#if PRISCILLA
+            // Dano exclusive stuff.
+            Bs.SeasonHemisphere = Hemisphere.North;
+            Bs.SeasonType = BasinType.Track;
+#elif DANO
+            // ATTN: You can write anything you want if it's not valid. 
+            Bs.SeasonHemisphere = Hemisphere;
+            Bs.SeasonType = Type;
+#endif
+            // load function goes here
+            Basins.Add(Bs); 
+            SelectedBasin = Bs; 
+
+        }
+
+        public void CreateNewProject(string Name, string ImagePath)
+        {
+            AddBasin(Name, ImagePath); 
         }
 
         public void CommitToHistory()
@@ -52,6 +78,7 @@ namespace Track_Maker
             SelectedBasin = History[CurrentHistoryPoint];
             CurrentHistoryPoint--; 
         }
+
 
     }
 }
