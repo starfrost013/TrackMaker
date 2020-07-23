@@ -47,13 +47,7 @@ namespace Track_Maker
         {
             Debug = 1;
             
-            // Load Settings
-            Logging.Log("Loading settings...");
-            LoadSettings2();
 
-            Logging.Log("Checking for updates...");
-            //Process.Start("Updater.exe");
-            Init_DetermineTelemetryConsentStatus();
             string CurrentDateTime = DateTime.Now.ToString();
             CurrentDateTime = CurrentDateTime.Replace("/", "-"); // replace backslashes with dashes as they are interpreted as subdirectories and it breaks
             LOGFILE = $"{AppDomain.CurrentDomain.BaseDirectory}{CurrentDateTime}-log.txt";
@@ -70,6 +64,14 @@ namespace Track_Maker
             BasinList = new List<Basin>(); // create the list
             Logging.Log("Initialized basin list. Loading basins...");
             LoadBasins();
+
+            // Load Settings
+            Logging.Log("Loading settings...");
+            LoadSettings2();
+
+            Logging.Log("Checking for updates...");
+            //Process.Start("Updater.exe");
+            Init_DetermineTelemetryConsentStatus();
 
             Init_Phase2();
         }
