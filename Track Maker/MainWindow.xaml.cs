@@ -121,9 +121,9 @@ namespace Track_Maker
                 EditMenu.IsEnabled = false;
                 StormMenu.IsEnabled = false;
                 ViewMenu.IsEnabled = false;
-                HelpMenu.IsEnabled = false; 
-                
-                
+                BasinMenu.IsEnabled = false;
+                ToolsMenu.IsEnabled = false;
+                HelpMenu.IsEnabled = false;
             }
 
             TickTimer.Start();
@@ -177,6 +177,16 @@ namespace Track_Maker
             CPH.Owner = this;
             CPH.Show();
             
+        }
+
+        private void UndoButton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentBasin.CurrentStorm.Undo();
+        }
+
+        private void RedoButton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentBasin.CurrentStorm.Redo(); 
         }
     }
 }
