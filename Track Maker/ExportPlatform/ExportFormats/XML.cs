@@ -191,7 +191,6 @@ namespace Track_Maker
                     XBasin.Storms.Add(Storm);
                 }
 
-
                 //ADDED MORE
                 Ct.UpdateLayout();
                 return XBasin;

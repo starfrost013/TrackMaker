@@ -62,8 +62,13 @@ namespace Track_Maker
             // Load the accent colours
             Setting.AccentColour1 = EmeraldSettings.GetColour("AccentColour1");
             Setting.AccentColour2 = EmeraldSettings.GetColour("AccentColour2");
+            // Load experimental mode
             Setting.EnableExperimentalMode = EmeraldSettings.GetBool("ExperimentalMode");
+            // Telemetry consent
+            Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent"); 
+            // Undo depth
             Setting.UndoDepth = EmeraldSettings.GetInt("UndoDepth");
+            
         }
     }
 }

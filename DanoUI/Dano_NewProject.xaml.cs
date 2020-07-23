@@ -20,6 +20,7 @@ namespace DanoUI
     /// </summary>
     public partial class Dano_NewProject : UserControl
     {
+        public EventHandler NewProjectCreated { get; set; }
         public Dano_NewProject()
         {
             InitializeComponent();

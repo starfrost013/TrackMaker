@@ -1,6 +1,4 @@
-﻿<!-- Dano UI implementation 
-    v0.1: This will change
-    -->
+﻿<!-- Priscilla (v1.5) implementation -->
 
 <UserControl x:Class="DanoUI.Dano_NewProject"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

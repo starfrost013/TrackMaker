@@ -46,10 +46,14 @@ namespace Track_Maker
         public void Init()
         {
             Debug = 1;
+            
+            // Load Settings
+            Logging.Log("Loading settings...");
+            LoadSettings2();
 
             Logging.Log("Checking for updates...");
-            Process.Start("Updater.exe");
-
+            //Process.Start("Updater.exe");
+            Init_DetermineTelemetryConsentStatus();
             string CurrentDateTime = DateTime.Now.ToString();
             CurrentDateTime = CurrentDateTime.Replace("/", "-"); // replace backslashes with dashes as they are interpreted as subdirectories and it breaks
             LOGFILE = $"{AppDomain.CurrentDomain.BaseDirectory}{CurrentDateTime}-log.txt";
@@ -66,9 +70,51 @@ namespace Track_Maker
             BasinList = new List<Basin>(); // create the list
             Logging.Log("Initialized basin list. Loading basins...");
             LoadBasins();
-            Logging.Log("Loading settings...");
-            LoadSettings2();
+
             Init_Phase2();
+        }
+
+        /// <summary>
+        /// Determine the users' update check/telemetry consent status.
+        /// </summary>
+        public void Init_DetermineTelemetryConsentStatus()
+        {
+            // Ask the user.
+            if (Setting.TelemetryConsent == TelemetryConsent.NotDone)
+            {
+                if (MessageBox.Show("The Track Maker has auto-updating functionality.\n\n" +
+                    "To determine if an update is available, the Track Maker must connect to the Internet.\n\n" +
+                    "As a result of this a small amount of information is sent to the update server,\n" +
+                    "and it can be used to determine certain aspects of your activity - for example the date of each Track Maker start.\n" +
+                    "ABSOLUTELY NO personal information is sent to the update server and NO PERSONAL INFORMATION EVER WILL BE SENT.\n\n" +
+                    "This information is only a byproduct of the auto-update functionality and absolutely no information is\n " +
+                    "directly sent by the Track Maker.\n\n" +
+                    "Please note that if you choose not to check for updates, you will not be able to automatically update the Track Maker,\n" +
+                    "and you must do so manually. Do you wish to check for updates at each start of the Track Maker?", "Check for Updates?", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+                {
+                    EmeraldSettings.SetSetting("TelemetryConsent", "Yes");
+                }
+                else
+                {
+                    EmeraldSettings.SetSetting("TelemetryConsent", "No"); 
+                }
+            }
+            else
+            {
+                if (Setting.TelemetryConsent == TelemetryConsent.Yes)
+                {
+                    RunUpdater();
+                }
+                else
+                {
+                    return; 
+                }
+            }
+        }
+
+        public void RunUpdater()
+        {
+            Process.Start("Updater.exe");
         }
 
         public void Init_Phase2()

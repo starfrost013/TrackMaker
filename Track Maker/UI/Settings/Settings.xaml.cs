@@ -90,12 +90,12 @@ namespace Track_Maker
             string _DotSize = $"{Settings_Tab_Appearance_DotSizeXText.Text.ToString()},{Settings_Tab_Appearance_DotSizeYText.Text.ToString()}";
             
             // This is for autoupdating.
-            EmeraldSettings.SetSetting(SettingFile.Game, "AccentColour1", _Accent1);
-            EmeraldSettings.SetSetting(SettingFile.Game, "AccentColour2", _Accent2);
-            EmeraldSettings.SetSetting(SettingFile.Game, "UseGradient", _Accent3);
-            EmeraldSettings.SetSetting(SettingFile.Game, "DotSize", _DotSize);
-            EmeraldSettings.SetSetting(SettingFile.Game, "SelectedBasin", _DefaultBasin);
-            EmeraldSettings.SetSetting(SettingFile.Game, "DefaultCategorySystem", _DefaultCatsystem);
+            EmeraldSettings.SetSetting("AccentColour1", _Accent1);
+            EmeraldSettings.SetSetting("AccentColour2", _Accent2);
+            EmeraldSettings.SetSetting("UseGradient", _Accent3);
+            EmeraldSettings.SetSetting("DotSize", _DotSize);
+            EmeraldSettings.SetSetting("SelectedBasin", _DefaultBasin);
+            EmeraldSettings.SetSetting("DefaultCategorySystem", _DefaultCatsystem);
 
             Setting.DotSize = new Point(Settings_Tab_Appearance_DotSizeXSlider.Value, Settings_Tab_Appearance_DotSizeYSlider.Value);
 

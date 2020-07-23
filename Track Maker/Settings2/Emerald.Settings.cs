@@ -307,13 +307,42 @@ namespace Track_Maker
         }
 
         /// <summary>
+        /// Did we consent to telemetry?
+        /// </summary>
+        /// <returns></returns>
+        public static TelemetryConsent GetTelemetryConsent(string SettingsElement)
+        {
+            try
+            {
+                // Get the TelemetryConsent node
+                XmlNode XRoot = LoadSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, SettingsElement);
+
+                // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
+                if (XElement == null)
+                {
+                    MessageBox.Show($"Temp error. Attempted to load invalid TelemetryConsent setting! Error 100!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Application.Current.Shutdown(100);
+                }
+
+                // Parse as TelemetryConsent 
+                return (TelemetryConsent)Enum.Parse(typeof(TelemetryConsent), XElement.InnerText);
+            }
+            catch (ArgumentException err)
+            {
+                MessageBox.Show($"Temp error. Attempted to load invalid TelemetryConsent setting! Error 101!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown(101);
+                return TelemetryConsent.No; 
+            }
+        }
+
+        /// <summary>
         /// Saves a setting to Settings.xml.
         /// </summary>
-        /// <param name="SettingType">DO NOT USE - DEPRECATED - WILL BE REMOVED VERY SOON</param>
         /// <param name="SettingsElement">The name of the setting to change.</param>
         /// <param name="SettingsValue">The value to change it to.</param>
         /// <returns></returns>
-        public static bool SetSetting(SettingFile SettingType, string SettingsElement, string SettingsValue)
+        public static bool SetSetting(string SettingsElement, string SettingsValue)
         {
             try
             {
