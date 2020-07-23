@@ -95,7 +95,7 @@
         <Grid x:Name="PriscillaSidebar" HorizontalAlignment="Left" Height="609" Margin="952,0,0,0" VerticalAlignment="Top" Width="183">
             <Grid.Background>
                 <!-- menu background -->
-                <LinearGradientBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                     <GradientStop Offset="0.0">
                         <!-- Default = #FF420069 -->
                         <GradientStop.Color>
@@ -111,7 +111,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             
-            <Dano:LayerControl>
+            <Dano:LayerControl Margin="34,271,34,43">
                 
             </Dano:LayerControl>
         </Grid>
