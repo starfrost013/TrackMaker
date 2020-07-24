@@ -21,5 +21,10 @@ namespace Track_Maker
         {
             AssociatedStorms.Add(Sto);
         }
+
+        public void RemoveStorm(Storm Sto)
+        {
+            AssociatedStorms.Remove(Sto); 
+        }
     }
 }

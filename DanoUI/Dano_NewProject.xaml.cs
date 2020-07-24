@@ -21,8 +21,10 @@ namespace DanoUI
     public partial class Dano_NewProject : UserControl
     {
         public EventHandler<DanoEventArgs> NewProjectCreated { get; set; }
-        public Dano_NewProject()
+        public List<string> DanoBasinList { get; set; }
+        public Dano_NewProject(List<string> DBL)
         {
+            DanoBasinList = DBL;
             InitializeComponent();
         }
 
