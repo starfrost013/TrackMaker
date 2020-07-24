@@ -21,7 +21,7 @@
         <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_InitialBasin" HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" Text="Basin:" FontSize="28" VerticalAlignment="Top" Width="80"/>
         <ComboBox x:Name="Dano_UI_CreateProject_InitialBasinBox" HorizontalAlignment="Left" Margin="108,128,0,0" VerticalAlignment="Top" Width="351" Height="32"/>
         <TextBlock Style="{StaticResource Style_TextBlock_Invert}" Name="Dano_UI_CreateProject_Tip" HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" Text="You can add more seasons to this project by going to the Project menu. Seasons can use any installed basin." VerticalAlignment="Top" FontStyle="Italic" Width="553"/>
-        <Button x:Name="Dano_UI_CreateProject_Create" Content="Create" HorizontalAlignment="Left" Margin="691,236,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.268,0.607" Height="32"/>
+        <Button x:Name="Dano_UI_CreateProject_Create" Content="Create" HorizontalAlignment="Left" Margin="691,236,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.268,0.607" Height="32" Click="Dano_UI_CreateProject_Create_Click"/>
 
     </Grid>
 </UserControl>

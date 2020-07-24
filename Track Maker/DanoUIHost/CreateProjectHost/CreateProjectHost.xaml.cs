@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DanoUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace Track_Maker
         public CreateProjectHost()
         {
             InitializeComponent();
+        }
+
+        public void NewProjectCreated(object sender, DanoEventArgs e)
+        {
+
         }
     }
 }

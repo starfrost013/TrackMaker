@@ -81,7 +81,7 @@
             </MenuItem>
             <MenuItem>
                 <MenuItem.Header>
-                    <DockPanel Width="614">
+                    <DockPanel Width="514">
                         <Button x:Name="UndoButton" Content="Undo" DockPanel.Dock="Right" Click="UndoButton_Click"/>
                         <Button x:Name="RedoButton" Content="Redo" DockPanel.Dock="Right" Click="RedoButton_Click"/>
                     </DockPanel>

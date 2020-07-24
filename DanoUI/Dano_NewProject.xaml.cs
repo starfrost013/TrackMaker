@@ -20,10 +20,18 @@ namespace DanoUI
     /// </summary>
     public partial class Dano_NewProject : UserControl
     {
-        public EventHandler NewProjectCreated { get; set; }
+        public EventHandler<DanoEventArgs> NewProjectCreated { get; set; }
         public Dano_NewProject()
         {
             InitializeComponent();
+        }
+
+        private void Dano_UI_CreateProject_Create_Click(object sender, RoutedEventArgs e)
+        {
+            DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(Dano_UI_CreateProject_NameBox.Text);
+            DEA.DanoParameters.Add(Dano_UI_CreateProject_InitialBasinBox.Text);
+            NewProjectCreated.Invoke(sender, DEA); 
         }
     }
 }
