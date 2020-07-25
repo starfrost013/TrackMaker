@@ -129,7 +129,7 @@ namespace Track_Maker
                 // draw a line for each storm
 
                 Line XLine = new Line();
-                XLine.StrokeThickness = 2;
+                XLine.StrokeThickness = Setting.LineSize;
 
                 XLine.X1 = a.Position.X + DotSize.X / 2;
                 XLine.X2 = b.Position.X + DotSize.X / 2; 
