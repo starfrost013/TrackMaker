@@ -177,13 +177,13 @@ namespace Track_Maker
 
         private void DanoTest_CreateProject_Click(object sender, RoutedEventArgs e)
         {
-            CreateProjectHost CPH = new CreateProjectHost();
+            CreateProjectHost CPH = new CreateProjectHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
             CPH.Owner = this;
             CPH.Show();
         }
 
         /// <summary>
-        /// VERY TEMP! VERY TEMP! VERY TEMP!  Creates a list of strings from the names of the storms in the current basin. Move to Project.GetBasinNames() in M2.
+        /// VERY TEMP! VERY TEMP! VERY TEMP!  Creates a list of strings from the names of the storms in the current basin. Move to Project.GetBasinNames() in M2/Priscilla.
         /// </summary>
         public List<string> VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL()
         {
@@ -204,6 +204,24 @@ namespace Track_Maker
             DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
             DBSH.Owner = this;
             DBSH.Show(); 
+        }
+
+
+        private void ProjectMenu_New_Click(object sender, RoutedEventArgs e)
+        {
+            CreateProjectHost CPH = new CreateProjectHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
+            CPH.Owner = this;
+            CPH.Show();
+        }
+
+        private void UndoButton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentBasin.CurrentStorm.Undo();
+        }
+
+        private void RedoButton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentBasin.CurrentStorm.Redo();
         }
 
     }

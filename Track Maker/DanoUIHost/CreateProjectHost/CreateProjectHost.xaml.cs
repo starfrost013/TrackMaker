@@ -21,9 +21,11 @@ namespace Track_Maker
     /// </summary>
     public partial class CreateProjectHost : Window
     {
-        public CreateProjectHost()
+        public CreateProjectHost(List<string> BasinList)
         {
             InitializeComponent();
+            DNPHost.Dano_NewProject_InitDBL(BasinList); 
+            DNPHost.Dano_NewProject_Init(); 
         }
 
         public void NewProjectCreated(object sender, DanoEventArgs e)

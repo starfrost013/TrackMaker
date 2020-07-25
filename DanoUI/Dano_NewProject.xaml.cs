@@ -21,19 +21,43 @@ namespace DanoUI
     public partial class Dano_NewProject : UserControl
     {
         public EventHandler<DanoEventArgs> NewProjectCreated { get; set; }
+        public EventHandler<DanoEventArgs> DanoOnCreate { get; set; }
         public List<string> DanoBasinList { get; set; }
-        public Dano_NewProject(List<string> DBL)
+        public Dano_NewProject()
+        {
+
+        }
+
+        public void Dano_NewProject_InitDBL(List<string> DBL)
         {
             DanoBasinList = DBL;
+        }
+
+        // Bit of a hack.
+        public void Dano_NewProject_Init()
+        {
             InitializeComponent();
+
+            // This is just a temporary hack. 
+            foreach (string BasinName in DanoBasinList)
+            {
+                Dano_UI_CreateProject_InitialBasinBox.Items.Add(BasinName); 
+            }
         }
 
         private void Dano_UI_CreateProject_Create_Click(object sender, RoutedEventArgs e)
         {
             DanoEventArgs DEA = new DanoEventArgs();
+            
             DEA.DanoParameters.Add(Dano_UI_CreateProject_NameBox.Text);
             DEA.DanoParameters.Add(Dano_UI_CreateProject_InitialBasinBox.Text);
             NewProjectCreated.Invoke(sender, DEA); 
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Dano_UI_CreateProject_InitialBasinBox.DataContext = this;
+            UpdateLayout();
         }
     }
 }

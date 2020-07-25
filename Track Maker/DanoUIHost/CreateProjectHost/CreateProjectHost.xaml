@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="CreateProjectHost" Height="315.5" Width="795.838">
     <Grid>
-        <Dano:Dano_NewProject NewProjectCreated="NewProjectCreated"></Dano:Dano_NewProject>
+        <Dano:Dano_NewProject x:Name="DNPHost" NewProjectCreated="NewProjectCreated"></Dano:Dano_NewProject>
     </Grid>
 </Window>

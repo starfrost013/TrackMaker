@@ -171,22 +171,5 @@ namespace Track_Maker
             }
         }
 
-        private void ProjectMenu_New_Click(object sender, RoutedEventArgs e)
-        {
-            CreateProjectHost CPH = new CreateProjectHost();
-            CPH.Owner = this;
-            CPH.Show();
-            
-        }
-
-        private void UndoButton_Click(object sender, RoutedEventArgs e)
-        {
-            CurrentBasin.CurrentStorm.Undo();
-        }
-
-        private void RedoButton_Click(object sender, RoutedEventArgs e)
-        {
-            CurrentBasin.CurrentStorm.Redo(); 
-        }
     }
 }

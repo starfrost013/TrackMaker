@@ -15,5 +15,9 @@ namespace DanoUI
         public bool LaunchUIComponentAfterDone { get; set; }
         public DanoUIComponent LaunchAfterDone { get; set; }
 
+        public DanoEventArgs()
+        {
+            DanoParameters = new List<object>(); 
+        }
     }
 }
