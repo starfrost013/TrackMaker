@@ -57,13 +57,13 @@ namespace Track_Maker
                 Setting.DotSize = new Point(8, 8); // reinitialies
             }
 
-            Setting.LineSize = EmeraldSettings.GetPoint("LineSize");
+            Setting.LineSize = EmeraldSettings.GetInt("LineSize");
 
-            if (Setting.LineSize.X <= 0 || Setting.LineSize.Y <= 0)
+            if (Setting.LineSize <= 0)
             {
                 MessageBox.Show("Error LS2 - An invalid line size was provided. The default line size will be used.", "Cosmo's Track Maker Fatal Error LS1", MessageBoxButton.OK, MessageBoxImage.Error);
                 //Recovery
-                Setting.DotSize = new Point(8, 8); // reinitialies
+                Setting.LineSize = 2; // reinitialies
             }
 
             // Do we use the gradient? 

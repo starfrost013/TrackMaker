@@ -42,10 +42,11 @@ namespace Track_Maker
 
             // Set up some more stuff (can we use bindings?)
 
+            // Temp stuff.
             Settings_Tab_Appearance_DotSizeXText.Text = Settings_Tab_Appearance_DotSizeXSlider.Value.ToString();
-            //Settings_Tab_Appearance_DotSizeYText.Text = Settings_Tab_Appearance_DotSizeYSlider.Value.ToString();
-            Settings_Tab_Appearance_DotSizeY.DataContext = Settings_Tab_Appearance_DotSizeYSlider; 
-
+            Settings_Tab_Appearance_DotSizeYText.Text = Settings_Tab_Appearance_DotSizeYSlider.Value.ToString();
+            //Settings_Tab_Appearance_DotSizeY.DataContext = Settings_Tab_Appearance_DotSizeYSlider; 
+            Settings_Tab_Appearance_LineSizeText.Text = Settings_Tab_Appearance_LineSizeSlider.Value.ToString(); 
 
             // Ugly hack, but I can't be bothered to create a dependency property when I have half-life 2 sitting on my desktop ready to be streamed again and being almost finished with this damn project that took way too long
             // for something that isn't really a big project. for emerald, sure, but not this. Move to dependencyproperty in Dano.
@@ -87,8 +88,8 @@ namespace Track_Maker
             string _Accent3 = Settings_Tab_Appearance_GradientEnabledCheckBox.IsChecked.ToString();
             string _DefaultBasin = Settings_Tab_General_DefaultBasinBox.Text;
             string _DefaultCatsystem = Settings_Tab_General_DefaultCatSystemBox.Text;
-            string _DotSize = $"{Settings_Tab_Appearance_DotSizeXText.Text.ToString()},{Settings_Tab_Appearance_DotSizeYText.Text.ToString()}";
-            
+            string _DotSize = $"{Settings_Tab_Appearance_DotSizeXText.Text},{Settings_Tab_Appearance_DotSizeYText.Text}";
+            string _LineSize = $"{Settings_Tab_Appearance_LineSizeText}";
             // This is for autoupdating.
             EmeraldSettings.SetSetting("AccentColour1", _Accent1);
             EmeraldSettings.SetSetting("AccentColour2", _Accent2);
@@ -96,6 +97,7 @@ namespace Track_Maker
             EmeraldSettings.SetSetting("DotSize", _DotSize);
             EmeraldSettings.SetSetting("SelectedBasin", _DefaultBasin);
             EmeraldSettings.SetSetting("DefaultCategorySystem", _DefaultCatsystem);
+            EmeraldSettings.SetSetting("LineSize", _LineSize);
 
             Setting.DotSize = new Point(Settings_Tab_Appearance_DotSizeXSlider.Value, Settings_Tab_Appearance_DotSizeYSlider.Value);
 
@@ -121,6 +123,11 @@ namespace Track_Maker
             // TEMP
             Settings_Tab_Appearance_DotSizeYText.Text = Utilities.RoundNearest(Settings_Tab_Appearance_DotSizeYSlider.Value, 1).ToString();
             return; 
+        }
+
+        private void Settings_Tab_Appearance_LineSizeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Settings_Tab_Appearance_LineSizeText.Text = Utilities.RoundNearest(Settings_Tab_Appearance_LineSizeSlider.Value, 1).ToString(); 
         }
 
         // Priscilla/Dano - MOVE TO BINDINGS! //

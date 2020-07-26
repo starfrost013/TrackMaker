@@ -47,6 +47,9 @@
                     <TextBlock x:Name="Settings_Tab_Appearance_DotSizeYText" TextWrapping="Wrap" Margin="375,6,300,77" Grid.Column="1" FontSize="24" Grid.Row="10" Text="{Binding Value}"/>
                     <Slider x:Name="Settings_Tab_Appearance_DotSizeYSlider" HorizontalAlignment="Left" Margin="29,231,0,0" VerticalAlignment="Top" Height="20" Width="341" Grid.Column="1" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="Settings_Tab_Appearance_DotSizeYSlider_ValueChanged"/>
                     <Button x:Name="Settings_Tab_Appearance_Done" Content="Done" HorizontalAlignment="Left" Margin="645,63,0,0" VerticalAlignment="Top" Width="76" FontSize="24" Click="Settings_Tab_Appearance_Done_Click" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance_LineSize" Text="Line size:" Margin="24,256,572,91" FontSize="24" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Slider x:Name="Settings_Tab_Appearance_LineSizeSlider" HorizontalAlignment="Left" Margin="106,6,0,0" VerticalAlignment="Top" Height="20" Width="341" Grid.Column="1" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="Settings_Tab_Appearance_LineSizeSlider_ValueChanged" Grid.Row="1"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance_LineSizeText" TextWrapping="Wrap" Margin="466,256,209,88" Grid.Column="1" FontSize="24" Grid.RowSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>
