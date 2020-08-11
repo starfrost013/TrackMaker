@@ -216,7 +216,14 @@ namespace Track_Maker
 
         private void UndoButton_Click(object sender, RoutedEventArgs e)
         {
-            CurrentBasin.CurrentStorm.Undo();
+            if (CurrentBasin != null)
+            {
+                if (CurrentBasin.CurrentStorm != null)
+                {
+                    CurrentBasin.CurrentStorm.Undo();
+                }
+            }
+            
         }
 
         private void RedoButton_Click(object sender, RoutedEventArgs e)
