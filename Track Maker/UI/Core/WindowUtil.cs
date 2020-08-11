@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace Track_Maker
 {
-    public enum Direction { Smaller, Larger}
+    public enum Direction { Smaller, Larger }
     public partial class MainWindow : Window
     {
         internal void SetFullscreen()

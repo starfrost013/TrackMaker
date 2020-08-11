@@ -80,20 +80,19 @@
                 <Separator/>
                 <MenuItem x:Name="HelpMenu_About" Header="About Cosmo's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
-            <MenuItem>
-                <MenuItem.Header>
-                    <DockPanel Width="514">
-                        <Button x:Name="UndoButton" Content="Undo" DockPanel.Dock="Right" Click="UndoButton_Click"/>
-                        <Button x:Name="RedoButton" Content="Redo" DockPanel.Dock="Right" Click="RedoButton_Click"/>
-                    </DockPanel>
-                </MenuItem.Header>
-            </MenuItem>
+
             <!--Removed because Priscilla isn't Dano and doesn't have (some) of Dano's features
             <MenuItem x:Name="DanoTest" Header="Dano Test" Foreground="White">
                 <MenuItem x:Name="DanoTest_StartPage" Header="[Dano Test] Start Page" Foreground="Black" Click="DanoTest_StartPage_Click"></MenuItem>
                 <MenuItem x:Name="DanoTest_CreateProject" Header="[Dano Test] Create Project" Foreground="Black" Click="DanoTest_CreateProject_Click"></MenuItem>
                 <MenuItem x:Name="DanoTest_PortTest" Header="[Dano Test] Basin Manager" Foreground="Black" Click="DanoTest_PortTest_Click"></MenuItem>
             </MenuItem>-->
+            <ToolBarPanel Height="18" Canvas.Left="852" Canvas.Top="-16" Width="90">
+                <ToolBar Margin="-9,0,0,0" Height="14">
+                    <Button x:Name="Priscilla_UndoButton" Content="Undo" Click="UndoButton_Click"/>
+                    <Button x:Name="Priscilla_RedoButton" Content="Redo" Click="RedoButton_Click" />
+                </ToolBar>
+            </ToolBarPanel>
         </Menu>
         <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="593" Margin="0,18,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
             <Canvas.Background>

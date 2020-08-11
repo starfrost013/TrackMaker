@@ -31,7 +31,7 @@ namespace Track_Maker
                 {
                     if (XmlRootNode.NextSibling == null)
                     {
-                        MessageBox.Show("Basins.xml is corrupted. The Track Maker will now exit.", "Track Maker", MessageBoxButton.OK,MessageBoxImage.Error);
+                        MessageBox.Show("Basins.xml is corrupted or malformed. The Track Maker will now exit.", "Track Maker", MessageBoxButton.OK,MessageBoxImage.Error);
                         Environment.Exit(1); 
                     }
 
@@ -78,7 +78,6 @@ namespace Track_Maker
                                 // Conversion
                                 Basin.CoordsHigher = Coordinate.FromString(XmlAttribute.InnerText);
                                 continue; 
-
                             case "name": // basin name
                             case "Name":
                                 Basin.Name = XmlAttribute.Value;

@@ -30,7 +30,9 @@ namespace Track_Maker
 
         public void NewProjectCreated(object sender, DanoEventArgs e)
         {
-
+            // Version 1.5 'Priscilla'
+            Project Dano = new Project(); 
+            //Dano.AddBasin()
         }
     }
 }
