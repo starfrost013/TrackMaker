@@ -228,7 +228,14 @@ namespace Track_Maker
 
         private void RedoButton_Click(object sender, RoutedEventArgs e)
         {
-            CurrentBasin.CurrentStorm.Redo();
+            if (CurrentBasin != null)
+            {
+                if (CurrentBasin.CurrentStorm != null)
+                {
+                    CurrentBasin.CurrentStorm.Redo();
+                }
+            }
+
         }
 
     }
