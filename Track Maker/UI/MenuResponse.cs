@@ -21,9 +21,16 @@ namespace Track_Maker
         /// <param name="e"></param>
         private void BasinMenu_BasinSwitch_Click(object sender, RoutedEventArgs e)
         {
+
+            DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
+            DBSH.Owner = this;
+            DBSH.Show(); 
+
+            /* pre-build 426
             BasinSwitcher BasinSwitch = new BasinSwitcher();
             BasinSwitch.Owner = this;
             BasinSwitch.Show();
+            */
         }
 
         private void BasinMenu_Clear_Click(object sender, RoutedEventArgs e)

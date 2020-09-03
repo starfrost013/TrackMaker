@@ -140,9 +140,6 @@
     <Compile Include="UI\BasinManagerUI\BasinManagerUI.xaml.cs">
       <DependentUpon>BasinManagerUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\BasinSwitcher\BasinSwitcher.xaml.cs">
-      <DependentUpon>BasinSwitcher.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\CategoryManager\CategoryManager.xaml.cs">
       <DependentUpon>CategoryManager.xaml</DependentUpon>
     </Compile>
@@ -199,10 +196,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\BasinManagerUI\BasinManagerUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\BasinSwitcher\BasinSwitcher.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

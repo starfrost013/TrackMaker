@@ -25,9 +25,9 @@ namespace Dano.AdvisoryGenerator
         public AboutWindow()
         {
             InitializeComponent();
-            Assembly Assembly = Assembly.GetExecutingAssembly();
+            Assembly Assembly = Assembly.GetEntryAssembly();
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.Location);
-            Version.Text = $"Version 1.0.71.2 (for Cosmo's Track Maker {FVI.FileVersion})";
+            Version.Text = $"Version 1.0.72.3 (for Cosmo's Track Maker {FVI.FileVersion})";
         }
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
