@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Track_Maker"
         mc:Ignorable="d"
-        Title="About Cosmo's Track Maker" Height="263.14" Width="763.459" Loaded="Window_Loaded">
+        Title="About Cosmo's Track Maker" Height="209.483" Width="742.878" Loaded="Window_Loaded">
     <Grid>
         <TextBlock x:Name="CosmoTrack" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Cosmo's Track Maker" VerticalAlignment="Top" FontSize="48"/>
-        <Line X1="0" X2="762" Y1="73" Y2="73" Stroke="Black" StrokeThickness="1" SnapsToDevicePixels="True"></Line>
-        <TextBlock x:Name="CosmoTrack_Version" HorizontalAlignment="Left" Margin="13,79,0,0" TextWrapping="Wrap" Text="Version " VerticalAlignment="Top" FontSize="24" Width="470"/>
-        <TextBlock x:Name="CosmoTrack_Copyright" HorizontalAlignment="Left" Margin="13,112,0,0" TextWrapping="Wrap" Text="Copyright © 2019-2020 Cosmo. Open-source software under the Lesser GPL license." VerticalAlignment="Top" FontSize="14"/>
-        <TextBlock x:Name="CosmoTrack_Copyright_HHW" HorizontalAlignment="Left" Margin="13,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14">
+        <Line X1="0" X2="762" Y1="57" Y2="57" Stroke="BlueViolet" StrokeThickness="1" SnapsToDevicePixels="True"></Line>
+        <TextBlock x:Name="CosmoTrack_Version" HorizontalAlignment="Left" Margin="13,59,0,0" TextWrapping="Wrap" Text="Version " VerticalAlignment="Top" FontSize="24" Width="470"/>
+        <TextBlock x:Name="CosmoTrack_Copyright" HorizontalAlignment="Left" Margin="14,91,0,0" TextWrapping="Wrap" Text="Copyright © 2019-2020 Cosmo. Open-source software under the Lesser GPL license." VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock x:Name="CosmoTrack_Copyright_HHW" HorizontalAlignment="Left" Margin="14,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14">
             <Run>
                 Created with ♥ for the weather community.
             </Run>
@@ -19,7 +19,7 @@
                 https://hypotheticalhurricanes.fandom.com
             </Hyperlink>
         </TextBlock>
-        <Button x:Name="CosmoTrack_OKButton" Content="OK" HorizontalAlignment="Left" Margin="605,178,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="CosmoTrack_OKButton_Click"/>
+        <Button x:Name="CosmoTrack_OKButton" Content="OK" HorizontalAlignment="Left" Margin="592,133,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="CosmoTrack_OKButton_Click" RenderTransformOrigin="0.438,-0.014"/>
 
     </Grid>
 </Window>

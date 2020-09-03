@@ -33,8 +33,6 @@ namespace Track_Maker
                     Application.Current.Shutdown(74);
                 }
 
-
-
                 string[] _2 = _[0].Split(';');
                 string[] _3 = _[1].Split(';');
 
@@ -66,5 +64,6 @@ namespace Track_Maker
             }
 
         }
+
     }
 }

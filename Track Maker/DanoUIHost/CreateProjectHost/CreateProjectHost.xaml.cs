@@ -31,8 +31,15 @@ namespace Track_Maker
         public void NewProjectCreated(object sender, DanoEventArgs e)
         {
             // Version 1.5 'Priscilla'
-            Project Dano = new Project(); 
-            //Dano.AddBasin()
+
+            // Implement globalstate after this
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            Project TProj = new Project();
+            MnWindow.GetBasinWithName((string)e.DanoParameters[0]);
+            MnWindow.CurrentProject = TProj;
+            // Temp
+            MnWindow.EnableButtons(); 
+            Close();
         }
     }
 }

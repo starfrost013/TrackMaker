@@ -223,7 +223,6 @@ namespace Track_Maker
                     CurrentBasin.CurrentStorm.Undo();
                 }
             }
-            
         }
 
         private void RedoButton_Click(object sender, RoutedEventArgs e)

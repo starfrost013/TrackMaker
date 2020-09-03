@@ -185,5 +185,19 @@ namespace Track_Maker
             return null; 
         }
 
+        /// <summary>
+        /// Temporary function
+        /// </summary>
+        public void EnableButtons()
+        {
+            FileMenu.IsEnabled = true;
+            ProjectMenu.IsEnabled = true;
+            EditMenu.IsEnabled = true;
+            StormMenu.IsEnabled = true;
+            ViewMenu.IsEnabled = true;
+            BasinMenu.IsEnabled = true;
+            ToolsMenu.IsEnabled = true;
+            HelpMenu.IsEnabled = true;
+        }
     }
 }
