@@ -140,9 +140,6 @@
     <Compile Include="UI\About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\BasinManagerUI\BasinManagerUI.xaml.cs">
-      <DependentUpon>BasinManagerUI.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Category\Category.cs" />
     <Compile Include="Category\CategoryLoader.cs" />
     <Compile Include="Core\Error.cs" />
@@ -196,10 +193,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\About\AboutWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\BasinManagerUI\BasinManagerUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

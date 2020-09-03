@@ -13,6 +13,5 @@
         <TextBlock x:Name="Catman_Cats" HorizontalAlignment="Left" Margin="509,63,0,0" TextWrapping="Wrap" Text="Categories:" VerticalAlignment="Top" Height="30" Width="99" FontSize="18"/>
         <ListBox x:Name="Catman_CatsBox" HorizontalAlignment="Left" Height="306" Margin="424,93,0,0" VerticalAlignment="Top" Width="261" Foreground="#FF3030A0" IsHitTestVisible="False" ItemsSource="{Binding CategoryStrings}"/>
         <Button x:Name="Catman_ExitButton" Content="OK" HorizontalAlignment="Left" Margin="337,434,0,0" VerticalAlignment="Top" Width="95" FontSize="18" Click="Button_Click" Style="{StaticResource ResourceKey=Button_Invert}"/>
-
     </Grid>
 </UserControl>

@@ -20,9 +20,19 @@ namespace DanoUI
     /// </summary>
     public partial class LayerControl : UserControl
     {
+        public EventHandler<DanoEventArgs> LayerClicked { get; set; }
+        public EventHandler<DanoEventArgs> LayerCreated { get; set; }
+        public EventHandler<DanoEventArgs> LayerDeleted { get; set; }
+        public EventHandler<DanoEventArgs> LayerReordered { get; set; }        
+        public List<string> LayerNames { get; set; }
         public LayerControl()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = this;
         }
     }
 }

@@ -6,25 +6,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
-             mc:Ignorable="d" Width="115.164" Height="295.492">
+             mc:Ignorable="d" Width="115.164" Height="295.492" Loaded="UserControl_Loaded">
 
     <Grid>
         <Grid.Resources>
             <Style TargetType="ListViewItem">
-                <Setter Property="BorderBrush" Value="#A0FFFFFF"></Setter>
+                <Setter Property="Background" Value="#00FFFFFF"></Setter>
+                <Setter Property="BorderBrush" Value="#80FFFFFF"></Setter>
                 <Setter Property="BorderThickness" Value="1"></Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#80FFFFFF"></Setter>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
             <Style TargetType="GridViewColumnHeader">
-                <Setter Property="Background" Value="#80FFFFFF">
-
-                </Setter>
+                <Setter Property="Background" Value="#80FFFFFF"></Setter>
             </Style>
         </Grid.Resources>
         <TextBlock x:Name="PriscillaUI_Layers_LayerHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Layers" VerticalAlignment="Top" Foreground="White" Margin="5,10,0,0"/>
-        <ListView x:Name="PriscillaUI_Layers_LayerListView" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="95" Background="#80FFFFFF" Foreground="White" ItemsSource="{Binding Source=Layers}" DisplayMemberPath="Name">
+        <ListView x:Name="PriscillaUI_Layers_LayerListView" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="95" Background="#80FFFFFF" Foreground="White" ItemsSource="{Binding LayerNames}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Layer Name"  Width="85">
+                    <GridViewColumn Header="Name"  Width="85">
                         
                     </GridViewColumn>
                 </GridView>
