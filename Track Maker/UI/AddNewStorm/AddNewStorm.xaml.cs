@@ -30,79 +30,31 @@ namespace Track_Maker
         {
             try
             {
-                Storm storm = new Storm();
-                storm.Id = MainWindow.CurrentBasin.Storms.Count; // this actually makes sense.
-                storm.Name = NameBox.Text;
+                // Build the date and time.
+                DateTime TD = (DateTime)Date.SelectedDate;
 
-                Logging.Log($"Adding storm with id {storm.Id} and name {storm.Name}");
+                int Hours = Convert.ToInt32(TimeHours.Text);
+                int Minutes = Convert.ToInt32(TimeMinutes.Text);
 
-                if (storm.Name == "")
+                if (Hours < 0 || Hours > 24 || Minutes < 0 || Minutes > 59)
                 {
-                    Error.Throw("You must add a name.", "Track Maker", Error.ErrorSeverity.Warning, 2);
-                    storm = null;
+                    Error.Throw("Warning!", "Please enter a valid time!", Error.ErrorSeverity.Warning, 101);
                     return;
                 }
 
-                // Check the date. [2020-05-13] - convert from nullable datetime to datetime?
+                TD = TD.AddHours(Hours);
+                TD = TD.AddMinutes(Minutes);
 
-                if (Date.SelectedDate == null)
-                {
-                    Error.Throw("You must add a date and time.", "Error", Error.ErrorSeverity.Warning, 1);
-                    return;
-                }
-
-                storm.FormationDate = (DateTime)Date.SelectedDate; // WHY IS THIS NULLABLE I MEAN ITS HELPFUL BUT YES
-                storm.FormationDate = storm.FormationDate.AddHours(Convert.ToInt32(TimeHours.Text));
-                storm.FormationDate = storm.FormationDate.AddMinutes(Convert.ToInt32(TimeMinutes.Text));
-
-                // USE ATTRIBUTES V2
-
-                if (MainWindow.CurrentBasin.Storms.Count != 0)
-                {
-                    if (storm.FormationDate < MainWindow.CurrentBasin.Storms[0].FormationDate)
-                    {
-                        MessageBox.Show("You can't have a storm start earlier than the season!", "Error I1", MessageBoxButton.OK, MessageBoxImage.Error);
-                        storm = null;
-                        return;
-                    }
-                }
-
-                if (TypeSelect.TypeBox.Text == "Tropical cyclone")
-                {
-                    storm.StormType = StormType.Tropical;
-                }
-                if (TypeSelect.TypeBox.Text == "Subtropical cyclone")
-                {
-                    storm.StormType = StormType.Subtropical;
-                }
-                if (TypeSelect.TypeBox.Text == "Extratropical cyclone")
-                {
-                    storm.StormType = StormType.Extratropical;
-                }
-                if (TypeSelect.TypeBox.Text == "Invest / PTC")
-                {
-                    storm.StormType = StormType.InvestPTC;
-                }
-                if (TypeSelect.TypeBox.Text == "Polar low")
-                {
-                    storm.StormType = StormType.PolarLow;
-                }
-                Logging.Log($"Set storm type");
-
-                Logging.Log("Initializing node list...");
-                storm.NodeList = new List<Node>(); // initalize the mode list
-                Logging.Log("Setting current storm...");
-                MainWindow.CurrentBasin.CurrentStorm = storm;
-                Logging.Log("Adding storm to basin storm list...");
-                MainWindow.CurrentBasin.Storms.Add(storm);
-                Logging.Log("Done! Closing...");
-                this.Close();
+                // Kinda temp because this won't be in mainwindow after a while
+                MainWindow.CurrentBasin.AddStorm(NameBox.Text, TypeTextBlock.Text, TD);
+                return; 
             }
             catch (FormatException)
             {
-                Error.Throw("You must enter a valid date and time.", "Error", Error.ErrorSeverity.Warning, 3);
-                return; 
+                Error.Throw("Warning!", "Please enter a valid time!", Error.ErrorSeverity.Warning, 101);
+                return;
             }
+            
         }
     }
 }

@@ -24,11 +24,11 @@ namespace Track_Maker
     {
         public BitmapImage BasinImage { get; set; } // the basin image name
         public string BasinImagePath { get; set; } // the basin image path. we only load what we need.
-        public Storm CurrentStorm { get; set; } // the currently selected storm
+        public Storm CurrentStorm { get; set; } // the currently selected Storm
         public string Name { get; set; } // the name of the basin
         public Coordinate CoordsLower { get; set; } // The lower point of the coords of this basin
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
-        public List<Storm> Storms { get; set; } // list of storms
+        public List<Storm> Storms { get; set; } // list of Storms
         
         // New for Dano M1 and Priscilla
         public Point FocusPoint { get; set; } // The focus point of the camera inside this basin.
@@ -156,6 +156,85 @@ namespace Track_Maker
             Coord.Coordinates = new Point(FinalX, FinalY);
 
             return Coord; 
+        }
+
+        /// <summary>
+        /// Adds a Storm.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddStorm(string Name, string Type, DateTime DateTime)
+        {
+            try
+            {
+                Storm Storm = new Storm();
+                Storm.Id = Storms.Count; // this actually makes sense.
+                Storm.Name = Name;
+
+                Logging.Log($"Adding Storm with id {Storm.Id} and name {Storm.Name}");
+
+                if (Storm.Name == "")
+                {
+                    Error.Throw("You must add a name!", "Track Maker", Error.ErrorSeverity.Warning, 2);
+                    Storm = null;
+                    return false;
+                }
+
+                // Check the date. [2020-05-13] - convert from nullable datetime to datetime?
+
+                if (DateTime == null)
+                {
+                    Error.Throw("You must add a date and time!", "Error", Error.ErrorSeverity.Warning, 1);
+                    return false;
+                }
+
+                Storm.FormationDate = DateTime; // WHY IS THIS NULLABLE I MEAN ITS HELPFUL BUT YES
+
+                // Just starting from what we already had here.
+
+                if (Storms.Count != 0)
+                {
+                    if (Storm.FormationDate < Storms[0].FormationDate)
+                    {
+                        MessageBox.Show("You can't have a Storm start earlier than the season!", "Error I1", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                }
+
+                if (Type == "Tropical cyclone")
+                {
+                    Storm.StormType = StormType.Tropical;
+                }
+                else if (Type == "Subtropical cyclone")
+                {
+                    Storm.StormType = StormType.Subtropical;
+                }
+                else if (Type == "Extratropical cyclone")
+                {
+                    Storm.StormType = StormType.Extratropical;
+                }
+                else if (Type == "Invest / PTC")
+                {
+                    Storm.StormType = StormType.InvestPTC;
+                }
+                else if (Type == "Polar low")
+                {
+                    Storm.StormType = StormType.PolarLow;
+                }
+                Logging.Log($"Set storm type to {Storm.StormType}");
+
+                Logging.Log("Initializing node list...");
+                Storm.NodeList = new List<Node>(); // initalize the mode list
+                Logging.Log("Setting current Storm...");
+                CurrentStorm = Storm;
+                Logging.Log("Adding Storm to basin Storm list...");
+                Storms.Add(Storm);
+                Logging.Log("Done! Closing...");
+            }
+            catch (FormatException)
+            {
+                Error.Throw("You must enter a valid date and time!", "Error", Error.ErrorSeverity.Warning, 3);
+                return false;
+            }
         }
     }
 }
