@@ -66,8 +66,7 @@ namespace DanoUI
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Catman_SystemsBox.DataContext = this;
-            Catman_CatsBox.DataContext = this; 
+            DataContext = this;  
         }
     }
 }

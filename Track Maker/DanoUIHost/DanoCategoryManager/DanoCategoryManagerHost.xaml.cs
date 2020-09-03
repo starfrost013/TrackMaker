@@ -26,6 +26,7 @@ namespace Track_Maker
             InitializeComponent();
 
             // This can be improved (Priscilla 428)
+            
             Dano_CategoryManagerUC.BasinStrings = SystemList;
             Dano_CategoryManagerUC.CategoryStrings = NameList; 
             Dano_CategoryManagerUC.UpdateLayout(); 

@@ -34,7 +34,6 @@ namespace DanoUI
         public BasinSwitcher()
         {
             InitializeComponent();
-
         }
 
         private void Setup()

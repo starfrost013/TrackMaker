@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         d:DesignHeight="450" d:DesignWidth="486.104" Loaded="Window_Loaded">
     <Grid>
-        <TextBlock x:Name="Dano_SwitchBasins" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="DanoUI Switch Basins" VerticalAlignment="Top" FontSize="36" FontStyle="Italic"/>
+        <TextBlock x:Name="Dano_SwitchBasins" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Switch Basins" VerticalAlignment="Top" FontSize="36" FontStyle="Italic"/>
         <ListBox x:Name="BasinList" HorizontalAlignment="Left" Height="317" Margin="10,63,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding BasinString}" Foreground="#FF3030A0"/>
         <Button x:Name="OKButton" Content="Switch" HorizontalAlignment="Left" Margin="359,63,0,0" VerticalAlignment="Top" Width="93" FontSize="18" Click="OKButton_Click"/>
 
