@@ -46,7 +46,7 @@ namespace Dano.ACECalculator
 
         private void ItCalculatesAce_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ItCalculatesAce.Text = "You're banned!"; 
+            ItCalculatesAce.Text = "1994 Lithuanian bus attacks"; 
         }
 
         private void AddStorm_Click(object sender, RoutedEventArgs e)
@@ -138,11 +138,6 @@ namespace Dano.ACECalculator
             AboutWindow.Show(); // show the about window.
         }
 
-        private void HelpMenu_Open_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start("readme.txt");
-        }
-
         private void StormMenu_EditSelected_Click(object sender, RoutedEventArgs e)
         {
             // Shows the edit storm window.
@@ -150,7 +145,7 @@ namespace Dano.ACECalculator
             // if nothing is selected show an error message
             if (StormIntensities.SelectedIndex == -1)
             {
-                MessageBox.Show("Error: Can't edit a point when there is nothing selected to edit!", "ACE Calculator", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Error: Can't edit a point when there are no points selected!", "ACE Calculator", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

@@ -133,7 +133,7 @@
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
     <Compile Include="ExportPlatform\ExportFormats\XML.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />
-    <Compile Include="Internet\TelemetryConsent.cs" />
+    <Compile Include="Network\TelemetryConsent.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Settings2\Emerald.Settings.cs" />
     <Compile Include="Settings2\SettingsStatic.cs" />

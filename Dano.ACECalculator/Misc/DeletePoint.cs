@@ -35,7 +35,12 @@ namespace Dano.ACECalculator
                         StormIntensityNode sin = (StormIntensityNode)StormIntensities.Items[i];
 
                         sin.Total -= tempACE;
-                        sin.DateTime = sin.DateTime.AddHours(-6); // yeah
+
+                        if (sin.DateTime.Date != new DateTime(0001, 1, 1))
+                        {
+                            sin.DateTime = sin.DateTime.AddHours(-6); // yeah
+                        }
+                        
                     }
                 }
             }
@@ -68,6 +73,8 @@ namespace Dano.ACECalculator
                     }
                 }
             }
+
+            
         }
     }
 }

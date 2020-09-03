@@ -37,7 +37,7 @@ namespace Track_Maker
         /// Priscilla [428+]
         /// </summary>
         /// <returns></returns>
-        public List<string> GetCategoryNames()
+        public List<string> GetCategorySystemNames()
         {
             List<string> NameList = new List<string>();
 
@@ -47,6 +47,18 @@ namespace Track_Maker
             }
 
             return NameList; 
+        }
+
+        public List<string> GetCurrentSystemCategoryNames()
+        {
+            List<string> NameList = new List<string>();
+
+            foreach (Category Category in CurrentCategorySystem.Categories)
+            {
+                NameList.Add(Category.Name); 
+            }
+
+            return NameList;
         }
     }
 

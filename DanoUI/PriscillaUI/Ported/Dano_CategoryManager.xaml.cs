@@ -25,6 +25,7 @@ namespace DanoUI
     public partial class DanoCategoryManager : UserControl
     {
         public List<string> BasinStrings { get; set; }
+        public List<string> CategoryStrings { get; set; }
 
         /// <summary>
         /// Event arg 0 (bool) - was any change made?
@@ -44,19 +45,29 @@ namespace DanoUI
 
             if (Catman_SystemsBox.SelectedIndex != -1)
             {
-                HasChanged = true;    
+                HasChanged = true;
+                ListBoxItem SelectedCategorySystem = (ListBoxItem)Catman_SystemsBox.Items[Catman_SystemsBox.SelectedIndex];
+                DEA.DanoParameters.Add(HasChanged);
+                DEA.DanoParameters.Add(SelectedCategorySystem.Content);
+            }
+            else
+            {
+                DEA.DanoParameters.Add(HasChanged);
+                DEA.DanoParameters.Add(""); 
             }
 
-            ListBoxItem SelectedCategorySystem = (ListBoxItem)Catman_SystemsBox.Items[Catman_SystemsBox.SelectedIndex];
-
-            DEA.DanoParameters.Add(HasChanged);
-            DEA.DanoParameters.Add(SelectedCategorySystem.Content);
             RaiseCloseHit(sender, DEA); 
         }
 
         private protected void RaiseCloseHit(object sender, DanoEventArgs e)
         {
             CloseHit(sender, e); 
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Catman_SystemsBox.DataContext = this;
+            Catman_CatsBox.DataContext = this; 
         }
     }
 }
