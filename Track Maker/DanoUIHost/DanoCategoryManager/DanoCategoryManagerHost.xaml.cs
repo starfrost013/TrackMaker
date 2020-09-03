@@ -21,9 +21,13 @@ namespace Track_Maker
     /// </summary>
     public partial class DanoCategoryManagerHost : Window
     {
-        public DanoCategoryManagerHost()
+        public DanoCategoryManagerHost(List<string> XStrList)
         {
             InitializeComponent();
+
+            // This can be improved (Priscilla 429)
+            Dano_CategoryManagerUC.BasinStrings = XStrList;
+            Dano_CategoryManagerUC.UpdateLayout(); 
         }
 
         private void CloseHit(object sender, DanoEventArgs e)

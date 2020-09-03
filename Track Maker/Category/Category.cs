@@ -32,6 +32,19 @@ namespace Track_Maker
 
             return false;
         }
+
+        /// <summary>
+        /// Priscilla [428+]
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetCategoryNames()
+        {
+            List<string> NameList = new List<string>();
+            foreach (CategorySystem CatSystem in CategorySystems)
+            {
+
+            }
+        }
     }
 
 
