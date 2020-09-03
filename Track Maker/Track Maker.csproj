@@ -122,6 +122,9 @@
     <Compile Include="DanoUIHost\DanoBasinSwitcher\DanoBasinSwitcherHost.xaml.cs">
       <DependentUpon>DanoBasinSwitcherHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DanoUIHost\DanoCategoryManager\DanoCategoryManagerHost.xaml.cs">
+      <DependentUpon>DanoCategoryManagerHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DanoUIHost\StartPageHost\StartPageHost.xaml.cs">
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DanoUIHost\DanoBasinSwitcher\DanoBasinSwitcherHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\DanoCategoryManager\DanoCategoryManagerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -73,9 +73,15 @@ namespace Track_Maker
 
         private void EditMenu_Categories_Click(object sender, RoutedEventArgs e)
         {
+
+            DanoCategoryManagerHost DCMH = new DanoCategoryManagerHost();
+            DCMH.Owner = this;
+            DCMH.Show();
+
+            /* pre-build 427 
             CategoryManagerWindow Catmanwindow = new CategoryManagerWindow();
             Catmanwindow.Owner = this;
-            Catmanwindow.Show();
+            Catmanwindow.Show(); */
         }
 
         private void FileMenu_Exit_Click(object sender, RoutedEventArgs e)
@@ -174,6 +180,7 @@ namespace Track_Maker
         }
 
         //Test code. remove this.
+#if DANO
         private void DanoTest_StartPage_Click(object sender, RoutedEventArgs e)
         {
             StartPageHost SPH = new StartPageHost();
@@ -188,7 +195,14 @@ namespace Track_Maker
             CPH.Owner = this;
             CPH.Show();
         }
-
+        
+        private void DanoTest_PortTest_Click(object sender, RoutedEventArgs e)
+        {
+            DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
+            DBSH.Owner = this;
+            DBSH.Show(); 
+        }
+#endif
         /// <summary>
         /// VERY TEMP! VERY TEMP! VERY TEMP!  Creates a list of strings from the names of the storms in the current basin. Move to Project.GetBasinNames() in M2/Priscilla.
         /// </summary>
@@ -206,12 +220,6 @@ namespace Track_Maker
             return _;
         }
 
-        private void DanoTest_PortTest_Click(object sender, RoutedEventArgs e)
-        {
-            DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
-            DBSH.Owner = this;
-            DBSH.Show(); 
-        }
 
 
         private void ProjectMenu_New_Click(object sender, RoutedEventArgs e)

@@ -62,7 +62,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dano_BasinSwitcher.xaml.cs">
+    <Compile Include="PriscillaUI\Ported\Dano_CategoryManager.xaml.cs">
+      <DependentUpon>Dano_CategoryManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_BasinSwitcher.xaml.cs">
       <DependentUpon>Dano_BasinSwitcher.xaml</DependentUpon>
     </Compile>
     <Compile Include="DanoEventArgs.cs" />
@@ -78,7 +81,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Dano_BasinSwitcher.xaml">
+    <Page Include="PriscillaUI\Ported\Dano_CategoryManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_BasinSwitcher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

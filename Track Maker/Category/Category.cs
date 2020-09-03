@@ -18,6 +18,20 @@ namespace Track_Maker
         {
             CategorySystems = new List<CategorySystem>(); 
         }
+
+        public bool SetCategoryWithName(string Name)
+        {
+            foreach (CategorySystem Catsystem in CategorySystems)
+            {
+                if (Catsystem.Name == Name)
+                {
+                    CurrentCategorySystem = Catsystem;
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 
 
