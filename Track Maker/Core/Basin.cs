@@ -229,6 +229,8 @@ namespace Track_Maker
                 Logging.Log("Adding Storm to basin Storm list...");
                 Storms.Add(Storm);
                 Logging.Log("Done! Closing...");
+
+                return true;
             }
             catch (FormatException)
             {
