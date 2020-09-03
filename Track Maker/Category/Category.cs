@@ -40,10 +40,13 @@ namespace Track_Maker
         public List<string> GetCategoryNames()
         {
             List<string> NameList = new List<string>();
+
             foreach (CategorySystem CatSystem in CategorySystems)
             {
-
+                NameList.Add(CatSystem.Name);
             }
+
+            return NameList; 
         }
     }
 
@@ -69,9 +72,9 @@ namespace Track_Maker
     public class Category
     {
         public Color Color { get; set; }
-        public int HigherBound { get; set; }
+        public string Name { get; set; }
         public int LowerBound { get; set; }
-        public string Name { get; set; }   
+        public int HigherBound { get; set; }
     }
 
 }

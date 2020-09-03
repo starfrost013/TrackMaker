@@ -27,7 +27,8 @@ namespace DanoUI
         public List<string> BasinStrings { get; set; }
 
         /// <summary>
-        /// Event arg 0 (bool) - was changed
+        /// Event arg 0 (bool) - was any change made?
+        /// Event arg 1 (string) - change made to this
         /// </summary>
         public EventHandler<DanoEventArgs> CloseHit { get; set; }
         public DanoCategoryManager()

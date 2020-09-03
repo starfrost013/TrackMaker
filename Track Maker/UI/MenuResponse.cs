@@ -74,7 +74,7 @@ namespace Track_Maker
         private void EditMenu_Categories_Click(object sender, RoutedEventArgs e)
         {
 
-            DanoCategoryManagerHost DCMH = new DanoCategoryManagerHost();
+            DanoCategoryManagerHost DCMH = new DanoCategoryManagerHost(Catman.GetCategoryNames());
             DCMH.Owner = this;
             DCMH.Show();
 
