@@ -46,9 +46,9 @@ namespace DanoUI
             if (Catman_SystemsBox.SelectedIndex != -1)
             {
                 HasChanged = true;
-                ListBoxItem SelectedCategorySystem = (ListBoxItem)Catman_SystemsBox.Items[Catman_SystemsBox.SelectedIndex];
+                string SelectedCategorySystem = (string)Catman_SystemsBox.Items[Catman_SystemsBox.SelectedIndex];
                 DEA.DanoParameters.Add(HasChanged);
-                DEA.DanoParameters.Add(SelectedCategorySystem.Content);
+                DEA.DanoParameters.Add(SelectedCategorySystem);
             }
             else
             {

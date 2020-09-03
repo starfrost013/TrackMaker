@@ -36,7 +36,7 @@ namespace Track_Maker
         {
             try
             {
-                Debug.Assert(e.DanoParameters.Count != 2);
+                Debug.Assert(e.DanoParameters.Count == 2);
 
                 bool HasChanged = Convert.ToBoolean(e.DanoParameters[0]);
                 string NewCategoryName = e.DanoParameters[1].ToString();
