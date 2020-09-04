@@ -47,6 +47,8 @@ namespace Track_Maker
 
                 // Kinda temp because this won't be in mainwindow after a while
                 MainWindow.CurrentBasin.AddStorm(NameBox.Text, TypeTextBlock.Text, TD);
+
+                Close(); 
                 return; 
             }
             catch (FormatException)

@@ -238,5 +238,27 @@ namespace Track_Maker
                 return false;
             }
         }
+
+
+        public void AddLayer(string Name)
+        {
+            Layer Layer = new Layer();
+            Layer.Name = Name;
+            Layers.Add(Layer); 
+        }
+
+        public void DeleteLayer(string Name)
+        {
+            foreach (Layer Layer in Layers)
+            {
+                if (Layer.Name == Name)
+                {
+                    Layers.Remove(Layer);
+                    break;
+                }
+            }
+
+            return;
+        }
     }
 }

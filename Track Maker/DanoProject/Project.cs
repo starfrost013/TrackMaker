@@ -23,6 +23,7 @@ namespace Track_Maker
             Basins = new List<Basin>();
             History = new List<Basin>();
             CategorySystems = new List<CategorySystem>();
+            SelectedBasin = new Basin();
         }
 
         public void AddBasin(string Name, string ImagePath)
@@ -36,11 +37,17 @@ namespace Track_Maker
             Bs.SeasonHemisphere = Hemisphere.North;
             Bs.SeasonType = BasinType.Track;
 #elif DANO
-            // ATTN: You can write anything you want if it's not valid. 
+            // ATTN: You can write anything you want if it's not covered by the currently defined ifdefs 
             Bs.SeasonHemisphere = Hemisphere;
             Bs.SeasonType = Type;
 #endif
             // load function goes here
+
+            // Create a background layer
+            Layer BgLayer = new Layer();
+            BgLayer.Name = "Background";
+
+            Bs.Layers.Add(BgLayer);
             Basins.Add(Bs); 
             SelectedBasin = Bs; 
 
@@ -66,6 +73,16 @@ namespace Track_Maker
             History.Add(SelectedBasin);
         }
 
+        public void SelectBasin(string Name)
+        {
+            foreach (Basin Basin in Basins)
+            {
+                if (Basin.Name == Name) SelectedBasin = Basin;
+                break;
+            }
+            return; 
+        }
+
         //restorehistory
         public void Redo()
         {
@@ -78,7 +95,6 @@ namespace Track_Maker
             SelectedBasin = History[CurrentHistoryPoint];
             CurrentHistoryPoint--; 
         }
-
 
     }
 }

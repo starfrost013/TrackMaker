@@ -10,11 +10,17 @@ namespace Track_Maker
     {
         public List<Storm> AssociatedStorms { get; set; }
         public string Name { get; set; }
-        public int LayerId { get; set; }
+        public Guid LayerId { get; set; }
        
         public Layer()
         {
-            AssociatedStorms = new List<Storm>(); 
+            AssociatedStorms = new List<Storm>();
+            GenerateGUID();
+        }
+
+        private void GenerateGUID()
+        {
+            LayerId = Guid.NewGuid();
         }
 
         public void AddStorm(Storm Sto)
