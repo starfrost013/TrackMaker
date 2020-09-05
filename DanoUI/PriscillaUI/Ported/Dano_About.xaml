@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DanoUI"
-        xmlns:Dano="clr-namespace:DanoUI.Core;assembly=DanoUI"
         mc:Ignorable="d"
         Height="181.437" Width="698.234" Loaded="Window_Loaded">
     <Grid>

@@ -20,7 +20,7 @@ namespace DanoUI
     /// <summary>
     /// Interaction logic for AboutWindow.xaml
     /// </summary>
-    public partial class AboutUI : Window
+    public partial class AboutUI : UserControl
     {
         public EventHandler<RequestNavigateEventArgs> OnHyperlinkHit { get; set; }
         public EventHandler<RoutedEventArgs> OnOKButtonHit { get; set; }

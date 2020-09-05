@@ -122,6 +122,8 @@ namespace Track_Maker
                 DisableButtons();
             }
 
+            CurrentProject = new Project();
+
             HurricaneBasin.DataContext = CurrentProject.SelectedBasin;
             UpdateLayout();
             TickTimer.Start();

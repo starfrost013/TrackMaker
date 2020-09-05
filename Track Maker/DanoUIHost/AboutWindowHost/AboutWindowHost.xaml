@@ -7,7 +7,7 @@
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
         Title="About starfrost's track maker" Height="220.082" Width="702.87">
-    <Grid Margin="0,0,2,-4">
-        <Dano:AboutUI OnOKButtonHit="OnOKButtonHit" OnHyperlinkHit="HyperlinkHit"></Dano:AboutUI>
+    <Grid>
+        <Dano:AboutUI OnOKButtonHit="OnOkButtonHit" OnHyperlinkHit="HyperlinkHit"></Dano:AboutUI>
     </Grid>
 </Window>
