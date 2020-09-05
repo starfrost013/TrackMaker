@@ -104,9 +104,9 @@ namespace Track_Maker
             CurrentBasin.BasinImage.UriSource = new Uri(CurrentBasin.BasinImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
             CurrentBasin.BasinImage.EndInit();
             Logging.Log("Loaded basin image. Setting data context...");
-            HurricaneBasin.DataContext = CurrentBasin;
+
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
-            UpdateLayout();
+           
 #if DANO
             Title = "Track Maker Dano (version 3.0; pre-release (Alpha 2/M2) - do not use for production purposes!)";
 #elif PRISCILLA
@@ -119,16 +119,11 @@ namespace Track_Maker
             // DisableUI test 
             if (CurrentProject == null)
             {
-                FileMenu.IsEnabled = false;
-                ProjectMenu.IsEnabled = true;
-                EditMenu.IsEnabled = false;
-                StormMenu.IsEnabled = false;
-                ViewMenu.IsEnabled = false;
-                BasinMenu.IsEnabled = false;
-                ToolsMenu.IsEnabled = false;
-                HelpMenu.IsEnabled = false;
+                DisableButtons();
             }
 
+            HurricaneBasin.DataContext = CurrentProject.SelectedBasin;
+            UpdateLayout();
             TickTimer.Start();
             Logging.Log("Initialization completed.");
         }
@@ -201,6 +196,18 @@ namespace Track_Maker
             BasinMenu.IsEnabled = true;
             ToolsMenu.IsEnabled = true;
             HelpMenu.IsEnabled = true;
+        }
+
+        public void DisableButtons()
+        {
+            FileMenu.IsEnabled = false;
+            ProjectMenu.IsEnabled = true;
+            EditMenu.IsEnabled = false;
+            StormMenu.IsEnabled = false;
+            ViewMenu.IsEnabled = false;
+            BasinMenu.IsEnabled = false;
+            ToolsMenu.IsEnabled = false;
+            HelpMenu.IsEnabled = false;
         }
     }
 }

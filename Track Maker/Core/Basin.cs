@@ -40,6 +40,7 @@ namespace Track_Maker
 
         // New for Priscilla.
         public List<Layer> Layers { get; set; } // new: list of layers
+        public bool IsSelected { get; set; }
 
         public Basin()
         {
@@ -260,5 +261,7 @@ namespace Track_Maker
 
             return;
         }
+
+
     }
 }

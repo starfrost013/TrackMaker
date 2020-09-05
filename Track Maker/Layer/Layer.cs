@@ -9,6 +9,7 @@ namespace Track_Maker
     public class Layer
     {
         public List<Storm> AssociatedStorms { get; set; }
+        public bool IsSelected { get; set; }
         public string Name { get; set; }
         public Guid LayerId { get; set; }
        
@@ -31,6 +32,11 @@ namespace Track_Maker
         public void RemoveStorm(Storm Sto)
         {
             AssociatedStorms.Remove(Sto); 
+        }
+
+        public void ClearStorms()
+        {
+            AssociatedStorms.Clear();
         }
     }
 }
