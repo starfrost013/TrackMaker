@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dano.AdvisoryGenerator")]
+[assembly: AssemblyTitle("Advisory Generator tool for Track Maker 2.0+")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Dano.AdvisoryGenerator")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyProduct("starfrost's Track Maker 'Priscilla' / 'Dano'")]
+[assembly: AssemblyCopyright("Copyright © starfrost 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,5 +34,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.424.20248")]
-[assembly: AssemblyFileVersion("1.5.424.20248")]
+[assembly: AssemblyVersion("2.0.425.20249")]
+[assembly: AssemblyFileVersion("2.0.425.20249")]
