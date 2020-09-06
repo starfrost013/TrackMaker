@@ -22,11 +22,19 @@ namespace Track_Maker
     /// </summary>
     public partial class CreateProjectHost : Window
     {
+
+        /// <summary>
+        /// Temp
+        /// </summary>
+        public Project TProj { get; set; }
         public CreateProjectHost(List<string> BasinList)
         {
             InitializeComponent();
             DNPHost.Dano_NewProject_InitDBL(BasinList); 
-            DNPHost.Dano_NewProject_Init(); 
+            DNPHost.Dano_NewProject_Init();
+
+            // Constructor loads basins
+            TProj = new Project();
         }
 
         public void NewProjectCreated(object sender, DanoEventArgs e)
@@ -35,9 +43,9 @@ namespace Track_Maker
 
             // Implement globalstate after this
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            Project TProj = new Project();
 
-            TProj.LoadBasins();
+
+          
             // Create the basins
 
             Debug.Assert(e.DanoParameters.Count == 2); 

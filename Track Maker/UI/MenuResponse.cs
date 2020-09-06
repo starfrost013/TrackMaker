@@ -91,9 +91,15 @@ namespace Track_Maker
 
         private void HelpMenu_About_Click(object sender, RoutedEventArgs e)
         {
+
+            AboutWindowHost AWH = new AboutWindowHost();
+            AWH.Owner = this;
+            AWH.Show();
+
+            /* pre-build 436
             AboutWindow AbtWin = new AboutWindow();
             AbtWin.Owner = this;
-            AbtWin.Show();
+            AbtWin.Show(); */
         }
 
         private void EditMenu_Season_Click(object sender, RoutedEventArgs e)

@@ -7,7 +7,7 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Hurricane Track Maker (version 1.5 'Priscilla')")]
+[assembly: AssemblyTitle("Hurricane Track Maker (version 2.0 'Priscilla')")]
 [assembly: AssemblyDescription("Tools for creating tracks of hurricanes.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.434.20250")]
-[assembly: AssemblyFileVersion("2.0.434.20250")]
+[assembly: AssemblyVersion("2.0.435.20250")]
+[assembly: AssemblyFileVersion("2.0.435.20250")]

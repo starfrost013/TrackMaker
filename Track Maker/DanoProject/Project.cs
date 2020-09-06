@@ -26,7 +26,9 @@ namespace Track_Maker
             Basins = new List<Basin>();
             History = new List<Basin>();
             CategorySystems = new List<CategorySystem>();
+            OpenBasins = new List<Basin>();
             SelectedBasin = new Basin();
+            LoadBasins();
         }
 
         public void AddBasin(string Name)
