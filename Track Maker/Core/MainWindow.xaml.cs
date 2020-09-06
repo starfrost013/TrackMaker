@@ -171,19 +171,6 @@ namespace Track_Maker
             }
         }
 
-        /// <summary>
-        /// (1.5+) Get basin with name. Major refactoring is currently ongoing that will eventually lead to this being moved to its own class (GlobalState?)
-        /// </summary>
-        /// <returns></returns>
-        public Basin GetBasinWithName(string Name)
-        {
-            foreach (Basin Basin in BasinList)
-            {
-                if (Basin.Name == Name) return Basin; 
-            }
-
-            return null; 
-        }
 
         /// <summary>
         /// Temporary function

@@ -58,7 +58,7 @@ namespace Track_Maker
         /// <summary>
         /// Priscilla+ - load the basin 
         /// </summary>
-        private protected void LoadBasin()
+        internal void LoadBasins()
         {
             try
             {
@@ -175,10 +175,28 @@ namespace Track_Maker
             CurrentHistoryPoint++;
         }
 
+        /// <summary>
+        /// Undo (temp)
+        /// </summary>
         public void Undo()
         {
             SelectedBasin = History[CurrentHistoryPoint];
             CurrentHistoryPoint--; 
+        }
+
+
+        /// <summary>
+        /// (1.5+) Get basin with name. Major refactoring is currently ongoing that will eventually lead to this being moved to its own class (GlobalState?)
+        /// </summary>
+        /// <returns></returns>
+        public Basin GetBasinWithName(string Name)
+        {
+            foreach (Basin Basin in Basins)
+            {
+                if (Basin.Name == Name) return Basin;
+            }
+
+            return null;
         }
 
     }

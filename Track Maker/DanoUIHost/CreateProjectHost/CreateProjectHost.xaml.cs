@@ -35,7 +35,10 @@ namespace Track_Maker
             // Implement globalstate after this
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             Project TProj = new Project();
-            Basin CBasin = MnWindow.GetBasinWithName((string)e.DanoParameters[0]);
+
+            TProj.LoadBasins(); 
+            // Create the basins
+            Basin CBasin = TProj.GetBasinWithName((string)e.DanoParameters[0]);
 
             TProj.AddBasin(CBasin.Name, CBasin.BasinImagePath); 
 
