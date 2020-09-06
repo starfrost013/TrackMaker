@@ -12,6 +12,7 @@ namespace Track_Maker
     public class Project
     {
         public List<Basin> Basins { get; set; } /* All selectable basins in this Project. */
+        public List<Basin> OpenBasins { get; set; } /* All opened basins */ 
         public List<CategorySystem> CategorySystems { get; set; } /* All selectable category systems in this Project. */
         public CategorySystem SelectedCategorySystem { get; set; } /* Currently selected category system. */
         public List<Basin> History { get; set; } /* For undo/redo and the like. */ 
@@ -28,11 +29,9 @@ namespace Track_Maker
             SelectedBasin = new Basin();
         }
 
-        public void AddBasin(string Name, string ImagePath)
+        public void AddBasin(string Name)
         {
-            Basin Bs = new Basin();
-            Bs.Name = Name;
-            Bs.BasinImagePath = ImagePath;
+            Basin Bs = GetBasinWithName(Name);
 
 #if PRISCILLA
             // Dano exclusive stuff.
@@ -50,7 +49,7 @@ namespace Track_Maker
             BgLayer.Name = "Background";
 
             Bs.Layers.Add(BgLayer);
-            Basins.Add(Bs); 
+            OpenBasins.Add(Bs); 
             SelectedBasin = Bs; 
 
         }
@@ -140,7 +139,7 @@ namespace Track_Maker
 
         public void CreateNewProject(string Name, string ImagePath)
         {
-            AddBasin(Name, ImagePath); 
+            AddBasin(Name); 
         }
 
         public void CommitToHistory()

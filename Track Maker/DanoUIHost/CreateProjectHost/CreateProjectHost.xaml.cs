@@ -1,6 +1,7 @@
 ﻿using DanoUI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,11 +37,12 @@ namespace Track_Maker
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             Project TProj = new Project();
 
-            TProj.LoadBasins(); 
+            TProj.LoadBasins();
             // Create the basins
-            Basin CBasin = TProj.GetBasinWithName((string)e.DanoParameters[0]);
 
-            TProj.AddBasin(CBasin.Name, CBasin.BasinImagePath); 
+            Debug.Assert(e.DanoParameters.Count == 2); 
+
+            TProj.AddBasin((string)e.DanoParameters[1]); 
 
 
             MnWindow.CurrentProject = TProj;
