@@ -54,32 +54,25 @@ namespace Track_Maker
         private ParseArgResult ParseArgs(string[] Args)
         {
             // If there are no arguments, do nothing...
-            if (Args.Length == 0)
+            if (Args.Length != 1)
             {
                 return ParseArgResult.DoNothing;
             }
             else
             {
-                // If we have any more arguments, do nothing...
-                if (Args.Length != 1)
+                switch (Args[0])
                 {
-                    return ParseArgResult.DoNothing;
-                }
-                else
-                {
-                    switch (Args[1])
-                    {
-                        // Initialise the ACE Calculator; do not initialise the main Track Maker
-                        case "-initacecalc":
-                            return ParseArgResult.InitACECalc;
-                        // Initialise the Advisory Generator; do not initialise the main Track Maker
-                        case "-initadvgen":
-                            return ParseArgResult.InitAdvGen;
-                    }
+                    default:
+                        return ParseArgResult.DoNothing;
+                    // Initialise the ACE Calculator; do not initialise the main Track Maker
+                    case "-initacecalc":
+                        return ParseArgResult.InitACECalc;
+                    // Initialise the Advisory Generator; do not initialise the main Track Maker
+                    case "-initadvgen":
+                        return ParseArgResult.InitAdvGen;
                 }
             }
 
-            return ParseArgResult.DoNothing;
         }
     }
 }

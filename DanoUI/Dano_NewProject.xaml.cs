@@ -30,7 +30,7 @@ namespace DanoUI
 
         public void Dano_NewProject_InitDBL(List<string> DBL)
         {
-            Dano_UI_CreateProject_InitialBasinBox.DataContext = this; 
+            
             DanoBasinList = DBL;
         }
 
@@ -38,6 +38,7 @@ namespace DanoUI
         public void Dano_NewProject_Init()
         {
             InitializeComponent();
+            Dano_UI_CreateProject_InitialBasinBox.DataContext = this;
 
             // This is just a temporary hack. 
             foreach (string BasinName in DanoBasinList)
