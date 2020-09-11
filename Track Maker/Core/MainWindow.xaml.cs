@@ -58,7 +58,7 @@ namespace Track_Maker
             LOGFILE = LOGFILE.Replace(":", "-");
             Logging.Log("Welcome to the Debug Collective");
             Logging.Log("-------------------------------");
-            Logging.Log("© 2019-20 Cosmo. Now Loading...");
+            Logging.Log("© 2019-20 starfrost. Now Loading...");
             Logging.Log("Starting phase 1..."); // log starting.
             Catman = new CategoryManager();
             Catman.InitCategories();

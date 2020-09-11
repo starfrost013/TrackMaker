@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="_COPYRIGHT" xml:space="preserve">
-    <value>Copyright 2020 Cosmo. This product is open-source software.</value>
+    <value>Copyright 2020 starfrost. This product is open-source software.</value>
   </data>
   <data name="_LICENSE" xml:space="preserve">
     <value>GNU General Public License Version 3 (June 2007)</value>

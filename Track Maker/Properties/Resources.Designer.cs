@@ -61,7 +61,7 @@ namespace Track_Maker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright 2020 Cosmo. This product is open-source software..
+        ///   Looks up a localized string similar to Copyright 2020 starfrost. This product is open-source software..
         /// </summary>
         internal static string _COPYRIGHT {
             get {

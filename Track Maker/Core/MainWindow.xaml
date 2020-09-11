@@ -78,7 +78,7 @@
                 <MenuItem x:Name="HelpMenu_Help" Header="Help" Foreground="Black" IsEnabled="False"></MenuItem>
                 <MenuItem x:Name="HelpMenu_Preferences" Header="Settings" Foreground="Black" Click="HelpMenu_Preferences_Click"></MenuItem>
                 <Separator/>
-                <MenuItem x:Name="HelpMenu_About" Header="About Cosmo's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
+                <MenuItem x:Name="HelpMenu_About" Header="About starfrost's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
             <ToolBarPanel Height="18" Width="90" >
                 <ToolBar  Height="24" Background="#00000000" Margin="0,0,-44,0">

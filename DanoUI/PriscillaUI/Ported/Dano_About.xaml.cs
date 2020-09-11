@@ -34,11 +34,11 @@ namespace DanoUI
         {
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 #if DANO
-            CosmoTrack_Version.Text = $"Version 3.0 \"Dano\" Alpha 2 (M2) ({FVI.ProductVersion})";
+            starfrostTrack_Version.Text = $"Version 3.0 \"Dano\" Alpha 2 (M2) ({FVI.ProductVersion})";
 #elif PRISCILLA
-            CosmoTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.ProductVersion})";
+            starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.ProductVersion})";
 #else
-            CosmoTrack_Version.Text = $"Version {FVI.ProductVersion}";
+            starfrostTrack_Version.Text = $"Version {FVI.ProductVersion}";
 #endif
         }
 
@@ -52,7 +52,7 @@ namespace DanoUI
             OnHyperlinkHit(this, e); 
         }
 
-        private void CosmoTrack_OKButton_Click(object sender, RoutedEventArgs e)
+        private void starfrostTrack_OKButton_Click(object sender, RoutedEventArgs e)
         {
             OnOKButtonHit(this, e); 
         }

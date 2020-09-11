@@ -26,6 +26,11 @@ namespace Updater
 
                 string VersionString = NetConnection.DownloadString(@"https://trackmaker-update.medicanecentre.org/LatestVersion.txt");
 
+                if (VersionString.Contains("terminated"))
+                {
+                    MessageBox.Show("Update Services for Track Maker 1.x has been terminated. Please manually install Track Maker 2.0 at https://v2.trackmaker-update.medicanecentre.org/GetVersion?versionID=2.0"); 
+                }
+
                 string[] VersionComponents = VersionString.Split('.');
 
                 // 2 = build
@@ -79,7 +84,7 @@ namespace Updater
             }
             catch (WebException err)
             {
-                MessageBox.Show($"An error occurred while updating.\n\n{err}", "Error 1", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"An error occurred while updating. Could not connect to the web server.\n\n{err}", "Error 1", MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown(1); 
             }
             finally

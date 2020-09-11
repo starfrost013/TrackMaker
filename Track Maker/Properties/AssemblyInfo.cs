@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Track Maker")]
-[assembly: AssemblyCopyright("Copyright © 2019-2020 Cosmo")]
+[assembly: AssemblyCopyright("Copyright © 2019-2020 starfrost")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.435.20250")]
-[assembly: AssemblyFileVersion("2.0.435.20250")]
+[assembly: AssemblyVersion("2.0.436.20250")]
+[assembly: AssemblyFileVersion("2.0.436.20250")]

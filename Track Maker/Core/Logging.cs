@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 
 /// <summary>
-/// Cosmo's Track Maker
+/// starfrost's Track Maker
 /// 
 /// Logging.cs
 /// 

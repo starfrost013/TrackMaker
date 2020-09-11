@@ -53,7 +53,7 @@ namespace Track_Maker
             if (StormList.SelectedIndex == -1)
             {
                 // -1 means no option selected, so alert the user and then do nothing
-                MessageBox.Show("No storm selected to delete. [Error Code: ESE1]", "Cosmo's Track Maker", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("No storm selected to delete. [Error Code: ESE1]", "starfrost's Track Maker", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return; 
             }
 
@@ -70,7 +70,7 @@ namespace Track_Maker
         {
             if (StormList.SelectedIndex == -1)
             {
-                MessageBox.Show("No storm selected to edit. [Error Code: ESE2]", "Cosmo's Track Maker", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("No storm selected to edit. [Error Code: ESE2]", "starfrost's Track Maker", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -86,7 +86,7 @@ namespace Track_Maker
         {
             if (StormList.SelectedIndex == -1)
             {
-                MessageBox.Show("No storm selected to edit. [Error Code: ESE3]", "Cosmo's Track Maker", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("No storm selected to edit. [Error Code: ESE3]", "starfrost's Track Maker", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

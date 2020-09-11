@@ -25,7 +25,7 @@ namespace Track_Maker
 
             if (CurrentBasin == null)
             {
-                MessageBox.Show("Invalid category system selected. Change the settings in Settings.xml or the Settings menu. The category system has been changed to the first category system installed - usually the SSHWS. If this continues to happen, contact me at Cosmo#9088 on Discord.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Invalid category system selected. Change the settings in Settings.xml or the Settings menu. The category system has been changed to the first category system installed - usually the SSHWS. If this continues to happen, contact me at starfrost#9088 on Discord.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 CurrentBasin = BasinList[0];
             }
 
@@ -42,7 +42,7 @@ namespace Track_Maker
 
             if (Catman.CurrentCategorySystem == null)
             {
-                MessageBox.Show("Invalid category system selected. Change the settings in Settings.xml or the Settings menu. The category system has been changed to the first category system installed - usually the SSHWS. If this continues to happen, contact me at Cosmo#9088 on Discord.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Invalid category system selected. Change the settings in Settings.xml or the Settings menu. The category system has been changed to the first category system installed - usually the SSHWS. If this continues to happen, contact me at starfrost#9088 on Discord.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Catman.CurrentCategorySystem = Catman.CategorySystems[0]; 
             }
             
@@ -52,7 +52,7 @@ namespace Track_Maker
             
             if (Setting.DotSize.X <= 0 || Setting.DotSize.Y <= 0)
             {
-                MessageBox.Show("Error LS1 - An invalid dot size was provided. The default dot size will be used.", "Cosmo's Track Maker Fatal Error LS1", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error LS1 - An invalid dot size was provided. The default dot size will be used.", "starfrost's Track Maker Fatal Error LS1", MessageBoxButton.OK, MessageBoxImage.Error);
                 //Recovery
                 Setting.DotSize = new Point(8, 8); // reinitialies
             }
@@ -61,7 +61,7 @@ namespace Track_Maker
 
             if (Setting.LineSize <= 0)
             {
-                MessageBox.Show("Error LS2 - An invalid line size was provided. The default line size will be used.", "Cosmo's Track Maker Fatal Error LS1", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error LS2 - An invalid line size was provided. The default line size will be used.", "starfrost's Track Maker Fatal Error LS1", MessageBoxButton.OK, MessageBoxImage.Error);
                 //Recovery
                 Setting.LineSize = 2; // reinitialies
             }

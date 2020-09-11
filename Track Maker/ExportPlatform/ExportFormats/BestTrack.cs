@@ -99,7 +99,7 @@ namespace Track_Maker
                 if (Storm.Name.Length > 12)
                 {   
                     // The truth
-                    MessageBox.Show("This format, the ATCF BestTrack format, is a piece of utter crap and should never be used for anything serious but it's a US government system so it must only be updated every 57 years or less\n\n- It does not support storms with names with a length above twelve characters.\n-It does not support abbreviated character names of lengths more than three characters.\n- It uses weird different spacing.\n\n- There is no documentation on the Internet, despite my efforts.\n\nSorry if this doesn't work right - Cosmo", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("This format, the ATCF BestTrack format, is a piece of utter crap and should never be used for anything serious but it's a US government system so it must only be updated every 57 years or less\n\n- It does not support storms with names with a length above twelve characters.\n-It does not support abbreviated character names of lengths more than three characters.\n- It uses weird different spacing.\n\n- There is no documentation on the Internet, despite my efforts.\n\nSorry if this doesn't work right - starfrost", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return false;
                 }
 

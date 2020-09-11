@@ -9,7 +9,7 @@
     <Grid>
         <TextBlock x:Name="ACECalculator" Text="ACE Calculator" HorizontalAlignment="Left" VerticalAlignment="Top" Height="81" Width="333" FontSize="48" Margin="10,-3,0,0"/>
         <TextBlock x:Name="Version" Text="Version" HorizontalAlignment="Left" Height="32" Margin="10,60,0,0" VerticalAlignment="Top" Width="531" FontSize="20" MouseDown="Version_MouseDown"/>
-        <TextBlock x:Name="Copyright" HorizontalAlignment="Left" Height="29" Margin="10,92,0,0" TextWrapping="Wrap" Text="© 2019-2020 Cosmo. Created for HHW by Cosmo. Open-source software." VerticalAlignment="Top" Width="592" FontSize="18"/>
+        <TextBlock x:Name="Copyright" HorizontalAlignment="Left" Height="29" Margin="10,92,0,0" TextWrapping="Wrap" Text="© 2019-2020 starfrost. Created for HHW by starfrost. Open-source software." VerticalAlignment="Top" Width="592" FontSize="18"/>
         <TextBlock x:Name="HHW" HorizontalAlignment="Left" Height="30" Margin="10,121,0,0" VerticalAlignment="Top" Width="394">
             <Hyperlink NavigateUri="http://hypotheticalhurricanes.fandom.com" RequestNavigate="Hyperlink_RequestNavigate">http://www.hypotheticalhurricanes.fandom.com</Hyperlink>
         </TextBlock>

@@ -42,7 +42,7 @@ namespace Dano.ACECalculator
                 // is it 0?
                 this.DateTimeOn = false;
                 this.Width -= 50;
-                ByCosmoForHHW.Margin = new Thickness(ByCosmoForHHW.Margin.Left - 50, ByCosmoForHHW.Margin.Top, ByCosmoForHHW.Margin.Right, ByCosmoForHHW.Margin.Bottom); // set the position
+                BystarfrostForHHW.Margin = new Thickness(BystarfrostForHHW.Margin.Left - 50, BystarfrostForHHW.Margin.Top, BystarfrostForHHW.Margin.Right, BystarfrostForHHW.Margin.Bottom); // set the position
                 StormIntensities.Width -= 125;
                 StormIntensities_DateTime.Width = 0;
             }
@@ -54,7 +54,7 @@ namespace Dano.ACECalculator
                 }
                 this.DateTimeOn = true;
                 this.Width += 50;
-                ByCosmoForHHW.Margin = new Thickness(ByCosmoForHHW.Margin.Left + 50, ByCosmoForHHW.Margin.Top, ByCosmoForHHW.Margin.Right, ByCosmoForHHW.Margin.Bottom);
+                BystarfrostForHHW.Margin = new Thickness(BystarfrostForHHW.Margin.Left + 50, BystarfrostForHHW.Margin.Top, BystarfrostForHHW.Margin.Right, BystarfrostForHHW.Margin.Bottom);
                 StormIntensities.Width += 125;
                 StormIntensities_DateTime.Width = 125;
             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls; 
 /// <summary>
-/// Cosmo's Hurricane Track Maker Export Platform Interface
+/// starfrost's Hurricane Track Maker Export Platform Interface
 /// 
 /// This allows us to write classes easily and quickly for exporting to any format we want. 
 /// </summary>
