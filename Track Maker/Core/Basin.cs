@@ -270,6 +270,7 @@ namespace Track_Maker
         public void LoadImage(string ImagePath)
         {
             BasinImagePath = ImagePath;
+            BasinImage = new BitmapImage(); 
             BasinImage.BeginInit();
             BasinImage.UriSource = new Uri(BasinImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
             BasinImage.EndInit();
