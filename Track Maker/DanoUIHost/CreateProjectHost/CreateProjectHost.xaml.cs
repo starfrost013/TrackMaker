@@ -43,8 +43,6 @@ namespace Track_Maker
 
             // Implement globalstate after this
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-
-
           
             // Create the basins
 
@@ -54,7 +52,7 @@ namespace Track_Maker
 
 
             MnWindow.CurrentProject = TProj;
-            
+            UpdateLayout();
             // Load basin
 
 

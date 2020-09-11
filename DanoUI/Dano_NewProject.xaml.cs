@@ -49,8 +49,15 @@ namespace DanoUI
 
         private void Dano_UI_CreateProject_Create_Click(object sender, RoutedEventArgs e)
         {
+
+            if (Dano_UI_CreateProject_InitialBasinBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("You must select a basin!");
+                return;
+            }
+
             DanoEventArgs DEA = new DanoEventArgs();
-            
+
             DEA.DanoParameters.Add(Dano_UI_CreateProject_NameBox.Text);
             DEA.DanoParameters.Add(Dano_UI_CreateProject_InitialBasinBox.Text);
             NewProjectCreated.Invoke(sender, DEA); 
