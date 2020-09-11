@@ -15,16 +15,18 @@ using System.Threading.Tasks;
 /// Purpose: Logging events that occur to a text file.
 /// 
 /// File created: 2019-11-09
+/// 
+/// File modified: 2020-09-11 (v2.0.435)
 /// </summary>
 
 
 namespace Track_Maker
 {
-    class Logging
+    public class Logging
     {
         public static void Log(string text) // logs to file. 
         {
-            if (MainWindow.Debug > 0)
+            if (MainWindow.Debug)
             {
                 Trace.WriteLine($"Debug Collective: [{DateTime.Now}] {text}");
             }

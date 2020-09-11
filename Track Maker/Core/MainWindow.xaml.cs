@@ -23,7 +23,7 @@ namespace Track_Maker
     /// 
     /// Created: 2019-11-07 (Start of Development)
     /// 
-    /// Edited: 2020-05-22 ("Dano" 2.0.381.0)
+    /// Edited: 2020-09-11
     /// 
     /// Purpose: Interaction logic for MainWindow.xaml
     /// 
@@ -35,8 +35,7 @@ namespace Track_Maker
         public CategoryManager Catman { get; set; }
         public Basin CurrentBasin { get; set; }
         public List<Basin> BasinList { get; set; }
-        public static int Debug { get; set; }  // static for debug purposes
-        public string LOGFILE { get; set; } // the log file path (visiblenames moved to settings for v0.3, build 168)
+        public static bool Debug { get; set; }  // static for debug purposes
         public bool Fullscreen { get; set; } // v0.2, build 148 and later. V0.9: MOVE TO SETTINGS
         /// <summary>
         /// New for Priscilla.
@@ -49,13 +48,8 @@ namespace Track_Maker
 
         public void Init()
         {
-            Debug = 1;
+            Debug = true;
             
-
-            string CurrentDateTime = DateTime.Now.ToString();
-            CurrentDateTime = CurrentDateTime.Replace("/", "-"); // replace backslashes with dashes as they are interpreted as subdirectories and it breaks
-            LOGFILE = $"{AppDomain.CurrentDomain.BaseDirectory}{CurrentDateTime}-log.txt";
-            LOGFILE = LOGFILE.Replace(":", "-");
             Logging.Log("Welcome to the Debug Collective");
             Logging.Log("-------------------------------");
             Logging.Log("© 2019-20 starfrost. Now Loading...");
@@ -81,6 +75,7 @@ namespace Track_Maker
         }
 
 
+
         public void RunUpdater()
         {
             Process.Start("Updater.exe");
@@ -98,11 +93,12 @@ namespace Track_Maker
             TickTimer.IsEnabled = true;
             Logging.Log("Initialized global update timer...");
             Logging.Log($"Setting current basin to {CurrentBasin.Name}...");
-            CurrentBasin.BasinImage = new BitmapImage();
+            
+            //CurrentBasin.BasinImage = new BitmapImage();
             Logging.Log("Loading basin image...");
-            CurrentBasin.BasinImage.BeginInit();
-            CurrentBasin.BasinImage.UriSource = new Uri(CurrentBasin.BasinImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
-            CurrentBasin.BasinImage.EndInit();
+            //CurrentBasin.BasinImage.BeginInit();
+            //CurrentBasin.BasinImage.UriSource = new Uri(CurrentBasin.BasinImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
+            //CurrentBasin.BasinImage.EndInit();
             Logging.Log("Loaded basin image. Setting data context...");
 
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");

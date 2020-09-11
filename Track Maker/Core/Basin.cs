@@ -263,6 +263,17 @@ namespace Track_Maker
             return;
         }
 
+        /// <summary>
+        /// Load the image with path ImagePath and set it as the basin image.
+        /// </summary>
+        /// <param name="ImagePath"></param>
+        public void LoadImage(string ImagePath)
+        {
+            BasinImagePath = ImagePath;
+            BasinImage.BeginInit();
+            BasinImage.UriSource = new Uri(BasinImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
+            BasinImage.EndInit();
+        }
 
     }
 }

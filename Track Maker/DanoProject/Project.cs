@@ -33,12 +33,14 @@ namespace Track_Maker
 
         public void AddBasin(string Name)
         {
+            // This is still terrible, but it's just temporary
             Basin Bs = GetBasinWithName(Name);
-
+            Bs.LoadImage(Bs.BasinImagePath); 
 #if PRISCILLA
             // Dano exclusive stuff.
             Bs.SeasonHemisphere = Hemisphere.North;
             Bs.SeasonType = BasinType.Track;
+
 #elif DANO
             // ATTN: You can write anything you want if it's not covered by the currently defined ifdefs 
             Bs.SeasonHemisphere = Hemisphere;
