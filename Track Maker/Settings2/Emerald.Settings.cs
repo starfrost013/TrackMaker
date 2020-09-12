@@ -24,16 +24,8 @@ namespace Track_Maker
         {
             try
             {
-                XmlDocument XDoc = new XmlDocument();
-
-                if (!File.Exists("Settings.xml"))
-                {
-                    GenerateSettings();
-                }
-
-                XDoc.Load("Settings.xml");
-
-                // get the xmlnode
+                // Priscilla 442 - simplify
+                XmlDocument XDoc = LoadSettingsXml(); 
 
                 XmlNode XRoot = GetFirstNode(XDoc); 
 
@@ -65,12 +57,14 @@ namespace Track_Maker
             {
                 XmlDocument XDoc = new XmlDocument();
 
-                if (!File.Exists("Settings.xml"))
+                string SettingFile = @"Data\Settings.xml";
+
+                if (!File.Exists(SettingFile))
                 {
-                    GenerateSettings();
+                    Error.Throw("Fatal error", "Settings.xml not found!", Error.ErrorSeverity.CatastrophicError, 110);
                 }
 
-                XDoc.Load("Settings.xml");
+                XDoc.Load(SettingFile);
 
                 return XDoc;
             }

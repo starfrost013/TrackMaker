@@ -64,8 +64,12 @@ namespace Track_Maker
             // Implement later
             throw new NotImplementedException();
         }
-
-        public bool GeneratePreview(Canvas Canvas)
+        
+        /// <summary>
+        /// This will be removed - export formats will not generate previews in v2
+        /// </summary>
+        /// <param name="Canvas"></param>
+        public void GeneratePreview(Canvas Canvas)
         {
             throw new NotImplementedException();
         }

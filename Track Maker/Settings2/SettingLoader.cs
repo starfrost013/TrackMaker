@@ -14,23 +14,6 @@ namespace Track_Maker
         {
             // Loads settings using the Emerald XML Settings API.
 
-            /* Priscilla 441
-            string CBasin = EmeraldSettings.GetString("SelectedBasin");
-            
-            foreach (Basin basin in CurrentProject.Basins)
-            {
-                if (CBasin == basin.Name)
-                {
-                    CurrentProject.SelectedBasin = basin; 
-                }
-            } 
-
-            if (CurrentProject.SelectedBasin == null)
-            {
-                MessageBox.Show("Invalid category system selected. Change the settings in Settings.xml or the Settings menu. The category system has been changed to the first category system installed - usually the SSHWS. If this continues to happen, contact me at starfrost#9088 on Discord.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                CurrentProject.SelectedBasin = CurrentProject.Basins[0];
-            } */
-
             string CCatSystem = EmeraldSettings.GetString("DefaultCategorySystem");
 
             foreach (CategorySystem CatSystem in Catman.CategorySystems)

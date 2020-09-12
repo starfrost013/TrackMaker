@@ -18,7 +18,7 @@ namespace Track_Maker
                 // load categorysystems.xml
                 XmlDocument XDoc = new XmlDocument();
 
-                XDoc.Load("Data\CategorySystems.xml");
+                XDoc.Load(@"Data\CategorySystems.xml");
 
                 // Check the root node
 
