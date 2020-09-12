@@ -46,7 +46,7 @@ namespace Track_Maker
                 TD = TD.AddMinutes(Minutes);
 
                 // Kinda temp because this won't be in mainwindow after a while
-                MainWindow.CurrentBasin.AddStorm(NameBox.Text, TypeTextBlock.Text, TD);
+                MainWindow.CurrentProject.SelectedBasin.AddStorm(NameBox.Text, TypeTextBlock.Text, TD);
 
                 Close(); 
                 return; 

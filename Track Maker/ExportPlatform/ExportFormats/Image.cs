@@ -125,7 +125,7 @@ namespace Track_Maker
             _temp_.Width = _temp_bi_.PixelWidth;
             _temp_.Height = _temp_bi_.PixelHeight;
 
-            Xwindow.RecalculateNodePositions(Direction.Larger, new Point(_temp_.Width, _temp_.Height), Xwindow.CurrentBasin);
+            Xwindow.CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Larger, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
 
             //New scaling for picking up dev again - 2020-05-08 23:04
             Xwindow.RenderContent(_temp_, new Point(Utilities.RoundNearest(8 * (_temp_.Width / Xwindow.Width) / 1.5, 8), Utilities.RoundNearest(8 * (_temp_.Height / Xwindow.Height) / 1.5, 8)), XStormList);
@@ -161,7 +161,7 @@ namespace Track_Maker
             File.WriteAllBytes(FileName, _temp_ms_.ToArray());
 
             // clean up by restoring the basin
-            Xwindow.RecalculateNodePositions(Direction.Smaller, new Point(_temp_.Width, _temp_.Height), Xwindow.CurrentBasin);
+            Xwindow.CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Smaller, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
 
             return true; // success
         }

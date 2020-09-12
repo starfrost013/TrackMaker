@@ -18,7 +18,7 @@ namespace Track_Maker
             HurricaneBasin.Children.Clear();
 
             // render loop
-            foreach (Storm XStorm in CurrentBasin.Storms)
+            foreach (Storm XStorm in CurrentProject.SelectedBasin.Storms)
             {
                 if (StormList != null)
                 {

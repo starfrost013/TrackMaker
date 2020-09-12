@@ -58,7 +58,7 @@ namespace Track_Maker
             Catman.InitCategories();
             Logging.Log("Initialised category manager.");
             CurrentBasin = new Basin();
-            Logging.Log("Initialized current basin.");
+            Logging.Log("Initialized legacy current basin.");
             BasinList = new List<Basin>(); // create the list
             Logging.Log("Initialized basin list. Loading basins...");
             LoadBasins();
@@ -95,11 +95,11 @@ namespace Track_Maker
             Logging.Log($"Setting current basin to {CurrentBasin.Name}...");
             
             //CurrentBasin.BasinImage = new BitmapImage();
-            Logging.Log("Loading basin image...");
+            //Logging.Log("Loading basin image...");
             //CurrentBasin.BasinImage.BeginInit();
             //CurrentBasin.BasinImage.UriSource = new Uri(CurrentBasin.BasinImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
             //CurrentBasin.BasinImage.EndInit();
-            Logging.Log("Loaded basin image. Setting data context...");
+            //Logging.Log("Loaded basin image. Setting data context...");
 
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
            
@@ -108,7 +108,7 @@ namespace Track_Maker
 #elif PRISCILLA
 #if DEBUG
             Title = "Track Maker \"Priscilla\" (version 2.0 alpha) (Debug Build)";
-#endif
+#else
             Title = "Track Maker \"Priscilla\" (version 2.0 alpha)";
 #endif
 
@@ -145,23 +145,23 @@ namespace Track_Maker
                     SetFullscreen(); 
                     return; 
                 case Key.Y:
-                    if (CurrentBasin.CurrentStorm == null) return;
-                    if (CurrentBasin.CurrentStorm.NodeList.Count == 0) return;
+                    if (CurrentProject.SelectedBasin.CurrentStorm == null) return;
+                    if (CurrentProject.SelectedBasin.CurrentStorm.NodeList.Count == 0) return;
 
                     if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
                     {
                         // we want to redo
-                        CurrentBasin.CurrentStorm.Redo();
+                        CurrentProject.SelectedBasin.CurrentStorm.Redo();
                     }
                     return;
                 case Key.Z:
-                    if (CurrentBasin.CurrentStorm == null) return;
-                    if (CurrentBasin.CurrentStorm.NodeList.Count == 0) return;
+                    if (CurrentProject.SelectedBasin.CurrentStorm == null) return;
+                    if (CurrentProject.SelectedBasin.CurrentStorm.NodeList.Count == 0) return;
 
                     if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
                     {
                         // we want to undo
-                        CurrentBasin.CurrentStorm.Undo(); 
+                        CurrentProject.SelectedBasin.CurrentStorm.Undo(); 
                     }
                     return;
             }

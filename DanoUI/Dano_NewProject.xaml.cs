@@ -30,7 +30,6 @@ namespace DanoUI
 
         public void Dano_NewProject_InitDBL(List<string> DBL)
         {
-            
             DanoBasinList = DBL;
         }
 

@@ -276,5 +276,55 @@ namespace Track_Maker
             BasinImage.EndInit();
         }
 
+        /// <summary>
+        /// When leaving or entering fullscreen mode, recalculate the position of each node so it doesn't end up in the wrong place.
+        /// 
+        /// Straight MainWindow => Basin port for Priscilla 441, so not the best
+        /// </summary>
+        public void RecalculateNodePositions(bool IsFullscreen, Point CurWindowSize)
+        {
+            foreach (Storm StormtoRecalc in Storms)
+            {
+                foreach (Node NodetoRecalc in StormtoRecalc.NodeList)
+                {
+                    switch (IsFullscreen)
+                    {
+                        case true:
+                            NodetoRecalc.Position = new Point(NodetoRecalc.Position.X / (SystemParameters.PrimaryScreenWidth / CurWindowSize.X), NodetoRecalc.Position.Y / (SystemParameters.PrimaryScreenHeight / CurWindowSize.Y));
+                            continue;
+                        case false:
+                            NodetoRecalc.Position = new Point(NodetoRecalc.Position.X * (SystemParameters.PrimaryScreenWidth / CurWindowSize.X), NodetoRecalc.Position.Y * (SystemParameters.PrimaryScreenHeight / CurWindowSize.Y));
+                            continue;
+
+                    }
+                }
+            }
+        }
+
+        // Priscilla 441: Anti-Mainwindow refactoring: Port to Basin class
+        public void RecalculateNodePositions(Direction RecalcDir, Point CurWindowSize, Point RecalcRes)
+        {
+            foreach (Storm StormtoRecalc in Storms)
+            {
+                foreach (Node NodetoRecalc in StormtoRecalc.NodeList)
+                {
+                    switch (RecalcDir)
+                    {
+                        case Direction.Smaller:
+                            // get it smaller
+                            NodetoRecalc.Position = new Point(NodetoRecalc.Position.X / (RecalcRes.X / CurWindowSize.X), NodetoRecalc.Position.Y / (RecalcRes.Y / CurWindowSize.Y));
+                            continue;
+                        case Direction.Larger:
+                            // get it larger
+                            NodetoRecalc.Position = new Point(NodetoRecalc.Position.X * (RecalcRes.X / CurWindowSize.X), NodetoRecalc.Position.Y * (RecalcRes.Y / CurWindowSize.Y));
+                            continue;
+
+                    }
+                }
+            }
+
+            return;
+        }
+
     }
 }

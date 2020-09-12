@@ -34,9 +34,9 @@ namespace Track_Maker
             {
                 // Dano: move to TNode.AddNode() - add currentstorm to this
 
-                foreach (Storm Storm in MnWindow.CurrentBasin.Storms)
+                foreach (Storm Storm in MnWindow.CurrentProject.SelectedBasin.Storms)
                 {
-                    if (Storm == MnWindow.CurrentBasin.CurrentStorm)
+                    if (Storm == MnWindow.CurrentProject.SelectedBasin.CurrentStorm)
                     {
                         Storm.AddNode(Convert.ToInt32(IntensityTextBox.Text), TypeSelect.TypeBox.SelectedIndex, Pos); 
                     }
