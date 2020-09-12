@@ -140,10 +140,10 @@ namespace Track_Maker
                 SW.WriteLine("  barset:Hurricane width:10 align:left fontsize:S shift:(4,-4) anchor:till"); // write the basic information
 
                 // Write the storm information for EasyTimeline - section 7
-                for (int i = 0; i < MnWindow.CurrentBasin.Storms.Count; i++)
+                for (int i = 0; i < MnWindow.CurrentProject.SelectedBasin.Storms.Count; i++)
                 {
                     // Get the peak storm category. 
-                    Storm St = MnWindow.CurrentBasin.Storms[i];
+                    Storm St = MnWindow.CurrentProject.SelectedBasin.Storms[i];
                     Category Cat = St.GetPeakCategory(St, MnWindow.Catman.CurrentCategorySystem);
 
                     // write the storm info in ddmmyyyy format

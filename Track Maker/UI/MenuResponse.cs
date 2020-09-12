@@ -35,8 +35,8 @@ namespace Track_Maker
 
         private void BasinMenu_Clear_Click(object sender, RoutedEventArgs e)
         {
-            CurrentBasin.CurrentStorm = null; 
-            CurrentBasin.Storms.Clear();
+            CurrentProject.SelectedBasin.CurrentStorm = null; 
+            CurrentProject.SelectedBasin.Storms.Clear();
         }
 
         private void ViewMenu_Names_Click(object sender, RoutedEventArgs e)
@@ -58,7 +58,7 @@ namespace Track_Maker
         {
 
             // if we have no storms, ask the user to create a storm instead of add a track point. 
-            if (CurrentBasin.CurrentStorm == null)
+            if (CurrentProject.SelectedBasin.CurrentStorm == null)
             {
                 AddNewStorm Addstwindow = new AddNewStorm();
                 Addstwindow.Owner = this;
@@ -161,7 +161,7 @@ namespace Track_Maker
         private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e)
         {
 
-            if (CurrentBasin.Storms.Count == 0)
+            if (CurrentProject.SelectedBasin.Storms.Count == 0)
             {
                 MessageBox.Show("You must have at least one storm to export to this format.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return; 
@@ -174,7 +174,7 @@ namespace Track_Maker
 
         private void FileMenu_Export_BT_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentBasin.Storms.Count == 0)
+            if (CurrentProject.SelectedBasin.Storms.Count == 0)
             {
                 MessageBox.Show("You must have at least one storm to export to this format.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -218,7 +218,7 @@ namespace Track_Maker
             List<string> _ = new List<string>();
 
             // Iterate through all of the storms
-            foreach (Basin CurBasin in BasinList)
+            foreach (Basin CurBasin in CurrentProject.Basins)
             {
                 _.Add(CurBasin.Name);
             }
@@ -237,22 +237,22 @@ namespace Track_Maker
 
         private void UndoButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentBasin != null)
+            if (CurrentProject.SelectedBasin != null)
             {
-                if (CurrentBasin.CurrentStorm != null)
+                if (CurrentProject.SelectedBasin.CurrentStorm != null)
                 {
-                    CurrentBasin.CurrentStorm.Undo();
+                    CurrentProject.SelectedBasin.CurrentStorm.Undo();
                 }
             }
         }
 
         private void RedoButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentBasin != null)
+            if (CurrentProject.SelectedBasin != null)
             {
-                if (CurrentBasin.CurrentStorm != null)
+                if (CurrentProject.SelectedBasin.CurrentStorm != null)
                 {
-                    CurrentBasin.CurrentStorm.Redo();
+                    CurrentProject.SelectedBasin.CurrentStorm.Redo();
                 }
             }
 

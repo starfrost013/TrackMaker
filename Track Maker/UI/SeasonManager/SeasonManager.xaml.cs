@@ -28,13 +28,13 @@ namespace Track_Maker
 
         private void Setup()
         {
-            if (MnWindow.CurrentBasin.Storms.Count == 0)
+            if (MnWindow.CurrentProject.SelectedBasin.Storms.Count == 0)
             {
                 MessageBox.Show("Please add a storm to use this functionality.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Close(); 
             }
 
-            StormList.DataContext = MnWindow.CurrentBasin.Storms; 
+            StormList.DataContext = MnWindow.CurrentProject.SelectedBasin.Storms; 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -57,13 +57,13 @@ namespace Track_Maker
                 return; 
             }
 
-            if (MnWindow.CurrentBasin.Storms[StormList.SelectedIndex].Id == MnWindow.CurrentBasin.CurrentStorm.Id)
+            if (MnWindow.CurrentProject.SelectedBasin.Storms[StormList.SelectedIndex].Id == MnWindow.CurrentProject.SelectedBasin.CurrentStorm.Id)
             {
                 // if we want to delete the current storm, make the currentstorm null
-                MnWindow.CurrentBasin.CurrentStorm = null;
+                MnWindow.CurrentProject.SelectedBasin.CurrentStorm = null;
             }
 
-            MnWindow.CurrentBasin.Storms.RemoveAt(StormList.SelectedIndex); 
+            MnWindow.CurrentProject.SelectedBasin.Storms.RemoveAt(StormList.SelectedIndex); 
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -75,10 +75,10 @@ namespace Track_Maker
             }
 
             // initialise the edit ui
-            EditUI Eui = new EditUI(MnWindow.CurrentBasin.Storms[StormList.SelectedIndex]);
+            EditUI Eui = new EditUI(MnWindow.CurrentProject.SelectedBasin.Storms[StormList.SelectedIndex]);
             Eui.Owner = this;
             Eui.Show();
-            StormList.DataContext = MnWindow.CurrentBasin.Storms;
+            StormList.DataContext = MnWindow.CurrentProject.SelectedBasin.Storms;
             StormList.UpdateLayout();
         }
 
@@ -90,13 +90,13 @@ namespace Track_Maker
                 return;
             }
 
-            for (int i = 0; i < MnWindow.CurrentBasin.Storms.Count; i++)
+            for (int i = 0; i < MnWindow.CurrentProject.SelectedBasin.Storms.Count; i++)
             {
-                Storm _ = MnWindow.CurrentBasin.Storms[i];
+                Storm _ = MnWindow.CurrentProject.SelectedBasin.Storms[i];
 
                 if (StormList.SelectedIndex == i)
                 {
-                    MnWindow.CurrentBasin.CurrentStorm = _;
+                    MnWindow.CurrentProject.SelectedBasin.CurrentStorm = _;
                     MessageBox.Show($"The storm {_.Name} is now selected.", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
                     return; 
                 }

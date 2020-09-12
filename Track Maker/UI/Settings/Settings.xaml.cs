@@ -31,7 +31,7 @@ namespace Track_Maker
 
             // Set up initial setting values - Would use a binding and dependencyproperties, but CBA - almost done
 
-            Settings_Tab_General_DefaultBasinBox.DataContext = MnWindow.BasinList; // Change for Basins 2.0 
+            Settings_Tab_General_DefaultBasinBox.DataContext = MnWindow.CurrentProject.SelectedBasin; // Change for Basins 2.0 
 
             Settings_Tab_General_DefaultCatSystemBox.DataContext = MnWindow.Catman.CategorySystems; // category system 
 

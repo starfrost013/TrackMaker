@@ -32,11 +32,11 @@ namespace Track_Maker
         // Move to Project.SetCurrentBasin() for Dano Milestone 2.
         public void Temp2(string CurBasinName)
         {
-            foreach (Basin Basin in TEMP3_WILLBEREMOVEDWITHPROJECT.BasinList)
+            foreach (Basin Basin in TEMP3_WILLBEREMOVEDWITHPROJECT.CurrentProject.Basins)
             {
                 if (Basin.Name == CurBasinName)
                 {
-                    TEMP3_WILLBEREMOVEDWITHPROJECT.CurrentBasin = Basin;
+                    TEMP3_WILLBEREMOVEDWITHPROJECT.CurrentProject.SelectedBasin = Basin;
                     // Remove hack code.[m2]
                     TEMP3_WILLBEREMOVEDWITHPROJECT.HurricaneBasin.Background = new ImageBrush(new BitmapImage(new Uri(Basin.BasinImagePath, UriKind.RelativeOrAbsolute)));
                 }

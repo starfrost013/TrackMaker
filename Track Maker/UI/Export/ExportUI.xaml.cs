@@ -43,7 +43,7 @@ namespace Track_Maker
         {
             MnWindow = (MainWindow)Application.Current.MainWindow;
             ExpFormat = ExportFormat;
-            StormsToExport = MnWindow.CurrentBasin.Storms; // feature pushed back to Dano, maybe even 3.0/"Aurora"
+            StormsToExport = MnWindow.CurrentProject.SelectedBasin.Storms; // feature pushed back to Dano, maybe even 3.0/"Aurora"
             Type = FType;
 
             ExportFormat.GeneratePreview(ExportPlatform_Preview);
@@ -61,12 +61,12 @@ namespace Track_Maker
                 {
                     case FormatType.Import:
                         // Dano: rewrite
-                        MnWindow.CurrentBasin = ExpFormat.Import();
+                        MnWindow.CurrentProject.SelectedBasin = ExpFormat.Import();
                         MnWindow.TickTimer.Start();
                         Close();
                         return; 
                     case FormatType.Export:
-                        ExpFormat.Export(MnWindow.CurrentBasin, MnWindow.CurrentBasin.Storms);
+                        ExpFormat.Export(MnWindow.CurrentProject.SelectedBasin, MnWindow.CurrentProject.SelectedBasin.Storms);
                         MnWindow.TickTimer.Start();
                         Close();
                         return; 
@@ -105,12 +105,12 @@ namespace Track_Maker
             switch (Type)
             {
                 case FormatType.Import:
-                    MnWindow.CurrentBasin = ExpFormat.Import();
+                    MnWindow.CurrentProject.SelectedBasin = ExpFormat.Import();
                     MnWindow.TickTimer.Start();
                     Close();
                     return; 
                 case FormatType.Export:
-                    ExpFormat.Export(MnWindow.CurrentBasin, StormsToExport);
+                    ExpFormat.Export(MnWindow.CurrentProject.SelectedBasin, StormsToExport);
                     MnWindow.TickTimer.Start();
                     Close();
                     return;

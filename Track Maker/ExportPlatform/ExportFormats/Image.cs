@@ -29,7 +29,7 @@ namespace Track_Maker
         public void GeneratePreview(Canvas XCanvas) // test
         {
             Point XPoint = new Point(Utilities.RoundNearest(8 * (XCanvas.Width / Xwindow.Width) / 1.5, 4), Utilities.RoundNearest(8 * (XCanvas.Height / Xwindow.Height) / 1.5, 4));
-            Xwindow.RenderContent(XCanvas, XPoint, Xwindow.CurrentBasin.Storms);
+            Xwindow.RenderContent(XCanvas, XPoint, Xwindow.CurrentProject.SelectedBasin.Storms);
         }
 
         public string GetName()

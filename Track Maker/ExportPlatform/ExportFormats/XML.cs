@@ -58,7 +58,7 @@ namespace Track_Maker
 
                 MainWindow Mx = (MainWindow)Application.Current.MainWindow;
 
-                Basin XBasin = MnWindow.CurrentBasin;
+                Basin XBasin = MnWindow.CurrentProject.SelectedBasin;
 
                 Canvas Ct = Mx.HurricaneBasin;
                 Ct.Children.Clear();
@@ -261,7 +261,7 @@ namespace Track_Maker
             XmlNode XRoot = XDoc.CreateElement("Project");
 
             // dump the storm info to file
-            foreach (Storm XStorm in MnWindow.CurrentBasin.Storms)
+            foreach (Storm XStorm in MnWindow.CurrentProject.SelectedBasin.Storms)
             {
                 // create the xml nodes.
                 XmlNode XStormNode = XDoc.CreateElement("Storm");

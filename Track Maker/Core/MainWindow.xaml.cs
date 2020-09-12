@@ -33,8 +33,6 @@ namespace Track_Maker
     {
         public DispatcherTimer TickTimer { get; set; }
         public CategoryManager Catman { get; set; }
-        public Basin CurrentBasin { get; set; }
-        public List<Basin> BasinList { get; set; }
         public static bool Debug { get; set; }  // static for debug purposes
         public bool Fullscreen { get; set; } // v0.2, build 148 and later. V0.9: MOVE TO SETTINGS
         /// <summary>
@@ -57,11 +55,6 @@ namespace Track_Maker
             Catman = new CategoryManager();
             Catman.InitCategories();
             Logging.Log("Initialised category manager.");
-            CurrentBasin = new Basin();
-            Logging.Log("Initialized legacy current basin.");
-            BasinList = new List<Basin>(); // create the list
-            Logging.Log("Initialized basin list. Loading basins...");
-            LoadBasins();
 
             // Load Settings
             Logging.Log("Loading settings...");
@@ -92,7 +85,8 @@ namespace Track_Maker
             TickTimer.Interval = new TimeSpan(0, 0, 0, 0, 15);
             TickTimer.IsEnabled = true;
             Logging.Log("Initialized global update timer...");
-            Logging.Log($"Setting current basin to {CurrentBasin.Name}...");
+            
+            //Logging.Log($"Setting current basin to {CurrentBasin.Name}...");
             
             //CurrentBasin.BasinImage = new BitmapImage();
             //Logging.Log("Loading basin image...");
@@ -111,7 +105,7 @@ namespace Track_Maker
 #else
             Title = "Track Maker \"Priscilla\" (version 2.0 alpha)";
 #endif
-
+#endif
             // DisableUI test 
             if (CurrentProject == null)
             {

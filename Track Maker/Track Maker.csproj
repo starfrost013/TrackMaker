@@ -115,7 +115,6 @@
     </ApplicationDefinition>
     <Compile Include="Core\Basin.cs" />
     <Compile Include="DanoProject\Project.cs" />
-    <Compile Include="Core\BasinLoader.cs" />
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>
     </Compile>
