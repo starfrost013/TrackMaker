@@ -71,7 +71,7 @@
 
     <Style TargetType="TextBox">
         
-        <Setter Property="Foreground" Value="#00FFFFFF"></Setter>
+        <Setter Property="Foreground" Value="#FFFFFFFF"></Setter> 
         <Setter Property="Background" Value="#40FFFFFF"></Setter>
         
         <Setter Property="Height" Value="32"></Setter>
