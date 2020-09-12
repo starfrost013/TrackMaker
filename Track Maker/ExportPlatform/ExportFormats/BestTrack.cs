@@ -44,7 +44,7 @@ namespace Track_Maker
 
         // Dano - remove basin?
 
-        public bool Export(Basin basin, List<Storm> StormList)
+        public bool Export(Basin basin)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace Track_Maker
                 }
 
                 // Run the export and if we failed clean up 
-                if (!ExportCore(basin, StormList, SFD.FileName))
+                if (!ExportCore(basin, SFD.FileName))
                 {
                     string _ = SFD.FileName.Replace(".", "");
                     foreach (string FileName in Directory.EnumerateFiles(_))
@@ -88,18 +88,18 @@ namespace Track_Maker
             return true;
         } 
 
-        public bool ExportCore(Basin basin, List<Storm> StormList, string FileName)
+        public bool ExportCore(Basin Basin, string FileName)
         {
             Directory.CreateDirectory(FileName);
             Directory.SetCurrentDirectory(FileName.Replace(".","")); 
 
             // create a file for each storm
-            foreach (Storm Storm in StormList)
+            foreach (Storm Storm in Basin.Storms)
             {
                 if (Storm.Name.Length > 12)
                 {   
-                    // The truth
-                    MessageBox.Show("This format, the ATCF BestTrack format, is a piece of utter crap and should never be used for anything serious but it's a US government system so it must only be updated every 57 years or less\n\n- It does not support storms with names with a length above twelve characters.\n-It does not support abbreviated character names of lengths more than three characters.\n- It uses weird different spacing.\n\n- There is no documentation on the Internet, despite my efforts.\n\nSorry if this doesn't work right - starfrost", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    // Woah, calm it (Priscilla 442)
+                    MessageBox.Show("This format, the ATCF BestTrack format, has several limitations (and is obsolete to begin with). Exporting to this format is not recommended. \n\nLimitations:\n\n- It does not support storms with names with a length above twelve characters.\n-It does not support abbreviated character names of lengths more than three characters.\n- It uses weird different spacing.\n\n- There is no documentation on the Internet, despite my efforts.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return false;
                 }
 
@@ -130,7 +130,7 @@ namespace Track_Maker
 
                         // Node position.
 
-                        Coordinate X = basin.FromNodePositionToCoordinate(Node.Position); 
+                        Coordinate X = Basin.FromNodePositionToCoordinate(Node.Position); 
 
                         SW.Write($"{X.Coordinates.X.ToString()}{X.Directions[0].ToString()},  {X.Coordinates.Y.ToString()}{X.Directions[1].ToString()},  ");
 
@@ -196,7 +196,7 @@ namespace Track_Maker
 
         public void GeneratePreview(Canvas canvas)
         {
-
+            throw new NotImplementedException(); 
         }
 
     }

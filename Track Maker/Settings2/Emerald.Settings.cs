@@ -17,7 +17,7 @@ namespace Track_Maker
     /// Ported from Emerald Lite/NetEmerald/Emerald Mini game engine
     /// </summary>
     /// 
-    public enum SettingFile { Engine, Game }; // engine/game level settings
+
     public static class EmeraldSettings
     {
         internal static XmlNode LoadSettingsXmlGetNode()
@@ -114,13 +114,13 @@ namespace Track_Maker
             return XRoot;
         }
 
+        /// <summary>
+        /// Temp (Priscilla 442)
+        /// </summary>
         private static void GenerateSettings()
         {
-            // TEMP
-            FileStream FStream = File.Create("Emerald.xml");
             FileStream FStreamSettings = File.Create("Settings.xml");
 
-            FStream.Dispose();
             FStreamSettings.Dispose(); 
             // END TEMP
         }

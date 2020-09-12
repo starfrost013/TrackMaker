@@ -66,7 +66,7 @@ namespace Track_Maker
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load("Basins.xml"); // maybe change?
+                XmlDocument.Load(@"Data\Basins.xml"); // maybe change?
 
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
                 while (XmlRootNode.Name != "Basins")

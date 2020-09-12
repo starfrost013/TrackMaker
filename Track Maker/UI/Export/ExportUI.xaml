@@ -9,6 +9,7 @@
     <Grid>
         <TextBlock x:Name="ExportPlatform" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Export to Whatever" VerticalAlignment="Top" Height="71" Width="492" FontSize="48" FontStyle="Italic"/>
         <TextBlock x:Name="ExportPlatform_PreviewTextBlock" HorizontalAlignment="Left" Margin="10,89,0,0" TextWrapping="Wrap" Text="Preview:" VerticalAlignment="Top" FontSize="18" FontStyle="Italic"/>
+        <!-- Layer goes here --> 
         <Border x:Name="ExportPlatform_PreviewBorder" BorderBrush="#60000000" BorderThickness="1" HorizontalAlignment="Left" Height="312" Margin="10,118,0,0" VerticalAlignment="Top" Width="421">
             <Canvas x:Name="ExportPlatform_Preview" Width="421" Height="313" Margin="-480,-6,478,4"></Canvas>
             <!-- v0.93: prevent crashes -->

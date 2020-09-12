@@ -41,6 +41,7 @@ namespace Track_Maker
         {
             return Name;
         }
+
         // 2020-05-21 [v1.0.364.0] - change to modify instead of overwrite the current basin
         public Basin Import()
         {
@@ -215,7 +216,7 @@ namespace Track_Maker
             }
         }
 
-        public bool Export(Basin basin, List<Storm> XStormList)
+        public bool Export(Basin Basin)
         {
             try
             {
@@ -236,7 +237,7 @@ namespace Track_Maker
                     FS.Close();
                 }
 
-                ExportCore(basin, XStormList, SFD.FileName);
+                ExportCore(Basin, SFD.FileName);
 
                 return true; 
             }
@@ -255,7 +256,7 @@ namespace Track_Maker
             }
         }
 
-        public bool ExportCore(Basin basin, List<Storm> XStormList, string FileName)
+        public bool ExportCore(Basin Basin, string FileName)
         {
             XmlDocument XDoc = new XmlDocument();
             XmlNode XRoot = XDoc.CreateElement("Project");

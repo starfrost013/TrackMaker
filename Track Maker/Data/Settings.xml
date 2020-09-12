@@ -5,7 +5,7 @@
   <DotSize>8,8</DotSize>
   <ExperimentalMode>true</ExperimentalMode>
   <LineSize>2</LineSize>
-  <SelectedBasin>Atlantic</SelectedBasin>
+  <!--<SelectedBasin>Atlantic</SelectedBasin> legacy v1.0-->
   <StormNamesVisible>true</StormNamesVisible>
   <TelemetryConsent>Yes</TelemetryConsent>
   <UndoDepth>50</UndoDepth>
