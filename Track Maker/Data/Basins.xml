@@ -1,0 +1,13 @@
+<!-- Basin list for the track maker -->
+<!-- Edit this file to add new basins -->
+
+<Basins>
+	<Basin name="Atlantic" bgimage="BasinImages\T_AtlanticHighRes.png" CoordsTopLeft="63.01;N 105.35;W" CoordsBottomRight="8.32;N 4.02;E"></Basin>
+	<Basin name="Australian" bgimage="BasinImages\T_AusHighRes.png" CoordsTopLeft="10.10;N 99.11;E" CoordsBottomRight="47.31;S 154.86;E"></Basin>
+	<Basin name="Eastern + Central Pacific" bgimage="BasinImages\T_EpacCpacHighRes.png" CoordsTopLeft="38.79;N 171.62;E" CoordsBottomRight="2.79;N 79.07;W"></Basin>
+	<Basin name="Mediterranean Sea" bgimage="BasinImages\T_MediLowRes.png" CoordsTopLeft="51.14;N 5.36;W" CoordsBottomRight="26.73;N 43.90;E"></Basin>
+	<Basin name="North Indian Ocean" bgimage="BasinImages\T_NioHighRes.png" CoordsTopLeft="37.34;N 38.22;E" CoordsBottomRight="2.24;S 100.76;E"></Basin>
+	<Basin name="South Pacific" bgimage="BasinImages\T_SpacHighRes.png" CoordsTopLeft="8.66;S 156.29;E" CoordsBottomRight="47.99;S 179.19;E"></Basin>
+	<Basin name="South-West Indian Ocean" bgimage="BasinImages\T_SwioHighRes.png" CoordsTopLeft="2.69;N 27.67;E" CoordsBottomRight="32.09;S 71.43;E"></Basin>
+	<Basin name="Western Pacific" bgimage="BasinImages\T_WpacHighRes.png" CoordsTopLeft="52.18;N 90.49;E" CoordsBottomRight="6.95;S 165.04;E"></Basin> 
+</Basins>

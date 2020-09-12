@@ -1,0 +1,13 @@
+<Settings>
+  <AccentColour1>0,64,128</AccentColour1>
+  <AccentColour2>150,189,254</AccentColour2>
+  <DefaultCategorySystem>SSHWS</DefaultCategorySystem>
+  <DotSize>8,8</DotSize>
+  <ExperimentalMode>true</ExperimentalMode>
+  <LineSize>2</LineSize>
+  <SelectedBasin>Atlantic</SelectedBasin>
+  <StormNamesVisible>true</StormNamesVisible>
+  <TelemetryConsent>Yes</TelemetryConsent>
+  <UndoDepth>50</UndoDepth>
+  <UseGradient>True</UseGradient>
+</Settings>
