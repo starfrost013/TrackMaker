@@ -42,9 +42,12 @@ namespace Track_Maker
             throw new NotImplementedException(); 
         }
 
-        // Dano - remove basin?
-
-        public bool Export(Basin basin)
+        /// <summary>
+        /// Needs to be majorly updated and refactored for v2
+        /// </summary>
+        /// <param name="basin"></param>
+        /// <returns></returns>
+        public bool Export(Project Project)
         {
             try
             {
@@ -64,7 +67,7 @@ namespace Track_Maker
                 }
 
                 // Run the export and if we failed clean up 
-                if (!ExportCore(basin, SFD.FileName))
+                if (!ExportCore(Project, SFD.FileName))
                 {
                     string _ = SFD.FileName.Replace(".", "");
                     foreach (string FileName in Directory.EnumerateFiles(_))
@@ -86,15 +89,20 @@ namespace Track_Maker
                 return false;
             }
             return true;
-        } 
+        }
 
-        public bool ExportCore(Basin Basin, string FileName)
+        /// <summary>
+        /// Needs to be majorly updated and refactored for v2
+        /// </summary>
+        /// <param name="basin"></param>
+        /// <returns></returns>
+        public bool ExportCore(Project Project, string FileName)
         {
             Directory.CreateDirectory(FileName);
             Directory.SetCurrentDirectory(FileName.Replace(".","")); 
 
             // create a file for each storm
-            foreach (Storm Storm in Basin.Storms)
+            foreach (Storm Storm in Project.SelectedBasin.Storms)
             {
                 if (Storm.Name.Length > 12)
                 {   
@@ -130,7 +138,7 @@ namespace Track_Maker
 
                         // Node position.
 
-                        Coordinate X = Basin.FromNodePositionToCoordinate(Node.Position); 
+                        Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position); 
 
                         SW.Write($"{X.Coordinates.X.ToString()}{X.Directions[0].ToString()},  {X.Coordinates.Y.ToString()}{X.Directions[1].ToString()},  ");
 

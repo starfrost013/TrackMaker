@@ -45,7 +45,7 @@ namespace Track_Maker
             return Name;
         }
 
-        public bool Export(Basin basin)
+        public bool Export(Project Project)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace Track_Maker
                     fc.Close(); 
                 }
 
-                ExportCore(basin, SFD.FileName);
+                ExportCore(Project, SFD.FileName);
 
                 return true;
             }
@@ -82,7 +82,7 @@ namespace Track_Maker
             }
         }
 
-        public bool ExportCore(Basin Basin, string FileName)
+        public bool ExportCore(Project Project, string FileName)
         {
             using (StreamWriter SW = new StreamWriter(new FileStream(FileName, FileMode.Create)))
             {
@@ -100,9 +100,9 @@ namespace Track_Maker
 
                 // This code is a mess
 
-                DateTime _startdate = Basin.Storms[0].FormationDate; // The formation date of the first storm. 
+                DateTime _startdate = Project.SelectedBasin.Storms[0].FormationDate; // The formation date of the first storm. 
                 DateTime _startdate_period =  _startdate.AddDays(-_startdate.Day).AddMonths(-1);
-                DateTime _enddate = Basin.Storms[Basin.Storms.Count - 1].GetDissipationDate().AddDays(1); // The dissipation date of the last storm. 
+                DateTime _enddate = Project.SelectedBasin.Storms[Project.SelectedBasin.Storms.Count - 1].GetDissipationDate().AddDays(1); // The dissipation date of the last storm. 
 
                 SW.WriteLine("DateFormat = dd/mm/yyyy\n"); // date format
                 SW.WriteLine($"Period = from:{_startdate_period.ToString("dd'/'MM'/'yyyy")} till:{_enddate.ToString("dd'/'MM'/'yyyy")}"); // the period. generated dynamically.
@@ -145,10 +145,10 @@ namespace Track_Maker
                 SW.WriteLine("  barset:Hurricane width:10 align:left fontsize:S shift:(4,-4) anchor:till"); // write the basic information
 
                 // Write the storm information for EasyTimeline - section 7
-                for (int i = 0; i < MnWindow.CurrentProject.SelectedBasin.Storms.Count; i++)
+                for (int i = 0; i < Project.SelectedBasin.Storms.Count; i++)
                 {
                     // Get the peak storm category. 
-                    Storm St = MnWindow.CurrentProject.SelectedBasin.Storms[i];
+                    Storm St = Project.SelectedBasin.Storms[i];
                     Category Cat = St.GetPeakCategory(St, MnWindow.Catman.CurrentCategorySystem);
 
                     // write the storm info in ddmmyyyy format
