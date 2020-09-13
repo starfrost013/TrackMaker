@@ -38,11 +38,11 @@
                 </MenuItem>
                 <MenuItem x:Name="FileMenu_Export" Header="Export" Foreground="Black">
                     <MenuItem x:Name="FileMenu_Export_BT" Header="to Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_BT_Click"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Export_HURDAT" Header="to Best Track (HURDAT2)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_BT_Click"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Export_HURDAT" Header="to Best Track (HURDAT2)..." IsEnabled="False" Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_ET" Header="to EasyTimeline..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_ET_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_Image" Header="to Image..." Foreground="Black" Click="FileMenu_SaveImage_Click" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_XML" Header="to Track Maker project (v1.x)..." Foreground="Black" Click="FileMenu_SaveXML_Click" FontStyle="Italic"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Export_XMLv2" Header="to Track Maker project ..." Foreground="Black" Click="FileMenu_SaveXML_Click" FontStyle="Italic"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Export_XMLv2" Header="to Track Maker project ..." IsEnabled="False" Foreground="Black" Click="FileMenu_SaveXML_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
                 <Separator/>
                 <MenuItem x:Name="FileMenu_Exit" Header="Exit" Foreground="Black" Click="FileMenu_Exit_Click"></MenuItem>
