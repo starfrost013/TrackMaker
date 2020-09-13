@@ -12,12 +12,13 @@ using System.Xml;
 namespace Track_Maker
 {
     /// <summary>
-    /// XML export format. 
+    /// XML export format (version 1.x). 
     /// 
     /// Version history:
-    /// 1.0         v0.3.211.0  2020-04-29     Initial format. Simply save the ID, name, and nodes of each storm (intensity, position, and type).
-    /// 1.1         v1.0.305.0  2020-05-15     Add formation date saving.
-    /// 1.2         v2.0.390.0  2020-05-24     Use AddNode. Add version saving.
+    /// 1.0         v0.3.211.0      2020-04-29     Initial format. Simply save the ID, name, and nodes of each storm (intensity, position, and type).
+    /// 1.1         v1.0.305.0      2020-05-15     Add formation date saving.
+    /// 1.2         v2.0.390.0      2020-05-24     Use AddNode. Add version saving. (did we do this?)
+    /// 1.3         v2.0.445.20257  2020-09-13     Remove MainWindow dependency for exporting, importing soon (Priscilla/Dano)
     /// </summary>
     public class ExportXML : IExportFormat
     {
@@ -34,7 +35,7 @@ namespace Track_Maker
 
         public void GeneratePreview(Canvas XCanvas)
         {
-
+            throw new NotImplementedException(); 
         }
 
         public string GetName()
@@ -48,20 +49,19 @@ namespace Track_Maker
             try
             {
                 OpenFileDialog SFD = new OpenFileDialog();
-                SFD.Title = "Import from TProj file";
+                SFD.Title = "Import from track maker project file...";
                 SFD.Filter = "Track Maker project files|*.tproj";
                 SFD.ShowDialog();
 
                 if (SFD.FileName == "") return null;
 
                 XmlDocument XDoc = new XmlDocument();
-                
-
-                MainWindow Mx = (MainWindow)Application.Current.MainWindow;
 
                 Basin XBasin = MnWindow.CurrentProject.SelectedBasin;
 
-                Canvas Ct = Mx.HurricaneBasin;
+                // Fix schizophrenic code in preparation for end of MainWindow dependency
+                Canvas Ct = MnWindow.HurricaneBasin;
+
                 Ct.Children.Clear();
 
                 XBasin.Storms = new List<Storm>();
@@ -216,7 +216,7 @@ namespace Track_Maker
             }
         }
 
-        public bool Export(Basin Basin)
+        public bool Export(Project Project)
         {
             try
             {
@@ -237,7 +237,7 @@ namespace Track_Maker
                     FS.Close();
                 }
 
-                ExportCore(Basin, SFD.FileName);
+                ExportCore(Project, SFD.FileName);
 
                 return true; 
             }
@@ -256,13 +256,13 @@ namespace Track_Maker
             }
         }
 
-        public bool ExportCore(Basin Basin, string FileName)
+        public bool ExportCore(Project Project, string FileName)
         {
             XmlDocument XDoc = new XmlDocument();
             XmlNode XRoot = XDoc.CreateElement("Project");
 
             // dump the storm info to file
-            foreach (Storm XStorm in MnWindow.CurrentProject.SelectedBasin.Storms)
+            foreach (Storm XStorm in Project.SelectedBasin.Storms)
             {
                 // create the xml nodes.
                 XmlNode XStormNode = XDoc.CreateElement("Storm");

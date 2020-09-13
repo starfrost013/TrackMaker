@@ -28,6 +28,10 @@ namespace Track_Maker
         public string Name { get; set; } // the name of the basin
         public Coordinate CoordsLower { get; set; } // The lower point of the coords of this basin
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
+
+        /// <summary>
+        /// DEPRECATED - VERSION 1.X ONLY - USE LAYERS THAT CONTAIN STORMS INSTEAD
+        /// </summary>
         public List<Storm> Storms { get; set; } // list of Storms
         
         // New for Dano M1 and Priscilla
@@ -35,13 +39,14 @@ namespace Track_Maker
         public int ZoomLevel { get; set; } // The zoom level of the camera inside this basin.
         public int Year { get; set; } // THE Year
         public Hemisphere SeasonHemisphere { get; set; } // The hemisphere
-        public int SeasonID { get; set; }
-        public BasinType SeasonType { get; set; }
+        public int SeasonID { get; set; } // Unique ID of this season
+        public BasinType SeasonType { get; set; } // Type of this season (Dano/3.0 only)
 
         // New for Priscilla.
         public List<Layer> Layers { get; set; } // new: list of layers
-        public bool IsOpen { get; set; }
-        public bool IsSelected { get; set; }
+        public bool IsOpen { get; set; } // is this basin open?
+        public bool IsSelected { get; set; } // is this basin selected?
+        public string UserTag { get; set; } // User-given season name (Priscilla v445)
 
         public Basin()
         {

@@ -116,16 +116,16 @@ namespace Track_Maker
             ExportUI.Show(); 
         }
 
-        private void FileMenu_LoadXML_Click(object sender, RoutedEventArgs e)
+        private void FileMenu_Import_XML2_Click(object sender, RoutedEventArgs e)
         {
-            ExportUI ExportUI = new ExportUI(FormatType.Import, new ExportXML());
+            ExportUI ExportUI = new ExportUI(FormatType.Import, new XMLv2());
             ExportUI.Owner = this;
             ExportUI.Show(); 
         }
 
-        private void FileMenu_SaveXML_Click(object sender, RoutedEventArgs e)
+        private void FileMenu_Export_XML2_Click(object sender, RoutedEventArgs e)
         {
-            ExportUI ExportUI = new ExportUI(FormatType.Export, new ExportXML());
+            ExportUI ExportUI = new ExportUI(FormatType.Export, new XMLv2());
             ExportUI.Owner = this;
             ExportUI.Show();
         }
@@ -226,8 +226,6 @@ namespace Track_Maker
             return _;
         }
 
-
-
         private void ProjectMenu_New_Click(object sender, RoutedEventArgs e)
         {
             CreateProjectHost CPH = new CreateProjectHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
@@ -258,5 +256,19 @@ namespace Track_Maker
 
         }
 
+        private void FileMenu_Import_XML_Click(object sender, RoutedEventArgs e)
+        {
+            ExportUI ExUI = new ExportUI(FormatType.Import, new ExportXML());
+            ExUI.Owner = this;
+            ExUI.Show();
+
+        }
+
+        private void FileMenu_Export_XML_Click(object sender, RoutedEventArgs e)
+        {
+            ExportUI ExUI = new ExportUI(FormatType.Export, new ExportXML());
+            ExUI.Owner = this;
+            ExUI.Show();
+        }
     }
 }

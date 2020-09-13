@@ -1,5 +1,4 @@
-﻿<!-- Dan0 Version 2.0
--->
+﻿<!-- MainWindow 2.0 -->
 
 <Window x:Class="Track_Maker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -12,7 +11,6 @@
         Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown">
     <Grid x:Name="Core">
         <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="952">
-
             <Menu.Background>
                 <!-- menu background -->
                 <LinearGradientBrush>
@@ -34,15 +32,16 @@
                 <MenuItem x:Name="FileMenu_Import" Header="Import" Foreground="Black" Style="{StaticResource Style_Menu}">
                     <MenuItem x:Name="FileMenu_Import_BT" Header="from Best Track (ATCF)..." Foreground="Black" IsEnabled="False" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_HURDAT" Header="from Best Track (HURDAT2)..." Foreground="Black" IsEnabled="False" FontStyle="Italic"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Import_XML" Header="from Track Maker project..." Foreground="Black" Click="FileMenu_LoadXML_Click" FontStyle="Italic"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Import_XML" Header="from Track Maker project (1.x)..." Foreground="Black" Click="FileMenu_Import_XML_Click" FontStyle="Italic"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Import_XMLv2" Header="from Track Maker project..." Foreground="Black" Click="FileMenu_Import_XML2_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
                 <MenuItem x:Name="FileMenu_Export" Header="Export" Foreground="Black">
                     <MenuItem x:Name="FileMenu_Export_BT" Header="to Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_HURDAT" Header="to Best Track (HURDAT2)..." IsEnabled="False" Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_ET" Header="to EasyTimeline..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_ET_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_Image" Header="to Image..." Foreground="Black" Click="FileMenu_SaveImage_Click" FontStyle="Italic"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Export_XML" Header="to Track Maker project (v1.x)..." Foreground="Black" Click="FileMenu_SaveXML_Click" FontStyle="Italic"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Export_XMLv2" Header="to Track Maker project ..." IsEnabled="False" Foreground="Black" Click="FileMenu_SaveXML_Click" FontStyle="Italic"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Export_XML" Header="to Track Maker project (v1.x)..." Foreground="Black" Click="FileMenu_Export_XML_Click" FontStyle="Italic"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Export_XMLv2" Header="to Track Maker project ..." IsEnabled="False" Foreground="Black" Click="FileMenu_Export_XML2_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
                 <Separator/>
                 <MenuItem x:Name="FileMenu_Exit" Header="Exit" Foreground="Black" Click="FileMenu_Exit_Click"></MenuItem>

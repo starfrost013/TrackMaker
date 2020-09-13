@@ -16,9 +16,10 @@ namespace Track_Maker
     /// 
     /// Priscilla v442
     /// 
-    /// 2020-09-12
+    /// 2020-09-13
     /// 
     /// Version 1.0     Priscilla v443      Began functionality
+    /// Version 1.1     Priscilla v445      Based code off of v1 - added metadata and project based
     /// </summary>
     public class XMLv2 : IExportFormat
     {
@@ -38,7 +39,7 @@ namespace Track_Maker
         /// <returns></returns>
         public string GetName() => Name;
 
-        public bool Export(Basin Basin)
+        public bool Export(Project Project)
         {
             try
             {
@@ -51,7 +52,7 @@ namespace Track_Maker
                 // user hit cancel
                 if (SFD.FileName == "") return true;
 
-                //utilfunc v2
+                // If it exists, delete it
                 if (File.Exists(SFD.FileName))
                 {
                     File.Delete(SFD.FileName);
@@ -59,7 +60,8 @@ namespace Track_Maker
                     FS.Close();
                 }
 
-                ExportCore(Basin, SFD.FileName);
+                // Export.
+                ExportCore(Project, SFD.FileName);
 
                 return true;
             }
@@ -78,13 +80,13 @@ namespace Track_Maker
             }
         }
 
-        public bool ExportCore(Basin Basin, string FileName)
+        public bool ExportCore(Project Project, string FileName)
         {
             XmlDocument XDoc = new XmlDocument();
             XmlNode XRoot = XDoc.CreateElement("Project");
 
             // Version 2.0: Write the metadata
-
+            XmlNode XMetadataNode = XDoc.CreateElement("Metadata"); 
             // Version of the format. 
             XmlNode XFormatVersionMajor = XDoc.CreateElement("FormatVersionMajor");
             XmlNode XFormatVersionMinor = XDoc.CreateElement("FormatVersionMinor");
@@ -96,77 +98,124 @@ namespace Track_Maker
 
             // ISO 8601 date format
             XTimestamp.InnerText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            
-            // dump the storm info to file
-            foreach (Storm XStorm in Basin.Storms)
+
+            XmlNode XBasinsNode = XDoc.CreateElement("Basins"); 
+
+            foreach (Basin Bas in Project.Basins)
             {
-                // create the xml nodes.
-                XmlNode XStormNode = XDoc.CreateElement("Storm");
-                XmlNode XStormFormationDate = XDoc.CreateElement("FormationDate");
-                XmlNode XStormID = XDoc.CreateElement("ID");
-                XmlNode XStormName = XDoc.CreateElement("Name");
-                XmlNode XStormNodeList = XDoc.CreateElement("Nodes");
-                XmlNode XStormNodeListDel = XDoc.CreateElement("DeletedNodes"); // the undone nodes
+                XmlNode XBasinNode = XDoc.CreateElement("Basin");
+                XmlNode XBasinNameNode = XDoc.CreateElement("Name");
+                XmlNode XBasinNameBasin = XDoc.CreateElement("BasinName");
+                XmlNode XBasinLayers = XDoc.CreateElement("Layers");
 
+                XBasinNameNode.InnerText = Bas.UserTag;
+                XBasinNameBasin.InnerText = Bas.Name;
 
-                // set the basic info - name etc
-                XStormFormationDate.InnerText = XStorm.FormationDate.ToString();
-                XStormID.InnerText = XStorm.Id.ToString();
-                XStormName.InnerText = XStorm.Name;
+                // build a layer
 
-                // populate the node list
-                foreach (Node XNode in XStorm.NodeList)
+                foreach (Layer Lay in Bas.Layers)
                 {
-                    // add new nodes
-                    XmlNode XNodeNode = XDoc.CreateElement("Node");
-                    XmlNode XNodeIntensity = XDoc.CreateElement("Intensity");
-                    XmlNode XNodePosition = XDoc.CreateElement("Position");
-                    XmlNode XNodeType = XDoc.CreateElement("Type");
+                    XmlNode XLayerNode = XDoc.CreateElement("Layer");
+                    XmlNode XLayerNameNode = XDoc.CreateElement("Name");
+                    XmlNode XLayerGUIDNode = XDoc.CreateElement("GUID");
+                    XmlNode XStormsNode = XDoc.CreateElement("Storms");
 
-                    // set the info
-                    XNodeIntensity.InnerText = XNode.Intensity.ToString();
-                    XNodePosition.InnerText = XNode.Position.ToStringEmerald();
-                    XNodeType.InnerText = XNode.NodeType.ToString();
+                    XLayerNameNode.InnerText = Lay.Name;
+                    XLayerGUIDNode.InnerText = Lay.LayerId.ToString(); 
 
-                    // build the node list xml structure
-                    XNodeNode.AppendChild(XNodeIntensity);
-                    XNodeNode.AppendChild(XNodePosition);
-                    XNodeNode.AppendChild(XNodeType);
-                    XStormNodeList.AppendChild(XNodeNode);
+                    // dump the storm info to file
+                    foreach (Storm XStorm in Lay.AssociatedStorms)
+                    {
+                        // create the xml nodes.
+                        XmlNode XStormNode = XDoc.CreateElement("Storm");
+                        XmlNode XStormFormationDate = XDoc.CreateElement("FormationDate");
+                        XmlNode XStormID = XDoc.CreateElement("ID");
+                        XmlNode XStormName = XDoc.CreateElement("Name");
+                        XmlNode XStormNodeList = XDoc.CreateElement("Nodes");
+                        XmlNode XStormNodeListDel = XDoc.CreateElement("DeletedNodes"); // the undone nodes
+
+                        // set the basic info - name etc
+                        XStormFormationDate.InnerText = XStorm.FormationDate.ToString();
+                        XStormID.InnerText = XStorm.Id.ToString();
+                        XStormName.InnerText = XStorm.Name;
+
+                        // populate the node list
+                        foreach (Node XNode in XStorm.NodeList)
+                        {
+                            // add new nodes
+                            XmlNode XNodeNode = XDoc.CreateElement("Node");
+                            XmlNode XNodeIntensity = XDoc.CreateElement("Intensity");
+                            XmlNode XNodePosition = XDoc.CreateElement("Position");
+                            XmlNode XNodeType = XDoc.CreateElement("Type");
+
+                            // set the info
+                            XNodeIntensity.InnerText = XNode.Intensity.ToString();
+                            XNodePosition.InnerText = XNode.Position.ToStringEmerald();
+                            XNodeType.InnerText = XNode.NodeType.ToString();
+
+                            // build the node list xml structure
+                            XNodeNode.AppendChild(XNodeIntensity);
+                            XNodeNode.AppendChild(XNodePosition);
+                            XNodeNode.AppendChild(XNodeType);
+                            XStormNodeList.AppendChild(XNodeNode);
+                        }
+
+                        // Populate the deleted node list xmlinfo for the basin save information.
+
+                        foreach (Node XNode in XStorm.NodeList_Deleted)
+                        {
+                            // add new nodes
+                            XmlNode XNodeNode = XDoc.CreateElement("Node");
+                            XmlNode XNodeIntensity = XDoc.CreateElement("Intensity");
+                            XmlNode XNodePosition = XDoc.CreateElement("Position");
+                            XmlNode XNodeType = XDoc.CreateElement("Type");
+
+                            // set the info
+                            XNodeIntensity.InnerText = XNode.Intensity.ToString();
+                            XNodePosition.InnerText = XNode.Position.ToStringEmerald();
+                            XNodeType.InnerText = XNode.NodeType.ToString();
+
+                            // build the node list xml structure
+                            XNodeNode.AppendChild(XNodeIntensity);
+                            XNodeNode.AppendChild(XNodePosition);
+                            XNodeNode.AppendChild(XNodeType);
+                            XStormNodeListDel.AppendChild(XNodeNode);
+
+                        }
+                        // build perstorm xml
+
+                        XStormNode.AppendChild(XStormFormationDate);
+                        XStormNode.AppendChild(XStormID);
+                        XStormNode.AppendChild(XStormName);
+                        XStormNode.AppendChild(XStormNodeList);
+                        XStormNode.AppendChild(XStormNodeListDel);
+
+                        XStormsNode.AppendChild(XStormNode);
+
+                    }
+
+                    XLayerNode.AppendChild(XLayerNameNode);
+                    XLayerNode.AppendChild(XLayerGUIDNode);
+                    XLayerNode.AppendChild(XStormsNode);
+
+                    XBasinLayers.AppendChild(XLayerNode); 
                 }
 
-                // Populate the deleted node list xmlinfo for the basin save information.
-
-                foreach (Node XNode in XStorm.NodeList_Deleted)
-                {
-                    // add new nodes
-                    XmlNode XNodeNode = XDoc.CreateElement("Node");
-                    XmlNode XNodeIntensity = XDoc.CreateElement("Intensity");
-                    XmlNode XNodePosition = XDoc.CreateElement("Position");
-                    XmlNode XNodeType = XDoc.CreateElement("Type");
-
-                    // set the info
-                    XNodeIntensity.InnerText = XNode.Intensity.ToString();
-                    XNodePosition.InnerText = XNode.Position.ToStringEmerald();
-                    XNodeType.InnerText = XNode.NodeType.ToString();
-
-                    // build the node list xml structure
-                    XNodeNode.AppendChild(XNodeIntensity);
-                    XNodeNode.AppendChild(XNodePosition);
-                    XNodeNode.AppendChild(XNodeType);
-                    XStormNodeListDel.AppendChild(XNodeNode);
-
-                }
-                // build perstorm xml
-
-                XStormNode.AppendChild(XStormFormationDate);
-                XStormNode.AppendChild(XStormID);
-                XStormNode.AppendChild(XStormName);
-                XStormNode.AppendChild(XStormNodeList);
-                XStormNode.AppendChild(XStormNodeListDel);
-
-                XRoot.AppendChild(XStormNode);
+                // Build the Basins node
+                XBasinsNode.AppendChild(XBasinNode);
             }
+
+
+
+            // build metadata
+
+            XMetadataNode.AppendChild(XFormatVersionMajor);
+            XMetadataNode.AppendChild(XFormatVersionMinor); 
+
+            XRoot.AppendChild(XMetadataNode);
+        `   
+            // build storms
+            XRoot.AppendChild(XBasinsNode);
 
             XDoc.AppendChild(XRoot);
 

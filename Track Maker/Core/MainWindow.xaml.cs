@@ -23,7 +23,7 @@ namespace Track_Maker
     /// 
     /// Created: 2019-11-07 (Start of Development)
     /// 
-    /// Edited: 2020-09-11
+    /// Edited: 2020-09-13
     /// 
     /// Purpose: Interaction logic for MainWindow.xaml
     /// 
@@ -188,5 +188,7 @@ namespace Track_Maker
             ToolsMenu.IsEnabled = false;
             HelpMenu.IsEnabled = false;
         }
+
+
     }
 }
