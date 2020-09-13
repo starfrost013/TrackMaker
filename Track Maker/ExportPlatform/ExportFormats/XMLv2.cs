@@ -205,8 +205,6 @@ namespace Track_Maker
                 XBasinsNode.AppendChild(XBasinNode);
             }
 
-
-
             // build metadata
 
             XMetadataNode.AppendChild(XFormatVersionMajor);

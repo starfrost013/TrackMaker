@@ -46,7 +46,8 @@ namespace Track_Maker
             StormsToExport = MnWindow.CurrentProject.SelectedBasin.Storms; // feature pushed back to Dano, maybe even 3.0/"Aurora"
             Type = FType;
 
-            ExportFormat.GeneratePreview(ExportPlatform_Preview);
+            //completely different in Dano
+            //ExportFormat.GeneratePreview(ExportPlatform_Preview);
             ExportPlatform_Preview.UpdateLayout(); 
         }
 
