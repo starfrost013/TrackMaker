@@ -10,10 +10,10 @@
         <TextBlock x:Name="SeasonManagerTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Edit Season" VerticalAlignment="Top" FontStyle="Italic" FontSize="36"/>
         <TextBlock x:Name="StormListTextBlock" HorizontalAlignment="Left" Margin="10,58,0,0" TextWrapping="Wrap" Text="Storms:" VerticalAlignment="Top" FontSize="18" FontStyle="Italic"/>
         <ListBox x:Name="StormList" HorizontalAlignment="Left" Height="292" Margin="10,91,0,0" VerticalAlignment="Top" Width="257" ItemsSource="{Binding}" DisplayMemberPath="Name" Foreground="#FF3030A0"/>
-        <Button x:Name="EditButton" Content="Rename Selected" HorizontalAlignment="Left" Margin="284,129,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="EditButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Delete Selected" HorizontalAlignment="Left" Margin="284,169,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="DeleteButton_Click"/>
-        <Button x:Name="OKButton" Content="Done" HorizontalAlignment="Left" Margin="313,355,0,0" VerticalAlignment="Top" Width="92" FontSize="18" Click="OKButton_Click" RenderTransformOrigin="0.337,7.738"/>
-        <Button x:Name="ModifyButton" Content="Edit Selected" HorizontalAlignment="Left" Margin="284,91,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="ModifyButton_Click"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="EditButton" Content="Rename Selected" HorizontalAlignment="Left" Margin="284,129,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="EditButton_Click"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="DeleteButton" Content="Delete Selected" HorizontalAlignment="Left" Margin="284,169,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="DeleteButton_Click"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="OKButton" Content="Done" HorizontalAlignment="Left" Margin="313,355,0,0" VerticalAlignment="Top" Width="92" FontSize="18" Click="OKButton_Click" RenderTransformOrigin="0.337,7.738"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="ModifyButton" Content="Edit Selected" HorizontalAlignment="Left" Margin="284,91,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Click="ModifyButton_Click"/>
 
     </Grid>
 </Window>
