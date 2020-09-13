@@ -66,7 +66,7 @@ namespace Track_Maker
                         Close();
                         return; 
                     case FormatType.Export:
-                        ExpFormat.Export(MnWindow.CurrentProject.SelectedBasin);
+                        ExpFormat.Export(MnWindow.CurrentProject);
                         MnWindow.TickTimer.Start();
                         Close();
                         return; 
