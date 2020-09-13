@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DanoUI"
         mc:Ignorable="d"
-        d:DesignHeight="450" d:DesignWidth="486.104" Loaded="Window_Loaded">
+        d:DesignHeight="450" Loaded="Window_Loaded" Width="505.776">
     <Grid>
         <TextBlock x:Name="Dano_SwitchBasins" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Switch Basins" VerticalAlignment="Top" FontSize="36" FontStyle="Italic"/>
-        <ListBox x:Name="BasinList" HorizontalAlignment="Left" Height="317" Margin="10,63,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding BasinString}" Foreground="#FF3030A0"/>
-        <Button x:Name="OKButton" Content="Switch" HorizontalAlignment="Left" Margin="359,63,0,0" VerticalAlignment="Top" Width="93" FontSize="18" Click="OKButton_Click"/>
+        <TextBlock x:Name="BasinListHeader" HorizontalAlignment="Left" Height="19" FontSize="14" FontStyle="Italic" Margin="10,58,0,0" TextWrapping="Wrap" Text="Basins:" VerticalAlignment="Top" Width="46" Panel.ZIndex="0"/>
+        <ListBox x:Name="BasinList" HorizontalAlignment="Left" Height="317" Margin="10,77,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding BasinString}" Foreground="#FF3030A0"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="OKButton" Content="Switch" HorizontalAlignment="Left" Margin="359,63,0,0" VerticalAlignment="Top" Width="93" FontSize="18" Click="OKButton_Click"/>
+        <Border HorizontalAlignment="Left" Height="329" Margin="4,71,0,0" VerticalAlignment="Top" Width="272" BorderBrush="#FFB6B2B2" Panel.ZIndex="-1"/>
 
     </Grid>
 </UserControl>

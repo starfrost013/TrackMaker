@@ -15,8 +15,11 @@
         <Setter Property="BorderThickness" Value="1"></Setter>
         <Setter Property="FontSize" Value="18"></Setter>
         <Style.Triggers>
+            <Trigger Property="Button.IsPressed" Value="True">
+                <Setter Property="Background" Value="#90FFFFFF"></Setter>
+            </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#40FFFFFF"></Setter>
+                <Setter Property="Background" Value="#60FFFFFF"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -29,7 +32,7 @@
         <Setter Property="FontSize" Value="18"></Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#40FFFFFF"></Setter>
+                <Setter Property="Background" Value="#60FFFFFF"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -48,6 +48,13 @@ namespace DanoUI
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
+
+            if (BasinList.SelectedIndex == -1)
+            {
+                MessageBox.Show("You must select a basin!");
+                return; 
+            }
+
             DanoEventArgs DEA = new DanoEventArgs();
             DEA.DanoParameters = new List<object>();
             DEA.DanoParameters.Add(BasinString[BasinList.SelectedIndex]);

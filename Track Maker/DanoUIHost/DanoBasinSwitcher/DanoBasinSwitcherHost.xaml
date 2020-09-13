@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="DanoBasinSwitcherHost" Height="441.322" Width="462.81">
+        Title="DanoBasinSwitcherHost" Height="441.322" Width="500.638">
     <Grid>
         <Dano:BasinSwitcher x:Name="Dano_BasinSwitcherUserControl" CloseHit="UC_Closed"></Dano:BasinSwitcher>
     </Grid>

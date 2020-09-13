@@ -80,8 +80,8 @@
                 <Separator/>
                 <MenuItem x:Name="HelpMenu_About" Header="About starfrost's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
-            <ToolBarPanel Height="18" Width="90" >
-                <ToolBar  Height="24" Background="#00000000" Margin="0,0,-44,0">
+            <ToolBarPanel Height="22" Width="130" >
+                <ToolBar  Height="24" Background="#00000000">
                     <Button x:Name="Priscilla_UndoButton" Content="Undo" Click="UndoButton_Click"  Margin="-1,-1,0,1"/>
                     <Button x:Name="Priscilla_RedoButton" Content="Redo" Click="RedoButton_Click" Margin="-1,-1,0,1"/>
                 </ToolBar>
