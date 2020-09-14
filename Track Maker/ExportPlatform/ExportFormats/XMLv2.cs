@@ -102,7 +102,7 @@ namespace Track_Maker
 
             XmlNode XBasinsNode = XDoc.CreateElement("Basins"); 
 
-            foreach (Basin Bas in Project.Basins)
+            foreach (Basin Bas in Project.OpenBasins)
             {
                 XmlNode XBasinNode = XDoc.CreateElement("Basin");
                 XmlNode XBasinNameNode = XDoc.CreateElement("UserTag");
