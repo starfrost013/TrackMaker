@@ -99,7 +99,9 @@ namespace Track_Maker
 
         private void ExportPlatform_ExportBtn_Click(object sender, RoutedEventArgs e)
         {
-            /* Old code - dano move when we can do easy previews due to multitab
+
+            // Temporarily uncommented
+            // Old code - dano move when we can do easy previews due to multitab
             // Stop the ticktimer while importing or exporting because we need to do this stuff.
             MnWindow.TickTimer.Stop();
 
@@ -111,12 +113,12 @@ namespace Track_Maker
                     Close();
                     return; 
                 case FormatType.Export:
-                    ExpFormat.Export(MnWindow.CurrentProject.SelectedBasin, StormsToExport);
+                    ExpFormat.Export(MnWindow.CurrentProject);
                     MnWindow.TickTimer.Start();
                     Close();
                     return;
             } 
-            */
+            
             return;
         }
 
