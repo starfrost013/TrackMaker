@@ -31,7 +31,7 @@ namespace Track_Maker
             LoadBasins();
         }
 
-        public void AddBasin(string Name)
+        public void AddBasin(string Name, bool SelectNow = false)
         {
             // This is still terrible, but it's just temporary
             Basin Bs = GetBasinWithName(Name);
@@ -51,6 +51,12 @@ namespace Track_Maker
             // Create a background layer
             Layer BgLayer = new Layer();
             BgLayer.Name = "Background";
+
+            if (SelectNow)
+            {
+                Bs.IsOpen = true;
+                Bs.IsSelected = true; 
+            }
 
             Bs.Layers.Add(BgLayer);
             OpenBasins.Add(Bs); 

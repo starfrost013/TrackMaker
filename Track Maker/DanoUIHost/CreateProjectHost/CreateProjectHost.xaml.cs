@@ -48,7 +48,7 @@ namespace Track_Maker
 
             Debug.Assert(e.DanoParameters.Count == 2); 
 
-            TProj.AddBasin((string)e.DanoParameters[1]); 
+            TProj.AddBasin((string)e.DanoParameters[1], true); 
 
 
             MnWindow.CurrentProject = TProj;

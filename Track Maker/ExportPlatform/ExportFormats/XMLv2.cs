@@ -18,15 +18,16 @@ namespace Track_Maker
     /// 
     /// 2020-09-13
     /// 
-    /// Version 1.0     Priscilla v443      Began functionality
-    /// Version 1.1     Priscilla v445      Based code off of v1 - added metadata and project based
+    /// Version 2.0a     Priscilla v443      Began functionality
+    /// Version 2.0b     Priscilla v445      Based code off of v1 - added metadata and project based
+    /// Version 2.1      Priscilla v447      Bug fixes, IsSelected & IsOpen
     /// </summary>
     public class XMLv2 : IExportFormat
     {
         public bool AutoStart { get; set; }
         public string Name { get; set; }
         public static int FormatVersionMajor = 2;
-        public static int FormatVersionMinor = 0;
+        public static int FormatVersionMinor = 1;
         public XMLv2()
         {
             AutoStart = false;
@@ -104,13 +105,16 @@ namespace Track_Maker
             foreach (Basin Bas in Project.Basins)
             {
                 XmlNode XBasinNode = XDoc.CreateElement("Basin");
-                XmlNode XBasinNameNode = XDoc.CreateElement("Name");
+                XmlNode XBasinNameNode = XDoc.CreateElement("UserTag");
                 XmlNode XBasinNameBasin = XDoc.CreateElement("BasinName");
+                XmlNode XBasinIsOpen = XDoc.CreateElement("IsOpen");
+                XmlNode XBasinIsSelected = XDoc.CreateElement("IsSelected");
                 XmlNode XBasinLayers = XDoc.CreateElement("Layers");
 
                 XBasinNameNode.InnerText = Bas.UserTag;
                 XBasinNameBasin.InnerText = Bas.Name;
-
+                XBasinIsOpen.InnerText = Bas.IsOpen.ToString();
+                XBasinIsSelected.InnerText = Bas.IsSelected.ToString();
                 // build a layer
 
                 foreach (Layer Lay in Bas.Layers)
@@ -202,6 +206,11 @@ namespace Track_Maker
                 }
 
                 // Build the Basins node
+
+                XBasinNode.AppendChild(XBasinNameNode);
+                XBasinNode.AppendChild(XBasinNameBasin);
+                XBasinNode.AppendChild(XBasinLayers);
+
                 XBasinsNode.AppendChild(XBasinNode);
             }
 
