@@ -94,9 +94,6 @@ namespace Track_Maker
 
             XmlNode XTimestamp = XDoc.CreateElement("Timestamp");
 
-            // Temporary
-            XmlNode X
-
             XFormatVersionMajor.InnerText = FormatVersionMajor.ToString();
             XFormatVersionMinor.InnerText = FormatVersionMinor.ToString();
 

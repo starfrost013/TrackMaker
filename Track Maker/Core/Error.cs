@@ -4,38 +4,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+
 namespace Track_Maker
 {
     public class Error
     {
         public enum ErrorSeverity { Message, Warning, Error, FatalError, CatastrophicError}
-        public static void Throw(string caption, string text, ErrorSeverity severity, int id = 0)
+        public static void Throw(string caption, string Text, ErrorSeverity Severity, int ID = 0)
         {
-            if (severity == ErrorSeverity.Message) // message
+
+            switch (Severity)
             {
-                MessageBox.Show(caption, text, MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                case ErrorSeverity.Message:
+                    MessageBox.Show(caption, Text, MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                case ErrorSeverity.Warning:
+                    MessageBox.Show($"Warning: {caption}", Text, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                case ErrorSeverity.Error:
+                    MessageBox.Show($"Error #{ID}: {caption}", Text, MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                case ErrorSeverity.FatalError:
+                case ErrorSeverity.CatastrophicError:
+
+                    // Create an EUIH
+                    ErrorUIHost EUIH = new ErrorUIHost(Text);
+                    EUIH.ShowDialog();
+
+                    uint ECode;
+
+                    // Get our nice fancy 0x<whatever>DEAD error code. 
+                    try
+                    {
+                        ECode = 0xDEAD + (0x10000 * Convert.ToUInt32(ID));
+                        //ECode = (id << 16) + 0xDEAD;
+                    }
+                    catch (OverflowException)
+                    {
+                        ECode = Convert.ToUInt32(ID);
+                    }
+                    catch (FormatException)
+                    {
+                        ECode = 0xDEADDEAD;
+                    }
+
+                    Application.Current.Shutdown(Convert.ToInt32(ECode));
+                    Environment.Exit(Convert.ToInt32(ECode));
+
+                    return; 
+
             }
-            if (severity == ErrorSeverity.Warning) // warning
-            {
-                MessageBox.Show($"Warning: {caption}", text, MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (severity == ErrorSeverity.Error) // non-fatal error - the program can continue running
-            {
-                MessageBox.Show($"Error #{id}: {caption}", text, MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (severity == ErrorSeverity.FatalError) // fatal error - the program has to exit
-            {
-                MessageBox.Show($"Fatal Error #{id}: {caption}", text, MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(id);
-            }
-            if (severity == ErrorSeverity.CatastrophicError) // catastrophic error - there is an issue with a file related to the program and the program probably has to be reinstalled
-            {
-                MessageBox.Show($"Catastrophic Unrecoverable Irrepairable Failure (CUIF): {caption}\n\nPlease reinstall the Track Maker.", text, MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            
         }
     }
 }
