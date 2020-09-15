@@ -62,8 +62,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PriscillaUI\CreateLayer.xaml.cs">
-      <DependentUpon>CreateLayer.xaml</DependentUpon>
+    <Compile Include="PriscillaUI\Priscilla_CreateLayer.xaml.cs">
+      <DependentUpon>Priscilla_CreateLayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="PriscillaUI\Ported\Dano_About.xaml.cs">
       <DependentUpon>Dano_About.xaml</DependentUpon>
@@ -87,7 +87,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="PriscillaUI\CreateLayer.xaml">
+    <Page Include="PriscillaUI\Priscilla_CreateLayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

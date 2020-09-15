@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DanoUI.PriscillaUI
+namespace DanoUI
 {
     /// <summary>
     /// Interaction logic for CreateLayer.xaml
