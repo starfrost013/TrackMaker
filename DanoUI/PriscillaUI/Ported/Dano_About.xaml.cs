@@ -32,11 +32,17 @@ namespace DanoUI
 
         private void Setup()
         {
-            FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+            FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 #if DANO
             starfrostTrack_Version.Text = $"Version 3.0 \"Dano\" Alpha 2 (M2) ({FVI.ProductVersion})";
 #elif PRISCILLA
+
+#if DEBUG
+            starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.ProductVersion}) (Debug)";
+#else
             starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.ProductVersion})";
+#endif
+
 #else
             starfrostTrack_Version.Text = $"Version {FVI.ProductVersion}";
 #endif
