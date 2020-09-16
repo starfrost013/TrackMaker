@@ -36,7 +36,7 @@ namespace DanoUI
 
         private void Error_OKButton_Click(object sender, RoutedEventArgs e)
         {
-            ErrorOKHit(sender, e); 
+            ErrorOKHit(sender, new EventArgs()); 
         }
     }
 }

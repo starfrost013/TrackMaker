@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DanoUI"
              mc:Ignorable="d" Height="177.049" Width="787.705">
     <Grid>
-        <TextBlock x:Name="CreateLayer" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Layer" VerticalAlignment="Top" FontSize="48"/>
+        <TextBlock x:Name="CreateLayer_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Layer" VerticalAlignment="Top" FontSize="48"/>
         <TextBlock x:Name="CreateLayer_Name" HorizontalAlignment="Left" Height="32" Margin="10,79,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="73"/>
         <TextBox x:Name="CreateLayer_NameBox" HorizontalAlignment="Left" Height="29" Margin="88,79,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="403"/>
         <Button Style="{StaticResource Button_Invert}" x:Name="CreateLayer_OKButton" Content="OK" HorizontalAlignment="Left" Height="33" Margin="668,126,0,0" VerticalAlignment="Top" Width="108"/>
