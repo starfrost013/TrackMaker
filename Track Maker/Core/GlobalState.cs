@@ -9,7 +9,12 @@ namespace Track_Maker
     /// <summary>
     /// Track Maker Globalstate (Priscilla v449)
     /// </summary>
-    class GlobalState
+    /// 
+    
+    /// IMPLEMENTATION VERSION 0.0 
+    public class GlobalState
     {
+        public CategoryManager CategorySystems { get; set; }
+        public List<Basin> ValidBasins { get; set; }
     }
 }

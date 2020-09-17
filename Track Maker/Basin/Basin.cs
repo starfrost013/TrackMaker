@@ -182,7 +182,7 @@ namespace Track_Maker
 
                 if (Storm.Name == "")
                 {
-                    Error.Throw("You must add a name!", "Track Maker", Error.ErrorSeverity.Warning, 2);
+                    Error.Throw("You must add a name!", "Track Maker", ErrorSeverity.Warning, 2);
                     Storm = null;
                     return false;
                 }
@@ -191,7 +191,7 @@ namespace Track_Maker
 
                 if (DateTime == null)
                 {
-                    Error.Throw("You must add a date and time!", "Error", Error.ErrorSeverity.Warning, 1);
+                    Error.Throw("You must add a date and time!", "Error", ErrorSeverity.Warning, 1);
                     return false;
                 }
 
@@ -244,7 +244,7 @@ namespace Track_Maker
             }
             catch (FormatException)
             {
-                Error.Throw("You must enter a valid date and time!", "Error", Error.ErrorSeverity.Warning, 3);
+                Error.Throw("You must enter a valid date and time!", "Error", ErrorSeverity.Warning, 3);
                 return false;
             }
         }

@@ -7,9 +7,9 @@ using System.Windows;
 
 namespace Track_Maker
 {
+    public enum ErrorSeverity { Message, Warning, Error, FatalError, CatastrophicError }
     public class Error
     {
-        public enum ErrorSeverity { Message, Warning, Error, FatalError, CatastrophicError}
         public static void Throw(string caption, string Text, ErrorSeverity Severity, int ID = 0)
         {
 

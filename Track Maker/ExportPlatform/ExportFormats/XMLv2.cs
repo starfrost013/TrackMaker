@@ -18,16 +18,20 @@ namespace Track_Maker
     /// 
     /// 2020-09-13
     /// 
-    /// Version 2.0a     Priscilla v443      Began functionality
-    /// Version 2.0b     Priscilla v445      Based code off of v1 - added metadata and project based
+    /// Version 2.0a     Priscilla v442      Dummy only
+    /// Version 2.0b     Priscilla v443      Began functionality
+    /// Version 2.0c     Priscilla v445      Based code off of v1 - added metadata and project based
     /// Version 2.1      Priscilla v447      Bug fixes, IsSelected & IsOpen
+    /// Version 2.2      Priscilla v453      Importing, BasinName => Name
+    /// 
     /// </summary>
+    /// 
     public class XMLv2 : IExportFormat
     {
         public bool AutoStart { get; set; }
         public string Name { get; set; }
         public static int FormatVersionMajor = 2;
-        public static int FormatVersionMinor = 1;
+        public static int FormatVersionMinor = 2;
         public XMLv2()
         {
             AutoStart = false;
@@ -106,7 +110,7 @@ namespace Track_Maker
             {
                 XmlNode XBasinNode = XDoc.CreateElement("Basin");
                 XmlNode XBasinNameNode = XDoc.CreateElement("UserTag");
-                XmlNode XBasinNameBasin = XDoc.CreateElement("BasinName");
+                XmlNode XBasinNameBasin = XDoc.CreateElement("Name");
                 XmlNode XBasinIsOpen = XDoc.CreateElement("IsOpen");
                 XmlNode XBasinIsSelected = XDoc.CreateElement("IsSelected");
                 XmlNode XBasinLayers = XDoc.CreateElement("Layers");
@@ -252,15 +256,24 @@ namespace Track_Maker
                 }
                 else
                 {
-                    ImportCore(SFD.FileName); 
+                    XMLExportResult XER = ImportCore(SFD.FileName);
+
+                    if (XER.Successful && !XER.Cancelled)
+                    {
+                        return XER.Basin;
+                    }
+                    else
+                    {
+                        return null; 
+                    }
+                    
                 }
             }
             catch (XmlException)
             {
-
+                Error.Throw("Invalid basin!", "One of the basins in this Project2 file is corrupted!", ErrorSeverity.Error, 121);
+                return null;
             }
-
-            return null; 
         }
 
         public XMLExportResult ImportCore(string FileName)
@@ -273,6 +286,8 @@ namespace Track_Maker
 
             XmlNode XDR = XD.FirstChild;
 
+            Project Proj = new Project();
+
             if (XDR.HasChildNodes) return XER;
 
             foreach (XmlNode XDRA in XDR.ChildNodes)
@@ -280,6 +295,119 @@ namespace Track_Maker
                 switch (XDRA.Name)
                 {
                     case "Basin":
+
+                        // Create a new basin.
+                        Basin Bas = new Basin();
+
+                        if (!XDRA.HasChildNodes)
+                        {
+                            Error.Throw("Invalid basin!", "One of the basins in this Project2 file is corrupted!", ErrorSeverity.Error, 121);
+                            return XER; 
+                        }
+                        else
+                        {
+                            XmlNodeList XDRAList = XDRA.ChildNodes;
+                            // Iterate through the child nodes of the basin.
+                            foreach (XmlNode XDRAC in XDRAList)
+                            {
+                                switch (XDRAC.Name)
+                                {
+                                    case "Name": // The name of this basin. Triggers a GlobalState load.
+                                        Bas = Proj.GetBasinWithName(XDRAC.Value);
+                                        continue;
+                                    case "UserTag": // The user-given name of this basin
+                                        Bas.UserTag = XDRAC.Value;
+                                        continue;
+                                    case "IsOpen": // Not sure if I'll use this
+                                        Bas.IsOpen = Convert.ToBoolean(XDRAC.Value);
+                                        continue;
+                                    case "IsSelected": // Not sure if I'll use this
+                                        Bas.IsSelected = Convert.ToBoolean(XDRAC.Value);
+                                        continue;
+                                    case "Layers":
+                                        
+                                        // Detect if somehow an invalid layer was created
+                                        if (!XDRAC.HasChildNodes)
+                                        {
+                                            Error.Throw("Invalid basin!", "There are no layers!", ErrorSeverity.Error, 122);
+                                            return XER;
+                                        }
+                                        else
+                                        {
+                                            // Iterate through the layers
+                                            XmlNodeList XDRACList = XDRAC.ChildNodes;
+
+                                            foreach (XmlNode XDRACL in XDRACList)
+                                            {
+                                                switch (XDRACL.Name)
+                                                {
+                                                    case "Layer":
+                                                        if (!XDRACL.HasChildNodes)
+                                                        {
+                                                            Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 123);
+                                                            return XER;
+                                                        }
+                                                        else
+                                                        {
+                                                            XmlNodeList XDRACLList = XDRACL.ChildNodes;
+
+                                                            // Yeah
+                                                            foreach (XmlNode XDRACLL in XDRACLList)
+                                                            {
+                                                                Layer Lyr = new Layer(); 
+
+                                                                switch (XDRACLL.Name)
+                                                                {
+                                                                    case "GUID": // GUID of this basin
+                                                                        Lyr.LayerId = Guid.Parse(XDRACL.Value);
+                                                                        continue;
+                                                                    case "Name": // Name of this basin
+                                                                        Lyr.Name = XDRACL.Value;
+                                                                        continue;
+                                                                    case "Storms": // Storms of this basin
+
+                                                                        if (!XDRACLL.HasChildNodes)
+                                                                        {
+                                                                            continue; // there may be no names
+                                                                        }
+                                                                        else
+                                                                        {
+
+                                                                        }
+
+                                                                        continue;
+                                                                }
+
+                                                                if (Lyr.Name == null)
+                                                                {
+                                                                    Error.Throw("Invalid basin!", "Layer with no name!", ErrorSeverity.Error, 125);
+                                                                    return XER;
+                                                                }
+
+                                                                Bas.AddLayer(Lyr.Name);
+                                                            }
+
+                                                        }
+
+                                                       
+                                                        continue;
+
+
+                                                }
+
+                                            }
+
+                                            // check
+                                           
+                                        }
+                                        
+                                        continue;
+                                }
+                            }
+                        }
+
+                        Proj.AddBasin(XDRA.Value);
+
                         continue; 
                 }
             }

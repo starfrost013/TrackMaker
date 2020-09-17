@@ -65,7 +65,7 @@ namespace Track_Maker
 
             if (TypeBox.Items.Count < 1)
             {
-                Error.Throw("Uh oh", "Something bad happened. The TypeBox failed to populate.", Error.ErrorSeverity.FatalError, 0);
+                Error.Throw("Uh oh", "Something bad happened. The TypeBox failed to populate.", ErrorSeverity.FatalError, 0);
             }
 
             Logging.Log("Setting selected index...");

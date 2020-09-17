@@ -49,9 +49,9 @@ namespace Track_Maker
             {
 
 #if DEBUG
-                Error.Throw($"An internal error occurred while converting DanoEventArg parameters (DanoCategoryManagerHost.xaml.cs)\n\n{err}", "IE100", Error.ErrorSeverity.FatalError, 100);
+                Error.Throw($"An internal error occurred while converting DanoEventArg parameters (DanoCategoryManagerHost.xaml.cs)\n\n{err}", "IE100", ErrorSeverity.FatalError, 100);
 #else
-                Error.Throw("An internal error occurred while converting DanoEventArg parameters.", "IE100", Error.ErrorSeverity.FatalError, 100);
+                Error.Throw("An internal error occurred while converting DanoEventArg parameters.", "IE100", ErrorSeverity.FatalError, 100);
 #endif
             }
         }

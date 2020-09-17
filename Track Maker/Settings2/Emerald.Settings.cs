@@ -61,7 +61,7 @@ namespace Track_Maker
 
                 if (!File.Exists(SettingFile))
                 {
-                    Error.Throw("Fatal error", "Settings.xml not found!", Error.ErrorSeverity.CatastrophicError, 110);
+                    Error.Throw("Fatal error", "Settings.xml not found!", ErrorSeverity.CatastrophicError, 110);
                 }
 
                 XDoc.Load(SettingFile);
