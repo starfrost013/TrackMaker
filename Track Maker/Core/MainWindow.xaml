@@ -120,9 +120,9 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <Dano:LayerControl x:Name="Layers" Margin="35,270,33,44">
+            <local:LayerControlHost x:Name="Layers" Margin="35,270,33,44">
 
-            </Dano:LayerControl>
+            </local:LayerControlHost>
         </Grid>
 
     </Grid>

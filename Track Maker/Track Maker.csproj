@@ -131,6 +131,9 @@
     <Compile Include="DanoUIHost\ErrorHost\ErrorUIHost.xaml.cs">
       <DependentUpon>ErrorUIHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DanoUIHost\LayerControlHost\LayerControlHost.xaml.cs">
+      <DependentUpon>LayerControlHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DanoUIHost\StartPageHost\StartPageHost.xaml.cs">
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
@@ -198,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DanoUIHost\ErrorHost\ErrorUIHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\LayerControlHost\LayerControlHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
