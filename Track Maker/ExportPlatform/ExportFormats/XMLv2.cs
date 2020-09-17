@@ -46,7 +46,7 @@ namespace Track_Maker
             {
                 SaveFileDialog SFD = new SaveFileDialog();
 
-                SFD.Title = "Export to TProj file";
+                SFD.Title = "Export to project (version 2.x)...";
                 SFD.Filter = "Track Maker Project XML files|*.tproj";
                 SFD.ShowDialog();
 
@@ -110,7 +110,6 @@ namespace Track_Maker
                 XmlNode XBasinIsOpen = XDoc.CreateElement("IsOpen");
                 XmlNode XBasinIsSelected = XDoc.CreateElement("IsSelected");
                 XmlNode XBasinLayers = XDoc.CreateElement("Layers");
-
                 
                 XBasinNameNode.InnerText = Bas.UserTag;
                 XBasinNameBasin.InnerText = Bas.Name;
@@ -233,14 +232,61 @@ namespace Track_Maker
         }
 
         /// <summary>
-        /// Import this
+        /// I have to compromise against my old shit code
         /// </summary>
         /// <returns>The imported basin.</returns>
         public Basin Import()
         {
             // Implement later
-            throw new NotImplementedException();
+
+            try
+            {
+                SaveFileDialog SFD = new SaveFileDialog();
+                SFD.Title = "Import from project";
+                SFD.Filter = "Track Maker Project XML files|*.tproj";
+                SFD.ShowDialog();
+
+                if (SFD.FileName == null)
+                {
+                    return null; 
+                }
+                else
+                {
+                    ImportCore(SFD.FileName); 
+                }
+            }
+            catch (XmlException)
+            {
+
+            }
+
+            return null; 
         }
+
+        public XMLExportResult ImportCore(string FileName)
+        {
+            XMLExportResult XER = new XMLExportResult();
+            XER.Successful = false;
+            
+            XmlDocument XD = new XmlDocument();
+            XD.Load(FileName);
+
+            XmlNode XDR = XD.FirstChild;
+
+            if (XDR.HasChildNodes) return XER;
+
+            foreach (XmlNode XDRA in XDR.ChildNodes)
+            {
+                switch (XDRA.Name)
+                {
+                    case "Basin":
+                        continue; 
+                }
+            }
+
+            XER.Successful = true;
+            return XER;
+        } 
         
         /// <summary>
         /// This will be removed - export formats will not generate previews in v2

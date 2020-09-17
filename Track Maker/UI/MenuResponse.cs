@@ -22,7 +22,7 @@ namespace Track_Maker
         private void BasinMenu_BasinSwitch_Click(object sender, RoutedEventArgs e)
         {
 
-            DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
+            DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(CurrentProject.GetBasinNames());
             DBSH.Owner = this;
             DBSH.Show(); 
 
@@ -57,18 +57,22 @@ namespace Track_Maker
         private void Window_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            // if we have no storms, ask the user to create a storm instead of add a track point. 
-            if (CurrentProject.SelectedBasin.CurrentStorm == null)
+            if (CurrentProject != null)
             {
-                AddNewStorm Addstwindow = new AddNewStorm();
-                Addstwindow.Owner = this;
-                Addstwindow.Show();
-                return;
+                // if we have no storms, ask the user to create a storm instead of add a track point. 
+                if (CurrentProject.SelectedBasin.CurrentStorm == null)
+                {
+                    AddNewStorm Addstwindow = new AddNewStorm();
+                    Addstwindow.Owner = this;
+                    Addstwindow.Show();
+                    return;
+                }
+
+                AddTrackPoint Addtrwindow = new AddTrackPoint(e.GetPosition(HurricaneBasin));
+                Addtrwindow.Owner = this;
+                Addtrwindow.Show();
             }
 
-            AddTrackPoint Addtrwindow = new AddTrackPoint(e.GetPosition(HurricaneBasin));
-            Addtrwindow.Owner = this;
-            Addtrwindow.Show();
         }
 
         private void EditMenu_Categories_Click(object sender, RoutedEventArgs e)
@@ -209,28 +213,19 @@ namespace Track_Maker
             DBSH.Show(); 
         }
 #endif
-        /// <summary>
-        /// VERY TEMP! VERY TEMP! VERY TEMP!  Creates a list of strings from the names of the storms in the current basin. Move to Project.GetBasinNames() in M2/Priscilla.
-        /// </summary>
-        public List<string> VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL()
-        {
-            // Create a new string list.
-            List<string> _ = new List<string>();
-
-            // Iterate through all of the storms
-            foreach (Basin CurBasin in CurrentProject.Basins)
-            {
-                _.Add(CurBasin.Name);
-            }
-
-            return _;
-        }
 
         private void ProjectMenu_New_Click(object sender, RoutedEventArgs e)
         {
-            CreateProjectHost CPH = new CreateProjectHost(VERYTEMPORARY_DONOTUSE_AFTER_M2_PROJECT_FUNCTIONAL());
+            CreateProjectHost CPH = new CreateProjectHost(CurrentProject.GetBasinNames());
             CPH.Owner = this;
             CPH.Show();
+
+            // Terrible, but temporary. 
+
+            if (CurrentProject != null)
+            {
+                Layers.AddLayer("Background");
+            }
         }
 
         private void UndoButton_Click(object sender, RoutedEventArgs e)

@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="ExportPlatform\ExportFormats\BestTrack.cs" />
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\Helpers\XMLExportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
     <Compile Include="ExportPlatform\ExportFormats\XML.cs" />
     <Compile Include="ExportPlatform\ExportFormats\XMLv2.cs" />

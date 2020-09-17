@@ -331,5 +331,17 @@ namespace Track_Maker
             return;
         }
 
+        public List<string> GetLayerNames()
+        {
+            List<string> LayerNames = new List<string>();
+
+            foreach (Layer Lyr in Layers)
+            {
+                LayerNames.Add(Lyr.Name);
+            }
+
+            return LayerNames; 
+        }
+
     }
 }

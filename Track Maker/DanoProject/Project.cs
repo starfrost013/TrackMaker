@@ -208,5 +208,23 @@ namespace Track_Maker
             return null;
         }
 
+
+        /// <summary>
+        /// Creates a list of strings from the names of the storms in the current basin. Move to Project.GetBasinNames() in M2/Priscilla.
+        /// </summary>
+        public List<string> GetBasinNames()
+        {
+            // Create a new string list.
+            List<string> _ = new List<string>();
+
+            // Iterate through all of the storms
+            foreach (Basin CurBasin in Basins)
+            {
+                _.Add(CurBasin.Name);
+            }
+
+            return _;
+        }
+
     }
 }

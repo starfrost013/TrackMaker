@@ -23,7 +23,7 @@ namespace DanoUI
         public EventHandler<DanoEventArgs> LayerClicked { get; set; }
         public EventHandler<DanoEventArgs> LayerCreated { get; set; }
         public EventHandler<DanoEventArgs> LayerDeleted { get; set; }
-        public EventHandler<DanoEventArgs> LayerReordered { get; set; }        
+        public EventHandler<DanoEventArgs> LayerReordered { get; set; }
         public List<string> LayerNames { get; set; }
         public LayerControl()
         {
@@ -34,5 +34,8 @@ namespace DanoUI
         {
             DataContext = this;
         }
+
+        public void AddLayer(string Name) => LayerNames.Add(Name);
+        public void RemoveLayer(string Name) => LayerNames.Remove(Name);
     }
 }

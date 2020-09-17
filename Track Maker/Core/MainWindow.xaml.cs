@@ -78,6 +78,7 @@ namespace Track_Maker
         {
             // Phase 2 Init
             InitializeComponent();
+            
 
             Logging.Log("Initialized window, starting phase 2...");
             TickTimer = new DispatcherTimer();
@@ -85,15 +86,6 @@ namespace Track_Maker
             TickTimer.Interval = new TimeSpan(0, 0, 0, 0, 15);
             TickTimer.IsEnabled = true;
             Logging.Log("Initialized global update timer...");
-            
-            //Logging.Log($"Setting current basin to {CurrentBasin.Name}...");
-            
-            //CurrentBasin.BasinImage = new BitmapImage();
-            //Logging.Log("Loading basin image...");
-            //CurrentBasin.BasinImage.BeginInit();
-            //CurrentBasin.BasinImage.UriSource = new Uri(CurrentBasin.BasinImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
-            //CurrentBasin.BasinImage.EndInit();
-            //Logging.Log("Loaded basin image. Setting data context...");
 
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
            
@@ -101,7 +93,7 @@ namespace Track_Maker
             Title = "Track Maker Dano (version 3.0; pre-release (Alpha 2/M2) - do not use for production purposes!)";
 #elif PRISCILLA
 #if DEBUG
-            Title = "Track Maker \"Priscilla\" (version 2.0 alpha) (Debug Build)";
+            Title = "Track Maker \"Priscilla\" (version 2.0 alpha) (Debug)";
 #else
             Title = "Track Maker \"Priscilla\" (version 2.0 alpha)";
 #endif
@@ -112,7 +104,10 @@ namespace Track_Maker
                 DisableButtons();
             }
 
+            // V2
             CurrentProject = new Project();
+            Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
+            Layers.UpdateLayout(); 
 
             HurricaneBasin.DataContext = CurrentProject.SelectedBasin;
             UpdateLayout();
