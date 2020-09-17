@@ -237,6 +237,7 @@ namespace Track_Maker
                 CurrentStorm = Storm;
                 Logging.Log("Adding Storm to basin Storm list...");
                 CurrentLayer.AssociatedStorms.Add(Storm);
+                CurrentLayer.CurrentStorm = Storm; 
                 Logging.Log("Done! Closing...");
 
                 return true;

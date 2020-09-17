@@ -9,6 +9,7 @@ namespace Track_Maker
     public class Layer
     {
         public List<Storm> AssociatedStorms { get; set; }
+        public Storm CurrentStorm { get; set; }
         public bool IsSelected { get; set; }
         public string Name { get; set; }
         public Guid LayerId { get; set; }
@@ -24,19 +25,16 @@ namespace Track_Maker
             LayerId = Guid.NewGuid();
         }
 
-        public void AddStorm(Storm Sto)
+        public void AddStorm(Storm Sto, bool MakeCurrent = false)
         {
             AssociatedStorms.Add(Sto);
+
+            if (MakeCurrent) CurrentStorm = Sto; 
         }
 
-        public void RemoveStorm(Storm Sto)
-        {
-            AssociatedStorms.Remove(Sto); 
-        }
+        public void RemoveStorm(Storm Sto) => AssociatedStorms.Remove(Sto);
 
-        public void ClearStorms()
-        {
-            AssociatedStorms.Clear();
-        }
+        public void ClearStorms() => AssociatedStorms.Clear();
+
     }
 }

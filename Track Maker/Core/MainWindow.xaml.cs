@@ -106,7 +106,7 @@ namespace Track_Maker
 
             // V2
             CurrentProject = new Project();
-            Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
+            Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
             Layers.UpdateLayout(); 
 
             HurricaneBasin.DataContext = CurrentProject.SelectedBasin;

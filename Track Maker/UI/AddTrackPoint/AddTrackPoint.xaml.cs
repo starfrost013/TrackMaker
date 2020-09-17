@@ -32,11 +32,11 @@ namespace Track_Maker
         {
             try
             {
-                // Dano: move to TNode.AddNode() - add currentstorm to this
+                // Clean up later.
 
-                foreach (Storm Storm in MnWindow.CurrentProject.SelectedBasin.Storms)
+                foreach (Storm Storm in MnWindow.CurrentProject.SelectedBasin.CurrentLayer.AssociatedStorms)
                 {
-                    if (Storm == MnWindow.CurrentProject.SelectedBasin.CurrentStorm)
+                    if (Storm == MnWindow.CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm)
                     {
                         Storm.AddNode(Convert.ToInt32(IntensityTextBox.Text), TypeSelect.TypeBox.SelectedIndex, Pos); 
                     }
