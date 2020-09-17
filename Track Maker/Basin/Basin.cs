@@ -44,6 +44,7 @@ namespace Track_Maker
 
         // New for Priscilla.
         public List<Layer> Layers { get; set; } // new: list of layers
+        public Layer CurrentLayer { get; set; } // set selected layer
         public bool IsOpen { get; set; } // is this basin open?
         public bool IsSelected { get; set; } // is this basin selected?
         public string UserTag { get; set; } // User-given season name (Priscilla v445)
@@ -227,6 +228,7 @@ namespace Track_Maker
                 {
                     Storm.StormType = StormType.PolarLow;
                 }
+
                 Logging.Log($"Set storm type to {Storm.StormType}");
 
                 Logging.Log("Initializing node list...");
@@ -234,7 +236,7 @@ namespace Track_Maker
                 Logging.Log("Setting current Storm...");
                 CurrentStorm = Storm;
                 Logging.Log("Adding Storm to basin Storm list...");
-                Storms.Add(Storm);
+                CurrentLayer.AssociatedStorms.Add(Storm);
                 Logging.Log("Done! Closing...");
 
                 return true;
@@ -252,6 +254,14 @@ namespace Track_Maker
             Layer Layer = new Layer();
             Layer.Name = Name;
             Layers.Add(Layer); 
+        }
+
+        public void SelectLayer(string Name)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                if (Lyr.Name == Name) CurrentLayer = Lyr;
+            }
         }
 
         public void DeleteLayer(string Name)
