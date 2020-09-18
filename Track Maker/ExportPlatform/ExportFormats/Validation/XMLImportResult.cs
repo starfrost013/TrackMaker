@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Track_Maker
 {
-    public class XMLExportResult
+    public class XMLImportResult
     {
         public bool Cancelled { get; set; }
         public bool Successful { get; set; }

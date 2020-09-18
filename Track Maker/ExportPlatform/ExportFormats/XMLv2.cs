@@ -23,7 +23,7 @@ namespace Track_Maker
     /// Version 2.0c     Priscilla v445      Based code off of v1 - added metadata and project based
     /// Version 2.1      Priscilla v447      Bug fixes, IsSelected & IsOpen
     /// Version 2.2      Priscilla v453      Importing, BasinName => Name
-    /// 
+    /// Version 2.2b     Priscilla v455      Add full importing code   
     /// </summary>
     /// 
     public class XMLv2 : IExportFormat
@@ -35,7 +35,7 @@ namespace Track_Maker
         public XMLv2()
         {
             AutoStart = false;
-            Name = "XML";
+            Name = "Project Format 2.x";
         }
 
         /// <summary>
@@ -247,7 +247,7 @@ namespace Track_Maker
             {
                 SaveFileDialog SFD = new SaveFileDialog();
                 SFD.Title = "Import from project";
-                SFD.Filter = "Track Maker Project XML files|*.tproj";
+                SFD.Filter = "Track Maker Project files|*.tproj";
                 SFD.ShowDialog();
 
                 if (SFD.FileName == null)
@@ -256,7 +256,7 @@ namespace Track_Maker
                 }
                 else
                 {
-                    XMLExportResult XER = ImportCore(SFD.FileName);
+                    XMLImportResult XER = ImportCore(SFD.FileName);
 
                     if (XER.Successful && !XER.Cancelled)
                     {
@@ -276,9 +276,9 @@ namespace Track_Maker
             }
         }
 
-        public XMLExportResult ImportCore(string FileName)
+        public XMLImportResult ImportCore(string FileName)
         {
-            XMLExportResult XER = new XMLExportResult();
+            XMLImportResult XER = new XMLImportResult();
             XER.Successful = false;
             
             XmlDocument XD = new XmlDocument();
@@ -368,10 +368,76 @@ namespace Track_Maker
 
                                                                         if (!XDRACLL.HasChildNodes)
                                                                         {
-                                                                            continue; // there may be no names
+                                                                            continue; // there may be no storms
                                                                         }
                                                                         else
                                                                         {
+                                                                            // Find each storm node
+                                                                            
+                                                                            XmlNodeList XDRACLLSList = XDRACLL.ChildNodes;
+
+                                                                            foreach (XmlNode XDRACLLS in XDRACLLSList)
+                                                                            {
+                                                                                
+                                                                                switch (XDRACLLS.Name)
+                                                                                {
+                                                                                    case "Storm":
+                                                                                        Storm Sto = new Storm();
+                                                                                        if (!XDRACLLS.HasChildNodes)
+                                                                                        {
+                                                                                            Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 123);
+                                                                                            return XER;
+                                                                                        }
+                                                                                        else
+                                                                                        {
+
+                                                                                            XmlNodeList XDRACLLSSList = XDRACLLS.ChildNodes;
+
+                                                                                            foreach (XmlNode XDRACLLSS in XDRACLLSSList)
+                                                                                            {
+                                                                                                switch (XDRACLLSS.Name)
+                                                                                                {
+                                                                                                    case "FormationDate": // The formation date of this system.
+                                                                                                        Sto.FormationDate = DateTime.Parse(XDRACLLSS.Value); 
+                                                                                                        continue;
+                                                                                                    case "ID": // The ID of this system.
+                                                                                                        Sto.Id = Convert.ToInt32(XDRACLLSS.Value);
+                                                                                                        continue;
+                                                                                                    case "Name": // Name of this system.
+                                                                                                        Sto.Name = XDRACLLSS.Value;
+                                                                                                        continue;
+                                                                                                    case "Nodes":
+                                                                                                        NodeImportResult NIR = ImportNodes(XDRACLLSS); 
+
+                                                                                                        if (NIR.Successful && !NIR.Empty)
+                                                                                                        {
+                                                                                                            Sto.NodeList = NIR.Nodes;
+                                                                                                        }
+
+                                                                                                        continue;
+                                                                                                    case "DeletedNodes":
+                                                                                                        NodeImportResult DNIR = ImportNodes(XDRACLLSS);
+
+                                                                                                        if (DNIR.Successful && !DNIR.Empty)
+                                                                                                        {
+                                                                                                            Sto.NodeList_Deleted = DNIR.Nodes;
+                                                                                                        }
+
+                                                                                                        continue;
+                                                                                                    
+                                                                                                }
+                                                                                            }
+
+                                                                                            // Get the storm nodes
+
+
+                                                                                        }
+
+                                                                                        Lyr.AddStorm(Sto);
+                                                                                        continue;
+                                                                                }
+                                                                                 
+                                                                            }
 
                                                                         }
 
@@ -389,16 +455,12 @@ namespace Track_Maker
 
                                                         }
 
-                                                       
                                                         continue;
 
 
                                                 }
 
                                             }
-
-                                            // check
-                                           
                                         }
                                         
                                         continue;
@@ -415,6 +477,48 @@ namespace Track_Maker
             XER.Successful = true;
             return XER;
         } 
+
+        private protected NodeImportResult ImportNodes(XmlNode XNN)
+        {
+
+            NodeImportResult NIR = new NodeImportResult(); 
+
+            if (!XNN.HasChildNodes)
+            {
+                NIR.Successful = true;
+                NIR.Empty = true;
+                return NIR; 
+            }
+            else
+            {
+                foreach (XmlNode XNNChild in XNN.ChildNodes)
+                {
+                    Node XNNN = new Node(); 
+
+                    switch (XNNChild.Name)
+                    {
+                        case "Intensity":
+                            XNNN.Intensity = Convert.ToInt32(XNNChild.Value);
+                            continue;
+                        case "Position":
+                            XNNN.Position = Utilities.SplitXY(XNNChild.Value);
+                            continue;
+                        case "Type":
+                            XNNN.NodeType = (StormType)Enum.Parse(typeof(StormType), XNNChild.Value);
+                            continue; 
+                    }
+
+                    NIR.Nodes.Add(XNNN); 
+                }
+
+                NIR.Successful = true;
+                NIR.Empty = false;
+                return NIR; 
+            }
+
+
+
+        }
         
         /// <summary>
         /// This will be removed - export formats will not generate previews in v2
