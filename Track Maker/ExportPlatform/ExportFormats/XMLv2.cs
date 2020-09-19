@@ -256,7 +256,7 @@ namespace Track_Maker
                 }
                 else
                 {
-                    XMLImportResult XER = ImportCore(SFD.FileName);
+                    XMLImportResult XER = ImportCore(OFD.FileName);
 
                     if (XER.Successful && !XER.Cancelled)
                     {
