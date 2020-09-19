@@ -62,7 +62,8 @@ namespace Track_Maker
                 {
                     case FormatType.Import:
                         // Dano: rewrite
-                        MnWindow.CurrentProject.SelectedBasin = ExpFormat.Import();
+
+                        MnWindow.CurrentProject = ExpFormat.Import();
                         MnWindow.TickTimer.Start();
                         Close();
                         return; 
@@ -108,7 +109,7 @@ namespace Track_Maker
             switch (Type)
             {
                 case FormatType.Import:
-                    MnWindow.CurrentProject.SelectedBasin = ExpFormat.Import();
+                    MnWindow.CurrentProject = ExpFormat.Import();
                     MnWindow.TickTimer.Start();
                     Close();
                     return; 

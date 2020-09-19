@@ -245,12 +245,12 @@ namespace Track_Maker
 
             try
             {
-                SaveFileDialog SFD = new SaveFileDialog();
-                SFD.Title = "Import from project";
-                SFD.Filter = "Track Maker Project files|*.tproj";
-                SFD.ShowDialog();
+                OpenFileDialog OFD = new OpenFileDialog();
+                OFD.Title = "Import from project";
+                OFD.Filter = "Track Maker Project files|*.tproj";
+                OFD.ShowDialog();
 
-                if (SFD.FileName == null)
+                if (OFD.FileName == null)
                 {
                     return null; 
                 }
