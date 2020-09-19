@@ -34,7 +34,7 @@ namespace Track_Maker
             Name = "EasyTimeline";
         }
 
-        public Basin Import()
+        public Project Import()
         {
             throw new NotImplementedException();  //EasyTimeline does not support import.
 

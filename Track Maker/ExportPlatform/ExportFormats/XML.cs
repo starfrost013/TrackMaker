@@ -44,10 +44,16 @@ namespace Track_Maker
         }
 
         // 2020-05-21 [v1.0.364.0] - change to modify instead of overwrite the current basin
-        public Basin Import()
+        
+        /// <summary>
+        /// DEPRECATED 2020-09-19 [v2.0.455] 
+        /// </summary>
+        /// <returns></returns>
+        public Project Import()
         {
             try
             {
+
                 OpenFileDialog SFD = new OpenFileDialog();
                 SFD.Title = "Import from track maker project file...";
                 SFD.Filter = "Track Maker project files|*.tproj";
@@ -194,7 +200,11 @@ namespace Track_Maker
 
                 //ADDED MORE
                 Ct.UpdateLayout();
-                return XBasin;
+
+                Project Proj = new Project();
+                Proj.AddBasin(XBasin, true);
+
+                return Proj; 
             }
             catch (FormatException err)
             {

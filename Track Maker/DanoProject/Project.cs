@@ -31,11 +31,28 @@ namespace Track_Maker
             LoadBasins();
         }
 
+        /// <summary>
+        /// Add the basin with Name. Also select it if SelectNOw = true. 
+        /// </summary>
+        /// <param name="Name">The name of the basin we wish to load.</param>
+        /// <param name="SelectNow">Select the basin upon loading.</param>
         public void AddBasin(string Name, bool SelectNow = false)
         {
             // This is still terrible, but it's just temporary
             Basin Bs = GetBasinWithName(Name);
-            Bs.LoadImage(Bs.BasinImagePath); 
+            Bs.LoadImage(Bs.BasinImagePath);
+
+            InitBasin(Bs);
+
+        }
+
+        public void AddBasin(Basin Bs, bool SelectNow = false)
+        {
+            InitBasin(Bs); 
+        }
+
+        private void InitBasin(Basin Bs, bool SelectNow = false)
+        {
 #if PRISCILLA
             // Dano exclusive stuff.
             Bs.SeasonHemisphere = Hemisphere.North;
@@ -55,15 +72,14 @@ namespace Track_Maker
             if (SelectNow)
             {
                 Bs.IsOpen = true;
-                Bs.IsSelected = true; 
+                Bs.IsSelected = true;
             }
 
             Bs.Layers.Add(BgLayer);
-            Bs.SelectLayer(BgLayer.Name); 
+            Bs.SelectLayer(BgLayer.Name);
 
-            OpenBasins.Add(Bs); 
-            SelectedBasin = Bs; 
-
+            OpenBasins.Add(Bs);
+            SelectedBasin = Bs;
         }
 
         /// <summary>
@@ -144,7 +160,7 @@ namespace Track_Maker
             catch (XmlException err)
             {
                 //todo create fatalerror method
-                MessageBox.Show($"[Priscilla[ Basins.xml corrupt, exiting...\n\n{err}", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"[Priscilla] Basins.xml corrupt, exiting...\n\n{err}", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(203);
             }
         }

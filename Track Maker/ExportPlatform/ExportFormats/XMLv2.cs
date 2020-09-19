@@ -239,7 +239,7 @@ namespace Track_Maker
         /// I have to compromise against my old shit code
         /// </summary>
         /// <returns>The imported basin.</returns>
-        public Basin Import()
+        public Project Import()
         {
             // Implement later
 
@@ -260,7 +260,7 @@ namespace Track_Maker
 
                     if (XER.Successful && !XER.Cancelled)
                     {
-                        return XER.Basin;
+                        return XER.Project;
                     }
                     else
                     {
@@ -475,6 +475,7 @@ namespace Track_Maker
             }
 
             XER.Successful = true;
+            XER.Project = Proj; 
             return XER;
         } 
 
