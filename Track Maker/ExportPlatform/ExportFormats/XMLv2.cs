@@ -288,184 +288,199 @@ namespace Track_Maker
 
             Project Proj = new Project();
 
-            if (XDR.HasChildNodes) return XER;
+            if (!XDR.HasChildNodes) return XER;
 
             foreach (XmlNode XDRA in XDR.ChildNodes)
             {
                 switch (XDRA.Name)
                 {
-                    case "Basin":
+                    case "Metadata":
+                        continue;
+                    case "Basins":
 
-                        // Create a new basin.
-                        Basin Bas = new Basin();
-
+                        // Check that there are not no valid basins.
                         if (!XDRA.HasChildNodes)
                         {
-                            Error.Throw("Invalid basin!", "One of the basins in this Project2 file is corrupted!", ErrorSeverity.Error, 121);
-                            return XER; 
+                            Error.Throw("No valid basins!", "There are no valid basins!", ErrorSeverity.Error, 122);
+                            return XER;
                         }
-                        else
+
+                        XmlNodeList XDRBList = XDRA.ChildNodes;
+
+                        foreach (XmlNode XDRACB in XDRBList)
                         {
-                            XmlNodeList XDRAList = XDRA.ChildNodes;
-                            // Iterate through the child nodes of the basin.
-                            foreach (XmlNode XDRAC in XDRAList)
+
+                            // Create a new basin.
+                            Basin Bas = new Basin();
+
+                            if (!XDRACB.HasChildNodes)
                             {
-                                switch (XDRAC.Name)
+                                Error.Throw("Invalid basin!", "One of the basins in this Project2 file is corrupted!", ErrorSeverity.Error, 121);
+                                return XER;
+                            }
+                            else
+                            {
+                                XmlNodeList XDRAList = XDRACB.ChildNodes;
+                                // Iterate through the child nodes of the basin.
+                                foreach (XmlNode XDRAC in XDRAList)
                                 {
-                                    case "Name": // The name of this basin. Triggers a GlobalState load.
-                                        Bas = Proj.GetBasinWithName(XDRAC.Value);
-                                        continue;
-                                    case "UserTag": // The user-given name of this basin
-                                        Bas.UserTag = XDRAC.Value;
-                                        continue;
-                                    case "IsOpen": // Not sure if I'll use this
-                                        Bas.IsOpen = Convert.ToBoolean(XDRAC.Value);
-                                        continue;
-                                    case "IsSelected": // Not sure if I'll use this
-                                        Bas.IsSelected = Convert.ToBoolean(XDRAC.Value);
-                                        continue;
-                                    case "Layers":
-                                        
-                                        // Detect if somehow an invalid layer was created
-                                        if (!XDRAC.HasChildNodes)
-                                        {
-                                            Error.Throw("Invalid basin!", "There are no layers!", ErrorSeverity.Error, 122);
-                                            return XER;
-                                        }
-                                        else
-                                        {
-                                            // Iterate through the layers
-                                            XmlNodeList XDRACList = XDRAC.ChildNodes;
+                                    switch (XDRAC.Name)
+                                    {
+                                        case "Name": // The name of this basin. Triggers a GlobalState load.
+                                            Bas = Proj.GetBasinWithName(XDRAC.ChildNodes[0].Value);
+                                            continue;
+                                        case "UserTag": // The user-given name of this basin
+                                            Bas.UserTag = XDRAC.ChildNodes[0].Value;
+                                            continue;
+                                        case "IsOpen": // Not sure if I'll use this
+                                            Bas.IsOpen = Convert.ToBoolean(XDRAC.ChildNodes[0].Value );
+                                            continue;
+                                        case "IsSelected": // Not sure if I'll use this
+                                            Bas.IsSelected = Convert.ToBoolean(XDRAC.ChildNodes[0].Value);
+                                            continue;
+                                        case "Layers":
 
-                                            foreach (XmlNode XDRACL in XDRACList)
+                                            // Detect if somehow an invalid layer was created
+                                            if (!XDRAC.HasChildNodes)
                                             {
-                                                switch (XDRACL.Name)
+                                                Error.Throw("Invalid basin!", "There are no layers!", ErrorSeverity.Error, 122);
+                                                return XER;
+                                            }
+                                            else
+                                            {
+                                                // Iterate through the layers
+                                                XmlNodeList XDRACList = XDRAC.ChildNodes;
+
+                                                foreach (XmlNode XDRACL in XDRACList)
                                                 {
-                                                    case "Layer":
-                                                        if (!XDRACL.HasChildNodes)
-                                                        {
-                                                            Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 123);
-                                                            return XER;
-                                                        }
-                                                        else
-                                                        {
-                                                            XmlNodeList XDRACLList = XDRACL.ChildNodes;
-
-                                                            // Yeah
-                                                            foreach (XmlNode XDRACLL in XDRACLList)
+                                                    switch (XDRACL.Name)
+                                                    {
+                                                        case "Layer":
+                                                            if (!XDRACL.HasChildNodes)
                                                             {
-                                                                Layer Lyr = new Layer(); 
+                                                                Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 123);
+                                                                return XER;
+                                                            }
+                                                            else
+                                                            {
+                                                                XmlNodeList XDRACLList = XDRACL.ChildNodes;
 
-                                                                switch (XDRACLL.Name)
+                                                                // Yeah
+                                                                foreach (XmlNode XDRACLL in XDRACLList)
                                                                 {
-                                                                    case "GUID": // GUID of this basin
-                                                                        Lyr.LayerId = Guid.Parse(XDRACL.Value);
-                                                                        continue;
-                                                                    case "Name": // Name of this basin
-                                                                        Lyr.Name = XDRACL.Value;
-                                                                        continue;
-                                                                    case "Storms": // Storms of this basin
+                                                                    Layer Lyr = new Layer();
 
-                                                                        if (!XDRACLL.HasChildNodes)
-                                                                        {
-                                                                            continue; // there may be no storms
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            // Find each storm node
-                                                                            
-                                                                            XmlNodeList XDRACLLSList = XDRACLL.ChildNodes;
+                                                                    switch (XDRACLL.Name)
+                                                                    {
+                                                                        case "GUID": // GUID of this basin
+                                                                            Lyr.LayerId = Guid.Parse(XDRACLL.ChildNodes[0].Value);
+                                                                            continue;
+                                                                        case "Name": // Name of this basin
+                                                                            Lyr.Name = XDRACLL.Value;
+                                                                            continue;
+                                                                        case "Storms": // Storms of this basin
 
-                                                                            foreach (XmlNode XDRACLLS in XDRACLLSList)
+                                                                            if (!XDRACLL.HasChildNodes)
                                                                             {
-                                                                                
-                                                                                switch (XDRACLLS.Name)
+                                                                                continue; // there may be no storms
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                // Find each storm node
+
+                                                                                XmlNodeList XDRACLLSList = XDRACLL.ChildNodes;
+
+                                                                                foreach (XmlNode XDRACLLS in XDRACLLSList)
                                                                                 {
-                                                                                    case "Storm":
-                                                                                        Storm Sto = new Storm();
-                                                                                        if (!XDRACLLS.HasChildNodes)
-                                                                                        {
-                                                                                            Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 123);
-                                                                                            return XER;
-                                                                                        }
-                                                                                        else
-                                                                                        {
 
-                                                                                            XmlNodeList XDRACLLSSList = XDRACLLS.ChildNodes;
-
-                                                                                            foreach (XmlNode XDRACLLSS in XDRACLLSSList)
+                                                                                    switch (XDRACLLS.Name)
+                                                                                    {
+                                                                                        case "Storm":
+                                                                                            Storm Sto = new Storm();
+                                                                                            if (!XDRACLLS.HasChildNodes)
                                                                                             {
-                                                                                                switch (XDRACLLSS.Name)
+                                                                                                Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 123);
+                                                                                                return XER;
+                                                                                            }
+                                                                                            else
+                                                                                            {
+
+                                                                                                XmlNodeList XDRACLLSSList = XDRACLLS.ChildNodes;
+
+                                                                                                foreach (XmlNode XDRACLLSS in XDRACLLSSList)
                                                                                                 {
-                                                                                                    case "FormationDate": // The formation date of this system.
-                                                                                                        Sto.FormationDate = DateTime.Parse(XDRACLLSS.Value); 
-                                                                                                        continue;
-                                                                                                    case "ID": // The ID of this system.
-                                                                                                        Sto.Id = Convert.ToInt32(XDRACLLSS.Value);
-                                                                                                        continue;
-                                                                                                    case "Name": // Name of this system.
-                                                                                                        Sto.Name = XDRACLLSS.Value;
-                                                                                                        continue;
-                                                                                                    case "Nodes":
-                                                                                                        NodeImportResult NIR = ImportNodes(XDRACLLSS); 
+                                                                                                    switch (XDRACLLSS.Name)
+                                                                                                    {
+                                                                                                        case "FormationDate": // The formation date of this system.
+                                                                                                            Sto.FormationDate = DateTime.Parse(XDRACLLSS.ChildNodes[0].Value);
+                                                                                                            continue;
+                                                                                                        case "ID": // The ID of this system.
+                                                                                                            Sto.Id = Convert.ToInt32(XDRACLLSS.ChildNodes[0].Value);
+                                                                                                            continue;
+                                                                                                        case "Name": // Name of this system.
+                                                                                                            Sto.Name = XDRACLLSS.ChildNodes[0].Value;
+                                                                                                            continue;
+                                                                                                        case "Nodes":
+                                                                                                            NodeImportResult NIR = ImportNodes(XDRACLLSS);
 
-                                                                                                        if (NIR.Successful && !NIR.Empty)
-                                                                                                        {
-                                                                                                            Sto.NodeList = NIR.Nodes;
-                                                                                                        }
+                                                                                                            if (NIR.Successful && !NIR.Empty)
+                                                                                                            {
+                                                                                                                Sto.NodeList = NIR.Nodes;
+                                                                                                            }
 
-                                                                                                        continue;
-                                                                                                    case "DeletedNodes":
-                                                                                                        NodeImportResult DNIR = ImportNodes(XDRACLLSS);
+                                                                                                            continue;
+                                                                                                        case "DeletedNodes":
+                                                                                                            NodeImportResult DNIR = ImportNodes(XDRACLLSS);
 
-                                                                                                        if (DNIR.Successful && !DNIR.Empty)
-                                                                                                        {
-                                                                                                            Sto.NodeList_Deleted = DNIR.Nodes;
-                                                                                                        }
+                                                                                                            if (DNIR.Successful && !DNIR.Empty)
+                                                                                                            {
+                                                                                                                Sto.NodeList_Deleted = DNIR.Nodes;
+                                                                                                            }
 
-                                                                                                        continue;
-                                                                                                    
+                                                                                                            continue;
+
+                                                                                                    }
                                                                                                 }
+
+                                                                                                // Get the storm nodes
+
+
                                                                                             }
 
-                                                                                            // Get the storm nodes
+                                                                                            Lyr.AddStorm(Sto);
+                                                                                            continue;
+                                                                                    }
 
-
-                                                                                        }
-
-                                                                                        Lyr.AddStorm(Sto);
-                                                                                        continue;
                                                                                 }
-                                                                                 
+
                                                                             }
 
-                                                                        }
+                                                                            continue;
+                                                                    }
 
-                                                                        continue;
+                                                                    if (Lyr.Name == null)
+                                                                    {
+                                                                        Error.Throw("Invalid basin!", "Layer with no name!", ErrorSeverity.Error, 125);
+                                                                        return XER;
+                                                                    }
+
+                                                                    Bas.AddLayer(Lyr.Name);
                                                                 }
 
-                                                                if (Lyr.Name == null)
-                                                                {
-                                                                    Error.Throw("Invalid basin!", "Layer with no name!", ErrorSeverity.Error, 125);
-                                                                    return XER;
-                                                                }
-
-                                                                Bas.AddLayer(Lyr.Name);
                                                             }
 
-                                                        }
+                                                            continue;
 
-                                                        continue;
 
+                                                    }
 
                                                 }
-
                                             }
-                                        }
-                                        
-                                        continue;
+                                            continue; 
+                                    }
                                 }
                             }
+
                         }
 
                         Proj.AddBasin(XDRA.Value);

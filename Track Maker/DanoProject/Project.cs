@@ -50,6 +50,22 @@ namespace Track_Maker
 
         }
 
+        /// <summary>
+        /// Add the basin with Name and usertag UserTag. Also select it if SelectNOw = true. 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="UserTag"></param>
+        /// <param name="SelectNow"></param>
+        public void AddBasin(string Name, string UserTag, bool SelectNow = false)
+        {
+            // This is still terrible, but it's just temporary
+            Basin Bs = GetBasinWithName(Name);
+            Bs.LoadImage(Bs.BasinImagePath);
+            Bs.UserTag = UserTag;
+            InitBasin(Bs);
+
+        }
+
         public void AddBasin(Basin Bs, bool SelectNow = false)
         {
             InitBasin(Bs); 
