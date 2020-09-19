@@ -21,14 +21,18 @@ namespace Track_Maker
         public Basin SelectedBasin { get; set; } /* Currently selected basin. */
         public int CurrentHistoryPoint { get; set; } /* Current history point */
 
-        public Project()
+        /// <summary>
+        /// Project constructor.
+        /// </summary>
+        /// <param name="LoadBasins">Reload basins. Deprecated but whatever</param>
+        public Project(bool LdBasins = false)
         {
             Basins = new List<Basin>();
             History = new List<Basin>();
             CategorySystems = new List<CategorySystem>();
             OpenBasins = new List<Basin>();
             SelectedBasin = new Basin();
-            LoadBasins();
+            if (LdBasins) LoadBasins();
         }
 
         /// <summary>

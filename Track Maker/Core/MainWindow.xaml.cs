@@ -105,7 +105,7 @@ namespace Track_Maker
             }
 
             // V2
-            CurrentProject = new Project();
+            CurrentProject = new Project(true);
             Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
             Layers.UpdateLayout(); 
 

@@ -34,7 +34,7 @@ namespace Track_Maker
             DNPHost.Dano_NewProject_Init();
 
             // Constructor loads basins
-            TProj = new Project();
+            TProj = new Project(true);
         }
 
         public void NewProjectCreated(object sender, DanoEventArgs e)
