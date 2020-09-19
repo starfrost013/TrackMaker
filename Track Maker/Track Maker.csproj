@@ -148,6 +148,8 @@
     <Compile Include="Network\TelemetryConsent.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Settings2\Emerald.Settings.cs" />
+    <Compile Include="Settings2\Enums\TelemetryConsent.cs" />
+    <Compile Include="Settings2\Enums\WndStyle.cs" />
     <Compile Include="Settings2\SettingsStatic.cs" />
     <Compile Include="Category\Category.cs" />
     <Compile Include="Category\CategoryLoader.cs" />

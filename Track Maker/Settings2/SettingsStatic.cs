@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Media; 
 namespace Track_Maker
 {
-    public enum TelemetryConsent { NotDone, No, Yes }; 
+
     public class Setting
     {
         public static Color AccentColour1 { get; set; } // Accent colour 1
@@ -16,6 +16,7 @@ namespace Track_Maker
         public static bool DefaultCategorySystem { get; set; } // What is the default category system at startup?
         public static bool DefaultVisibleTextNames { get; set; } // Are hurricane names visible by default at startup?
         public static Point DotSize { get; set; } // Dot size
+        public static WndStyle WindowStyle { get; set; } // Window style
         public static int LineSize { get; set; } // Line size
         public static bool EnableExperimentalMode { get; set; } // Dano experimental mode
         public static TelemetryConsent TelemetryConsent { get; set; } // Telemetry consent

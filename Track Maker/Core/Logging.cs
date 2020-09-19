@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 /// 
 /// File created: 2019-11-09
 /// 
-/// File modified: 2020-09-11 (v2.0.435)
+/// File modified: 2020-09-20 
 /// </summary>
 
 
@@ -26,10 +26,11 @@ namespace Track_Maker
     {
         public static void Log(string text) // logs to file. 
         {
-            if (MainWindow.Debug)
-            {
-                Trace.WriteLine($"Debug Collective: [{DateTime.Now}] {text}");
-            }
+
+#if DEBUG
+            Trace.WriteLine($"Debug Collective: [{DateTime.Now}] {text}");
+#endif
+
         }
     }
 }

@@ -33,7 +33,6 @@ namespace Track_Maker
     {
         public DispatcherTimer TickTimer { get; set; }
         public CategoryManager Catman { get; set; }
-        public static bool Debug { get; set; }  // static for debug purposes
         public bool Fullscreen { get; set; } // v0.2, build 148 and later. V0.9: MOVE TO SETTINGS
         /// <summary>
         /// New for Priscilla.
@@ -46,7 +45,6 @@ namespace Track_Maker
 
         public void Init()
         {
-            Debug = true;
             
             Logging.Log("Welcome to the Debug Collective");
             Logging.Log("-------------------------------");
