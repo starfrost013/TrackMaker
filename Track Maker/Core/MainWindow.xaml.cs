@@ -33,7 +33,6 @@ namespace Track_Maker
     {
         public DispatcherTimer TickTimer { get; set; }
         public CategoryManager Catman { get; set; }
-        public bool Fullscreen { get; set; } // v0.2, build 148 and later. V0.9: MOVE TO SETTINGS
         /// <summary>
         /// New for Priscilla.
         /// </summary>

@@ -327,16 +327,16 @@ namespace Track_Maker
                                     switch (XDRAC.Name)
                                     {
                                         case "Name": // The name of this basin. Triggers a GlobalState load.
-                                            Bas = Proj.GetBasinWithName(XDRAC.ChildNodes[0].Value);
+                                            Bas = Proj.GetBasinWithName(XDRAC.ChildNodes[0].InnerText);
                                             continue;
                                         case "UserTag": // The user-given name of this basin
-                                            Bas.UserTag = XDRAC.ChildNodes[0].Value;
+                                            Bas.UserTag = XDRAC.ChildNodes[0].InnerText;
                                             continue;
                                         case "IsOpen": // Not sure if I'll use this
-                                            Bas.IsOpen = Convert.ToBoolean(XDRAC.ChildNodes[0].Value );
+                                            Bas.IsOpen = Convert.ToBoolean(XDRAC.ChildNodes[0].InnerText );
                                             continue;
                                         case "IsSelected": // Not sure if I'll use this
-                                            Bas.IsSelected = Convert.ToBoolean(XDRAC.ChildNodes[0].Value);
+                                            Bas.IsSelected = Convert.ToBoolean(XDRAC.ChildNodes[0].InnerText);
                                             continue;
                                         case "Layers":
 
@@ -373,7 +373,7 @@ namespace Track_Maker
                                                                     switch (XDRACLL.Name)
                                                                     {
                                                                         case "GUID": // GUID of this basin
-                                                                            Lyr.LayerId = Guid.Parse(XDRACLL.ChildNodes[0].Value);
+                                                                            Lyr.LayerId = Guid.Parse(XDRACLL.ChildNodes[0].InnerText);
                                                                             continue;
                                                                         case "Name": // Name of this basin
                                                                             Lyr.Name = XDRACLL.Value;
@@ -412,13 +412,13 @@ namespace Track_Maker
                                                                                                     switch (XDRACLLSS.Name)
                                                                                                     {
                                                                                                         case "FormationDate": // The formation date of this system.
-                                                                                                            Sto.FormationDate = DateTime.Parse(XDRACLLSS.ChildNodes[0].Value);
+                                                                                                            Sto.FormationDate = DateTime.Parse(XDRACLLSS.ChildNodes[0].InnerText);
                                                                                                             continue;
                                                                                                         case "ID": // The ID of this system.
-                                                                                                            Sto.Id = Convert.ToInt32(XDRACLLSS.ChildNodes[0].Value);
+                                                                                                            Sto.Id = Convert.ToInt32(XDRACLLSS.ChildNodes[0].InnerText);
                                                                                                             continue;
                                                                                                         case "Name": // Name of this system.
-                                                                                                            Sto.Name = XDRACLLSS.ChildNodes[0].Value;
+                                                                                                            Sto.Name = XDRACLLSS.ChildNodes[0].InnerText;
                                                                                                             continue;
                                                                                                         case "Nodes":
                                                                                                             NodeImportResult NIR = ImportNodes(XDRACLLSS);

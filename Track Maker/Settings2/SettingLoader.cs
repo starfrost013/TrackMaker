@@ -51,18 +51,24 @@ namespace Track_Maker
                 Setting.LineSize = 2; // reinitialies
             }
 
-            // Do we use the gradient? 
-            Setting.UseGradient = EmeraldSettings.GetBool("UseGradient"); 
             // Load the accent colours
             Setting.AccentColour1 = EmeraldSettings.GetColour("AccentColour1");
             Setting.AccentColour2 = EmeraldSettings.GetColour("AccentColour2");
+
             // Load experimental mode
             Setting.EnableExperimentalMode = EmeraldSettings.GetBool("ExperimentalMode");
             // Telemetry consent
             Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent"); 
             // Undo depth
             Setting.UndoDepth = EmeraldSettings.GetInt("UndoDepth");
-            
+
+            // Do we use the gradient? 
+            Setting.UseGradient = EmeraldSettings.GetBool("UseGradient");
+
+            // Load the window style
+            Setting.WindowStyle = EmeraldSettings.GetWindowStyle("WindowStyle");
+
+
         }
     }
 }

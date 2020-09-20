@@ -179,5 +179,7 @@ namespace Track_Maker
         {
             return Text.IndexOf(Value, SC) >= 0; 
         }
+
+        
     }
 }

@@ -331,6 +331,37 @@ namespace Track_Maker
         }
 
         /// <summary>
+        /// Easier to have an enum for this here.
+        /// </summary>
+        /// <param name="SettingsElement"></param>
+        /// <returns></returns>
+        public static WndStyle GetWindowStyle(string SettingsElement)
+        {
+            try
+            {
+                // Get the TelemetryConsent node
+                XmlNode XRoot = LoadSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, SettingsElement);
+
+                // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
+                if (XElement == null)
+                {
+                    Error.Throw("Fatal Error", "Attempted to load invalid WindowStyle setting!", ErrorSeverity.FatalError, 130);
+                    return WndStyle.Windowed;
+                }
+
+                // Parse as TelemetryConsent 
+                return (WndStyle)Enum.Parse(typeof(WndStyle), XElement.InnerText);
+            }
+            catch (ArgumentException err)
+            {
+                Error.Throw("Fatal Error", $"Attempted to load invalid WindowStyle setting!\n\n{err}", ErrorSeverity.FatalError, 131);
+                return WndStyle.Windowed;
+            }
+
+        }
+
+        /// <summary>
         /// Saves a setting to Settings.xml.
         /// </summary>
         /// <param name="SettingsElement">The name of the setting to change.</param>
@@ -368,5 +399,6 @@ namespace Track_Maker
                 return false;
             }
         }
+
     }
 }

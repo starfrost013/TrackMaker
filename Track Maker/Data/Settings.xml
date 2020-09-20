@@ -8,6 +8,7 @@
   <!--<SelectedBasin>Atlantic</SelectedBasin> legacy v1.0-->
   <StormNamesVisible>true</StormNamesVisible>
   <TelemetryConsent>Yes</TelemetryConsent>
+  <WindowStyle>Fullscreen</WindowStyle>
   <UndoDepth>50</UndoDepth>
   <UseGradient>True</UseGradient>
 </Settings>
