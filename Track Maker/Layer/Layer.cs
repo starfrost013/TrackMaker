@@ -10,7 +10,7 @@ namespace Track_Maker
     {
         public List<Storm> AssociatedStorms { get; set; }
         public Storm CurrentStorm { get; set; }
-        public bool IsSelected { get; set; }
+        public bool Selected { get; set; }
         public string Name { get; set; }
         public Guid LayerId { get; set; }
        
@@ -20,10 +20,7 @@ namespace Track_Maker
             GenerateGUID();
         }
 
-        private void GenerateGUID()
-        {
-            LayerId = Guid.NewGuid();
-        }
+        private void GenerateGUID() => LayerId = Guid.NewGuid(); 
 
         public void AddStorm(Storm Sto, bool MakeCurrent = false)
         {

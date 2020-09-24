@@ -72,9 +72,9 @@ namespace Tiralen.UpdateServices.Settings
             if (CurrentNext > 75 && CurrentNext <= 100) CurrentEvent = Tragedy_C77;
             if (CurrentNext > 100 && CurrentNext <= 125) CurrentEvent = Tragedy_WW1;
             if (CurrentNext > 125 && CurrentNext <= 150) CurrentEvent = Tragedy_HIT;
-            if (CurrentNext > 125 && CurrentNext <= 150) CurrentEvent = Tragedy_HOS;
-            if (CurrentNext > 150 && CurrentNext <= 175) CurrentEvent = Tragedy_911;
-            if (CurrentNext > 175) CurrentEvent = Tragedy_GFY; 
+            if (CurrentNext > 150 && CurrentNext <= 175) CurrentEvent = Tragedy_HOS;
+            if (CurrentNext > 175 && CurrentNext <= 200) CurrentEvent = Tragedy_911;
+            if (CurrentNext > 200) CurrentEvent = Tragedy_GFY; 
 
             InstallationID = prec2 + CurrentEvent.Ticks; 
 

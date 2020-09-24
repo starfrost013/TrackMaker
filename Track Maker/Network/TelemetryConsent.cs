@@ -7,12 +7,12 @@ using System.Windows;
 
 namespace Track_Maker
 {
-    public partial class MainWindow
+    public static class TelemetryConsentAcquirer
     {
         /// <summary>
         /// Determine the users' update check/telemetry consent status.
         /// </summary>
-        public void Init_DetermineTelemetryConsentStatus()
+        public static void Init_DetermineTelemetryConsentStatus()
         {
             // Ask the user.
             if (Setting.TelemetryConsent == TelemetryConsent.NotDone)

@@ -58,17 +58,10 @@ namespace Track_Maker
             LoadSettings2();
 
             Logging.Log("Checking for updates...");
-            //Process.Start("Updater.exe");
-            Init_DetermineTelemetryConsentStatus();
+
+            TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
 
             Init_Phase2();
-        }
-
-
-
-        public void RunUpdater()
-        {
-            Process.Start("Updater.exe");
         }
 
         public void Init_Phase2()
@@ -166,7 +159,6 @@ namespace Track_Maker
             ViewMenu.IsEnabled = true;
             BasinMenu.IsEnabled = true;
             ToolsMenu.IsEnabled = true;
-            HelpMenu.IsEnabled = true;
         }
 
         public void DisableButtons()
@@ -178,7 +170,6 @@ namespace Track_Maker
             ViewMenu.IsEnabled = false;
             BasinMenu.IsEnabled = false;
             ToolsMenu.IsEnabled = false;
-            HelpMenu.IsEnabled = false;
         }
 
 
