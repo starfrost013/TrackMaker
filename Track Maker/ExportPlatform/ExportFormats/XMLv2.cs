@@ -327,16 +327,16 @@ namespace Track_Maker
                                     switch (XDRAC.Name)
                                     {
                                         case "Name": // The name of this basin. Triggers a GlobalState load.
-                                            Bas = Proj.GetBasinWithName(XDRAC.ChildNodes[0].InnerText);
+                                            Bas = Proj.GetBasinWithName(XDRAC.InnerText);
                                             continue;
                                         case "UserTag": // The user-given name of this basin
-                                            Bas.UserTag = XDRAC.ChildNodes[0].InnerText;
+                                            Bas.UserTag = XDRAC.InnerText;
                                             continue;
                                         case "IsOpen": // Not sure if I'll use this
-                                            Bas.IsOpen = Convert.ToBoolean(XDRAC.ChildNodes[0].InnerText );
+                                            Bas.IsOpen = Convert.ToBoolean(XDRAC.InnerText );
                                             continue;
                                         case "IsSelected": // Not sure if I'll use this
-                                            Bas.IsSelected = Convert.ToBoolean(XDRAC.ChildNodes[0].InnerText);
+                                            Bas.IsSelected = Convert.ToBoolean(XDRAC.InnerText);
                                             continue;
                                         case "Layers":
 

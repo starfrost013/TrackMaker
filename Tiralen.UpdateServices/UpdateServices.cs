@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tiralen.UpdateServices
 {
-    public class Class1
+    public class Updater
     {
     }
 }

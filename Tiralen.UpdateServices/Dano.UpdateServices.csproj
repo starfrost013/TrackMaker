@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UpdaterSettings\UpdateChannel\UpdateChannel.cs" />
+    <Compile Include="UpdaterSettings\UpdaterSettings.cs" />
     <Compile Include="UpdateServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
