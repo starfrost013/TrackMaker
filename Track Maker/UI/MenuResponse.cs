@@ -35,8 +35,8 @@ namespace Track_Maker
 
         private void BasinMenu_Clear_Click(object sender, RoutedEventArgs e)
         {
-            CurrentProject.SelectedBasin.CurrentStorm = null; 
-            CurrentProject.SelectedBasin.Storms.Clear();
+            CurrentProject.SelectedBasin.CurrentStorm = null;
+            CurrentProject.SelectedBasin.ClearBasin();
         }
 
         private void ViewMenu_Names_Click(object sender, RoutedEventArgs e)
@@ -165,7 +165,7 @@ namespace Track_Maker
         private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e)
         {
 
-            if (CurrentProject.SelectedBasin.Storms.Count == 0)
+            if (CurrentProject.SelectedBasin.GetFlatListOfStorms().Count == 0)
             {
                 MessageBox.Show("You must have at least one storm to export to this format.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return; 
@@ -178,15 +178,24 @@ namespace Track_Maker
 
         private void FileMenu_Export_BT_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentProject.SelectedBasin.Storms.Count == 0)
+            if (CurrentProject.SelectedBasin.GetFlatListOfStorms().Count == 0)
             {
                 MessageBox.Show("You must have at least one storm to export to this format.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+            
+            if (CurrentProject.SelectedBasin.CoordsLower != null || CurrentProject.SelectedBasin.CoordsHigher != null)
+            {
+                ExportUI ExUI = new ExportUI(FormatType.Export, new ExportBestTrack());
+                ExUI.Owner = this;
+                ExUI.Show();
+            }
+            else
+            {
+                Error.Throw("Error", "This export format is not supported by this basin. Please define coords!", ErrorSeverity.Warning, 123);
+                return; 
+            }
 
-            ExportUI ExUI = new ExportUI(FormatType.Export, new ExportBestTrack());
-            ExUI.Owner = this;
-            ExUI.Show(); 
         }
 
         //Test code. remove this.

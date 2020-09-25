@@ -17,7 +17,7 @@ namespace Track_Maker
     /// 
     /// Created: 2020-05-17
     /// 
-    /// Modified: 2020-05-19
+    /// Modified: 2020-09-25 (v2.0.462)
     /// </summary>
     public class ExportBestTrack : IExportFormat
     {
@@ -28,7 +28,7 @@ namespace Track_Maker
         public ExportBestTrack()
         {
             AutoStart = true;
-            Name = "Best Track";
+            Name = "Best Track (ATCF)";
             MnWindow = (MainWindow)Application.Current.MainWindow;
         }
 
@@ -102,7 +102,7 @@ namespace Track_Maker
             Directory.SetCurrentDirectory(FileName.Replace(".","")); 
 
             // create a file for each storm
-            foreach (Storm Storm in Project.SelectedBasin.Storms)
+            foreach (Storm Storm in Project.SelectedBasin.GetFlatListOfStorms())
             {
                 if (Storm.Name.Length > 12)
                 {   

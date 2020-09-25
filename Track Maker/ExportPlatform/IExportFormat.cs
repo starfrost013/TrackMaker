@@ -11,10 +11,10 @@ using System.Windows.Controls;
 /// 
 /// This allows us to write classes easily and quickly for exporting to any format we want. 
 /// 
-/// Version 1.3.0
-/// September 18, 2020
+/// Version 1.4.0
+/// September 25, 2020
 /// 
-/// (Priscilla - v454)
+/// (Priscilla - v462)
 /// </summary>
 /// 
 namespace Track_Maker
@@ -27,6 +27,6 @@ namespace Track_Maker
         Project Import(); // Import from this file format.
         bool Export(Project Project); // Export from this file format. 
         bool ExportCore(Project Project, string FileName); // Does the actual exporting. 
-        void GeneratePreview(Canvas ImportCanvas); // Generate a preview (for import only; the export preview is handled by the Track Maker). 
+        //void GeneratePreview(Canvas ImportCanvas); // Generate a preview - this will be hanled by the track maker...for imports, might reintro this 
     }
 }

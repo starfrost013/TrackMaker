@@ -73,12 +73,7 @@ namespace Track_Maker
 
         private void InitBasin(Basin Bs, bool SelectNow = false)
         {
-#if PRISCILLA
-            // Dano exclusive stuff.
-            Bs.SeasonHemisphere = Hemisphere.North;
-            Bs.SeasonType = BasinType.Track;
-
-#elif DANO
+#if DANO
             // ATTN: You can write anything you want if it's not covered by the currently defined ifdefs 
             Bs.SeasonHemisphere = Hemisphere;
             Bs.SeasonType = Type;

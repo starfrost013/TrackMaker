@@ -100,9 +100,11 @@ namespace Track_Maker
 
                 // This code is a mess
 
-                DateTime _startdate = Project.SelectedBasin.Storms[0].FormationDate; // The formation date of the first storm. 
+                List<Storm> FlatList = Project.SelectedBasin.GetFlatListOfStorms();
+
+                DateTime _startdate = FlatList[0].FormationDate; // The formation date of the first storm. 
                 DateTime _startdate_period =  _startdate.AddDays(-_startdate.Day).AddMonths(-1);
-                DateTime _enddate = Project.SelectedBasin.Storms[Project.SelectedBasin.Storms.Count - 1].GetDissipationDate().AddDays(1); // The dissipation date of the last storm. 
+                DateTime _enddate = FlatList[FlatList.Count - 1].GetDissipationDate().AddDays(1); // The dissipation date of the last storm. 
 
                 SW.WriteLine("DateFormat = dd/mm/yyyy\n"); // date format
                 SW.WriteLine($"Period = from:{_startdate_period.ToString("dd'/'MM'/'yyyy")} till:{_enddate.ToString("dd'/'MM'/'yyyy")}"); // the period. generated dynamically.
@@ -121,7 +123,7 @@ namespace Track_Maker
 
                 foreach (Category Cat in MnWindow.Catman.CurrentCategorySystem.Categories)
                 {
-                    if (Cat.HigherBound < 1000)
+                    if (Cat.HigherBound < 999)
                     {
                         SW.WriteLine($"  id:{Cat.Name.Replace(" ", "")} value:rgb({Cat.Color.ScR}, {Cat.Color.ScG}, {Cat.Color.ScB}) legend:{Cat.Name.Replace(" ", "_")}_-_{Cat.LowerBound}-{Cat.HigherBound}_mph_({Utilities.RoundNearest(Cat.LowerBound * 1.61, 1)}-{Utilities.RoundNearest(Cat.HigherBound * 1.61, 1)}_km/h)");
                     }
@@ -144,11 +146,12 @@ namespace Track_Maker
                 SW.WriteLine("PlotData = ");
                 SW.WriteLine("  barset:Hurricane width:10 align:left fontsize:S shift:(4,-4) anchor:till"); // write the basic information
 
+                
                 // Write the storm information for EasyTimeline - section 7
-                for (int i = 0; i < Project.SelectedBasin.Storms.Count; i++)
+                for (int i = 0; i < FlatList.Count; i++)
                 {
                     // Get the peak storm category. 
-                    Storm St = Project.SelectedBasin.Storms[i];
+                    Storm St = FlatList[i];
                     Category Cat = St.GetPeakCategory(St, MnWindow.Catman.CurrentCategorySystem);
 
                     // write the storm info in ddmmyyyy format

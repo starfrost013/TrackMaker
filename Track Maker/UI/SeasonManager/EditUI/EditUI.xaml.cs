@@ -40,7 +40,7 @@ namespace Track_Maker
 
         private void EditStorm_OKButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Storm CStorm in MnWindow.CurrentProject.SelectedBasin.Storms)
+            foreach (Storm CStorm in MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms())
             {
                 if (CStorm.Id == XStorm.Id)
                 {

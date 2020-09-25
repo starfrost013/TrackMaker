@@ -16,9 +16,13 @@ using System.Windows.Threading;
 
 namespace Track_Maker
 {
-    // Custom hemispheres? (2.0+)
+    // Custom hemispheres? (3.x)
+#if DANO
     public enum BasinType { Track, Animation };
-    public enum Hemisphere { North, South };
+
+    public enum Hemisphere { North, South }; 
+#endif
+
 
     public class Basin
     {
@@ -28,19 +32,18 @@ namespace Track_Maker
         public string Name { get; set; } // the name of the basin
         public Coordinate CoordsLower { get; set; } // The lower point of the coords of this basin
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
-
-        /// <summary>
-        /// DEPRECATED - VERSION 1.X ONLY - USE LAYERS THAT CONTAIN STORMS INSTEAD
-        /// </summary>
-        public List<Storm> Storms { get; set; } // list of Storms
+        // Storms removed for Priscilla 462 
         
         // New for Dano M1 and Priscilla
         public Point FocusPoint { get; set; } // The focus point of the camera inside this basin.
         public int ZoomLevel { get; set; } // The zoom level of the camera inside this basin.
-        public int Year { get; set; } // THE Year
+        public int Year { get; set; } // The year in which the season took place.
+#if DANO
         public Hemisphere SeasonHemisphere { get; set; } // The hemisphere
-        public int SeasonID { get; set; } // Unique ID of this season
+        
         public BasinType SeasonType { get; set; } // Type of this season (Dano/3.0 only)
+#endif 
+        public int SeasonID { get; set; } // Unique ID of this season
 
         // New for Priscilla.
         public List<Layer> Layers { get; set; } // new: list of layers
@@ -51,7 +54,6 @@ namespace Track_Maker
 
         public Basin()
         {
-            Storms = new List<Storm>();
             Layers = new List<Layer>(); 
         }
 
@@ -175,7 +177,7 @@ namespace Track_Maker
             try
             {
                 Storm Storm = new Storm();
-                Storm.Id = Storms.Count; // this actually makes sense.
+                Storm.Id = GetFlatListOfStorms().Count; // this actually makes sense.
                 Storm.Name = Name;
 
                 Logging.Log($"Adding Storm with id {Storm.Id} and name {Storm.Name}");
@@ -199,9 +201,11 @@ namespace Track_Maker
 
                 // Just starting from what we already had here.
 
-                if (Storms.Count != 0)
+                List<Storm> FlatList = GetFlatListOfStorms();
+
+                if (FlatList.Count != 0)
                 {
-                    if (Storm.FormationDate < Storms[0].FormationDate)
+                    if (Storm.FormationDate < FlatList[0].FormationDate)
                     {
                         MessageBox.Show("You can't have a Storm start earlier than the season!", "Error I1", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
@@ -249,6 +253,21 @@ namespace Track_Maker
             }
         }
 
+        public bool RemoveStormWithName(string Name)
+        {
+            List<Storm> LS = new List<Storm>();
+
+            foreach (Layer Lyr in Layers)
+            {
+                foreach (Storm Sto in Lyr.AssociatedStorms)
+                {
+                    if (Sto.Name == Name) Lyr.AssociatedStorms.Remove(Sto);
+                }
+            }
+
+            return false; 
+
+        }
 
         public void AddLayer(string Name)
         {
@@ -299,7 +318,7 @@ namespace Track_Maker
         /// </summary>
         public void RecalculateNodePositions(bool IsFullscreen, Point CurWindowSize)
         {
-            foreach (Storm StormtoRecalc in Storms)
+            foreach (Storm StormtoRecalc in GetFlatListOfStorms())
             {
                 foreach (Node NodetoRecalc in StormtoRecalc.NodeList)
                 {
@@ -320,7 +339,7 @@ namespace Track_Maker
         // Priscilla 441: Anti-Mainwindow refactoring: Port to Basin class
         public void RecalculateNodePositions(Direction RecalcDir, Point CurWindowSize, Point RecalcRes)
         {
-            foreach (Storm StormtoRecalc in Storms)
+            foreach (Storm StormtoRecalc in GetFlatListOfStorms())
             {
                 foreach (Node NodetoRecalc in StormtoRecalc.NodeList)
                 {
@@ -354,5 +373,37 @@ namespace Track_Maker
             return LayerNames; 
         }
 
+        /// <summary>
+        /// Get a 'flat' (layerless) storm list. Reduces code complexity.[2020-09-25] 
+        /// </summary>
+        /// <returns></returns>
+        public List<Storm> GetFlatListOfStorms()
+        {
+            List<Storm> LS = new List<Storm>();
+
+            foreach (Layer Lyr in Layers)
+            {
+                foreach (Storm Sto in Lyr.AssociatedStorms)
+                {
+                    LS.Add(Sto); 
+                }
+            }
+
+            return LS; 
+        }
+
+        public List<Storm> ClearBasin()
+        {
+            List<Storm> LS = new List<Storm>();
+
+            foreach (Layer Lyr in Layers)
+            {
+                Lyr.AssociatedStorms.Clear();
+            }
+
+            Layers.Clear(); 
+
+            return LS;
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Track_Maker
         public void GeneratePreview(Canvas XCanvas) // test
         {
             Point XPoint = new Point(Utilities.RoundNearest(8 * (XCanvas.Width / Xwindow.Width) / 1.5, 4), Utilities.RoundNearest(8 * (XCanvas.Height / Xwindow.Height) / 1.5, 4));
-            Xwindow.RenderContent(XCanvas, XPoint, Xwindow.CurrentProject.SelectedBasin.Storms);
+            Xwindow.RenderContent(XCanvas, XPoint, Xwindow.CurrentProject.SelectedBasin.GetFlatListOfStorms());
         }
 
         public string GetName()
@@ -130,7 +130,8 @@ namespace Track_Maker
 
             //New scaling for picking up dev again - 2020-05-08 23:04
             //Remove storm selection functionality, replace with layer selection functionality - 2020-09-12 17:24
-            Xwindow.RenderContent(_temp_, new Point(Utilities.RoundNearest(8 * (_temp_.Width / Xwindow.Width) / 1.5, 8), Utilities.RoundNearest(8 * (_temp_.Height / Xwindow.Height) / 1.5, 8)), Project.SelectedBasin.Storms);
+            //v462 - 2020-09-26 00:00
+            Xwindow.RenderContent(_temp_, new Point(Utilities.RoundNearest(8 * (_temp_.Width / Xwindow.Width) / 1.5, 8), Utilities.RoundNearest(8 * (_temp_.Height / Xwindow.Height) / 1.5, 8)), Project.SelectedBasin.GetFlatListOfStorms());
 
             // Recalculate node positions on the currentbasin so they actually show up properly.
 
@@ -153,6 +154,7 @@ namespace Track_Maker
             // create a new PNG encoder and memory stream
 
             BitmapEncoder _temp_be_ = new PngBitmapEncoder();
+            
             _temp_be_.Frames.Add(BitmapFrame.Create(_temp_rtb_));
 
             MemoryStream _temp_ms_ = new MemoryStream();

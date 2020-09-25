@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,13 +29,13 @@ namespace Track_Maker
 
         private void Setup()
         {
-            if (MnWindow.CurrentProject.SelectedBasin.Storms.Count == 0)
+            if (MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms().Count == 0)
             {
                 MessageBox.Show("Please add a storm to use this functionality.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Close(); 
             }
 
-            StormList.DataContext = MnWindow.CurrentProject.SelectedBasin.Storms; 
+            StormList.DataContext = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -57,13 +58,18 @@ namespace Track_Maker
                 return; 
             }
 
-            if (MnWindow.CurrentProject.SelectedBasin.Storms[StormList.SelectedIndex].Id == MnWindow.CurrentProject.SelectedBasin.CurrentStorm.Id)
+            if (MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms()[StormList.SelectedIndex].Id == MnWindow.CurrentProject.SelectedBasin.CurrentStorm.Id)
             {
                 // if we want to delete the current storm, make the currentstorm null
-                MnWindow.CurrentProject.SelectedBasin.CurrentStorm = null;
+                MnWindow.CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm = null;
             }
 
-            MnWindow.CurrentProject.SelectedBasin.Storms.RemoveAt(StormList.SelectedIndex); 
+            Storm Sto = (Storm)StormList.SelectedItem; 
+
+            bool R = MnWindow.CurrentProject.SelectedBasin.RemoveStormWithName(Sto.Name);
+
+            // assert if it failed...
+            Debug.Assert(R); 
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -75,10 +81,13 @@ namespace Track_Maker
             }
 
             // initialise the edit ui
-            EditUI Eui = new EditUI(MnWindow.CurrentProject.SelectedBasin.Storms[StormList.SelectedIndex]);
+
+            List<Storm> FlatList = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms();
+
+            EditUI Eui = new EditUI(FlatList[StormList.SelectedIndex]);
             Eui.Owner = this;
             Eui.Show();
-            StormList.DataContext = MnWindow.CurrentProject.SelectedBasin.Storms;
+            StormList.DataContext = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms();
             StormList.UpdateLayout();
         }
 
@@ -90,9 +99,12 @@ namespace Track_Maker
                 return;
             }
 
-            for (int i = 0; i < MnWindow.CurrentProject.SelectedBasin.Storms.Count; i++)
+            List<Storm> FlatList = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms();
+
+            // deal with this when it gets ported to Dano
+            for (int i = 0; i < FlatList.Count; i++)
             {
-                Storm _ = MnWindow.CurrentProject.SelectedBasin.Storms[i];
+                Storm _ = FlatList[i];
 
                 if (StormList.SelectedIndex == i)
                 {

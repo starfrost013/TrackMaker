@@ -70,7 +70,8 @@ namespace Track_Maker
 
                 Ct.Children.Clear();
 
-                XBasin.Storms = new List<Storm>();
+                XBasin.ClearBasin(); 
+
                 XDoc.Load(SFD.FileName);
 
                 XmlNode XRoot = XDoc.FirstChild;
@@ -195,7 +196,9 @@ namespace Track_Maker
 
                         }
                     }
-                    XBasin.Storms.Add(Storm);
+
+                    // temp
+                    XBasin.CurrentLayer.AssociatedStorms.Add(Storm);
                 }
 
                 //ADDED MORE
@@ -272,7 +275,7 @@ namespace Track_Maker
             XmlNode XRoot = XDoc.CreateElement("Project");
 
             // dump the storm info to file
-            foreach (Storm XStorm in Project.SelectedBasin.Storms)
+            foreach (Storm XStorm in Project.SelectedBasin.GetFlatListOfStorms())
             {
                 // create the xml nodes.
                 XmlNode XStormNode = XDoc.CreateElement("Storm");

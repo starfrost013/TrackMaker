@@ -43,7 +43,7 @@ namespace Track_Maker
         {
             MnWindow = (MainWindow)Application.Current.MainWindow;
             ExpFormat = ExportFormat;
-            StormsToExport = MnWindow.CurrentProject.SelectedBasin.Storms; // feature pushed back to Dano, maybe even 3.0/"Aurora"
+            StormsToExport = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); // feature pushed back to Dano, maybe even 3.0/"Aurora"
             Type = FType;
 
             //completely different in Dano
