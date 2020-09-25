@@ -137,6 +137,22 @@ namespace Track_Maker
             NodeList_Deleted.Add(Victim);
             NodeList.Remove(Victim); 
         }
+
+        /// <summary>
+        /// Get the peak intensity of this storm.
+        /// </summary>
+        /// <returns></returns>
+        public int GetPeakIntensity()
+        {
+            int PeakIntensity = 0;
+            
+            foreach (Node Nod in NodeList)
+            {
+                if (Nod.Intensity > PeakIntensity) PeakIntensity = Nod.Intensity;
+            }
+
+            return PeakIntensity;
+        }
     }
 
 }
