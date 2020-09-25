@@ -69,7 +69,11 @@ namespace Track_Maker.ExportPlatform
                 {
                     using (StreamWriter SW = new StreamWriter(new FileStream($"{Bas.Name}_{Sto.Name}.dat", FileMode.Create)))
                     {
-
+                        foreach (Node No in Sto.NodeList)
+                        {
+                            // this is going to go here, too tired for this
+                            SW.WriteLine();
+                        }
                     }
                 }
 

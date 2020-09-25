@@ -356,7 +356,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>echo Track Maker version 1.5 (codename "Priscilla", alternative name "Kallen").
+    <PreBuildEvent>echo Track Maker version 2.0 (codename "Priscilla", alternative name "Kallen").
 echo Copyright © 2019-2020 Connor Hyde.
 echo Built: %25time%25, %25date%25
 
