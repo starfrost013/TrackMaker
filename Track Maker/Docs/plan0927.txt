@@ -1,0 +1,9 @@
+Todo list for 2020/09/27
+- Port seasonmanager to DanoUI
+- Refactor dates?
+- Start unit tests
+- Finish HURDAT2 export, start import
+- Globalstate
+- Continue anti-MainWindow refactoring
+
+

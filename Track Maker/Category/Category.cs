@@ -119,11 +119,11 @@ namespace Track_Maker
         public string GetAbbreviatedCategoryName(string SourceString, int NoOfWords, int StartWordIndex = 0, bool BTFormat = false)
         {
 
-            string[] Words = SourceString.Split(' '); 
+            string[] Words = SourceString.Split(' ');
 
-            if (Words.Length > NoOfWords || NoOfWords < 0)
+            if (NoOfWords > Words.Length || NoOfWords < 0 || StartWordIndex > Words.Length)
             {
-                Error.Throw("Fatal Error", $"Invalid call to Category.GetAbbreviatedCategoryName() - length was {CatLength}, must be between 0 and {Name.Length}!", ErrorSeverity.FatalError, 126);
+                Error.Throw("Fatal Error", $"Invalid call to Category.GetAbbreviatedCategoryName() - length was {Words.Length}, must be between 0 and {NoOfWords}!", ErrorSeverity.FatalError, 126);
                 return null;
             }
 

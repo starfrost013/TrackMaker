@@ -11,13 +11,18 @@ namespace Track_Maker
     /// </summary>
     /// 
     
-    /// IMPLEMENTATION VERSION 0.0 
+    /// IMPLEMENTATION VERSION 0.1
     public class GlobalState
     {
         public CategoryManager CategoryManager { get; set; }
         public List<Basin> LoadedBasins { get; set; }
         public Project CurrentProject { get; set; }
-        
+        public string CurrentFileName { get; set; }
+        public GlobalState()
+        {
+            LoadedBasins = new List<Basin>(); 
+        }
+
         public void Init()
         {
 
