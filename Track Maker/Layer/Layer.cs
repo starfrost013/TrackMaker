@@ -33,5 +33,6 @@ namespace Track_Maker
 
         public void ClearStorms() => AssociatedStorms.Clear();
 
+        public void RenameLayer(string Nm) => Name = Nm; 
     }
 }

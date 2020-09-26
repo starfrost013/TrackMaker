@@ -150,6 +150,14 @@ namespace Track_Maker
         }
 
         // Dano: move to Category.AbbreviateCategory
+
+        /// <summary>
+        /// Priscilla v463 | Deprecated 
+        /// 
+        /// What the fuck i this?
+        /// </summary>
+        /// <param name="CatName"></param>
+        /// <returns></returns>
         public static string AbbreviateCategory(string CatName)
         {
             StringBuilder SB = new StringBuilder();

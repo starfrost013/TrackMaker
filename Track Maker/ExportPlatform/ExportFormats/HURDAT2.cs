@@ -72,6 +72,33 @@ namespace Track_Maker.ExportPlatform
                         foreach (Node No in Sto.NodeList)
                         {
                             // this is going to go here, too tired for this
+
+                            DateTime NoDate = Sto.GetNodeDate(No.Id);
+
+                            // Write the node date
+                            SW.Write(NoDate.ToString("yyyyMMdd"));
+
+                            SW.Write(", ");
+
+                            // Write the node time...
+                            SW.Write(NoDate.ToString("HHmm"));
+
+                            SW.Write(", ");
+
+                            int Peak = Sto.GetPeakIntensity();
+
+                            // Write the tag. We will support more of these in future.
+                            if (Peak == No.Intensity)
+                            {
+                                SW.Write(", I,");
+                            }
+                            else
+                            {
+                                SW.Write(",  ,");
+                            }
+
+                            //string Abbv = Sto.GetNodeCategory(No, MnWindow.CurrentCategorySystem).GetAbbreviatedCategoryName(2, 1, 2, true); 
+
                             SW.WriteLine();
                         }
                     }

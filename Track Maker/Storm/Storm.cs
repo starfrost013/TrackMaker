@@ -153,6 +153,9 @@ namespace Track_Maker
 
             return PeakIntensity;
         }
+
+        public List<Node> GetNodeList() => NodeList;
+
     }
 
 }

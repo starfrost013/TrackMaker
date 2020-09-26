@@ -137,7 +137,7 @@
     <Compile Include="DanoUIHost\StartPageHost\StartPageHost.xaml.cs">
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ExportPlatform\ExportFormats\BestTrack.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\ATCF.cs" />
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormats.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageQuality.cs" />
