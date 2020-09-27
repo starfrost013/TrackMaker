@@ -172,6 +172,5 @@ namespace Track_Maker
             ToolsMenu.IsEnabled = false;
         }
 
-
     }
 }

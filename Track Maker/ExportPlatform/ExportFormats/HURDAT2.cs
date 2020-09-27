@@ -6,15 +6,16 @@ using System.Linq;
 using System.Reflection; 
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows; 
 
-namespace Track_Maker.ExportPlatform
+namespace Track_Maker
 {
-    public class HURDAT2 : IExportFormat
+    public class ExportHURDAT2 : IExportFormat
     {
         public bool AutoStart { get; set; }
         public string Name { get; set; }
 
-        public HURDAT2()
+        public ExportHURDAT2()
         {
             AutoStart = false;
             Name = "Best-track (HURDAT2)";
@@ -97,7 +98,13 @@ namespace Track_Maker.ExportPlatform
                                 SW.Write(",  ,");
                             }
 
-                            //string Abbv = Sto.GetNodeCategory(No, MnWindow.CurrentCategorySystem).GetAbbreviatedCategoryName(2, 1, 2, true); 
+                            //Temporary Code
+                            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+
+                            Category Cat = Sto.GetNodeCategory(No, MnWindow.Catman.CurrentCategorySystem);
+                            string Abbv = Cat.GetAbbreviatedCategoryName(Cat.Name, 2, 1, 2, true);
+
+                            SW.Write($"{Abbv}, ");
 
                             SW.WriteLine();
                         }

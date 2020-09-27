@@ -274,5 +274,13 @@ namespace Track_Maker
             ExUI.Owner = this;
             ExUI.Show();
         }
+
+
+        private void FileMenu_Export_HURDAT_Click(object sender, RoutedEventArgs e)
+        {
+            ExportUI ExUI = new ExportUI(FormatType.Export, new ExportHURDAT2());
+            ExUI.Owner = this;
+            ExUI.Show(); 
+        }
     }
 }

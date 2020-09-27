@@ -116,7 +116,7 @@ namespace Track_Maker
         /// <param name="CatLength">The length of the abbreviation you wish to obtain.</param>
         /// <param name="BTFormat">Best track format - convert to uppercase before returning.</param>
         /// <returns></returns>
-        public string GetAbbreviatedCategoryName(string SourceString, int NoOfWords, int StartWordIndex = 0, bool BTFormat = false)
+        public string GetAbbreviatedCategoryName(string SourceString, int NoOfWords, int StartWordIndex = 0, int LettersPerWord = 1, bool BTFormat = false)
         {
 
             string[] Words = SourceString.Split(' ');
@@ -127,12 +127,30 @@ namespace Track_Maker
                 return null;
             }
 
+            int ShortestWordLength = Words[0].Length; 
+
+            foreach (string Word in Words)
+            {
+                if (Word.Length < ShortestWordLength) ShortestWordLength = Word.Length;
+
+            }
+            
+            if (LettersPerWord < 0 || LettersPerWord > ShortestWordLength)
+            {
+                Error.Throw("Fatal Error", $"Invalid call to Category.GetAbbreviatedCategoryName() - letters per word were {LettersPerWord}, must be between 0 and {ShortestWordLength}!", ErrorSeverity.FatalError, 127); 
+            }
+
             List<char> Chars = new List<char>();
 
             for (int i = StartWordIndex; i < NoOfWords; i++ )
             {
                 string Wrd = Words[i];
-                Chars.Add(Wrd[0]);
+                
+                for (int j = 0; j < LettersPerWord; j++)
+                {
+                    // ok
+                    Chars.Add(Wrd[j]); 
+                }
             }
 
             string Final = Chars.ToString(); 
