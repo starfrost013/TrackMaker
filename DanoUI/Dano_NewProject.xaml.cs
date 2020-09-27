@@ -23,10 +23,6 @@ namespace DanoUI
         public EventHandler<DanoEventArgs> NewProjectCreated { get; set; }
         public EventHandler<DanoEventArgs> DanoOnCreate { get; set; }
         public List<string> DanoBasinList { get; set; }
-        public Dano_NewProject()
-        {
-
-        }
 
         public void Dano_NewProject_InitDBL(List<string> DBL)
         {

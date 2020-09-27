@@ -122,10 +122,10 @@
     <Compile Include="DanoUIHost\CreateProjectHost\CreateProjectHost.xaml.cs">
       <DependentUpon>CreateProjectHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\DanoBasinSwitcher\DanoBasinSwitcherHost.xaml.cs">
+    <Compile Include="DanoUIHost\BasinSwitcherHost\DanoBasinSwitcherHost.xaml.cs">
       <DependentUpon>DanoBasinSwitcherHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\DanoCategoryManager\DanoCategoryManagerHost.xaml.cs">
+    <Compile Include="DanoUIHost\CategoryManagerHost\DanoCategoryManagerHost.xaml.cs">
       <DependentUpon>DanoCategoryManagerHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="DanoUIHost\ErrorHost\ErrorUIHost.xaml.cs">
@@ -133,6 +133,9 @@
     </Compile>
     <Compile Include="DanoUIHost\LayerControlHost\LayerControlHost.xaml.cs">
       <DependentUpon>LayerControlHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\SeasonManagerHost\SeasonManagerHost.xaml.cs">
+      <DependentUpon>SeasonManagerHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="DanoUIHost\StartPageHost\StartPageHost.xaml.cs">
       <DependentUpon>StartPageHost.xaml</DependentUpon>
@@ -198,11 +201,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\DanoBasinSwitcher\DanoBasinSwitcherHost.xaml">
+    <Page Include="DanoUIHost\BasinSwitcherHost\DanoBasinSwitcherHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\DanoCategoryManager\DanoCategoryManagerHost.xaml">
+    <Page Include="DanoUIHost\CategoryManagerHost\DanoCategoryManagerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DanoUIHost\LayerControlHost\LayerControlHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\SeasonManagerHost\SeasonManagerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

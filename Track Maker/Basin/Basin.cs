@@ -392,6 +392,24 @@ namespace Track_Maker
             return LS; 
         }
 
+        /// <summary>
+        /// Get a layer-independent storm with the name Name. 
+        /// </summary>
+        /// <returns></returns>
+        public Storm GetFlatStormWithName(string Name)
+        {
+            List<Storm> XS = GetFlatListOfStorms();
+
+            foreach (Storm XStorm in XS)
+            {
+                if (XStorm.Name == Name)
+                {
+                    return XStorm; 
+                }
+            }
+
+        }
+
         public List<Storm> ClearBasin()
         {
             List<Storm> LS = new List<Storm>();

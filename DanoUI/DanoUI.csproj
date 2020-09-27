@@ -63,6 +63,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PriscillaUI\Ported\Dano_SeasonManager.xaml.cs">
+      <DependentUpon>Dano_SeasonManager.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PriscillaUI\Priscilla_CreateLayer.xaml.cs">
       <DependentUpon>Priscilla_CreateLayer.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="PriscillaUI\Ported\Dano_SeasonManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PriscillaUI\Priscilla_CreateLayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
