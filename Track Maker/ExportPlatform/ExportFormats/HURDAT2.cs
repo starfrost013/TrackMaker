@@ -95,17 +95,24 @@ namespace Track_Maker
                             }
                             else
                             {
-                                SW.Write(",  ,");
+                                SW.Write(",  , ");
                             }
 
                             //Temporary Code
                             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
 
                             Category Cat = Sto.GetNodeCategory(No, MnWindow.Catman.CurrentCategorySystem);
-                            string Abbv = Cat.GetAbbreviatedCategoryName(Cat.Name, 2, 1, 2, true);
+
+                            string[] CatWords = Cat.Name.Split(' ');
+
+                            // select the last word
+                            string Abbv = Cat.GetAbbreviatedCategoryName(Cat.Name, CatWords.Length - 1, 0, 1, true);
 
                             SW.Write($"{Abbv}, ");
 
+                            Coordinate CD = Proj.SelectedBasin.FromNodePositionToCoordinate(No.Position);
+
+                            SW.Write($"{CD.Coordinates.X}.{CD.Directions[0].ToString()}, {CD.Coordinates.Y}{CD.Directions[0]}, ");
                             SW.WriteLine();
                         }
                     }

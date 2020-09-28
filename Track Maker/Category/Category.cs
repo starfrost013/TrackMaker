@@ -127,10 +127,13 @@ namespace Track_Maker
                 return null;
             }
 
-            int ShortestWordLength = Words[0].Length; 
+            int ShortestWordLength = Words[0].Length;
 
-            foreach (string Word in Words)
+            for (int i = StartWordIndex; i < (StartWordIndex + NoOfWords); i++) 
             {
+                // we already ran a bounds check so we will iterate through all teh words we are checking 
+                string Word = Words[i];
+
                 if (Word.Length < ShortestWordLength) ShortestWordLength = Word.Length;
 
             }
@@ -140,8 +143,9 @@ namespace Track_Maker
                 Error.Throw("Fatal Error", $"Invalid call to Category.GetAbbreviatedCategoryName() - letters per word were {LettersPerWord}, must be between 0 and {ShortestWordLength}!", ErrorSeverity.FatalError, 127); 
             }
 
-            List<char> Chars = new List<char>();
 
+            StringBuilder SB = new StringBuilder();
+            
             for (int i = StartWordIndex; i < NoOfWords; i++ )
             {
                 string Wrd = Words[i];
@@ -149,11 +153,11 @@ namespace Track_Maker
                 for (int j = 0; j < LettersPerWord; j++)
                 {
                     // ok
-                    Chars.Add(Wrd[j]); 
+                    SB.Append(Wrd[j]); 
                 }
             }
 
-            string Final = Chars.ToString(); 
+            string Final = SB.ToString(); 
 
             Debug.Assert(Final != null);
 

@@ -188,6 +188,29 @@ namespace Track_Maker
             return Text.IndexOf(Value, SC) >= 0; 
         }
 
-        
+    }
+
+    /// <summary>
+    /// I know LINQ has this, but I'm experimenting with generic type parameters.
+    /// 
+    /// Imported from ediff0-0.7
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class ListUtil<T>
+    {
+        public static List<T> ToList(Array Arr)
+        {
+            List<T> List0 = new List<T>();
+
+            foreach (object Obj in Arr)
+            {
+                if (Obj is T)
+                {
+                    List0.Add((T)Obj);
+                }
+            }
+
+            return List0;
+        }
     }
 }
