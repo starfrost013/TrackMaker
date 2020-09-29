@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Track_Maker
 {
-    public enum ErrorSeverity { Message, Warning, Error, FatalError, CatastrophicError }
+    public enum ErrorSeverity { Message, Warning, Error, FatalError }
     public class Error
     {
         public static void Throw(string caption, string Text, ErrorSeverity Severity, int ID = 0)
@@ -25,7 +25,6 @@ namespace Track_Maker
                     MessageBox.Show($"Error #{ID}: {caption}", Text, MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 case ErrorSeverity.FatalError:
-                case ErrorSeverity.CatastrophicError:
 
                     // Create an EUIH
                     ErrorUIHost EUIH = new ErrorUIHost(Text);

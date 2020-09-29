@@ -46,14 +46,14 @@ namespace Track_Maker
             }
             catch (FormatException)
             {
-                // nope
-                MessageBox.Show("What did you put in the Intensity box??", "What?", MessageBoxButton.OK, MessageBoxImage.Error);
+                // nopE
+                Error.Throw("Warning", "Please enter a valid intensity", ErrorSeverity.Warning, 127); 
                 return;
 
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Hyper Mini Black Holes are stupid.", "What?", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Warning", "Please enter an intensity between -2147483647mph and 2147483647mph.", ErrorSeverity.Warning, 128); 
                 return;
             }
         }

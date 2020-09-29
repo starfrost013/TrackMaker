@@ -30,6 +30,11 @@ namespace Track_Maker
             Project = Proj; 
         }
 
+        public void Edit_Click(object sender, DanoEventArgs e)
+        {
+            
+        }
+
         public void Delete_Click(object sender, DanoEventArgs e)
         {
             Debug.Assert(e.DanoParameters.Count == 1); 

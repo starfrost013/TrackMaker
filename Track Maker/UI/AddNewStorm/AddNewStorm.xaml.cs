@@ -31,6 +31,14 @@ namespace Track_Maker
             try
             {
                 // Build the date and time.
+
+                // V2.0.471.0: Fix a crash bug involving not entering a valid date
+                if (Date.SelectedDate == null)
+                {
+                    Error.Throw("Warning", "Please enter a valid date!", ErrorSeverity.Warning 128);
+                    return; 
+                }
+
                 DateTime TD = (DateTime)Date.SelectedDate;
 
                 int Hours = Convert.ToInt32(TimeHours.Text);
