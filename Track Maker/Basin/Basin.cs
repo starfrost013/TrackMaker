@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -164,6 +165,9 @@ namespace Track_Maker
 
         public Point FromCoordinateToNodePosition(Coordinate Coord)
         {
+
+            Debug.Assert(Coord.Directions.Count == 2); 
+
             double LowX = CoordsLower.Coordinates.X;
             double LowY = CoordsLower.Coordinates.Y;
             double HighX = CoordsHigher.Coordinates.X;
