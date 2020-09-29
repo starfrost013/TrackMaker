@@ -28,7 +28,6 @@ namespace Track_Maker
     {
         public BitmapImage BasinImage { get; set; } // the basin image name
         public string BasinImagePath { get; set; } // the basin image path. we only load what we need.
-        public Storm CurrentStorm { get; set; } // the currently selected Storm
         public string Name { get; set; } // the name of the basin
         public Coordinate CoordsLower { get; set; } // The lower point of the coords of this basin
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
@@ -43,7 +42,7 @@ namespace Track_Maker
         
         public BasinType SeasonType { get; set; } // Type of this season (Dano/3.0 only)
 #endif 
-        public int SeasonID { get; set; } // Unique ID of this season
+        public Guid SeasonID { get; set; } // Unique ID of this season
 
         // New for Priscilla.
         public List<Layer> Layers { get; set; } // new: list of layers
@@ -54,7 +53,8 @@ namespace Track_Maker
 
         public Basin()
         {
-            Layers = new List<Layer>(); 
+            Layers = new List<Layer>();
+            SeasonID = Guid.NewGuid(); 
         }
 
         // Dano-style API (move to Project)
@@ -63,17 +63,11 @@ namespace Track_Maker
         {
             Coordinate Coord = new Coordinate();
 
-            //Temp
-            double X1 = 0;
-            double X2 = 0;
-            double Y1 = 0;
-            double Y2 = 0;
-
             //Convert (coords lower/higher are alwa
-            X1 = CoordsLower.Coordinates.X;
-            Y1 = CoordsLower.Coordinates.Y;
-            X2 = CoordsHigher.Coordinates.X;
-            Y2 = CoordsHigher.Coordinates.Y;
+            double X1 = CoordsLower.Coordinates.X;
+            double Y1 = CoordsLower.Coordinates.Y;
+            double X2 = CoordsHigher.Coordinates.X;
+            double Y2 = CoordsHigher.Coordinates.Y;
 
             // Convert to negative
 
@@ -168,6 +162,53 @@ namespace Track_Maker
             return Coord; 
         }
 
+        public Point FromCoordinateToNodePosition(Coordinate Coord)
+        {
+            double LowX = CoordsLower.Coordinates.X;
+            double LowY = CoordsLower.Coordinates.Y;
+            double HighX = CoordsHigher.Coordinates.X;
+            double HighY = CoordsHigher.Coordinates.Y;
+
+            // convert to absolute coordinate
+            foreach (CardinalDirection CD in CoordsLower.Directions)
+            {
+                switch (CD)
+                {
+                    case CardinalDirection.W:
+                        LowX = -LowX;
+                        continue;
+                    case CardinalDirection.S:
+                        LowY = -LowY;
+                        continue; 
+                }
+            }
+
+            // convert to absolute coordinate
+            foreach (CardinalDirection CD in CoordsHigher.Directions)
+            {
+                switch (CD)
+                {
+                    case CardinalDirection.W:
+                        HighX = -HighX;
+                        continue;
+                    case CardinalDirection.S:
+                        HighY = -HighY;
+                        continue;
+                }
+            }
+
+            // get the multiplier from the coordshigher.
+
+            double PreFinalX = Coord.Coordinates.X / (HighX - LowX);
+            double PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
+            
+            // TEMP
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            Point FinalPos = new Point(MnWindow.Width * PreFinalX, MnWindow.Height * PreFinalY);
+
+            return FinalPos;
+        }
+
         /// <summary>
         /// Adds a Storm.
         /// </summary>
@@ -237,10 +278,9 @@ namespace Track_Maker
 
                 Logging.Log("Initializing node list...");
                 Storm.NodeList = new List<Node>(); // initalize the mode list
-                Logging.Log("Setting current Storm...");
-                CurrentStorm = Storm;
                 Logging.Log("Adding Storm to basin Storm list...");
                 CurrentLayer.AssociatedStorms.Add(Storm);
+                Logging.Log("Setting current Storm...");
                 CurrentLayer.CurrentStorm = Storm; 
                 Logging.Log("Done! Closing...");
 

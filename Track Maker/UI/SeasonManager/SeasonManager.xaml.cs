@@ -58,7 +58,7 @@ namespace Track_Maker
                 return; 
             }
 
-            if (MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms()[StormList.SelectedIndex].Id == MnWindow.CurrentProject.SelectedBasin.CurrentStorm.Id)
+            if (MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms()[StormList.SelectedIndex].Id == MnWindow.CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Id)
             {
                 // if we want to delete the current storm, make the currentstorm null
                 MnWindow.CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm = null;
@@ -108,7 +108,7 @@ namespace Track_Maker
 
                 if (StormList.SelectedIndex == i)
                 {
-                    MnWindow.CurrentProject.SelectedBasin.CurrentStorm = _;
+                    MnWindow.CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm = _;
                     MessageBox.Show($"The storm {_.Name} is now selected.", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
                     return; 
                 }

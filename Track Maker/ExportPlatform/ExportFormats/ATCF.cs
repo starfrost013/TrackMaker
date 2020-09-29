@@ -164,7 +164,7 @@ namespace Track_Maker
 
                         if (Cat.Length > 3)
                         {
-                            MessageBox.Show("Due to the fact that the ATCF format is terrible, category names cannot be longer than 3 characters abbreviated.");
+                            MessageBox.Show("Due to the limitations of the ATCF format, category names cannot be longer than 3 characters abbreviated.");
                             return false; 
                         }
 

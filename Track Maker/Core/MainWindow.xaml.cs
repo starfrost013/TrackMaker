@@ -124,23 +124,23 @@ namespace Track_Maker
                     SetFullscreen(); 
                     return; 
                 case Key.Y:
-                    if (CurrentProject.SelectedBasin.CurrentStorm == null) return;
-                    if (CurrentProject.SelectedBasin.CurrentStorm.NodeList.Count == 0) return;
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null) return;
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.NodeList.Count == 0) return;
 
                     if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
                     {
                         // we want to redo
-                        CurrentProject.SelectedBasin.CurrentStorm.Redo();
+                        CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Redo();
                     }
                     return;
                 case Key.Z:
-                    if (CurrentProject.SelectedBasin.CurrentStorm == null) return;
-                    if (CurrentProject.SelectedBasin.CurrentStorm.NodeList.Count == 0) return;
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null) return;
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.NodeList.Count == 0) return;
 
                     if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
                     {
                         // we want to undo
-                        CurrentProject.SelectedBasin.CurrentStorm.Undo(); 
+                        CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Undo(); 
                     }
                     return;
             }

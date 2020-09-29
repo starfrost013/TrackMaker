@@ -35,7 +35,7 @@ namespace Track_Maker
 
         private void BasinMenu_Clear_Click(object sender, RoutedEventArgs e)
         {
-            CurrentProject.SelectedBasin.CurrentStorm = null;
+            CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm = null;
             CurrentProject.SelectedBasin.ClearBasin();
         }
 
@@ -60,7 +60,7 @@ namespace Track_Maker
             if (CurrentProject != null)
             {
                 // if we have no storms, ask the user to create a storm instead of add a track point. 
-                if (CurrentProject.SelectedBasin.CurrentStorm == null)
+                if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null)
                 {
                     AddNewStorm Addstwindow = new AddNewStorm();
                     Addstwindow.Owner = this;
@@ -241,9 +241,9 @@ namespace Track_Maker
         {
             if (CurrentProject.SelectedBasin != null)
             {
-                if (CurrentProject.SelectedBasin.CurrentStorm != null)
+                if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm != null)
                 {
-                    CurrentProject.SelectedBasin.CurrentStorm.Undo();
+                    CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Undo();
                 }
             }
         }
@@ -252,9 +252,9 @@ namespace Track_Maker
         {
             if (CurrentProject.SelectedBasin != null)
             {
-                if (CurrentProject.SelectedBasin.CurrentStorm != null)
+                if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm != null)
                 {
-                    CurrentProject.SelectedBasin.CurrentStorm.Redo();
+                    CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Redo();
                 }
             }
 

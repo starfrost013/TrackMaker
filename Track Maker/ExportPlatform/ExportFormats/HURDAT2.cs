@@ -91,7 +91,7 @@ namespace Track_Maker
                             // Write the tag. We will support more of these in future.
                             if (Peak == No.Intensity)
                             {
-                                SW.Write(", I,");
+                                SW.Write(", I, ");
                             }
                             else
                             {
@@ -113,8 +113,20 @@ namespace Track_Maker
                             Coordinate CD = Proj.SelectedBasin.FromNodePositionToCoordinate(No.Position);
                             
                             // dumb fucking piece of shit hack because what the fuck is compatibility you fucking NOAA dumb fucks
-                            CD.Coordinates = new Point(CD.Coordinates.X / 100, CD.Coordinates.Y / 100); 
+                            CD.Coordinates = new Point(CD.Coordinates.X / 10, CD.Coordinates.Y / 10); 
                             SW.Write($"{CD.Coordinates.X}{CD.Directions[0].ToString()}, {CD.Coordinates.Y}{CD.Directions[0]}, ");
+
+
+                            // we don't save this data lol. 
+                            // yes i could just write the comma 
+                            SW.Write($"{No.Intensity},   914,  150,  110,   90,  150,   80,   60,   50,   70,   45,   40,   30,   45");
+                             
+                            if (No.Id != Sto.NodeList.Count - 1)
+                            {
+                                SW.Write(","); 
+                            }
+                           
+                           
                             SW.WriteLine();
                         }
                     }
