@@ -231,42 +231,7 @@ namespace Track_Maker
 
         public bool Export(Project Project)
         {
-            try
-            {
-                SaveFileDialog SFD = new SaveFileDialog();
-
-                SFD.Title = "Export to TProj file";
-                SFD.Filter = "Track Maker Project XML files|*.tproj";
-                SFD.ShowDialog();
-
-                // user hit cancel
-                if (SFD.FileName == "") return true;
-
-                //utilfunc v2
-                if (File.Exists(SFD.FileName))
-                {
-                    File.Delete(SFD.FileName);
-                    FileStream FS = File.Create(SFD.FileName);
-                    FS.Close();
-                }
-
-                ExportCore(Project, SFD.FileName);
-
-                return true; 
-            }
-            // error checking
-            catch (IOException err)
-            {
-                MessageBox.Show($"An error occurred while writing to XML format. [Error Code: EX1].\n\n{err}");
-                Application.Current.Shutdown(-0xE1);
-                return false;
-            }
-            catch (XmlException err)
-            {
-                MessageBox.Show($"An error occurred while saving the XML file. [Error Code: EX2].\n\n{err}");
-                Application.Current.Shutdown(-0xE2);
-                return false;
-            }
+            throw new NotImplementedException("Track Maker 1.x export support is removed in Priscilla - only import allowed!");
         }
 
         public bool ExportCore(Project Project, string FileName)

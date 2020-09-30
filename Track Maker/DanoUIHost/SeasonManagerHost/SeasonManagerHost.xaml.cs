@@ -43,5 +43,10 @@ namespace Track_Maker
             // Temp - pre-globalstate
             
         }
+
+        public void OK_Hit(object sender, DanoEventArgs e)
+        {
+            Close(); 
+        }
     }
 }

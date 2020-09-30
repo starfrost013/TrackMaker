@@ -11,7 +11,5 @@
         <TextBlock x:Name="BasinListHeader" HorizontalAlignment="Left" Height="19" FontSize="14" FontStyle="Italic" Margin="10,58,0,0" TextWrapping="Wrap" Text="Basins:" VerticalAlignment="Top" Width="46" Panel.ZIndex="0"/>
         <ListBox x:Name="BasinList" HorizontalAlignment="Left" Height="317" Margin="10,77,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding BasinString}" Foreground="#FF3030A0"/>
         <Button Style="{StaticResource Button_Invert}" x:Name="OKButton" Content="Switch" HorizontalAlignment="Left" Margin="359,63,0,0" VerticalAlignment="Top" Width="93" FontSize="18" Click="OKButton_Click"/>
-        <Border HorizontalAlignment="Left" Height="329" Margin="4,71,0,0" VerticalAlignment="Top" Width="272" BorderBrush="#FFB6B2B2" Panel.ZIndex="-1"/>
-
     </Grid>
 </UserControl>

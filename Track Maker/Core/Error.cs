@@ -10,19 +10,19 @@ namespace Track_Maker
     public enum ErrorSeverity { Message, Warning, Error, FatalError }
     public class Error
     {
-        public static void Throw(string caption, string Text, ErrorSeverity Severity, int ID = 0)
+        public static void Throw(string Caption, string Text, ErrorSeverity Severity, int ID = 0)
         {
 
             switch (Severity)
             {
                 case ErrorSeverity.Message:
-                    MessageBox.Show(caption, Text, MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(Caption, Text, MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 case ErrorSeverity.Warning:
-                    MessageBox.Show($"Warning: {caption}", Text, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show($"Warning: {Caption}", Text, MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 case ErrorSeverity.Error:
-                    MessageBox.Show($"Error #{ID}: {caption}", Text, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Error #{ID}: {Caption}", Text, MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 case ErrorSeverity.FatalError:
 

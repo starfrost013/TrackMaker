@@ -305,7 +305,12 @@ namespace Track_Maker
             {
                 foreach (Storm Sto in Lyr.AssociatedStorms)
                 {
-                    if (Sto.Name == Name) Lyr.AssociatedStorms.Remove(Sto);
+                    if (Sto.Name == Name)
+                    {
+                        Lyr.AssociatedStorms.Remove(Sto);
+                        return true; 
+                    }
+                    
                 }
             }
 

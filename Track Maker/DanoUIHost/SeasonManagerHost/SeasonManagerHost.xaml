@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="SeasonManagerHost" Height="483.195" Width="470.492">
     <Grid>
-        <Dano:SeasonManager x:Name="SeasonEd" EditHit="Edit_Click" DeleteHit="Delete_Click"></Dano:SeasonManager>
+        <Dano:SeasonManager x:Name="SeasonEd" OKHit="OK_Click" EditHit="Edit_Click" DeleteHit="Delete_Click"></Dano:SeasonManager>
     </Grid>
 </Window>

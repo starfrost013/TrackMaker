@@ -152,7 +152,6 @@ namespace Track_Maker
         /// </summary>
         public void EnableButtons()
         {
-            FileMenu.IsEnabled = true;
             ProjectMenu.IsEnabled = true;
             EditMenu.IsEnabled = true;
             StormMenu.IsEnabled = true;
@@ -163,8 +162,6 @@ namespace Track_Maker
 
         public void DisableButtons()
         {
-            FileMenu.IsEnabled = false;
-            ProjectMenu.IsEnabled = true;
             EditMenu.IsEnabled = false;
             StormMenu.IsEnabled = false;
             ViewMenu.IsEnabled = false;
