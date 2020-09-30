@@ -21,10 +21,13 @@ namespace Track_Maker
         XML = 0,
 
         /// <summary>
-        /// 
+        /// ATCF Coordinate Format (no decimal place shown, truncated to 1 decimal place)
         /// </summary>
         ATCF = 1,
 
+        /// <summary>
+        /// HURDAT2 Coordinate Format (plaintext)
+        /// </summary>
         HURDAT = 2,
     }
 }
