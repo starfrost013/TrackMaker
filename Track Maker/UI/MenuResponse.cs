@@ -25,12 +25,6 @@ namespace Track_Maker
             DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(CurrentProject.GetBasinNames());
             DBSH.Owner = this;
             DBSH.Show(); 
-
-            /* pre-build 426
-            BasinSwitcher BasinSwitch = new BasinSwitcher();
-            BasinSwitch.Owner = this;
-            BasinSwitch.Show();
-            */
         }
 
         private void BasinMenu_Clear_Click(object sender, RoutedEventArgs e)
@@ -281,6 +275,13 @@ namespace Track_Maker
             ExportUI ExUI = new ExportUI(FormatType.Export, new ExportHURDAT2());
             ExUI.Owner = this;
             ExUI.Show(); 
+        }
+
+        private void EditMenu_Season_Dano_Click(object sender, RoutedEventArgs e)
+        {
+            SeasonManagerHost SMH = new SeasonManagerHost(CurrentProject);
+            SMH.Owner = this;
+            SMH.Show();
         }
     }
 }

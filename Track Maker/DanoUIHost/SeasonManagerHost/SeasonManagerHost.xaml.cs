@@ -22,10 +22,10 @@ namespace Track_Maker
     public partial class SeasonManagerHost : Window
     {
         public Project Project { get; set; }
-        public SeasonManagerHost(Project Proj, List<string> BasinNames)
+        public SeasonManagerHost(Project Proj)
         {
             InitializeComponent();
-            SeasonEd.StormNameList = BasinNames;
+            SeasonEd.StormNameList = Proj.SelectedBasin.GetFlatListOfStormNames();
             SeasonEd.UpdateLayout();
             Project = Proj; 
         }

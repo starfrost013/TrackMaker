@@ -32,7 +32,7 @@
                 <MenuItem x:Name="FileMenu_Import" Header="Import" Foreground="Black" Style="{StaticResource Style_Menu}">
                     <MenuItem x:Name="FileMenu_Import_BT" Header="from Best Track (ATCF)..." Foreground="Black" IsEnabled="False" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_HURDAT" Header="from Best Track (HURDAT2)..." Foreground="Black" IsEnabled="False" FontStyle="Italic"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Import_XML" Header="from Track Maker project (1.x)..." Foreground="Black" Click="FileMenu_Import_XML_Click" FontStyle="Italic"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Import_XML" Header="from Track Maker project (version 1.x)..." Foreground="Black" Click="FileMenu_Import_XML_Click" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_XMLv2" Header="from Track Maker project..." Foreground="Black" Click="FileMenu_Import_XML2_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
                 <MenuItem x:Name="FileMenu_Export" Header="Export" Foreground="Black">
@@ -40,7 +40,7 @@
                     <MenuItem x:Name="FileMenu_Export_HURDAT" Header="to Best Track (HURDAT2)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_HURDAT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_ET" Header="to EasyTimeline..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_ET_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_Image" Header="to Image..." Foreground="Black" Click="FileMenu_SaveImage_Click" FontStyle="Italic"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Export_XML" Header="to Track Maker project (v1.x)..." Foreground="Black" Click="FileMenu_Export_XML_Click" FontStyle="Italic"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Export_XML" Header="to Track Maker project (version 1.x)..." Foreground="Black" Click="FileMenu_Export_XML_Click" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_XMLv2" Header="to Track Maker project ..." Foreground="Black" Click="FileMenu_Export_XML2_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
                 <Separator/>
@@ -53,6 +53,7 @@
 
             <MenuItem x:Name="EditMenu" Header="Edit" Foreground="White">
                 <MenuItem x:Name="EditMenu_Season" Header="Season" Foreground="Black" Click="EditMenu_Season_Click"></MenuItem>
+                <MenuItem x:Name="EditMenu_Season_Dano" Header="Season [DanoUI]" Foreground="Black" Click="EditMenu_Season_Dano_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="ViewMenu" Header="View" Foreground="White">
                 <MenuItem x:Name="ViewMenu_Categories" Header="Categories" Foreground="Black" Click="EditMenu_Categories_Click"></MenuItem>

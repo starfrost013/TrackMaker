@@ -11,7 +11,7 @@ namespace Track_Maker
     /// </summary>
     /// 
     
-    /// IMPLEMENTATION VERSION 0.1
+    /// IMPLEMENTATION VERSION 0.2
     public class GlobalState
     {
         public CategoryManager CategoryManager { get; set; }
@@ -20,12 +20,14 @@ namespace Track_Maker
         public string CurrentFileName { get; set; }
         public GlobalState()
         {
-            LoadedBasins = new List<Basin>(); 
+            Init(); 
         }
 
         public void Init()
         {
-
+            LoadedBasins = new List<Basin>();
         }
+
+        public void SetCurrentFilename(string Name) => CurrentFileName = Name; 
     }
 }

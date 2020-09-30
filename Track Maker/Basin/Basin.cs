@@ -58,8 +58,8 @@ namespace Track_Maker
             SeasonID = Guid.NewGuid(); 
         }
 
-        // Dano-style API (move to Project)
         
+        // Basin API for Priscilla
         public Coordinate FromNodePositionToCoordinate(Point NodePosition)
         {
             Coordinate Coord = new Coordinate();
@@ -437,10 +437,29 @@ namespace Track_Maker
         }
 
         /// <summary>
-        /// Get a layer-independent storm with the name Name. 
+        /// Get a flat list of storm names
         /// </summary>
         /// <returns></returns>
-        public Storm GetFlatStormWithName(string Name)
+        public List<string> GetFlatListOfStormNames()
+        {
+            List<string> StormNames = new List<string>();
+
+            foreach (Layer Lyr in Layers)
+            {
+                foreach (Storm Sto in Lyr.AssociatedStorms)
+                {
+                    StormNames.Add(Sto.Name);
+                }
+            }
+
+            return StormNames; 
+        }
+
+    /// <summary>
+    /// Get a layer-independent storm with the name Name. 
+    /// </summary>
+    /// <returns></returns>
+    public Storm GetFlatStormWithName(string Name)
         {
             List<Storm> XS = GetFlatListOfStorms();
 
@@ -455,6 +474,8 @@ namespace Track_Maker
             return null;
 
         }
+
+
 
         public List<Storm> ClearBasin()
         {

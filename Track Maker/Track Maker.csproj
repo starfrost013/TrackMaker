@@ -192,6 +192,7 @@
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\Coordinate.cs" />
+    <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
     <Compile Include="Util\Utilities.cs" />
     <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
       <SubType>Designer</SubType>
