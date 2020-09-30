@@ -19,6 +19,7 @@ namespace Track_Maker
     /// 1.1         v1.0.305.0      2020-05-15     Add formation date saving.
     /// 1.2         v2.0.390.0      2020-05-24     Use AddNode. Add version saving. (did we do this?)
     /// 1.3         v2.0.445.20257  2020-09-13     Remove MainWindow dependency for exporting, importing soon (Priscilla/Dano)
+    /// 1.4         v2.0.472.20274  2020-09-30     Dummy out export for reduced user confusion, put warning around import. 
     /// </summary>
     public class ExportXML : IExportFormat
     {
@@ -229,9 +230,14 @@ namespace Track_Maker
             }
         }
 
+        /// <summary>
+        /// removed - priscilla version 472
+        /// </summary>
+        /// <param name="Project"></param>
+        /// <returns></returns>
         public bool Export(Project Project)
         {
-            throw new NotImplementedException("Track Maker 1.x export support is removed in Priscilla - only import allowed!");
+            throw new NotImplementedException("Track Maker 1.x export support is removed in Priscilla - only import allowed! This should not be called`");
         }
 
         public bool ExportCore(Project Project, string FileName)

@@ -32,16 +32,23 @@ namespace Track_Maker
 
         public void Edit_Click(object sender, DanoEventArgs e)
         {
-            
+            Debug.Assert(e.DanoParameters.Count == 1);
+            string StormToSelect = (string)e.DanoParameters[0];
+            Project.SelectedBasin.SelectStormWithName(StormToSelect); 
         }
 
         public void Delete_Click(object sender, DanoEventArgs e)
         {
+            // pre-globalstate
             Debug.Assert(e.DanoParameters.Count == 1); 
             string DelStorm = (string)e.DanoParameters[0];
             Project.SelectedBasin.RemoveStormWithName(DelStorm); 
-            // Temp - pre-globalstate
             
+        }
+
+        public void Rename_Click(object sender, DanoEventArgs e)
+        {
+            return; // no point throwing an exception when we're going to implement this in less than 24 hours
         }
 
         public void OK_Hit(object sender, DanoEventArgs e)

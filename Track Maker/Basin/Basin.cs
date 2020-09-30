@@ -297,10 +297,33 @@ namespace Track_Maker
             }
         }
 
-        public bool RemoveStormWithName(string Name)
+        public bool RenameStormWithName(string OldName, string NewName)
         {
+            // todo: experiment with reducing code complexity
             List<Storm> LS = new List<Storm>();
 
+            foreach (Layer Lyr in Layers)
+            {
+                foreach (Storm Sto in Lyr.AssociatedStorms)
+                {
+                    if (Sto.Name == OldName)
+                    {
+                        Sto.Name = NewName;
+                        return true; 
+                    }
+                }
+            }
+
+            return false; 
+        }
+
+        /// <summary>
+        /// Remove the storm 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns></returns>
+        public bool RemoveStormWithName(string Name)
+        {
             foreach (Layer Lyr in Layers)
             {
                 foreach (Storm Sto in Lyr.AssociatedStorms)
@@ -316,6 +339,27 @@ namespace Track_Maker
 
             return false; 
 
+        }
+        
+        public bool SelectStormWithName(string StName)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                foreach (Storm Sto in Lyr.AssociatedStorms)
+                {
+                    // select the current layer
+                    if (!(CurrentLayer == Lyr))
+                    {
+                        CurrentLayer = Lyr;
+                    }
+
+                    if (Sto.Name == StName) CurrentLayer.CurrentStorm = Sto;
+                    return true; 
+
+                }
+            }
+
+            return false;
         }
 
         public void AddLayer(string Name)

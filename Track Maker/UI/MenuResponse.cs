@@ -263,8 +263,6 @@ namespace Track_Maker
                 ExUI.Owner = this;
                 ExUI.Show();
             }
-
-
         }
 
 
