@@ -42,6 +42,11 @@ namespace Track_Maker
             throw new NotImplementedException(); 
         }
 
+        public Project IMportCore(string FileName)
+        {
+
+        }
+
         /// <summary>
         /// Needs to be majorly updated and refactored for v2
         /// </summary>

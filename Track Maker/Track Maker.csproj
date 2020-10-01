@@ -128,6 +128,9 @@
     <Compile Include="DanoUIHost\CategoryManagerHost\CategoryManagerHost.xaml.cs">
       <DependentUpon>CategoryManagerHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DanoUIHost\EditUIHost\EditUIHost.xaml.cs">
+      <DependentUpon>EditUIHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DanoUIHost\ErrorHost\ErrorUIHost.xaml.cs">
       <DependentUpon>ErrorUIHost.xaml</DependentUpon>
     </Compile>
@@ -207,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DanoUIHost\CategoryManagerHost\CategoryManagerHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\EditUIHost\EditUIHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
