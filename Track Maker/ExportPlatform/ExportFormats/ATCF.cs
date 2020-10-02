@@ -39,12 +39,48 @@ namespace Track_Maker
 
         public Project Import()
         {
-            throw new NotImplementedException(); 
+            try
+            {
+                OpenFileDialog OFD = new OpenFileDialog();
+                OFD.Title = "Open ATCF format";
+                OFD.Filter = "Folders|*.";
+                OFD.ShowDialog();
+
+                if (OFD.FileName == "") return null;
+
+                return ImportCore(OFD.FileName); 
+            }
+            catch (PathTooLongException)
+            {
+                Error.Throw("Error", "The path to the file is longer than 260 characters. Please shorten it", ErrorSeverity.Error, 150); 
+            
+            }
+
+            return null; 
+            
         }
 
-        public Project IMportCore(string FileName)
+        public Project ImportCore(string FileName)
         {
+            // this is one of the worst fucking file formats I have ever laid my fucking eyes on, NOAA are a bunch of fucking wanker twats, nobody should use this pile of crap
+            string[] ATCFLines = File.ReadAllLines(FileName); 
 
+            // XML OR JSON OR FUCKING ANYTHING PLS
+            foreach (string ATCFLine in ATCFLines)
+            {
+                string[] Components = ATCFLine.Split(',');
+
+                // get the stuff we actually need
+                string _StrId = Components[1];
+                //string _StrTime = Components[2];
+                string _StrName = Components[1];
+                string _StrTimeSinceFormation = Components[2];
+                string _StrCoordX = Components[5];
+                string _StrCoordY = Components[6];
+                string _StrWind = Components[5];
+                
+                
+            }
         }
 
         /// <summary>
@@ -132,7 +168,7 @@ namespace Track_Maker
 
                         SW.Write($"{NodeDate.ToString("yyyyMMdd")}{Utilities.PadZero(NodeDate.Hour)}");
 
-                        // Some weird padding shit
+                        // Some weird padding shit (It's actually time since system formation. Who knew???)
                         SW.Write(",   , ");
 
                         // Best marker, more useless padding
