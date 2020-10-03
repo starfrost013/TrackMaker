@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Track_Maker
+namespace DanoUI.Hosts
 {
     /// <summary>
     /// Interaction logic for EditUIHost.xaml
