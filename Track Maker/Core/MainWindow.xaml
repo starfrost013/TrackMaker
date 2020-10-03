@@ -97,7 +97,7 @@
         </Menu>
         <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="574" Margin="0,37,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
             <Canvas.Background>
-                <ImageBrush ImageSource="{Binding BasinImage}"></ImageBrush>
+                <ImageBrush ImageSource="{Binding Image}"></ImageBrush>
                 <!-- this is where the basin image is loaded from xml -->
             </Canvas.Background>
         </Canvas>

@@ -1,36 +1,53 @@
 <CategorySystems>
+  
 	<CategorySystem name="SSHWS">
-		<Category name="Tropical depression" bounds="0,38" color="94,186,255"/>
-		<Category name="Tropical storm" bounds="39,73" color="0,250,244"/>
-		<Category name="Category 1 hurricane" bounds="74,95" color="255,255,204"/>
-		<Category name="Category 2 hurricane" bounds="96,110" color="235,231,117"/>
-		<Category name="Category 3 hurricane" bounds="111,129" color="255,193,64"/>
-		<Category name="Category 4 hurricane" bounds="130,156" color="255,143,32"/>
-		<Category name="Category 5 hurricane" bounds="157,9999" color="255,96,96"/>
+		<Category Abbreviation="TD" name="Tropical depression" bounds="0,38" color="94,186,255"/>
+		<Category Abbreviation="TS" name="Tropical storm" bounds="39,73" color="0,250,244"/>
+		<Category Abbreviation="C1" name="Category 1 hurricane" bounds="74,95" color="255,255,204"/>
+		<Category Abbreviation="C2" name="Category 2 hurricane" bounds="96,110" color="235,231,117"/>
+		<Category Abbreviation="C3" name="Category 3 hurricane" bounds="111,129" color="255,193,64"/>
+		<Category Abbreviation="C4" name="Category 4 hurricane" bounds="130,156" color="255,143,32"/>
+		<Category Abbreviation="C5" name="Category 5 hurricane" bounds="157,9999" color="255,96,96"/>
 	</CategorySystem>
+  
 	<CategorySystem name="Extended SSHWS">
-		<Category name="Tropical depression" bounds="0,38" color="94,186,255"/>
-		<Category name="Tropical storm" bounds="39,73" color="0,250,244"/>
-		<Category name="Category 1 hurricane" bounds="74,95" color="255,255,204"/>
-		<Category name="Category 2 hurricane" bounds="96,110" color="235,231,117"/>
-		<Category name="Category 3 hurricane" bounds="111,129" color="255,193,64"/>
-		<Category name="Category 4 hurricane" bounds="130,156" color="255,143,32"/>
-		<Category name="Category 5 hurricane" bounds="157,185" color="255,96,96"/>
-		<Category name="Category 6 hurricane" bounds="186,214" color="255,0,0"/>
-		<Category name="Category 7 hurricane" bounds="215,229" color="220,0,100"/>
-		<Category name="Category 8 hurricane" bounds="230,249" color="170,0,170"/>
-		<Category name="Category 9 hurricane" bounds="250,269" color="130,0,230"/>
-		<Category name="Category 10 hurricane" bounds="270,499" color="90,0,255"/>
-		<Category name="Hypercane" bounds="500,999" color="255,255,255"/>
-		<Category name="Megacane" bounds="999,9999" color="0,0,0"/>
+		<Category Abbreviation="TD" name="Tropical depression" bounds="0,38" color="94,186,255"/>
+    <Category Abbreviation="TS" name="Tropical storm" bounds="39,73" color="0,250,244"/>
+		<Category Abbreviation="C1" name="Category 1 hurricane" bounds="74,95" color="255,255,204"/>
+		<Category Abbreviation="C2" name="Category 2 hurricane" bounds="96,110" color="235,231,117"/>
+		<Category Abbreviation="C3" name="Category 3 hurricane" bounds="111,129" color="255,193,64"/>
+		<Category Abbreviation="C4" name="Category 4 hurricane" bounds="130,156" color="255,143,32"/>
+		<Category Abbreviation="C5" name="Category 5 hurricane" bounds="157,185" color="255,96,96"/>
+		<Category Abbreviation="C6" name="Category 6 hurricane" bounds="186,214" color="255,0,0"/>
+		<Category Abbreviation="C7" name="Category 7 hurricane" bounds="215,229" color="220,0,100"/>
+		<Category Abbreviation="C8" name="Category 8 hurricane" bounds="230,249" color="170,0,170"/>
+		<Category Abbreviation="C9" name="Category 9 hurricane" bounds="250,269" color="130,0,230"/>
+		<Category Abbreviation="C10" name="Category 10 hurricane" bounds="270,499" color="90,0,255"/>
+		<Category Abbreviation="HYC" name="Hypercane" bounds="500,999" color="255,255,255"/>
+		<Category Abbreviation="MEC" name="Megacane" bounds="999,9999" color="0,0,0"/>
 	</CategorySystem>
 	
 	<CategorySystem name="MCC medicane scale">
-		<Category name="Medistorm" bounds="0,38" color="94,186,255"/>
-		<Category name="Severe Medistorm" bounds="39,57" color="0,250,244"/>
-		<Category name="Medicane" bounds="58,73" color="255,255,204"/>
-		<Category name="Major Medicane" bounds="74,95" color="255,193,64"/>
-		<Category name="Violent Medicane" bounds="96,2147483647" color="255,96,96"/>
+		<Category Abbreviation="MS" name="Medistorm" bounds="0,38" color="94,186,255"/>
+		<Category Abbreviation="SMS" name="Severe Medistorm" bounds="39,57" color="0,250,244"/>
+		<Category Abbreviation="ME" name="Medicane" bounds="58,73" color="255,255,204"/>
+		<Category Abbreviation="MC" name="Major Medicane" bounds="74,95" color="255,193,64"/>
+		<Category Abbreviation="VC" name="Violent Medicane" bounds="96,2147483647" color="255,96,96"/>
 	</CategorySystem>
-	
+
+  <CategorySystem Name="JMA WPAC Typhoon scale">
+    <Category Abbreviation="TD" name="Tropical depression" bounds="0,38" color="94,186,255"></Category>
+    <Category Abbreviation="TS" name="Tropical storm" bounds="38,54" color="0,250,244"></Category>
+    <Category Abbreviation="STS" name="Severe tropical storm" bounds="54,73" color="204,255,255"></Category>
+    <Category Abbreviation="TY" name="Typhoon" bounds="74,9999" color="253,175,154"></Category>
+  </CategorySystem>
+
+  <CategorySystem Name="JTWC WPAC Typhoon scale">
+    <Category Abbreviation="TD" name="Tropical depression" bounds="0,38" color="94,186,255"></Category>
+    <Category Abbreviation="TS" name="Tropical storm" bounds="38,54" color="0,250,244"></Category>
+    <Category Abbreviation="STS" name="Severe tropical storm" bounds="54,73" color="204,255,255"></Category>
+    <Category Abbreviation="TY" name="Typhoon" bounds="74,149" color="253,175,154"></Category>
+    <Category Abbreviation="STY" name="Super Typhoon" bounds="150,9999" color="255,96,96"></Category>
+  </CategorySystem>
+  
 </CategorySystems>

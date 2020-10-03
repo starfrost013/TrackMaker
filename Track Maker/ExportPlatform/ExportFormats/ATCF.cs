@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32; 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO; 
 using System.Linq;
 using System.Text;
@@ -73,14 +74,21 @@ namespace Track_Maker
                 // get the stuff we actually need
                 string _StrId = Components[1];
                 //string _StrTime = Components[2];
-                string _StrName = Components[1];
+
                 string _StrTimeSinceFormation = Components[2];
-                string _StrCoordX = Components[5];
-                string _StrCoordY = Components[6];
-                string _StrWind = Components[5];
-                
-                
+                string _StrCoordX = Components[7];
+                string _StrCoordY = Components[8];
+                string _StrIntensity = Components[9];
+                string _StrName = Components[29]; // bleh 
+
+                // this is terrible design and reloads the project but I want to get this done
+                Project Proj = new Project(true);
+
+                return Proj;
             }
+
+            return null; 
+            
         }
 
         /// <summary>
@@ -121,12 +129,15 @@ namespace Track_Maker
             }
             catch (PathTooLongException err)
             {
-                MessageBox.Show($"Error: Windows sucks. [Error Code: EB2]\n\n{err}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw($"Error", "Error: The path to the file is too long - please use a shorter path.", ErrorSeverity.Error, 129); 
                 return false;
             }
             catch (IOException err)
             {
-                MessageBox.Show($"An error occurred writing to EasyTimeline format. [Error Code: EB1]\n\n{err}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Error", "An error occurred during export to ATCF BestTrack format.", ErrorSeverity.Error, 130);
+#if DEBUG
+                Error.Throw("Error", $"An error occurred during export to ATCF BestTrack format.\n\n{err}", ErrorSeverity.Error, 130);
+#endif
                 return false;
             }
             return true;
@@ -140,15 +151,17 @@ namespace Track_Maker
         public bool ExportCore(Project Project, string FileName)
         {
             Directory.CreateDirectory(FileName);
-            Directory.SetCurrentDirectory(FileName.Replace(".","")); 
+            Directory.SetCurrentDirectory(FileName.Replace(".",""));
+
+            Basin SelBasin = Project.SelectedBasin;
 
             // create a file for each storm
-            foreach (Storm Storm in Project.SelectedBasin.GetFlatListOfStorms())
+            foreach (Storm Storm in SelBasin.GetFlatListOfStorms())
             {
                 if (Storm.Name.Length > 12)
                 {   
                     // Woah, calm it (Priscilla 442)
-                    MessageBox.Show("This format, the ATCF BestTrack format, has several limitations (and is obsolete to begin with). Exporting to this format is not recommended. \n\nLimitations:\n\n- It does not support storms with names with a length above twelve characters.\n-It does not support abbreviated character names of lengths more than three characters.\n- It uses weird different spacing.\n\n- There is no documentation on the Internet, despite my efforts.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    Error.Throw("Error", "This format, the ATCF BestTrack format, has several limitations (and is obsolete to begin with). Exporting to this format is not recommended. \n\nLimitations:\n\n- It does not support storms with names with a length above twelve characters.\n- It does not support abbreviated character names of lengths more than three characters.\n- It uses exceedingly bizarre spelling.\nIt is from the 1980s.\n\n- There is no documentation on the Internet, despite extensive efforts to acquire some.", ErrorSeverity.Error, 131); 
                     return false;
                 }
 
@@ -158,6 +171,15 @@ namespace Track_Maker
                     // For each node. 
                     foreach (Node Node in Storm.NodeList)
                     {
+                        if (SelBasin.Abbreviation != null)
+                        {
+                            SW.Write($"{SelBasin.Abbreviation}, ");
+                        }
+                        else
+                        {
+                            SW.Write("AL, ");
+                        }
+
                         SW.Write("AL, ");
 
                         // Pad with a zero if <10 and write storm id.
@@ -201,21 +223,35 @@ namespace Track_Maker
 
                         // Write the category and a WHOLE bunch of information that we don't need or use yet - environmental pressure etc - I don't know what most of these are tbh
 
-                        string Cat = Utilities.AbbreviateCategory(Storm.GetNodeCategory(Node, MnWindow.Catman.CurrentCategorySystem).Name);
+                        Category Ct = Storm.GetNodeCategory(Node, MnWindow.Catman.CurrentCategorySystem);
 
-                        if (Cat.Length > 3)
+                        string CatString = null;
+
+                        if (Ct.Abbreviation == null)
+                        {
+                            CatString = Utilities.AbbreviateCategory(Ct.Name);
+                        }
+                        else
+                        {
+                            CatString = Ct.Abbreviation; 
+                        }
+
+                        Debug.Assert(CatString != null); 
+
+                        if (CatString.Length > 3)
                         {
                             MessageBox.Show("Due to the limitations of the ATCF format, category names cannot be longer than 3 characters abbreviated.");
                             return false; 
                         }
 
                         // Placeholder information
-                        for (int i = 0; i < 3 - Cat.Length; i++)
+                        for (int i = 0; i < 3 - CatString.Length; i++)
                         {
                             SW.Write(" ");
                         }
 
-                        SW.Write($"{Cat},  "); // todo: abbreviate (dano)
+                        
+                        SW.Write($"{CatString},  "); // todo: abbreviate (dano)
 
                         // Aforementioned information
                         SW.Write($"x,   0,    ,    0,    0,    0,    0, 1014,   90,  60,   0,   0,   L,   0,    ,   0,   0, ");

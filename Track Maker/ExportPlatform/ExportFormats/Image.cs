@@ -119,7 +119,7 @@ namespace Track_Maker
 
             BitmapImage _temp_bi_ = new BitmapImage();
             _temp_bi_.BeginInit();
-            _temp_bi_.UriSource = new Uri(Project.SelectedBasin.BasinImagePath, UriKind.RelativeOrAbsolute);
+            _temp_bi_.UriSource = new Uri(Project.SelectedBasin.ImagePath, UriKind.RelativeOrAbsolute);
             _temp_bi_.EndInit();
 
             _temp_.Background = new ImageBrush(_temp_bi_);

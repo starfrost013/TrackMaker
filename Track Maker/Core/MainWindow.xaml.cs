@@ -52,7 +52,9 @@ namespace Track_Maker
             Catman = new CategoryManager();
             Catman.InitCategories();
             Logging.Log("Initialised category manager.");
-
+#if DANO
+            GlobalState.Init(); 
+#endif
             // Load Settings
             Logging.Log("Loading settings...");
             LoadSettings2();

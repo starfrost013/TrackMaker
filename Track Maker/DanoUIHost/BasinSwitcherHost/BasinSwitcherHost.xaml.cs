@@ -38,7 +38,7 @@ namespace Track_Maker
                 {
                     TEMP3_WILLBEREMOVEDWITHPROJECT.CurrentProject.SelectedBasin = Basin;
                     // Remove hack code.[m2]
-                    TEMP3_WILLBEREMOVEDWITHPROJECT.HurricaneBasin.Background = new ImageBrush(new BitmapImage(new Uri(Basin.BasinImagePath, UriKind.RelativeOrAbsolute)));
+                    TEMP3_WILLBEREMOVEDWITHPROJECT.HurricaneBasin.Background = new ImageBrush(new BitmapImage(new Uri(Basin.ImagePath, UriKind.RelativeOrAbsolute)));
                 }
             }
 

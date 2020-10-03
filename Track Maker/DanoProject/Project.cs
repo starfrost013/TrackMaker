@@ -44,7 +44,7 @@ namespace Track_Maker
         {
             // This is still terrible, but it's just temporary
             Basin Bs = GetBasinWithName(Name);
-            Bs.LoadImage(Bs.BasinImagePath);
+            Bs.LoadImage(Bs.ImagePath);
 
             InitBasin(Bs);
 
@@ -60,7 +60,7 @@ namespace Track_Maker
         {
             // This is still terrible, but it's just temporary
             Basin Bs = GetBasinWithName(Name);
-            Bs.LoadImage(Bs.BasinImagePath);
+            Bs.LoadImage(Bs.ImagePath);
             Bs.UserTag = UserTag;
             InitBasin(Bs);
 
@@ -98,7 +98,9 @@ namespace Track_Maker
         }
 
         /// <summary>
-        /// Priscilla+ - load the basin 
+        /// This loads the basins.
+        /// 
+        /// This should be a global thing, but in the interests of finishing Priscilla it is simply easier if we do it this way/
         /// </summary>
         internal void LoadBasins()
         {
@@ -137,11 +139,16 @@ namespace Track_Maker
                     {
                         switch (XmlAttribute.Name) // go through all the attributes
                         {
+                            case "Abbreviation":
+                            case "Acronym":
+                            case "BasinCode":
+                                Basin.Abbreviation = XmlAttribute.Value;
+                                continue; 
                             case "bgimage": // basin image path
                             case "Bgimage":
                             case "bgImage":
                             case "BgImage":
-                                Basin.BasinImagePath = XmlAttribute.Value; //set the basin image path to the value
+                                Basin.ImagePath = XmlAttribute.Value; //set the basin image path to the value
                                 continue; // yeah
                             case "coordstopleft":
                             case "Coordstopleft":
@@ -167,7 +174,7 @@ namespace Track_Maker
                         }
                     }
                     //todo: additional error detection
-                    Logging.Log($"Successfully loaded basin {Basin.Name} with image {Basin.BasinImagePath}");
+                    Logging.Log($"Successfully loaded basin {Basin.Name} with image {Basin.ImagePath}");
 
                     Basins.Add(Basin);
                 }
@@ -228,7 +235,7 @@ namespace Track_Maker
 
 
         /// <summary>
-        /// (1.5+) Get basin with name. Major refactoring is currently ongoing that will eventually lead to this being moved to its own class (GlobalState?)
+        /// (2.0+) Get basin with name. Major refactoring is currently ongoing that will eventually lead to this being moved to its own class (GlobalState?)
         /// </summary>
         /// <returns></returns>
         public Basin GetBasinWithName(string Name)

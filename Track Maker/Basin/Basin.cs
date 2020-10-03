@@ -27,8 +27,9 @@ namespace Track_Maker
 
     public class Basin
     {
-        public BitmapImage BasinImage { get; set; } // the basin image name
-        public string BasinImagePath { get; set; } // the basin image path. we only load what we need.
+        public string Abbreviation { get; set; } // the official abbreviation of this basin
+        public BitmapImage Image { get; set; } // the basin image name
+        public string ImagePath { get; set; } // the basin image path. we only load what we need.
         public string Name { get; set; } // the name of the basin
         public Coordinate CoordsLower { get; set; } // The lower point of the coords of this basin
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
@@ -395,13 +396,13 @@ namespace Track_Maker
         /// Load the image with path ImagePath and set it as the basin image.
         /// </summary>
         /// <param name="ImagePath"></param>
-        public void LoadImage(string ImagePath)
+        public void LoadImage(string ImgPath)
         {
-            BasinImagePath = ImagePath;
-            BasinImage = new BitmapImage(); 
-            BasinImage.BeginInit();
-            BasinImage.UriSource = new Uri(BasinImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
-            BasinImage.EndInit();
+            ImagePath = ImgPath;
+            Image = new BitmapImage(); 
+            Image.BeginInit();
+            Image.UriSource = new Uri(ImagePath, UriKind.RelativeOrAbsolute); // hopefully valid...hopefully.
+            Image.EndInit();
         }
 
         /// <summary>

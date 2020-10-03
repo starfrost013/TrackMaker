@@ -125,6 +125,11 @@ namespace Track_Maker
                                                 case "Name":
                                                     Category.Name = XGrandniece.Value;
                                                     continue;
+                                                case "Abbreviation":
+                                                case "Acronym": // BasinSignifier, BasinInitials, BasinAbbreviation...
+                                                case "BasinCode":
+                                                    Category.Abbreviation = XGrandniece.Value; 
+                                                    continue;
 
 
                                             }

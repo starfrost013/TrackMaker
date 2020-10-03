@@ -82,6 +82,7 @@ namespace Track_Maker
     /// </summary>
     public class Category
     {
+        public string Abbreviation { get; set; } // the abbreviation of this category
         public Color Color { get; set; }
         public string Name { get; set; }
         public int LowerBound { get; set; }
