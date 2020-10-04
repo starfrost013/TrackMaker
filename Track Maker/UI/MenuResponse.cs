@@ -102,9 +102,15 @@ namespace Track_Maker
 
         private void EditMenu_Season_Click(object sender, RoutedEventArgs e)
         {
+
+            SeasonManagerHost SMH = new SeasonManagerHost(CurrentProject);
+            SMH.Owner = this;
+            SMH.Show();
+
+            /* pre-build 474
             SeasonManager SMan = new SeasonManager();
             SMan.Owner = this;
-            SMan.Show();
+            SMan.Show(); */
         }
 
         private void FileMenu_SaveImage_Click(object sender, RoutedEventArgs e)
@@ -273,11 +279,5 @@ namespace Track_Maker
             ExUI.Show(); 
         }
 
-        private void EditMenu_Season_Dano_Click(object sender, RoutedEventArgs e)
-        {
-            SeasonManagerHost SMH = new SeasonManagerHost(CurrentProject);
-            SMH.Owner = this;
-            SMH.Show();
-        }
     }
 }

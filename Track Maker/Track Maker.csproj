@@ -128,6 +128,9 @@
     <Compile Include="DanoUIHost\CategoryManagerHost\CategoryManagerHost.xaml.cs">
       <DependentUpon>CategoryManagerHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DanoUIHost\EditUIHost\EditUIHost.xaml.cs">
+      <DependentUpon>EditUIHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DanoUIHost\ErrorHost\ErrorUIHost.xaml.cs">
       <DependentUpon>ErrorUIHost.xaml</DependentUpon>
     </Compile>
@@ -182,12 +185,6 @@
     <Compile Include="UI\Core\TypeSelectorBox.xaml.cs">
       <DependentUpon>TypeSelectorBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\SeasonManager\EditUI\EditUI.xaml.cs">
-      <DependentUpon>EditUI.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SeasonManager\SeasonManager.xaml.cs">
-      <DependentUpon>SeasonManager.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -209,6 +206,10 @@
     <Page Include="DanoUIHost\CategoryManagerHost\CategoryManagerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\EditUIHost\EditUIHost.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DanoUIHost\ErrorHost\ErrorUIHost.xaml">
       <SubType>Designer</SubType>
@@ -255,14 +256,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Export\ExportUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\SeasonManager\EditUI\EditUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\SeasonManager\SeasonManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

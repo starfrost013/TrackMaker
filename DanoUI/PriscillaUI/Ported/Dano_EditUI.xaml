@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
              mc:Ignorable="d" 
-             d:DesignHeight="142.234" Loaded="Window_Loaded" Width="597.52">
+             d:DesignHeight="142.234" Width="597.52">
     <Grid>
         <TextBlock x:Name="EditStorm_EditInfo" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Edit Storm Info" VerticalAlignment="Top" FontSize="36" FontStyle="Italic"/>
         <TextBlock x:Name="EditStorm_EditName" HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" FontSize="18" FontStyle="Italic" Width="60" RenderTransformOrigin="0.461,0.594"/>
-        <TextBox x:Name="EditStorm_EditNameBox" HorizontalAlignment="Left" Height="25" Margin="70,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" FontSize="18" FontStyle="Italic"/>
+        <TextBox x:Name="EditStorm_EditNameBox" x:FieldModifier="public" HorizontalAlignment="Left" Height="25" Margin="70,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" FontSize="18" FontStyle="Italic" Text="{Binding StormName}"/>
         <Button x:Name="EditStorm_OKButton" Style="{StaticResource Button_Invert}" Content="Done" HorizontalAlignment="Left" Margin="482,60,0,0" VerticalAlignment="Top" Width="76" FontSize="18" Click="EditStorm_OKButton_Click" RenderTransformOrigin="0.347,0.401" Height="29"/>
 
     </Grid>

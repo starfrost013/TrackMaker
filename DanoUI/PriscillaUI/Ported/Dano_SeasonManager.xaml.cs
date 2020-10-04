@@ -23,7 +23,8 @@ namespace DanoUI
         public List<string> StormNameList { get; set; }
 
         /// <summary>
-        /// DanoEventArgs[0] - ID of storm selected within flat list of storms
+        /// DanoEventArgs:
+        /// 0- ID of storm selected within flat list of storms
         /// </summary>
         public EventHandler<DanoEventArgs> EditHit { get; set; }
         public EventHandler<DanoEventArgs> RenameHit { get; set; }
@@ -48,7 +49,8 @@ namespace DanoUI
         {
             DanoEventArgs DEA = new DanoEventArgs();
             DEA.DanoParameters.Add(StormList.SelectedItem);
-            EditHit(this, DEA);
+
+            RenameHit(this, DEA);
         }
 
         public void ModifyButton_Click(object sender, RoutedEventArgs e)

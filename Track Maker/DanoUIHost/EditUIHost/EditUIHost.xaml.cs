@@ -13,23 +13,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DanoUI.Hosts
+namespace Track_Maker
 {
     /// <summary>
     /// Interaction logic for EditUIHost.xaml
     /// </summary>
     public partial class EditUIHost : Window
     {
+        public Project Proj { get; set; }
         public string StoName { get; set; }
-        public EditUIHost(string StormName)
+        public EditUIHost(Project Proj, string StormName)
         {
             InitializeComponent();
-            StoName = StormName; 
+            Init(Proj, StormName); 
+        }
+
+        private protected void Init(Project Project, string StormName)
+        {
+            Proj = Project;
+            EditUI.StormName = StormName;
+            EditUI.UpdateLayout(); 
+            StoName = StormName;
         }
 
         public void Done_Hit(object sender, DanoEventArgs DEA)
         {
-
+            Proj.SelectedBasin.RenameStormWithName(StoName, EditUI.EditStorm_EditNameBox.Text);
+            Close(); 
         }
     }
 }

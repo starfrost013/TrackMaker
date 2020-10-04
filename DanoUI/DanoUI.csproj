@@ -63,9 +63,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PriscillaUI\InprocHosts\EditUIHost\EditUIHost.xaml.cs">
-      <DependentUpon>EditUIHost.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PriscillaUI\Ported\Dano_EditUI.xaml.cs">
       <DependentUpon>Dano_EditUI.xaml</DependentUpon>
     </Compile>
@@ -100,10 +97,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="PriscillaUI\InprocHosts\EditUIHost\EditUIHost.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="PriscillaUI\Ported\Dano_EditUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

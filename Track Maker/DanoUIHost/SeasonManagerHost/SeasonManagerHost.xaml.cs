@@ -48,10 +48,13 @@ namespace Track_Maker
 
         public void Rename_Click(object sender, DanoEventArgs e)
         {
-            return; // no point throwing an exception when we're going to implement this in less than 24 hours
+            string StoName = (string)e.DanoParameters[0];
+            EditUIHost EUIH = new EditUIHost(Project, StoName);
+            EUIH.Owner = this;
+            EUIH.Show(); 
         }
 
-        public void OK_Hit(object sender, DanoEventArgs e)
+        public void OK_Click(object sender, DanoEventArgs e)
         {
             Close(); 
         }

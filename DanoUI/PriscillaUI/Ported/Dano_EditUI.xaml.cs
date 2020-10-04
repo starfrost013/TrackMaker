@@ -20,10 +20,23 @@ namespace DanoUI
     /// </summary>
     public partial class EditUI : UserControl
     {
+        public string StormName { get; set; }
         public EventHandler<DanoEventArgs> DoneHit { get; set; }
         public EditUI()
         {
             InitializeComponent();
+        }
+
+        private protected void Init()
+        {
+            EditStorm_EditNameBox.DataContext = this;
+        }
+
+        private void EditStorm_OKButton_Click(object sender, RoutedEventArgs e)
+        {
+            DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(EditStorm_EditNameBox.Text);
+            DoneHit(this, DEA); 
         }
     }
 }

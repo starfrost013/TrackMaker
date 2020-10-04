@@ -51,8 +51,7 @@
             </MenuItem>
 
             <MenuItem x:Name="EditMenu" Header="Edit" Foreground="White">
-                <MenuItem x:Name="EditMenu_Season" Header="Season" Foreground="Black" Click="EditMenu_Season_Click"></MenuItem>
-                <MenuItem x:Name="EditMenu_Season_Dano" Header="Season [DanoUI]" Foreground="Black" Click="EditMenu_Season_Dano_Click"></MenuItem>
+                <MenuItem x:Name="EditMenu_Season_Dano" Header="Season" Foreground="Black" Click="EditMenu_Season_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="ViewMenu" Header="View" Foreground="White">
                 <MenuItem x:Name="ViewMenu_Categories" Header="Categories" Foreground="Black" Click="EditMenu_Categories_Click"></MenuItem>
