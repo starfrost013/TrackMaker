@@ -505,11 +505,11 @@ namespace Track_Maker
             return StormNames; 
         }
 
-    /// <summary>
-    /// Get a layer-independent storm with the name Name. 
-    /// </summary>
-    /// <returns></returns>
-    public Storm GetFlatStormWithName(string Name)
+        /// <summary>
+        /// Get a layer-independent storm with the name Name. 
+        /// </summary>
+        /// <returns></returns>
+        public Storm GetFlatStormWithName(string Name)
         {
             List<Storm> XS = GetFlatListOfStorms();
 
@@ -524,7 +524,6 @@ namespace Track_Maker
             return null;
 
         }
-
 
 
         public List<Storm> ClearBasin()

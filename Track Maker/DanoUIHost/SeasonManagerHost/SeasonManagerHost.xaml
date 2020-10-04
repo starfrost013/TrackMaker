@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="SeasonManagerHost" Height="483.195" Width="470.492">
+        Title="Edit Season" Height="483.195" Width="470.492">
     <Grid>
         <Dano:SeasonManager x:Name="SeasonEd" RenameHit="Rename_Click" OKHit="OK_Click" EditHit="Edit_Click" DeleteHit="Delete_Click"></Dano:SeasonManager>
     </Grid>

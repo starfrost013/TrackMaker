@@ -53,40 +53,66 @@ namespace Track_Maker
             }
             catch (PathTooLongException)
             {
-                Error.Throw("Error", "The path to the file is longer than 260 characters. Please shorten it", ErrorSeverity.Error, 150); 
-            
+                Error.Throw("Error", "The path to the file is longer than 260 characters. Please shorten it.", ErrorSeverity.Error, 150);
+                return null; 
             }
 
             return null; 
             
         }
 
-        public Project ImportCore(string FileName)
+        public Project ImportCore(string FolderName)
         {
             // this is one of the worst fucking file formats I have ever laid my fucking eyes on, NOAA are a bunch of fucking wanker twats, nobody should use this pile of crap
-            string[] ATCFLines = File.ReadAllLines(FileName); 
 
-            // XML OR JSON OR FUCKING ANYTHING PLS
-            foreach (string ATCFLine in ATCFLines)
+            string[] Storms = Directory.GetFiles(FolderName);
+
+            // this is terrible design and reloads the project but I want to get this done
+            Project Proj = new Project(true);
+
+            Basin Bas = new Basin();
+
+            foreach (string StormFileName in Storms)
             {
-                string[] Components = ATCFLine.Split(',');
+                string[] ATCFLines = File.ReadAllLines(StormFileName);
 
-                // get the stuff we actually need
-                string _StrId = Components[1];
-                //string _StrTime = Components[2];
+                // holy fucking shit i hate the ATCF format so fucking much
+                string StormName = null;
+                StormType StormType = StormType.Tropical;
+                DateTime StormFormationDT = new DateTime(1959, 3, 10); 
 
-                string _StrTimeSinceFormation = Components[2];
-                string _StrCoordX = Components[7];
-                string _StrCoordY = Components[8];
-                string _StrIntensity = Components[9];
-                string _StrName = Components[29]; // bleh 
+                // XML OR JSON OR FUCKING ANYTHING PLS
+                foreach (string ATCFLine in ATCFLines)
+                {
+                    string[] Components = ATCFLine.Split(',');
 
-                // this is terrible design and reloads the project but I want to get this done
-                Project Proj = new Project(true);
+                    string _StrAbbreviation = Components[0];
+                    // get the stuff we actually need
+                    string _StrId = Components[1];
 
-                return Proj;
+                    string _StrTimeSinceFormation = Components[2];
+                    string _StrCoordX = Components[7];
+                    string _StrCoordY = Components[8];
+                    string _StrIntensity = Components[9];
+                    string _StrName = Components[29]; // bleh 
+
+                    // initialise the basin with the abbreviation loaded from XML
+                    // we just use the name if there is no abbreviation specified in XML
+
+                    // we also don't check for null, etc because we just use the name of the basin if there's no specified abbreviation
+                    Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
+
+                    int Id = Convert.ToInt32(_StrId);
+                    Coordinate Coord = Coordinate.FromSplitCoordinate(_StrCoordX, _StrCoordY); 
+
+                    return Proj;
+                }
+
+                
             }
 
+
+            Proj.AddBasin(Bas);
             return null; 
             
         }
@@ -127,7 +153,7 @@ namespace Track_Maker
                     Directory.Delete(_); 
                 }
             }
-            catch (PathTooLongException err)
+            catch (PathTooLongException)
             {
                 Error.Throw($"Error", "Error: The path to the file is too long - please use a shorter path.", ErrorSeverity.Error, 129); 
                 return false;
@@ -166,7 +192,7 @@ namespace Track_Maker
                 }
 
                 // Create a new file for each storm.
-                using (StreamWriter SW = new StreamWriter(new FileStream($@"{Storm.Name}", FileMode.Create)))
+                using (StreamWriter SW = new StreamWriter(new FileStream($@"{Storm.Name}.dat", FileMode.Create)))
                 {
                     // For each node. 
                     foreach (Node Node in Storm.NodeList)
@@ -177,10 +203,8 @@ namespace Track_Maker
                         }
                         else
                         {
-                            SW.Write("AL, ");
+                            SW.Write($"{SelBasin.Name}, ");
                         }
-
-                        SW.Write("AL, ");
 
                         // Pad with a zero if <10 and write storm id.
                         SW.Write($"{Utilities.PadZero(Storm.Id + 1)}, ");

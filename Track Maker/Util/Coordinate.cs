@@ -7,10 +7,13 @@ using System.Windows;
 
 namespace Track_Maker
 {
+    /// <summary>
+    /// The cardinal directions.
+    /// </summary>
     public enum CardinalDirection { N, S, W, E }
 
     /// <summary>
-    /// Latitude / longitude cOordinate. 
+    /// Latitude / longitude coordinate. 
     /// </summary>
     public class Coordinate
     {
@@ -63,6 +66,17 @@ namespace Track_Maker
                 return null;
             }
 
+        }
+
+        /// <summary>
+        /// Helper function to concanetate two split coordinates before throwing them into the parser. (Wish this was more compact)
+        /// </summary>
+        /// <param name="Str1">The X position of the coordinate.</param>
+        /// <param name="Str2">The Y position of the coordinate.</param>
+        /// <returns></returns>
+        public static Coordinate FromSplitCoordinate(string Str1, string Str2)
+        {
+            return FromString($"{Str1},{Str2}");
         }
 
     }

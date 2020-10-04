@@ -266,5 +266,18 @@ namespace Track_Maker
             return _;
         }
 
+        public Basin GetBasinWithAbbreviation(string Abbreviation)
+        {
+            foreach (Basin Basin in Basins)
+            {
+                if (Basin.Abbreviation == Abbreviation)
+                {
+                    return Basin;
+                }
+            }
+
+            return null; 
+        }
+
     }
 }
