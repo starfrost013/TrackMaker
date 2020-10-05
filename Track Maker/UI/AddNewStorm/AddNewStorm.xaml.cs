@@ -35,7 +35,7 @@ namespace Track_Maker
                 // V2.0.471.0: Fix a crash bug involving not entering a valid date
                 if (Date.SelectedDate == null)
                 {
-                    Error.Throw("Warning", "Please enter a valid date!", ErrorSeverity.Warning, 128);
+                    Error.Throw("Warning!", "Please enter a valid date!", ErrorSeverity.Warning, 128);
                     return; 
                 }
 

@@ -47,13 +47,13 @@ namespace Track_Maker
             catch (FormatException)
             {
                 // nopE
-                Error.Throw("Warning", "Please enter a valid intensity", ErrorSeverity.Warning, 127); 
+                Error.Throw("Warning", "Please enter a valid intensity!", ErrorSeverity.Warning, 127); 
                 return;
 
             }
             catch (OverflowException)
             {
-                Error.Throw("Warning", "Please enter an intensity between -2147483647mph and 2147483647mph.", ErrorSeverity.Warning, 128); 
+                Error.Throw("Warning", "Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph.", ErrorSeverity.Warning, 128); 
                 return;
             }
         }

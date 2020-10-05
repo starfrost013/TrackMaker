@@ -155,6 +155,8 @@ namespace Track_Maker
         }
 
         public List<Node> GetNodeList() => NodeList;
+        public List<Node> GetDeletedNodeList() => NodeList_Deleted;
+
 
     }
 

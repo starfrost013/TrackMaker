@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="Black">
     <Grid>
-        <TextBlock x:Name="Error" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="An error has occurred." VerticalAlignment="Top" Foreground="White" FontSize="48"/>
+        <TextBlock x:Name="Error" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="An error has occurred. :(" VerticalAlignment="Top" Foreground="White" FontSize="48"/>
         <TextBlock x:Name="Error_MustExit" HorizontalAlignment="Left" Height="35" Margin="10,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="790" Foreground="White" FontSize="24" Text="A fatal error has occurred and the Track Maker must exit."></TextBlock>
         <TextBlock x:Name="Error_ErrorInformation" HorizontalAlignment="Left" Height="30" Margin="10,126,0,0" TextWrapping="Wrap" Text="Error Information:" Foreground="White" VerticalAlignment="Top" Width="379" FontSize="18"/>
         <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="193" Margin="10,156,0,0" VerticalAlignment="Top" Width="563">

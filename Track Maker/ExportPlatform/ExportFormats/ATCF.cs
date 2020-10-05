@@ -42,9 +42,12 @@ namespace Track_Maker
         {
             try
             {
-                OpenFileDialog OFD = new OpenFileDialog();
-                OFD.Title = "Open ATCF format";
-                OFD.Filter = "Folders|*.";
+                OpenFileDialog OFD = new OpenFileDialog()
+                {
+                    Title = "Open ATCF format",
+                    Filter = "Folders|*."
+                };
+
                 OFD.ShowDialog();
 
                 if (OFD.FileName == "") return null;
@@ -79,18 +82,21 @@ namespace Track_Maker
                 // holy fucking shit i hate the ATCF format so fucking much
                 string StormName = null;
                 StormType StormType = StormType.Tropical;
-                DateTime StormFormationDT = new DateTime(1959, 3, 10); 
+                DateTime StormFormationDT = new DateTime(1959, 3, 10);
 
                 // XML OR JSON OR FUCKING ANYTHING PLS
-                foreach (string ATCFLine in ATCFLines)
+                // not foreach because it makes it slightly easier to set the date
+                for (int i = 0; i < ATCFLines.Length; i++)
                 {
+                    string ATCFLine = ATCFLines[i];
+
                     string[] Components = ATCFLine.Split(',');
 
                     string _StrAbbreviation = Components[0];
                     // get the stuff we actually need
                     string _StrId = Components[1];
-
-                    string _StrTimeSinceFormation = Components[2];
+                    string _StrTime = Components[2];
+                    string _StrTimeSinceFormation = Components[3];
                     string _StrCoordX = Components[7];
                     string _StrCoordY = Components[8];
                     string _StrIntensity = Components[9];
@@ -101,13 +107,33 @@ namespace Track_Maker
 
                     // we also don't check for null, etc because we just use the name of the basin if there's no specified abbreviation
                     Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
-
+                    
                     int Id = Convert.ToInt32(_StrId);
-                    Coordinate Coord = Coordinate.FromSplitCoordinate(_StrCoordX, _StrCoordY); 
+
+                    Coordinate Coord = Coordinate.FromSplitCoordinate(_StrCoordX, _StrCoordY);
+                    
+                    int Intensity = Convert.ToInt32(_StrIntensity);
+
+                    StormName = _StrName; 
+
+                    // create a node and add it
+
+                    
+                    // get the storm formation date if we're reading the firt line. 
+                    if (i == 0) StormFormationDT = DateTime.Parse(_StrTime);
 
                     return Proj;
                 }
 
+                if (StormName == null)
+                {
+                    Error.Throw("Error", "Invalid storm name detected - ATCF Parse Error 151", ErrorSeverity.Error, 151);
+                    return null;
+                }
+                else
+                {
+                    //Bas.AddStorm(StormName, StormType, StormFormationDT); 
+                }
                 
             }
 

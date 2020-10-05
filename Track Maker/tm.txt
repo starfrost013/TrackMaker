@@ -25,13 +25,18 @@ Features:
 - NO Main window shit!
 - Unified Error System
 - CHG dialog code 
-- Layers? (PROBABLY 3.0 but maybe 2.0)
+- Layers
 - Remove schizophrenic 1.0 functionality in places such as AddTrackPoint.xaml.cs
 - Move functionality such as adding nodes to the node class
 - Per-node categories
 - UI-code separation
 - Help
-- Codename "Dano" - feature-rich and easy to use
+- Codename "Priscilla" / "Dano" - feature-rich and easy to use
+
+Track Maker 2.1
+Features:
+- Internationalisation
+- Namespaceisation
 
 Track Maker 3.0
 Features:
@@ -42,6 +47,8 @@ Features:
 - Tabbed Basin view (enabled at least, maybe in 2.0)
 - Track Drawing? (small chance of 2.0)
 - Layers?
+- MainWindowHost
+- graph creator that shows TC windspeed and pressure on a time graph [graph]
 
 Track Maker 4.0
 Features:

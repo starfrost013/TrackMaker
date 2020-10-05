@@ -164,6 +164,8 @@
     <Compile Include="Category\CategoryLoader.cs" />
     <Compile Include="Core\Error.cs" />
     <Compile Include="Core\Logging.cs" />
+    <Compile Include="StormType\StormType.cs" />
+    <Compile Include="StormType\StormTypeManager.cs" />
     <Compile Include="UI\Core\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
     </Compile>

@@ -222,9 +222,11 @@ namespace Track_Maker
         {
             try
             {
-                Storm Storm = new Storm();
-                Storm.Id = GetFlatListOfStorms().Count; // this actually makes sense.
-                Storm.Name = Name;
+                Storm Storm = new Storm
+                {
+                    Id = GetFlatListOfStorms().Count, // this actually makes sense.
+                    Name = Name
+                };
 
                 Logging.Log($"Adding Storm with id {Storm.Id} and name {Storm.Name}");
 
@@ -297,6 +299,12 @@ namespace Track_Maker
                 return false;
             }
         }
+
+        /// <summary>
+        /// ATCF import helper function
+        /// </summary>
+        /// <param name="Sto"></param>
+        public void AddStorm(Storm Sto) => CurrentLayer.AssociatedStorms.Add(Sto);
 
         public bool RenameStormWithName(string OldName, string NewName)
         {
