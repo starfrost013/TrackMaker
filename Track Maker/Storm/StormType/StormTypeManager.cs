@@ -105,6 +105,14 @@ namespace Track_Maker
                                                 continue;
                                             case "Name":
                                                 ST2.Name = HStormInfo.InnerText;
+                                                continue;
+                                            case "Shape":
+
+                                                if (!HStormInfo.HasChildNodes)
+                                                {
+                                                    Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 163);
+                                                    return null;
+                                                }
                                                 continue; 
                                         }
                                     }

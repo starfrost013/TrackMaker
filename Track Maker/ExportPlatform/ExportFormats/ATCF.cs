@@ -59,8 +59,6 @@ namespace Track_Maker
                 Error.Throw("Error", "The path to the file is longer than 260 characters. Please shorten it.", ErrorSeverity.Error, 150);
                 return null; 
             }
-
-            return null; 
             
         }
 
@@ -114,10 +112,13 @@ namespace Track_Maker
                     
                     int Intensity = Convert.ToInt32(_StrIntensity);
 
-                    StormName = _StrName; 
+                    StormName = _StrName;
 
                     // create a node and add it
 
+                    Node Nod = new Node();
+                    Nod.Id = Id;
+                    //Nod.NodeType = Coord;
                     
                     // get the storm formation date if we're reading the firt line. 
                     if (i == 0) StormFormationDT = DateTime.Parse(_StrTime);

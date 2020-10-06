@@ -1,0 +1,85 @@
+﻿<StormTypes>
+  <StormType>
+    <Name>Tropical</Name>
+    <Abbreviation>TC</Abbreviation>
+    <Shape>
+      <Preset>Circle</Preset>
+    </Shape>
+  </StormType>  
+  
+  <StormType>
+    <Name>Subtropical</Name>
+    <Abbreviation>STC</Abbreviation>
+    <Shape>
+      <Preset>Square</Preset>
+    </Shape>
+  </StormType>  
+
+  <StormType>
+    <Name>Extratropical</Name>
+    <Abbreviation>EX</Abbreviation>
+    <Shape>
+      <Preset>Triangle</Preset>
+    </Shape>
+  </StormType>  
+  
+  <StormType>
+    <Name>Invest / PTC</Name>
+    <Abbreviation>IPTC</Abbreviation>
+    <Shape>
+      <Preset>Triangle</Preset>
+    </Shape>
+  </StormType>  
+
+  <StormType>
+    <Name>Polar Low</Name>
+    <Abbreviation>PL</Abbreviation>
+    <Shape>
+      <Preset>Triangle</Preset>
+    </Shape>
+  </StormType>  
+  
+  <StormType>
+    <Name>Polar Low</Name>
+    <Abbreviation>PL</Abbreviation>
+    <Shape>
+      <Preset>Triangle</Preset>
+    </Shape>
+  </StormType>  
+
+  <StormType>
+    <Name>Polar Low</Name>
+    <Abbreviation>PL</Abbreviation>
+    <Shape>
+      <VertexPositions>
+        
+        <VertexPosition>
+          <X>0</X>
+          <Y>5</Y>
+        </VertexPosition>
+        
+        <VertexPosition>
+          <X>3</X>
+          <Y>0</Y>
+        </VertexPosition>
+        
+        <VertexPosition>
+          <X>0</X>
+          <Y>-5</Y>
+        </VertexPosition>
+      
+        <VertexPosition>
+          <X>-3</X>
+          <Y>0</Y>
+        </VertexPosition>
+      
+        <VertexPosition>
+          <X>0</X>
+          <Y>5</Y>
+        </VertexPosition>
+    
+      </VertexPositions>
+    </Shape>
+  </StormType>  
+
+</StormTypes>

@@ -164,8 +164,11 @@
     <Compile Include="Category\CategoryLoader.cs" />
     <Compile Include="Core\Error.cs" />
     <Compile Include="Core\Logging.cs" />
-    <Compile Include="StormType\StormType.cs" />
-    <Compile Include="StormType\StormTypeManager.cs" />
+    <Compile Include="Storm\StormType\Shape\Shape.cs" />
+    <Compile Include="Storm\StormType\Shape\StormShape.cs" />
+    <Compile Include="Storm\StormType\Shape\VertexPoint.cs" />
+    <Compile Include="Storm\StormType\StormType2.cs" />
+    <Compile Include="Storm\StormType\StormTypeManager.cs" />
     <Compile Include="UI\Core\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
     </Compile>
@@ -356,6 +359,7 @@
     <Content Include="Data\Settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Data\StormTypes.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
