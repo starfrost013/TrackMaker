@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Shapes;
 
 namespace Track_Maker
 {
@@ -14,7 +16,7 @@ namespace Track_Maker
         /// <summary>
         /// The points of this vertex.
         /// </summary>
-        public List<VertexPoint> VPoints { get; set; }
+        public Polygon VPoints { get; set; }
 
         /// <summary>
         /// Is this shape filled?

@@ -113,6 +113,27 @@ namespace Track_Maker
                                                     Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 163);
                                                     return null;
                                                 }
+                                                else
+                                                {
+                                                    
+                                                    XmlNodeList ShapeData = HStormInfo.ChildNodes; 
+
+                                                    foreach (XmlNode ShapeDataNode in ShapeData)
+                                                    {
+                                                        switch (ShapeDataNode.Name)
+                                                        {
+                                                            case "PresetShape":
+                                                                ST2.UsePresetShape = true;
+                                                                ST2.PresetShape = (StormShape)Enum.Parse(typeof(StormShape), ShapeDataNode.InnerText);
+                                                                continue;
+                                                            case "VertexPoints":
+                                                                // todo
+                                                                continue; 
+
+                                                        }
+                                                    }
+                                                }
+
                                                 continue; 
                                         }
                                     }

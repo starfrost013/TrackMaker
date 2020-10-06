@@ -24,5 +24,25 @@ namespace Track_Maker
         /// The abbreviation of this storm type.
         /// </summary>
         public string Abbreviation { get; set; }
+
+        /// <summary>
+        /// A preset shape used by this storm type.
+        /// </summary>
+        public StormShape PresetShape { get; set; }
+
+        /// <summary>
+        /// Does this use a preset shape?
+        /// </summary>
+        public bool UsePresetShape { get; set; }
+
+        /// <summary>
+        /// If UsesPresetShape is false, the shape used by this object.
+        /// </summary>
+        public Shape Shape { get; set; }
+
+        public StormType2() // for now init the shape here
+        {
+            Shape = new Shape(); 
+        }
     }
 }
