@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Windows;
+using System.Windows.Shapes;
 
 namespace Track_Maker
 {
@@ -128,6 +130,54 @@ namespace Track_Maker
                                                                 continue;
                                                             case "VertexPoints":
                                                                 // todo
+                                                                Shape Shp = new Shape();
+
+                                                                if (!ShapeDataNode.HasChildNodes)
+                                                                {
+                                                                    Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 164);
+                                                                    return null;
+                                                                }
+                                                                else
+                                                                {
+                                                                    XmlNodeList PolygonDataNodes = ShapeDataNode.ChildNodes;
+
+                                                                    foreach (XmlNode PolygonDataNode in PolygonDataNodes)
+                                                                    {
+                                                                        Polygon Poly = new Polygon();
+                                                                        switch (PolygonDataNode.Name)
+                                                                        {
+                                                                            case "VertexPosition":
+                                                                                // god
+                                                                                
+                                                                                if (!PolygonDataNode.HasChildNodes)
+                                                                                {
+                                                                                    Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 165);
+                                                                                    return null;
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    XmlNodeList PolygonInformationNodes = PolygonDataNode.ChildNodes;
+
+                                                                                    foreach (XmlNode PolygonInformation in PolygonInformationNodes)
+                                                                                    {
+                                                                                        // temp
+                                                                                        switch (PolygonInformation.Name)
+                                                                                        {
+                                                                                            case "X":
+                                                                                                continue;
+                                                                                            case "Y":
+                                                                                                continue;
+
+                                                                                        }
+                                                                                    }
+                                                                                }
+
+                                                                                continue;
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                                ST2.Shape = Shp;
                                                                 continue; 
 
                                                         }
