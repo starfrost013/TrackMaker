@@ -26,6 +26,11 @@ namespace Track_Maker
         public string Abbreviation { get; set; }
 
         /// <summary>
+        /// Abbreviations used for best-track import purposes
+        /// </summary>
+        public List<string> BTAbbreviations { get; set; }
+
+        /// <summary>
         /// A preset shape used by this storm type.
         /// </summary>
         public StormShape PresetShape { get; set; }

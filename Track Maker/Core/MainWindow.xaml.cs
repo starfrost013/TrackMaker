@@ -37,6 +37,11 @@ namespace Track_Maker
         /// New for Priscilla.
         /// </summary>
         public Project CurrentProject { get; set; } // not the best place to put this tbh.
+
+        /// <summary>
+        /// The Storm Type Manager. To be moved to GlobalState in 3.0
+        /// </summary>
+        public StormTypeManager ST2Manager { get; set; }
         public MainWindow()
         {
             Init();
@@ -46,15 +51,23 @@ namespace Track_Maker
         {
             
             Logging.Log("Welcome to the Debug Collective");
-            Logging.Log("-------------------------------");
+            Logging.Log("-----------------------------------");
             Logging.Log("© 2019-20 starfrost. Now Loading...");
             Logging.Log("Starting phase 1..."); // log starting.
+
+            Logging.Log("Initialising category manager.");
             Catman = new CategoryManager();
             Catman.InitCategories();
-            Logging.Log("Initialised category manager.");
+
 #if DANO
+            Logging.Log("Initialised global state...");
             GlobalState.Init(); 
 #endif
+
+            Logging.Log("Initialising storm type manager...");
+            ST2Manager = new StormTypeManager();
+            ST2Manager.Init(); 
+            
             // Load Settings
             Logging.Log("Loading settings...");
             LoadSettings2();
@@ -97,6 +110,7 @@ namespace Track_Maker
             }
 
             // V2
+            Logging.Log("Initialising project...");
             CurrentProject = new Project(true);
             Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
             Layers.UpdateLayout(); 

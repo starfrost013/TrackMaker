@@ -1,4 +1,7 @@
-﻿<StormTypes>
+﻿<!-- StormTypes for Priscilla build 478 [
+-->
+  
+<StormTypes>
   <StormType>
     <Name>Tropical</Name>
     <Abbreviation>TC</Abbreviation>
@@ -9,7 +12,12 @@
   
   <StormType>
     <Name>Subtropical</Name>
-    <Abbreviation>STC</Abbreviation>
+    
+    <BTAbbreviations>
+      <Abbreviation>SD</Abbreviation>
+      <Abbreviation>SS</Abbreviation>
+    </BTAbbreviations>
+
     <Shape>
       <Preset>Square</Preset>
     </Shape>
@@ -25,6 +33,11 @@
   
   <StormType>
     <Name>Invest / PTC</Name>
+    
+    <BTAbbreviations>
+      <Abbreviation>EX</Abbreviation>
+    </BTAbbreviations>
+    
     <Abbreviation>IPTC</Abbreviation>
     <Shape>
       <Preset>Triangle</Preset>
@@ -33,14 +46,11 @@
 
   <StormType>
     <Name>Polar Low</Name>
-    <Abbreviation>PL</Abbreviation>
-    <Shape>
-      <Preset>Triangle</Preset>
-    </Shape>
-  </StormType>  
+    
+    <BTAbbreviations>
+      <Abbreviation>EX</Abbreviation>
+    </BTAbbreviations>
   
-  <StormType>
-    <Name>Polar Low</Name>
     <Abbreviation>PL</Abbreviation>
     <Shape>
       <Preset>Triangle</Preset>
@@ -48,36 +58,15 @@
   </StormType>  
 
   <StormType>
-    <Name>Polar Low</Name>
-    <Abbreviation>PL</Abbreviation>
+    <Name>Test</Name>
+    <Abbreviation>TST</Abbreviation>
     <Shape>
       <VertexPositions>
-        
-        <VertexPosition>
-          <X>0</X>
-          <Y>5</Y>
-        </VertexPosition>
-        
-        <VertexPosition>
-          <X>3</X>
-          <Y>0</Y>
-        </VertexPosition>
-        
-        <VertexPosition>
-          <X>0</X>
-          <Y>-5</Y>
-        </VertexPosition>
-      
-        <VertexPosition>
-          <X>-3</X>
-          <Y>0</Y>
-        </VertexPosition>
-      
-        <VertexPosition>
-          <X>0</X>
-          <Y>5</Y>
-        </VertexPosition>
-    
+        <VertexPosition>0,5</VertexPosition>
+        <VertexPosition>3,0</VertexPosition>
+        <VertexPosition>0,-5</VertexPosition> 
+        <VertexPosition>-3,0</VertexPosition>
+        <VertexPosition>0,5</VertexPosition>
       </VertexPositions>
     </Shape>
   </StormType>  

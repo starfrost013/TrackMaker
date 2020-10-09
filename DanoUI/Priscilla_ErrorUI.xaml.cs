@@ -28,9 +28,10 @@ namespace DanoUI
             Error_ErrorText.DataContext = this; 
         }
 
-        public void SetErrorString(string EString)
+        public void SetErrorString(int ErrorId, string EString)
         {
-            ErrorString = EString;
+            // Priscilla 477b: add int to error screen
+            ErrorString = $"{ErrorId}: {EString}";
             UpdateLayout(); 
         }
 

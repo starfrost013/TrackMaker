@@ -105,6 +105,30 @@ namespace Track_Maker
                                             case "Abbreviation":
                                                 ST2.Abbreviation = HStormInfo.InnerText;
                                                 continue;
+                                            // Best-Track abbreviations
+                                            case "BTAbbreviations":
+                                                if (!HStormInfo.HasChildNodes)
+                                                {
+                                                    Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 166);
+                                                    return null;
+                                                }
+                                                else
+                                                {
+                                                    XmlNodeList BTAbbreviationXMLNodes = HStormInfo.ChildNodes;
+
+                                                    foreach (XmlNode BTAbbreviationXMLNode in BTAbbreviationXMLNodes)
+                                                    {
+                                                        switch (BTAbbreviationXMLNode.Name)
+                                                        {
+                                                            case "Abbreviation":
+                                                                // reduces code complexity by eliminating the need for error checking in this instance
+                                                                ST2.BTAbbreviations.Add(BTAbbreviationXMLNode.InnerText);
+                                                                continue; 
+
+                                                        }
+                                                    }
+                                                }
+                                                continue;
                                             case "Name":
                                                 ST2.Name = HStormInfo.InnerText;
                                                 continue;
@@ -160,20 +184,23 @@ namespace Track_Maker
 
                                                                                     foreach (XmlNode PolygonInformation in PolygonInformationNodes)
                                                                                     {
-                                                                                        // temp
+                                                                                        // load the polygon information, convert the data into polygon points 
                                                                                         switch (PolygonInformation.Name)
                                                                                         {
-                                                                                            case "X":
-                                                                                                continue;
-                                                                                            case "Y":
-                                                                                                continue;
+                                                                                            case "Position":
+                                                                                                Poly.Points.Add(PolygonInformation.InnerText.SplitXY());
+                                                                                                continue; 
 
                                                                                         }
                                                                                     }
+
+                                                                                    
                                                                                 }
 
                                                                                 continue;
                                                                         }
+
+                                                                        Shp.VPoints = Poly; 
                                                                     }
                                                                 }
 

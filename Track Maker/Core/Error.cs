@@ -27,7 +27,7 @@ namespace Track_Maker
                 case ErrorSeverity.FatalError:
 
                     // Create an EUIH
-                    ErrorUIHost EUIH = new ErrorUIHost(Text);
+                    ErrorUIHost EUIH = new ErrorUIHost(ID, Text);
                     EUIH.ShowDialog();
 
                     uint ECode;

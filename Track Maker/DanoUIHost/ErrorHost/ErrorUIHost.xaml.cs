@@ -20,10 +20,10 @@ namespace Track_Maker
     /// </summary>
     public partial class ErrorUIHost : Window
     {
-        public ErrorUIHost(string ErrorString)
+        public ErrorUIHost(int ErrorId, string ErrorString)
         {
             InitializeComponent();
-            ErrorUI.SetErrorString(ErrorString); 
+            ErrorUI.SetErrorString(ErrorId, ErrorString); 
         }
 
         public void EOKHit(object sender, EventArgs e)

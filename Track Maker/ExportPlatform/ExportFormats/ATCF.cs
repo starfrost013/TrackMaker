@@ -122,6 +122,7 @@ namespace Track_Maker
                     
                     // get the storm formation date if we're reading the firt line. 
                     if (i == 0) StormFormationDT = DateTime.Parse(_StrTime);
+                    
 
                     return Proj;
                 }
