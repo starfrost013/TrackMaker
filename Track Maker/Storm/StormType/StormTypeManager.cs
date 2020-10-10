@@ -238,5 +238,31 @@ namespace Track_Maker
             }
         }
 #endif
+        /// <summary>
+        /// Get a list of storm types.
+        /// </summary>
+        /// <returns></returns>
+        public List<StormType2> GetListOfStormTypes() => Types;
+    
+        public StormType2 GetStormTypeWithName(string Name)
+        {
+            foreach (StormType2 ST2 in Types)
+            {
+                if (ST2.Name == Name) return ST2;
+            }
+
+            // pre result validation
+            return null;
+        }
+
+        public StormType2 GetStormTypeWithAbbreviation(string Abbreviation)
+        {
+            foreach (StormType2 ST2 in Types)
+            {
+                if (ST2.Abbreviation == Abbreviation) return ST2;
+            }
+
+            return null;
+        }
     }
 }

@@ -40,8 +40,10 @@ namespace Track_Maker
                 string[] _3 = _[1].Split(';');
 
                 // concanetate into a format we can understand
+                // placing $ before a string in C# signifies to the compiler that this string is an interpolated string = the content between {} are variables or properties or similar
                 string _4 = $"{_2[0]},{_3[0]}";
-
+                
+        
                 Coord.Coordinates = _4.SplitXY();
 
                 // aaaa

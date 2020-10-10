@@ -62,7 +62,8 @@ namespace Track_Maker
             
         }
 
-        public Project ImportCore(string FolderName)
+        // pre-globalstate...refactor this in Dano to not have that passed to it
+        public Project ImportCore(StormTypeManager ST2M, string FolderName)
         {
             // this is one of the worst fucking file formats I have ever laid my fucking eyes on, NOAA are a bunch of fucking wanker twats, nobody should use this pile of crap
 
@@ -77,9 +78,10 @@ namespace Track_Maker
             {
                 string[] ATCFLines = File.ReadAllLines(StormFileName);
 
-                // holy fucking shit i hate the ATCF format so fucking much
+                // holy fucking shit i hate the ATCF format so fucking muc
+                Storm Sto = new Storm(); 
                 string StormName = null;
-                StormType StormType = StormType.Tropical;
+                StormType2 StormType = new StormType2();
                 DateTime StormFormationDT = new DateTime(1959, 3, 10);
 
                 // XML OR JSON OR FUCKING ANYTHING PLS
@@ -112,7 +114,7 @@ namespace Track_Maker
                     
                     int Intensity = Convert.ToInt32(_StrIntensity);
 
-                    StormName = _StrName;
+                    Sto.Name = _StrName;
 
                     // create a node and add it
 
@@ -121,10 +123,10 @@ namespace Track_Maker
                     //Nod.NodeType = Coord;
                     
                     // get the storm formation date if we're reading the firt line. 
-                    if (i == 0) StormFormationDT = DateTime.Parse(_StrTime);
-                    
+                    if (i == 0) Sto.FormationDate = DateTime.Parse(_StrTime);
+                    Nod.StormType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation); 
 
-                    return Proj;
+                   
                 }
 
                 if (StormName == null)
@@ -135,8 +137,9 @@ namespace Track_Maker
                 else
                 {
                     //Bas.AddStorm(StormName, StormType, StormFormationDT); 
+                    return Proj;
                 }
-                
+
             }
 
 

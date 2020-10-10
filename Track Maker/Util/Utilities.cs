@@ -12,29 +12,7 @@ namespace Track_Maker
     {
         // Emerald Game Engine Utilities DLL
         // © 2020 Connor Hyde.
-        public static Point SplitXY(this String SplitString)
-        {
-            try
-            {
-                string[] Split = SplitString.Split(',');
-
-                if (Split.Length != 2) MessageBox.Show("Error converting string to position - must be 2 positions supplied", "Error 19", MessageBoxButton.OK, MessageBoxImage.Error);
-
-                // return -1, -1 if failed. 
-
-                Point XY = new Point();
-
-                // convert the string parts to a Point
-                XY.X = Convert.ToDouble(Split[0]);
-                XY.Y = Convert.ToDouble(Split[1]);
-                return XY;
-            }
-            catch (FormatException err)
-            {
-                MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Error 20", MessageBoxButton.OK, MessageBoxImage.Error);
-                return new Point { X = -1, Y = -1 };
-            }
-        }
+       
 
         public static string ToStringEmerald(this Point XPoint)
         {
