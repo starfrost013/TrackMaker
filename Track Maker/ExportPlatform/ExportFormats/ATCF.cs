@@ -38,7 +38,7 @@ namespace Track_Maker
             return Name; 
         }
 
-        public Project Import()
+        public Project Import(StormTypeManager ST2M)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Track_Maker
 
                 if (OFD.FileName == "") return null;
 
-                return ImportCore(OFD.FileName); 
+                return ImportCore(ST2M, OFD.FileName); 
             }
             catch (PathTooLongException)
             {
@@ -124,7 +124,7 @@ namespace Track_Maker
                     
                     // get the storm formation date if we're reading the firt line. 
                     if (i == 0) Sto.FormationDate = DateTime.Parse(_StrTime);
-                    Nod.StormType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation); 
+                    //Nod.StormType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation); 
 
                    
                 }
