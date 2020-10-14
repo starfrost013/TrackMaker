@@ -29,6 +29,7 @@
     <Shape>
       <Preset>Triangle</Preset>
     </Shape>
+
   </StormType>  
   
   <StormType>
@@ -42,6 +43,8 @@
     <Shape>
       <Preset>Triangle</Preset>
     </Shape>
+
+    <ForceColour>255,128,204,255</ForceColour>
   </StormType>  
 
   <StormType>

@@ -10,28 +10,32 @@ using System.Windows;
 namespace Track_Maker
 {
     /// <summary>
-    /// Track Maker Globalstate (Priscilla v449)
+    /// Track Maker Globalstate (created Priscilla v449)
     /// 
     /// A static class containing core functionality required for the Track Maker.
     /// </summary>
     /// 
     
-    /// IMPLEMENTATION VERSION 0.2 (v473)
+    /// IMPLEMENTATION VERSION 0.3 (v479)
     public class GlobalState
     {
-        public static CategoryManager CategoryManager { get; set; }
-        public static List<Basin> LoadedBasins { get; set; }
-        public static Project CurrentProject { get; set; }
+        public CategoryManager CategoryManager { get; set; }
+        public List<Basin> LoadedBasins { get; set; }
+        public Project CurrentProject { get; set; }
         public static string CurrentFileName { get; set; }
+        public StormTypeManager ST2Manager { get; set; }
 
         public static void Init()
         {
             LoadedBasins = new List<Basin>();
+            CategoryManager.LoadCategories();
+            ST2Manager.Load();
             LoadBasins_Priscilla(); 
         }
 
         public static void SetCurrentFilename(string Name) => CurrentFileName = Name;
 
+        // move to basinmanager
         internal static void LoadBasins_Priscilla()
         {
             try
@@ -111,6 +115,8 @@ namespace Track_Maker
                 Environment.Exit(203);
             }
         }
+
+        public static StormTypeManager GetST2Manager() +> ST2Manager; 
     }
 }
 #endif

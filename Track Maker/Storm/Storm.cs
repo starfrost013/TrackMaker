@@ -37,8 +37,14 @@ namespace Track_Maker
             // Determine intensity.
             NewNode.Intensity = Intensity;
 
+#if DANO
+            StormTypeManager ST2Manager = GlobalState.GetST2Manager();
+#else
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            StormTypeManager ST2Manager = MnWindow.ST2Manager;
+#endif
             // Get node type.
-            NewNode.NodeType = (StormType)Type; // cast to enum.
+            NewNode.NodeType = ST2Manager.GetStormTypeWithId(Type); 
 
             // Get id.
             NewNode.Id = NodeList.Count;
@@ -51,6 +57,11 @@ namespace Track_Maker
 
         }
 
+        /// <summary>
+        /// Add a node to the Storm with a direct node object.
+        /// </summary>
+        /// <param name="Nod"></param>
+        public void AddNode(Node Nod) => NodeList.Add(Nod); 
         public DateTime GetDissipationDate()
         {
             DateTime _t = FormationDate; // Create a temporary date/time. 

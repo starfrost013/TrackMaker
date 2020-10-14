@@ -497,8 +497,16 @@ namespace Track_Maker
         private protected NodeImportResult ImportNodes(XmlNode XNN)
         {
 
-            NodeImportResult NIR = new NodeImportResult(); 
+            NodeImportResult NIR = new NodeImportResult();
 
+            // get globalstate structures in Dano, use MainWindow for Priscilla
+
+#if DANO
+            StormTypeManager ST2Manager = GlobalState.GetST2Manager();
+#else
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            StormTypeManager ST2Manager = MnWindow.ST2Manager;
+#endif
             if (!XNN.HasChildNodes)
             {
                 NIR.Successful = true;
@@ -517,10 +525,10 @@ namespace Track_Maker
                             XNNN.Intensity = Convert.ToInt32(XNNChild.Value);
                             continue;
                         case "Position":
-                            XNNN.Position = Utilities.SplitXY(XNNChild.Value);
+                            XNNN.Position = XNNChild.Value.SplitXY(); 
                             continue;
                         case "Type":
-                            XNNN.NodeType = (StormType)Enum.Parse(typeof(StormType), XNNChild.Value);
+                            XNNN.NodeType = ST2Manager.GetStormTypeWithName(XNNChild.Value);
                             continue; 
                     }
 

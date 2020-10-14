@@ -69,6 +69,11 @@ namespace Track_Maker
                 // Fix schizophrenic code in preparation for end of MainWindow dependency
                 Canvas Ct = MnWindow.HurricaneBasin;
 
+#if DANO
+                StormTypeManager ST2M = GlobalState.GetST2Manager();
+#else
+                StormTypeManager ST2M = MnWindow.ST2Manager;
+#endif
                 Ct.Children.Clear();
 
                 XBasin.ClearBasin(); 
@@ -169,7 +174,7 @@ namespace Track_Maker
                                                         continue;
                                                     case "Type":
                                                         // the type of the node
-                                                        Node.NodeType = (StormType)Enum.Parse(typeof(StormType), XGreatGrandchild.InnerText);
+                                                        Node.NodeType = ST2M.GetStormTypeWithName(XGreatGrandchild.InnerText);
                                                         continue;
                                                     default:
                                                         continue;
@@ -178,7 +183,8 @@ namespace Track_Maker
 
                                             if (XChild.Name == "DeletedNodes")
                                             {
-                                                if (Node.Intensity == 0 && Node.NodeType == StormType.Tropical && Node.Position.X == 0 && Node.Position.Y == 0) continue;
+                                                // wtf is this code....? dumb shit workaround...?
+                                                //if (Node.Intensity == 0 && Node.NodeType == StormType.Tropical && Node.Position.X == 0 && Node.Position.Y == 0) continue;
                                                 Storm.NodeList_Deleted.Add(Node);
                                                 continue;
                                             }

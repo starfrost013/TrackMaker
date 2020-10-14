@@ -19,6 +19,40 @@ namespace Track_Maker
             return $"{XPoint.X},{XPoint.Y}";
         }
 
+        /// <summary>
+        /// Split a string into X/Y positions. Static class that can be used from any class.
+        /// </summary>
+        /// <param name="SplitString"></param>
+        /// <returns></returns>
+        public static Point SplitXY(this String SplitString)
+        {
+            try
+            {
+                string[] Split = SplitString.Split(',');
+
+                if (Split.Length != 2)
+                {
+                    Console.WriteLine("Error converting string to position - must be 2 positions supplied");
+                    return new Point(-1, -1);
+                }
+
+                // Convert the string components to two double-precision floats
+                double X = Convert.ToDouble(Split[0]);
+                double Y = Convert.ToDouble(Split[1]);
+
+                // Create a new coordinatepoint
+                Point XY = new Point(X, Y);
+                return XY;
+            }
+            catch (FormatException err) // essentially this means that an overflow number was
+            {
+                Console.WriteLine($"Error converting string to position - invalid position\n\n{err}");
+
+                //Todo: Generic type parameter based (for proving skills) user input validation
+                return new Point(-1, -1);
+            }
+        }
+
         // From Emerald Game Engine
         // © 2020 Connor Hyde.
         public static Color SplitRGB(this String SplitString)

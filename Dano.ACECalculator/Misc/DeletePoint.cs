@@ -28,7 +28,7 @@ namespace Dano.ACECalculator
                     StormIntensities.Items.RemoveAt(i); // remove the item at the selected index. Yay.
                 }
 
-                if (deleted == true)
+                if (deleted )
                 {
                     if (i > s)
                     {

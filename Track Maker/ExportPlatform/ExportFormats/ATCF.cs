@@ -38,7 +38,7 @@ namespace Track_Maker
             return Name; 
         }
 
-        public Project Import(StormTypeManager ST2M)
+        public Project Import()
         {
             try
             {
@@ -48,11 +48,18 @@ namespace Track_Maker
                     Filter = "Folders|*."
                 };
 
+#if DANO
+                StormTypeManager ST2Manager = GlobalState.GetST2Manager(); 
+#else
+                MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+                StormTypeManager ST2Manager = MnWindow.ST2Manager; 
+#endif
+
                 OFD.ShowDialog();
 
                 if (OFD.FileName == "") return null;
 
-                return ImportCore(ST2M, OFD.FileName); 
+                return ImportCore(ST2Manager, OFD.FileName); 
             }
             catch (PathTooLongException)
             {
@@ -120,13 +127,19 @@ namespace Track_Maker
 
                     Node Nod = new Node();
                     Nod.Id = Id;
-                    //Nod.NodeType = Coord;
-                    
-                    // get the storm formation date if we're reading the firt line. 
-                    if (i == 0) Sto.FormationDate = DateTime.Parse(_StrTime);
-                    //Nod.StormType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation); 
+                    Nod.Intensity = Intensity;
 
-                   
+
+                    // get the storm formation date if we're reading the firt line. 
+                    if (i == 0)
+                    {
+                        Sto.FormationDate = DateTime.Parse(_StrTime);
+                        Sto.Name = _StrName; 
+                    }
+
+                    Nod.NodeType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation);
+
+                    Sto.AddNode(Nod);                    
                 }
 
                 if (StormName == null)
@@ -136,7 +149,7 @@ namespace Track_Maker
                 }
                 else
                 {
-                    //Bas.AddStorm(StormName, StormType, StormFormationDT); 
+                    Bas.AddStorm(Sto);
                     return Proj;
                 }
 

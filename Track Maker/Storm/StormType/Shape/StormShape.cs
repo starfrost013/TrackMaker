@@ -11,19 +11,25 @@ namespace Track_Maker
     /// </summary>
     public enum StormShape
     {
+
+        /// <summary>
+        /// A custom shape is used - this will be used as the default value.
+        /// </summary>
+        Custom = 0,
+
         /// <summary>
         /// A circle.
         /// </summary>
-        Circle = 0,
+        Circle = 1,
 
         /// <summary>
         /// A square.
         /// </summary>
-        Square = 1,
+        Square = 2,
 
         /// <summary>
         /// A triangle.
         /// </summary>
-        Triangle = 2
+        Triangle = 3
     }
 }

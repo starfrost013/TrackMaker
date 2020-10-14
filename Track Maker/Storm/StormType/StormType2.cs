@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
 
 namespace Track_Maker
 {
@@ -44,6 +46,16 @@ namespace Track_Maker
         /// If UsesPresetShape is false, the shape used by this object.
         /// </summary>
         public Shape Shape { get; set; }
+
+        /// <summary>
+        /// Do we force a particular colour?
+        /// </summary>
+        public bool ForceColour { get; set; }
+
+        /// <summary>
+        /// If ForceColour is true, the colour that is forced by this StormType.
+        /// </summary>
+        public Color ForcedColour { get; set; }
 
         public StormType2() // for now init the shape here
         {

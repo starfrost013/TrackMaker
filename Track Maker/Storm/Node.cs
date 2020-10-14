@@ -18,6 +18,6 @@ namespace Track_Maker
         public int Id { get; set; } // The id of the node
         public int Intensity { get; set; } // intensity mph
         public Point Position { get; set; } // the position
-        public StormType NodeType { get; set; } // as any node can be any type.
+        public StormType2 NodeType { get; set; } // as any node can be any type.
     }
 }

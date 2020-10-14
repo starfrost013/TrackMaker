@@ -185,5 +185,11 @@ namespace Track_Maker
             ToolsMenu.IsEnabled = false;
         }
 
+        private void FileMenu_Import_BT_Click(object sender, RoutedEventArgs e)
+        {
+            ExportUI ExpUI = new ExportUI(FormatType.Import, new ExportBestTrack());
+            ExpUI.Owner = this;
+            ExpUI.Show(); 
+        }
     }
 }

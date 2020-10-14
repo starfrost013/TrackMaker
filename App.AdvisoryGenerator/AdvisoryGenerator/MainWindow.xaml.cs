@@ -353,7 +353,7 @@ namespace Dano.AdvisoryGenerator
 
         private void TypeMenu_NHC_Click(object sender, RoutedEventArgs e)
         {
-            if (TypeMenu_NHC.IsChecked == true)
+            if (TypeMenu_NHC.IsChecked )
             {
                 TypeMenu_Wikitext.IsChecked = false;
                 TypeMenu_MCC.IsChecked = false;
@@ -363,7 +363,7 @@ namespace Dano.AdvisoryGenerator
 
         private void TypeMenu_Wikitext_Click(object sender, RoutedEventArgs e)
         {
-            if (TypeMenu_Wikitext.IsChecked == true)
+            if (TypeMenu_Wikitext.IsChecked )
             {
                 TypeMenu_NHC.IsChecked = false;
                 TypeMenu_MCC.IsChecked = false;
@@ -373,7 +373,7 @@ namespace Dano.AdvisoryGenerator
 
         private void TypeMenu_MCC_Click(object sender, RoutedEventArgs e)
         {
-            if (TypeMenu_MCC.IsChecked == true)
+            if (TypeMenu_MCC.IsChecked )
             {
                 TypeMenu_NHC.IsChecked = false;
                 TypeMenu_Wikitext.IsChecked = false;

@@ -48,7 +48,7 @@ namespace Dano.ACECalculator
             }
             else
             {
-                if (this.DateTimeOn == true) // if its the same, prevent repeats.
+                if (this.DateTimeOn ) // if its the same, prevent repeats.
                 {
                     return;
                 }

@@ -264,5 +264,25 @@ namespace Track_Maker
 
             return null;
         }
+
+        /// <summary>
+        /// Apparently version 1's old code is such a pile of shit that we need this function.
+        /// 
+        /// Holy fucking shit.
+        /// </summary>
+        /// <param name="Id">The ID of the stormtype2 that we want. By the way, this isn't assigned, it's literally the way it's ordered - what the fuck was up with version 1.0?</param>
+        /// <returns></returns>
+        public StormType2 GetStormTypeWithId(int Id)
+        {
+            if (Id < 0 || Id > Types.Count)
+            {
+                Error.Throw("E170", $"THE PROGRAMMER IS A DUMB SHIT BUG:  Attempted to create a StormType2 with invalid shitindex {Id}, must be between 0 and {Types.Count}!", ErrorSeverity.FatalError, 170);
+                return null; // doesn't matter
+            }
+            else
+            {
+                return Types[Id]; 
+            }
+        }
     }
 }

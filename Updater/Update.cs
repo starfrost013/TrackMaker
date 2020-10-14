@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace Updater
 {
-    class Update
+    public class Update
     {
         // Check for updates.
         static void Main(string[] args)
@@ -22,7 +22,7 @@ namespace Updater
             try
             {
                 ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                 string VersionString = NetConnection.DownloadString(@"https://trackmaker-update.medicanecentre.org/LatestVersion.txt");
 
@@ -40,7 +40,7 @@ namespace Updater
 
                 if (CurBuildNumber > FVI.FileBuildPart)
                 {
-                    if (MessageBox.Show($"An update is available.\n\nCurrent Version: {FVI.ProductVersion}.\nNew Version: {VersionString}.\n\nDo you wish to update?", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+                    if (MessageBox.Show($"A Track Maker update is available.\n\nCurrent Version: {FVI.ProductVersion}.\nNew Version: {VersionString}.\n\nDo you wish to update?", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                     {
                         NetConnection.DownloadFile($"https://trackmaker-update.medicanecentre.org/TrackMaker-{VersionString}.zip", "new.zip");
                         
