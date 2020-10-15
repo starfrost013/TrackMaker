@@ -71,6 +71,19 @@ namespace Track_Maker
 
                 XmlNode XRoot = XD.FirstChild;
 
+                if (XRoot.Name.Contains("#"))
+                {
+                    if (XRoot.NextSibling == null)
+                    {
+                        Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 171);
+                        return null;
+                    }
+                    else
+                    {
+                        XRoot = XRoot.NextSibling;
+                    }
+                }
+
                 if (!XRoot.HasChildNodes)
                 {
                     Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 162);
@@ -128,6 +141,10 @@ namespace Track_Maker
                                                         }
                                                     }
                                                 }
+                                                continue;
+                                            case "ForceColour":
+                                                ST2.ForceColour = true;
+                                                ST2.ForcedColour = HStormInfo.InnerText.SplitARGB();
                                                 continue;
                                             case "Name":
                                                 ST2.Name = HStormInfo.InnerText;

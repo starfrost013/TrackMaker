@@ -51,7 +51,7 @@ namespace Track_Maker
         private void Window_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            if (CurrentProject != null)
+            if (CurrentProject != null && CurrentProject.SelectedBasin != null && CurrentProject.SelectedBasin.CurrentLayer != null)
             {
                 // if we have no storms, ask the user to create a storm instead of add a track point. 
                 if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null)

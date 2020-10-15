@@ -83,11 +83,46 @@ namespace Track_Maker
             catch (FormatException err)
             {
                 MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Emerald Game Engine Error 41", MessageBoxButton.OK, MessageBoxImage.Error);
-                return new Color {A = 1, R = 1, B = 0, G = 2};
+                return new Color {A = 0, R = 0, B = 0, G = 0};
             }
 
         }
 
+
+        // From Emerald Game Engine
+        // © 2020 Connor Hyde.
+        public static Color SplitARGB(this String SplitString)
+        {
+            try
+            {
+                // Split the string by comma
+                string[] Split = SplitString.Split(',');
+
+                // RGB has three components - error out if we have less than three
+                if (Split.Length != 4) MessageBox.Show("Error converting string to RGB colour - must be 2 positions supplied", "Emerald Game Engine Error 40", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                Color ARGB = new Color();
+
+                ARGB.A = Convert.ToByte(Split[0]);
+
+                // Convert to RGB
+                ARGB.R = Convert.ToByte(Split[1]);
+                ARGB.G = Convert.ToByte(Split[2]);
+                ARGB.B = Convert.ToByte(Split[3]);
+
+                // Return our generated colour.
+                return ARGB;
+
+
+            }
+            catch (FormatException err)
+            {
+                MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Emerald Game Engine Error 41", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new Color { A = 0, R = 0, G = 0, B = 0 };
+            }
+
+
+        }
         public static List<string> InnerXml_Parse(this String InnerXml)
         {
             // xml preprocessing

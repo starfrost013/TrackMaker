@@ -59,7 +59,8 @@ namespace Track_Maker
 
         public StormType2() // for now init the shape here
         {
-            Shape = new Shape(); 
+            Shape = new Shape();
+            BTAbbreviations = new List<string>();
         }
     }
 }

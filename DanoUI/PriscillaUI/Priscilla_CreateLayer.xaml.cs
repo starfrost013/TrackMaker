@@ -20,6 +20,10 @@ namespace DanoUI
     /// </summary>
     public partial class CreateLayer : UserControl
     {
+        
+        public EventHandler<DanoEventArgs> BringToFrontHit { get; set; }
+        public EventHandler<DanoEventArgs> BringToBackHit { get; set; }
+        public EventHandler<DanoEventArgs> OKHit { get; set; }
         public CreateLayer()
         {
             InitializeComponent();
