@@ -29,9 +29,11 @@ namespace Track_Maker
     public class XMLv2 : IExportFormat
     {
         public bool AutoStart { get; set; }
+        public bool DisplayQualityControl { get; set; }
         public string Name { get; set; }
         public static int FormatVersionMajor = 2;
         public static int FormatVersionMinor = 2;
+
         public XMLv2()
         {
             AutoStart = false;

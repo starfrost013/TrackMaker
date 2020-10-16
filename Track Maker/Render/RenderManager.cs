@@ -12,6 +12,7 @@ namespace Track_Maker
 {
     public partial class MainWindow : Window
     {
+        // To be made ZOrder-aware for layer reordering purposes on 2020-10-18
         public void RenderContent(Canvas HurricaneBasin, Point DotSize, List<Storm> StormList = null)
         {
             // optimise by clearing it every time
@@ -34,7 +35,6 @@ namespace Track_Maker
 
                     foreach (Node XNode in XStorm.NodeList)
                     {
-
                         if (XNode.NodeType.PresetShape != StormShape.Custom)
                         {
                             switch (XNode.NodeType.PresetShape)

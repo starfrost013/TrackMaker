@@ -30,7 +30,6 @@ using System.Windows;
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
-
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
                                      //(used if a resource is not found in the page,
@@ -51,6 +50,22 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.483.20289")]
-[assembly: AssemblyFileVersion("2.0.483.20289")]
+[assembly: AssemblyVersion("2.0.484.20290")]
+[assembly: AssemblyFileVersion("2.0.484.20290")]
+
+#if DANO
+#if DEBUG
+
+[assembly: AssemblyVersion("3.0.484.20290")]
+[assembly: AssemblyFileVersion("3.0.484.20290")]
+
+<!-- Track Maker 3.0 - Dano - Debug -->
+[assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 
+[assembly: XmlnsDefinition("Dano_Debug", "Namespace")] 
+#else
+[assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 
+[assembly: XmlnsDefinition("Dano_Release", "Namespace")] 
+
+#endif
+#endif
 

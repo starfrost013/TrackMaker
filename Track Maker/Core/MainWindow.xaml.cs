@@ -49,7 +49,8 @@ namespace Track_Maker
 
         public void Init()
         {
-            
+            // Init logging (Priscilla v484)
+            Logging.Init();
             Logging.Log("Welcome to the Debug Collective");
             Logging.Log("-----------------------------------");
             Logging.Log("© 2019-20 starfrost. Now Loading...");

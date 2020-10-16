@@ -43,6 +43,13 @@
         <Setter Property="BorderThickness" Value="1"></Setter>
     </Style>
 
+    <!-- Border style -->
+    <Style TargetType="Border" x:Key="Border_Gray">
+        <Setter Property="BorderBrush" Value="#80FFFFFF"></Setter>
+        <Setter Property="CornerRadius" Value="3"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+    </Style>
+    
     <!-- TextBlock style -->
     <Style TargetType="TextBlock">
         <Setter Property="FontSize" Value="18"></Setter>

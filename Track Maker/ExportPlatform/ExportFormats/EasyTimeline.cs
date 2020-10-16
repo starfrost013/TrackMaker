@@ -24,6 +24,7 @@ namespace Track_Maker
     public class ExportEasyTimeline : IExportFormat
     {
         public bool AutoStart { get; set; }
+        public bool DisplayQualityControl { get; set; }
         internal MainWindow MnWindow { get; set; }
         public string Name { get; set; }
 

@@ -11,16 +11,20 @@ using System.Windows.Controls;
 /// 
 /// This allows us to write classes easily and quickly for exporting to any format we want. 
 /// 
-/// Version 1.4.0
+/// Version 1.5.0
 /// September 25, 2020
 /// 
-/// (Priscilla - v462)
+/// (Priscilla - v485)
+/// 
+/// v2.0.485.0      V1.5        Added boolean property for displaying QualityControl
+/// v2.0.464.0      V1.4        Project now mandatory
 /// </summary>
 /// 
 namespace Track_Maker
 {
     public interface IExportFormat
     {
+        bool DisplayQualityControl { get; set; } // Does this format display the QualityControl?
         bool AutoStart { get; set; } // Does it auto-start?
         string Name { get; set; } // The name of the file format to export to.
         string GetName(); // Returns the name of this ExportFormat. 

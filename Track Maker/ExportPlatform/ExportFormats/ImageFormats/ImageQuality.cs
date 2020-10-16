@@ -29,12 +29,9 @@ namespace Track_Maker
         /// <summary>
         /// [T2.0] Eighth Quality
         /// </summary>
-#if !DANO
         Eighth = 3
 
-#else
-        Eighth = 3
-        
+#if DANO
 
         /// <summary>
         /// [T3.0/Dano] Custom
@@ -43,13 +40,13 @@ namespace Track_Maker
         /// <summary>
         /// [T3.0/Dano] Nearest Neighbour Upscaling
         /// </summary>
-        UpscaleNearestNeighbour = 5,
+        ScaleNearestNeighbour = 5,
 
         /// [T3.0/Dano] Bilinear Scaling
-        UpscaleBilinear = 6,
+        ScaleBilinear = 6,
 
         /// [T3.0/Dano] Fant Scaling
-        Fant = 7
+        ScaleFant = 7
 #endif
     }
 }

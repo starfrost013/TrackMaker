@@ -13,6 +13,7 @@ namespace Track_Maker
     public class ExportHURDAT2 : IExportFormat
     {
         public bool AutoStart { get; set; }
+        public bool DisplayQualityControl { get; set; }
         public string Name { get; set; }
 
         public ExportHURDAT2()
