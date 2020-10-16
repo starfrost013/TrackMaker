@@ -44,10 +44,12 @@ namespace DanoUI
         private void CreateLayer_OKButton_Click(object sender, RoutedEventArgs e)
         {
             DanoEventArgs DEA = new DanoEventArgs();
+
             DEA.DanoParameters.Add(CreateLayer_MoveToFront.IsChecked);
             DEA.DanoParameters.Add(CreateLayer_MoveToBack.IsChecked);
             DEA.DanoParameters.Add(CreateLayer_NameBox.Text);
             // error checking goes here
+
             OKHit(this, DEA);
         }
     }
