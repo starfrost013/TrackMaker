@@ -18,7 +18,7 @@ namespace Track_Maker
             // optimise by clearing it every time
             HurricaneBasin.Children.Clear();
 
-            foreach (Layer XLayer in CurrentProject.SelectedBasin.Layers)
+            foreach (Layer XLayer in CurrentProject.SelectedBasin.BuildListOfZOrderedLayers())
             {
                 // render loop
                 foreach (Storm XStorm in XLayer.AssociatedStorms)
@@ -167,5 +167,6 @@ namespace Track_Maker
             HurricaneBasin.Children.Add(txtblock); 
 
         }
+
     }
 }

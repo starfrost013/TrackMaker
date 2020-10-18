@@ -116,7 +116,8 @@ namespace Track_Maker
             }
         }
 
-        public static StormTypeManager GetST2Manager() +> ST2Manager; 
+        public static StormTypeManager GetST2Manager() +> ST2Manager;
+        public static CategoryManager GetCategoryManager() => CategoryManager;
     }
 }
 #endif

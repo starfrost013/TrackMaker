@@ -19,7 +19,7 @@ namespace Track_Maker
         public string Name { get; set; }
         public List<Node> NodeList { get; set; }
         public List<Node> NodeList_Deleted { get; set; } // Deprecated - Dano stores basin copies in a History now.
-        public StormType StormType { get; set; }
+        public StormType2 StormType { get; set; }
 
         public Storm()
         {

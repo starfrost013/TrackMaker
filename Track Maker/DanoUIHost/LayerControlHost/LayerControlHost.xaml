@@ -8,7 +8,7 @@
              mc:Ignorable="d" Width="123.771" Height="359.017">
     <Grid>
 
-        <Dano:LayerControl x:Name="Layers">
+        <Dano:LayerControl x:Name="Layers" LayerCreated="Lyr_Created">
 
         </Dano:LayerControl>
     </Grid>

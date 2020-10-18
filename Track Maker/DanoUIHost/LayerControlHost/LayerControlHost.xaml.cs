@@ -29,5 +29,13 @@ namespace Track_Maker
         {
             InitializeComponent();
         }
+
+        public void Lyr_Created(object sender, DanoEventArgs e)
+        {
+            // no DEA
+            CreateLayerHost CLH = new CreateLayerHost();
+            CLH.Owner = Application.Current.MainWindow;
+            CLH.Show();
+        }
     }
 }

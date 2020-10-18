@@ -119,6 +119,9 @@
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DanoUIHost\CreateLayerHost\CreateLayerHost.xaml.cs">
+      <DependentUpon>CreateLayerHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DanoUIHost\CreateProjectHost\CreateProjectHost.xaml.cs">
       <DependentUpon>CreateProjectHost.xaml</DependentUpon>
     </Compile>
@@ -196,6 +199,10 @@
     <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
     <Compile Include="Util\Utilities.cs" />
     <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\CreateLayerHost\CreateLayerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -46,9 +46,14 @@ namespace Track_Maker
             StormsToExport = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); // feature pushed back to Dano, maybe even 3.0/"Aurora"
             Type = FType;
 
-            //completely different in Dano
-            //ExportFormat.GeneratePreview(ExportPlatform_Preview);
-            ExportPlatform_Preview.UpdateLayout(); 
+            if (!ExportFormat.DisplayQualityControl)
+            {
+                HideQualityControl();
+            }
+
+                //completely different in Dano
+                //ExportFormat.GeneratePreview(ExportPlatform_Preview);
+                //ExportPlatform_Preview.UpdateLayout(); 
         }
 
         // Set the header using the Export Platform. 
@@ -123,6 +128,14 @@ namespace Track_Maker
             return;
         }
 
-        
+        private void ShowQualityControl()
+        {
+
+        }
+
+        private void HideQualityControl()
+        {
+
+        }
     }
 }

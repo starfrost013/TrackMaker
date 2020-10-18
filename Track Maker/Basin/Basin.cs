@@ -260,6 +260,16 @@ namespace Track_Maker
                     }
                 }
 
+#if DANO
+                StormTypeManager ST2Manager = GlobalState.GetST2Manager(); 
+#else
+                MainWindow Pre3MainWindow = (MainWindow)Application.Current.MainWindow;
+                StormTypeManager ST2Manager = Pre3MainWindow.ST2Manager;
+#endif
+
+                Storm.StormType = ST2Manager.GetStormTypeWithName(Type); 
+
+                /*
                 if (Type == "Tropical cyclone")
                 {
                     Storm.StormType = StormType.Tropical;
@@ -279,7 +289,7 @@ namespace Track_Maker
                 else if (Type == "Polar low")
                 {
                     Storm.StormType = StormType.PolarLow;
-                }
+                }*/
 
                 Logging.Log($"Set storm type to {Storm.StormType}");
 
@@ -533,7 +543,6 @@ namespace Track_Maker
 
         }
 
-
         public List<Storm> ClearBasin()
         {
             List<Storm> LS = new List<Storm>();
@@ -546,6 +555,41 @@ namespace Track_Maker
             Layers.Clear(); 
 
             return LS;
+        }
+
+
+        /// <summary>
+        /// Internal support for layer ordering
+        /// 
+        /// Basically just a mergesort
+        /// </summary>
+        /// <returns></returns>
+        public List<Layer> BuildListOfZOrderedLayers()
+        {
+            return (List<Layer>)Layers.OrderBy(Layers => Layers.ZIndex); 
+
+        }
+
+        /// <summary>
+        /// Checks if a specific layer is in front of another one.
+        /// </summary>
+        /// <param name="L1"></param>
+        /// <param name="L2"></param>
+        /// <returns></returns>
+        public bool IsInFrontOfLayer(Layer L1, Layer L2)
+        {
+            return ((L1.ZIndex - L2.ZIndex) < 0); // lower z-index = in front
+        }
+
+        /// <summary>
+        /// Checks if a specific layer is in front of another one.
+        /// </summary>
+        /// <param name="L1"></param>
+        /// <param name="L2"></param>
+        /// <returns></returns>
+        public bool IsBehindOfLayer(Layer L1, Layer L2)
+        {
+            return ((L1.ZIndex - L2.ZIndex) > 0); // higher z-index = behind
         }
     }
 }
