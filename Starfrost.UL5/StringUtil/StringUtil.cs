@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Starfrost.UL5.LineEndingUtilities;
+using Starfrost.UL5.VersionUtilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Track_Maker
+namespace Starfrost.UL5.StringUtilities
 {
-    public static class Utilities
+    /// <summary>
+    /// String extension methods. 
+    /// </summary>
+    public static class StringUtil
     {
-        // Emerald Game Engine Utilities DLL
-        // © 2020 Connor Hyde.
-       
-
         public static string ToStringEmerald(this Point XPoint)
         {
             return $"{XPoint.X},{XPoint.Y}";
@@ -84,7 +84,7 @@ namespace Track_Maker
             catch (FormatException err)
             {
                 MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Emerald Game Engine Error 41", MessageBoxButton.OK, MessageBoxImage.Error);
-                return new Color {A = 0, R = 0, B = 0, G = 0};
+                return new Color { A = 0, R = 0, B = 0, G = 0 };
             }
 
         }
@@ -124,6 +124,81 @@ namespace Track_Maker
 
 
         }
+
+        /// <summary>
+        /// Splits a string into an Emerald GameDLL version. Modified 2020-04-30 for scriptdomains.
+        /// </summary>
+        /// <param name="SplitString">The string to split.</param>
+        /// <returns></returns>
+        public static List<int> SplitVersion(this String SplitString)
+        {
+            try
+            {
+                string[] _1 = SplitString.Split('.');
+
+                // If we don't have 3 versions then error out
+                if (_1.Length != 4)
+                {
+                    MessageBox.Show($"Error converting string to version - must be 4 version components supplied", "Emerald Game Engine Error 42", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return null;
+                }
+
+                List<int> Version = new List<int>();
+
+                // Build the version
+
+                foreach (string _2 in _1)
+                {
+                    Version.Add(Convert.ToInt32(_2));
+                }
+
+                return Version;
+            }
+            // Error Condition: Attempted to convert an invalid portion of a string. 
+            catch (FormatException err)
+            {
+                MessageBox.Show($"Error converting string to version - invalid version information\n\n{err}", "Emerald Game Engine Error 56", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Convert from string to version. 
+        /// </summary>
+        /// <param name="SplitString"></param>
+        /// <returns></returns>
+        public static EVersion ToVersion(this String SplitString)
+        {
+            try
+            {
+                string[] _1 = SplitString.Split('.');
+
+                // If we don't have 3 versions then error out
+                if (_1.Length != 4)
+                {
+                    MessageBox.Show($"Error converting string to version - must be 4 version components supplied", "Emerald Game Engine Error 60", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return null;
+                }
+
+                EVersion Version = new EVersion();
+
+                // set the version information
+                Version.Major = Convert.ToInt32(_1[0]);
+                Version.Minor = Convert.ToInt32(_1[1]);
+                Version.Build = Convert.ToInt32(_1[2]);
+                Version.Revision = Convert.ToInt32(_1[3]);
+
+                return Version;
+
+            }
+            catch (FormatException err)
+            {
+                MessageBox.Show($"Error converting string to version - invalid version component supplied!\n\n{err}", "Emerald Game Engine Error 61", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+        }
+
+
         public static List<string> InnerXml_Parse(this String InnerXml)
         {
             // xml preprocessing
@@ -146,12 +221,12 @@ namespace Track_Maker
 
             return _2;
         }
-        
+
         public static double RoundNearest(double x, double amount)
         {
             return Math.Round((x * amount) / amount);
         }
-        
+
         public static Color ConvertWinformsToWpfColour(System.Drawing.Color XColour)
         {
             return Color.FromArgb(XColour.A, XColour.R, XColour.G, XColour.B);
@@ -162,16 +237,35 @@ namespace Track_Maker
             return System.Drawing.Color.FromArgb(XColour.A, XColour.R, XColour.G, XColour.B);
         }
 
-        public static string ConvertArrayToString(this string[] String)
+        public static string ConvertArrayToString(this string[] String, bool UseNewline, LineEnding LE) // UseNewline and LineEnding added on conversion to UL5
         {
-            StringBuilder _ = new StringBuilder();
-            
-            foreach (string _2 in String)
+            StringBuilder SB = new StringBuilder();
+
+            foreach (string StringComponent in String)
             {
-                _.Append($"{_2}\r\n");
+
+                if (UseNewline)
+                {
+                    SB.Append(StringComponent); 
+                    continue;
+                }
+                else
+                {
+                    switch (LE)
+                    {
+                        case LineEnding.Windows:
+                            SB.Append($"{StringComponent}\r\n");
+                            continue;
+                        case LineEnding.Unix:
+                            SB.Append($"{StringComponent}\n");
+                            continue;
+                    }
+                }
+
+
             }
 
-            return _.ToString();
+            return SB.ToString();
         }
 
         public static int GetMonthsBetweenTwoDates(DateTime Initial, DateTime EndDate) // DO NOT DO THE ABSOLUTE!
@@ -194,7 +288,7 @@ namespace Track_Maker
 
             SB.Append(X.ToString());
 
-            return SB.ToString(); 
+            return SB.ToString();
         }
 
         // Dano: move to Category.AbbreviateCategory
@@ -220,7 +314,7 @@ namespace Track_Maker
                     && !_2.ContainsCaseInsensitive("cyclone")
                     && !_2.ContainsCaseInsensitive("typhoon")
                     && !_2.ContainsCaseInsensitive("medicane")
-                    ) 
+                    )
                 {
                     string _3 = _2[0].ToString().ToUpper();
                     SB.Append(_3); // append the first character...in upper case
@@ -233,10 +327,11 @@ namespace Track_Maker
 
         public static bool ContainsCaseInsensitive(this string Text, string Value, StringComparison SC = StringComparison.CurrentCultureIgnoreCase)
         {
-            return Text.IndexOf(Value, SC) >= 0; 
+            return Text.IndexOf(Value, SC) >= 0;
         }
 
     }
+
 
     /// <summary>
     /// I know LINQ has this, but I'm experimenting with generic type parameters.
@@ -262,3 +357,4 @@ namespace Track_Maker
         }
     }
 }
+
