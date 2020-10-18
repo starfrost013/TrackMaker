@@ -62,9 +62,9 @@ namespace Starfrost.UL5.Logging
             catch (FileNotFoundException err)
             {
 #if DEBUG
-                Error.Throw("Error", $"An error has occurred writing to the log - the log file was not found!\n\n{err}", ErrorSeverity.Error, 172);
+                //Error.Throw("Error", $"An error has occurred writing to the log - the log file was not found!\n\n{err}", ErrorSeverity.Error, 172);
 #else
-                Error.Throw("Error", "An error has occurred writing to the log - the log file was not found!", ErrorSeverity.Error, 172);
+                //Error.Throw("Error", "An error has occurred writing to the log - the log file was not found!", ErrorSeverity.Error, 172);
 #endif
             }
         }
