@@ -119,7 +119,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <local:LayerControlHost x:Name="Layers" Margin="35,270,33,44">
+            <local:LayerControlHost x:Name="Layers" Margin="35,250,24,0">
 
             </local:LayerControlHost>
         </Grid>

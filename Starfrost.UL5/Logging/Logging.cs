@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
 
 /// <summary>
 /// starfrost's Track Maker
@@ -62,9 +62,11 @@ namespace Starfrost.UL5.Logging
             catch (FileNotFoundException err)
             {
 #if DEBUG
-                //Error.Throw("Error", $"An error has occurred writing to the log - the log file was not found!\n\n{err}", ErrorSeverity.Error, 172);
+                MessageBox.Show($"Error 301 (an error occurred writing to the log - Log not found)\n\n{err}", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
 #else
-                //Error.Throw("Error", "An error has occurred writing to the log - the log file was not found!", ErrorSeverity.Error, 172);
+                MessageBox.Show($"Error 301 (an error occurred writing to the log - Log not found}", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
 #endif
             }
         }

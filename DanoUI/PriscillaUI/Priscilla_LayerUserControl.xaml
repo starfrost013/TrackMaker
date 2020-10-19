@@ -29,7 +29,7 @@
             <RowDefinition Height="57*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="PriscillaUI_Layers_LayerHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Layers" VerticalAlignment="Top" Foreground="White" Margin="5,10,0,0"/>
-        <ListView x:Name="PriscillaUI_Layers_LayerListView" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="95" Background="#80FFFFFF" Foreground="White" ItemsSource="{Binding LayerNames}" Grid.RowSpan="2">
+        <ListView x:Name="PriscillaUI_Layers_LayerListView" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="95" Background="#80FFFFFF" Foreground="White" ItemsSource="{Binding}" DisplayMemberPath="LayerNames" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name"  Width="85">

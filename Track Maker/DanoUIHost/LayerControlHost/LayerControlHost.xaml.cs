@@ -22,8 +22,18 @@ namespace Track_Maker
     public partial class LayerControlHost : UserControl
     {
 
-        public void AddLayer(string Name) => Layers.LayerNames.Add(Name);
-        public void RemoveLayer(string Name) => Layers.LayerNames.Remove(Name);
+        public void AddLayer(string Name)
+        {
+            Layers.LayerNames.Add(Name);
+            Layers.UpdateLayout(); 
+        }
+
+        public void RemoveLayer(string Name)
+        {
+            Layers.LayerNames.Remove(Name);
+            Layers.UpdateLayout(); 
+        }
+
 
         public LayerControlHost()
         {
@@ -36,6 +46,22 @@ namespace Track_Maker
             CreateLayerHost CLH = new CreateLayerHost();
             CLH.Owner = Application.Current.MainWindow;
             CLH.Show();
+        }
+
+        public void Lyr_Deleted(object sender, DanoEventArgs e)
+        {
+#if PRISCILLA
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            // add remove layer function
+            //MnWindow.CurrentProject.SelectedBasin.
+#else 
+            LayerManager LH = GlobalState.GetLCH();
+#endif
+        }
+
+        private void Layers_Loaded(object sender, RoutedEventArgs e)
+        {
+            Layers.DataContext = Layers;
         }
     }
 }

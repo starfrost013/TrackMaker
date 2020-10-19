@@ -30,21 +30,22 @@ namespace Track_Maker
         {
             try
             {
-                Debug.Assert(e.DanoParameters.Count != 3);
+                Debug.Assert(e.DanoParameters.Count == 3);
 
                 bool BringToFront = (bool)e.DanoParameters[0];
                 bool BringToBack = (bool)e.DanoParameters[1];
                 string LayerName = (string)e.DanoParameters[2];
 
-                if (BringToFront == BringToBack)
+                if (BringToFront && BringToBack)
                 {
-                    Error.Throw("Warning", "Warning: You cannot select both Bring to Front and Bring to Back options!", ErrorSeverity.Warning, 174);
+                    Error.Throw("You cannot select both Bring to Front and Bring to Back options!", "Warning", ErrorSeverity.Warning, 174);
                 }
                 else
                 {
 #if PRISCILLA
                     MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
                     MnWindow.CurrentProject.SelectedBasin.AddLayer(LayerName);
+                    Close(); 
 #else // Dano - globalstate
 #endif
 
@@ -53,9 +54,9 @@ namespace Track_Maker
             catch (FormatException err)
             {
 #if DEBUG
-                Error.Throw("Fatal!!", $"An error occurred parsing the DanoParameters for the CreateLayerHost\n\n{err}", ErrorSeverity.FatalError, 175);
+                Error.Throw("Fatal!!", $"An error occurred parsing the DanoParameters for the CreateLayerHost!\n\n{err}", ErrorSeverity.FatalError, 175);
 #else
-                Error.Throw("Fatal!!", $"An error occurred parsing the DanoParameters for the CreateLayerHost\n\nThis is likely a bug in the Track Maker.", ErrorSeverity.FatalError, 175);
+                Error.Throw("Fatal!!", $"An error occurred parsing the DanoParameters for the CreateLayerHost!\n\nThis is likely a bug in the Track Maker.", ErrorSeverity.FatalError, 175);
 #endif
             }
         }

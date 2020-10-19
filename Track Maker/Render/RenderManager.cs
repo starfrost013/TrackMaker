@@ -12,7 +12,6 @@ namespace Track_Maker
 {
     public partial class MainWindow : Window
     {
-        // To be made ZOrder-aware for layer reordering purposes on 2020-10-18
         public void RenderContent(Canvas HurricaneBasin, Point DotSize, List<Storm> StormList = null)
         {
             // optimise by clearing it every time

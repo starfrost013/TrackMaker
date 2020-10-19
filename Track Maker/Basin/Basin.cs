@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
+using System.Linq; 
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -269,27 +269,6 @@ namespace Track_Maker
 
                 Storm.StormType = ST2Manager.GetStormTypeWithName(Type); 
 
-                /*
-                if (Type == "Tropical cyclone")
-                {
-                    Storm.StormType = StormType.Tropical;
-                }
-                else if (Type == "Subtropical cyclone")
-                {
-                    Storm.StormType = StormType.Subtropical;
-                }
-                else if (Type == "Extratropical cyclone")
-                {
-                    Storm.StormType = StormType.Extratropical;
-                }
-                else if (Type == "Invest / PTC")
-                {
-                    Storm.StormType = StormType.InvestPTC;
-                }
-                else if (Type == "Polar low")
-                {
-                    Storm.StormType = StormType.PolarLow;
-                }*/
 
                 Logging.Log($"Set storm type to {Storm.StormType}");
 
@@ -385,7 +364,12 @@ namespace Track_Maker
         {
             Layer Layer = new Layer();
             Layer.Name = Name;
-            Layers.Add(Layer); 
+            Layers.Add(Layer);
+#if PRISCILLA // V2.0 only (hack)
+            // TEMP
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            MnWindow.Layers.AddLayer(Name); 
+#endif
         }
 
         public void SelectLayer(string Name)
@@ -566,7 +550,9 @@ namespace Track_Maker
         /// <returns></returns>
         public List<Layer> BuildListOfZOrderedLayers()
         {
-            return (List<Layer>)Layers.OrderBy(Layers => Layers.ZIndex); 
+            // Layer
+
+            return Layers.OrderBy(Layers => Layers.ZIndex).ToList();  
 
         }
 

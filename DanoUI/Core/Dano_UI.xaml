@@ -91,6 +91,19 @@
         
     </Style>
 
+    <Style TargetType="TextBox" x:Key="TextBox_BW">
+
+        <Setter Property="Foreground" Value="#00FFFFFF"></Setter>
+        <Setter Property="Background" Value="#FFFFFFFF"></Setter>
+
+        <Setter Property="Height" Value="32"></Setter>
+
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+
+    </Style>
+
+
     <Style TargetType="ComboBox">
         
         <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>

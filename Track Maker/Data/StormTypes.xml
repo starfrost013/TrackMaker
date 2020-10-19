@@ -6,7 +6,7 @@
     <Name>Tropical</Name>
     <Abbreviation>TC</Abbreviation>
     <Shape>
-      <Preset>Circle</Preset>
+      <PresetShape>Circle</PresetShape>
     </Shape>
   </StormType>  
   
@@ -19,7 +19,7 @@
     </BTAbbreviations>
 
     <Shape>
-      <Preset>Square</Preset>
+      <PresetShape>Square</PresetShape>
     </Shape>
   </StormType>  
 
@@ -27,7 +27,7 @@
     <Name>Extratropical</Name>
     <Abbreviation>EX</Abbreviation>
     <Shape>
-      <Preset>Triangle</Preset>
+      <PresetShape>Triangle</PresetShape>
     </Shape>
 
   </StormType>  
@@ -41,7 +41,7 @@
     
     <Abbreviation>IPTC</Abbreviation>
     <Shape>
-      <Preset>Triangle</Preset>
+      <PresetShape>Triangle</PresetShape>
     </Shape>
 
     <ForceColour>255,128,204,255</ForceColour>
@@ -56,7 +56,7 @@
   
     <Abbreviation>PL</Abbreviation>
     <Shape>
-      <Preset>Triangle</Preset>
+      <PresetShape>Triangle</PresetShape>
     </Shape>
   </StormType>  
 
