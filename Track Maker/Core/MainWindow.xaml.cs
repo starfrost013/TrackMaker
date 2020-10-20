@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers; 
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,7 +24,7 @@ namespace Track_Maker
     /// 
     /// Created: 2019-11-07 (Start of Development)
     /// 
-    /// Edited: 2020-09-13
+    /// Edited: 2020-10-20
     /// 
     /// Purpose: Interaction logic for MainWindow.xaml
     /// 
@@ -31,7 +32,7 @@ namespace Track_Maker
 
     public partial class MainWindow : Window
     {
-        public DispatcherTimer TickTimer { get; set; }
+        public Timer TickTimer { get; set; }
         public CategoryManager Catman { get; set; }
         /// <summary>
         /// New for Priscilla.
@@ -87,10 +88,10 @@ namespace Track_Maker
             
 
             Logging.Log("Initialized window, starting phase 2...");
-            TickTimer = new DispatcherTimer();
-            TickTimer.Tick += TimerTicked;
-            TickTimer.Interval = new TimeSpan(0, 0, 0, 0, 15);
-            TickTimer.IsEnabled = true;
+            TickTimer = new Timer();
+            TickTimer.Elapsed += TimerTicked;
+            TickTimer.Interval = 0; // yes
+            TickTimer.Enabled = true;
             Logging.Log("Initialized global update timer...");
 
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");

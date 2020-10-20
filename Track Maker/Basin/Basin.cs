@@ -573,9 +573,28 @@ namespace Track_Maker
         /// <param name="L1"></param>
         /// <param name="L2"></param>
         /// <returns></returns>
-        public bool IsBehindOfLayer(Layer L1, Layer L2)
+        public bool IsBehindLayer(Layer L1, Layer L2)
         {
             return ((L1.ZIndex - L2.ZIndex) > 0); // higher z-index = behind
+        }
+
+        /// <summary>
+        /// Removes the layer with name LayerName.
+        /// </summary>
+        /// <param name="LayerName">The layer name to be removed</param>
+        /// <returns>TRUE if a layer was found, FALSE if an invalid layer name was supplied</returns>
+        public bool RemoveLayerWithName(string LayerName)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                if (Lyr.Name == LayerName)
+                {
+                    Layers.Remove(Lyr);
+                    return true;
+                }
+            }
+
+            return false; 
         }
     }
 }

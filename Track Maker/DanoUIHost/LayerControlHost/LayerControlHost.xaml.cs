@@ -53,7 +53,7 @@ namespace Track_Maker
 #if PRISCILLA
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             // add remove layer function
-            //MnWindow.CurrentProject.SelectedBasin.
+            MnWindow.CurrentProject.SelectedBasin.RemoveLayerWithName((string)e.DanoParameters[0]);
 #else 
             LayerManager LH = GlobalState.GetLCH();
 #endif

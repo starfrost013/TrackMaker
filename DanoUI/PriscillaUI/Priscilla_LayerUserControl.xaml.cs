@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace DanoUI
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Layer User Control 
     /// </summary>
     public partial class LayerControl : UserControl
     {
@@ -27,6 +27,12 @@ namespace DanoUI
         /// No arguments
         /// </summary>
         public EventHandler<DanoEventArgs> LayerCreated { get; set; }
+
+        /// <summary>
+        /// DanoEventArgs
+        /// 
+        /// Parameter 0 - string - the layer to be deleted [2020-10-20] 
+        /// </summary>
         public EventHandler<DanoEventArgs> LayerDeleted { get; set; }
         public EventHandler<DanoEventArgs> LayerReordered { get; set; }
 
@@ -41,7 +47,6 @@ namespace DanoUI
             DataContext = this;
         }
 
-
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             LayerCreated(sender, new DanoEventArgs());
@@ -49,7 +54,17 @@ namespace DanoUI
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            LayerDeleted(sender, new DanoEventArgs()); 
+            DanoEventArgs DEA = new DanoEventArgs();
+            if (PriscillaUI_Layers_LayerListView.SelectedIndex != -1)
+            {
+                DEA.DanoParameters.Add((string)PriscillaUI_Layers_LayerListView.SelectedItem);
+                LayerDeleted(sender, new DanoEventArgs());
+            }
+            else
+            {
+                MessageBox.Show("Error placeholder");
+                return; 
+            }
         }
     }
 }
