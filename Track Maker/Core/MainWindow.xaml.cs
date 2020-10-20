@@ -90,7 +90,7 @@ namespace Track_Maker
             Logging.Log("Initialized window, starting phase 2...");
             TickTimer = new Timer();
             TickTimer.Elapsed += TimerTicked;
-            TickTimer.Interval = 0; // yes
+            TickTimer.Interval = 0.000001; // yes
             TickTimer.Enabled = true;
             Logging.Log("Initialized global update timer...");
 
