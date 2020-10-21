@@ -125,8 +125,13 @@ namespace Track_Maker
 
         public void TimerTicked(object sender, EventArgs e) // when the timer ticks.
         {
-            RenderContent(HurricaneBasin, Setting.DotSize); // Content Renderer 1.2 for v0.3+
-            return;
+            // This code runs on the UI thread. 
+            this.Dispatcher.Invoke(() =>
+            {
+                RenderContent(HurricaneBasin, Setting.DotSize); // Content Renderer 1.2 for v0.3+
+                return;
+            });
+
         }
 
         // ok
@@ -193,5 +198,6 @@ namespace Track_Maker
             ExpUI.Owner = this;
             ExpUI.Show(); 
         }
+
     }
 }

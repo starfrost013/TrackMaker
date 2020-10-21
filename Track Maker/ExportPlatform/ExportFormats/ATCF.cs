@@ -270,6 +270,9 @@ namespace Track_Maker
 
                         // Node position.
 
+                        Category Cat = Storm.GetNodeCategory(Node, MnWindow.Catman.CurrentCategorySystem);
+                        
+
                         Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position); 
 
                         SW.Write($"{X.Coordinates.X.ToString()}{X.Directions[0].ToString()},  {X.Coordinates.Y.ToString()}{X.Directions[1].ToString()},  ");
@@ -298,7 +301,8 @@ namespace Track_Maker
 
                         if (Ct.Abbreviation == null)
                         {
-                            CatString = Utilities.AbbreviateCategory(Ct.Name);
+                            int SplitLength = CatString.Split(' ').Length;
+                            CatString = Cat.GetAbbreviatedCategoryName(CatString, SplitLength, 0, 1, true);
                         }
                         else
                         {

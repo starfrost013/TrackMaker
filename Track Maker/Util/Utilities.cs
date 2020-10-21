@@ -197,40 +197,6 @@ namespace Track_Maker
             return SB.ToString(); 
         }
 
-        // Dano: move to Category.AbbreviateCategory
-
-        /// <summary>
-        /// Priscilla v463 | Deprecated 
-        /// 
-        /// What the fuck i this?
-        /// </summary>
-        /// <param name="CatName"></param>
-        /// <returns></returns>
-        public static string AbbreviateCategory(string CatName)
-        {
-            StringBuilder SB = new StringBuilder();
-
-            // Split into requisite variables
-            string[] _ = CatName.Split(' ');
-
-            // BAD CODE 
-            foreach (string _2 in _)
-            {
-                if (!_2.ContainsCaseInsensitive("hurricane")
-                    && !_2.ContainsCaseInsensitive("cyclone")
-                    && !_2.ContainsCaseInsensitive("typhoon")
-                    && !_2.ContainsCaseInsensitive("medicane")
-                    ) 
-                {
-                    string _3 = _2[0].ToString().ToUpper();
-                    SB.Append(_3); // append the first character...in upper case
-                }
-            }
-            // END BAD CODE
-
-            return SB.ToString();
-        }
-
         public static bool ContainsCaseInsensitive(this string Text, string Value, StringComparison SC = StringComparison.CurrentCultureIgnoreCase)
         {
             return Text.IndexOf(Value, SC) >= 0; 
