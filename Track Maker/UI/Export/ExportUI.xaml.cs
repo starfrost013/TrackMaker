@@ -128,13 +128,18 @@ namespace Track_Maker
             return;
         }
 
-        private void ShowQualityControl()
-        {
-
-        }
-
         private void HideQualityControl()
         {
+            Height = 474;
+            Width = 918;
+            ExportPlatform.Margin = new Thickness(10, 89, 0, 0);
+            ExportPlatform_PreviewBorder.Margin = new Thickness(10, 118, 0, 0);
+            ExportPlatform_ExportBtn.Margin = new Thickness(794, 381, 0, 0);
+
+            // Make the quality control uninteractable and invisible
+            QualityControl.Height = 0;
+            QualityControl.Width = 0;
+            QualityControl.IsEnabled = false;
 
         }
     }

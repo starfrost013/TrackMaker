@@ -42,6 +42,7 @@ namespace Track_Maker
 
         public void Lyr_Created(object sender, DanoEventArgs e)
         {
+
             // no DEA
             CreateLayerHost CLH = new CreateLayerHost();
             CLH.Owner = Application.Current.MainWindow;
@@ -53,7 +54,12 @@ namespace Track_Maker
 #if PRISCILLA
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             // add remove layer function
-            MnWindow.CurrentProject.SelectedBasin.RemoveLayerWithName((string)e.DanoParameters[0]);
+
+            if (MnWindow.CurrentProject != null)
+            {
+                MnWindow.CurrentProject.SelectedBasin.RemoveLayerWithName((string)e.DanoParameters[0]);
+            }
+
 #else 
             LayerManager LH = GlobalState.GetLCH();
 #endif

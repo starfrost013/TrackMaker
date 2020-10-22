@@ -35,7 +35,7 @@ namespace Track_Maker
                 // V2.0.471.0: Fix a crash bug involving not entering a valid date
                 if (Date.SelectedDate == null)
                 {
-                    Error.Throw("Warning!", "Please enter a valid date!", ErrorSeverity.Warning, 128);
+                    Error.Throw("Please enter a valid date!", "Warning!", ErrorSeverity.Warning, 128);
                     return; 
                 }
 
@@ -46,7 +46,7 @@ namespace Track_Maker
 
                 if (Hours < 0 || Hours > 24 || Minutes < 0 || Minutes > 59)
                 {
-                    Error.Throw("Warning!", "Please enter a valid time!", ErrorSeverity.Warning, 101);
+                    Error.Throw("Please enter a valid time!", "Warning!", ErrorSeverity.Warning, 101);
                     return;
                 }
 
@@ -61,7 +61,7 @@ namespace Track_Maker
             }
             catch (FormatException)
             {
-                Error.Throw("Warning!", "Please enter a valid time!", ErrorSeverity.Warning, 101);
+                Error.Throw("Please enter a valid time!", "Warning!", ErrorSeverity.Warning, 101);
                 return;
             }
             

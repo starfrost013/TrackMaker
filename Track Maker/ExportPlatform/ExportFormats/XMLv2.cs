@@ -290,6 +290,12 @@ namespace Track_Maker
 
             Project Proj = new Project();
 
+#if DANO
+            Proj.Basins = GlobalState.LoadedBasins;
+#else
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            Proj.Basins = MnWindow.CurrentProject.Basins;
+#endif
             if (!XDR.HasChildNodes) return XER;
 
             foreach (XmlNode XDRA in XDR.ChildNodes)
@@ -485,7 +491,7 @@ namespace Track_Maker
 
                         }
 
-                        Proj.AddBasin(XDRA.Value);
+                        Proj.AddBasin(XDRA.ChildNodes[0].InnerText);
 
                         continue; 
                 }
