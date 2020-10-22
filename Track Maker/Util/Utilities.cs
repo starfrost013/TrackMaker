@@ -127,24 +127,28 @@ namespace Track_Maker
         public static List<string> InnerXml_Parse(this String InnerXml)
         {
             // xml preprocessing
-            string[] _1 = InnerXml.Split('<');
+            string[] PreSplit = InnerXml.Split('<');
 
-            List<string> _2 = new List<string>();
+            List<string> FinalList = new List<string>();
 
             // Strip it to the name
 
-            foreach (string _3 in _1)
+            foreach (string _3 in PreSplit)
             {
-                string[] _4 = _3.Split('>');
+                // Skip entry strings
+                if (_3 == "") continue; 
 
-                foreach (string _5 in _4)
+                string[] SplitGreaterThan = _3.Split('>');
+
+                // Split each node into its respective value
+                foreach (string XMLNodeOrValue in SplitGreaterThan)
                 {
-                    if (_5 == "" || _5.Contains(@"/")) continue; // skip the strings that are not like the other 
-                    _2.Add(_5);
+                    if (XMLNodeOrValue == "" || XMLNodeOrValue.Contains(@"/")) continue; // skip the strings that are not like the other 
+                    FinalList.Add(XMLNodeOrValue);
                 }
             }
 
-            return _2;
+            return FinalList;
         }
         
         public static double RoundNearest(double x, double amount)

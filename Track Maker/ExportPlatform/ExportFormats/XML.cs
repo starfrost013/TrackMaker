@@ -112,20 +112,20 @@ namespace Track_Maker
 
                     XmlNodeList XChild2 = XChild.ChildNodes;
 
-                    List<string> _2 = XChild.InnerXml.InnerXml_Parse();
-
                     foreach (XmlNode XChild2C in XChild2)
                     {
+                        List<string> XMLValues = XChild.InnerXml.InnerXml_Parse();
+
                         switch (XChild2C.Name)
                         {
                             case "FormationDate":
                                 Storm.FormationDate = DateTime.Parse(XChild2C.InnerText);
                                 continue; 
                             case "ID":
-                                Storm.Id = Convert.ToInt32(_2[2]);
+                                Storm.Id = Convert.ToInt32(XMLValues[1]);
                                 continue;
                             case "Name":
-                                Storm.Name = _2[4];
+                                Storm.Name = XMLValues[3];
                                 continue;
                             case "DeletedNodes":
                             case "Nodes":

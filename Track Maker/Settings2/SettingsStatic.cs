@@ -18,10 +18,18 @@ namespace Track_Maker
         public static Point DotSize { get; set; } // Dot size
         public static WndStyle WindowStyle { get; set; } // Window style
         public static int LineSize { get; set; } // Line size
-        public static bool EnableExperimentalMode { get; set; } // Dano experimental mode
         public static TelemetryConsent TelemetryConsent { get; set; } // Telemetry consent
         public static int UndoDepth { get; set; } // Amount of undos allowed
         public static bool UseGradient { get; set; } // Use the gradient
+#if DANO
+        public static bool Dano_DisableGlobalState { get; set; } // Dano (version 3.0) - disable global state (act like Priscilla)
+        public static bool Dano_EnableOverlaySupport { get; set; } // Dano (version 3.0) - enable overlay support
+        public static bool Dano_UseDeserialisation { get; set; } // Dano (version 3.0) - use XML Deserialisation
+        public static bool Dano_UseGraphWindow { get; set: } // Dano (version 3.0) - use the GraphWindow
+        public static bool Dano_UseMWH { get; set; } // Dano (version 3.0) - use MainWindowHost
+        public static bool Sledgehammer_Enable { get; set; } // Sledgehammer (version 4.0?) 3D enabled
+        // more to come...
+#endif
 
     }
 }
