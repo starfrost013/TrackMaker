@@ -453,11 +453,11 @@ namespace Track_Maker
 
                                                                                                 // Get the storm nodes
 
-
+                                                                                                Lyr.AddStorm(Sto);
+                                                                                                continue;
                                                                                             }
 
-                                                                                            Lyr.AddStorm(Sto);
-                                                                                            continue;
+
                                                                                     }
 
                                                                                 }

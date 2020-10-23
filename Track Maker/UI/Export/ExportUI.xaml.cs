@@ -132,7 +132,7 @@ namespace Track_Maker
         {
             Height = 474;
             Width = 918;
-            ExportPlatform.Margin = new Thickness(10, 89, 0, 0);
+            ExportPlatform_PreviewTextBlock.Margin = new Thickness(10, 89, 0, 0); 
             ExportPlatform_PreviewBorder.Margin = new Thickness(10, 118, 0, 0);
             ExportPlatform_ExportBtn.Margin = new Thickness(794, 381, 0, 0);
 
