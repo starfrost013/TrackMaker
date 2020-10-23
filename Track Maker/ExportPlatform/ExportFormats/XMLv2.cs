@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32; 
+﻿using Microsoft.Win32;
+using Starfrost.UL5.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -273,7 +274,7 @@ namespace Track_Maker
             }
             catch (XmlException)
             {
-                Error.Throw("Invalid basin!", "One of the basins in this Project2 file is corrupted!", ErrorSeverity.Error, 121);
+                Error.Throw("Invalid basin!", "One of the basins in this Project2 file is corrupted!", ErrorSeverity.Error, 182);
                 return null;
             }
         }
@@ -309,7 +310,7 @@ namespace Track_Maker
                         // Check that there are not no valid basins.
                         if (!XDRA.HasChildNodes)
                         {
-                            Error.Throw("No valid basins!", "There are no valid basins!", ErrorSeverity.Error, 122);
+                            Error.Throw("No valid basins!", "There are no valid basins!", ErrorSeverity.Error, 181);
                             return XER;
                         }
 
@@ -407,7 +408,7 @@ namespace Track_Maker
                                                                                             Storm Sto = new Storm();
                                                                                             if (!XDRACLLS.HasChildNodes)
                                                                                             {
-                                                                                                Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 123);
+                                                                                                Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 186);
                                                                                                 return XER;
                                                                                             }
                                                                                             else
@@ -491,8 +492,41 @@ namespace Track_Maker
 
                         }
 
-                        Proj.AddBasin(XDRA.ChildNodes[0].InnerText);
+                        // probably shouldn't be chilnodes[0] but oh well
+                        List<string> IXmlParse = XDRA.InnerXml.InnerXml_Parse();
 
+                        string BasinName = null;
+
+           
+
+                        for (int i = 0; i < IXmlParse.Count; i++)
+                        {
+                            string IXmlParseString = IXmlParse[i];
+
+                            IXmlParseString = IXmlParseString.Xaml2Cs(); 
+                            // this should in all reasonable circumstances hit the storm first.
+                            if (IXmlParseString == "Name")
+                            {
+                                // if we are one element before the end of the list, name is empty
+                                if (i - IXmlParse.Count == 1)  
+                                {
+                                    Error.Throw("Fatal Error!", "Invalid project file - no name specified for basin.", ErrorSeverity.Error, 180);
+                                    return XER;
+                                }
+                                else
+                                {
+                                    // also convert the next element
+
+                                    string PlusOne = IXmlParse[i + 1].Xaml2Cs();
+                                    BasinName = PlusOne; 
+                                    break; // avoid multiple hits
+                                }
+                            }
+                        }
+
+                        Proj.AddBasin(BasinName);
+
+                        
                         continue; 
                 }
             }

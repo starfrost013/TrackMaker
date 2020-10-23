@@ -198,6 +198,9 @@
     <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
     <Compile Include="Util\Utilities.cs" />
+    <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
+    <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
+    <Compile Include="V3Graph\IGraph.cs" />
     <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -331,6 +334,10 @@
     <ProjectReference Include="..\DanoUI\DanoUI.csproj">
       <Project>{f24f47e1-4cf7-4777-b7dd-db1aec6278d9}</Project>
       <Name>DanoUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Starfrost.UL5\Starfrost.UL5.csproj">
+      <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
+      <Name>Starfrost.UL5</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

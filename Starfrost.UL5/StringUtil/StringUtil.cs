@@ -291,43 +291,31 @@ namespace Starfrost.UL5.StringUtilities
             return SB.ToString();
         }
 
-        // Dano: move to Category.AbbreviateCategory
-
-        /// <summary>
-        /// Priscilla v463 | Deprecated 
-        /// 
-        /// What the fuck i this?
-        /// </summary>
-        /// <param name="CatName"></param>
-        /// <returns></returns>
-        public static string AbbreviateCategory(string CatName)
-        {
-            StringBuilder SB = new StringBuilder();
-
-            // Split into requisite variables
-            string[] _ = CatName.Split(' ');
-
-            // BAD CODE 
-            foreach (string _2 in _)
-            {
-                if (!_2.ContainsCaseInsensitive("hurricane")
-                    && !_2.ContainsCaseInsensitive("cyclone")
-                    && !_2.ContainsCaseInsensitive("typhoon")
-                    && !_2.ContainsCaseInsensitive("medicane")
-                    )
-                {
-                    string _3 = _2[0].ToString().ToUpper();
-                    SB.Append(_3); // append the first character...in upper case
-                }
-            }
-            // END BAD CODE
-
-            return SB.ToString();
-        }
-
         public static bool ContainsCaseInsensitive(this string Text, string Value, StringComparison SC = StringComparison.CurrentCultureIgnoreCase)
         {
             return Text.IndexOf(Value, SC) >= 0;
+        }
+
+        /// <summary>
+        /// Convert HT- / XA- / XML formatted string to plaintext - replaces the most common mnemonics
+        /// </summary>
+        /// <param name="HTXAMLFormattedString"></param>
+        /// <returns></returns>
+        public static string Xaml2Cs(this string HTXAMLFormattedString)
+        {
+            string Fnl = HTXAMLFormattedString;
+
+            if (Fnl.Contains("&amp;"))
+            {
+                Fnl = Fnl.Replace("&amp;", "&"); 
+            }
+
+            if (Fnl.Contains("&lt;")) Fnl = Fnl.Replace("&lt;", ">");
+            if (Fnl.Contains("&gt;")) Fnl = Fnl.Replace("&gt;", ">");
+            if (Fnl.Contains("&nbsp;")) Fnl = Fnl.Replace("&nbsp;", 0xA0.ToString());
+
+            return Fnl; 
+
         }
 
     }

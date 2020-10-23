@@ -61,7 +61,7 @@ namespace Track_Maker
             }
             catch (FormatException)
             {
-                Error.Throw("Please enter a valid time!", "Warning!", ErrorSeverity.Warning, 101);
+                Error.Throw("Please enter a valid time!", "Warning!", ErrorSeverity.Warning, 183);
                 return;
             }
             

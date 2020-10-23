@@ -91,6 +91,9 @@
     <Compile Include="PriscillaUI\Priscilla_QualityControl.xaml.cs">
       <DependentUpon>Priscilla_QualityControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PriscillaUI\Priscilla_ZoomControl.xaml.cs">
+      <DependentUpon>Priscilla_ZoomControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Priscilla_ErrorUI.xaml.cs">
       <DependentUpon>Priscilla_ErrorUI.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PriscillaUI\Priscilla_QualityControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Priscilla_ZoomControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

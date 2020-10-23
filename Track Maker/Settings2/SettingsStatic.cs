@@ -26,7 +26,7 @@ namespace Track_Maker
         public static bool Dano_EnableOverlaySupport { get; set; } // Dano (version 3.0) - enable overlay support
         public static bool Dano_UseDeserialisation { get; set; } // Dano (version 3.0) - use XML Deserialisation
         public static bool Dano_UseGraphWindow { get; set: } // Dano (version 3.0) - use the GraphWindow
-        public static bool Dano_UseMWH { get; set; } // Dano (version 3.0) - use MainWindowHost
+        public static bool Dano_UseTabUI { get; set; } // Dano (version 3.0) - use TabUI (MainWindowHost)
         public static bool Sledgehammer_Enable { get; set; } // Sledgehammer (version 4.0?) 3D enabled
         // more to come...
 #endif
