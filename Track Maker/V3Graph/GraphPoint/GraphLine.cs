@@ -16,6 +16,8 @@ namespace Track_Maker.Graphing
         public List<GraphPoint2D> Points { get; set; } // The points of this point. 
         public Color Color { get; set; }
         public string Name { get; set; }
+        // 2D graphing only
+        public Vector Scale { get; set; }
 
         public void AddPoint(Point Pt)
         {
@@ -24,6 +26,8 @@ namespace Track_Maker.Graphing
             Points.Add(GP2D);
         }
 
-        public void RemovePointWithId(int Id) => Points.RemoveAt(Id); 
+        public void RemovePointWithId(int Id) => Points.RemoveAt(Id);
+
+        public void SetScale(double X, double Y) => Scale = new Vector(X, Y); 
     }
 }

@@ -17,6 +17,8 @@ namespace Track_Maker.Graphing
         List<GraphLine> Lines { get; set; }
         bool Plot();
         GraphLine GetLineWithName();
-        void AddLine(string Name, Color LineColour); 
+        void AddLine(string Name, Color LineColour);
+        void DeleteLineWithName(string Name);
+        void DeleteLineWithId(int Id); 
     }
 }
