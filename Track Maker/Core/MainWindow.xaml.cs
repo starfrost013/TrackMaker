@@ -120,8 +120,8 @@ namespace Track_Maker
             }
 
             // DependencyProperty-based bindings
-            BindingOperations.SetBinding(HurricaneBasin.RenderTransform, ScaleTransform.ScaleXProperty, new Binding("ZoomLevelX") { Source = this });
-            BindingOperations.SetBinding(HurricaneBasin.RenderTransform, ScaleTransform.ScaleYProperty, new Binding("ZoomLevelY") { Source = this });
+            //BindingOperations.SetBinding(HurricaneBasin.RenderTransform, ScaleTransform.ScaleXProperty, new Binding("ZoomLevelX") { Source = this });
+            //BindingOperations.SetBinding(HurricaneBasin.RenderTransform, ScaleTransform.ScaleYProperty, new Binding("ZoomLevelY") { Source = this });
 
             // V2
             Logging.Log("Initialising project...");
@@ -214,8 +214,14 @@ namespace Track_Maker
         private void ZoomLevelChanged(object sender, DanoEventArgs e)
         {
             double ZoomLevel = (double)e.DanoParameters[0];
-            ZoomLevelX = ZoomLevel /= 100; // dumb hack 
-            ZoomLevelY = ZoomLevel /= 100;
+            ZoomLevelX = ZoomLevel / 100; // dumb hack 
+            ZoomLevelY = ZoomLevel / 100;
+
+            // DUMB HACK BEGIN
+            // Temporary Code for Pre-Beta Only (HACK!!!!!!)
+            HurricaneBasin.RenderTransform.SetValue(ScaleTransform.ScaleXProperty, ZoomLevelX);
+            HurricaneBasin.RenderTransform.SetValue(ScaleTransform.ScaleYProperty, ZoomLevelY);
+            // DUMB HACK END
         }
     }
 }
