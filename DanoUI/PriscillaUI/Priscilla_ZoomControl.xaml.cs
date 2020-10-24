@@ -20,10 +20,14 @@ namespace DanoUI
     /// </summary>
     public partial class ZoomControl : UserControl
     {
-        public double ZoomLevel { get => ZoomLevel; set
+        /// <summary>
+        /// Breaking news: local man fails at accessors [2020.10.24] 
+        /// </summary>
+        private double Internal_ZoomLevel { get; set; }
+        public double ZoomLevel { get => Internal_ZoomLevel; set
             {
-                ZoomLevel = value;
-                ZoomUI_ZoomPercentage.Text = $"{ZoomUI_Slider.Value}%";
+                Internal_ZoomLevel = value;
+                ZoomUI_ZoomPercentage.Text = $"{Internal_ZoomLevel}%";
             }
         }
         public EventHandler<DanoEventArgs> ZoomLevelChanged { get; set; }
