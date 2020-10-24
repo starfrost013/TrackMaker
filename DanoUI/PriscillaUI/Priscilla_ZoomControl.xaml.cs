@@ -24,6 +24,11 @@ namespace DanoUI
         /// Breaking news: local man fails at accessors [2020.10.24] 
         /// </summary>
         private double Internal_ZoomLevel { get; set; }
+
+        /// <summary>
+        /// Prevent a crash by only calling it the second time...HACK
+        /// </summary>
+        private bool ControlInitialised { get; set; }
         public double ZoomLevel { get => Internal_ZoomLevel; set
             {
                 Internal_ZoomLevel = value;
@@ -38,11 +43,20 @@ namespace DanoUI
 
         private void ZoomUI_Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            if (!ControlInitialised) return; 
             ZoomLevel = ZoomUI_Slider.Value; 
 
             DanoEventArgs DEA = new DanoEventArgs();
             DEA.DanoParameters.Add(ZoomLevel);
             ZoomLevelChanged(this, DEA); 
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            // this is a terrible ugly hack. DO NOT DO THIS!!!! We basically just 
+            // ignore setting it the first time. FIGURE OUT A BETTER WAY TO DO THIS! [2.0.501b]
+            ControlInitialised = true;
+            ZoomLevel = 100; 
         }
     }
 }

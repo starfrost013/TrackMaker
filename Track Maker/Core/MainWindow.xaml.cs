@@ -119,6 +119,10 @@ namespace Track_Maker
                 DisableButtons();
             }
 
+            // DependencyProperty-based bindings
+            BindingOperations.SetBinding(HurricaneBasin.RenderTransform, ScaleTransform.ScaleXProperty, new Binding("ZoomLevelX") { Source = this });
+            BindingOperations.SetBinding(HurricaneBasin.RenderTransform, ScaleTransform.ScaleYProperty, new Binding("ZoomLevelY") { Source = this });
+
             // V2
             Logging.Log("Initialising project...");
             CurrentProject = new Project(true);
@@ -210,8 +214,8 @@ namespace Track_Maker
         private void ZoomLevelChanged(object sender, DanoEventArgs e)
         {
             double ZoomLevel = (double)e.DanoParameters[0];
-            ZoomLevelX = ZoomLevel;
-            ZoomLevelY = ZoomLevel;
+            ZoomLevelX = ZoomLevel /= 100; // dumb hack 
+            ZoomLevelY = ZoomLevel /= 100;
         }
     }
 }
