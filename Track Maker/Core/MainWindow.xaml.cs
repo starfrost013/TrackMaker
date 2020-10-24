@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DanoUI; 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace Track_Maker
     {
         public Timer TickTimer { get; set; }
         public CategoryManager Catman { get; set; }
+
         /// <summary>
         /// New for Priscilla.
         /// </summary>
@@ -43,6 +45,12 @@ namespace Track_Maker
         /// The Storm Type Manager. To be moved to GlobalState in 3.0
         /// </summary>
         public StormTypeManager ST2Manager { get; set; }
+        
+        /// <summary>
+        /// To be moved with MWH in V3
+        /// </summary>
+        public double ZoomLevelX { get; set; }
+        public double ZoomLevelY { get; set; }
         public MainWindow()
         {
             Init();
@@ -199,5 +207,11 @@ namespace Track_Maker
             ExpUI.Show(); 
         }
 
+        private void ZoomLevelChanged(object sender, DanoEventArgs e)
+        {
+            double ZoomLevel = (double)e.DanoParameters[0];
+            ZoomLevelX = ZoomLevel;
+            ZoomLevelY = ZoomLevel;
+        }
     }
 }

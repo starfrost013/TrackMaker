@@ -10,6 +10,9 @@
         mc:Ignorable="d" 
         Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown">
     <Grid x:Name="Core">
+        <Grid.RenderTransform>
+            <ScaleTransform ScaleX="{Binding ZoomLevelX}" ScaleY="{Binding ZoomLevelY}"></ScaleTransform>
+        </Grid.RenderTransform>
         <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="952">
             <Menu.Background>
                 <!-- menu background -->
@@ -120,7 +123,7 @@
             </Grid.Background>
 
             <local:LayerControlHost x:Name="Layers" Margin="31,178,29,72"></local:LayerControlHost>
-            <Dano:ZoomControl x:Name="ZoomControl" Margin="10,537,-160,15"></Dano:ZoomControl>
+            <Dano:ZoomControl x:Name="ZoomControl" Margin="10,537,-160,15" ZoomLevelChanged="ZoomLevelChanged"></Dano:ZoomControl>
 
 
         </Grid>

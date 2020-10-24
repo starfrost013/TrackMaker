@@ -20,9 +20,25 @@ namespace DanoUI
     /// </summary>
     public partial class ZoomControl : UserControl
     {
+        public double ZoomLevel { get => ZoomLevel; set
+            {
+                ZoomLevel = value;
+                ZoomUI_ZoomPercentage.Text = $"{ZoomUI_Slider.Value}%";
+            }
+        }
+        public EventHandler<DanoEventArgs> ZoomLevelChanged { get; set; }
         public ZoomControl()
         {
             InitializeComponent();
+        }
+
+        private void ZoomUI_Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ZoomLevel = ZoomUI_Slider.Value; 
+
+            DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(ZoomLevel);
+            ZoomLevelChanged(this, DEA); 
         }
     }
 }

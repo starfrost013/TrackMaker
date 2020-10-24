@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
-             mc:Ignorable="d" Height="57" Width="333">
+             mc:Ignorable="d" Height="57" Width="313.5">
     <Grid>
-        <Slider x:Name="ZoomUI_Slider" HorizontalAlignment="Left" Height="37" Margin="78,13,0,0" VerticalAlignment="Top" Width="177"/>
+        <Slider x:Name="ZoomUI_Slider" HorizontalAlignment="Left" Height="37" Margin="78,13,0,0" VerticalAlignment="Top" Width="126" Minimum="100" Maximum="500" ValueChanged="ZoomUI_Slider_ValueChanged"/>
         <TextBlock x:Name="ZoomUI_ZoomText" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" Text="Zoom:" VerticalAlignment="Top" Width="100" Style="{StaticResource Style_TextBlock_Invert}"/>
-        <TextBlock x:Name="ZoomUI_ZoomPercentage" HorizontalAlignment="Left" Height="24" Margin="255,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+        <TextBlock x:Name="ZoomUI_ZoomPercentage" HorizontalAlignment="Left" Height="24" Margin="218,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" RenderTransformOrigin="-0.125,0.771"/>
 
     </Grid>
 </UserControl>
