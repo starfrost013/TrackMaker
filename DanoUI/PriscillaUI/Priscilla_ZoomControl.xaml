@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DanoUI.Priscilla_ZoomControl"
+﻿<UserControl x:Class="DanoUI.ZoomControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:DanoUI"
              mc:Ignorable="d" Height="57" Width="524">
     <Grid>
-        <Slider x:Name="ZoomUI_TextBlock" HorizontalAlignment="Left" Height="37" Margin="129,10,0,0" VerticalAlignment="Top" Width="374"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" Text="Zoom:" VerticalAlignment="Top" Width="100"/>
+        <Slider x:Name="ZoomUI_Slider" HorizontalAlignment="Left" Height="37" Margin="129,12,0,0" VerticalAlignment="Top" Width="374"/>
+        <TextBlock x:Name="ZoomUI_ZoomText" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" Text="Zoom:" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </UserControl>

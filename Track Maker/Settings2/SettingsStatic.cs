@@ -21,15 +21,23 @@ namespace Track_Maker
         public static TelemetryConsent TelemetryConsent { get; set; } // Telemetry consent
         public static int UndoDepth { get; set; } // Amount of undos allowed
         public static bool UseGradient { get; set; } // Use the gradient
+
+// more to come...
 #if DANO
         public static bool Dano_DisableGlobalState { get; set; } // Dano (version 3.0) - disable global state (act like Priscilla)
+        public static bool Dano_EnableAnimation { get; set; } // Dano (version 3.0) - enable animation mode
         public static bool Dano_EnableOverlaySupport { get; set; } // Dano (version 3.0) - enable overlay support
+        public static bool Dano_ResizableUIEnabled [ get; set; } // Dano (version 3.0) - Resizable UI Enabled
         public static bool Dano_UseDeserialisation { get; set; } // Dano (version 3.0) - use XML Deserialisation
+        public static bool Dano_UseErrorHandlingV2 { get; set; } // Dano (version 3.0) - use Error Handling 2.0 (delegate, central registration)
         public static bool Dano_UseGraphWindow { get; set: } // Dano (version 3.0) - use the GraphWindow
         public static bool Dano_UseTabUI { get; set; } // Dano (version 3.0) - use TabUI (MainWindowHost)
+#if SLEDGEHAMMER
         public static bool Sledgehammer_Enable { get; set; } // Sledgehammer (version 4.0?) 3D enabled
-        // more to come...
 #endif
+#endif
+
+
 
     }
 }

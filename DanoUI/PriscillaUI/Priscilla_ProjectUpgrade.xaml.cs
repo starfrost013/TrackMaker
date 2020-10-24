@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DanoUI
 {
     /// <summary>
-    /// Interaction logic for ZoomControl
+    /// Interaction logic for Priscilla_ProjectUpgrade.xaml
     /// </summary>
-    public partial class ZoomControl : UserControl
+    public partial class Priscilla_ProjectUpgrade : UserControl
     {
-        public ZoomControl()
+        public Priscilla_ProjectUpgrade()
         {
             InitializeComponent();
         }
