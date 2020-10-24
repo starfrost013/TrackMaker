@@ -7,7 +7,7 @@
              mc:Ignorable="d" Height="57" Width="333">
     <Grid>
         <Slider x:Name="ZoomUI_Slider" HorizontalAlignment="Left" Height="37" Margin="78,13,0,0" VerticalAlignment="Top" Width="177"/>
-        <TextBlock x:Name="ZoomUI_ZoomText" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" Text="Zoom:" VerticalAlignment="Top" Width="100"/>
+        <TextBlock x:Name="ZoomUI_ZoomText" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" Text="Zoom:" VerticalAlignment="Top" Width="100" Style="{StaticResource Style_TextBlock_Invert}"/>
         <TextBlock x:Name="ZoomUI_ZoomPercentage" HorizontalAlignment="Left" Height="24" Margin="255,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
 
     </Grid>
