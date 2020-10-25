@@ -80,7 +80,7 @@ namespace Track_Maker
             
             // Load Settings
             Logging.Log("Loading settings...");
-            LoadSettings2();
+            SettingsLoader.LoadSettings2();
 
             Logging.Log("Checking for updates...");
 

@@ -8,12 +8,24 @@ using System.Windows;
 
 namespace Track_Maker
 {
-    partial class MainWindow
+    public static class SettingsLoader
     {
-        public void LoadSettings2()
+
+        /// <summary>
+        /// Changed to static - does not require 
+        /// </summary>
+        public static void LoadSettings2()
         {
             // Loads settings using the Emerald XML Settings API.
 
+            // Get the GlobalState
+#if DANO
+            CategoryManager Catman = GlobalState.GetCategoryManager(); 
+#else
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            CategoryManager Catman = MnWindow.Catman;
+
+#endif
             string CCatSystem = EmeraldSettings.GetString("DefaultCategorySystem");
 
             foreach (CategorySystem CatSystem in Catman.CategorySystems)
