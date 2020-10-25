@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Input;
 
 namespace Track_Maker
@@ -75,7 +76,10 @@ namespace Track_Maker
             }
             else if (e.RightButton == MouseButtonState.Pressed)
             {
-                MessageBox.Show("Congratulations on clicking the right mouse button!!!");
+                // temporary code
+                RenderTransform.SetValue(ScaleTransform.CenterXProperty, e.GetPosition(HurricaneBasin).X);
+                RenderTransform.SetValue(ScaleTransform.CenterYProperty, e.GetPosition(HurricaneBasin).Y); 
+
             }
         }
 

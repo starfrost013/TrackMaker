@@ -46,11 +46,16 @@ namespace Track_Maker
         /// </summary>
         public StormTypeManager ST2Manager { get; set; }
         
-        /// <summary>
-        /// To be moved with MWH in V3
+        /// <summary> 
+        /// To be moved with MWH in V3 (and turned into a DependencyProperty for the sake of code simplicity)
         /// </summary>
         public double ZoomLevelX { get; set; }
         public double ZoomLevelY { get; set; }
+
+        public DependencyProperty CentrePositionProperty = DependencyProperty.Register("CentrePosition", typeof(Point), typeof(Window)); 
+
+        public Point CentrePosition { get => (Point)GetValue(CentrePositionProperty); set => SetValue(CentrePositionProperty, value); }
+
         public MainWindow()
         {
             Init();
