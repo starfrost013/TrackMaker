@@ -110,7 +110,7 @@ namespace Track_Maker
 #if DEBUG
             Title = "Track Maker \"Priscilla\" (version 2.0 alpha) (Debug)";
 #else
-            Title = "Track Maker \"Priscilla\" (version 2.0 alpha)";
+            Title = "Track Maker \"Priscilla\" version 2.0 (Beta Release - not for production use!)";
 #endif
 #endif
             // DisableUI test 
@@ -118,10 +118,6 @@ namespace Track_Maker
             {
                 DisableButtons();
             }
-
-            // DependencyProperty-based bindings
-            //BindingOperations.SetBinding(HurricaneBasin.RenderTransform, ScaleTransform.ScaleXProperty, new Binding("ZoomLevelX") { Source = this });
-            //BindingOperations.SetBinding(HurricaneBasin.RenderTransform, ScaleTransform.ScaleYProperty, new Binding("ZoomLevelY") { Source = this });
 
             // V2
             Logging.Log("Initialising project...");

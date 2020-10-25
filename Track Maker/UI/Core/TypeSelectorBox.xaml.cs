@@ -37,7 +37,7 @@ namespace Track_Maker
             Logging.Log("Passed MainWindow");
             foreach (StormType stormtype in StormTypes)
             {
-                Logging.Log($"Populating TypeBox with {stormtype.ToString()}");
+                Logging.Log($"Populating TypeBox with {stormtype.ToString()}...");
                 switch (stormtype)
                 {
                     case StormType.Tropical:

@@ -50,23 +50,33 @@ namespace Track_Maker
 
         private void Window_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-
-            if (CurrentProject != null && CurrentProject.SelectedBasin != null && CurrentProject.SelectedBasin.CurrentLayer != null)
+            // left mouse button clicked (no zoom)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                // if we have no storms, ask the user to create a storm instead of add a track point. 
-                if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null)
+                if (CurrentProject != null && CurrentProject.SelectedBasin != null && CurrentProject.SelectedBasin.CurrentLayer != null)
                 {
-                    AddNewStorm Addstwindow = new AddNewStorm();
-                    Addstwindow.Owner = this;
-                    Addstwindow.Show();
-                    return;
+                    // if we have no storms, ask the user to create a storm instead of add a track point. 
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null)
+                    {
+                        AddNewStorm Addstwindow = new AddNewStorm();
+                        Addstwindow.Owner = this;
+                        Addstwindow.Show();
+                        return;
+                    }
+                    else
+                    {
+                        AddTrackPoint Addtrwindow = new AddTrackPoint(e.GetPosition(HurricaneBasin));
+                        Addtrwindow.Owner = this;
+                        Addtrwindow.Show();
+                    }
+
                 }
 
-                AddTrackPoint Addtrwindow = new AddTrackPoint(e.GetPosition(HurricaneBasin));
-                Addtrwindow.Owner = this;
-                Addtrwindow.Show();
             }
-
+            else if (e.RightButton == MouseButtonState.Pressed)
+            {
+                MessageBox.Show("Congratulations on clicking the right mouse button!!!");
+            }
         }
 
         private void EditMenu_Categories_Click(object sender, RoutedEventArgs e)
