@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Track_Maker
 {
+    /// <summary>
+    /// An enum that defines a telemetry consent state.
+    /// </summary>
     public enum TelemetryConsent
     { 
         /// <summary>

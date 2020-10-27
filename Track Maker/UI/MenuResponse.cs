@@ -77,8 +77,7 @@ namespace Track_Maker
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 // temporary code
-                RenderTransform.SetValue(ScaleTransform.CenterXProperty, e.GetPosition(HurricaneBasin).X);
-                RenderTransform.SetValue(ScaleTransform.CenterYProperty, e.GetPosition(HurricaneBasin).Y); 
+                CentrePosition = e.GetPosition(HurricaneBasin); 
 
             }
         }
