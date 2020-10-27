@@ -16,10 +16,11 @@ namespace Starfrost.UL5.VersionUtilities
         public DateTime BuildDate { get; set; }
         public string BuildOwner { get; set; } // eg "Cosmo"
         public int Major { get; set; }
-        public int Minor { get; set; }
+        public int Minor { get; set; } // Build minor
         public int Build { get; set; } // The build number
-        public int Revision { get; set; }
-        public string Status { get; set; } // eg "Beta"
+        public int Revision { get; set; } // Build reviion
+        public Status Status { get; set; } // Release status of this build.
+        public string FullStatus { get; set; } // eg "Beta"
 
 
     }

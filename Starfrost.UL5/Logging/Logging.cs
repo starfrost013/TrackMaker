@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Core;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -47,17 +48,27 @@ namespace Starfrost.UL5.Logging
         {
             try
             {
+                string AppName = GlobalState.GetAppName(); 
                 if (IsNew)
                 {
-                    FileName = $"Priscilla-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
+                    FileName = $"{AppName}-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
+                    using (StreamWriter SW = new StreamWriter(File.Create(FileName)))
+                    {
+                        SW.BaseStream.Seek(0, SeekOrigin.End);
+                        SW.WriteLine($@"//Debug Collective//: [{DateTime.Now}] - {Text}");
+                    }
                 }
-
-                // create the file
-                using (StreamWriter SW = new StreamWriter(File.Create(FileName)))
+                else
                 {
-                    SW.BaseStream.Seek(0, SeekOrigin.End);
-                    SW.WriteLine($@"//Debug Collective//: [{DateTime.Now}] - {Text}");
+                    FileName = $"{AppName}-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
+                    using (StreamWriter SW = new StreamWriter(File.Open(FileName, FileMode.OpenOrCreate))) // OpenOrCreate just in case
+                    {
+                        SW.BaseStream.Seek(0, SeekOrigin.End);
+                        SW.WriteLine($@"//Debug Collective//: [{DateTime.Now}] - {Text}");
+                    }
                 }
+                // create the file
+
             }
             catch (FileNotFoundException err)
             {
