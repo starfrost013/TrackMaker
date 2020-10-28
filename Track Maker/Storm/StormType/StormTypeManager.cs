@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -233,6 +234,7 @@ namespace Track_Maker
                                     }
                                 }
 
+                                Logging.Log($"Successfully loaded storm type with name {ST2.Name}");
                                 ST2List.Add(ST2);
 
                                 continue;

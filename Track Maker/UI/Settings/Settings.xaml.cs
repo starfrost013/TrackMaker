@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging; 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -90,6 +91,7 @@ namespace Track_Maker
             string _DefaultCatsystem = Settings_Tab_General_DefaultCatSystemBox.Text;
             string _DotSize = $"{Settings_Tab_Appearance_DotSizeXText.Text},{Settings_Tab_Appearance_DotSizeYText.Text}";
             string _LineSize = $"{Settings_Tab_Appearance_LineSizeText}";
+
             // This is for autoupdating.
             EmeraldSettings.SetSetting("AccentColour1", _Accent1);
             EmeraldSettings.SetSetting("AccentColour2", _Accent2);

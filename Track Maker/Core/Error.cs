@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,16 +17,19 @@ namespace Track_Maker
             switch (Severity)
             {
                 case ErrorSeverity.Message:
+                    Logging.Log($"Message: {Text}");
                     MessageBox.Show(Caption, Text, MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 case ErrorSeverity.Warning:
+                    Logging.Log($"Warning ({ID}): {Text}");
                     MessageBox.Show($"Warning: {Caption}", Text, MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 case ErrorSeverity.Error:
+                    Logging.Log($"Error! ({ID}): {Text}");
                     MessageBox.Show($"Error #{ID}: {Caption}", Text, MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 case ErrorSeverity.FatalError:
-
+                    Logging.Log($"Fatal Error\n\n:Error ID:{ID}: Status: {Text}");
                     // Create an EUIH
                     ErrorUIHost EUIH = new ErrorUIHost(ID, Text);
                     EUIH.ShowDialog();
