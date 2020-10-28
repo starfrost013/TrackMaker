@@ -7,7 +7,8 @@ using System.Windows;
 
 namespace Track_Maker
 {
-    public enum StormType { Tropical, Subtropical, Extratropical, InvestPTC, PolarLow }
+    //REMOVED V1.0 STORMTYPE!!!!
+    //public enum StormType { Tropical, Subtropical, Extratropical, InvestPTC, PolarLow }
 
     /// <summary>
     /// MOVE ALL STORM APIS HERE - VERSION 2!

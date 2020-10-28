@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,8 @@ namespace Track_Maker
 
         private void Export_Init(FormatType FType, IExportFormat ExportFormat)
         {
+            Logging.Log("ExportUI Initialising...");
+            Logging.Log($"Format type: {FType}, export format: {ExportFormat.Name}");
             MnWindow = (MainWindow)Application.Current.MainWindow;
             ExpFormat = ExportFormat;
             StormsToExport = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); // feature pushed back to Dano, maybe even 3.0/"Aurora"
@@ -51,9 +54,9 @@ namespace Track_Maker
                 HideQualityControl();
             }
 
-                //completely different in Dano
-                //ExportFormat.GeneratePreview(ExportPlatform_Preview);
-                //ExportPlatform_Preview.UpdateLayout(); 
+            //completely different in Dano
+            //ExportFormat.GeneratePreview(ExportPlatform_Preview);
+            //ExportPlatform_Preview.UpdateLayout(); 
         }
 
         // Set the header using the Export Platform. 

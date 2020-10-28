@@ -1,4 +1,6 @@
-﻿using DanoUI; 
+﻿using DanoUI;
+using Starfrost.UL5.Core;
+using Starfrost.UL5.Logging; 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -64,7 +66,15 @@ namespace Track_Maker
         public void Init()
         {
             // Init logging (Priscilla v484)
-            Logging.Init();
+            Logging.Init(); // temp
+#if PRISCILLA
+            // create method to concanetate this for us.
+           
+            AppRegistration.RegisterApp("Priscilla");
+            Logging.Log($"Initialised Starfrost's Useful Library...version {VersionInformation.UL5MajorVersion}.{VersionInformation.UL5MinorVersion}.{VersionInformation.UL5RevisionVersion} (status:{VersionInformation.UL5Status})");
+#endif
+
+
             Logging.Log("Welcome to the Debug Collective");
             Logging.Log("-----------------------------------");
             Logging.Log("© 2019-20 starfrost. Now Loading...");

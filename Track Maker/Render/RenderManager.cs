@@ -93,6 +93,41 @@ namespace Track_Maker
                                     continue;
                             }
                         }
+                        else // handle custom node handling
+                        {
+                            Polygon Poly = new Polygon(); 
+
+                            foreach (Point Pt in XStorm.StormType.Shape.VPoints.Points) // needs some refactoring
+                            {
+                                Poly.Points.Add(Pt); 
+                            }
+
+                            if (XNode.NodeType.Shape.IsFilled)
+                            {
+                                if (!XNode.NodeType.ForceColour)
+                                {
+                                    Poly.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+                                }
+                                else
+                                {
+                                    if (XNode.NodeType.ForcedColour != null)
+                                    {
+                                        Poly.Fill = new SolidColorBrush(XNode.NodeType.ForcedColour);
+                                    }
+                                    else
+                                    {
+                                        // invalid forcedcolour state
+                                        Poly.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+                                    }
+
+                                }
+                            }
+
+                            Canvas.SetLeft(Poly, XNode.Position.X);
+                            Canvas.SetTop(Poly, XNode.Position.Y);
+
+                            HurricaneBasin.Children.Add(Poly); 
+                        }
                     }
                     if (Setting.DefaultVisibleTextNames) DrawText(XStorm, HurricaneBasin);
                 }

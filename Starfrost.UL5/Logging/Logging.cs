@@ -26,7 +26,7 @@ namespace Starfrost.UL5.Logging
     /// <summary>
     /// A static class used for logging debug information.
     /// </summary>
-    public static class DbgLogging
+    public static class Logging
     {
         public static string FileName { get; set; }
 

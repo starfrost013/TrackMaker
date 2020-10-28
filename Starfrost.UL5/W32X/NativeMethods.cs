@@ -1,4 +1,4 @@
-﻿using BetterWin32Errors; 
+﻿using BetterWin32Errors;
 using Starfrost.UL5.Logging;
 using System;
 using System.Collections.Generic;
@@ -38,8 +38,8 @@ namespace Starfrost.UL5.Win32X
             return Result;
         }
 
-        private static void LogEnteringCLR() => DbgLogging.Log("Now entering managed code - Win32 function has been called");
-        private static void LogLeavingCLR() => DbgLogging.Log("Now exiting managed code - calling Win32 function");
+        private static void LogEnteringCLR() => Logging.Logging.Log("Now entering managed code - Win32 function has been called");
+        private static void LogLeavingCLR() => Logging.Logging.Log("Now exiting managed code - calling Win32 function");
 
         private static void CheckLastWin32Error()
         {

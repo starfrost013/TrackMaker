@@ -35,26 +35,27 @@ Features:
 
 Track Maker 2.1
 Features:
-- Internationalisation
+- Internationalisation (use Diffusion)
 - Namespaceisation
 
 Track Maker 3.0
 Features:
 - Google Maps API for real basins? (optional)
 - Per-node, per-object Animation scripting (keyframes?)
-- Responsive design?
+- Responsive design
 - Online collaboration with chat? 
 - Tabbed Basin view (enabled at least, maybe in 2.0)
 - Track Drawing? (small chance of 2.0)
-- Layers?
 - MainWindowHost
 - graph creator that shows TC windspeed and pressure on a time graph [graph]
+- XML Deserialisation
+- Delegate-based error system
 
 Track Maker 4.0
 Features:
 - Online collaboration with chat?
 - Web and mobile versions?
-- Being able to drag nodes around - toolbar
+- Being able to drag nodes around - toolbar / precision editing
 - Custom icons 
 
 Track Maker 5.0
@@ -69,3 +70,5 @@ No-restart Settings (autoupdated)
 Satellite / radar / stylised views (IView) - v6.0?
 Procedural satellite and radar
 Procedurally generated basins like Monsoon's sim
+ATCF / HURDAT Explorer
+Graphical Icon Editor / XML Editor
