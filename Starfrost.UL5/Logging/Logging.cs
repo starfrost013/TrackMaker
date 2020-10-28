@@ -34,6 +34,7 @@ namespace Starfrost.UL5.Logging
         {
             LogFile("Track Maker\n\n© 2019-2020 starfrost. Open-source software under the MIT License.", true);
         }
+
         public static void Log(string Text) // logs to file. 
         {
 
@@ -60,7 +61,6 @@ namespace Starfrost.UL5.Logging
                 }
                 else
                 {
-                    FileName = $"{AppName}-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
                     using (StreamWriter SW = new StreamWriter(File.Open(FileName, FileMode.OpenOrCreate))) // OpenOrCreate just in case
                     {
                         SW.BaseStream.Seek(0, SeekOrigin.End);

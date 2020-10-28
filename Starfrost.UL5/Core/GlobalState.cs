@@ -12,7 +12,7 @@ namespace Starfrost.UL5.Core
     public class GlobalState
     {
         private static App CApp { get; set; }
-        public void V52_Init(string AppName)
+        public static void V52_Init(string AppName)
         {
             CApp = AppRegistration.RegisterApp(AppName); 
         }
