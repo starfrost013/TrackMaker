@@ -20,10 +20,23 @@ namespace DanoUI
     /// </summary>
     public partial class AddNewStorm : UserControl
     {
+        /// <summary>
+        /// DanoEventArgs [OKHit-v507] 
+        /// 
+        /// DanoParameters
+        /// 0   String      The name of this storm.
+        /// 1   String      The storm type of this storm.
+        /// 2   DateTime    The date and time of this storm.
+        /// </summary>
         public EventHandler<DanoEventArgs> OKHit { get; set; }
         public AddNewStorm()
         {
             InitializeComponent();
+        }
+
+        private void OKButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
