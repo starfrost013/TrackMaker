@@ -36,8 +36,6 @@ namespace Track_Maker
 #else
             List<StormType2> ST2L = GlobalState.GetST2Manager(); 
 #endif
-            //var StormTypes = Enum.GetValues(typeof(StormType));
-
 
             Logging.Log("Passed MainWindow");
 
