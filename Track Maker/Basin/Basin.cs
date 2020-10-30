@@ -291,7 +291,7 @@ namespace Track_Maker
         }
 
         /// <summary>
-        /// ATCF import helper function
+        /// ATCF import helper function overload for AddStorm if you've already created a storm object in advance
         /// </summary>
         /// <param name="Sto"></param>
         public void AddStorm(Storm Sto) => CurrentLayer.AssociatedStorms.Add(Sto);

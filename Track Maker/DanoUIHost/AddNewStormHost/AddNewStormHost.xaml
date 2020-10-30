@@ -1,0 +1,13 @@
+﻿<Window x:Class="Track_Maker.AddNewStormHost"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Track_Maker"
+        xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
+        mc:Ignorable="d"
+        Title="Add New Storm" Height="320.548" Width="763.013">
+    <Grid>
+        <Dano:AddNewStorm x:Name="AddNewStorm" Margin="0,0,17,19" OKHit="OKHit"></Dano:AddNewStorm>
+    </Grid>
+</Window>

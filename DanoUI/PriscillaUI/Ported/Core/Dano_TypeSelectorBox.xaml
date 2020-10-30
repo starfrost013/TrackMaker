@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DanoUI"
              mc:Ignorable="d" Height="35.615" Width="345.581">
     <Grid>
-        <ComboBox x:Name="TypeBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Height="34" FontStyle="Italic" FontSize="18" SelectedIndex="1" SelectionChanged="TypeBox_SelectionChanged"/>
+        <ComboBox x:Name="TypeBox" x:FieldModifier="public" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Height="34" FontStyle="Italic" FontSize="18" SelectedIndex="1" SelectionChanged="TypeBox_SelectionChanged"/>
 
     </Grid>
 </UserControl>

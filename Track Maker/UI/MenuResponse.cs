@@ -35,20 +35,7 @@ namespace Track_Maker
             CurrentProject.SelectedBasin.ClearBasin();
         }
 
-        private void ViewMenu_Names_Click(object sender, RoutedEventArgs e)
-        {
-            // Toggle name visibility. 
-            switch (ViewMenu_Names.IsChecked)
-            {
-                case false:
-                    Setting.DefaultVisibleTextNames = false;
-                    return;
-                case true:
-                    Setting.DefaultVisibleTextNames = true;
-                    return;
-            }
-           
-        }
+        private void ViewMenu_Names_Click(object sender, RoutedEventArgs e) => Setting.DefaultVisibleTextNames = !Setting.DefaultVisibleTextNames;
 
         private void Window_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -172,8 +159,14 @@ namespace Track_Maker
         private void StormMenu_AddNew_Click(object sender, RoutedEventArgs e)
         {
             Logging.Log("Creating new storm window...");
+
+            AddNewStormHost ANSH = new AddNewStormHost();
+            ANSH.Owner = this;
+            ANSH.Show(); 
+
+            /* pre-build 507
             AddNewStorm AddNewStorm = new AddNewStorm();
-            AddNewStorm.Show();
+            AddNewStorm.Show();*/
         }
 
         private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e)

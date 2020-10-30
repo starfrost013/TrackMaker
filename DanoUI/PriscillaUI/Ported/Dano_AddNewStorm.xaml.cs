@@ -36,7 +36,72 @@ namespace DanoUI
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
+            DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(NameBox.Text);
+            DEA.DanoParameters.Add(TypeSelect.SelectedItem);
 
+            DateTime FinalTime = GetTime();
+            
+            // Remember when nothing happened?
+            if (FinalTime == new DateTime(1989, 6, 4, 22, 16, 0)) // 最好忘記那些您不記得的事件。
+            {
+                return; 
+            }
+
+            OKHit(this, DEA); 
+        }
+
+        private DateTime GetTime()
+        {
+            try
+            {
+                // this is dumb
+                DateTime? PreHS = DatePicker.SelectedDate;
+
+                if (PreHS == null)
+                {
+                    MessageBox.Show("Pre-Beta Error 188 - please select a valid date.");
+                    return new DateTime(1989, 6, 4, 22, 16, 0); // pre3.0
+                }
+
+                int Hours = Convert.ToInt32(TimeHours);
+                int Minutes = Convert.ToInt32(TimeMinutes);
+
+                // bounds checking
+                if (Hours < 0 || Minutes < 0 || Hours >= 24 || Minutes >= 60)
+                {
+                    MessageBox.Show("Pre-Beta Error 189 - please enter a valid time!");
+                    return new DateTime(1989, 6, 4, 22, 16, 0); 
+                }
+                else
+                {
+                    // add the time specified by the user
+                    DateTime Final = (DateTime)PreHS;
+                    Final = Final.AddHours(Hours);
+                    Final = Final.AddMinutes(Minutes);
+                    return Final;
+                }
+            }
+            catch (FormatException err)
+            {
+#if DEBUG
+                MessageBox.Show($"Pre-Beta Error 190 - please enter a valid time!\n\n{err}");
+#else
+                MessageBox.Show("Pre-Beta Error 190 - please enter a valid time!");
+#endif
+
+                return new DateTime(1989, 6, 4, 22, 16, 0);
+            }
+            catch (OverflowException err)
+            {
+#if DEBUG
+                MessageBox.Show($"Pre-Beta Error 191 - please enter a valid time!\n\n{err}");
+#else
+                MessageBox.Show("Pre-Beta Error 191 - please enter a valid time!");
+#endif
+                return new DateTime(1989, 6, 4, 22, 16, 0);
+            }
+            
         }
     }
 }

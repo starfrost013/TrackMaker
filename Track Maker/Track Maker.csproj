@@ -119,6 +119,9 @@
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DanoUIHost\AddNewStormHost\AddNewStormHost.xaml.cs">
+      <DependentUpon>AddNewStormHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DanoUIHost\CreateLayerHost\CreateLayerHost.xaml.cs">
       <DependentUpon>CreateLayerHost.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
     <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
     <Compile Include="V3Graph\IGraph.cs" />
     <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\AddNewStormHost\AddNewStormHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
