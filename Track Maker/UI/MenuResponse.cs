@@ -47,7 +47,7 @@ namespace Track_Maker
                     // if we have no storms, ask the user to create a storm instead of add a track point. 
                     if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null)
                     {
-                        AddNewStorm Addstwindow = new AddNewStorm();
+                        AddNewStormHost Addstwindow = new AddNewStormHost();
                         Addstwindow.Owner = this;
                         Addstwindow.Show();
                         return;

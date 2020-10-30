@@ -12,7 +12,7 @@
         <TextBox x:Name="IntensityTextBox" HorizontalAlignment="Left" Height="28" Margin="156,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="345" FontSize="18" FontStyle="Italic"/>
 
         <TextBlock x:Name="TypeTextBlock" Text="Type:" HorizontalAlignment="Left" Height="32" Margin="10,104,0,0" VerticalAlignment="Top" Width="44" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
-        <local:TypeSelectorBox x:Name="TypeSelect" Margin="155,101,202,78" Width="345" Height="34"></local:TypeSelectorBox>
+        <local:V1TypeSelectorBox x:Name="TypeSelect" Margin="155,101,202,78" Width="345" Height="34"></local:V1TypeSelectorBox>
         <Button x:Name="TypeOK" Content="OK" HorizontalAlignment="Left" Margin="541,159,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="TypeOK_Click"/>
         <!-- Don't add options here, this is populated by the constructor (maybe a method for this) -->
     </Grid>

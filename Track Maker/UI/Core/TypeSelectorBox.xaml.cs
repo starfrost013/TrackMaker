@@ -19,10 +19,10 @@ namespace Track_Maker
     /// <summary>
     /// Interaction logic for TypeSelectorBox.xaml
     /// </summary>
-    public partial class TypeSelectorBox : UserControl
+    public partial class V1TypeSelectorBox : UserControl
     {
         public MainWindow MainWindow { get; set; }
-        public TypeSelectorBox()
+        public V1TypeSelectorBox()
         {
             InitializeComponent();
         }
