@@ -27,14 +27,14 @@ namespace Track_Maker
             // get the storm names
 #if PRISCILLA
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            Basin Bas = MnWindow.CurrentProject.SelectedBasin;
-            List<string> StormNames = Bas.GetFlatListOfStormNames(); 
+            StormTypeManager ST2M = MnWindow.ST2Manager;
+            List<string> StormNames = ST2M.GetListOfStormTypeNames();
 #else
-            Basin = GlobalState.GetCurrentProject().GetCurrentBasin();
-            List<string> StormNames = Basin.GetFlatListOfStormnAMES(); 
+            Basin = GlobalState.GetST2Manager();
+            List<string> StormNames = Basin.GetListOfStormTypeNames(); 
 #endif
             // PRE BINDING!!!!!!!!!!!!!!
-            AddNewStorm.TypeSelect.Setup(StormNames); 
+            if (!AddNewStorm.TypeSelect.Setup(StormNames)) Close();  
         }
 
         /// <summary>

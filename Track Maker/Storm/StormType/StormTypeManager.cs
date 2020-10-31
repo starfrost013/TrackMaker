@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Windows;
 using System.Windows.Shapes;
+using System.Data.OleDb;
 
 namespace Track_Maker
 {
@@ -34,7 +35,7 @@ namespace Track_Maker
         /// </summary>
         public void Init()
         {
-            Types = Load(); 
+            Types = Load();
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace Track_Maker
 #if DANO
             return Load_Deserialised();
 #else
-            return Load_Manual(); 
+            return Load_Manual();
 #endif
         }
 
@@ -101,8 +102,8 @@ namespace Track_Maker
                             // The root node for a storm type. 
                             case "StormType":
 
-                                StormType2 ST2 = new StormType2(); 
-                                
+                                StormType2 ST2 = new StormType2();
+
                                 if (!HStormType.HasChildNodes)
                                 {
                                     Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 163);
@@ -111,7 +112,7 @@ namespace Track_Maker
                                 else
                                 {
                                     XmlNodeList GCNodes = HStormType.ChildNodes;
-                                    
+
                                     foreach (XmlNode HStormInfo in GCNodes)
                                     {
                                         switch (HStormInfo.Name)
@@ -137,7 +138,7 @@ namespace Track_Maker
                                                             case "Abbreviation":
                                                                 // reduces code complexity by eliminating the need for error checking in this instance
                                                                 ST2.BTAbbreviations.Add(BTAbbreviationXMLNode.InnerText);
-                                                                continue; 
+                                                                continue;
 
                                                         }
                                                     }
@@ -159,8 +160,8 @@ namespace Track_Maker
                                                 }
                                                 else
                                                 {
-                                                    
-                                                    XmlNodeList ShapeData = HStormInfo.ChildNodes; 
+
+                                                    XmlNodeList ShapeData = HStormInfo.ChildNodes;
 
                                                     foreach (XmlNode ShapeDataNode in ShapeData)
                                                     {
@@ -190,7 +191,7 @@ namespace Track_Maker
                                                                         {
                                                                             case "VertexPosition":
                                                                                 // god
-                                                                                
+
                                                                                 if (!PolygonDataNode.HasChildNodes)
                                                                                 {
                                                                                     Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 165);
@@ -207,29 +208,29 @@ namespace Track_Maker
                                                                                         {
                                                                                             case "Position":
                                                                                                 Poly.Points.Add(PolygonInformation.InnerText.SplitXY());
-                                                                                                continue; 
+                                                                                                continue;
 
                                                                                         }
                                                                                     }
 
-                                                                                    
+
                                                                                 }
 
                                                                                 continue;
                                                                         }
 
-                                                                        Shp.VPoints = Poly; 
+                                                                        Shp.VPoints = Poly;
                                                                     }
                                                                 }
 
                                                                 ST2.Shape = Shp;
-                                                                continue; 
+                                                                continue;
 
                                                         }
                                                     }
                                                 }
 
-                                                continue; 
+                                                continue;
                                         }
                                     }
                                 }
@@ -248,12 +249,12 @@ namespace Track_Maker
             catch (FileNotFoundException)
             {
                 Error.Throw("Fatal Error!", "Cannot load StormTypes.xml - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 160);
-                return null; 
+                return null;
             }
             catch (XmlException)
             {
                 Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall!", ErrorSeverity.FatalError, 161);
-                return null; 
+                return null;
             }
         }
 #endif
@@ -262,7 +263,7 @@ namespace Track_Maker
         /// </summary>
         /// <returns></returns>
         public List<StormType2> GetListOfStormTypes() => Types;
-    
+
         public StormType2 GetStormTypeWithName(string Name)
         {
             foreach (StormType2 ST2 in Types)
@@ -300,8 +301,20 @@ namespace Track_Maker
             }
             else
             {
-                return Types[Id]; 
+                return Types[Id];
             }
+        }
+
+        public List<string> GetListOfStormTypeNames()
+        {
+            List<string> ST2List = new List<string>();
+
+            foreach (StormType2 ST2 in Types)
+            {
+                ST2List.Add(ST2.Name);
+            }
+
+            return ST2List; 
         }
     }
 }

@@ -29,7 +29,7 @@ namespace DanoUI
             InitializeComponent();
         }
 
-        public void Setup(List<string> StormTypeNames) // pre-componentisation 
+        public bool Setup(List<string> StormTypeNames) // pre-componentisation 
         {
 #if DANO
             List<StormType2> ST2L = GlobalState.GetST2Manager(); 
@@ -47,15 +47,16 @@ namespace DanoUI
             if (TypeBox.Items.Count < 1)
             {
                 MessageBox.Show("Error - failed to populate TypeBox!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(0x4242DEAD); 
-                //Error.Throw("Uh oh", "Something bad happened. The TypeBox failed to populate.", ErrorSeverity.FatalError, 0);
+                return false;
             }
 
             //Logging.Log("Setting selected index...");
             TypeBox.SelectedIndex = 0;
-            UpdateLayout(); 
+            UpdateLayout();
 
             // BAD / UNFINISHED CODE END
+
+            return true; 
         }
 
         private void TypeBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => SelectedItem = TypeBox.Text;
