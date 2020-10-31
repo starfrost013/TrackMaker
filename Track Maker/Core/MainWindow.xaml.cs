@@ -54,7 +54,7 @@ namespace Track_Maker
         public double ZoomLevelX { get; set; }
         public double ZoomLevelY { get; set; }
 
-        public DependencyProperty CentrePositionProperty = DependencyProperty.Register("CentrePosition", typeof(Point), typeof(Window)); 
+        public DependencyProperty CentrePositionProperty = DependencyProperty.Register("CentrePosition", typeof(Point), typeof(MainWindow)); 
 
         public Point CentrePosition { get => (Point)GetValue(CentrePositionProperty); set => SetValue(CentrePositionProperty, value); }
 
@@ -120,15 +120,11 @@ namespace Track_Maker
             Logging.Log("Initialized global update timer...");
 
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
-           
+
 #if DANO
             Title = "Track Maker Dano (version 3.0; pre-release (Alpha 2/M2) - do not use for production purposes!)";
 #elif PRISCILLA
-#if DEBUG
-            Title = "Track Maker \"Priscilla\" (version 2.0 alpha) (Debug)";
-#else
             Title = "Track Maker \"Priscilla\" version 2.0 (Beta Release - not for production use!)";
-#endif
 #endif
             // DisableUI test 
             if (CurrentProject == null)

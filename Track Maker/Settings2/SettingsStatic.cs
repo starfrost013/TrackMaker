@@ -34,6 +34,9 @@ namespace Track_Maker
         public static bool Dano_UseTabUI { get; set; } // Dano (version 3.0) - use TabUI (MainWindowHost)
 #if SLEDGEHAMMER
         public static bool Sledgehammer_Enable { get; set; } // Sledgehammer (version 4.0?) 3D enabled
+        public static bool Collaboration_HeartbeatRequired { get; set; } // track-maker.com Heartbeat required for Sledgehammer
+        public static bool Collaboration_P2PModeEnabled { get; set; } // p2p mode enabled for Sledgehammer Collaboration
+        public static string Collaboration_NoHeartbeat_Username { get; set; } // username used for no-heartbeat collaboration
 #endif
 #endif
 

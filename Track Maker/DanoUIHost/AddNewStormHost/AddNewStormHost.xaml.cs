@@ -33,8 +33,7 @@ namespace Track_Maker
             Basin = GlobalState.GetST2Manager();
             List<string> StormNames = Basin.GetListOfStormTypeNames(); 
 #endif
-            // PRE BINDING!!!!!!!!!!!!!!
-            if (!AddNewStorm.TypeSelect.Setup(StormNames)) Close();  
+
         }
 
         /// <summary>
@@ -44,15 +43,15 @@ namespace Track_Maker
         /// <param name="DEA"></param>
         private void OKHit(object sender, DanoEventArgs DEA)
         {
-            Debug.Assert(DEA.DanoParameters.Count == 3);
+            Debug.Assert(DEA.DanoParameters.Count == 2);
 #if DANO
             Project Proj = GlobalState.GetCurrentProject();
             Basin Bas = Proj.SelectedBasin; 
 #else
-            MainWindow MnWindow = new MainWindow();
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             Basin Bas = MnWindow.CurrentProject.SelectedBasin;
 #endif
-            Bas.AddStorm((string)DEA.DanoParameters[0], (string)DEA.DanoParameters[1], (DateTime)DEA.DanoParameters[2]);
+            Bas.AddStorm((string)DEA.DanoParameters[0], (DateTime)DEA.DanoParameters[1]);
             Close(); 
         }
     }

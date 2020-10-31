@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="Add New Storm" Height="320.548" Width="763.013">
+        Title="Add New Storm" Height="229.463" Width="684.19">
     <Grid>
         <Dano:AddNewStorm x:Name="AddNewStorm" Margin="0,0,17,19" OKHit="OKHit"></Dano:AddNewStorm>
     </Grid>

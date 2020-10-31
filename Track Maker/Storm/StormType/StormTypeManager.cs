@@ -171,10 +171,12 @@ namespace Track_Maker
                                                                 ST2.UsePresetShape = true;
                                                                 ST2.PresetShape = (StormShape)Enum.Parse(typeof(StormShape), ShapeDataNode.InnerText);
                                                                 continue;
+                                                            case "IsFilled": //v512
+                                                                ST2.Shape.IsFilled = Convert.ToBoolean(ShapeDataNode.InnerText);
+                                                                continue; 
                                                             case "VertexPoints":
-                                                                // todo
-                                                                Shape Shp = new Shape();
-
+                                                                // we already initialise the shape so no need to redo it
+                                                                Shape Shp = ST2.Shape;
                                                                 if (!ShapeDataNode.HasChildNodes)
                                                                 {
                                                                     Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 164);
@@ -183,47 +185,24 @@ namespace Track_Maker
                                                                 else
                                                                 {
                                                                     XmlNodeList PolygonDataNodes = ShapeDataNode.ChildNodes;
-
+                                                                    Polygon Poly = new Polygon();
                                                                     foreach (XmlNode PolygonDataNode in PolygonDataNodes)
                                                                     {
-                                                                        Polygon Poly = new Polygon();
+                                                                        
                                                                         switch (PolygonDataNode.Name)
                                                                         {
                                                                             case "VertexPosition":
                                                                                 // god
-
-                                                                                if (!PolygonDataNode.HasChildNodes)
-                                                                                {
-                                                                                    Error.Throw("Fatal Error!", "StormTypes.xml is malformed - your Track Maker installation is corrupted and you must reinstall.", ErrorSeverity.FatalError, 165);
-                                                                                    return null;
-                                                                                }
-                                                                                else
-                                                                                {
-                                                                                    XmlNodeList PolygonInformationNodes = PolygonDataNode.ChildNodes;
-
-                                                                                    foreach (XmlNode PolygonInformation in PolygonInformationNodes)
-                                                                                    {
-                                                                                        // load the polygon information, convert the data into polygon points 
-                                                                                        switch (PolygonInformation.Name)
-                                                                                        {
-                                                                                            case "Position":
-                                                                                                Poly.Points.Add(PolygonInformation.InnerText.SplitXY());
-                                                                                                continue;
-
-                                                                                        }
-                                                                                    }
-
-
-                                                                                }
+                                                                                Poly.Points.Add(PolygonDataNode.InnerText.SplitXY());
+                                                                                
 
                                                                                 continue;
                                                                         }
-
-                                                                        Shp.VPoints = Poly;
                                                                     }
+
+                                                                    Shp.VPoints = Poly;
                                                                 }
 
-                                                                ST2.Shape = Shp;
                                                                 continue;
 
                                                         }

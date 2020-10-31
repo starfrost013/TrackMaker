@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls; 
+using System.Windows.Controls;
 
 namespace Track_Maker
 {
@@ -25,6 +25,7 @@ namespace Track_Maker
                     MainMenu.Width = SystemParameters.PrimaryScreenWidth;
                     HurricaneBasin.Width = SystemParameters.PrimaryScreenWidth;
                     HurricaneBasin.Height = SystemParameters.PrimaryScreenHeight - MainMenu.Height; // MOVE THIS CODE 
+                    PriscillaSidebar.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - 191, 0, 0, 0); 
                     return;
                 case WndStyle.Fullscreen: // if it's true, turn it off
                     WindowState = WindowState.Normal;
@@ -32,6 +33,7 @@ namespace Track_Maker
                     MainMenu.Width = Width;
                     HurricaneBasin.Width = Width;
                     HurricaneBasin.Height = Height - MainMenu.Height; // MOVE THIS CODE
+                    PriscillaSidebar.Margin = new Thickness(Width - 191, 0, 0, 0);
                     CurrentProject.SelectedBasin.RecalculateNodePositions(false, new Point(Width, Height));
                     Setting.WindowStyle = WndStyle.Windowed;
                     return;

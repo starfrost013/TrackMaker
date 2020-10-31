@@ -5,20 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DanoUI"
         mc:Ignorable="d"
-        Height="287.684" Width="749.517" FontSize="18">
+        Height="183.815" Width="653.517" FontSize="18">
     <Grid>
         <TextBlock x:Name="AddNewStormTextBlock" Text="Add New Storm" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" Height="55" Width="263" FontStyle="Italic"/>
         <TextBlock x:Name="NameTextBlock" Text="Name:" HorizontalAlignment="Left" Height="27" Margin="10,77,0,0" VerticalAlignment="Top" Width="57" FontSize="18"/>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="32" Margin="101,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="344" FontSize="18" FontStyle="Italic" VerticalContentAlignment="Center" Style="{StaticResource TextBox_BW}"/>
-        <TextBlock x:Name="TypeTextBlock" Text="Type:" HorizontalAlignment="Left" Height="26" Margin="10,116,0,0" VerticalAlignment="Top" Width="48" FontSize="18"/>
         <!-- Don't add options here, add them to the storm types enum and AddNewStorm's constructor instead, this is automatically populated and given a name by AddNewStorm.xaml.cs, so dont add stuff here -->
-        <local:TypeSelectorBox x:Name="TypeSelect" HorizontalAlignment="Left" Margin="101,113,0,0" VerticalAlignment="Top" Height="45" Width="345" x:FieldModifier="public"></local:TypeSelectorBox>
-        <TextBlock x:Name="StartDate" Text="Start date:" HorizontalAlignment="Left" Height="26" Margin="10,155,0,0" VerticalAlignment="Top" Width="88" FontSize="18"/>
-        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="101,151,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
-        <TextBox x:Name="TimeHours" HorizontalAlignment="Left" Height="32" Margin="250,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32" Style="{StaticResource TextBox_BW}"/>
-        <TextBlock x:Name="TimeColon" Text=":" HorizontalAlignment="Left" Height="26" Margin="287,152,0,0" VerticalAlignment="Top" Width="8" FontSize="18"/>
-        <TextBox x:Name="TimeMinutes" HorizontalAlignment="Left" Height="32" Margin="296,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32" Style="{StaticResource TextBox_BW}"/>
-        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="596,210,0,0" VerticalAlignment="Top" Width="103" Click="OKButton_Click" RenderTransformOrigin="0.207,0.326" Style="{StaticResource Button_Invert}"/>
+        <TextBlock x:Name="StartDate" Text="Start date:" HorizontalAlignment="Left" Height="26" Margin="10,117,0,0" VerticalAlignment="Top" Width="88" FontSize="18"/>
+        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="101,113,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <TextBox x:Name="TimeHours" HorizontalAlignment="Left" Height="32" Margin="250,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32" Style="{StaticResource TextBox_BW}"/>
+        <TextBlock x:Name="TimeColon" Text=":" HorizontalAlignment="Left" Height="26" Margin="287,114,0,0" VerticalAlignment="Top" Width="8" FontSize="18"/>
+        <TextBox x:Name="TimeMinutes" HorizontalAlignment="Left" Height="32" Margin="296,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32" Style="{StaticResource TextBox_BW}"/>
+        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="490,124,0,0" VerticalAlignment="Top" Width="103" Click="OKButton_Click" RenderTransformOrigin="0.207,0.326" Style="{StaticResource Button_Invert}"/>
         <!-- Maybe add warnings / agency select? -->
     </Grid>
 </UserControl>

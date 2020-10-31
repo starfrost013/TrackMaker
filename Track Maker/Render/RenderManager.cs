@@ -97,7 +97,7 @@ namespace Track_Maker
                         {
                             Polygon Poly = new Polygon(); 
 
-                            foreach (Point Pt in XStorm.StormType.Shape.VPoints.Points) // needs some refactoring
+                            foreach (Point Pt in XNode.NodeType.Shape.VPoints.Points) // needs some refactoring
                             {
                                 Poly.Points.Add(Pt); 
                             }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace Track_Maker
@@ -32,6 +33,15 @@ namespace Track_Maker
         /// Radius of this shape
         /// </summary>
         public double Radius { get; set; }
+
+        /// <summary>
+        /// Shape class constructor
+        /// </summary>
+        public Shape()
+        {
+            VPoints = new Polygon();
+            VPoints.Points = new PointCollection(); 
+        }
     }
 
 }

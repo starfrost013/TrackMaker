@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,10 @@ namespace Track_Maker
         public string Name { get; set; }
         public List<Node> NodeList { get; set; }
         public List<Node> NodeList_Deleted { get; set; } // Deprecated - Dano stores basin copies in a History now.
-        public StormType2 StormType { get; set; }
+        
+        /* As of Priscilla build 512, only nodes store their storm types,
+         * as it's redundant and easier for the user to only set the storm type per node. */
+        //public StormType2 StormType { get; set; }
 
         public Storm()
         {
@@ -52,7 +56,7 @@ namespace Track_Maker
 
             // Set node position.
             NewNode.Position = Pos;
-
+            Logging.Log($"Adding node");
             // Add.
             NodeList.Add(NewNode);
 

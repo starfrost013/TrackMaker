@@ -219,7 +219,7 @@ namespace Track_Maker
         /// Adds a Storm.
         /// </summary>
         /// <returns></returns>
-        public bool AddStorm(string Name, string Type, DateTime DateTime)
+        public bool AddStorm(string Name, DateTime DateTime)
         {
             try
             {
@@ -268,10 +268,10 @@ namespace Track_Maker
                 StormTypeManager ST2Manager = Pre3MainWindow.ST2Manager;
 #endif
 
-                Storm.StormType = ST2Manager.GetStormTypeWithName(Type); 
+                //Storm.StormType = ST2Manager.GetStormTypeWithName(Type); 
 
 
-                Logging.Log($"Set storm type to {Storm.StormType}");
+                //Logging.Log($"Set storm type to {Storm.StormType}");
 
                 Logging.Log("Initializing node list...");
                 Storm.NodeList = new List<Node>(); // initalize the mode list

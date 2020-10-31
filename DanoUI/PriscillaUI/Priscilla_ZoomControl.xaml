@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
-             mc:Ignorable="d" Height="57" Width="236" Loaded="UserControl_Loaded">
+             mc:Ignorable="d" Height="57" Width="221.102" Loaded="UserControl_Loaded">
     <Grid>
-        <Slider x:Name="ZoomUI_Slider" Height="37" Margin="63,13,104,0" VerticalAlignment="Top" Minimum="100" Maximum="500" ValueChanged="ZoomUI_Slider_ValueChanged"/>
+        <Slider x:Name="ZoomUI_Slider" Height="37" Width="70" Margin="63,13,86,0" VerticalAlignment="Top" Minimum="100" Maximum="500" ValueChanged="ZoomUI_Slider_ValueChanged"/>
         <TextBlock x:Name="ZoomUI_ZoomText" HorizontalAlignment="Left" Height="24" Margin="4,10,0,0" TextWrapping="Wrap" Text="Zoom:" VerticalAlignment="Top" Width="54" Style="{StaticResource Style_TextBlock_Invert}"/>
-        <TextBlock x:Name="ZoomUI_ZoomPercentage" HorizontalAlignment="Left" Height="24" Margin="137,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" RenderTransformOrigin="-0.125,0.771"/>
+        <TextBlock x:Name="ZoomUI_ZoomPercentage" HorizontalAlignment="Left" Height="24" Margin="134,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" RenderTransformOrigin="-0.125,0.771"/>
 
     </Grid>
 </UserControl>

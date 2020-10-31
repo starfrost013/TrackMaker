@@ -64,13 +64,14 @@
     <Name>Test</Name>
     <Abbreviation>TST</Abbreviation>
     <Shape>
-      <VertexPositions>
-        <VertexPosition>0,5</VertexPosition>
-        <VertexPosition>3,0</VertexPosition>
-        <VertexPosition>0,-5</VertexPosition> 
-        <VertexPosition>-3,0</VertexPosition>
-        <VertexPosition>0,5</VertexPosition>
-      </VertexPositions>
+	    <IsFilled>true</IsFilled>
+        <VertexPoints>
+            <VertexPosition>0,5</VertexPosition>
+            <VertexPosition>3,0</VertexPosition>
+            <VertexPosition>0,-5</VertexPosition> 
+            <VertexPosition>-3,0</VertexPosition>
+            <VertexPosition>0,5</VertexPosition>
+        </VertexPoints>
     </Shape>
   </StormType>  
 

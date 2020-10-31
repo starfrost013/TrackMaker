@@ -132,7 +132,7 @@
             </Grid.Background>
 
             <local:LayerControlHost x:Name="Layers" Margin="31,178,29,72"></local:LayerControlHost>
-            <Dano:ZoomControl x:Name="ZoomControl" Margin="-15,542,-38,10" ZoomLevelChanged="ZoomLevelChanged"></Dano:ZoomControl>
+            <Dano:ZoomControl x:Name="ZoomControl" Margin="0,542,-53,10" ZoomLevelChanged="ZoomLevelChanged"></Dano:ZoomControl>
 
 
         </Grid>

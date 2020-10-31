@@ -50,20 +50,20 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.509.20304")]
-[assembly: AssemblyFileVersion("2.0.509.20304")]
+[assembly: AssemblyVersion("2.0.513.20305")]
+[assembly: AssemblyFileVersion("2.0.513.20305")]
+[assembly: AssemblyInformationalVersion("Priscilla Pre-Beta v2 (build 513c; 2020-10-31)")]
 
 #if DANO
+[assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 
 #if DEBUG
 
 [assembly: AssemblyVersion("3.0.484.20290")]
 [assembly: AssemblyFileVersion("3.0.484.20290")]
 
 <!-- Track Maker 3.0 - Dano - Debug -->
-[assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 
 [assembly: XmlnsDefinition("Dano_Debug", "Namespace")] 
 #else
-[assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 
 [assembly: XmlnsDefinition("Dano_Release", "Namespace")] 
 
 #endif
