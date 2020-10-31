@@ -108,7 +108,7 @@
 
     <Style TargetType="TextBox" x:Key="TextBox_BW">
 
-        <Setter Property="Foreground" Value="#00FFFFFF"></Setter>
+        <Setter Property="Foreground" Value="#FF000000"></Setter>
         <Setter Property="Background" Value="#FFFFFFFF"></Setter>
 
         <Setter Property="Height" Value="32"></Setter>

@@ -64,8 +64,8 @@ namespace DanoUI
                     return new DateTime(1989, 6, 4, 22, 16, 0); // pre3.0
                 }
 
-                int Hours = Convert.ToInt32(TimeHours);
-                int Minutes = Convert.ToInt32(TimeMinutes);
+                int Hours = Convert.ToInt32(TimeHours.Text);
+                int Minutes = Convert.ToInt32(TimeMinutes.Text);
 
                 // bounds checking
                 if (Hours < 0 || Minutes < 0 || Hours >= 24 || Minutes >= 60)
