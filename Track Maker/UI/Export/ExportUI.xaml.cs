@@ -119,6 +119,7 @@ namespace Track_Maker
                 case FormatType.Import:
                     MnWindow.CurrentProject = ExpFormat.Import();
                     MnWindow.TickTimer.Start();
+                    
                     Close();
                     return; 
                 case FormatType.Export:

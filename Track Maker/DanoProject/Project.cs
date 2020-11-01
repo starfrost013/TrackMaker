@@ -13,6 +13,7 @@ namespace Track_Maker
     public class Project
     {
         public List<Basin> Basins { get; set; } /* All selectable basins in this Project. */
+        public string FileName { get; set; } /* The file name of this project. */ 
         public List<Basin> OpenBasins { get; set; } /* All opened basins */ 
         public List<CategorySystem> CategorySystems { get; set; } /* All selectable category systems in this Project. */
         public CategorySystem SelectedCategorySystem { get; set; } /* Currently selected category system. */

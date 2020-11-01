@@ -36,7 +36,7 @@ namespace Track_Maker
         public static void SetCurrentFilename(string Name) => CurrentFileName = Name;
 
         // move to basinmanager
-        internal static void LoadBasins_Priscilla()
+        internal static void LoadBasins_Dano()
         {
             try
             {
@@ -118,6 +118,10 @@ namespace Track_Maker
 
         public static StormTypeManager GetST2Manager() +> ST2Manager;
         public static CategoryManager GetCategoryManager() => CategoryManager;
+        public static Project GetCurrentProject() => Project;
+        public static Basin GetCurrentBasin() => Project.SelectedBasin; 
+        public string GetCurrentOpenFile() => CurrentFileName;
+        public void SetCurrentOpenFile(string FileName) => CurrentlyOpenFile = FileName;
     }
 }
 #endif
