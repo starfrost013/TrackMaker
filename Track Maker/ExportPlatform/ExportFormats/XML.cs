@@ -32,12 +32,12 @@ namespace Track_Maker
         {
             Name = "Project";
             MnWindow = (MainWindow)Application.Current.MainWindow;
-            AutoStart = true; 
+            AutoStart = true;
         }
 
         public void GeneratePreview(Canvas XCanvas)
         {
-            throw new NotImplementedException(); 
+            throw new NotImplementedException();
         }
 
         public string GetName()
@@ -46,7 +46,7 @@ namespace Track_Maker
         }
 
         // 2020-05-21 [v1.0.364.0] - change to modify instead of overwrite the current basin
-        
+
         /// <summary>
         /// DEPRECATED 2020-09-19 [v2.0.455] 
         /// </summary>
@@ -77,7 +77,7 @@ namespace Track_Maker
 #endif
                 Ct.Children.Clear();
 
-                XBasin.ClearBasin(); 
+                XBasin.ClearBasin();
 
                 XDoc.Load(SFD.FileName);
 
@@ -120,7 +120,7 @@ namespace Track_Maker
                         {
                             case "FormationDate":
                                 Storm.FormationDate = DateTime.Parse(XChild2C.InnerText);
-                                continue; 
+                                continue;
                             case "ID":
                                 Storm.Id = Convert.ToInt32(XMLValues[1]);
                                 continue;
@@ -193,7 +193,7 @@ namespace Track_Maker
                                             {
                                                 Storm.NodeList.Add(Node);
                                             }
-           
+
                                             continue;
                                     }
 
@@ -215,7 +215,7 @@ namespace Track_Maker
                 Project Proj = new Project();
                 Proj.AddBasin(XBasin, true);
 
-                return Proj; 
+                return Proj;
             }
             catch (FormatException err)
             {
@@ -244,11 +244,16 @@ namespace Track_Maker
         /// <returns></returns>
         public bool Export(Project Project)
         {
-            throw new NotImplementedException("Track Maker 1.x export support is removed in Priscilla - only import allowed! This should not be called`");
+            throw new NotImplementedException("Track Maker 1.x export support is removed in Priscilla - only import allowed! This should not be called!");
         }
 
+        /*
         public bool ExportCore(Project Project, string FileName)
         {
+            // V1 Export Code
+            // Unused since build 472, removed in 51x
+
+            
             XmlDocument XDoc = new XmlDocument();
             XmlNode XRoot = XDoc.CreateElement("Project");
 
@@ -328,6 +333,9 @@ namespace Track_Maker
             XDoc.Save(FileName);
 
             return true;
-        }
+            
+        }*/
+
     }
 }
+

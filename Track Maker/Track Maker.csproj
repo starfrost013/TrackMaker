@@ -340,7 +340,9 @@
       <Name>Starfrost.UL5</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Error3.0\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Data\BasinImages\T_AtlanticHighRes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

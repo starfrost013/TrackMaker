@@ -117,13 +117,38 @@ namespace Track_Maker
             switch (Type)
             {
                 case FormatType.Import:
-                    MnWindow.CurrentProject = ExpFormat.Import();
+                    Project CurProj = ExpFormat.Import();
                     MnWindow.TickTimer.Start();
-                    
+
+
+                    if (CurProj.FileName == null)
+                    {
+                        Error.Throw("Fatal Error!", "Failed to set current file name", ErrorSeverity.Error, 190); 
+                    }
+                    else
+                    {
+                        GlobalStateP.SetCurrentOpenFile(CurProj.FileName);
+                    }
+
+                    //may bindings work?
+                    MnWindow.Title = $"starfrost's Track Maker - {CurProj.FileName}";
+
+                    // we are not setting current project before, usually you wouldn't need to do this hack
+                    MnWindow.CurrentProject = CurProj;
                     Close();
                     return; 
                 case FormatType.Export:
-                    ExpFormat.Export(MnWindow.CurrentProject);
+                    
+                    if (!ExpFormat.Export(MnWindow.CurrentProject))
+                    {
+                        return;
+                    }
+
+                    // wish VS allowed the sam var names under different code paths
+                    Project CurProject = MnWindow.CurrentProject;
+
+                    MnWindow.Title = $"starfrost's Track Maker - {CurProject.FileName}";
+
                     MnWindow.TickTimer.Start();
                     Close();
                     return;

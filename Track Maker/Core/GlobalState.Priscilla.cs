@@ -19,7 +19,7 @@ namespace Track_Maker
     {
         public static string CurrentlyOpenFile { get; set; }
 
-        public void SetCurrentOpenFile(string FileName) => CurrentlyOpenFile = FileName;
-        public string GetCurrentOpenFile() => CurrentlyOpenFile;
+        public static void SetCurrentOpenFile(string FileName) => CurrentlyOpenFile = FileName;
+        public static string GetCurrentOpenFile() => CurrentlyOpenFile;
     }
 }

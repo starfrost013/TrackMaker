@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms.VisualStyles;
 
 namespace Track_Maker
 {
@@ -79,7 +80,7 @@ namespace Track_Maker
 
             // this is terrible design and reloads the project but I want to get this done
             Project Proj = new Project(true);
-
+            Proj.FileName = $"{FolderName}/*.*";
             Basin Bas = new Basin();
 
             foreach (string StormFileName in Storms)

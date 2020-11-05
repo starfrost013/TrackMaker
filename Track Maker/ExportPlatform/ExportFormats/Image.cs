@@ -126,8 +126,9 @@ namespace Track_Maker
             _temp_.Background = new ImageBrush(_temp_bi_);
             _temp_.Width = _temp_bi_.PixelWidth;
             _temp_.Height = _temp_bi_.PixelHeight;
+            Project CurrentProject = Xwindow.CurrentProject;
 
-            Xwindow.CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Larger, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
+            CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Larger, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
 
             //New scaling for picking up dev again - 2020-05-08 23:04
             //Remove storm selection functionality, replace with layer selection functionality - 2020-09-12 17:24
@@ -166,7 +167,7 @@ namespace Track_Maker
             File.WriteAllBytes(FileName, _temp_ms_.ToArray());
 
             // clean up by restoring the basin
-            Xwindow.CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Smaller, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
+            CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Smaller, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
 
             return true; // success
         }

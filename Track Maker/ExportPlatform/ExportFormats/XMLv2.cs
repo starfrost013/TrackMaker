@@ -21,7 +21,7 @@ namespace Track_Maker
     /// 
     /// Version 2.0a     Priscilla v442      Dummy only
     /// Version 2.0b     Priscilla v443      Began functionality
-    /// Version 2.0c     Priscilla v445      Based code off of v1 - added metadata and project based
+    /// Version 2.0c     Priscilla v445      Based code off of v1 - added metadata and Proj based
     /// Version 2.1      Priscilla v447      Bug fixes, IsSelected & IsOpen
     /// Version 2.2      Priscilla v453      Importing, BasinName => Name
     /// Version 2.2b     Priscilla v455      Add full importing code   
@@ -38,7 +38,7 @@ namespace Track_Maker
         public XMLv2()
         {
             AutoStart = false;
-            Name = "Project Format 2.x";
+            Name = "Proj Format 2.x";
         }
 
         /// <summary>
@@ -47,14 +47,14 @@ namespace Track_Maker
         /// <returns></returns>
         public string GetName() => Name;
 
-        public bool Export(Project Project)
+        public bool Export(Project Proj)
         {
             try
             {
                 SaveFileDialog SFD = new SaveFileDialog();
 
-                SFD.Title = "Export to project (version 2.x)...";
-                SFD.Filter = "Track Maker Project XML files|*.tproj";
+                SFD.Title = "Export to Proj (version 2.x)...";
+                SFD.Filter = "Track Maker Proj XML files|*.tproj";
                 SFD.ShowDialog();
 
                 // user hit cancel
@@ -69,7 +69,7 @@ namespace Track_Maker
                 }
 
                 // Export.
-                ExportCore(Project, SFD.FileName);
+                ExportCore(Proj, SFD.FileName);
 
                 return true;
             }
@@ -88,11 +88,11 @@ namespace Track_Maker
             }
         }
 
-        public bool ExportCore(Project Project, string FileName)
+        public bool ExportCore(Project Proj, string FileName)
         {
             XmlDocument XDoc = new XmlDocument();
-            XmlNode XRoot = XDoc.CreateElement("Project");
-
+            XmlNode XRoot = XDoc.CreateElement("Proj");
+            Proj.FileName = FileName;
             // Version 2.0: Write the metadata
             XmlNode XMetadataNode = XDoc.CreateElement("Metadata"); 
             // Version of the format. 
@@ -109,7 +109,7 @@ namespace Track_Maker
 
             XmlNode XBasinsNode = XDoc.CreateElement("Basins"); 
 
-            foreach (Basin Bas in Project.OpenBasins)
+            foreach (Basin Bas in Proj.OpenBasins)
             {
                 XmlNode XBasinNode = XDoc.CreateElement("Basin");
                 XmlNode XBasinNameNode = XDoc.CreateElement("UserTag");
@@ -249,8 +249,8 @@ namespace Track_Maker
             try
             {
                 OpenFileDialog OFD = new OpenFileDialog();
-                OFD.Title = "Import from project";
-                OFD.Filter = "Track Maker Project files|*.tproj";
+                OFD.Title = "Import from Proj";
+                OFD.Filter = "Track Maker Proj files|*.tproj";
                 OFD.ShowDialog();
 
                 if (OFD.FileName == null)
@@ -274,7 +274,7 @@ namespace Track_Maker
             }
             catch (XmlException)
             {
-                Error.Throw("Invalid basin!", "One of the basins in this Project2 file is corrupted!", ErrorSeverity.Error, 182);
+                Error.Throw("Invalid basin!", "One of the basins in this Proj2 file is corrupted!", ErrorSeverity.Error, 182);
                 return null;
             }
         }
@@ -290,6 +290,7 @@ namespace Track_Maker
             XmlNode XDR = XD.FirstChild;
 
             Project Proj = new Project();
+            Proj.FileName = FileName;
 
 #if DANO
             Proj.Basins = GlobalState.LoadedBasins;
@@ -324,7 +325,7 @@ namespace Track_Maker
 
                             if (!XDRACB.HasChildNodes)
                             {
-                                Error.Throw("Invalid basin!", "One of the basins in this Project2 file is corrupted!", ErrorSeverity.Error, 121);
+                                Error.Throw("Invalid basin!", "One of the basins in this Proj2 file is corrupted!", ErrorSeverity.Error, 121);
                                 return XER;
                             }
                             else
@@ -510,7 +511,7 @@ namespace Track_Maker
                                 // if we are one element before the end of the list, name is empty
                                 if (i - IXmlParse.Count == 1)  
                                 {
-                                    Error.Throw("Fatal Error!", "Invalid project file - no name specified for basin.", ErrorSeverity.Error, 180);
+                                    Error.Throw("Fatal Error!", "Invalid Proj file - no name specified for basin.", ErrorSeverity.Error, 180);
                                     return XER;
                                 }
                                 else
