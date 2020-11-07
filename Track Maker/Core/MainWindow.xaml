@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d" 
-        Title="starfrost's track maker" Height="640" Width="1143.361">
+        Title="starfrost's track maker" Height="640" Width="1143.361" Closing="Shutdown">
     <Grid x:Name="Core">
 
         <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="952">

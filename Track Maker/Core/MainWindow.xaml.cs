@@ -232,5 +232,10 @@ namespace Track_Maker
             HurricaneBasin.RenderTransform.SetValue(ScaleTransform.ScaleYProperty, ZoomLevelY);
             // DUMB HACK END
         }
+
+        private void Shutdown(object sender, EventArgs e)
+        {
+            TickTimer.Stop(); 
+        }
     }
 }
