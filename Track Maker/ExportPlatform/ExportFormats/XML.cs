@@ -64,7 +64,7 @@ namespace Track_Maker
                 if (SFD.FileName == "") return null;
 
                 XmlDocument XDoc = new XmlDocument();
-
+                MnWindow.CurrentProject.FileName = SFD.FileName;
                 Basin XBasin = MnWindow.CurrentProject.SelectedBasin;
 
                 // Fix schizophrenic code in preparation for end of MainWindow dependency

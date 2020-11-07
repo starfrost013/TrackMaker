@@ -527,26 +527,28 @@ namespace Track_Maker
             return null;
 
         }
-
-        public List<Storm> ClearBasin()
+        
+        /// <summary>
+        /// Before v516 this was utterly fucking retarded.
+        /// </summary>
+        /// <returns></returns>
+        public void ClearBasin()
         {
-            List<Storm> LS = new List<Storm>();
-
             foreach (Layer Lyr in Layers)
             {
                 Lyr.AssociatedStorms.Clear();
             }
 
-            Layers.Clear(); 
+            Layers.Clear();
 
-            return LS;
+            return;
         }
 
 
         /// <summary>
         /// Internal support for layer ordering
         /// 
-        /// Basically just a mergesort
+        /// Basically just a merge sort IIRC.
         /// </summary>
         /// <returns></returns>
         public List<Layer> BuildListOfZOrderedLayers()
