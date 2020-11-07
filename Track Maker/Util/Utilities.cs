@@ -124,6 +124,7 @@ namespace Track_Maker
 
 
         }
+
         public static List<string> InnerXml_Parse(this String InnerXml)
         {
             // xml preprocessing
@@ -133,28 +134,30 @@ namespace Track_Maker
 
             // Strip it to the name
 
-            foreach (string _3 in PreSplit)
+            foreach (string SplitV1 in PreSplit)
             {
                 // Skip entry strings
-                if (_3 == "") continue; 
+                if (SplitV1 == "") continue; 
 
-                string[] SplitGreaterThan = _3.Split('>');
+                string[] SplitGreaterThan = SplitV1.Split('>');
 
                 // Split each node into its respective value
                 foreach (string XMLNodeOrValue in SplitGreaterThan)
                 {
-                    if (XMLNodeOrValue == "" || XMLNodeOrValue.Contains(@"/")) continue; // skip the strings that are not like the other 
-                    FinalList.Add(XMLNodeOrValue);
+                    // remove remaining XML-related characters (Version 515)
+                    string XMLNodeOrValuePost = XMLNodeOrValue.Replace("/", "");
+                    if (XMLNodeOrValuePost == "") continue; // skip the strings that are not like the other 
+
+                    // only add once
+                    if (!FinalList.Contains(XMLNodeOrValuePost)) FinalList.Add(XMLNodeOrValuePost);
+         
                 }
             }
 
             return FinalList;
         }
-        
-        public static double RoundNearest(double x, double amount)
-        {
-            return Math.Round((x * amount) / amount);
-        }
+
+        public static double RoundNearest(double x, double amount) => Math.Round((x* amount) / amount);
         
         public static Color ConvertWinformsToWpfColour(System.Drawing.Color XColour)
         {

@@ -78,6 +78,8 @@ namespace Track_Maker
                 Ct.Children.Clear();
 
                 XBasin.ClearBasin();
+                // Layer Init
+                XBasin.CurrentLayer = new Layer(); 
 
                 XDoc.Load(SFD.FileName);
 
@@ -122,10 +124,10 @@ namespace Track_Maker
                                 Storm.FormationDate = DateTime.Parse(XChild2C.InnerText);
                                 continue;
                             case "ID":
-                                Storm.Id = Convert.ToInt32(XMLValues[1]);
+                                Storm.Id = Convert.ToInt32(XMLValues[3]);
                                 continue;
                             case "Name":
-                                Storm.Name = XMLValues[3];
+                                Storm.Name = XMLValues[5];
                                 continue;
                             case "DeletedNodes":
                             case "Nodes":
@@ -247,11 +249,16 @@ namespace Track_Maker
             throw new NotImplementedException("Track Maker 1.x export support is removed in Priscilla - only import allowed! This should not be called!");
         }
 
+        public bool ExportCore(Project Project, string FileName)
+        {
+            throw new NotImplementedException("WHO CALLED THIS METHOD? IMA BEAT YO ASS LIKE BIDEN BEAT TRUMP");
+        }
+
         /*
         public bool ExportCore(Project Project, string FileName)
         {
             // V1 Export Code
-            // Unused since build 472, removed in 51x
+            // Unused since build 472, removed in 514a
 
             
             XmlDocument XDoc = new XmlDocument();

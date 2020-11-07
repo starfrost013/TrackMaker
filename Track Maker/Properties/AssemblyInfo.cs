@@ -50,8 +50,8 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.513.20305")]
-[assembly: AssemblyFileVersion("2.0.513.20305")]
+[assembly: AssemblyVersion("2.0.515.20312")]
+[assembly: AssemblyFileVersion("2.0.515.20312")]
 [assembly: AssemblyInformationalVersion("Priscilla Pre-Beta v2 (build 513c; 2020-10-31)")]
 
 #if DANO

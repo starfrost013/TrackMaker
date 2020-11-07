@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Useful Library 5.0 (.NET Framework edition)")]
+[assembly: AssemblyTitle("Useful Library 5.x (.NET Framework version)")]
 [assembly: AssemblyDescription("A collection of utilities and helper functions for .NET applications.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Useful Library 5.0 NetFX")]
+[assembly: AssemblyProduct("Useful Library 5.x NetFX")]
 [assembly: AssemblyCopyright("Copyright © 2019-2020 starfrost")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.1.19.20305")]
-[assembly: AssemblyFileVersion("5.15.20313")]
+[assembly: AssemblyVersion("5.1.21.20311")]
+[assembly: AssemblyFileVersion("5.1.21.20311")]

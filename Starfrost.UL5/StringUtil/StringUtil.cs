@@ -202,24 +202,33 @@ namespace Starfrost.UL5.StringUtilities
         public static List<string> InnerXml_Parse(this String InnerXml)
         {
             // xml preprocessing
-            string[] _1 = InnerXml.Split('<');
+            string[] PreSplit = InnerXml.Split('<');
 
-            List<string> _2 = new List<string>();
+            List<string> FinalList = new List<string>();
 
             // Strip it to the name
 
-            foreach (string _3 in _1)
+            foreach (string SplitV1 in PreSplit)
             {
-                string[] _4 = _3.Split('>');
+                // Skip entry strings
+                if (SplitV1 == "") continue;
 
-                foreach (string _5 in _4)
+                string[] SplitGreaterThan = SplitV1.Split('>');
+
+                // Split each node into its respective value
+                foreach (string XMLNodeOrValue in SplitGreaterThan)
                 {
-                    if (_5 == "" || _5.Contains(@"/")) continue; // skip the strings that are not like the other 
-                    _2.Add(_5);
+                    // remove remaining XML-related characters (Version 515)
+                    string XMLNodeOrValuePost = XMLNodeOrValue.Replace("/", "");
+                    if (XMLNodeOrValuePost == "") continue; // skip the strings that are not like the other 
+
+                    // only add once
+                    if (!FinalList.Contains(XMLNodeOrValuePost)) FinalList.Add(XMLNodeOrValuePost);
+
                 }
             }
 
-            return _2;
+            return FinalList;
         }
 
         public static double RoundNearest(double x, double amount)
