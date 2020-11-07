@@ -8,19 +8,17 @@ Features:
 Track Maker 2.0
 Features:
 - Componentized integrated apps
-- Animate tracks feature
-- IMode interface, RenderContent will be moved here
+- ACE Calculator and Advisory Generator
+- Verification?
 - Basin Manager
-- Undo/Redo 2.0 - store the whole basin
-- Cone and graphic IModes
+- Undo/Redo 2.0 - store the whole basin?
 - Zoomable and draggable map
 - Responsive design?
 - Coordinate definition tool for hypo basins
 - Basin and category system installer
 - Foundation for 3.0 and 4.0
-- Tabbed Basin view (at the very least the guts for it)
+- Tabbed Basin view (internal support only)
 - Dependency properties, a lot
-- "Start Page"
 - Maximised startup
 - NO Main window shit!
 - Unified Error System
@@ -30,13 +28,15 @@ Features:
 - Move functionality such as adding nodes to the node class
 - Per-node categories
 - UI-code separation
+- Projects
 - Help
-- Codename "Priscilla" / "Dano" - feature-rich and easy to use
+- Codename "Priscilla" - feature-rich and easy to use
 
 Track Maker 2.1
 Features:
 - Internationalisation (use Diffusion)
 - Namespaceisation
+- Delegate-based error handling
 
 Track Maker 3.0
 Features:
@@ -49,14 +49,27 @@ Features:
 - MainWindowHost
 - graph creator that shows TC windspeed and pressure on a time graph [graph]
 - XML Deserialisation
-- Delegate-based error system
+- Full tabbed basin view
+- "Start Page"
+- Codename "Dano"
+- Overlays
+- Shape Editor (possibly 2.1)
+- Shape Library?
+- IMode interface?
+- Cone and graphic IModes?
+- Animate tracks feature (possibly 3.0) using the XAF (XML Animation Format) file format
+
+Moved to 2.1: Delegate-based error system 
 
 Track Maker 4.0
 Features:
 - Online collaboration with chat?
 - Web and mobile versions?
 - Being able to drag nodes around - toolbar / precision editing
+- 3D rendering, Storm View BAR
 - Custom icons 
+- Graphic Editor?
+- XML Compression
 
 Track Maker 5.0
 Features:
@@ -64,11 +77,14 @@ Features:
 - Web and mobile interoperability (v4.0 maybe)
 
 Some point:
+Shapes (3.0 / 4.0)
 Storm Merge tool
 Paint Dot tool
+Layer mergnig
 No-restart Settings (autoupdated)
 Satellite / radar / stylised views (IView) - v6.0?
 Procedural satellite and radar
 Procedurally generated basins like Monsoon's sim
 ATCF / HURDAT Explorer
 Graphical Icon Editor / XML Editor
+Advanced Configuration Editor

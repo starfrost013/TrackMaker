@@ -194,7 +194,6 @@ namespace Track_Maker
                                                                             case "VertexPosition":
                                                                                 // god
                                                                                 Poly.Points.Add(PolygonDataNode.InnerText.SplitXY());
-                                                                                
 
                                                                                 continue;
                                                                         }

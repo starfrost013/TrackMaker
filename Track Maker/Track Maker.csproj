@@ -117,6 +117,7 @@
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\GlobalState.Priscilla.cs" />
     <Compile Include="DanoProject\Project.cs" />
+    <Compile Include="DanoProject\Upgrade\ProjectUpgrade.cs" />
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>
     </Compile>

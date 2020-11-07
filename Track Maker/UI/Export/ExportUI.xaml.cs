@@ -145,6 +145,7 @@ namespace Track_Maker
                     if (CurProj.FileName == null)
                     {
                         Error.Throw("Fatal Error!", "Failed to set current file name", ErrorSeverity.Error, 190);
+                        return false; // possibly extend subsequent else 
                     }
                     else
                     {

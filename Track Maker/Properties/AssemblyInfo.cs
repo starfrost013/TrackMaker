@@ -50,9 +50,9 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.517.20312")]
-[assembly: AssemblyFileVersion("2.0.517.20312")]
-[assembly: AssemblyInformationalVersion("Beta Release)")]
+[assembly: AssemblyVersion("2.0.518.20312")]
+[assembly: AssemblyFileVersion("2.0.518.20312")]
+[assembly: AssemblyInformationalVersion("2.0 Beta Release")]
 
 #if DANO
 [assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 
@@ -61,9 +61,10 @@ using System.Windows;
 [assembly: AssemblyVersion("3.0.484.20290")]
 [assembly: AssemblyFileVersion("3.0.484.20290")]
 
-<!-- Track Maker 3.0 - Dano - Debug -->
+// Track Maker 3.0 - Dano - Debug
 [assembly: XmlnsDefinition("Dano_Debug", "Namespace")] 
 #else
+// Track Maker 3.0 - Dano - Release
 [assembly: XmlnsDefinition("Dano_Release", "Namespace")] 
 
 #endif

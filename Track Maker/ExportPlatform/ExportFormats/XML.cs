@@ -215,6 +215,11 @@ namespace Track_Maker
                 Ct.UpdateLayout();
 
                 Project Proj = new Project();
+                // THIS IS A VERY DUMB AND SHIT HACK
+                // BASIN LOADING SYSTEM IS FUCKED RN WILL FIX AROUND BETA (V518)
+                Proj.Basins = MnWindow.CurrentProject.Basins;
+                // THIS IS THE END OF THE VERY DUMB AND SHIT HACK
+                Proj.FileName = SFD.FileName; 
                 Proj.AddBasin(XBasin, true);
 
                 return Proj;
