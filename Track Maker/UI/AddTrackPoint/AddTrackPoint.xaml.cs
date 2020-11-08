@@ -53,7 +53,7 @@ namespace Track_Maker
             }
             catch (OverflowException)
             {
-                Error.Throw("Warning", "Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph.", ErrorSeverity.Warning, 128); 
+                Error.Throw("Warning", "Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive!", ErrorSeverity.Warning, 128); 
                 return;
             }
         }

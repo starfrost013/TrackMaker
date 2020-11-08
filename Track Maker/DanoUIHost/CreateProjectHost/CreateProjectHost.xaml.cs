@@ -42,11 +42,13 @@ namespace Track_Maker
             // Version 1.5 'Priscilla'
 
             // Implement globalstate after this
+#if PRISCILLA
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-          
+#endif
+
             // Create the basins
 
-            Debug.Assert(e.DanoParameters.Count == 2); 
+            Debug.Assert(e.DanoParameters.Count == 2);
 
             TProj.AddBasin((string)e.DanoParameters[1], true); 
 

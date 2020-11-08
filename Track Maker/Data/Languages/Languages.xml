@@ -1,0 +1,41 @@
+<!-- Track Maker v2.1+ language -->
+<Diffusion>
+	<Languages>
+		<!-- English -->
+		<Language>
+			<Name>English (Default)</Name>
+			<Translator>starfrost</Translator>
+			<GUID>01234567-89ab-4def-0001-202011082232</GUID>
+			<DiffusionVersion>
+				<VersionMajor>1</VersionMajor>
+				<VersionMinor>0</VersionMajor>
+			</DiffusionVersion>
+			<TranslationVersion>
+				<VersionMajor>1</VersionMajor>
+				<VersionMinor>0</VersionMajor>
+			</TranslationVersion>
+			<SoftwareVersion>
+				<VersionMajor>2</VersionMajor>
+				<VersionMinor>0</VersionMajor>
+			</SoftwareVersion>
+		</Language>
+		<!-- Slovak --> 
+		<Language> 
+			<Name>Slovensky</Name>
+			<Translator>Prism55Writes on FANDOM</Translator>
+			<GUID>939f92ce-2211-11eb-adc1-0242ac120002</GUID>
+			<DiffusionVersion>
+				<VersionMajor>1</VersionMajor>
+				<VersionMinor>0</VersionMajor>
+			</DiffusionVersion>
+			<TranslationVersion>
+				<VersionMajor>0</VersionMajor>
+				<VersionMinor>0</VersionMajor>
+			</TranslationVersion>
+			<SoftwareVersion>
+				<VersionMajor>2</VersionMajor>
+				<VersionMinor>0</VersionMajor>
+			</SoftwareVersion>
+		</Language>
+	</Languages>
+</Diffusion>

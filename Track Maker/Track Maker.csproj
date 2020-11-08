@@ -342,7 +342,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Error3.0\" />
+    <Folder Include="V3Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\BasinImages\T_AtlanticHighRes.png">

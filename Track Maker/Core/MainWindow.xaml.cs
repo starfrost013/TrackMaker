@@ -58,6 +58,10 @@ namespace Track_Maker
 
         public Point CentrePosition { get => (Point)GetValue(CentrePositionProperty); set => SetValue(CentrePositionProperty, value); }
 
+        //VERY DUMB HACK?
+        public string ImagePath { get => CurrentProject.SelectedBasin.ImagePath; set => CurrentProject.SelectedBasin.ImagePath = value; }
+
+        //END VERY DUMB HACK
         public MainWindow()
         {
             Init();
@@ -109,6 +113,9 @@ namespace Track_Maker
         public void Init_Phase2()
         {
             // Phase 2 Init
+            CurrentProject = new Project(true);
+            // temp dumb hack
+            CurrentProject.AddBasin("Atlantic");
             InitializeComponent();
             
 
@@ -134,11 +141,12 @@ namespace Track_Maker
 
             // V2
             Logging.Log("Initialising project...");
-            CurrentProject = new Project(true);
-            Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
-            Layers.UpdateLayout(); 
+            HurricaneBasin.DataContext = this;
 
-            HurricaneBasin.DataContext = CurrentProject.SelectedBasin;
+            Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
+            Layers.Layers.DataContext = this;
+            Layers.UpdateLayout();
+
             UpdateLayout();
             TickTimer.Start();
             Logging.Log("Initialization completed.");
