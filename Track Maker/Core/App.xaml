@@ -8,7 +8,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/DanoUI;component/Core/Dano_UI.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Converters/Converters.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+
     </Application.Resources>
 </Application>

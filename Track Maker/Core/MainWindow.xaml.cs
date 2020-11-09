@@ -142,6 +142,7 @@ namespace Track_Maker
             // V2
             Logging.Log("Initialising project...");
             HurricaneBasin.DataContext = this;
+            HurricaneBasinImage.DataContext = this; 
 
             Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
             Layers.Layers.DataContext = this;

@@ -97,15 +97,17 @@
                 <MenuItem x:Name="DanoTest_PortTest" Header="[Dano Test] Basin Manager" Foreground="Black" Click="DanoTest_PortTest_Click"></MenuItem>
             </MenuItem>-->
         </Menu>
+
+
+        <!-- this is where the basin image is loaded from xml -->
+        <Image x:Name="HurricaneBasinImage">
+            <Image.Source>
+                <BitmapImage UriSource="{Binding Image, Converter={StaticResource UriToImageConverter}}"></BitmapImage>
+            </Image.Source>
+        </Image>
         <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="574" Margin="0,37,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
-            <Canvas.Background>
-                <ImageBrush>
-                    <ImageBrush.ImageSource>
-                        <BitmapImage UriSource="{Binding ImagePath}"></BitmapImage>
-                    </ImageBrush.ImageSource>
-                </ImageBrush>
-                <!-- this is where the basin image is loaded from xml -->
-            </Canvas.Background>
+
+
             <Canvas.RenderTransform>
                 <ScaleTransform ScaleX="{Binding ZoomScaleX}" ScaleY="{Binding ZoomScaleY}">
                     <ScaleTransform.CenterX>
