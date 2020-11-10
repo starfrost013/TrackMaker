@@ -15,6 +15,7 @@ namespace Track_Maker
     /// 
     /// 2020-11-09
     /// </summary>
+    //[ValueConversion(typeof(Uri), typeof(BitmapImage))]
     public class IHateWPF : IValueConverter
     {
         /// <summary>

@@ -29,6 +29,7 @@ namespace Track_Maker
             // Initialise the Advisory Generator at startup instead. (can also be done in settings) 
             InitAdvGen = 2
         }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
 
@@ -54,7 +55,7 @@ namespace Track_Maker
         private ParseArgResult ParseArgs(string[] Args)
         {
             // If there are no arguments, do nothing...
-            if (Args.Length != 1)
+            if (Args.Length < 1)
             {
                 return ParseArgResult.DoNothing;
             }

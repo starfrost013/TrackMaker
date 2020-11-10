@@ -9,6 +9,7 @@
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d" 
         Title="starfrost's track maker" Height="640" Width="1143.361" Closing="Shutdown">
+
     <Grid x:Name="Core">
 
         <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="952">
@@ -102,7 +103,7 @@
         <!-- this is where the basin image is loaded from xml -->
         <Image x:Name="HurricaneBasinImage">
             <Image.Source>
-                <BitmapImage UriSource="{Binding Image, Converter={StaticResource UriToImageConverter}}"></BitmapImage>
+                <BitmapImage UriSource="{Binding ImagePath, Converter={StaticResource UriToImageConverter}}"></BitmapImage>
             </Image.Source>
         </Image>
         <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="574" Margin="0,37,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">

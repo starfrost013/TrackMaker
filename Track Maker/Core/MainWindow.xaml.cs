@@ -116,8 +116,8 @@ namespace Track_Maker
             CurrentProject = new Project(true);
             // temp dumb hack
             CurrentProject.AddBasin("Atlantic");
+            ImagePath = CurrentProject.SelectedBasin.ImagePath;
             InitializeComponent();
-            
 
             Logging.Log("Initialized window, starting phase 2...");
             TickTimer = new Timer();
@@ -142,7 +142,7 @@ namespace Track_Maker
             // V2
             Logging.Log("Initialising project...");
             HurricaneBasin.DataContext = this;
-            HurricaneBasinImage.DataContext = this; 
+            //HurricaneBasinImage.DataContext = this; 
 
             Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
             Layers.Layers.DataContext = this;
