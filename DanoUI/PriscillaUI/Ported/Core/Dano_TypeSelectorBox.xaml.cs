@@ -36,12 +36,9 @@ namespace DanoUI
 #endif
             // BAD / UNFINISHED CODE BEGIN
 
+            TypeBox.DataContext = this;
             // we need to overhaul this around beta to use bindings 
             // and also logging and errors because this is T E R R I B L E !
-            foreach (string ST2 in StormTypeNames)
-            {
-                TypeBox.Items.Add(ST2);
-            }
 
             //Logging.Log("Populated TypeBox...");
             if (TypeBox.Items.Count < 1)
@@ -60,5 +57,6 @@ namespace DanoUI
         }
 
         private void TypeBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => SelectedItem = TypeBox.Text;
+
     }
 }

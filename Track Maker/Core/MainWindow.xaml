@@ -103,7 +103,8 @@
         <!-- this is where the basin image is loaded from xml -->
         <Image x:Name="HurricaneBasinImage">
             <Image.Source>
-                <BitmapImage UriSource="{Binding ImagePath, Converter={StaticResource UriToImageConverter}}"></BitmapImage>
+                <!--In the interests of time, UriSource="{Binding ImagePath, Converter={StaticResource UriToImageConverter}}"-->
+                <BitmapImage x:Name="HurricaneBasinImage_Bitmap" UriSource="Data\empty.png"></BitmapImage>
             </Image.Source>
         </Image>
         <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="574" Margin="0,37,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">

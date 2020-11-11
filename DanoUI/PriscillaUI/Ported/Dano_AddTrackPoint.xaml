@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="DanoUI.AddTrackPoint"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DanoUI"
+             mc:Ignorable="d" Height="226.229" Width="734.837">
+    <Grid>
+        <TextBlock x:Name="AddTrackPointTextBlock" Text="Add Track Point" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.411,-0.434" Height="58" Width="261" FontSize="36" FontStyle="Italic"/>
+        <TextBlock x:Name="IntensityTextBlock" Text="Intensity (mph):" HorizontalAlignment="Left" Height="28" Margin="10,68,0,0" VerticalAlignment="Top" Width="134" FontSize="18"/>
+        <TextBox x:Name="IntensityTextBox" HorizontalAlignment="Left" Height="28" Margin="156,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="345" FontSize="18" FontStyle="Italic"/>
+
+        <TextBlock x:Name="TypeTextBlock" Text="Type:" HorizontalAlignment="Left" Height="32" Margin="10,104,0,0" VerticalAlignment="Top" Width="44" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
+        <local:TypeSelectorBox x:Name="TypeSelect" x:FieldModifier="public" Margin="156,104,234,88" Width="345" Height="34"></local:TypeSelectorBox>
+        <Button x:Name="TypeOK" Content="OK" HorizontalAlignment="Left" Margin="559,144,0,0" VerticalAlignment="Top" Width="115" FontSize="18" />
+        <!-- Don't add options here, this is populated by the constructor (maybe a method for this) -->
+    </Grid>
+</UserControl>

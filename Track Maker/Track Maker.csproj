@@ -125,6 +125,9 @@
     <Compile Include="DanoUIHost\AddNewStormHost\AddNewStormHost.xaml.cs">
       <DependentUpon>AddNewStormHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DanoUIHost\AddTrackPointHost\AddTrackPointHost.xaml.cs">
+      <DependentUpon>AddTrackPointHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DanoUIHost\CreateLayerHost\CreateLayerHost.xaml.cs">
       <DependentUpon>CreateLayerHost.xaml</DependentUpon>
     </Compile>
@@ -186,7 +189,7 @@
     <Compile Include="UI\Export\ExportUI.xaml.cs">
       <DependentUpon>ExportUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\MenuResponse.cs" />
+    <Compile Include="UI\UIResponse.cs" />
     <Compile Include="Storm\Node.cs" />
     <Compile Include="Render\RenderManager.cs" />
     <Compile Include="Settings2\SettingLoader.cs" />
@@ -212,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DanoUIHost\AddNewStormHost\AddNewStormHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\AddTrackPointHost\AddTrackPointHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -380,9 +387,17 @@
     <Content Include="Data\CategorySystems.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Data\empty.png" />
+    <Resource Include="Data\Languages\Languages.xml" />
+    <Resource Include="Data\Redo16.png" />
+    <Resource Include="Data\Redo32.png" />
+    <Resource Include="Data\RedoFull.png" />
     <Content Include="Data\Settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Data\Undo16.png" />
+    <Resource Include="Data\Undo32.png" />
+    <Resource Include="Data\UndoFull.png" />
     <SplashScreen Include="Data\Splash\Priscilla.png" />
     <Resource Include="Data\Splash\Priscilla2.png" />
     <Resource Include="Data\Splash\Priscilla3.png" />

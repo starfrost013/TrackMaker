@@ -117,7 +117,12 @@ namespace Track_Maker
             // temp dumb hack
             CurrentProject.AddBasin("Atlantic");
             ImagePath = CurrentProject.SelectedBasin.ImagePath;
+
             InitializeComponent();
+            // DUMB HACK 
+            HurricaneBasinImage.BeginInit();
+            HurricaneBasinImage_Bitmap.UriSource = new Uri(ImagePath, UriKind.RelativeOrAbsolute);
+            HurricaneBasinImage.EndInit();
 
             Logging.Log("Initialized window, starting phase 2...");
             TickTimer = new Timer();

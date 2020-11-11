@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Input;
+using Track_Maker.DanoUIHost.AddTrackPointHost;
 
 namespace Track_Maker
 {
@@ -42,10 +43,11 @@ namespace Track_Maker
             // left mouse button clicked (no zoom)
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if (CurrentProject != null && CurrentProject.SelectedBasin != null && CurrentProject.SelectedBasin.CurrentLayer != null)
+                Project CurProj = CurrentProject;
+                if (CurProj != null && CurProj.SelectedBasin != null && CurProj.SelectedBasin.CurrentLayer != null)
                 {
                     // if we have no storms, ask the user to create a storm instead of add a track point. 
-                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null)
+                    if (CurProj.SelectedBasin.CurrentLayer.CurrentStorm == null)
                     {
                         AddNewStormHost Addstwindow = new AddNewStormHost();
                         Addstwindow.Owner = this;
@@ -54,9 +56,14 @@ namespace Track_Maker
                     }
                     else
                     {
+                        // build 524
+                        AddTrackPointHost ATPHost = new AddTrackPointHost(CurProj.SelectedBasin.GetFlatListOfStormNames());
+                        ATPHost.Owner = this;
+                        ATPHost.Show(); 
+                        /*
                         AddTrackPoint Addtrwindow = new AddTrackPoint(e.GetPosition(HurricaneBasin));
                         Addtrwindow.Owner = this;
-                        Addtrwindow.Show();
+                        Addtrwindow.Show(); */
                     }
 
                 }

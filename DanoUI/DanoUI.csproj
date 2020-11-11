@@ -66,6 +66,9 @@
     <Compile Include="PriscillaUI\Ported\Core\Dano_TypeSelectorBox.xaml.cs">
       <DependentUpon>Dano_TypeSelectorBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_AddTrackPoint.xaml.cs">
+      <DependentUpon>Dano_AddTrackPoint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PriscillaUI\Ported\Dano_EditUI.xaml.cs">
       <DependentUpon>Dano_EditUI.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="PriscillaUI\Ported\Core\Dano_TypeSelectorBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_AddTrackPoint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
