@@ -21,11 +21,17 @@ namespace DanoUI
     public partial class AddTrackPoint : UserControl
     {
         public List<string> TypeNames { get; set; }
+        public EventHandler<DanoEventArgs> OKHit { get; set; }
         public AddTrackPoint()
         {
             InitializeComponent();
 
             UpdateLayout(); 
+        }
+
+        private void TypeSelect_Loaded(object sender, RoutedEventArgs e)
+        {
+            TypeSelect.Setup(TypeNames); 
         }
     }
 }

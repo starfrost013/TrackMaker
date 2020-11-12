@@ -57,7 +57,12 @@ namespace Track_Maker
                     else
                     {
                         // build 524
-                        AddTrackPointHost ATPHost = new AddTrackPointHost(CurProj.SelectedBasin.GetFlatListOfStormNames());
+#if PRISCILLA
+                        StormTypeManager ST2M = ST2Manager;
+#else
+                        StormTypeManager ST2Manager = GlobalState.GetST2Manager();
+#endif
+                        AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames());
                         ATPHost.Owner = this;
                         ATPHost.Show(); 
                         /*

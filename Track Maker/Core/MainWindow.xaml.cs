@@ -59,7 +59,13 @@ namespace Track_Maker
         public Point CentrePosition { get => (Point)GetValue(CentrePositionProperty); set => SetValue(CentrePositionProperty, value); }
 
         //VERY DUMB HACK?
-        public string ImagePath { get => CurrentProject.SelectedBasin.ImagePath; set => CurrentProject.SelectedBasin.ImagePath = value; }
+        public string ImagePath { get => CurrentProject.SelectedBasin.ImagePath; set
+            {
+
+                CurrentProject.SelectedBasin.ImagePath = value;
+                HurricaneBasinImage_Bitmap.UriSource = new Uri(value, UriKind.RelativeOrAbsolute);
+            }
+             }
 
         //END VERY DUMB HACK
         public MainWindow()
@@ -116,13 +122,13 @@ namespace Track_Maker
             CurrentProject = new Project(true);
             // temp dumb hack
             CurrentProject.AddBasin("Atlantic");
-            ImagePath = CurrentProject.SelectedBasin.ImagePath;
+            //ImagePath = CurrentProject.SelectedBasin.ImagePath;
 
             InitializeComponent();
             // DUMB HACK 
-            HurricaneBasinImage.BeginInit();
-            HurricaneBasinImage_Bitmap.UriSource = new Uri(ImagePath, UriKind.RelativeOrAbsolute);
-            HurricaneBasinImage.EndInit();
+            //HurricaneBasinImage_Bitmap.BeginInit();
+            //HurricaneBasinImage_Bitmap.UriSource = new Uri(ImagePath, UriKind.RelativeOrAbsolute);
+            //HurricaneBasinImage_Bitmap.EndInit();
 
             Logging.Log("Initialized window, starting phase 2...");
             TickTimer = new Timer();

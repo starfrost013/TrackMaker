@@ -19,16 +19,13 @@ namespace Track_Maker.DanoUIHost.AddTrackPointHost
     /// </summary>
     public partial class AddTrackPointHost : Window
     {
+        public List<string> StormNameList { get; set; }
         public AddTrackPointHost(List<string> StormNames)
         {
             InitializeComponent();
             AddTrackPointControl.TypeNames = StormNames;
-            AddTrackPointControl.
+            StormNameList = StormNames;
         }
 
-        private void AddTrackPointControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            AddTrackPointControl.TypeSelect.Setup(); 
-        }
     }
 }

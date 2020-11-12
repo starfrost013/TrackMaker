@@ -35,8 +35,9 @@ namespace DanoUI
             List<StormType2> ST2L = GlobalState.GetST2Manager(); 
 #endif
             // BAD / UNFINISHED CODE BEGIN
-
+            StormNames = StormTypeNames;
             TypeBox.DataContext = this;
+
             // we need to overhaul this around beta to use bindings 
             // and also logging and errors because this is T E R R I B L E !
 
