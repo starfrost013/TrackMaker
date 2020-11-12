@@ -50,16 +50,16 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.526.20317")]
-[assembly: AssemblyFileVersion("2.0.526.20317")]
 [assembly: AssemblyInformationalVersion("2.0 Beta Release")]
+
+// Dano_Debug will not compile rn
+[assembly: AssemblyVersion("3.0.600.20317")]
+[assembly: AssemblyFileVersion("3.0.600.20317")]
 
 #if DANO
 [assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 
 #if DEBUG
 
-[assembly: AssemblyVersion("3.0.484.20290")]
-[assembly: AssemblyFileVersion("3.0.484.20290")]
 
 // Track Maker 3.0 - Dano - Debug
 [assembly: XmlnsDefinition("Dano_Debug", "Namespace")] 
