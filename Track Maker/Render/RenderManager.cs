@@ -17,82 +17,122 @@ namespace Track_Maker
             // optimise by clearing it every time
             HurricaneBasin.Children.Clear();
 
-            // render loop
-            foreach (Storm XStorm in CurrentBasin.Storms)
+            foreach (Layer XLayer in CurrentProject.SelectedBasin.BuildListOfZOrderedLayers())
             {
-                if (StormList != null)
+                // render loop
+                foreach (Storm XStorm in XLayer.AssociatedStorms)
                 {
-                    if (!StormList.Contains(XStorm))
+                    if (StormList != null)
                     {
-                        continue;
+                        if (!StormList.Contains(XStorm))
+                        {
+                            continue;
+                        }
                     }
-                }
 
-                DrawLines(XStorm, DotSize, HurricaneBasin);
+                    DrawLines(XStorm, DotSize, HurricaneBasin);
 
-                foreach (Node XNode in XStorm.NodeList)
-                {
-                    switch (XNode.NodeType)
+                    foreach (Node XNode in XStorm.NodeList)
                     {
-                        // tropical systems
-                        case StormType.Tropical:
-                            Ellipse Ellipse = new Ellipse();
-                            Ellipse.Width = DotSize.X;
-                            Ellipse.Height = DotSize.Y;
-
-                            // get the colour (Dano: refactor)
-                            Ellipse.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
-
-                            // set the position
-                            Canvas.SetLeft(Ellipse, XNode.Position.X);
-                            Canvas.SetTop(Ellipse, XNode.Position.Y);
-
-                            HurricaneBasin.Children.Add(Ellipse);
-                            continue;
-                        case StormType.Subtropical:
-                            Rectangle Rect = new Rectangle();
-                            Rect.Width = DotSize.X - DotSize.X / 8; // some people think the rects are too big (8/8 = 1) - this also means that all subtropical dots are 7/8ths the size of the other dots
-                            Rect.Height = DotSize.Y - DotSize.Y / 8;
-
-                            // get the colour
-                            Rect.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
-
-                            // set the position
-                            Canvas.SetLeft(Rect, XNode.Position.X);
-                            Canvas.SetTop(Rect, XNode.Position.Y);
-
-                            HurricaneBasin.Children.Add(Rect);
-                            continue;
-                        case StormType.Extratropical:
-                        case StormType.InvestPTC:
-                        case StormType.PolarLow:
-                            // draw the triangle
-                            Polygon Poly = new Polygon();
-                            Poly.Points.Add(new Point(0, 8));
-                            Poly.Points.Add(new Point(4, 0));
-                            Poly.Points.Add(new Point(8, 8));
-
-                            // Since there were many requests for an Invest/PTC storm type, here it is. 
-                            if (XNode.NodeType != StormType.InvestPTC)
+                        if (XNode.NodeType.PresetShape != StormShape.Custom)
+                        {
+                            switch (XNode.NodeType.PresetShape)
                             {
-                                Poly.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+                                // tropical systems
+                                case StormShape.Circle:
+                                    Ellipse Ellipse = new Ellipse();
+                                    Ellipse.Width = DotSize.X;
+                                    Ellipse.Height = DotSize.Y;
+
+                                    // get the colour (Dano: refactor)
+                                    Ellipse.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+
+                                    // set the position
+                                    Canvas.SetLeft(Ellipse, XNode.Position.X);
+                                    Canvas.SetTop(Ellipse, XNode.Position.Y);
+
+                                    HurricaneBasin.Children.Add(Ellipse);
+                                    continue;
+                                case StormShape.Square:
+                                    Rectangle Rect = new Rectangle();
+                                    Rect.Width = DotSize.X - DotSize.X / 8; // some people think the rects are too big (8/8 = 1) - this also means that all subtropical dots are 7/8ths the size of the other dots
+                                    Rect.Height = DotSize.Y - DotSize.Y / 8;
+
+                                    // get the colour
+                                    Rect.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+
+                                    // set the position
+                                    Canvas.SetLeft(Rect, XNode.Position.X);
+                                    Canvas.SetTop(Rect, XNode.Position.Y);
+
+                                    HurricaneBasin.Children.Add(Rect);
+                                    continue;
+                                case StormShape.Triangle:
+                                    // draw the triangle
+                                    Polygon Poly = new Polygon();
+                                    Poly.Points.Add(new Point(0, 8));
+                                    Poly.Points.Add(new Point(4, 0));
+                                    Poly.Points.Add(new Point(8, 8));
+
+                                    // Since there were many requests for an Invest/PTC storm type, here it is. 
+                                    if (XNode.NodeType.ForceColour)
+                                    {
+                                        // Invest / PTC uses [255,128,204,255] ARGB format
+                                        Poly.Fill = new SolidColorBrush(XNode.NodeType.ForcedColour);
+                                    }
+                                    else
+                                    {
+                                        Poly.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+
+                                    }
+
+                                    Canvas.SetLeft(Poly, XNode.Position.X);
+                                    Canvas.SetTop(Poly, XNode.Position.Y);
+
+                                    HurricaneBasin.Children.Add(Poly);
+                                    continue;
                             }
-                            else
+                        }
+                        else // handle custom node handling
+                        {
+                            Polygon Poly = new Polygon(); 
+
+                            foreach (Point Pt in XNode.NodeType.Shape.VPoints.Points) // needs some refactoring
                             {
-                                Poly.Fill = new SolidColorBrush(new Color { A = 255, R = 128, G = 204, B = 255}); 
+                                Poly.Points.Add(Pt); 
+                            }
+
+                            if (XNode.NodeType.Shape.IsFilled)
+                            {
+                                if (!XNode.NodeType.ForceColour)
+                                {
+                                    Poly.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+                                }
+                                else
+                                {
+                                    if (XNode.NodeType.ForcedColour != null)
+                                    {
+                                        Poly.Fill = new SolidColorBrush(XNode.NodeType.ForcedColour);
+                                    }
+                                    else
+                                    {
+                                        // invalid forcedcolour state
+                                        Poly.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+                                    }
+
+                                }
                             }
 
                             Canvas.SetLeft(Poly, XNode.Position.X);
                             Canvas.SetTop(Poly, XNode.Position.Y);
 
-                            HurricaneBasin.Children.Add(Poly);
-                            continue; 
+                            HurricaneBasin.Children.Add(Poly); 
+                        }
                     }
-
-                    
+                    if (Setting.DefaultVisibleTextNames) DrawText(XStorm, HurricaneBasin);
                 }
-                if (Setting.DefaultVisibleTextNames) DrawText(XStorm, HurricaneBasin); 
             }
+            
 
             // get WPF to render it
             UpdateLayout(); 
@@ -129,7 +169,7 @@ namespace Track_Maker
                 // draw a line for each storm
 
                 Line XLine = new Line();
-                XLine.StrokeThickness = 2;
+                XLine.StrokeThickness = Setting.LineSize;
 
                 XLine.X1 = a.Position.X + DotSize.X / 2;
                 XLine.X2 = b.Position.X + DotSize.X / 2; 
@@ -161,5 +201,6 @@ namespace Track_Maker
             HurricaneBasin.Children.Add(txtblock); 
 
         }
+
     }
 }

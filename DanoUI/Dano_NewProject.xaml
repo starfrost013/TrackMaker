@@ -1,0 +1,29 @@
+﻿<!-- Priscilla (v1.5) implementation -->
+
+<UserControl x:Class="DanoUI.Dano_NewProject"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DanoUI"
+             mc:Ignorable="d" Height="279.942" Width="788" Loaded="UserControl_Loaded">
+    <UserControl.Background>
+        <LinearGradientBrush>
+            <!-- Temporary - We will bind to settings -->
+            <GradientStop Offset="0.0" Color="#004080"></GradientStop>
+            <GradientStop Offset="0.8" Color="#96bdfe"></GradientStop>
+        </LinearGradientBrush>
+    </UserControl.Background>
+    <Grid>
+        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Project" VerticalAlignment="Top" Height="71" Width="327" FontSize="48"/>
+        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_Name" HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Name:" FontSize="28" VerticalAlignment="Top"/>
+        <TextBox x:Name="Dano_UI_CreateProject_NameBox" HorizontalAlignment="Left" Height="32" Margin="108,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="351"/>
+        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_InitialBasin" HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" Text="Basin:" FontSize="28" VerticalAlignment="Top" Width="80"/>
+        <ComboBox x:Name="Dano_UI_CreateProject_InitialBasinBox" HorizontalAlignment="Left" Margin="108,128,0,0" VerticalAlignment="Top" Width="351" Height="32" ItemsSource="{Binding BasinList}">
+
+        </ComboBox>
+        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" Name="Dano_UI_CreateProject_Tip" HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" Text="You can add more seasons to this project by going to the Project menu. Seasons can use any installed basin." VerticalAlignment="Top" FontStyle="Italic" Width="553"/>
+        <Button x:Name="Dano_UI_CreateProject_Create" Content="Create" HorizontalAlignment="Left" Margin="691,236,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.268,0.607" Height="32" Click="Dano_UI_CreateProject_Create_Click"/>
+
+    </Grid>
+</UserControl>

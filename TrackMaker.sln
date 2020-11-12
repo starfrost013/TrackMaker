@@ -9,11 +9,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanoUI", "DanoUI\DanoUI.csproj", "{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dano.AdvisoryGenerator", "App.AdvisoryGenerator\Dano.AdvisoryGenerator.csproj", "{F16114EB-5733-415E-9005-838A963FCB6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dano.ACECalculator", "Dano.ACECalculator\Dano.ACECalculator.csproj", "{D035CE54-62CE-4CFE-9A5E-F04D4424731F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dano.UpdateServices", "Tiralen.UpdateServices\Dano.UpdateServices.csproj", "{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starfrost.UL5", "Starfrost.UL5\Starfrost.UL5.csproj", "{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Dano_Debug|Any CPU = Dano_Debug|Any CPU
 		Dano_Release|Any CPU = Dano_Release|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		Priscilla_Debug|Any CPU = Priscilla_Debug|Any CPU
+		Priscilla_Release|Any CPU = Priscilla_Release|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -23,6 +33,10 @@ Global
 		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Dano_Release|Any CPU.Build.0 = Dano_Release|Any CPU
 		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Priscilla_Debug|Any CPU.ActiveCfg = Priscilla_Debug|Any CPU
+		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Priscilla_Debug|Any CPU.Build.0 = Priscilla_Debug|Any CPU
+		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Priscilla_Release|Any CPU.ActiveCfg = Priscilla_Release|Any CPU
+		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Priscilla_Release|Any CPU.Build.0 = Priscilla_Release|Any CPU
 		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4517BB9-6590-4B3A-8355-9389C1376828}.Dano_Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -31,6 +45,10 @@ Global
 		{E4517BB9-6590-4B3A-8355-9389C1376828}.Dano_Release|Any CPU.Build.0 = Release|Any CPU
 		{E4517BB9-6590-4B3A-8355-9389C1376828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4517BB9-6590-4B3A-8355-9389C1376828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4517BB9-6590-4B3A-8355-9389C1376828}.Priscilla_Debug|Any CPU.ActiveCfg = Priscilla_Debug|Any CPU
+		{E4517BB9-6590-4B3A-8355-9389C1376828}.Priscilla_Debug|Any CPU.Build.0 = Priscilla_Debug|Any CPU
+		{E4517BB9-6590-4B3A-8355-9389C1376828}.Priscilla_Release|Any CPU.ActiveCfg = Priscilla_Release|Any CPU
+		{E4517BB9-6590-4B3A-8355-9389C1376828}.Priscilla_Release|Any CPU.Build.0 = Priscilla_Release|Any CPU
 		{E4517BB9-6590-4B3A-8355-9389C1376828}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4517BB9-6590-4B3A-8355-9389C1376828}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Dano_Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -39,8 +57,60 @@ Global
 		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Dano_Release|Any CPU.Build.0 = Release|Any CPU
 		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Priscilla_Debug|Any CPU.ActiveCfg = Priscilla_Debug|Any CPU
+		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Priscilla_Debug|Any CPU.Build.0 = Priscilla_Debug|Any CPU
+		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Priscilla_Release|Any CPU.ActiveCfg = Priscilla_Release|Any CPU
+		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Priscilla_Release|Any CPU.Build.0 = Priscilla_Release|Any CPU
 		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Dano_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Dano_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Dano_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Dano_Release|Any CPU.Build.0 = Release|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Priscilla_Debug|Any CPU.ActiveCfg = Priscilla_Debug|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Priscilla_Debug|Any CPU.Build.0 = Priscilla_Debug|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Priscilla_Release|Any CPU.ActiveCfg = Priscilla_Release|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Priscilla_Release|Any CPU.Build.0 = Priscilla_Release|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16114EB-5733-415E-9005-838A963FCB6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Dano_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Dano_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Dano_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Dano_Release|Any CPU.Build.0 = Release|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Priscilla_Debug|Any CPU.ActiveCfg = Priscilla_Debug|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Priscilla_Debug|Any CPU.Build.0 = Priscilla_Debug|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Priscilla_Release|Any CPU.ActiveCfg = Priscilla_Release|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Priscilla_Release|Any CPU.Build.0 = Priscilla_Release|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D035CE54-62CE-4CFE-9A5E-F04D4424731F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Dano_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Dano_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Dano_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Dano_Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Priscilla_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Priscilla_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Priscilla_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Priscilla_Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Dano_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Dano_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Dano_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Dano_Release|Any CPU.Build.0 = Release|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Priscilla_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Priscilla_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Priscilla_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Priscilla_Release|Any CPU.Build.0 = Release|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

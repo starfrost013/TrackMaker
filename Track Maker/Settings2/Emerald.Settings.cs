@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.IO; 
 using System.Linq;
@@ -17,23 +18,15 @@ namespace Track_Maker
     /// Ported from Emerald Lite/NetEmerald/Emerald Mini game engine
     /// </summary>
     /// 
-    public enum SettingFile { Engine, Game }; // engine/game level settings
+
     public static class EmeraldSettings
     {
         internal static XmlNode LoadSettingsXmlGetNode()
         {
             try
             {
-                XmlDocument XDoc = new XmlDocument();
-
-                if (!File.Exists("Settings.xml"))
-                {
-                    GenerateSettings();
-                }
-
-                XDoc.Load("Settings.xml");
-
-                // get the xmlnode
+                // Priscilla 442 - simplify
+                XmlDocument XDoc = LoadSettingsXml(); 
 
                 XmlNode XRoot = GetFirstNode(XDoc); 
 
@@ -65,12 +58,14 @@ namespace Track_Maker
             {
                 XmlDocument XDoc = new XmlDocument();
 
-                if (!File.Exists("Settings.xml"))
+                string SettingFile = @"Data\Settings.xml";
+
+                if (!File.Exists(SettingFile))
                 {
-                    GenerateSettings();
+                    Error.Throw("Fatal error", "Settings.xml not found!", ErrorSeverity.FatalError, 110);
                 }
 
-                XDoc.Load("Settings.xml");
+                XDoc.Load(SettingFile);
 
                 return XDoc;
             }
@@ -114,13 +109,13 @@ namespace Track_Maker
             return XRoot;
         }
 
+        /// <summary>
+        /// Temp (Priscilla 442)
+        /// </summary>
         private static void GenerateSettings()
         {
-            // TEMP
-            FileStream FStream = File.Create("Emerald.xml");
             FileStream FStreamSettings = File.Create("Settings.xml");
 
-            FStream.Dispose();
             FStreamSettings.Dispose(); 
             // END TEMP
         }
@@ -307,16 +302,77 @@ namespace Track_Maker
         }
 
         /// <summary>
-        /// Saves a setting to Settings.xml.
+        /// Did we consent to telemetry?
         /// </summary>
-        /// <param name="SettingType">DO NOT USE - DEPRECATED - WILL BE REMOVED VERY SOON</param>
-        /// <param name="SettingsElement">The name of the setting to change.</param>
-        /// <param name="SettingsValue">The value to change it to.</param>
         /// <returns></returns>
-        public static bool SetSetting(SettingFile SettingType, string SettingsElement, string SettingsValue)
+        public static TelemetryConsent GetTelemetryConsent(string SettingsElement)
         {
             try
             {
+                // Get the TelemetryConsent node
+                XmlNode XRoot = LoadSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, SettingsElement);
+
+                // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
+                if (XElement == null)
+                {
+                    MessageBox.Show($"Temp error. Attempted to load invalid TelemetryConsent setting! Error 100!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Application.Current.Shutdown(100);
+                }
+
+                // Parse as TelemetryConsent 
+                return (TelemetryConsent)Enum.Parse(typeof(TelemetryConsent), XElement.InnerText);
+            }
+            catch (ArgumentException err)
+            {
+                MessageBox.Show($"Temp error. Attempted to load invalid TelemetryConsent setting! Error 101!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown(101);
+                return TelemetryConsent.No; 
+            }
+        }
+
+        /// <summary>
+        /// Easier to have an enum for this here.
+        /// </summary>
+        /// <param name="SettingsElement"></param>
+        /// <returns></returns>
+        public static WndStyle GetWindowStyle(string SettingsElement)
+        {
+            try
+            {
+                // Get the TelemetryConsent node
+                XmlNode XRoot = LoadSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, SettingsElement);
+
+                // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
+                if (XElement == null)
+                {
+                    Error.Throw("Fatal Error", "Attempted to load invalid WindowStyle setting!", ErrorSeverity.FatalError, 130);
+                    return WndStyle.Windowed;
+                }
+
+                // Parse as TelemetryConsent 
+                return (WndStyle)Enum.Parse(typeof(WndStyle), XElement.InnerText);
+            }
+            catch (ArgumentException err)
+            {
+                Error.Throw("Fatal Error", $"Attempted to load invalid WindowStyle setting!\n\n{err}", ErrorSeverity.FatalError, 131);
+                return WndStyle.Windowed;
+            }
+
+        }
+
+        /// <summary>
+        /// Saves a setting to Settings.xml.
+        /// </summary>
+        /// <param name="SettingsElement">The name of the setting to change.</param>
+        /// <param name="SettingsValue">The value to change it to.</param>
+        /// <returns></returns>
+        public static bool SetSetting(string SettingsElement, string SettingsValue)
+        {
+            try
+            {
+                Logging.Log("Setting the setting {SettingsElement} to {SettingsValue}");
                 // Load settings and get the first node.
                 XmlDocument XDoc = LoadSettingsXml();
                 XmlNode XRoot = GetFirstNode(XDoc);
@@ -345,5 +401,6 @@ namespace Track_Maker
                 return false;
             }
         }
+
     }
 }

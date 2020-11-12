@@ -16,6 +16,7 @@ namespace Track_Maker
     public class ExportImage : IExportFormat
     {
         public bool AutoStart { get; set; }
+        public bool DisplayQualityControl { get; set; }
         internal MainWindow Xwindow { get; set; }
         public string Name { get; set; }
 
@@ -29,7 +30,7 @@ namespace Track_Maker
         public void GeneratePreview(Canvas XCanvas) // test
         {
             Point XPoint = new Point(Utilities.RoundNearest(8 * (XCanvas.Width / Xwindow.Width) / 1.5, 4), Utilities.RoundNearest(8 * (XCanvas.Height / Xwindow.Height) / 1.5, 4));
-            Xwindow.RenderContent(XCanvas, XPoint, Xwindow.CurrentBasin.Storms);
+            Xwindow.RenderContent(XCanvas, XPoint, Xwindow.CurrentProject.SelectedBasin.GetFlatListOfStorms());
         }
 
         public string GetName()
@@ -37,14 +38,15 @@ namespace Track_Maker
             return Name;
         }
 
-        public Basin Import()
+        public Project Import()
         {
             throw new NotImplementedException();
         }
         
-        public bool Export(Basin basin, List<Storm> XStormList)
+        public bool Export(Project Project)
         {
 
+         
             // DO CANVAS
             try
             {
@@ -68,7 +70,7 @@ namespace Track_Maker
                 else
                 {
                     // Create a new canvas and set its background. This is what we are going to be rendering to. 
-                    ExportCore(basin, XStormList, SFD.FileName);
+                    ExportCore(Project, SFD.FileName);
                     return true; 
                 }
             }
@@ -109,7 +111,7 @@ namespace Track_Maker
             }
         }
 
-        public bool ExportCore(Basin basin, List<Storm> XStormList, string FileName)
+        public bool ExportCore(Project Project, string FileName)
         {
             // Create a new canvas and set its background. This is what we are going to be rendering to. 
             Canvas _temp_ = new Canvas();
@@ -118,17 +120,20 @@ namespace Track_Maker
 
             BitmapImage _temp_bi_ = new BitmapImage();
             _temp_bi_.BeginInit();
-            _temp_bi_.UriSource = new Uri(basin.BasinImagePath, UriKind.RelativeOrAbsolute);
+            _temp_bi_.UriSource = new Uri(Project.SelectedBasin.ImagePath, UriKind.RelativeOrAbsolute);
             _temp_bi_.EndInit();
 
             _temp_.Background = new ImageBrush(_temp_bi_);
             _temp_.Width = _temp_bi_.PixelWidth;
             _temp_.Height = _temp_bi_.PixelHeight;
+            Project CurrentProject = Xwindow.CurrentProject;
 
-            Xwindow.RecalculateNodePositions(Direction.Larger, new Point(_temp_.Width, _temp_.Height), Xwindow.CurrentBasin);
+            CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Larger, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
 
             //New scaling for picking up dev again - 2020-05-08 23:04
-            Xwindow.RenderContent(_temp_, new Point(Utilities.RoundNearest(8 * (_temp_.Width / Xwindow.Width) / 1.5, 8), Utilities.RoundNearest(8 * (_temp_.Height / Xwindow.Height) / 1.5, 8)), XStormList);
+            //Remove storm selection functionality, replace with layer selection functionality - 2020-09-12 17:24
+            //v462 - 2020-09-26 00:00
+            Xwindow.RenderContent(_temp_, new Point(Utilities.RoundNearest(8 * (_temp_.Width / Xwindow.Width) / 1.5, 8), Utilities.RoundNearest(8 * (_temp_.Height / Xwindow.Height) / 1.5, 8)), Project.SelectedBasin.GetFlatListOfStorms());
 
             // Recalculate node positions on the currentbasin so they actually show up properly.
 
@@ -151,6 +156,7 @@ namespace Track_Maker
             // create a new PNG encoder and memory stream
 
             BitmapEncoder _temp_be_ = new PngBitmapEncoder();
+            
             _temp_be_.Frames.Add(BitmapFrame.Create(_temp_rtb_));
 
             MemoryStream _temp_ms_ = new MemoryStream();
@@ -161,7 +167,7 @@ namespace Track_Maker
             File.WriteAllBytes(FileName, _temp_ms_.ToArray());
 
             // clean up by restoring the basin
-            Xwindow.RecalculateNodePositions(Direction.Smaller, new Point(_temp_.Width, _temp_.Height), Xwindow.CurrentBasin);
+            CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Smaller, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
 
             return true; // success
         }

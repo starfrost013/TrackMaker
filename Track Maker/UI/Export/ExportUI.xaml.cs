@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,13 +42,21 @@ namespace Track_Maker
 
         private void Export_Init(FormatType FType, IExportFormat ExportFormat)
         {
+            Logging.Log("ExportUI Initialising...");
+            Logging.Log($"Format type: {FType}, export format: {ExportFormat.Name}");
             MnWindow = (MainWindow)Application.Current.MainWindow;
             ExpFormat = ExportFormat;
-            StormsToExport = MnWindow.CurrentBasin.Storms; // feature pushed back to Dano, maybe even 3.0/"Aurora"
+            StormsToExport = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); // feature pushed back to Dano, maybe even 3.0/"Aurora"
             Type = FType;
 
-            ExportFormat.GeneratePreview(ExportPlatform_Preview);
-            ExportPlatform_Preview.UpdateLayout(); 
+            if (!ExportFormat.DisplayQualityControl)
+            {
+                HideQualityControl();
+            }
+
+            //completely different in Dano
+            //ExportFormat.GeneratePreview(ExportPlatform_Preview);
+            //ExportPlatform_Preview.UpdateLayout(); 
         }
 
         // Set the header using the Export Platform. 
@@ -55,40 +64,27 @@ namespace Track_Maker
         {
             if (ExpFormat.AutoStart) // AutoStart for export-only no-preview formats. 
             {
-                MnWindow.TickTimer.Stop();
-
+                // Before version 515 (516?), we ran a very old version (probably version 0.3 or 0.9x) of the RunIEX method (which didn't exist before v515 of Priscilla) here.
+                // This is utterly fucking retarded.
+                RunIEX(); 
+            }
+            else
+            {
+                // Set the "Export to..." text based on the ExportFormat's Name and the Type supplied to us in the constructor. 
                 switch (Type)
                 {
                     case FormatType.Import:
-                        // Dano: rewrite
-                        MnWindow.CurrentBasin = ExpFormat.Import();
-                        MnWindow.TickTimer.Start();
-                        Close();
-                        return; 
+                        ExportPlatform_ExportBtn.Content = "Import";
+                        ExportPlatform.Text = $"Import from {ExpFormat.GetName()}";
+                        Title = $"Import from {ExpFormat.GetName()}";
+                        return;
                     case FormatType.Export:
-                        ExpFormat.Export(MnWindow.CurrentBasin, MnWindow.CurrentBasin.Storms);
-                        MnWindow.TickTimer.Start();
-                        Close();
-                        return; 
+                        ExportPlatform.Text = $"Export to {ExpFormat.GetName()}";
+                        Title = $"Export to {ExpFormat.GetName()}";
+                        return;
                 }
-
-                
-                return;
             }
 
-            // Set the "Export to..." text based on the ExportFormat's Name and the Type supplied to us in the constructor. 
-            switch (Type)
-            {
-                case FormatType.Import:
-                    ExportPlatform_ExportBtn.Content = "Import";
-                    ExportPlatform.Text = $"Import from {ExpFormat.GetName()}";
-                    Title = $"Import from {ExpFormat.GetName()}";
-                    return;
-                case FormatType.Export:
-                    ExportPlatform.Text = $"Export to {ExpFormat.GetName()}";
-                    Title = $"Export to {ExpFormat.GetName()}";
-                    return;
-            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -98,27 +94,91 @@ namespace Track_Maker
 
         private void ExportPlatform_ExportBtn_Click(object sender, RoutedEventArgs e)
         {
-            /* Old code - dano move when we can do easy previews due to multitab
+            // Call RunIEX to handle the import or export.
+            if (!RunIEX())
+            {
+                // last error global thing in error probably needed
+                Error.Throw("Warning", "191: The export failed", ErrorSeverity.Warning, 191); 
+            }
+            else
+            {
+                Close(); 
+            }
+
+            return;
+        }
+
+        private void HideQualityControl()
+        {
+            Height = 474;
+            Width = 918;
+            ExportPlatform_PreviewTextBlock.Margin = new Thickness(10, 89, 0, 0); 
+            ExportPlatform_PreviewBorder.Margin = new Thickness(10, 118, 0, 0);
+            ExportPlatform_ExportBtn.Margin = new Thickness(794, 381, 0, 0);
+
+            // Make the quality control uninteractable and invisible
+            QualityControl.Height = 0;
+            QualityControl.Width = 0;
+            QualityControl.IsEnabled = false;
+
+        }
+
+        /// <summary>
+        /// Method name: RunIEX()
+        /// 
+        /// Runs the import/export (Version 515)
+        /// </summary>
+        private bool RunIEX()
+        {
+            // Temporarily uncommented
+            // Old code - dano move when we can do easy previews due to multitab
             // Stop the ticktimer while importing or exporting because we need to do this stuff.
             MnWindow.TickTimer.Stop();
 
             switch (Type)
             {
                 case FormatType.Import:
-                    MnWindow.CurrentBasin = ExpFormat.Import();
+                    Project CurProj = ExpFormat.Import();
                     MnWindow.TickTimer.Start();
-                    Close();
-                    return; 
-                case FormatType.Export:
-                    ExpFormat.Export(MnWindow.CurrentBasin, StormsToExport);
-                    MnWindow.TickTimer.Start();
-                    Close();
-                    return;
-            } 
-            */
-            return;
-        }
 
-        
+
+                    if (CurProj.FileName == null)
+                    {
+                        Error.Throw("Fatal Error!", "Failed to set current file name", ErrorSeverity.Error, 190);
+                        return false; // possibly extend subsequent else 
+                    }
+                    else
+                    {
+                        GlobalStateP.SetCurrentOpenFile(CurProj.FileName);
+                    }
+
+                    //may bindings work?
+                    MnWindow.Title = $"Track Maker 2.0 'Priscilla' - {GlobalStateP.GetCurrentOpenFile()}";
+
+                    // we are not setting current project before, usually you wouldn't need to do this hack
+                    MnWindow.CurrentProject = CurProj;
+                    MnWindow.UpdateLayout();
+                    
+
+                    return true;
+                case FormatType.Export:
+
+                    if (!ExpFormat.Export(MnWindow.CurrentProject))
+                    {
+                        return false;
+                    }
+
+                    // wish VS allowed the sam var names under different code paths
+                    Project CurProject = MnWindow.CurrentProject;
+
+                    MnWindow.Title = $"Track Maker 2.0 'Priscilla' - {CurProject.FileName}";
+                    MnWindow.UpdateLayout();
+                    MnWindow.TickTimer.Start();
+                    Close();
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

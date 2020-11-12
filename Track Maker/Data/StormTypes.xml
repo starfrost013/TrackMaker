@@ -1,0 +1,78 @@
+﻿<!-- StormTypes for Priscilla build 484+ [Alpha2] 
+-->
+  
+<StormTypes>
+  <StormType>
+    <Name>Tropical</Name>
+    <Abbreviation>TC</Abbreviation>
+    <Shape>
+      <PresetShape>Circle</PresetShape>
+    </Shape>
+  </StormType>  
+  
+  <StormType>
+    <Name>Subtropical</Name>
+    
+    <BTAbbreviations>
+      <Abbreviation>SD</Abbreviation>
+      <Abbreviation>SS</Abbreviation>
+    </BTAbbreviations>
+
+    <Shape>
+      <PresetShape>Square</PresetShape>
+    </Shape>
+  </StormType>  
+
+  <StormType>
+    <Name>Extratropical</Name>
+    <Abbreviation>EX</Abbreviation>
+    <Shape>
+      <PresetShape>Triangle</PresetShape>
+    </Shape>
+
+  </StormType>  
+  
+  <StormType>
+    <Name>Invest / PTC</Name>
+    
+    <BTAbbreviations>
+      <Abbreviation>EX</Abbreviation>
+    </BTAbbreviations>
+    
+    <Abbreviation>IPTC</Abbreviation>
+    <Shape>
+      <PresetShape>Triangle</PresetShape>
+    </Shape>
+
+    <ForceColour>255,128,204,255</ForceColour>
+  </StormType>  
+
+  <StormType>
+    <Name>Polar Low</Name>
+    
+    <BTAbbreviations>
+      <Abbreviation>EX</Abbreviation>
+    </BTAbbreviations>
+  
+    <Abbreviation>PL</Abbreviation>
+    <Shape>
+      <PresetShape>Triangle</PresetShape>
+    </Shape>
+  </StormType>  
+
+  <StormType>
+    <Name>Test</Name>
+    <Abbreviation>TST</Abbreviation>
+    <Shape>
+	    <IsFilled>true</IsFilled>
+        <VertexPoints>
+            <VertexPosition>0,5</VertexPosition>
+            <VertexPosition>3,0</VertexPosition>
+            <VertexPosition>0,-5</VertexPosition> 
+            <VertexPosition>-3,0</VertexPosition>
+            <VertexPosition>0,5</VertexPosition>
+        </VertexPoints>
+    </Shape>
+  </StormType>  
+
+</StormTypes>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Track_Maker
                 // load categorysystems.xml
                 XmlDocument XDoc = new XmlDocument();
 
-                XDoc.Load("CategorySystems.xml");
+                XDoc.Load(@"Data\CategorySystems.xml");
 
                 // Check the root node
 
@@ -124,6 +125,11 @@ namespace Track_Maker
                                                 case "name": // the category name
                                                 case "Name":
                                                     Category.Name = XGrandniece.Value;
+                                                    continue;
+                                                case "Abbreviation":
+                                                case "Acronym": // BasinSignifier, BasinInitials, BasinAbbreviation...
+                                                case "BasinCode":
+                                                    Category.Abbreviation = XGrandniece.Value; 
                                                     continue;
 
 

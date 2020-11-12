@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ico256x256-v2.ico</ApplicationIcon>
+    <ApplicationIcon>Core\ico256x256-v2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dano_Debug|AnyCPU'">
     <OutputPath>bin\Dano_Debug\</OutputPath>
@@ -72,6 +72,24 @@
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Priscilla_Debug|AnyCPU'">
+    <OutputPath>bin\Priscilla_Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PRISCILLA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Priscilla_Release|AnyCPU'">
+    <OutputPath>bin\Priscilla_Release\</OutputPath>
+    <DefineConstants>TRACE;PRISCILLA</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -91,67 +109,79 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Core\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Basin.cs" />
-    <Compile Include="Basin2\BasinManager.cs" />
-    <Compile Include="BasinLoader.cs" />
-    <Compile Include="ExportPlatform\ExportFormats\BestTrack.cs" />
+    <Compile Include="Basin\Basin.cs" />
+    <Compile Include="Core\GlobalState.cs" />
+    <Compile Include="Core\GlobalState.Priscilla.cs" />
+    <Compile Include="Core\MainWindow.DumbHack.cs" />
+    <Compile Include="DanoProject\Project.cs" />
+    <Compile Include="DanoProject\Upgrade\ProjectUpgrade.cs" />
+    <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
+      <DependentUpon>AboutWindowHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\AddNewStormHost\AddNewStormHost.xaml.cs">
+      <DependentUpon>AddNewStormHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\AddTrackPointHost\AddTrackPointHost.xaml.cs">
+      <DependentUpon>AddTrackPointHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\CreateLayerHost\CreateLayerHost.xaml.cs">
+      <DependentUpon>CreateLayerHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\CreateProjectHost\CreateProjectHost.xaml.cs">
+      <DependentUpon>CreateProjectHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\BasinSwitcherHost\BasinSwitcherHost.xaml.cs">
+      <DependentUpon>BasinSwitcherHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\CategoryManagerHost\CategoryManagerHost.xaml.cs">
+      <DependentUpon>CategoryManagerHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\EditUIHost\EditUIHost.xaml.cs">
+      <DependentUpon>EditUIHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\ErrorHost\ErrorUIHost.xaml.cs">
+      <DependentUpon>ErrorUIHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\LayerControlHost\LayerControlHost.xaml.cs">
+      <DependentUpon>LayerControlHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\SeasonManagerHost\SeasonManagerHost.xaml.cs">
+      <DependentUpon>SeasonManagerHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoUIHost\StartPageHost\StartPageHost.xaml.cs">
+      <DependentUpon>StartPageHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExportPlatform\ExportFormats\ATCF.cs" />
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormats.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageQuality.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\Validation\NodeImportResult.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\Validation\XMLImportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
     <Compile Include="ExportPlatform\ExportFormats\XML.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\XMLv2.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\HURDAT2.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />
-    <Compile Include="IntegratedApps\AceCalc\About\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AceCalc\Core\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AceCalc\Core\StormIntensityNode.cs" />
-    <Compile Include="IntegratedApps\AceCalc\Edit\EditWindow.xaml.cs">
-      <DependentUpon>EditWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AceCalc\Misc\DeletePoint.cs" />
-    <Compile Include="IntegratedApps\AceCalc\Misc\Export.Timeline.cs" />
-    <Compile Include="IntegratedApps\AceCalc\Misc\HelperFunctions.cs" />
-    <Compile Include="IntegratedApps\AceCalc\SetStart\SetStartWindow.xaml.cs">
-      <DependentUpon>SetStartWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AdvisoryGenerator\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AdvisoryGenerator\Forecast.cs" />
-    <Compile Include="IntegratedApps\AdvisoryGenerator\ForecastManager.xaml.cs">
-      <DependentUpon>ForecastManager.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AdvisoryGenerator\HelperFunctions.cs" />
-    <Compile Include="IntegratedApps\AdvisoryGenerator\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IntegratedApps\AdvisoryGenerator\Warning.cs" />
-    <Compile Include="IntegratedApps\AdvisoryGenerator\WarningManager.xaml.cs">
-      <DependentUpon>WarningManager.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Network\TelemetryConsent.cs" />
+    <Compile Include="Layer\Layer.cs" />
     <Compile Include="Settings2\Emerald.Settings.cs" />
+    <Compile Include="Settings2\Enums\TelemetryConsent.cs" />
+    <Compile Include="Settings2\Enums\WndStyle.cs" />
     <Compile Include="Settings2\SettingsStatic.cs" />
-    <Compile Include="UI\About\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\BasinManagerUI\BasinManagerUI.xaml.cs">
-      <DependentUpon>BasinManagerUI.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\BasinSwitcher\BasinSwitcher.xaml.cs">
-      <DependentUpon>BasinSwitcher.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CategoryManager\CategoryManager.xaml.cs">
-      <DependentUpon>CategoryManager.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Category\Category.cs" />
     <Compile Include="Category\CategoryLoader.cs" />
-    <Compile Include="Error.cs" />
-    <Compile Include="Logging.cs" />
+    <Compile Include="Core\Error.cs" />
+    <Compile Include="Storm\StormType\Shape\Shape.cs" />
+    <Compile Include="Storm\StormType\Shape\StormShape.cs" />
+    <Compile Include="Storm\StormType\StormType2.cs" />
+    <Compile Include="Storm\StormType\StormTypeManager.cs" />
+    <Compile Include="UI\AddTrackPoint\AddTrackPoint.xaml.cs">
+      <DependentUpon>AddTrackPoint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Core\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
     </Compile>
@@ -159,98 +189,90 @@
     <Compile Include="UI\Export\ExportUI.xaml.cs">
       <DependentUpon>ExportUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\MenuResponse.cs" />
-    <Compile Include="Node.cs" />
+    <Compile Include="UI\UIResponse.cs" />
+    <Compile Include="Storm\Node.cs" />
     <Compile Include="Render\RenderManager.cs" />
     <Compile Include="Settings2\SettingLoader.cs" />
-    <Compile Include="Storm.cs" />
-    <Compile Include="UI\AddNewStorm\AddNewStorm.xaml.cs">
-      <DependentUpon>AddNewStorm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\AddTrackPoint\AddTrackPoint.xaml.cs">
-      <DependentUpon>AddTrackPoint.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Storm\Storm.cs" />
     <Compile Include="UI\Core\TypeSelectorBox.xaml.cs">
       <DependentUpon>TypeSelectorBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SeasonManager\EditUI\EditUI.xaml.cs">
-      <DependentUpon>EditUI.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SeasonManager\SeasonManager.xaml.cs">
-      <DependentUpon>SeasonManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\Coordinate.cs" />
+    <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
     <Compile Include="Util\Utilities.cs" />
-    <Page Include="IntegratedApps\AceCalc\About\AboutWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AceCalc\Core\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AceCalc\Edit\EditWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AceCalc\SetStart\SetStartWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AdvisoryGenerator\AboutWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AdvisoryGenerator\ForecastManager.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AdvisoryGenerator\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntegratedApps\AdvisoryGenerator\WarningManager.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\About\AboutWindow.xaml">
+    <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
+    <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
+    <Compile Include="V3Graph\IGraph.cs" />
+    <Page Include="Converters\Converters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\BasinManagerUI\BasinManagerUI.xaml">
+    <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\BasinSwitcher\BasinSwitcher.xaml">
+    <Page Include="DanoUIHost\AddNewStormHost\AddNewStormHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\CategoryManager\CategoryManager.xaml">
+    <Page Include="DanoUIHost\AddTrackPointHost\AddTrackPointHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="DanoUIHost\CreateLayerHost\CreateLayerHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\CreateProjectHost\CreateProjectHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\BasinSwitcherHost\BasinSwitcherHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\CategoryManagerHost\CategoryManagerHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\EditUIHost\EditUIHost.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Page Include="DanoUIHost\ErrorHost\ErrorUIHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\LayerControlHost\LayerControlHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\SeasonManagerHost\SeasonManagerHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DanoUIHost\StartPageHost\StartPageHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Core\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Core\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UI\AddNewStorm\AddNewStorm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UI\AddTrackPoint\AddTrackPoint.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Core\ColourPicker.xaml">
       <SubType>Designer</SubType>
@@ -260,19 +282,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Core\Stylecore.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UI\Export\ExportUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\SeasonManager\EditUI\EditUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\SeasonManager\SeasonManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -299,16 +309,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\Splash\Priscilla.pdn" />
+    <None Include="Data\Splash\Priscilla2.pdn" />
+    <None Include="Data\Splash\Priscilla3.pdn" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Core\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ico256x256-v2.ico" />
+    <Resource Include="Core\ico256x256-v2.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -323,16 +336,80 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.AdvisoryGenerator\Dano.AdvisoryGenerator.csproj">
+      <Project>{f16114eb-5733-415e-9005-838a963fcb6e}</Project>
+      <Name>Dano.AdvisoryGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dano.ACECalculator\Dano.ACECalculator.csproj">
+      <Project>{d035ce54-62ce-4cfe-9a5e-f04d4424731f}</Project>
+      <Name>Dano.ACECalculator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DanoUI\DanoUI.csproj">
       <Project>{f24f47e1-4cf7-4777-b7dd-db1aec6278d9}</Project>
       <Name>DanoUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Starfrost.UL5\Starfrost.UL5.csproj">
+      <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
+      <Name>Starfrost.UL5</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="V3Error\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\BasinImages\T_AtlanticHighRes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BasinImages\T_AusHighRes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BasinImages\T_EpacCpacHighRes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BasinImages\T_MediLowRes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BasinImages\T_NioHighRes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BasinImages\T_SpacHighRes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BasinImages\T_SwioHighRes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BasinImages\T_WpacHighRes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Basins.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\CategorySystems.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Data\empty.png" />
+    <Resource Include="Data\Languages\Languages.xml" />
+    <Resource Include="Data\Redo16.png" />
+    <Resource Include="Data\Redo32.png" />
+    <Resource Include="Data\RedoFull.png" />
+    <Content Include="Data\Settings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Data\Undo16.png" />
+    <Resource Include="Data\Undo32.png" />
+    <Resource Include="Data\UndoFull.png" />
+    <SplashScreen Include="Data\Splash\Priscilla.png" />
+    <Resource Include="Data\Splash\Priscilla2.png" />
+    <Resource Include="Data\Splash\Priscilla3.png" />
+    <Content Include="Data\StormTypes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>echo Track Maker version 1.0 "Arthur" 
+    <PreBuildEvent>echo Track Maker version 2.0 (codename "Priscilla", alternative name "Kallen").
 echo Copyright © 2019-2020 Connor Hyde.
-echo Release date: May 21 (originally 19) 2020
+echo Built: %25time%25, %25date%25
 
 </PreBuildEvent>
   </PropertyGroup>

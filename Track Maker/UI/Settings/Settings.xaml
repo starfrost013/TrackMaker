@@ -33,21 +33,23 @@
                         <ColumnDefinition Width="29*"/>
                         <ColumnDefinition Width="757*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="Settings_Tab_Appearance" HorizontalAlignment="Left" Margin="24,10,0,0" Text="Appearance Settings" VerticalAlignment="Top" FontSize="48" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance" HorizontalAlignment="Left" Margin="24,10,0,0" Text="Appearance Settings" VerticalAlignment="Top" FontSize="48" Grid.ColumnSpan="2" FontStyle="Italic"/>
                     <CheckBox x:Name="Settings_Tab_Appearance_GradientEnabledCheckBox" Margin="5,84,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                     <TextBlock x:Name="Settings_Tab_Appearance_GradientEnabled" Text="Use menu gradient" Margin="24,74,474,155.5" FontSize="24" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="Settings_Tab_Appearance_GradientColour1" Text="Accent colour 1:" Margin="24,106,474,123.5" FontSize="24" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance_GradientColour1" Text="Accent colours:" Margin="24,106,474,123.5" FontSize="24" Grid.ColumnSpan="2"/>
                     <local:ColourPicker x:Name="Settings_Tab_Appearance_AccentColourPicker" SelectedColour="{x:Static local:Setting.AccentColour1}" Grid.Column="1" Margin="168,107,377,120.5" PreviewMouseDown="Settings_Tab_Appearance_AccentColourPicker_PreviewMouseDown"/>
-                    <TextBlock x:Name="Settings_Tab_Appearance_GradientColour2" Text="Accent colour 2:" Margin="24,138,352,86.5" FontSize="24" Grid.ColumnSpan="2"/>
-                    <local:ColourPicker x:Name="Settings_Tab_Appearance_MenuGradientSecondColourPicker" SelectedColour="{x:Static local:Setting.AccentColour2}" Grid.Column="1" Margin="168,141,377,86.5" PreviewMouseDown="Settings_Tab_Appearance_MenuGradientSecondColourPicker_PreviewMouseDown" ></local:ColourPicker>
-                    <TextBlock x:Name="Settings_Tab_Appearance_DefaultDotSize" Text="Dot size:" Margin="24,191,572,36.5" FontSize="24" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="Settings_Tab_Appearance_DotSizeX" HorizontalAlignment="Left" Margin="24,225,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2"/>
-                    <Slider x:Name="Settings_Tab_Appearance_DotSizeXSlider" Grid.Column="1" HorizontalAlignment="Left" Margin="29,236,0,0" VerticalAlignment="Top" Height="21" Width="341" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="Settings_Tab_Appearance_DotSizeXSlider_ValueChanged"/>
-                    <TextBlock x:Name="Settings_Tab_Appearance_DotSizeXText" TextWrapping="Wrap" Text="" Margin="375,225,300,119" Grid.Column="1" FontSize="24" Grid.RowSpan="2"/>
-                    <TextBlock x:Name="Settings_Tab_Appearance_DotSizeYText" TextWrapping="Wrap" Text="" Margin="375,6,300,77" Grid.Column="1" FontSize="24" Grid.Row="1"/>
-                    <TextBlock x:Name="Settings_Tab_Appearance_DotSizeY" HorizontalAlignment="Left" Margin="24,7,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Width="20" Grid.Row="1" />
-                    <Slider x:Name="Settings_Tab_Appearance_DotSizeYSlider" HorizontalAlignment="Left" Margin="29,19,0,0" VerticalAlignment="Top" Height="20" Width="341" Grid.Column="1" Grid.Row="1" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="Settings_Tab_Appearance_DotSizeYSlider_ValueChanged"/>
+                    <local:ColourPicker x:Name="Settings_Tab_Appearance_MenuGradientSecondColourPicker" SelectedColour="{x:Static local:Setting.AccentColour2}" Grid.Column="1" Margin="370,107,175,120" PreviewMouseDown="Settings_Tab_Appearance_MenuGradientSecondColourPicker_PreviewMouseDown" ></local:ColourPicker>
+                    <TextBlock x:Name="Settings_Tab_Appearance_DefaultDotSize" Text="Dot size:" Margin="24,142,572,85" FontSize="24" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance_DotSizeX" HorizontalAlignment="Left" Margin="24,176,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2"/>
+                    <Slider x:Name="Settings_Tab_Appearance_DotSizeXSlider" Grid.Column="1" HorizontalAlignment="Left" Margin="29,187,0,0" VerticalAlignment="Top" Height="21" Width="341" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="Settings_Tab_Appearance_DotSizeXSlider_ValueChanged"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance_DotSizeXText" TextWrapping="Wrap" Margin="466,171,209,53" Grid.Column="1" FontSize="24"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance_DotSizeY" HorizontalAlignment="Left" Margin="24,219,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Width="20" />
+                    <TextBlock x:Name="Settings_Tab_Appearance_DotSizeYText" TextWrapping="Wrap" Margin="466,214,209,10" Grid.Column="1" FontSize="24" Text="{Binding Value}"/>
+                    <Slider x:Name="Settings_Tab_Appearance_DotSizeYSlider" HorizontalAlignment="Left" Margin="29,231,0,0" VerticalAlignment="Top" Height="20" Width="341" Grid.Column="1" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="Settings_Tab_Appearance_DotSizeYSlider_ValueChanged"/>
                     <Button x:Name="Settings_Tab_Appearance_Done" Content="Done" HorizontalAlignment="Left" Margin="645,63,0,0" VerticalAlignment="Top" Width="76" FontSize="24" Click="Settings_Tab_Appearance_Done_Click" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance_LineSize" Text="Line size:" Margin="24,256,572,91" FontSize="24" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Slider x:Name="Settings_Tab_Appearance_LineSizeSlider" HorizontalAlignment="Left" Margin="106,6,0,0" VerticalAlignment="Top" Height="20" Width="341" Grid.Column="1" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="Settings_Tab_Appearance_LineSizeSlider_ValueChanged" Grid.Row="1"/>
+                    <TextBlock x:Name="Settings_Tab_Appearance_LineSizeText" TextWrapping="Wrap" Margin="466,256,209,88" Grid.Column="1" FontSize="24" Grid.RowSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>

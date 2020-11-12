@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging; 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,54 +19,35 @@ namespace Track_Maker
     /// <summary>
     /// Interaction logic for TypeSelectorBox.xaml
     /// </summary>
-    public partial class TypeSelectorBox : UserControl
+    public partial class V1TypeSelectorBox : UserControl
     {
         public MainWindow MainWindow { get; set; }
-        public TypeSelectorBox()
+        public V1TypeSelectorBox()
         {
             InitializeComponent();
         }
 
         private void Setup()
         {
-            var StormTypes = Enum.GetValues(typeof(StormType));
-
-            string ToAdd;
-
+#if PRISCILLA
             MainWindow = (MainWindow)Application.Current.MainWindow; //figure something else out
+            List<StormType2> ST2L = MainWindow.ST2Manager.GetListOfStormTypes(); 
+
+#else
+            List<StormType2> ST2L = GlobalState.GetST2Manager(); 
+#endif
 
             Logging.Log("Passed MainWindow");
-            foreach (StormType stormtype in StormTypes)
+
+            foreach (StormType2 ST2 in ST2L)
             {
-                Logging.Log($"Populating TypeBox with {stormtype.ToString()}");
-                switch (stormtype)
-                {
-                    case StormType.Tropical:
-                        ToAdd = "Tropical cyclone";
-                        TypeBox.Items.Add(ToAdd);
-                        continue;
-                    case StormType.Subtropical:
-                        ToAdd = "Subtropical cyclone";
-                        TypeBox.Items.Add(ToAdd);
-                        continue;
-                    case StormType.Extratropical:
-                        ToAdd = "Extratropical cyclone";
-                        TypeBox.Items.Add(ToAdd);
-                        continue;
-                    case StormType.InvestPTC:
-                        ToAdd = "Invest / PTC";
-                        TypeBox.Items.Add(ToAdd);
-                        continue; 
-                    case StormType.PolarLow:
-                        ToAdd = "Polar low";
-                        TypeBox.Items.Add(ToAdd); // maybe worse?
-                        continue;
-                }
+                TypeBox.Items.Add(ST2.Name); 
             }
 
+            Logging.Log("Populated TypeBox...");
             if (TypeBox.Items.Count < 1)
             {
-                Error.Throw("Uh oh", "Something bad happened. The TypeBox failed to populate.", Error.ErrorSeverity.FatalError, 0);
+                Error.Throw("Uh oh", "Something bad happened. The TypeBox failed to populate.", ErrorSeverity.FatalError, 0);
             }
 
             Logging.Log("Setting selected index...");

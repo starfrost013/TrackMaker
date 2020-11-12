@@ -7,15 +7,44 @@
              mc:Ignorable="d" 
              d:DesignHeight="417.769" d:DesignWidth="875.62">
     <UserControl.Background>
-        <LinearGradientBrush> <!-- Temporary - We will bind to settings -->
+        <LinearGradientBrush>
+            <!-- Temporary - We will bind to settings when ux is done -->
             <GradientStop Offset="0.0" Color="#004080"></GradientStop>
             <GradientStop Offset="0.8" Color="#96bdfe"></GradientStop>
         </LinearGradientBrush>
     </UserControl.Background>
     <Grid>
-        <TextBlock x:Name="DanoUI_StartPage_StartHere" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Welcome to Dano!" VerticalAlignment="Top" Foreground="White" FontSize="60"/>
-        <TextBlock x:Name="DanoUI_StartPage_QuickStart" HorizontalAlignment="Left" Margin="10,63,0,0" TextWrapping="Wrap" Text="Get Started:" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Italic"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="-4,426,0,-108" VerticalAlignment="Top" Width="100"/>
+        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="DanoUI_StartPage_StartHere" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Welcome to Dano!" VerticalAlignment="Top" FontSize="60"/>
+        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="DanoUI_StartPage_QuickStart" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Quickstart" VerticalAlignment="Top" FontSize="32"/>
+        <Border x:Name="DanoUI_StartPage_CreateTrack" HorizontalAlignment="Left" Height="44" Margin="10,115,0,0" VerticalAlignment="Top" Width="225" BorderBrush="#00000000" PreviewMouseDown="DanoUI_StartPage_CreateTrack_PreviewMouseDown">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <TextBlock x:Name="CreateTrack" Style="{StaticResource Style_TextBlock_Invert}" TextWrapping="Wrap" Text="Create Track" FontSize="26" Margin="25,2,-15,0"/>
+        </Border>
+        <Border x:Name="DanoUI_StartPage_CreateAnimation" HorizontalAlignment="Left" Height="44" Margin="240,115,0,0" VerticalAlignment="Top" Width="225" BorderBrush="#00000000" PreviewMouseDown="DanoUI_StartPage_CreateAnimation_PreviewMouseDown">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <TextBlock x:Name="CreateAnimation" Style="{StaticResource Style_TextBlock_Invert}" TextWrapping="Wrap" Text="Create Animation" FontSize="26" Margin="0,2,-16,0" HorizontalAlignment="Right" Width="216"/>
+        </Border>
+        <TextBlock x:Name="DanoUI_StartPage_WhatsNewText"  Style="{StaticResource Style_TextBlock_Invert}" HorizontalAlignment="Left" Margin="600,96,0,0" TextWrapping="Wrap" Text="What's New:" VerticalAlignment="Top"/>
 
+        <Border x:Name="DanoUI_StartPage_WhatsNew" HorizontalAlignment="Left" Height="235" Margin="600,125,0,0" VerticalAlignment="Top" Width="253"/>
+        <TextBlock x:Name="DanoUI_StartPage_TipsText" Style="{StaticResource Style_TextBlock_Invert}" HorizontalAlignment="Left" Margin="36,238,0,0" TextWrapping="Wrap" Text="Tips:" VerticalAlignment="Top" RenderTransformOrigin="-12.86,11.664"/>
+        <Border x:Name="DanoUI_StartPage_Tips" HorizontalAlignment="Left" Height="93" Margin="36,267,0,0" VerticalAlignment="Top" Width="535"/>
+        <Button x:Name="ExitButton"  HorizontalAlignment="Left" Margin="791,380,0,0" VerticalAlignment="Top" Width="75" Content="Exit" Click="ExitButton_Click"/>
     </Grid>
 </UserControl>

@@ -6,39 +6,52 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+
 namespace Track_Maker
 {
     public static class Utilities
     {
         // Emerald Game Engine Utilities DLL
         // © 2020 Connor Hyde.
+       
+
+        public static string ToStringEmerald(this Point XPoint)
+        {
+            return $"{XPoint.X},{XPoint.Y}";
+        }
+
+        /// <summary>
+        /// Split a string into X/Y positions. Static class that can be used from any class.
+        /// </summary>
+        /// <param name="SplitString"></param>
+        /// <returns></returns>
         public static Point SplitXY(this String SplitString)
         {
             try
             {
                 string[] Split = SplitString.Split(',');
 
-                if (Split.Length != 2) MessageBox.Show("Error converting string to position - must be 2 positions supplied", "Error 19", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (Split.Length != 2)
+                {
+                    Console.WriteLine("Error converting string to position - must be 2 positions supplied");
+                    return new Point(-1, -1);
+                }
 
-                // return -1, -1 if failed. 
+                // Convert the string components to two double-precision floats
+                double X = Convert.ToDouble(Split[0]);
+                double Y = Convert.ToDouble(Split[1]);
 
-                Point XY = new Point();
-
-                // convert the string parts to a Point
-                XY.X = Convert.ToDouble(Split[0]);
-                XY.Y = Convert.ToDouble(Split[1]);
+                // Create a new coordinatepoint
+                Point XY = new Point(X, Y);
                 return XY;
             }
-            catch (FormatException err)
+            catch (FormatException err) // essentially this means that an overflow number was
             {
-                MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Error 20", MessageBoxButton.OK, MessageBoxImage.Error);
-                return new Point { X = -1, Y = -1 };
-            }
-        }
+                Console.WriteLine($"Error converting string to position - invalid position\n\n{err}");
 
-        public static string ToStringEmerald(this Point XPoint)
-        {
-            return $"{XPoint.X},{XPoint.Y}";
+                //Todo: Generic type parameter based (for proving skills) user input validation
+                return new Point(-1, -1);
+            }
         }
 
         // From Emerald Game Engine
@@ -71,38 +84,80 @@ namespace Track_Maker
             catch (FormatException err)
             {
                 MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Emerald Game Engine Error 41", MessageBoxButton.OK, MessageBoxImage.Error);
-                return new Color {A = 1, R = 1, B = 0, G = 2};
+                return new Color {A = 0, R = 0, B = 0, G = 0};
             }
+
+        }
+
+
+        // From Emerald Game Engine
+        // © 2020 Connor Hyde.
+        public static Color SplitARGB(this String SplitString)
+        {
+            try
+            {
+                // Split the string by comma
+                string[] Split = SplitString.Split(',');
+
+                // RGB has three components - error out if we have less than three
+                if (Split.Length != 4) MessageBox.Show("Error converting string to RGB colour - must be 2 positions supplied", "Emerald Game Engine Error 40", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                Color ARGB = new Color();
+
+                ARGB.A = Convert.ToByte(Split[0]);
+
+                // Convert to RGB
+                ARGB.R = Convert.ToByte(Split[1]);
+                ARGB.G = Convert.ToByte(Split[2]);
+                ARGB.B = Convert.ToByte(Split[3]);
+
+                // Return our generated colour.
+                return ARGB;
+
+
+            }
+            catch (FormatException err)
+            {
+                MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Emerald Game Engine Error 41", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new Color { A = 0, R = 0, G = 0, B = 0 };
+            }
+
 
         }
 
         public static List<string> InnerXml_Parse(this String InnerXml)
         {
             // xml preprocessing
-            string[] _1 = InnerXml.Split('<');
+            string[] PreSplit = InnerXml.Split('<');
 
-            List<string> _2 = new List<string>();
+            List<string> FinalList = new List<string>();
 
             // Strip it to the name
 
-            foreach (string _3 in _1)
+            foreach (string SplitV1 in PreSplit)
             {
-                string[] _4 = _3.Split('>');
+                // Skip entry strings
+                if (SplitV1 == "") continue; 
 
-                foreach (string _5 in _4)
+                string[] SplitGreaterThan = SplitV1.Split('>');
+
+                // Split each node into its respective value
+                foreach (string XMLNodeOrValue in SplitGreaterThan)
                 {
-                    if (_5 == "" || _5.Contains(@"/")) continue; // skip the strings that are not like the other 
-                    _2.Add(_5);
+                    // remove remaining XML-related characters (Version 515)
+                    string XMLNodeOrValuePost = XMLNodeOrValue.Replace("/", "");
+                    if (XMLNodeOrValuePost == "") continue; // skip the strings that are not like the other 
+
+                    // only add once
+                    if (!FinalList.Contains(XMLNodeOrValuePost)) FinalList.Add(XMLNodeOrValuePost);
+         
                 }
             }
 
-            return _2;
+            return FinalList;
         }
-        
-        public static double RoundNearest(double x, double amount)
-        {
-            return Math.Round((x * amount) / amount);
-        }
+
+        public static double RoundNearest(double x, double amount) => Math.Round((x* amount) / amount);
         
         public static Color ConvertWinformsToWpfColour(System.Drawing.Color XColour)
         {
@@ -149,35 +204,34 @@ namespace Track_Maker
             return SB.ToString(); 
         }
 
-        // Dano: move to Category.AbbreviateCategory
-        public static string AbbreviateCategory(string CatName)
-        {
-            StringBuilder SB = new StringBuilder();
-
-            // Split into requisite variables
-            string[] _ = CatName.Split(' ');
-
-            // BAD CODE 
-            foreach (string _2 in _)
-            {
-                if (!_2.ContainsCaseInsensitive("hurricane")
-                    && !_2.ContainsCaseInsensitive("cyclone")
-                    && !_2.ContainsCaseInsensitive("typhoon")
-                    && !_2.ContainsCaseInsensitive("medicane")
-                    ) 
-                {
-                    string _3 = _2[0].ToString().ToUpper();
-                    SB.Append(_3); // append the first character...in upper case
-                }
-            }
-            // END BAD CODE
-
-            return SB.ToString();
-        }
-
         public static bool ContainsCaseInsensitive(this string Text, string Value, StringComparison SC = StringComparison.CurrentCultureIgnoreCase)
         {
             return Text.IndexOf(Value, SC) >= 0; 
+        }
+
+    }
+
+    /// <summary>
+    /// I know LINQ has this, but I'm experimenting with generic type parameters.
+    /// 
+    /// Imported from ediff0-0.7
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class ListUtil<T>
+    {
+        public static List<T> ToList(Array Arr)
+        {
+            List<T> List0 = new List<T>();
+
+            foreach (object Obj in Arr)
+            {
+                if (Obj is T)
+                {
+                    List0.Add((T)Obj);
+                }
+            }
+
+            return List0;
         }
     }
 }

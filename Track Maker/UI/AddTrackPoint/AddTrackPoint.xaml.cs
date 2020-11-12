@@ -32,41 +32,13 @@ namespace Track_Maker
         {
             try
             {
-                // Dano: move to TNode.AddNodeIntensity() - add currentstorm to this
-                Node TNode = new Node();
-                TNode.Intensity = Convert.ToInt32(IntensityTextBox.Text);
-                
-                // enum.parse won't work here
+                // Clean up later.
 
-                if (TypeSelect.TypeBox.SelectedIndex == 0)
+                foreach (Storm Storm in MnWindow.CurrentProject.SelectedBasin.CurrentLayer.AssociatedStorms)
                 {
-                    TNode.NodeType = StormType.Tropical;
-                }
-                else if (TypeSelect.TypeBox.SelectedIndex == 1)
-                {
-                    TNode.NodeType = StormType.Subtropical;
-                }
-                else if (TypeSelect.TypeBox.SelectedIndex == 2)
-                {
-                    TNode.NodeType = StormType.Extratropical;
-                }
-                else if (TypeSelect.TypeBox.SelectedIndex == 3)
-                {
-                    TNode.NodeType = StormType.InvestPTC;
-                }
-                else if (TypeSelect.TypeBox.SelectedIndex == 4)
-                {
-                    TNode.NodeType = StormType.PolarLow;
-                }
-
-                TNode.Position = Pos;
-
-                foreach (Storm Storm in MnWindow.CurrentBasin.Storms)
-                {
-                    if (Storm == MnWindow.CurrentBasin.CurrentStorm)
+                    if (Storm == MnWindow.CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm)
                     {
-                        TNode.Id = Storm.NodeList.Count; 
-                        Storm.NodeList.Add(TNode);
+                        Storm.AddNode(Convert.ToInt32(IntensityTextBox.Text), TypeSelect.TypeBox.SelectedIndex, Pos); 
                     }
                 }
 
@@ -74,14 +46,14 @@ namespace Track_Maker
             }
             catch (FormatException)
             {
-                // nope
-                MessageBox.Show("What did you put in the Intensity box??", "What?", MessageBoxButton.OK, MessageBoxImage.Error);
+                // nopE
+                Error.Throw("Warning", "Please enter a valid intensity!", ErrorSeverity.Warning, 127); 
                 return;
 
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Why would a hurricane be this powerful anyway?", "What?", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Warning", "Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive!", ErrorSeverity.Warning, 128); 
                 return;
             }
         }

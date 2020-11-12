@@ -7,10 +7,13 @@ using System.Windows;
 
 namespace Track_Maker
 {
+    /// <summary>
+    /// The cardinal directions.
+    /// </summary>
     public enum CardinalDirection { N, S, W, E }
 
     /// <summary>
-    /// Latitude / longitude cOordinate. 
+    /// Latitude / longitude coordinate. 
     /// </summary>
     public class Coordinate
     {
@@ -33,14 +36,14 @@ namespace Track_Maker
                     Application.Current.Shutdown(74);
                 }
 
-
-
                 string[] _2 = _[0].Split(';');
                 string[] _3 = _[1].Split(';');
 
                 // concanetate into a format we can understand
+                // placing $ before a string in C# signifies to the compiler that this string is an interpolated string = the content between {} are variables or properties or similar
                 string _4 = $"{_2[0]},{_3[0]}";
-
+                
+        
                 Coord.Coordinates = _4.SplitXY();
 
                 // aaaa
@@ -66,5 +69,17 @@ namespace Track_Maker
             }
 
         }
+
+        /// <summary>
+        /// Helper function to concanetate two split coordinates before throwing them into the parser. (Wish this was more compact)
+        /// </summary>
+        /// <param name="Str1">The X position of the coordinate.</param>
+        /// <param name="Str2">The Y position of the coordinate.</param>
+        /// <returns></returns>
+        public static Coordinate FromSplitCoordinate(string Str1, string Str2)
+        {
+            return FromString($"{Str1},{Str2}");
+        }
+
     }
 }

@@ -61,7 +61,7 @@ namespace Track_Maker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright 2020 Cosmo. This product is open-source software..
+        ///   Looks up a localized string similar to Copyright © 2020 starfrost. This product is open-source software..
         /// </summary>
         internal static string _COPYRIGHT {
             get {
@@ -79,11 +79,20 @@ namespace Track_Maker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to May 10, 2020.
+        ///   Looks up a localized string similar to September 18, 2020.
         /// </summary>
         internal static string _MESSAGEDATE {
             get {
                 return ResourceManager.GetString("_MESSAGEDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version 2.0x by starfrost.
+        /// </summary>
+        internal static string _PRISCILLA {
+            get {
+                return ResourceManager.GetString("_PRISCILLA", resourceCulture);
             }
         }
         

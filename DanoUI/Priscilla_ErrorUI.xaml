@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="DanoUI.Priscilla_ErrorUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DanoUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="Black">
+    <Grid>
+        <TextBlock x:Name="Error" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="An error has occurred. :(" VerticalAlignment="Top" Foreground="White" FontSize="48"/>
+        <TextBlock x:Name="Error_MustExit" HorizontalAlignment="Left" Height="35" Margin="10,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="790" Foreground="White" FontSize="24" Text="A fatal error has occurred and the Track Maker must exit."></TextBlock>
+        <TextBlock x:Name="Error_ErrorInformation" HorizontalAlignment="Left" Height="30" Margin="10,126,0,0" TextWrapping="Wrap" Text="Error Information:" Foreground="White" VerticalAlignment="Top" Width="379" FontSize="18"/>
+        <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="193" Margin="10,156,0,0" VerticalAlignment="Top" Width="563">
+            <TextBlock x:Name="Error_ErrorText" HorizontalAlignment="Left" Height="173" Margin="9,9,0,0" TextWrapping="Wrap" Text="{Binding ErrorString}" VerticalAlignment="Top" Width="544" Foreground="White"/>
+        </Border>
+        <TextBlock x:Name="Error_Apology" HorizontalAlignment="Left" Height="35" Margin="10,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" Foreground="White" FontSize="18" Text="We apologise for the inconvenience. You may wish to file an error report."></TextBlock>
+
+        <TextBlock x:Name="Error_PressOKToExit" HorizontalAlignment="Left" Height="35" Margin="10,378,0,0" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" Foreground="White" FontSize="18" Text="Press OK to exit."/>
+        <Button x:Name="Error_OKButton" Content="OK" HorizontalAlignment="Left" Height="35" Margin="647,405,0,0" VerticalAlignment="Top" Width="143" Click="Error_OKButton_Click"/>
+
+    </Grid>
+</UserControl>

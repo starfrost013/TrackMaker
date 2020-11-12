@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Track Maker\bin\Dano_Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,16 +25,34 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Track Maker\bin\Dano_Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Priscilla_Debug|AnyCPU'">
+    <OutputPath>..\Track Maker\bin\Priscilla_Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PRISCILLA</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Priscilla_Release|AnyCPU'">
+    <OutputPath>..\Track Maker\bin\Priscilla_Release\</OutputPath>
+    <DefineConstants>TRACE;PRISCILLA</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,9 +63,51 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Core\Dano_Style.xaml.cs">
-      <DependentUpon>Dano_Style.xaml</DependentUpon>
+    <Compile Include="PriscillaUI\Ported\Core\Dano_TypeSelectorBox.xaml.cs">
+      <DependentUpon>Dano_TypeSelectorBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_AddTrackPoint.xaml.cs">
+      <DependentUpon>Dano_AddTrackPoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_EditUI.xaml.cs">
+      <DependentUpon>Dano_EditUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_SeasonManager.xaml.cs">
+      <DependentUpon>Dano_SeasonManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_AddNewStorm.xaml.cs">
+      <DependentUpon>Dano_AddNewStorm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Priscilla_ProjectUpgrade.xaml.cs">
+      <DependentUpon>Priscilla_ProjectUpgrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Priscilla_CreateLayer.xaml.cs">
+      <DependentUpon>Priscilla_CreateLayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_About.xaml.cs">
+      <DependentUpon>Dano_About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_CategoryManager.xaml.cs">
+      <DependentUpon>Dano_CategoryManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Ported\Dano_BasinSwitcher.xaml.cs">
+      <DependentUpon>Dano_BasinSwitcher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DanoEventArgs.cs" />
+    <Compile Include="Dano_NewProject.xaml.cs">
+      <DependentUpon>Dano_NewProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Priscilla_LayerUserControl.xaml.cs">
+      <DependentUpon>Priscilla_LayerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Priscilla_QualityControl.xaml.cs">
+      <DependentUpon>Priscilla_QualityControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PriscillaUI\Priscilla_ZoomControl.xaml.cs">
+      <DependentUpon>Priscilla_ZoomControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Priscilla_ErrorUI.xaml.cs">
+      <DependentUpon>Priscilla_ErrorUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dano_StartPage.xaml.cs">
@@ -55,7 +115,51 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Core\Dano_Style.xaml">
+    <Page Include="PriscillaUI\Ported\Core\Dano_TypeSelectorBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_AddTrackPoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_EditUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_SeasonManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_AddNewStorm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Priscilla_ProjectUpgrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Priscilla_CreateLayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_CategoryManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Ported\Dano_BasinSwitcher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\Dano_UI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dano_NewProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -63,6 +167,29 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PriscillaUI\Priscilla_LayerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Priscilla_QualityControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PriscillaUI\Priscilla_ZoomControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Priscilla_ErrorUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dano.ACECalculator\Dano.ACECalculator.csproj">
+      <Project>{d035ce54-62ce-4cfe-9a5e-f04d4424731f}</Project>
+      <Name>Dano.ACECalculator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,84 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls; 
+using System.Windows.Controls;
 
 namespace Track_Maker
 {
-    public enum Direction { Smaller, Larger}
+    public enum Direction { Smaller, Larger }
     public partial class MainWindow : Window
     {
+        // Todo: Handle the Priscilla Sidebar
         internal void SetFullscreen()
         {
-            switch (Fullscreen)
+            switch (Setting.WindowStyle)
             {
                 // MOVE THIS CODE
-                case false: // if it's false, turn it on
-                    RecalculateNodePositions();
-                    Fullscreen = true;
+                case WndStyle.Windowed: // if it's false, turn it on
+                    CurrentProject.SelectedBasin.RecalculateNodePositions(true, new Point(Width, Height));
+                    Setting.WindowStyle = WndStyle.Fullscreen;
                     WindowState = WindowState.Maximized;
                     WindowStyle = WindowStyle.None;
                     MainMenu.Width = SystemParameters.PrimaryScreenWidth;
                     HurricaneBasin.Width = SystemParameters.PrimaryScreenWidth;
                     HurricaneBasin.Height = SystemParameters.PrimaryScreenHeight - MainMenu.Height; // MOVE THIS CODE 
+                    PriscillaSidebar.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - 191, 0, 0, 0); 
                     return;
-                case true: // if it's true, turn it off
+                case WndStyle.Fullscreen: // if it's true, turn it off
                     WindowState = WindowState.Normal;
                     WindowStyle = WindowStyle.SingleBorderWindow;
                     MainMenu.Width = Width;
                     HurricaneBasin.Width = Width;
                     HurricaneBasin.Height = Height - MainMenu.Height; // MOVE THIS CODE
-                    RecalculateNodePositions();
-                    Fullscreen = false;
+                    PriscillaSidebar.Margin = new Thickness(Width - 191, 0, 0, 0);
+                    CurrentProject.SelectedBasin.RecalculateNodePositions(false, new Point(Width, Height));
+                    Setting.WindowStyle = WndStyle.Windowed;
                     return;
             }
-        }
-
-        /// <summary>
-        /// When leaving or entering fullscreen mode, recalculate the position of each node so it doesn't end up in the wrong place.
-        /// </summary>
-        private void RecalculateNodePositions()
-        {
-            foreach (Storm StormtoRecalc in CurrentBasin.Storms)
-            {
-                foreach (Node NodetoRecalc in StormtoRecalc.NodeList)
-                {
-                    switch (Fullscreen)
-                    {
-                        case true:
-                            NodetoRecalc.Position = new Point(NodetoRecalc.Position.X / (SystemParameters.PrimaryScreenWidth / Width), NodetoRecalc.Position.Y / (SystemParameters.PrimaryScreenHeight / Height));
-                            continue;
-                        case false:
-                            NodetoRecalc.Position = new Point(NodetoRecalc.Position.X * (SystemParameters.PrimaryScreenWidth / Width), NodetoRecalc.Position.Y * (SystemParameters.PrimaryScreenHeight / Height));
-                            continue;
-
-                    }
-                }
-            }
-        }
-
-        public void RecalculateNodePositions(Direction RecalcDir, Point RecalcRes, Basin XBasin)
-        {
-            foreach (Storm StormtoRecalc in XBasin.Storms)
-            {
-                foreach (Node NodetoRecalc in StormtoRecalc.NodeList)
-                {
-                    switch (RecalcDir)
-                    {
-                        case Direction.Smaller:
-                            // get it smaller
-                            NodetoRecalc.Position = new Point(NodetoRecalc.Position.X / (RecalcRes.X / Width), NodetoRecalc.Position.Y / (RecalcRes.Y / Height));
-                            continue;
-                        case Direction.Larger:
-                            // get it larger
-                            NodetoRecalc.Position = new Point(NodetoRecalc.Position.X * (RecalcRes.X / Width), NodetoRecalc.Position.Y * (RecalcRes.Y / Height));
-                            continue;
-
-                    }
-                }
-            }
-
-            return; 
         }
     }
 }

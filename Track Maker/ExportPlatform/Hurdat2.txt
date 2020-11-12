@@ -1,0 +1,20 @@
+How to read HURDAT2 format:
+20170906, 0600,  , HU, 17.7N,  61.9W, 155,  914,  150,  110,   90,  150,   80,   60,   50,   70,   45,   40,   30,   45,
+2017: Year
+09: Month in number, January is 01, February is 02, etc
+06: Day
+0600: Tau, or time of the point in UTC, 0000, 0600, 1200, and 1800 are what is generally seen
+Blank Space: Sometimes filled with a letter, the letters are C, I, L, P, R, S, T, and W. They denote Closest approach to a coastline, peak Intensity in terms of both wind and pressure, Landfall, minimum central Pressure the system achieved, provides additional detail on the intensity of the cyclone if Rapid changed are underway, change of the Status of a system, additional detail on the Track position of the cyclone, and maximum sustained Wind speed the system achieved
+HU: Storm type, types seen will be TD for Tropical Depression, TS for Tropical Storm, HU for Hurricane, SD for Subtropical Depression, SS for Subtropical Storm, LO for Low, DB for Disturbance, EX for Extratropical, and WV for Wave
+17.7N: Latitude and Hemisphere
+61.9W: Longitude and Hemisphere
+155: Storm wind speed, in knots
+914: Minimum central pressure, in millibars
+150: 34kt wind extent in the Northeast Quadrant
+110, 90, 150: 34kt wind extent in quadrants rotating clockwise from the Northeast
+80: 50kt wind extent in the Northeast Quadrant
+60, 50, 70: 50kt wind extent in quadrants rotating clockwise form the Northeast
+45: 64kt wind extent in the Northeast Quadrant 
+40, 40, 45: 64kt wind extent in quadrants rotating clockwise form the Northeast
+
+-Lori
