@@ -65,7 +65,7 @@ namespace Track_Maker
                 CurrentProject.SelectedBasin.ImagePath = value;
                 HurricaneBasinImage_Bitmap.UriSource = new Uri(value, UriKind.RelativeOrAbsolute);
             }
-             }
+        }
 
         //END VERY DUMB HACK
         public MainWindow()
@@ -126,9 +126,6 @@ namespace Track_Maker
 
             InitializeComponent();
             // DUMB HACK 
-            //HurricaneBasinImage_Bitmap.BeginInit();
-            //HurricaneBasinImage_Bitmap.UriSource = new Uri(ImagePath, UriKind.RelativeOrAbsolute);
-            //HurricaneBasinImage_Bitmap.EndInit();
 
             Logging.Log("Initialized window, starting phase 2...");
             TickTimer = new Timer();
