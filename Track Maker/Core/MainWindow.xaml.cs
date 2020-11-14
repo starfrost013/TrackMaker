@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers; 
@@ -63,7 +63,7 @@ namespace Track_Maker
             {
 
                 CurrentProject.SelectedBasin.ImagePath = value;
-                HurricaneBasinImage_Bitmap.UriSource = new Uri(value, UriKind.RelativeOrAbsolute);
+                HurricaneBasin.Background = new ImageBrush(new BitmapImage(new Uri(value, UriKind.RelativeOrAbsolute))); 
             }
         }
 
@@ -81,11 +81,17 @@ namespace Track_Maker
             // create method to concanetate this for us.
            
             GlobalState.V52_Init("Priscilla");
+#else
+            GlobalState.V52_Init("Dano");
 
-            Logging.Init(); // temp
-            Logging.Log($"Initialised Starfrost's Useful Library...version {VersionInformation.UL5MajorVersion}.{VersionInformation.UL5MinorVersion}.{VersionInformation.UL5RevisionVersion} (status:{VersionInformation.UL5Status})");
 #endif
+            Logging.Init(); // temp
+            Assembly Ass = Assembly.GetExecutingAssembly();
 
+            FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Ass.Location);
+            Logging.Log($"TrackMaker Version {FVI.FileVersion}");
+            Logging.Log($"Initialised Starfrost's Useful Library...version {VersionInformation.UL5MajorVersion}.{VersionInformation.UL5MinorVersion}.{VersionInformation.UL5RevisionVersion} (status:{VersionInformation.UL5Status})");
+            // probably temporary code, will probably put in the utility DLL as this is used 6 times (v532 2020-11-14)
 
             Logging.Log("..Welcome to the Debug Collective..");
             Logging.Log("-----------------------------------");

@@ -50,8 +50,13 @@ namespace Track_Maker
 
             Debug.Assert(e.DanoParameters.Count == 2);
 
-            TProj.AddBasin((string)e.DanoParameters[1], true); 
+            TProj.AddBasin((string)e.DanoParameters[1], true);
 
+            Basin Bas = MnWindow.CurrentProject.SelectedBasin;
+
+            // SHOULD work
+            // FIX BUG HERE: It only sets the project once the user has selected it twice
+            MnWindow.ImagePath = Bas.ImagePath;
 
             MnWindow.CurrentProject = TProj;
             UpdateLayout();

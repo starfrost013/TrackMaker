@@ -50,9 +50,9 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.530.20319")]
-[assembly: AssemblyFileVersion("2.0.530.20319")]
-[assembly: AssemblyInformationalVersion("2.0 Beta Release [prebeta3 - build 531c]")]
+[assembly: AssemblyVersion("2.0.533.20319")]
+[assembly: AssemblyFileVersion("2.0.533.20319")]
+[assembly: AssemblyInformationalVersion("2.0 Beta Release")]
 
 #if DANO
 [assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 
