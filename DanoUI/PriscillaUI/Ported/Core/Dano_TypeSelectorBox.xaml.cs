@@ -42,11 +42,6 @@ namespace DanoUI
             // and also logging and errors because this is T E R R I B L E !
 
             //Logging.Log("Populated TypeBox...");
-            if (TypeBox.Items.Count < 1)
-            {
-                MessageBox.Show("Error - failed to populate TypeBox!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
 
             //Logging.Log("Setting selected index...");
             TypeBox.SelectedIndex = 0;

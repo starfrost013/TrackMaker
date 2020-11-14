@@ -35,7 +35,7 @@ namespace Track_Maker
         /// <summary>
         /// Add a node to this storm.
         /// </summary>
-        public void AddNode(int Intensity, int Type, Point Pos) // String in this case bad but swnabhfabg
+        public void AddNode(int Intensity, string Type, Point Pos) // String in this case bad but swnabhfabg
         {
             Node NewNode = new Node();
 
@@ -49,7 +49,7 @@ namespace Track_Maker
             StormTypeManager ST2Manager = MnWindow.ST2Manager;
 #endif
             // Get node type.
-            NewNode.NodeType = ST2Manager.GetStormTypeWithId(Type); 
+            NewNode.NodeType = ST2Manager.GetStormTypeWithName(Type); 
 
             // Get id.
             NewNode.Id = NodeList.Count;

@@ -41,7 +41,8 @@ namespace Track_Maker.DanoUIHost.AddTrackPointHost
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             Storm Sto = MnWindow.CurrentProject.SelectedBasin.GetCurrentStorm();
 #endif
-            Sto.AddNode((int)DEA.DanoParameters[0], (int)DEA.DanoParameters[1], (Point)DEA.DanoParameters[2]);
+
+            Sto.AddNode((int)DEA.DanoParameters[0], (string)DEA.DanoParameters[1], (Point)DEA.DanoParameters[2]);
             Close();
         }
 

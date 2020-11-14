@@ -27,7 +27,8 @@ namespace DanoUI
         /// 
         /// Param 0     Int     Intensity of this track node
         /// Param 1     String  Type of this track node 
-        /// Param 2     Point   Mouse position to add storm
+        /// *to fix invalid cast exception* 
+        /// Param 2     Point   Mouse position  
         /// </summary>
         public EventHandler<DanoEventArgs> OKHit { get; set; }
         public AddTrackPoint()
@@ -50,7 +51,16 @@ namespace DanoUI
                 DEA.DanoParameters.Add(Convert.ToInt32(IntensityTextBox.Text));
                 DEA.DanoParameters.Add(TypeSelect.GetSelectedItem());
                 DEA.DanoParameters.Add(MousePosition);
+
                 OKHit(this, DEA);
+            }
+            catch (OverflowException err)
+            {
+#if DEBUG
+                MessageBox.Show($"Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive!\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+#else  
+                MessageBox.Show($"Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+#endif
             }
             catch (FormatException err) 
             {
@@ -61,6 +71,15 @@ namespace DanoUI
                 MessageBox.Show($"Please enter a valid intensity!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
 #endif
             }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (TypeSelect.TypeBox.Items.Count < 1)
+            {
+                MessageBox.Show("Error - failed to populate TypeBox!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
     }
 }
