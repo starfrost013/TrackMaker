@@ -19,7 +19,7 @@
         <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_Name" HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Name:" FontSize="28" VerticalAlignment="Top"/>
         <TextBox x:Name="Dano_UI_CreateProject_NameBox" HorizontalAlignment="Left" Height="32" Margin="108,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="351"/>
         <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_InitialBasin" HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" Text="Basin:" FontSize="28" VerticalAlignment="Top" Width="80"/>
-        <ComboBox x:Name="Dano_UI_CreateProject_InitialBasinBox" HorizontalAlignment="Left" Margin="108,128,0,0" VerticalAlignment="Top" Width="351" Height="32" ItemsSource="{Binding BasinList}">
+        <ComboBox x:Name="Dano_UI_CreateProject_InitialBasinBox" HorizontalAlignment="Left" Margin="108,128,0,0" VerticalAlignment="Top" Width="351" Height="32" ItemsSource="{Binding DanoBasinList}">
 
         </ComboBox>
         <TextBlock Style="{StaticResource Style_TextBlock_Invert}" Name="Dano_UI_CreateProject_Tip" HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" Text="You can add more seasons to this project by going to the Project menu. Seasons can use any installed basin." VerticalAlignment="Top" FontStyle="Italic" Width="553"/>

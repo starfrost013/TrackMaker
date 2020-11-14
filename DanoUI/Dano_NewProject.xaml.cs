@@ -34,12 +34,6 @@ namespace DanoUI
         {
             InitializeComponent();
             Dano_UI_CreateProject_InitialBasinBox.DataContext = this;
-
-            // This is just a temporary hack. 
-            foreach (string BasinName in DanoBasinList)
-            {
-                Dano_UI_CreateProject_InitialBasinBox.Items.Add(BasinName); 
-            }
         }
 
         private void Dano_UI_CreateProject_Create_Click(object sender, RoutedEventArgs e)
