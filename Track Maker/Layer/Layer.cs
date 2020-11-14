@@ -32,6 +32,19 @@ namespace Track_Maker
 
         public void RemoveStorm(Storm Sto) => AssociatedStorms.Remove(Sto);
 
+        public Storm GetCurrentStorm()
+        {
+            if (CurrentStorm != null)
+            {
+                return CurrentStorm;
+            }
+            else
+            {
+                Error.Throw("E202", "Attempted to get current storm when there are no storms on this layer!", ErrorSeverity.Error, 202);
+                return null; 
+            }
+        }
+
         public void ClearStorms() => AssociatedStorms.Clear();
 
         public void RenameLayer(string Nm) => Name = Nm; 

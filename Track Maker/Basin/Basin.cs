@@ -599,5 +599,31 @@ namespace Track_Maker
 
             return false; 
         }
+
+        public Storm GetCurrentStorm()
+        {
+            if (CurrentLayer != null)
+            {
+                Layer Lyr = CurrentLayer;
+
+                if (Lyr.CurrentStorm != null)
+                {
+                    return Lyr.CurrentStorm;
+                }
+                else
+                {
+                    // likely shouldn't be fatalerror
+                    Error.Throw("200", "Attempted to acquire current storm when there is no selected storm!", ErrorSeverity.FatalError, 200);
+                    return null;
+                }
+                
+            }
+            else
+            {
+                // likely shouldn't be fatalerror
+                Error.Throw("200", "Attempted to acquire current storm when there is no selected layer!", ErrorSeverity.FatalError, 201);
+                return null;
+            }
+        }
     }
 }

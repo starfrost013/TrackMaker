@@ -179,9 +179,6 @@
     <Compile Include="Storm\StormType\Shape\StormShape.cs" />
     <Compile Include="Storm\StormType\StormType2.cs" />
     <Compile Include="Storm\StormType\StormTypeManager.cs" />
-    <Compile Include="UI\AddTrackPoint\AddTrackPoint.xaml.cs">
-      <DependentUpon>AddTrackPoint.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\Core\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
     </Compile>
@@ -194,9 +191,6 @@
     <Compile Include="Render\RenderManager.cs" />
     <Compile Include="Settings2\SettingLoader.cs" />
     <Compile Include="Storm\Storm.cs" />
-    <Compile Include="UI\Core\TypeSelectorBox.xaml.cs">
-      <DependentUpon>TypeSelectorBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -270,15 +264,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UI\AddTrackPoint\AddTrackPoint.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UI\Core\ColourPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\Core\TypeSelectorBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

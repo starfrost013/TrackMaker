@@ -172,41 +172,7 @@ namespace Track_Maker
 
         }
 
-        // ok
-        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-
-            // Handle when the user has pressed a key. 
-
-            switch (e.Key)
-            {
-                // The user wants fullscreen mode, so let's do windowed borderless. It's better anyway.
-                case Key.F11:
-                    SetFullscreen(); 
-                    return; 
-                case Key.Y:
-                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null) return;
-                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.NodeList.Count == 0) return;
-
-                    if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
-                    {
-                        // we want to redo
-                        CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Redo();
-                    }
-                    return;
-                case Key.Z:
-                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null) return;
-                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.NodeList.Count == 0) return;
-
-                    if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
-                    {
-                        // we want to undo
-                        CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Undo(); 
-                    }
-                    return;
-            }
-        }
-
+        
 
         /// <summary>
         /// Temporary function

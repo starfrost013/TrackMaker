@@ -59,5 +59,10 @@ namespace DanoUI
 
         private void TypeBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => SelectedItem = TypeBox.Text;
 
+        /// <summary>
+        /// Gets the selected item 
+        /// </summary>
+        /// <returns></returns>
+        public string GetSelectedItem() => (string)TypeBox.SelectedItem;
     }
 }

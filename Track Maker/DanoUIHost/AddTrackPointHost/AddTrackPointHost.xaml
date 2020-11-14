@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="AddTrackPointHost" Height="237" Width="755">
     <Grid>
-        <Dano:AddTrackPoint x:Name="AddTrackPointControl"></Dano:AddTrackPoint>
+        <Dano:AddTrackPoint x:Name="AddTrackPointControl" OKHit="OKHit"></Dano:AddTrackPoint>
     </Grid>
 </Window>

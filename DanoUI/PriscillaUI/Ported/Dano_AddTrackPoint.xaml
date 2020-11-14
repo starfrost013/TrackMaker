@@ -12,7 +12,7 @@
 
         <TextBlock x:Name="TypeTextBlock" Text="Type:" HorizontalAlignment="Left" Height="32" Margin="10,104,0,0" VerticalAlignment="Top" Width="44" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
         <local:TypeSelectorBox x:Name="TypeSelect" x:FieldModifier="public" Margin="156,104,235,70" Width="345" Height="34" Loaded="TypeSelect_Loaded"></local:TypeSelectorBox>
-        <Button x:Name="TypeOK" Content="OK" HorizontalAlignment="Left" Margin="559,144,0,0" VerticalAlignment="Top" Width="115" FontSize="18" />
+        <Button x:Name="TypeOK" Content="OK" HorizontalAlignment="Left" Margin="559,144,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="TypeOK_Click" Style="{StaticResource Button_Invert}"/>
         <!-- Don't add options here, this is populated by the constructor (maybe a method for this) -->
     </Grid>
 </UserControl>

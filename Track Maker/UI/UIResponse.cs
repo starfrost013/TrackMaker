@@ -62,7 +62,7 @@ namespace Track_Maker
 #else
                         StormTypeManager ST2Manager = GlobalState.GetST2Manager();
 #endif
-                        AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames());
+                        AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames(), e.GetPosition(HurricaneBasin));
                         ATPHost.Owner = this;
                         ATPHost.Show(); 
                         /*
@@ -296,6 +296,41 @@ namespace Track_Maker
             ExportUI ExUI = new ExportUI(FormatType.Export, new ExportHURDAT2());
             ExUI.Owner = this;
             ExUI.Show(); 
+        }
+
+        // ok
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+            // Handle when the user has pressed a key. 
+
+            switch (e.Key)
+            {
+                // The user wants fullscreen mode, so let's do windowed borderless. It's better anyway.
+                case Key.F11:
+                    SetFullscreen();
+                    return;
+                case Key.Y:
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null) return;
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.NodeList.Count == 0) return;
+
+                    if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
+                    {
+                        // we want to redo
+                        CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Redo();
+                    }
+                    return;
+                case Key.Z:
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm == null) return;
+                    if (CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.NodeList.Count == 0) return;
+
+                    if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
+                    {
+                        // we want to undo
+                        CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Undo();
+                    }
+                    return;
+            }
         }
 
     }
