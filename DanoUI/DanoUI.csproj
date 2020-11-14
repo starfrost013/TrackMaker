@@ -189,6 +189,10 @@
       <Project>{d035ce54-62ce-4cfe-9a5e-f04d4424731f}</Project>
       <Name>Dano.ACECalculator</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Starfrost.UL5\Starfrost.UL5.csproj">
+      <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
+      <Name>Starfrost.UL5</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

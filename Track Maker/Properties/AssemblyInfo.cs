@@ -52,7 +52,7 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.530.20319")]
 [assembly: AssemblyFileVersion("2.0.530.20319")]
-[assembly: AssemblyInformationalVersion("2.0 Beta Release [prebeta3 - build 531b]")]
+[assembly: AssemblyInformationalVersion("2.0 Beta Release [prebeta3 - build 531c]")]
 
 #if DANO
 [assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 

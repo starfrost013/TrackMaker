@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.MathUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,8 @@ namespace DanoUI
         public double ZoomLevel { get => Internal_ZoomLevel; set
             {
                 Internal_ZoomLevel = value;
-                ZoomUI_ZoomPercentage.Text = $"{Internal_ZoomLevel}%";
+                double RoundedZoomLevel = MathUtil.RoundNearest(Internal_ZoomLevel, 1); 
+                ZoomUI_ZoomPercentage.Text = $"{RoundedZoomLevel}%";
             }
         }
         public EventHandler<DanoEventArgs> ZoomLevelChanged { get; set; }

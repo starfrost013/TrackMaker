@@ -73,13 +73,5 @@ namespace DanoUI
             }
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (TypeSelect.TypeBox.Items.Count < 1)
-            {
-                MessageBox.Show("Error - failed to populate TypeBox!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-        }
     }
 }

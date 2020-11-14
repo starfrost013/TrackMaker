@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
-             mc:Ignorable="d" Height="207.686" Width="736.073" Loaded="UserControl_Loaded">
+             mc:Ignorable="d" Height="207.686" Width="736.073">
     <Grid>
         <TextBlock x:Name="AddTrackPointTextBlock" Text="Add Track Point" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.411,-0.434" Height="58" Width="261" FontSize="36" FontStyle="Italic"/>
         <TextBlock x:Name="IntensityTextBlock" Text="Intensity (mph):" HorizontalAlignment="Left" Height="28" Margin="10,68,0,0" VerticalAlignment="Top" Width="134" FontSize="18"/>
