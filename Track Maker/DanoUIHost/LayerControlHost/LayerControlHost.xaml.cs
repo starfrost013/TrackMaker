@@ -24,7 +24,7 @@ namespace Track_Maker
 
         public void AddLayer(string Name)
         {
-            Layers.LayerNames.Add(Name);
+            Layers.AddLayer(Name);
             Layers.UpdateLayout(); 
         }
 

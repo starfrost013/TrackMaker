@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
-             mc:Ignorable="d" Width="115.164" Height="347.333" Loaded="UserControl_Loaded">
+             mc:Ignorable="d" Width="130.348" Height="347.333" Loaded="UserControl_Loaded">
 
     <Grid>
         <Grid.Resources>
@@ -28,13 +28,18 @@
             <RowDefinition Height="238*"/>
             <RowDefinition Height="57*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="PriscillaUI_Layers_LayerHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Layers" VerticalAlignment="Top" Foreground="White" Margin="5,10,0,0"/>
-        <ListView x:Name="PriscillaUI_Layers_LayerListView" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="95" Background="#80FFFFFF" Foreground="White" ItemsSource="{Binding}" DisplayMemberPath="LayerNames" Grid.RowSpan="2">
+        <TextBlock x:Name="PriscillaUI_Layers_LayerHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Layers" VerticalAlignment="Top" Foreground="White" Margin="39,10,0,0"/>
+        <ListView x:Name="PriscillaUI_Layers_LayerListView" x:FieldModifier="public" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="110" Background="#80FFFFFF" Foreground="White" ItemsSource="{Binding LayerNames}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name"  Width="85">
+                    <GridViewColumn Header="Name" Width="100">
 
                     </GridViewColumn>
+                    <!-- remove unless requested
+                    <GridViewColumn x:Name="riscillaUI_Layers_LayerListView_IsEnabled" Width="20">
+                        <CheckBox x:Name="PriscillaUI_Layers_LayerListView_IsEnabled_ChkBox"></CheckBox>
+                    </GridViewColumn>
+                    -->
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>
@@ -44,12 +49,12 @@
                     <Separator/>
                     <MenuItem>Rename</MenuItem>
                     <Separator/>
-                    <MenuItem>Delete Selected Layer</MenuItem>
+                    <MenuItem>Delete</MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="50" Grid.Row="1" Click="AddButton_Click" Style="{StaticResource Button_MainWindow}"/>
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="50" Margin="60,0,0,0" Grid.Row="1" Click="DeleteButton_Click" Style="{StaticResource Button_MainWindow}"/>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="50" Grid.Row="1" Click="AddButton_Click" Style="{StaticResource Button_MainWindow}" RenderTransformOrigin="0.645,0.576" Margin="5,0,0,0"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="55" Margin="65,0,0,0" Grid.Row="1" Click="DeleteButton_Click" Style="{StaticResource Button_MainWindow}"/>
 
     </Grid>
 </UserControl>

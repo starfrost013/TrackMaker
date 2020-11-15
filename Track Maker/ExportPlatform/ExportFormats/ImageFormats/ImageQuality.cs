@@ -37,16 +37,7 @@ namespace Track_Maker
         /// [T3.0/Dano] Custom
         /// </summary>
         Custom = 4,
-        /// <summary>
-        /// [T3.0/Dano] Nearest Neighbour Upscaling
-        /// </summary>
-        ScaleNearestNeighbour = 5,
 
-        /// [T3.0/Dano] Bilinear Scaling
-        ScaleBilinear = 6,
-
-        /// [T3.0/Dano] Fant Scaling
-        ScaleFant = 7
 #endif
     }
 }

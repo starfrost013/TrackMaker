@@ -66,5 +66,7 @@ namespace DanoUI
                 return; 
             }
         }
+
+        public void AddLayer(string Lyr) => LayerNames.Add(Lyr);
     }
 }
