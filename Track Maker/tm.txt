@@ -58,6 +58,7 @@ Features:
 - IMode interface?
 - Cone and graphic IModes?
 - Animate tracks feature (possibly 3.0) using the XAF (XML Animation Format) file format
+- Upload to the Internet
 
 Moved to 2.1: Delegate-based error system 
 

@@ -53,6 +53,7 @@
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\VersionInformation.cs" />
     <Compile Include="GameUtil\Gender.cs" />
+    <Compile Include="ScaleUtil\ImageQuality.cs" />
     <Compile Include="GeneralUtil\LineEnding.cs" />
     <Compile Include="GFX\Colour.cs" />
     <Compile Include="InputValidation\IResult.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="MathUtil\MathUtil.cs" />
     <Compile Include="Platform\TL_DetermineRuntimePlatform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScaleUtil\ScaleUtilities.cs" />
     <Compile Include="StringUtil\StringUtil.cs" />
     <Compile Include="VersionUtil\ValidStatus\Status.cs" />
     <Compile Include="VersionUtil\Version.cs" />

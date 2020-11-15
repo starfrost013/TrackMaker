@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Starfrost.UL5.ScaleUtilities; 
 using System;
 using System.Collections.Generic;
 using System.IO; 
@@ -19,6 +20,7 @@ namespace Track_Maker
         public bool DisplayQualityControl { get; set; }
         internal MainWindow Xwindow { get; set; }
         public string Name { get; set; }
+        public ImageQuality ImgQuality { get; set; }
 
         public ExportImage()
         {
@@ -76,100 +78,105 @@ namespace Track_Maker
             }
             catch (ArgumentException err)
             {
-                MessageBox.Show($"Unknown export error: An ArgumentException error has occurred. [Error code: EI1]\n\n{err}.");
+                Error.Throw("Error!", $"Unknown export error: An ArgumentException error has occurred.\n\n{err}.", ErrorSeverity.Error, 210);
                 return false;
             }
             catch (FileNotFoundException err)
             {
-                MessageBox.Show($"Export error: File creation failed. [Error code: EI2]\n\n{err}.");
+                Error.Throw("Error!", $"Export error: File creation failed.\n\n{err}.", ErrorSeverity.Error, 211);
                 return false;
             }
             catch (DirectoryNotFoundException err)
             {
-                MessageBox.Show($"Export error: Directory creation failed (???). [Error code: EI3]\n\n{err}.");
+                Error.Throw("Error!", $"Export error: Directory creation failed.\n\n{err}.", ErrorSeverity.Error, 212);
                 return false;
             }
             catch (UnauthorizedAccessException err)
             {
-                MessageBox.Show($"Export error: The OS denied access to the file. [Error code: EI4]\n\n{err}.");
-                return false;
-            }
-            catch (SecurityException err)
-            {
-                MessageBox.Show($"Export error: A security error has occurred. [Error code: EI5]\n\n{err}.");
+                Error.Throw("Error!", $"Export error: The OS denied access to the file.\n\n{err}.", ErrorSeverity.Error, 213);
                 return false;
             }
             catch (InvalidOperationException err)
             {
-                MessageBox.Show($"Export error: An invalid operation for the current program state has occurred. [Error code: EI6]\n\n{err}.");
+                Error.Throw("Error!", $"Export error: Invalid operation.\n\n{err}.", ErrorSeverity.Error, 214);
                 return false;
             }
             catch (PathTooLongException err)
             {
-                MessageBox.Show($"Export error: A path was selected for the file that is longer than MAX_PATH, or 260 chars, because Windows sucks (although it doesn't, but 8.3 compatibility!!!!1). Please use a shorter path file - try renaming folders to be shorter, or something. [Error code: EI7]\n\n{err}.");
+                Error.Throw("Error!", $"Export error: A path was selected for the file that is longer than MAX_PATH, or 260 characters. Please use a shorter path to the file - try renaming folders so that they have shorter names.\n\n{err}.", ErrorSeverity.Error, 215);
                 return false;
             }
         }
 
+        public void SetImageQuality(ImageQuality ImageQuality) => ImgQuality = ImageQuality;
+
         public bool ExportCore(Project Project, string FileName)
         {
             // Create a new canvas and set its background. This is what we are going to be rendering to. 
-            Canvas _temp_ = new Canvas();
+            Canvas TempCanvas = new Canvas();
 
             MainWindow Xwindow = (MainWindow)Application.Current.MainWindow;
 
-            BitmapImage _temp_bi_ = new BitmapImage();
-            _temp_bi_.BeginInit();
-            _temp_bi_.UriSource = new Uri(Project.SelectedBasin.ImagePath, UriKind.RelativeOrAbsolute);
-            _temp_bi_.EndInit();
+            BitmapImage Bitmap = new BitmapImage();
+            Bitmap.BeginInit();
+            Bitmap.UriSource = new Uri(Project.SelectedBasin.ImagePath, UriKind.RelativeOrAbsolute);
+            Bitmap.EndInit();
 
-            _temp_.Background = new ImageBrush(_temp_bi_);
-            _temp_.Width = _temp_bi_.PixelWidth;
-            _temp_.Height = _temp_bi_.PixelHeight;
+            TempCanvas.Background = new ImageBrush(Bitmap);
+
+            // 2020-11-15 
+            int CurWidth = Bitmap.PixelWidth;
+            int CurHeight = Bitmap.PixelHeight;
+
+            TempCanvas = TempCanvas.ScaleToQuality(ImgQuality);
+
+
             Project CurrentProject = Xwindow.CurrentProject;
 
-            CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Larger, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
+            CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Larger, new Point(Xwindow.Width, Xwindow.Height), new Point(TempCanvas.Width, TempCanvas.Height));
 
             //New scaling for picking up dev again - 2020-05-08 23:04
             //Remove storm selection functionality, replace with layer selection functionality - 2020-09-12 17:24
             //v462 - 2020-09-26 00:00
-            Xwindow.RenderContent(_temp_, new Point(Utilities.RoundNearest(8 * (_temp_.Width / Xwindow.Width) / 1.5, 8), Utilities.RoundNearest(8 * (_temp_.Height / Xwindow.Height) / 1.5, 8)), Project.SelectedBasin.GetFlatListOfStorms());
+            Xwindow.RenderContent(TempCanvas, new Point(Utilities.RoundNearest(8 * (TempCanvas.Width / Xwindow.Width) / 1.5, 8), Utilities.RoundNearest(8 * (TempCanvas.Height / Xwindow.Height) / 1.5, 8)), Project.SelectedBasin.GetFlatListOfStorms());
 
             // Recalculate node positions on the currentbasin so they actually show up properly.
 
-            _temp_.UpdateLayout();
+            TempCanvas.UpdateLayout();
 
             // create a new rendertargetbitmap and render to it
 
-            RenderTargetBitmap _temp_rtb_ = new RenderTargetBitmap((int)_temp_.Width, (int)_temp_.Height, 96.0, 96.0, PixelFormats.Default);
+            RenderTargetBitmap RenderTarget = new RenderTargetBitmap((int)TempCanvas.Width, (int)TempCanvas.Height, 96.0, 96.0, PixelFormats.Default);
 
             // force WPF to render it because optimization is not always a good idea
 
             Viewbox ViewBox = new Viewbox();
-            ViewBox.Child = _temp_;
-            ViewBox.Measure(new Size(_temp_.Width, _temp_.Height));
-            ViewBox.Arrange(new Rect(new Point(0, 0), new Point(_temp_.Width, _temp_.Height)));
+            ViewBox.Child = TempCanvas;
+            ViewBox.Measure(new Size(TempCanvas.Width, TempCanvas.Height));
+            ViewBox.Arrange(new Rect(new Point(0, 0), new Point(TempCanvas.Width, TempCanvas.Height)));
             ViewBox.UpdateLayout();
 
-            _temp_rtb_.Render(_temp_);
+            RenderTarget.Render(TempCanvas);
 
             // create a new PNG encoder and memory stream
 
-            BitmapEncoder _temp_be_ = new PngBitmapEncoder();
+            BitmapEncoder PNGEncoder = new PngBitmapEncoder();
             
-            _temp_be_.Frames.Add(BitmapFrame.Create(_temp_rtb_));
+            PNGEncoder.Frames.Add(BitmapFrame.Create(RenderTarget));
 
-            MemoryStream _temp_ms_ = new MemoryStream();
+            MemoryStream TempCanvasms_ = new MemoryStream();
 
             // save the thing
 
-            _temp_be_.Save(_temp_ms_);
-            File.WriteAllBytes(FileName, _temp_ms_.ToArray());
+            PNGEncoder.Save(TempCanvasms_);
+            File.WriteAllBytes(FileName, TempCanvasms_.ToArray());
 
             // clean up by restoring the basin
-            CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Smaller, new Point(Xwindow.Width, Xwindow.Height), new Point(_temp_.Width, _temp_.Height));
+            CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Smaller, new Point(Xwindow.Width, Xwindow.Height), new Point(TempCanvas.Width, TempCanvas.Height));
 
             return true; // success
         }
+
+        
     }
 }

@@ -158,7 +158,6 @@
     <Compile Include="ExportPlatform\ExportFormats\ATCF.cs" />
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormats.cs" />
-    <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageQuality.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageScaling.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Validation\NodeImportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Validation\XMLImportResult.cs" />
