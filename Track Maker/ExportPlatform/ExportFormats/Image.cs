@@ -124,10 +124,6 @@ namespace Track_Maker
 
             TempCanvas.Background = new ImageBrush(Bitmap);
 
-            // 2020-11-15 
-            int CurWidth = Bitmap.PixelWidth;
-            int CurHeight = Bitmap.PixelHeight;
-
             TempCanvas = TempCanvas.ScaleToQuality(ImgQuality);
 
 

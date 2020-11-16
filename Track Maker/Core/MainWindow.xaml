@@ -12,7 +12,7 @@
 
     <Grid x:Name="Core">
 
-        <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="952">
+        <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="952">
             <Menu.Background>
                 <!-- menu background -->
                 <LinearGradientBrush>
@@ -101,7 +101,7 @@
 
 
         <!-- this is where the basin image is loaded from xml -->
-        <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="574" Margin="0,37,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
+        <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="583" Margin="0,28,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
             <Canvas.Background>
                 <ImageBrush x:Name="HurricaneBasinImage">
                     <ImageBrush.ImageSource>
@@ -119,7 +119,7 @@
                     <ScaleTransform.CenterY>
                         <Binding ElementName="CentrePosition" Path="Y"></Binding>
                     </ScaleTransform.CenterY>
-                    
+
                 </ScaleTransform>
             </Canvas.RenderTransform>
         </Canvas>

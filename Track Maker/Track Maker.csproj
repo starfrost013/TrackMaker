@@ -116,7 +116,6 @@
     <Compile Include="Basin\Basin.cs" />
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\GlobalState.Priscilla.cs" />
-    <Compile Include="Core\MainWindow.DumbHack.cs" />
     <Compile Include="DanoProject\Project.cs" />
     <Compile Include="DanoProject\Upgrade\ProjectUpgrade.cs" />
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
@@ -200,10 +199,6 @@
     <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
     <Compile Include="V3Graph\IGraph.cs" />
-    <Page Include="Converters\Converters.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
