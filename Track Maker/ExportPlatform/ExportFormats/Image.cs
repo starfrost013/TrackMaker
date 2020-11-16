@@ -14,13 +14,13 @@ using System.Windows.Media.Imaging;
 
 namespace Track_Maker
 {
-    public class ExportImage : IExportFormat
+    public class ExportImage : IImageExportFormat
     {
         public bool AutoStart { get; set; }
         public bool DisplayQualityControl { get; set; }
         internal MainWindow Xwindow { get; set; }
         public string Name { get; set; }
-        public ImageQuality ImgQuality { get; set; }
+        public ImageQuality Quality { get; set; }
 
         public ExportImage()
         {
@@ -108,7 +108,7 @@ namespace Track_Maker
             }
         }
 
-        public void SetImageQuality(ImageQuality ImageQuality) => ImgQuality = ImageQuality;
+        public void SetImageQuality(ImageQuality ImageQuality) => Quality = ImageQuality;
 
         public bool ExportCore(Project Project, string FileName)
         {
@@ -124,7 +124,7 @@ namespace Track_Maker
 
             TempCanvas.Background = new ImageBrush(Bitmap);
 
-            TempCanvas = TempCanvas.ScaleToQuality(ImgQuality);
+            TempCanvas = TempCanvas.ScaleToQuality(Quality);
 
 
             Project CurrentProject = Xwindow.CurrentProject;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.ScaleUtilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace Track_Maker
 {
     public interface IExportFormat
     {
-        bool DisplayQualityControl { get; set; } // Does this format display the QualityControl?
+
         bool AutoStart { get; set; } // Does it auto-start?
         string Name { get; set; } // The name of the file format to export to.
         string GetName(); // Returns the name of this ExportFormat. 

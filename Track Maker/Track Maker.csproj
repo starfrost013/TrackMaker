@@ -165,6 +165,7 @@
     <Compile Include="ExportPlatform\ExportFormats\XMLv2.cs" />
     <Compile Include="ExportPlatform\ExportFormats\HURDAT2.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />
+    <Compile Include="ExportPlatform\IImageExportFormat.cs" />
     <Compile Include="Network\TelemetryConsent.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Settings2\Emerald.Settings.cs" />
@@ -196,6 +197,10 @@
     <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
     <Compile Include="Util\Utilities.cs" />
+    <Compile Include="V3Error\ELM2\Class1.cs" />
+    <Compile Include="V3Error\ErrorResult\ErrorResult.cs" />
+    <Compile Include="V3Error\ErrorResult\ErrorUserAction.cs" />
+    <Compile Include="V3Error\V3Error.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
     <Compile Include="V3Graph\IGraph.cs" />
@@ -334,9 +339,7 @@
       <Name>Starfrost.UL5</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="V3Error\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Data\BasinImages\T_AtlanticHighRes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

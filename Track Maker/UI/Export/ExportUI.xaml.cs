@@ -49,9 +49,10 @@ namespace Track_Maker
             StormsToExport = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); // feature pushed back to Dano, maybe even 3.0/"Aurora"
             Type = FType;
 
-            if (!ExportFormat.DisplayQualityControl)
+            if (ExportFormat is IImageExportFormat)
             {
-                HideQualityControl();
+                IImageExportFormat ExpFI = (IImageExportFormat)ExportFormat;
+                if (!ExpFI.DisplayQualityControl) HideQualityControl(); 
             }
 
             //completely different in Dano
@@ -168,7 +169,7 @@ namespace Track_Maker
                         return false;
                     }
 
-                    // wish VS allowed the sam var names under different code paths
+                    // wish VS allowed the samE var names under different code paths
                     Project CurProject = MnWindow.CurrentProject;
 
                     MnWindow.Title = $"Track Maker 2.0 'Priscilla' - {CurProject.FileName}";
