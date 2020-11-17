@@ -20,9 +20,14 @@ namespace Track_Maker.V3Error
     /// </summary>
     public class ExceptionsLite2
     {
-        public void Elm2RegisterException()
+        private List<V3Error> Errors { get; set; }
+        public void Elm2RegisterException(V3Error Err)
         {
+            if (Err.ErrorName == null) throw new Exception($"Error {Err.ErrorId} must have a name.");
 
+#if DEBUG
+            throw new Exception(); 
+#endif
         }
 
         public void Elm2RegisterExceptionXml()

@@ -197,7 +197,7 @@
     <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
     <Compile Include="Util\Utilities.cs" />
-    <Compile Include="V3Error\ELM2\Class1.cs" />
+    <Compile Include="V3Error\ELM2\Elm2.cs" />
     <Compile Include="V3Error\ErrorResult\ErrorResult.cs" />
     <Compile Include="V3Error\ErrorResult\ErrorUserAction.cs" />
     <Compile Include="V3Error\V3Error.cs" />
