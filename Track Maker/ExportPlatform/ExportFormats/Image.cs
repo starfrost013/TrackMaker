@@ -126,7 +126,6 @@ namespace Track_Maker
 
             TempCanvas = TempCanvas.ScaleToQuality(Quality);
 
-
             Project CurrentProject = Xwindow.CurrentProject;
 
             CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Larger, new Point(Xwindow.Width, Xwindow.Height), new Point(TempCanvas.Width, TempCanvas.Height));

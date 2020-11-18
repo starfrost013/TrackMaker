@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Core\ico256x256-v2.ico</ApplicationIcon>
+    <ApplicationIcon>V2Icon_32x32.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dano_Debug|AnyCPU'">
     <OutputPath>bin\Dano_Debug\</OutputPath>
@@ -198,6 +198,7 @@
     <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
     <Compile Include="Util\Utilities.cs" />
     <Compile Include="V3Error\ELM2\Elm2.cs" />
+    <Compile Include="V3Error\ErrorHandlers.cs" />
     <Compile Include="V3Error\ErrorResult\ErrorResult.cs" />
     <Compile Include="V3Error\ErrorResult\ErrorUserAction.cs" />
     <Compile Include="V3Error\V3Error.cs" />
@@ -371,11 +372,14 @@
     <Content Include="Data\CategorySystems.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="V2Icon_32x32.ico" />
     <Resource Include="Data\empty.png" />
     <Resource Include="Data\Languages\Languages.xml" />
     <Resource Include="Data\Redo16.png" />
     <Resource Include="Data\Redo32.png" />
     <Resource Include="Data\RedoFull.png" />
+    <Resource Include="Data\Icon\V2Icon_32x32.ico" />
+    <Resource Include="Data\Icon\V2Icon_32x32.png" />
     <Content Include="Data\Settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
