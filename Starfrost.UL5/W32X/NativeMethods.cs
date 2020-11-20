@@ -21,7 +21,13 @@ namespace Starfrost.UL5.Win32X
     public class NativeMethods
     {
         [DllImport("user32.dll")]
-        private static extern int GetSystemMetrics(SystemMetric SysMetric); // temp
+        public static extern int GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        public static extern int GetSystemMetrics(SystemMetric SysMetric); // temp
+
+        [DllImport("user32.dll")]
+        public static extern int MessageBox(int HWnd, string Text, string Caption, uint Type);
 
         /// <summary>
         /// Native method wrapper for GetSystemMetrics [Win32 API] 
@@ -38,6 +44,20 @@ namespace Starfrost.UL5.Win32X
             return Result;
         }
 
+        public static int MessageBox__Managed(string Text, string Caption, uint Type) // Enum required
+        {
+            LogLeavingCLR();
+
+            int HWND = GetForegroundWindow();
+            CheckLastWin32Error();
+            int MBResult = MessageBox(HWND, Text, Caption, Type);
+            CheckLastWin32Error(); 
+            LogEnteringCLR();
+            CheckLastWin32Error();
+
+            return MBResult; 
+        }
+
         private static void LogEnteringCLR() => Logging.Logging.Log("Now entering managed code - Win32 function has been called");
         private static void LogLeavingCLR() => Logging.Logging.Log("Now exiting managed code - calling Win32 function");
 
@@ -48,7 +68,7 @@ namespace Starfrost.UL5.Win32X
 
             if (LastW32Error != 0)
             {
-                MessageBox.Show($"Error 0x5555dead (Internal): A win32 error has occurred - {LastW32Error} (Code: {(Win32Error)LastW32Error}, HRESULT: {HResult}");
+                System.Windows.MessageBox.Show($"Error 0x5555dead (Internal): A Win32 error has occurred - {LastW32Error} (Code: {(Win32Error)LastW32Error}, HRESULT: {HResult}");
 #if DEBUG
                 return; // try to recover
 #else

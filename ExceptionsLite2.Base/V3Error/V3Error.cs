@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Track_Maker.V3Error
+namespace ExceptionsLite2.Base
 {
     /// <summary>
     /// Priscilla+ (v2.1) / Dano (v3.0) centralised error service
@@ -27,7 +27,7 @@ namespace Track_Maker.V3Error
         public Delegate ResultHandler { get; set; }
         public bool UsesCustomErrorHandler { get; set; }
         public List<string> CustomErrorHandlerParameters { get; set; }
-        public ErrorResult Throw()
+        public virtual ErrorResult Throw()
         {
             try
             {
@@ -45,7 +45,9 @@ namespace Track_Maker.V3Error
                 }
                 else
                 {
+                    // default error handler if an Implementation DLL has not implemented(?) it
 
+                   
                 }
 
                 return Result;

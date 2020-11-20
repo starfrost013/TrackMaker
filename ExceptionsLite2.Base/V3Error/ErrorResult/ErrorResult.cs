@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Track_Maker.V3Error
+namespace ExceptionsLite2.Base
 {
     /// <summary>
     /// User Input Validation
