@@ -17,6 +17,7 @@ namespace Track_Maker
     /// </summary>
     public class GlobalStateP // move to Starfrost UL5 Version 5.3?
     {
+        public static List<Basin> OpenBasins { get; set; }
         public static string CurrentlyOpenFile { get; set; }
 
         public static void SetCurrentOpenFile(string FileName) => CurrentlyOpenFile = FileName;

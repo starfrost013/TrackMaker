@@ -9,7 +9,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dano.ACECalculator"
         mc:Ignorable="d"
-        Title="starfrost's ACE Calculator" Height="589.174" Width="412.629">
+        Title="starfrost's ACE Calculator" Height="566.174" Width="404.629">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+        <Style TargetType="Menu">
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="405">
             <MenuItem x:Name="FileMenu" Header="File" Height="23">
@@ -60,7 +68,6 @@
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
-        <TextBlock x:Name="BystarfrostForHHW" Text="By starfrost for HHW" HorizontalAlignment="Left" Height="18" Margin="277,518,0,0" VerticalAlignment="Top" Width="101" FontStyle="Italic"/>
 
 
     </Grid>

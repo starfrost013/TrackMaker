@@ -178,8 +178,6 @@ namespace Track_Maker
 
         }
 
-        
-
         /// <summary>
         /// Temporary function
         /// </summary>
