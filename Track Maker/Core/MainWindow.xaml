@@ -36,7 +36,6 @@
                 <MenuItem x:Name="FileMenu_Import" Header="Import" Foreground="Black" Style="{StaticResource Style_Menu}">
                     <MenuItem x:Name="FileMenu_Import_BT" Header="from Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Import_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_HURDAT" Header="from Best Track (HURDAT2)..." Foreground="Black" IsEnabled="False" FontStyle="Italic"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Import_XML" Header="from Track Maker project (version 1.x)..." Foreground="Black" Click="FileMenu_Import_XML_Click" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_XMLv2" Header="from Track Maker project..." Foreground="Black" Click="FileMenu_Import_XML2_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
                 <MenuItem x:Name="FileMenu_Export" Header="Export" Foreground="Black">

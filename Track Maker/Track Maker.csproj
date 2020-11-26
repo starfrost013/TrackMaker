@@ -117,7 +117,6 @@
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\GlobalState.Priscilla.cs" />
     <Compile Include="DanoProject\Project.cs" />
-    <Compile Include="DanoProject\Upgrade\ProjectUpgrade.cs" />
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>
     </Compile>
@@ -161,7 +160,6 @@
     <Compile Include="ExportPlatform\ExportFormats\Validation\NodeImportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Validation\XMLImportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
-    <Compile Include="ExportPlatform\ExportFormats\XML.cs" />
     <Compile Include="ExportPlatform\ExportFormats\XMLv2.cs" />
     <Compile Include="ExportPlatform\ExportFormats\HURDAT2.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />

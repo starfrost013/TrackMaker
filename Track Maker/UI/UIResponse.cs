@@ -279,17 +279,6 @@ namespace Track_Maker
 
         }
 
-        private void FileMenu_Import_XML_Click(object sender, RoutedEventArgs e)
-        {
-
-            if (MessageBox.Show("Warning!\nThis option is only for importing OLD projects created with Track Maker 1.x. It is NOT for projects created in version 2.x!\n\nLayers and multiple basins are NOT SUPPORTED in version 1.x format!\nFurthermore, this option will NOT be available in future versions of the Track Maker! You can remove the export to version 1.x option in the Settings!", "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-            {
-                ExportUI ExUI = new ExportUI(FormatType.Import, new ExportXML());
-                ExUI.Owner = this;
-                ExUI.Show();
-            }
-        }
-
 
         private void FileMenu_Export_HURDAT_Click(object sender, RoutedEventArgs e)
         {
