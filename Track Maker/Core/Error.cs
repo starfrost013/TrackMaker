@@ -22,11 +22,11 @@ namespace Track_Maker
                     return;
                 case ErrorSeverity.Warning:
                     Logging.Log($"Warning ({ID}): {Text}");
-                    MessageBox.Show($"Warning: {Caption}", Text, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show($"Warning: {Text}", Caption, MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 case ErrorSeverity.Error:
                     Logging.Log($"Error! ({ID}): {Text}");
-                    MessageBox.Show($"Error #{ID}: {Caption}", Text, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Error #{ID}: {Text}", Caption, MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 case ErrorSeverity.FatalError:
                     Logging.Log($"Fatal Error\n\n:Error ID:{ID}: Status: {Text}");

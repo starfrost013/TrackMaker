@@ -17,6 +17,7 @@ using System.Windows.Controls;
 /// 
 /// (Priscilla - v485)
 /// 
+/// v2.0.540.0      V1.6        Preparation for removal of autostart
 /// v2.0.485.0      V1.5        Added boolean property for displaying QualityControl
 /// v2.0.464.0      V1.4        Project now mandatory
 /// </summary>
@@ -32,6 +33,7 @@ namespace Track_Maker
         Project Import(); // Import from this file format.
         bool Export(Project Project); // Export from this file format. 
         bool ExportCore(Project Project, string FileName); // Does the actual exporting. 
+        //bool DisplayPreview { get; set; } // post-beta - display
         //void GeneratePreview(Canvas ImportCanvas); // Generate a preview - this will be hanled by the track maker...for imports, might reintro this 
     }
 }

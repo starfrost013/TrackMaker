@@ -26,6 +26,7 @@ namespace Track_Maker
         {
             Name = "Image";
             Xwindow = (MainWindow)Application.Current.MainWindow; // convert
+            DisplayQualityControl = true; 
         }
 
         public void GeneratePreview(Canvas XCanvas) // test
