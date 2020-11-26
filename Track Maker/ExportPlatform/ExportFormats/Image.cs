@@ -26,7 +26,6 @@ namespace Track_Maker
         {
             Name = "Image";
             Xwindow = (MainWindow)Application.Current.MainWindow; // convert
-            AutoStart = true; // no more previews so.
         }
 
         public void GeneratePreview(Canvas XCanvas) // test
