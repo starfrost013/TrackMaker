@@ -363,17 +363,20 @@ namespace Track_Maker
 
         public void AddLayer(string Name)
         {
-            Layer Layer = new Layer();
-            Layer.Name = Name;
-            Layers.Add(Layer);
+
 #if PRISCILLA // V2.0 only (hack)
             // TEMP
-            
+
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
 
             // Forces this code to run on the UI thread, as we are updating UI. We are also not invoking a specific delegate so we just run this code.
+
             MnWindow.Dispatcher.Invoke(() =>
             {
+                Layer Layer = new Layer();
+                Layer.Name = Name;
+                Layers.Add(Layer);
+
                 MnWindow.Layers.AddLayer(Name);
 
             });

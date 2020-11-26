@@ -98,9 +98,10 @@ namespace Track_Maker
 
                 XmlNodeList XChildren = XRoot.ChildNodes;
 
+                Storm Storm = new Storm();
                 foreach (XmlNode XChild in XChildren)
                 {
-                    Storm Storm = new Storm();
+
 
                     if (!XChild.HasChildNodes)
                     {
@@ -258,96 +259,6 @@ namespace Track_Maker
         {
             throw new NotImplementedException("WHO CALLED THIS METHOD? IMA BEAT YO ASS LIKE BIDEN BEAT TRUMP");
         }
-
-        /*
-        public bool ExportCore(Project Project, string FileName)
-        {
-            // V1 Export Code
-            // Unused since build 472, removed in 514a
-
-            
-            XmlDocument XDoc = new XmlDocument();
-            XmlNode XRoot = XDoc.CreateElement("Project");
-
-            // dump the storm info to file
-            foreach (Storm XStorm in Project.SelectedBasin.GetFlatListOfStorms())
-            {
-                // create the xml nodes.
-                XmlNode XStormNode = XDoc.CreateElement("Storm");
-                XmlNode XStormFormationDate = XDoc.CreateElement("FormationDate"); 
-                XmlNode XStormID = XDoc.CreateElement("ID");
-                XmlNode XStormName = XDoc.CreateElement("Name");
-                XmlNode XStormNodeList = XDoc.CreateElement("Nodes");
-                XmlNode XStormNodeListDel = XDoc.CreateElement("DeletedNodes"); // the undone nodes
-
-
-                // set the basic info - name etc
-                XStormFormationDate.InnerText = XStorm.FormationDate.ToString(); 
-                XStormID.InnerText = XStorm.Id.ToString();
-                XStormName.InnerText = XStorm.Name;
-
-                // populate the node list
-                foreach (Node XNode in XStorm.NodeList)
-                {
-                    // add new nodes
-                    XmlNode XNodeNode = XDoc.CreateElement("Node");
-                    XmlNode XNodeIntensity = XDoc.CreateElement("Intensity");
-                    XmlNode XNodePosition = XDoc.CreateElement("Position");
-                    XmlNode XNodeType = XDoc.CreateElement("Type");
-
-                    // set the info
-                    XNodeIntensity.InnerText = XNode.Intensity.ToString();
-                    XNodePosition.InnerText = XNode.Position.ToStringEmerald();
-                    XNodeType.InnerText = XNode.NodeType.ToString();
-
-                    // build the node list xml structure
-                    XNodeNode.AppendChild(XNodeIntensity);
-                    XNodeNode.AppendChild(XNodePosition);
-                    XNodeNode.AppendChild(XNodeType);
-                    XStormNodeList.AppendChild(XNodeNode);
-                }
-
-                // Populate the deleted node list xmlinfo for the basin save information.
-
-                foreach (Node XNode in XStorm.NodeList_Deleted)
-                {
-                    // add new nodes
-                    XmlNode XNodeNode = XDoc.CreateElement("Node");
-                    XmlNode XNodeIntensity = XDoc.CreateElement("Intensity");
-                    XmlNode XNodePosition = XDoc.CreateElement("Position");
-                    XmlNode XNodeType = XDoc.CreateElement("Type");
-
-                    // set the info
-                    XNodeIntensity.InnerText = XNode.Intensity.ToString();
-                    XNodePosition.InnerText = XNode.Position.ToStringEmerald();
-                    XNodeType.InnerText = XNode.NodeType.ToString();
-
-                    // build the node list xml structure
-                    XNodeNode.AppendChild(XNodeIntensity);
-                    XNodeNode.AppendChild(XNodePosition);
-                    XNodeNode.AppendChild(XNodeType);
-                    XStormNodeListDel.AppendChild(XNodeNode);
-
-                }
-                // build perstorm xml
-
-                XStormNode.AppendChild(XStormFormationDate); 
-                XStormNode.AppendChild(XStormID);
-                XStormNode.AppendChild(XStormName);
-                XStormNode.AppendChild(XStormNodeList);
-                XStormNode.AppendChild(XStormNodeListDel);
-
-                XRoot.AppendChild(XStormNode);
-            }
-
-            XDoc.AppendChild(XRoot);
-
-            XDoc.Save(FileName);
-
-            return true;
-            
-        }*/
-
     }
 }
 

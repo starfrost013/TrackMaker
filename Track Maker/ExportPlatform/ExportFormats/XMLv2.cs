@@ -184,7 +184,7 @@ namespace Track_Maker
                             // set the info
                             XNodeIntensity.InnerText = XNode.Intensity.ToString();
                             XNodePosition.InnerText = XNode.Position.ToStringEmerald();
-                            XNodeType.InnerText = XNode.NodeType.ToString();
+                            XNodeType.InnerText = XNode.NodeType.Name.ToString();
 
                             // build the node list xml structure
                             XNodeNode.AppendChild(XNodeIntensity);
@@ -497,8 +497,6 @@ namespace Track_Maker
                         List<string> IXmlParse = XDRA.InnerXml.InnerXml_Parse();
 
                         string BasinName = null;
-
-           
 
                         for (int i = 0; i < IXmlParse.Count; i++)
                         {
