@@ -25,6 +25,7 @@ namespace Track_Maker
     /// Version 2.1      Priscilla v447      Bug fixes, IsSelected & IsOpen
     /// Version 2.2      Priscilla v453      Importing, BasinName => Name
     /// Version 2.2b     Priscilla v455      Add full importing code   
+    /// Version 2.2c     Priscilla v540      Chnanged format naame
     /// </summary>
     /// 
     public class XMLv2 : IExportFormat
@@ -32,13 +33,14 @@ namespace Track_Maker
         public bool AutoStart { get; set; }
         public bool DisplayQualityControl { get; set; }
         public string Name { get; set; }
+
         public static int FormatVersionMajor = 2;
         public static int FormatVersionMinor = 2;
 
         public XMLv2()
         {
             AutoStart = false;
-            Name = "Proj Format 2.x";
+            Name = "Project";
         }
 
         /// <summary>

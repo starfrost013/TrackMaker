@@ -1,4 +1,5 @@
 ﻿using Starfrost.UL5.Logging;
+using Starfrost.UL5.ScaleUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,10 @@ namespace Track_Maker
             {
                 IImageExportFormat ExpFI = (IImageExportFormat)ExportFormat;
                 if (!ExpFI.DisplayQualityControl) HideQualityControl(); 
+            }
+            else // not an IImageExportFormat
+            {
+                HideQualityControl();
             }
 
             //completely different in Dano
@@ -154,7 +159,7 @@ namespace Track_Maker
                     }
 
                     //may bindings work?
-                    MnWindow.Title = $"Track Maker 2.0 'Priscilla' - {GlobalStateP.GetCurrentOpenFile()}";
+                    MnWindow.Title = $"Track Maker 2.0 - {GlobalStateP.GetCurrentOpenFile()}";
 
                     // we are not setting current project before, usually you wouldn't need to do this hack
                     MnWindow.CurrentProject = CurProj;
@@ -164,15 +169,35 @@ namespace Track_Maker
                     return true;
                 case FormatType.Export:
 
-                    if (!ExpFormat.Export(MnWindow.CurrentProject))
+                    if (ExpFormat is IImageExportFormat)
                     {
-                        return false;
+                        IImageExportFormat IIEF = (IImageExportFormat)ExpFormat;
+
+                        // surely allowing (bool == bool?) would be more intuitive for users
+                        bool IsFullQuality = (bool)QualityControl.QualityControl_FullQuality.IsChecked;
+                        bool IsHalfQuality = (bool)QualityControl.QualityControl_HalfQuality.IsChecked;
+                        bool IsQuarterQuality = (bool)QualityControl.QualityControl_QuarterQuality.IsChecked;
+                        bool IsEighthQuality = (bool)QualityControl.QualityControl_EighthQuality.IsChecked;
+
+                        if (IsFullQuality) IIEF.Quality = ImageQuality.Full;
+                        if (IsHalfQuality) IIEF.Quality = ImageQuality.Half;
+                        if (IsQuarterQuality) IIEF.Quality = ImageQuality.Quarter;
+                        if (IsEighthQuality) IIEF.Quality = ImageQuality.Eighth;
+
+                        // need to make this priscilla-specific
+                        if (!ExpFormat.Export(MnWindow.CurrentProject)) return false;
+
                     }
+                    else
+                    {
+                        if (!ExpFormat.Export(MnWindow.CurrentProject)) return false;
+                    }
+
 
                     // wish VS allowed the samE var names under different code paths
                     Project CurProject = MnWindow.CurrentProject;
 
-                    MnWindow.Title = $"Track Maker 2.0 'Priscilla' - {CurProject.FileName}";
+                    MnWindow.Title = $"Track Maker 2.0 - {CurProject.FileName}";
                     MnWindow.UpdateLayout();
                     MnWindow.TickTimer.Start();
                     Close();

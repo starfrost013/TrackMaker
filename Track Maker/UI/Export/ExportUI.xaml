@@ -15,7 +15,7 @@
     <Grid>
         
         <!-- QualityControl -->
-        <Dano:QualityControl x:Name="QualityControl"  Margin="10,62,747,223"></Dano:QualityControl>
+        <Dano:QualityControl x:Name="QualityControl"  Margin="10,67,636,218"></Dano:QualityControl>
         
         <TextBlock x:Name="ExportPlatform" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Export to Whatever" VerticalAlignment="Top" Height="71" Width="492" FontSize="48" FontStyle="Italic"/>
         <!-- QualityControl disabled: [10,10,0,0] Size: 18pt 
@@ -32,7 +32,7 @@
         </Border>
         
         <!-- QualityControl disabled: [794,381,0,0] size:[76,default height] -->
-        <Button x:Name="ExportPlatform_ExportBtn" Content="Export" HorizontalAlignment="Left" Margin="794,381,0,0" VerticalAlignment="Top" Width="76" FontSize="18" Click="ExportPlatform_ExportBtn_Click"/>
+        <Button x:Name="ExportPlatform_ExportBtn" Content="Export" HorizontalAlignment="Left" Margin="780,381,0,0" VerticalAlignment="Top" Width="92" FontSize="18" Click="ExportPlatform_ExportBtn_Click" RenderTransformOrigin="0.305,0.417"/>
 
     </Grid>
 </Window>
