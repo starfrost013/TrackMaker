@@ -11,16 +11,15 @@ namespace Dano.ACECalculator
     {
         public double GenACE(double intensity, int mode)
         {
-            double ace;
+            double ACE;
             switch (mode)
             {
                 case 0:
-
-                    ace = Math.Pow(intensity, 2) / 10000;
-                    return ace;
+                    ACE = Math.Pow(intensity, 2) / 10000;
+                    return ACE;
                 case 1:
-                    ace = Math.Pow(RoundNearest(intensity / 1.15078, 5), 2) / 10000;
-                    return ace;
+                    ACE = Math.Pow(RoundNearest(intensity / 1.15078, 5), 2) / 10000;
+                    return ACE;
                 default:
                     return 0;
             }
@@ -33,28 +32,27 @@ namespace Dano.ACECalculator
 
         public void SetDateTimeVisibility(bool visible)
         {
-            if (visible == false)
+            if (!visible)
             {
-                if (this.DateTimeOn == false)
+                if (!DateTimeOn)
                 {
                     return;
                 }
                 // is it 0?
-                this.DateTimeOn = false;
-                this.Width -= 50;
-                BystarfrostForHHW.Margin = new Thickness(BystarfrostForHHW.Margin.Left - 50, BystarfrostForHHW.Margin.Top, BystarfrostForHHW.Margin.Right, BystarfrostForHHW.Margin.Bottom); // set the position
+                DateTimeOn = false;
+                Width -= 50;
+       
                 StormIntensities.Width -= 125;
                 StormIntensities_DateTime.Width = 0;
             }
             else
             {
-                if (this.DateTimeOn ) // if its the same, prevent repeats.
+                if (this.DateTimeOn) // if its the same, prevent repeats.
                 {
                     return;
                 }
                 this.DateTimeOn = true;
                 this.Width += 50;
-                BystarfrostForHHW.Margin = new Thickness(BystarfrostForHHW.Margin.Left + 50, BystarfrostForHHW.Margin.Top, BystarfrostForHHW.Margin.Right, BystarfrostForHHW.Margin.Bottom);
                 StormIntensities.Width += 125;
                 StormIntensities_DateTime.Width = 125;
             }

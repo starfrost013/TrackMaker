@@ -34,6 +34,8 @@ namespace DanoUI
         {
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 #if DANO // Track Maker 3.0 Debug
+            starfrostTrack_Copyright.Text = "This version of the Track Maker is an alpha release intended for development and experimental purposes only, and is not suitable for any other use. © 2021 starfrost."
+            starfrostTrack_Copyright_HHW.Text = "";
 #if DEBUG
             starfrostTrack_Version.Text = $"Version 3.0 Alpha (Dano v{FVI.ProductVersion} Debug)";
 #else // Track Maker 3.0 Release
@@ -42,18 +44,16 @@ namespace DanoUI
 
 #elif PRISCILLA
 
+            starfrostTrack_Copyright_HHW.Text = "";
+            starfrostTrack_Copyright.Text = "This version of the Track Maker is a beta release intended for evaluation purposes only and is not for operational usage. © 2019-2020 starfrost.";
 #if DEBUG
-            //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.ProductVersion}) (Debug)";
+            //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.FileVersion}) (Debug)";
 
-            starfrostTrack_Version.Text = $"Version 2.0 Beta Release (Priscilla v{FVI.ProductVersion} Debug)";
-            starfrostTrack_Copyright_HHW.Text = $"";
-            starfrostTrack_Copyright.Text = "This version of the Track Maker is a beta release intended for evaluation purposes only and is not for operational usage. © 2019-2020 starfrost.";
-
+            starfrostTrack_Version.Text = $"Version 2.0 Beta Release (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
 #else
-            //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.ProductVersion})";
-            starfrostTrack_Version.Text = $"Version 2.0 Beta Release (Priscilla v{FVI.ProductVersion} (Debug)";
-            starfrostTrack_Copyright_HHW.Text = $"";
-            starfrostTrack_Copyright.Text = "This version of the Track Maker is a beta release intended for evaluation purposes only and is not for operational usage. © 2019-2020 starfrost.";
+            //starfrostTrack_Version.Text = $"Version 2.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion})";
+            starfrostTrack_Version.Text = $"Version 2.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion})";
+
 #endif
 
 #else
