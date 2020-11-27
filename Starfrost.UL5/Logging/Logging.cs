@@ -29,7 +29,7 @@ namespace Starfrost.UL5.Logging
     public static class Logging
     {
         public static string FileName { get; set; }
-        private static string LogHeader = "Priscilla Debug:" // log header
+        private static string LogHeader = "Priscilla Debug:"; // log header
         public static void Init()
         {
             LogFile("Track Maker\n\n© 2019-2020 starfrost. Open-source software under the MIT License.", true);
