@@ -18,7 +18,7 @@ namespace Track_Maker
     /// 
     /// 10/31/20
     /// </summary>
-    public class GlobalStateP // move to Starfrost UL5 Version 5.3?
+    public class GlobalStateP // move to Starfrost UL5 Version 5.3?. This may also be made a non-static class
     {
         public static List<Basin> OpenBasins { get; set; }
         public static string CurrentlyOpenFile { get; set; }
@@ -27,12 +27,18 @@ namespace Track_Maker
         public static string GetCurrentOpenFile() => CurrentlyOpenFile;
 
         /// <summary>
+        /// STATIC CLASS ONLY 
+        /// </summary>
+        private static void InitBasinList() => OpenBasins = new List<Basin>(); 
+
+        /// <summary>
         /// 2020-11-27
         /// </summary>
         internal static void LoadBasins()
         {
             try
             {
+                InitBasinList(); 
                 XmlDocument XmlDocument = new XmlDocument();
                 XmlDocument.Load(@"Data\Basins.xml"); // maybe change?
 

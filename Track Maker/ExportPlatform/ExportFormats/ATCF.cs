@@ -79,7 +79,7 @@ namespace Track_Maker
             string[] Storms = Directory.GetFiles(FolderName);
 
             // this is terrible design and reloads the project but I want to get this done
-            Project Proj = new Project(true);
+            Project Proj = new Project();
             Proj.FileName = $"{FolderName}/*.*";
             Basin Bas = new Basin();
 

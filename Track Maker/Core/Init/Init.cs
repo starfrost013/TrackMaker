@@ -72,7 +72,7 @@ namespace Track_Maker
         public void Init_Phase2()
         {
             // Phase 2 Init
-            CurrentProject = new Project(true);
+            CurrentProject = new Project();
             // temp dumb hack
             CurrentProject.AddBasin("Atlantic");
             //ImagePath = CurrentProject.SelectedBasin.ImagePath;
