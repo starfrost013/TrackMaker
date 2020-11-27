@@ -58,7 +58,7 @@ namespace Track_Maker
 
         public Point CentrePosition { get => (Point)GetValue(CentrePositionProperty); set => SetValue(CentrePositionProperty, value); }
 
-        //VERY DUMB HACK?
+
         public string ImagePath { get => CurrentProject.SelectedBasin.ImagePath; set
             {
 
@@ -67,7 +67,6 @@ namespace Track_Maker
             }
         }
 
-        //END VERY DUMB HACK
         public MainWindow()
         {
             Init();
