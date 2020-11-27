@@ -35,8 +35,9 @@ Features:
 Track Maker 2.1
 Features:
 - Internationalisation (use Diffusion)
-- Namespaceisation
+- Namespaceisation / modularisation
 - Delegate-based error handling
+- XML Deserialisation
 
 Track Maker 3.0
 Features:
@@ -48,7 +49,6 @@ Features:
 - Track Drawing? (small chance of 2.0)
 - MainWindowHost
 - graph creator that shows TC windspeed and pressure on a time graph [graph]
-- XML Deserialisation
 - Full tabbed basin view
 - "Start Page"
 - Codename "Dano"

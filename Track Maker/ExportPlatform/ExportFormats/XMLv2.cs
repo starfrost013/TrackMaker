@@ -255,7 +255,7 @@ namespace Track_Maker
                 OFD.Filter = "Track Maker Proj files|*.tproj";
                 OFD.ShowDialog();
 
-                if (OFD.FileName == null)
+                if (OFD.FileName == "")
                 {
                     return null; 
                 }
@@ -298,7 +298,8 @@ namespace Track_Maker
             Proj.Basins = GlobalState.LoadedBasins;
 #else
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            Proj.Basins = MnWindow.CurrentProject.Basins;
+            //Proj.Basins = MnWindow.CurrentProject.Basins;
+            
 #endif
             if (!XDR.HasChildNodes) return XER;
 

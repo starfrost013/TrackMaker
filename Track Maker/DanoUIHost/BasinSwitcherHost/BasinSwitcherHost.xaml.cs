@@ -32,7 +32,7 @@ namespace Track_Maker
         // Move to Project.SetCurrentBasin() for Dano Milestone 2.
         public void Temp2(string CurBasinName)
         {
-            foreach (Basin Basin in TEMP3_WILLBEREMOVEDWITHPROJECT.CurrentProject.Basins)
+            foreach (Basin Basin in GlobalStateP.OpenBasins)
             {
                 if (Basin.Name == CurBasinName)
                 {

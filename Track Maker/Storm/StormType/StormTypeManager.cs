@@ -186,6 +186,7 @@ namespace Track_Maker
                                                                 {
                                                                     XmlNodeList PolygonDataNodes = ShapeDataNode.ChildNodes;
                                                                     Polygon Poly = new Polygon();
+
                                                                     foreach (XmlNode PolygonDataNode in PolygonDataNodes)
                                                                     {
                                                                         

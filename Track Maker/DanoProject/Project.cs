@@ -12,7 +12,8 @@ namespace Track_Maker
 {
     public class Project
     {
-        public List<Basin> Basins { get; set; } /* All selectable basins in this Project. */
+        // REMOVED in priscilla v542 as we now use a static global data structure for this
+        //public List<Basin> Basins { get; set; } /* All selectable basins in this Project. */
         public string FileName { get; set; } /* The file name of this project. */ 
         public List<Basin> OpenBasins { get; set; } /* All opened basins */ 
         public List<CategorySystem> CategorySystems { get; set; } /* All selectable category systems in this Project. */
@@ -27,18 +28,16 @@ namespace Track_Maker
         /// Project constructor.
         /// </summary>
         /// <param name="LoadBasins">Reload basins. Deprecated but whatever</param>
-        public Project(bool LdBasins = false)
+        public Project()
         {
-            Basins = new List<Basin>();
             History = new List<Basin>();
             CategorySystems = new List<CategorySystem>();
             OpenBasins = new List<Basin>();
             SelectedBasin = new Basin();
-            if (LdBasins) LoadBasins();
         }
 
         /// <summary>
-        /// Add the basin with Name. Also select it if SelectNOw = true. 
+        /// Add the basin with Name. Also select it if SelectNow = true. 
         /// </summary>
         /// <param name="Name">The name of the basin we wish to load.</param>
         /// <param name="SelectNow">Select the basin upon loading.</param>
@@ -61,9 +60,9 @@ namespace Track_Maker
         /// <summary>
         /// Add the basin with Name and usertag UserTag. Also select it if SelectNOw = true. 
         /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="UserTag"></param>
-        /// <param name="SelectNow"></param>
+        /// <param name="Name">The name of the basin to add.</param>
+        /// <param name="UserTag">The name of the season to add (V3.0 Only)</param>
+        /// <param name="SelectNow">Select this basin now</param>
         public void AddBasin(string Name, string UserTag, bool SelectNow = false)
         {
             // This is still terrible, but it's just temporary
@@ -110,91 +109,7 @@ namespace Track_Maker
         /// 
         /// This should be a global thing, but in the interests of finishing Priscilla it is simply easier if we do it this way/
         /// </summary>
-        internal void LoadBasins()
-        {
-            try
-            {
-                XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load(@"Data\Basins.xml"); // maybe change?
-
-                XmlNode XmlRootNode = XmlDocument.FirstChild;
-                while (XmlRootNode.Name != "Basins")
-                {
-                    if (XmlRootNode.NextSibling == null)
-                    {
-                        MessageBox.Show("Basins.xml is corrupted or malformed. The Track Maker will now exit.", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Environment.Exit(1);
-                    }
-
-                    XmlRootNode = XmlRootNode.NextSibling; //figure out what happens if the basin node doesn't exist.
-                }
-
-                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; //abduct the kids of the basins node
-
-                foreach (XmlNode XmlNode in XmlNodes)
-                {
-                    Basin Basin = new Basin(); // create a new basin. 
-
-                    if (XmlNode.Name != "Basin")
-                    { // change this?
-                        MessageBox.Show("Basins.xml corrupt, exiting...", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Environment.Exit(2);
-                    }
-
-                    XmlAttributeCollection XmlAttributes = XmlNode.Attributes;
-
-                    foreach (XmlAttribute XmlAttribute in XmlAttributes)
-                    {
-                        switch (XmlAttribute.Name) // go through all the attributes
-                        {
-                            case "Abbreviation":
-                            case "Acronym":
-                            case "BasinCode":
-                                Basin.Abbreviation = XmlAttribute.Value;
-                                continue; 
-                            case "bgimage": // basin image path
-                            case "Bgimage":
-                            case "bgImage":
-                            case "BgImage":
-                                Basin.ImagePath = XmlAttribute.Value; //set the basin image path to the value
-                                continue; // yeah
-                            case "coordstopleft":
-                            case "Coordstopleft":
-                            case "coordsTopleft":
-                            case "coordsTopLeft":
-                            case "CoordsTopLeft":
-                                // Conversion
-                                Basin.CoordsLower = Coordinate.FromString(XmlAttribute.InnerText);
-                                continue;
-                            case "coordsbottomright":
-                            case "Coordsbottomright":
-                            case "CoordsBottomright":
-                            case "coordsBottomRight":
-                            case "CoordsBottomRight":
-                                // Conversion
-                                Basin.CoordsHigher = Coordinate.FromString(XmlAttribute.InnerText);
-                                continue;
-                            case "name": // basin name
-                            case "Name":
-                                Basin.Name = XmlAttribute.Value;
-                                continue;
-
-                        }
-                    }
-                    //todo: additional error detection
-                    Logging.Log($"Successfully loaded basin {Basin.Name} with image {Basin.ImagePath}");
-
-                    Basins.Add(Basin);
-                }
-            }
-            catch (XmlException err)
-            {
-                //todo create fatalerror method
-                MessageBox.Show($"[Priscilla] Basins.xml corrupt, exiting...\n\n{err}", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(203);
-            }
-        }
-
+        
         public void CreateNewProject(string Name, string ImagePath)
         {
             AddBasin(Name); 
@@ -217,7 +132,7 @@ namespace Track_Maker
 
         public void SelectBasin(string Name)
         {
-            foreach (Basin Basin in Basins)
+            foreach (Basin Basin in GlobalStateP.OpenBasins)
             {
                 if (Basin.Name == Name) SelectedBasin = Basin;
                 break;
@@ -248,7 +163,7 @@ namespace Track_Maker
         /// <returns></returns>
         public Basin GetBasinWithName(string Name)
         {
-            foreach (Basin Basin in Basins)
+            foreach (Basin Basin in GlobalStateP.OpenBasins)
             {
                 if (Basin.Name == Name) return Basin;
             }
@@ -258,7 +173,7 @@ namespace Track_Maker
 
 
         /// <summary>
-        /// Creates a list of strings from the names of the storms in the current basin. Move to Project.GetBasinNames() in M2/Priscilla.
+        /// Creates a list of strings from the globally loaded basin list.
         /// </summary>
         public List<string> GetBasinNames()
         {
@@ -266,7 +181,7 @@ namespace Track_Maker
             List<string> _ = new List<string>();
 
             // Iterate through all of the storms
-            foreach (Basin CurBasin in Basins)
+            foreach (Basin CurBasin in GlobalStateP.OpenBasins)
             {
                 _.Add(CurBasin.Name);
             }
@@ -276,7 +191,7 @@ namespace Track_Maker
 
         public Basin GetBasinWithAbbreviation(string Abbreviation)
         {
-            foreach (Basin Basin in Basins)
+            foreach (Basin Basin in GlobalStateP.OpenBasins)
             {
                 if (Basin.Abbreviation == Abbreviation)
                 {

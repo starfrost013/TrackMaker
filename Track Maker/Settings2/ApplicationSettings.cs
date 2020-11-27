@@ -20,7 +20,9 @@ namespace Track_Maker
         public static int LineSize { get; set; } // Line size
         public static TelemetryConsent TelemetryConsent { get; set; } // Telemetry consent
         public static int UndoDepth { get; set; } // Amount of undos allowed
+        public static bool Dano_UseDeserialisation { get; set; } // Priscilla+ (version 2.1) - use XML Deserialisation
         public static bool UseGradient { get; set; } // Use the gradient
+        
 
 // more to come...
 #if DANO
@@ -28,7 +30,7 @@ namespace Track_Maker
         public static bool Dano_EnableAnimation { get; set; } // Dano (version 3.0) - enable animation mode
         public static bool Dano_EnableOverlaySupport { get; set; } // Dano (version 3.0) - enable overlay support
         public static bool Dano_ResizableUIEnabled [ get; set; } // Dano (version 3.0) - Resizable UI Enabled
-        public static bool Dano_UseDeserialisation { get; set; } // Dano (version 3.0) - use XML Deserialisation
+
         public static bool Dano_UseErrorHandlingV2 { get; set; } // Dano (version 3.0) - use Error Handling 2.0 (delegate, central registration)
         public static bool Dano_UseGraphWindow { get; set: } // Dano (version 3.0) - use the GraphWindow
         public static bool Dano_UseTabUI { get; set; } // Dano (version 3.0) - use TabUI (MainWindowHost)

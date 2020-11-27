@@ -17,7 +17,7 @@ using System.Windows;
 /// 
 /// File created: 2019-11-09
 /// 
-/// File modified: 2020-10-16   Priscilla v484
+/// File modified: 2020-11-27   Priscilla v542
 /// </summary>
 
 
@@ -39,7 +39,7 @@ namespace Starfrost.UL5.Logging
         {
 
 #if DEBUG
-            Trace.WriteLine($@"//Debug Collective//: [{DateTime.Now}] {Text}");
+            Trace.WriteLine($@"Priscilla Debug: [{DateTime.Now}] {Text}");
             LogFile(Text, false); 
 #endif
 

@@ -116,6 +116,7 @@
     <Compile Include="Basin\Basin.cs" />
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\GlobalState.Priscilla.cs" />
+    <Compile Include="Core\Init\Init.cs" />
     <Compile Include="DanoProject\Project.cs" />
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>
@@ -169,7 +170,7 @@
     <Compile Include="Settings2\Emerald.Settings.cs" />
     <Compile Include="Settings2\Enums\TelemetryConsent.cs" />
     <Compile Include="Settings2\Enums\WndStyle.cs" />
-    <Compile Include="Settings2\SettingsStatic.cs" />
+    <Compile Include="Settings2\ApplicationSettings.cs" />
     <Compile Include="Category\Category.cs" />
     <Compile Include="Category\CategoryLoader.cs" />
     <Compile Include="Core\Error.cs" />
