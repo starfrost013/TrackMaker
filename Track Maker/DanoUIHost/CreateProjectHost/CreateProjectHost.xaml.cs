@@ -48,15 +48,19 @@ namespace Track_Maker
 
             // Create the basins
 
+
             Debug.Assert(e.DanoParameters.Count == 2);
+
+            // get the basin name
+            string BasinName = (string)e.DanoParameters[1];
+
+            Basin NewBasin = TProj.GetBasinWithName(BasinName); 
 
             TProj.AddBasin((string)e.DanoParameters[1], true);
 
-            Basin Bas = MnWindow.CurrentProject.SelectedBasin;
-
+            
             // SHOULD work
-            // FIX BUG HERE: It only sets the project once the user has selected it twice
-            MnWindow.ImagePath = Bas.ImagePath;
+            MnWindow.ImagePath = NewBasin.ImagePath;
 
             MnWindow.CurrentProject = TProj;
             UpdateLayout();
