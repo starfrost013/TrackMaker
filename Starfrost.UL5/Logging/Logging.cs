@@ -29,7 +29,7 @@ namespace Starfrost.UL5.Logging
     public static class Logging
     {
         public static string FileName { get; set; }
-
+        private static string LogHeader = "Priscilla Debug:" // log header
         public static void Init()
         {
             LogFile("Track Maker\n\n© 2019-2020 starfrost. Open-source software under the MIT License.", true);
@@ -39,7 +39,7 @@ namespace Starfrost.UL5.Logging
         {
 
 #if DEBUG
-            Trace.WriteLine($@"Priscilla Debug: [{DateTime.Now}] {Text}");
+            Trace.WriteLine($@"{LogHeader} [{DateTime.Now}] {Text}");
             LogFile(Text, false); 
 #endif
 
@@ -56,7 +56,7 @@ namespace Starfrost.UL5.Logging
                     using (StreamWriter SW = new StreamWriter(File.Create(FileName)))
                     {
                         SW.BaseStream.Seek(0, SeekOrigin.End);
-                        SW.WriteLine($@"//Debug Collective//: [{DateTime.Now}] - {Text}");
+                        SW.WriteLine($@"{LogHeader} [{DateTime.Now}] - {Text}");
                     }
                 }
                 else
@@ -64,7 +64,7 @@ namespace Starfrost.UL5.Logging
                     using (StreamWriter SW = new StreamWriter(File.Open(FileName, FileMode.OpenOrCreate))) // OpenOrCreate just in case
                     {
                         SW.BaseStream.Seek(0, SeekOrigin.End);
-                        SW.WriteLine($@"//Debug Collective//: [{DateTime.Now}] - {Text}");
+                        SW.WriteLine($@"{LogHeader} [{DateTime.Now}] - {Text}");
                     }
                 }
                 // create the file
