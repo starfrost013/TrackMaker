@@ -60,7 +60,7 @@ namespace Track_Maker
             {
                 MessageBox.Show("Error LS2 - An invalid line size was provided. The default line size will be used.", "starfrost's Track Maker Fatal Error LS1", MessageBoxButton.OK, MessageBoxImage.Error);
                 //Recovery
-                Setting.LineSize = 2; // reinitialies
+                Setting.LineSize = 2; // reinitialise
             }
 
             // Load the accent colours
@@ -78,7 +78,8 @@ namespace Track_Maker
             // Load the window style
             Setting.WindowStyle = EmeraldSettings.GetWindowStyle("WindowStyle");
 
-
+            // V2.1
+            Setting.Dano_UseDeserialisation = EmeraldSettings.GetBool("Dano_UseDeserialisation"); 
         }
     }
 }

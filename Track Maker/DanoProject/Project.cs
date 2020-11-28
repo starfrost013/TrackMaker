@@ -46,10 +46,8 @@ namespace Track_Maker
             // This is still terrible, but it's just temporary
             Basin Bs = GetBasinWithName(Name);
 
-            if (Bs == null)
-            {
-                Error.Throw("Fatal Error", $"Attempted to add an invalid basin with name {Name}", ErrorSeverity.FatalError, 181);
-            }
+            if (Bs == null) Error.Throw("Fatal Error", $"Attempted to add an invalid basin with name {Name}", ErrorSeverity.FatalError, 181);
+
 
             Bs.LoadImage(Bs.ImagePath);
 

@@ -18,7 +18,7 @@ namespace Track_Maker
             {
                 case ErrorSeverity.Message:
                     Logging.Log($"Message: {Text}");
-                    MessageBox.Show(Caption, Text, MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(Text, Caption, MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 case ErrorSeverity.Warning:
                     Logging.Log($"Warning ({ID}): {Text}");

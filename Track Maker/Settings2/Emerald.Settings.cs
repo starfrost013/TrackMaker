@@ -156,11 +156,8 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 //throw an error if xelement is null
-                if (XElement == null)
-                {
-                    MessageBox.Show($"Temp error. Attempted to load invalid setting boolean! Error 12!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Application.Current.Shutdown(12);
-                }
+                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting boolean!", ErrorSeverity.FatalError, 12);
+
 
                 bool Val = Convert.ToBoolean(XElement.InnerText);
 
@@ -171,7 +168,7 @@ namespace Track_Maker
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"Temp error. Error converting string to boolean while loading xml! Error 11!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("An error has occurred.", $"Error converting string to boolean while loading xml!\n\n{err}", ErrorSeverity.FatalError, 11);
                 Application.Current.Shutdown(11);
                 return false;
             }
@@ -190,11 +187,7 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 //throw an error if xelement is null
-                if (XElement == null)
-                {
-                    MessageBox.Show($"Temp error. Attempted to load invalid setting double! Error 13!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Application.Current.Shutdown(13);
-                }
+                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting double!", ErrorSeverity.FatalError, 13);
 
                 double Val = Convert.ToDouble(XElement.InnerText);
 
@@ -221,11 +214,7 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 // throw an error if xelement is null
-                if (XElement == null)
-                {
-                    MessageBox.Show($"Temp error. Attempted to load invalid setting int! Error 15!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Application.Current.Shutdown(15);
-                }
+                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting int!", ErrorSeverity.FatalError, 15);
 
                 int Val = Convert.ToInt32(XElement.InnerText);
 
@@ -233,7 +222,8 @@ namespace Track_Maker
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"Error converting string to int while loading xml! Error 16!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("An error has occurred.", $"Error converting string to int while loading xml!\n\n{err}", ErrorSeverity.FatalError, 16);
+
                 Application.Current.Shutdown(16); // Settings may be corrupted
 
                 return -1; 
@@ -250,11 +240,7 @@ namespace Track_Maker
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
             // throw an error if xelement is null
-            if (XElement == null)
-            {
-                MessageBox.Show($"Temp error. Attempted to load invalid setting string! Error 17!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(17);
-            }
+            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting string!", ErrorSeverity.FatalError, 17);
 
             string Val = XElement.InnerText;
 
@@ -273,11 +259,8 @@ namespace Track_Maker
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
             // throw an error if xelement is null
-            if (XElement == null)
-            {
-                MessageBox.Show($"Temp error. Attempted to load invalid setting point! Error 18!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(18);
-            }
+            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting point!", ErrorSeverity.FatalError, 18);
+
 
             Point XY = XElement.InnerText.SplitXY(); 
 
@@ -289,11 +272,7 @@ namespace Track_Maker
             XmlNode XRoot = LoadSettingsXmlGetNode();
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
-            if (XElement == null)
-            {
-                MessageBox.Show($"Temp error. Attempted to load invalid setting colour! Error 19!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(19); 
-            }
+            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting colour!", ErrorSeverity.FatalError, 19);
 
 
             Color RGB = XElement.InnerText.SplitRGB();
@@ -313,20 +292,15 @@ namespace Track_Maker
                 XmlNode XRoot = LoadSettingsXmlGetNode();
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
-                // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
-                if (XElement == null)
-                {
-                    MessageBox.Show($"Temp error. Attempted to load invalid TelemetryConsent setting! Error 100!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Application.Current.Shutdown(100);
-                }
+                // If it doesn't exist crash (TEMP - add an IsOptional bool param for settings) 
+                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid TelemetryConsent setting!", ErrorSeverity.FatalError, 100); 
 
                 // Parse as TelemetryConsent 
                 return (TelemetryConsent)Enum.Parse(typeof(TelemetryConsent), XElement.InnerText);
             }
             catch (ArgumentException err)
             {
-                MessageBox.Show($"Temp error. Attempted to load invalid TelemetryConsent setting! Error 101!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(101);
+                Error.Throw("An error has occurred.", $"Attempted to load invalid TelemetryConsent setting!\n\n{err}", ErrorSeverity.FatalError, 101);
                 return TelemetryConsent.No; 
             }
         }
@@ -345,11 +319,7 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
-                if (XElement == null)
-                {
-                    Error.Throw("Fatal Error", "Attempted to load invalid WindowStyle setting!", ErrorSeverity.FatalError, 130);
-                    return WndStyle.Windowed;
-                }
+                if (XElement == null || XRoot == null) Error.Throw("Fatal Error", "Attempted to load invalid WindowStyle setting!", ErrorSeverity.FatalError, 130);
 
                 // Parse as TelemetryConsent 
                 return (WndStyle)Enum.Parse(typeof(WndStyle), XElement.InnerText);
@@ -380,9 +350,9 @@ namespace Track_Maker
                 // Find the setting we need.
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
                 
-                if (XElement == null)
+                if (XElement == null || XRoot == null)
                 {
-                    MessageBox.Show($"An error occurred while saving settings.", "Error S2", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Error.Throw("Error!", "An error occurred while saving settings.", ErrorSeverity.Error, 220);
                     return false; 
                 }
 
@@ -397,7 +367,7 @@ namespace Track_Maker
             catch (XmlException err)
             {
                 // An error occurred while saving - return false. 
-                MessageBox.Show($"An error occurred while saving settings.\n\n{err}", "Error S1", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Error!", $"An error occurred while saving settings.\n\n{err}", ErrorSeverity.Error, 221);
                 return false;
             }
         }
