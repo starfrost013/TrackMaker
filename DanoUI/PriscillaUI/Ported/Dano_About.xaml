@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DanoUI"
         mc:Ignorable="d"
-        Height="175.927" Width="697.232" Loaded="Window_Loaded">
+        d:DesignHeight="168.925" d:DesignWidth="747.749" Loaded="Window_Loaded">
     <Grid>
         <TextBlock x:Name="StarfrostTrack" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="starfrost's" VerticalAlignment="Top" FontSize="48"/>
         <TextBlock x:Name="StarfrostTrackMaker" HorizontalAlignment="Left" Margin="226,0,0,0" TextWrapping="Wrap" Text="track maker" VerticalAlignment="Top" FontSize="48" Foreground="#FF8293E2"/>
-        <Line X1="0" X2="698.234" Y1="57" Y2="57" Stroke="#FF8293E2" StrokeThickness="1" SnapsToDevicePixels="True"></Line>
-        <TextBlock x:Name="starfrostTrack_Version" HorizontalAlignment="Left" Margin="12,56,0,0" TextWrapping="Wrap" Text="Version " VerticalAlignment="Top" FontSize="20" Width="605"/>
+        <Line X1="0" X2="747.749" Y1="57" Y2="57" Stroke="#FF8293E2" StrokeThickness="1" SnapsToDevicePixels="True"></Line>
+        <TextBlock x:Name="starfrostTrack_Version" HorizontalAlignment="Left" Margin="12,56,0,0" TextWrapping="Wrap" Text="Version " VerticalAlignment="Top" FontSize="20" Width="690"/>
         <TextBlock x:Name="starfrostTrack_Copyright" HorizontalAlignment="Left" Margin="13,82,0,0" TextWrapping="Wrap" Text="Copyright © 2019-2020 starfrost. Open-source software under the Lesser GPL license." VerticalAlignment="Top" FontSize="14"/>
         <TextBlock x:Name="starfrostTrack_Copyright_HHW" HorizontalAlignment="Left" Margin="13,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14">
             <Run>
@@ -20,8 +20,8 @@
                 https://hypotheticalhurricanes.fandom.com
             </Hyperlink>
         </TextBlock>
-        <Button Style="{StaticResource Button_Invert}" x:Name="starfrostTrack_OKButton" Content="OK" HorizontalAlignment="Left" Margin="582,129,0,0" VerticalAlignment="Top" Width="75" Click="starfrostTrack_OKButton_Click" RenderTransformOrigin="0.438,-0.014" Height="29"/>
-        <TextBlock x:Name="StarfrostTrack_VersionBranding" HorizontalAlignment="Left" Height="31" Margin="474,10,0,0" TextWrapping="Wrap" Text="2.0" VerticalAlignment="Top" Width="67" FontSize="28" FontStyle="Italic" Foreground="#FF3E2670"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="starfrostTrack_OKButton" Content="OK" HorizontalAlignment="Left" Margin="599,118,0,0" VerticalAlignment="Top" Width="108" Click="starfrostTrack_OKButton_Click" RenderTransformOrigin="0.438,-0.014" Height="29"/>
+        <TextBlock x:Name="StarfrostTrack_VersionBranding" HorizontalAlignment="Left" Height="31" Margin="474,10,0,0" TextWrapping="Wrap" Text="2.0" VerticalAlignment="Top" Width="38" FontSize="28" FontStyle="Italic" Foreground="#FF3E2670"/>
 
     </Grid>
 </UserControl>

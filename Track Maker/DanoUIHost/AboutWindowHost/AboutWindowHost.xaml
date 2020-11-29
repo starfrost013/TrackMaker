@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="About starfrost's track maker" Height="220.082" Width="702.87">
+        Title="About starfrost's track maker" Height="191.174" Width="756.167">
     <Grid>
         <Dano:AboutUI OnOKButtonHit="OnOkButtonHit" OnHyperlinkHit="HyperlinkHit"></Dano:AboutUI>
     </Grid>

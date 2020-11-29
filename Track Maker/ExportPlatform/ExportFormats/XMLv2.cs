@@ -381,10 +381,11 @@ namespace Track_Maker
                                                             {
                                                                 XmlNodeList XDRACLList = XDRACL.ChildNodes;
 
+                                                                Layer Lyr = new Layer();
                                                                 // Yeah
                                                                 foreach (XmlNode XDRACLL in XDRACLList)
                                                                 {
-                                                                    Layer Lyr = new Layer();
+                                                                    
 
                                                                     switch (XDRACLL.Name)
                                                                     {
@@ -481,15 +482,16 @@ namespace Track_Maker
                                                                             continue;
                                                                     }
 
-                                                                    if (Lyr.Name == null)
-                                                                    {
-                                                                        Error.Throw("Invalid basin!", "Layer with no name!", ErrorSeverity.Error, 125);
-                                                                        return XER;
-                                                                    }
-
-                                                                    Bas.AddLayer(Lyr.Name);
                                                                 }
 
+
+                                                                if (Lyr.Name == null)
+                                                                {
+                                                                    Error.Throw("Invalid basin!", "Layer with no name!", ErrorSeverity.Error, 125);
+                                                                    return XER;
+                                                                }
+
+                                                                Bas.AddLayer(Lyr.Name);
                                                             }
 
                                                             continue;
