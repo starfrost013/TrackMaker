@@ -372,6 +372,8 @@ namespace Track_Maker
                                                     switch (XDRACL.Name)
                                                     {
                                                         case "Layer":
+
+                                                            Layer Lyr = new Layer();
                                                             if (!XDRACL.HasChildNodes)
                                                             {
                                                                 Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 123);
@@ -381,7 +383,6 @@ namespace Track_Maker
                                                             {
                                                                 XmlNodeList XDRACLList = XDRACL.ChildNodes;
 
-                                                                Layer Lyr = new Layer();
                                                                 // Yeah
                                                                 foreach (XmlNode XDRACLL in XDRACLList)
                                                                 {
@@ -393,7 +394,7 @@ namespace Track_Maker
                                                                             Lyr.LayerId = Guid.Parse(XDRACLL.ChildNodes[0].InnerText);
                                                                             continue;
                                                                         case "Name": // Name of this basin
-                                                                            Lyr.Name = XDRACLL.Value;
+                                                                            Lyr.Name = XDRACLL.InnerText;
                                                                             continue;
                                                                         case "Storms": // Storms of this basin
 
@@ -409,11 +410,11 @@ namespace Track_Maker
 
                                                                                 foreach (XmlNode XDRACLLS in XDRACLLSList)
                                                                                 {
-
+                                                                                    Storm Sto = new Storm();
                                                                                     switch (XDRACLLS.Name)
                                                                                     {
                                                                                         case "Storm":
-                                                                                            Storm Sto = new Storm();
+                                                                                            
                                                                                             if (!XDRACLLS.HasChildNodes)
                                                                                             {
                                                                                                 Error.Throw("Invalid basin!", "Empty layer detected!", ErrorSeverity.Error, 186);
@@ -466,14 +467,19 @@ namespace Track_Maker
                                                                                                             continue;
 
                                                                                                     }
+
+
                                                                                                 }
 
-                                                                                                // Get the storm nodes
 
-                                                                                                Lyr.AddStorm(Sto);
-                                                                                                continue;
+                                                                                            
                                                                                             }
+                                                                                            // Get the storm nodes
+                                                                                            Lyr.AddStorm(Sto);
+                                                                                            continue;
                                                                                     }
+
+
 
                                                                                 }
 
@@ -485,31 +491,37 @@ namespace Track_Maker
                                                                 }
 
 
-                                                                if (Lyr.Name == null)
-                                                                {
-                                                                    Error.Throw("Invalid basin!", "Layer with no name!", ErrorSeverity.Error, 125);
-                                                                    return XER;
-                                                                }
-
-                                                                Bas.AddLayer(Lyr.Name);
                                                             }
 
+
+                                                            if (Lyr.Name == null)
+                                                            {
+                                                                Error.Throw("Invalid basin!", "Layer with no name!", ErrorSeverity.Error, 125);
+                                                                return XER;
+                                                            }
+
+                                                            Bas.AddLayer(Lyr.Name);
                                                             continue;
 
 
                                                     }
-
+                                                    continue; 
                                                 }
+                                                Proj.AddBasin(Bas.Name);
+                                                continue; 
                                             }
-                                            continue; 
+                                           
                                     }
+
                                 }
+
+
                             }
 
                             List<string> IXmlParse = XDRA.InnerXml.InnerXml_Parse();
 
-                            string BasinName = null;
 
+                            /*
                             for (int i = 0; i < IXmlParse.Count; i++)
                             {
                                 string IXmlParseString = IXmlParse[i];
@@ -535,8 +547,8 @@ namespace Track_Maker
                                     }
                                 }
                             }
+                            */
 
-                            Proj.AddBasin(BasinName);
 
 
                         }
