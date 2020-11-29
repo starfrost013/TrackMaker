@@ -14,12 +14,11 @@
             <TabItem Header="General">
                 <Grid>
                     <TextBlock x:Name="Settings_Tab_General_Header" HorizontalAlignment="Left" Margin="24,10,0,0" TextWrapping="Wrap" Text="General Settings" VerticalAlignment="Top" FontSize="48" FontStyle="Italic"></TextBlock>
-                    <TextBlock x:Name="Settings_Tab_General_DefaultBasin" TextWrapping="Wrap" Text="Default Basin:" Margin="24,79,601,269" FontSize="24"/>
-                    <ComboBox x:Name="Settings_Tab_General_DefaultBasinBox" HorizontalAlignment="Left" Margin="180,84,0,0" VerticalAlignment="Top" Width="220" Height="28" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedIndex="0" FontSize="18"/>
                     <!-- change for v2 -->
-                    <TextBlock x:Name="Settings_Tab_General_DefaultCatSystem" TextWrapping="Wrap" Text="Default Category System:" Margin="24,111,477,230" FontSize="24"/>
-                    <ComboBox x:Name="Settings_Tab_General_DefaultCatSystemBox" HorizontalAlignment="Left" Margin="304,116,0,0" VerticalAlignment="Top" Width="220" Height="28" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedIndex="0" FontSize="18"/>
+                    <TextBlock x:Name="Settings_Tab_General_DefaultCatSystem" TextWrapping="Wrap" Text="Default Category System:" Margin="25,74,476,267" FontSize="24"/>
+                    <ComboBox x:Name="Settings_Tab_General_DefaultCatSystemBox" HorizontalAlignment="Left" Margin="305,79,0,0" VerticalAlignment="Top" Width="220" Height="28" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedIndex="0" FontSize="18"/>
                     <Button x:Name="Settings_Tab_General_Done" Content="Done" HorizontalAlignment="Left" Margin="674,324,0,0" VerticalAlignment="Top" Width="76" FontSize="24" Click="Settings_Tab_General_Done_Click"/>
+                    <!-- TODO: Add setting for default window type -->
                 </Grid>
             </TabItem>
 

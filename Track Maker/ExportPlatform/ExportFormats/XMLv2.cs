@@ -164,7 +164,7 @@ namespace Track_Maker
                             // set the info
                             XNodeIntensity.InnerText = XNode.Intensity.ToString();
                             XNodePosition.InnerText = XNode.Position.ToStringEmerald();
-                            XNodeType.InnerText = XNode.NodeType.ToString();
+                            XNodeType.InnerText = XNode.NodeType.Name;
 
                             // build the node list xml structure
                             XNodeNode.AppendChild(XNodeIntensity);
@@ -186,7 +186,7 @@ namespace Track_Maker
                             // set the info
                             XNodeIntensity.InnerText = XNode.Intensity.ToString();
                             XNodePosition.InnerText = XNode.Position.ToStringEmerald();
-                            XNodeType.InnerText = XNode.NodeType.Name.ToString();
+                            XNodeType.InnerText = XNode.NodeType.Name;
 
                             // build the node list xml structure
                             XNodeNode.AppendChild(XNodeIntensity);

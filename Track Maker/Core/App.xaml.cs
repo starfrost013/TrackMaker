@@ -1,5 +1,6 @@
 ﻿using Dano.ACECalculator;
 using Dano.AdvisoryGenerator;
+using Starfrost.UL5.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -55,24 +56,22 @@ namespace Track_Maker
         private ParseArgResult ParseArgs(string[] Args)
         {
             // If there are no arguments, do nothing...
-            if (Args.Length < 1)
+
+            // v549: rewritten to be more versatile
+            switch (Args.Length)
             {
-                return ParseArgResult.DoNothing;
+                case 0:
+                    return ParseArgResult.DoNothing;
+                default:
+                    foreach (string Argument in Args)
+                    {
+                        if (Argument.ContainsCaseInsensitive("-initacecalc")) return ParseArgResult.InitACECalc;
+                        if (Argument.ContainsCaseInsensitive("-initadvgen")) return ParseArgResult.InitAdvGen;
+                    }
+
+                    return ParseArgResult.DoNothing; 
             }
-            else
-            {
-                switch (Args[0])
-                {
-                    default:
-                        return ParseArgResult.DoNothing;
-                    // Initialise the ACE Calculator; do not initialise the main Track Maker
-                    case "-initacecalc":
-                        return ParseArgResult.InitACECalc;
-                    // Initialise the Advisory Generator; do not initialise the main Track Maker
-                    case "-initadvgen":
-                        return ParseArgResult.InitAdvGen;
-                }
-            }
+            
 
         }
     }
