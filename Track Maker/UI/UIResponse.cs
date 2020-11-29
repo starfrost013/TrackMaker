@@ -65,8 +65,10 @@ namespace Track_Maker
 #endif
                         Storm SelectedStorm = CurProj.SelectedBasin.GetCurrentStorm();
 
+                        int NodeCount = SelectedStorm.NodeList.Count - 1;
+
                         // build 547: implement season start time on window feature
-                        AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames(), e.GetPosition(HurricaneBasin), SelectedStorm.FormationDate);
+                        AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames(), e.GetPosition(HurricaneBasin), SelectedStorm.GetNodeDate(NodeCount));
                         ATPHost.Owner = this;
                         ATPHost.Show(); 
 

@@ -92,7 +92,7 @@ namespace Track_Maker
 #if DANO
             Title = "Track Maker Dano (version 3.0; pre-release (Alpha 2/M2) - do not use for production purposes!)";
 #elif PRISCILLA
-            Title = "Track Maker \"Priscilla\" version 2.0 (Beta Release - not for production use!)";
+            Title = "Track Maker 2.0 (Beta Release - not for production use!)";
 #endif
             // DisableUI test 
             if (CurrentProject == null)
@@ -111,7 +111,7 @@ namespace Track_Maker
 
             UpdateLayout();
             TickTimer.Start();
-            Logging.Log("Initialization completed.");
+            Logging.Log("Initialisation completed.");
         }
 
     }

@@ -49,6 +49,7 @@
                 <Setter Property="Background" Value="#60FFFFFF"></Setter>
             </Trigger>
         </Style.Triggers>
+        
     </Style>
     
     <!-- Border style -->
@@ -71,6 +72,10 @@
         <Setter Property="Foreground" Value="#FF000000"></Setter>
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="TextBlock_MainWindow">
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>       
+    </Style>
     <!-- Inverted TextBlock style for non-white backgrounds -->
 
     <Style TargetType="TextBlock" x:Key="Style_TextBlock_Invert">

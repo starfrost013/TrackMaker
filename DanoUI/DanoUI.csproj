@@ -100,8 +100,8 @@
     <Compile Include="Dano_NewProject.xaml.cs">
       <DependentUpon>Dano_NewProject.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Priscilla_LayerUserControl.xaml.cs">
-      <DependentUpon>Priscilla_LayerUserControl.xaml</DependentUpon>
+    <Compile Include="PriscillaUI\Priscilla_LayerControl.xaml.cs">
+      <DependentUpon>Priscilla_LayerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PriscillaUI\Priscilla_QualityControl.xaml.cs">
       <DependentUpon>Priscilla_QualityControl.xaml</DependentUpon>
@@ -174,7 +174,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Priscilla_LayerUserControl.xaml">
+    <Page Include="PriscillaUI\Priscilla_LayerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

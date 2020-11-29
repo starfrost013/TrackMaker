@@ -53,8 +53,19 @@
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="50" Grid.Row="1" Click="AddButton_Click" Style="{StaticResource Button_MainWindow}" RenderTransformOrigin="0.645,0.576" Margin="5,0,0,0"/>
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="55" Margin="65,0,0,0" Grid.Row="1" Click="DeleteButton_Click" Style="{StaticResource Button_MainWindow}"/>
+
+        <!-- a hack of sorts -->
+        <Button x:Name="AddButton" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="55" Grid.Row="1" Click="AddButton_Click" Style="{StaticResource Button_MainWindow}" RenderTransformOrigin="0.645,0.576" Margin="3,0,0,0">
+            <Button.Content>
+                <TextBlock Text="Add" Style="{StaticResource TextBlock_MainWindow}"></TextBlock>
+            </Button.Content>
+        </Button>
+
+        <Button x:Name="DeleteButton" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="60" Margin="66,0,0,0" Grid.Row="1" Click="DeleteButton_Click" Style="{StaticResource Button_MainWindow}">
+            <Button.Content>
+                <TextBlock Text="Delete" Style="{StaticResource TextBlock_MainWindow}" Width="52"></TextBlock>
+            </Button.Content>
+        </Button>
 
     </Grid>
 </UserControl>

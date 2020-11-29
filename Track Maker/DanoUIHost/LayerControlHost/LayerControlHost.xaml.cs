@@ -1,6 +1,7 @@
 ﻿using DanoUI; 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,9 +56,21 @@ namespace Track_Maker
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             // add remove layer function
 
+            Debug.Assert(e.DanoParameters.Count == 1); 
+
+            string LayerName = (string)e.DanoParameters[0];
+            
             if (MnWindow.CurrentProject != null)
             {
-                MnWindow.CurrentProject.SelectedBasin.RemoveLayerWithName((string)e.DanoParameters[0]);
+                
+                if (LayerName == "Background")
+                {
+                    // pending for when we move error handling to UL5
+                    MessageBox.Show("You cannot delete the background.", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return; 
+                }
+
+                MnWindow.CurrentProject.SelectedBasin.RemoveLayerWithName(LayerName);
             }
 
 #else 

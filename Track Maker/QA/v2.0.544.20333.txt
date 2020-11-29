@@ -114,3 +114,8 @@ CR					2/88 [2.7%]
 -----------------------------------------------------
 Score					55.7% 
 Delta-V	for Beta			+24.3% 
+
+Changes since this build:
+Version					Change
+v547					You can no longer delete the background layer.
+v547					Season start time now displayed in UI.

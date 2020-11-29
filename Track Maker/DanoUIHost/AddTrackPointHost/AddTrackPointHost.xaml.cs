@@ -22,6 +22,7 @@ namespace Track_Maker.DanoUIHost.AddTrackPointHost
     public partial class AddTrackPointHost : Window
     {
         public List<string> StormNameList { get; set; }
+
         public AddTrackPointHost(List<string> StormNames, Point Position, DateTime SeasonStartTime)
         {
             InitializeComponent();
