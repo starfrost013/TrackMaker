@@ -86,13 +86,13 @@
     <!-- Style for menus. -->
     <Style TargetType="MenuItem" x:Key="Style_Menu">
         <Setter Property="FontSize" Value="12"></Setter>
-        <Setter Property="Foreground" Value="#00000000"></Setter>
+        <Setter Property="Foreground" Value="#FF000000"></Setter>
     </Style>
 
     <!-- Inverted style for menus. -->
     <Style TargetType="MenuItem" x:Key="Style_Menu_Inverted">
         <Setter Property="FontSize" Value="12"></Setter>
-        <Setter Property="Foreground" Value="#00FFFFFF"></Setter>
+        <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
     </Style>
 
     <Style TargetType="ListBox">

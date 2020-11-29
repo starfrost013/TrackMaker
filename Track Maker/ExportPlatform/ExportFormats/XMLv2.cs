@@ -399,7 +399,7 @@ namespace Track_Maker
 
                                                                             if (!XDRACLL.HasChildNodes)
                                                                             {
-                                                                                continue; // there may be no storms
+                                                                                continue; // empty layer
                                                                             }
                                                                             else
                                                                             {

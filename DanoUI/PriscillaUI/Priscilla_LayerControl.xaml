@@ -36,7 +36,7 @@
 
                     </GridViewColumn>
                     <!-- remove unless requested
-                    <GridViewColumn x:Name="riscillaUI_Layers_LayerListView_IsEnabled" Width="20">
+                    <GridViewColumn x:Name="PriscillaUI_Layers_LayerListView_IsEnabled" Width="20">
                         <CheckBox x:Name="PriscillaUI_Layers_LayerListView_IsEnabled_ChkBox"></CheckBox>
                     </GridViewColumn>
                     -->
@@ -44,12 +44,15 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem>Move Up</MenuItem>
-                    <MenuItem>Move Down</MenuItem>
+
+                    <MenuItem IsCheckable="true" Header="Visible"/>
                     <Separator/>
-                    <MenuItem>Rename</MenuItem>
+                    <MenuItem Header="Move Up"/>
+                    <MenuItem Header="Move Down"/>
                     <Separator/>
-                    <MenuItem>Delete</MenuItem>
+                    <MenuItem Header="Rename"/>
+                    <Separator/>
+                    <MenuItem Header="Delete"/>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
