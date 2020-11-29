@@ -30,10 +30,6 @@ namespace Track_Maker
         private void Settings_Init()
         {
 
-            // Set up initial setting values - Would use a binding and dependencyproperties, but CBA - almost done
-
-            Settings_Tab_General_DefaultBasinBox.DataContext = MnWindow.CurrentProject.SelectedBasin; // Change for Basins 2.0 
-
             Settings_Tab_General_DefaultCatSystemBox.DataContext = MnWindow.Catman.CategorySystems; // category system 
 
             Settings_Tab_Appearance_DotSizeXSlider.Value = Setting.DotSize.X;
@@ -87,7 +83,7 @@ namespace Track_Maker
             string _Accent1 = $"{Settings_Tab_Appearance_AccentColourPicker.SelectedColour.R},{Settings_Tab_Appearance_AccentColourPicker.SelectedColour.G},{Settings_Tab_Appearance_AccentColourPicker.SelectedColour.B}";
             string _Accent2 = $"{Settings_Tab_Appearance_MenuGradientSecondColourPicker.SelectedColour.R},{Settings_Tab_Appearance_MenuGradientSecondColourPicker.SelectedColour.G},{Settings_Tab_Appearance_MenuGradientSecondColourPicker.SelectedColour.B}";
             string _Accent3 = Settings_Tab_Appearance_GradientEnabledCheckBox.IsChecked.ToString();
-            string _DefaultBasin = Settings_Tab_General_DefaultBasinBox.Text;
+
             string _DefaultCatsystem = Settings_Tab_General_DefaultCatSystemBox.Text;
             string _DotSize = $"{Settings_Tab_Appearance_DotSizeXText.Text},{Settings_Tab_Appearance_DotSizeYText.Text}";
             string _LineSize = $"{Settings_Tab_Appearance_LineSizeText}";
@@ -97,7 +93,6 @@ namespace Track_Maker
             EmeraldSettings.SetSetting("AccentColour2", _Accent2);
             EmeraldSettings.SetSetting("UseGradient", _Accent3);
             EmeraldSettings.SetSetting("DotSize", _DotSize);
-            EmeraldSettings.SetSetting("SelectedBasin", _DefaultBasin);
             EmeraldSettings.SetSetting("DefaultCategorySystem", _DefaultCatsystem);
             EmeraldSettings.SetSetting("LineSize", _LineSize);
 

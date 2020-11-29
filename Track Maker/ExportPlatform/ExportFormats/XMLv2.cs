@@ -25,17 +25,20 @@ namespace Track_Maker
     /// Version 2.1      Priscilla v447      Bug fixes, IsSelected & IsOpen
     /// Version 2.2      Priscilla v453      Importing, BasinName => Name
     /// Version 2.2b     Priscilla v455      Add full importing code   
-    /// Version 2.2c     Priscilla v540      Chnanged format naame
-    /// </summary>
+    /// Version 2.2c     Priscilla v540      Changed format name
+    /// Version 2.3      Priscilla v550      Changed root node name from "Proj" to "Project" and changed extension from *.tproj to *.tproj2
     /// 
+    /// </summary>
+
     public class XMLv2 : IExportFormat
     {
         public bool AutoStart { get; set; }
         public bool DisplayQualityControl { get; set; }
         public string Name { get; set; }
 
+        // Format Version
         public static int FormatVersionMajor = 2;
-        public static int FormatVersionMinor = 2;
+        public static int FormatVersionMinor = 3;
 
         public XMLv2()
         {
@@ -55,8 +58,8 @@ namespace Track_Maker
             {
                 SaveFileDialog SFD = new SaveFileDialog();
 
-                SFD.Title = "Export to Proj (version 2.x)...";
-                SFD.Filter = "Track Maker Proj XML files|*.tproj";
+                SFD.Title = "Export to Project...";
+                SFD.Filter = "Track Maker Project XML files|*.tproj2";
                 SFD.ShowDialog();
 
                 // user hit cancel
@@ -93,7 +96,7 @@ namespace Track_Maker
         public bool ExportCore(Project Proj, string FileName)
         {
             XmlDocument XDoc = new XmlDocument();
-            XmlNode XRoot = XDoc.CreateElement("Proj");
+            XmlNode XRoot = XDoc.CreateElement("Project");
             Proj.FileName = FileName;
             // Version 2.0: Write the metadata
             XmlNode XMetadataNode = XDoc.CreateElement("Metadata"); 
@@ -434,11 +437,20 @@ namespace Track_Maker
                                                                                                             Sto.Name = XDRACLLSS.ChildNodes[0].InnerText;
                                                                                                             continue;
                                                                                                         case "Nodes":
-                                                                                                            NodeImportResult NIR = ImportNodes(XDRACLLSS);
-
-                                                                                                            if (NIR.Successful && !NIR.Empty)
+                                                                                                            // this code is bad and will be entirely scrapped in version 2.1, fixing it in v551
+                                                                                                            if (!XDRACLLSS.HasChildNodes)
                                                                                                             {
-                                                                                                                Sto.NodeList = NIR.Nodes;
+                                                                                                                continue;
+                                                                                                            }
+                                                                                                            else
+                                                                                                            {
+                                                                                                                NodeImportResult NIR = ImportNodes(XDRACLLSS);
+
+                                                                                                                if (NIR.Successful && !NIR.Empty)
+                                                                                                                {
+                                                                                                                    Sto.NodeList = NIR.Nodes;
+                                                                                                                }
+
                                                                                                             }
 
                                                                                                             continue;
@@ -460,8 +472,6 @@ namespace Track_Maker
                                                                                                 Lyr.AddStorm(Sto);
                                                                                                 continue;
                                                                                             }
-
-
                                                                                     }
 
                                                                                 }
@@ -494,41 +504,43 @@ namespace Track_Maker
                                 }
                             }
 
-                        }
+                            List<string> IXmlParse = XDRA.InnerXml.InnerXml_Parse();
 
-                        // probably shouldn't be chilnodes[0] but oh well
-                        List<string> IXmlParse = XDRA.InnerXml.InnerXml_Parse();
+                            string BasinName = null;
 
-                        string BasinName = null;
-
-                        for (int i = 0; i < IXmlParse.Count; i++)
-                        {
-                            string IXmlParseString = IXmlParse[i];
-
-                            IXmlParseString = IXmlParseString.Xaml2Cs(); 
-                            // this should in all reasonable circumstances hit the storm first.
-                            if (IXmlParseString == "Name")
+                            for (int i = 0; i < IXmlParse.Count; i++)
                             {
-                                // if we are one element before the end of the list, name is empty
-                                if (i - IXmlParse.Count == 1)  
-                                {
-                                    Error.Throw("Fatal Error!", "Invalid Proj file - no name specified for basin.", ErrorSeverity.Error, 180);
-                                    return XER;
-                                }
-                                else
-                                {
-                                    // also convert the next element
+                                string IXmlParseString = IXmlParse[i];
 
-                                    string PlusOne = IXmlParse[i + 1].Xaml2Cs();
-                                    BasinName = PlusOne; 
-                                    break; // avoid multiple hits
+                                IXmlParseString = IXmlParseString.Xaml2Cs();
+
+                                // this should in all reasonable circumstances hit the storm first.
+                                if (IXmlParseString == "Name")
+                                {
+                                    // if we are one element before the end of the list, name is empty
+                                    if (i - IXmlParse.Count == 1)
+                                    {
+                                        Error.Throw("Fatal Error!", "Invalid Proj file - no name specified for basin.", ErrorSeverity.Error, 180);
+                                        return XER;
+                                    }
+                                    else
+                                    {
+                                        // also convert the next element
+
+                                        string PlusOne = IXmlParse[i + 1].Xaml2Cs();
+                                        BasinName = PlusOne;
+                                        break; // avoid multiple hits
+                                    }
                                 }
                             }
+
+                            Proj.AddBasin(BasinName);
+
+
                         }
 
-                        Proj.AddBasin(BasinName);
 
-                        
+
                         continue; 
                 }
             }
@@ -561,22 +573,35 @@ namespace Track_Maker
             {
                 foreach (XmlNode XNNChild in XNN.ChildNodes)
                 {
-                    Node XNNN = new Node(); 
+                    
+                    Node NewNode = new Node(); 
 
-                    switch (XNNChild.Name)
+                    if (!XNNChild.HasChildNodes)
                     {
-                        case "Intensity":
-                            XNNN.Intensity = Convert.ToInt32(XNNChild.Value);
-                            continue;
-                        case "Position":
-                            XNNN.Position = XNNChild.Value.SplitXY(); 
-                            continue;
-                        case "Type":
-                            XNNN.NodeType = ST2Manager.GetStormTypeWithName(XNNChild.Value);
-                            continue; 
+                        Error.Throw("Error!", "Empty node detected!", ErrorSeverity.Error, 222);
+                    }
+                    else
+                    {
+                        foreach (XmlNode NodeInformationNode in XNNChild.ChildNodes)
+                        {
+                            switch (NodeInformationNode.Name)
+                            {
+                                case "Intensity":
+                                    NewNode.Intensity = Convert.ToInt32(XNNChild.Value);
+                                    continue;
+                                case "Position":
+                                    NewNode.Position = XNNChild.Value.SplitXY();
+                                    continue;
+                                case "Type":
+                                    NewNode.NodeType = ST2Manager.GetStormTypeWithName(XNNChild.Value);
+                                    continue;
+                            }
+                        }
                     }
 
-                    NIR.Nodes.Add(XNNN); 
+
+
+                    NIR.Nodes.Add(NewNode); 
                 }
 
                 NIR.Successful = true;
@@ -589,7 +614,7 @@ namespace Track_Maker
         }
         
         /// <summary>
-        /// This will be removed - export formats will not generate previews in v2
+        /// This will be removed - export formats will not generate previews in v2, the track maker will
         /// </summary>
         /// <param name="Canvas"></param>
         public void GeneratePreview(Canvas Canvas)

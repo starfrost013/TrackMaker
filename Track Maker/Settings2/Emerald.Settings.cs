@@ -352,7 +352,7 @@ namespace Track_Maker
                 
                 if (XElement == null || XRoot == null)
                 {
-                    Error.Throw("Error!", "An error occurred while saving settings.", ErrorSeverity.Error, 220);
+                    Error.Throw("Error!", "An error occurred while saving settings. Either settings.xml is empty or we attempted to modify an invalid setting.", ErrorSeverity.Error, 220);
                     return false; 
                 }
 
