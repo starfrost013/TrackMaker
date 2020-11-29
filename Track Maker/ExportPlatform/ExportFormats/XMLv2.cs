@@ -254,8 +254,8 @@ namespace Track_Maker
             try
             {
                 OpenFileDialog OFD = new OpenFileDialog();
-                OFD.Title = "Import from Proj";
-                OFD.Filter = "Track Maker Proj files|*.tproj";
+                OFD.Title = $"Import from {GetName()}";
+                OFD.Filter = "Track Maker Project files|*.tproj2";
                 OFD.ShowDialog();
 
                 if (OFD.FileName == "")
@@ -279,7 +279,7 @@ namespace Track_Maker
             }
             catch (XmlException)
             {
-                Error.Throw("Invalid basin!", "One of the basins in this Proj2 file is corrupted!", ErrorSeverity.Error, 182);
+                Error.Throw("Invalid basin!", "One of the basins in this project file is corrupted!", ErrorSeverity.Error, 182);
                 return null;
             }
         }
@@ -587,13 +587,13 @@ namespace Track_Maker
                             switch (NodeInformationNode.Name)
                             {
                                 case "Intensity":
-                                    NewNode.Intensity = Convert.ToInt32(XNNChild.Value);
+                                    NewNode.Intensity = Convert.ToInt32(NodeInformationNode.InnerText);
                                     continue;
                                 case "Position":
-                                    NewNode.Position = XNNChild.Value.SplitXY();
+                                    NewNode.Position = NodeInformationNode.InnerText.SplitXY();
                                     continue;
                                 case "Type":
-                                    NewNode.NodeType = ST2Manager.GetStormTypeWithName(XNNChild.Value);
+                                    NewNode.NodeType = ST2Manager.GetStormTypeWithName(NodeInformationNode.InnerText);
                                     continue;
                             }
                         }

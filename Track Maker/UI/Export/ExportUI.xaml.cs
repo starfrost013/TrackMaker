@@ -146,7 +146,10 @@ namespace Track_Maker
                 case FormatType.Import:
                     Project CurProj = ExpFormat.Import();
 
-
+                    if (CurProj == null)
+                    {
+                        return false; 
+                    }
 
                     if (CurProj.FileName == null)
                     {
@@ -187,19 +190,19 @@ namespace Track_Maker
                         if (IsEighthQuality) IIEF.Quality = ImageQuality.Eighth;
 
                         // need to make this priscilla-specific
-                        if (!ExpFormat.Export(MnWindow.CurrentProject)) return false;
+                        return ExpFormat.Export(MnWindow.CurrentProject); 
 
                     }
                     else
                     {
-                        if (!ExpFormat.Export(MnWindow.CurrentProject)) return false;
+                        ExpFormat.Export(MnWindow.CurrentProject);
                     }
 
 
                     // wish VS allowed the samE var names under different code paths
                     Project CurProject = MnWindow.CurrentProject;
 
-                    MnWindow.Title = $"Track Maker 2.0 - {CurProject.FileName}";
+                    if (CurProject.FileName != null && CurProject.FileName != "") MnWindow.Title = $"Track Maker 2.0 - {CurProject.FileName}";
                     MnWindow.UpdateLayout();
                     MnWindow.TickTimer.Start();
                     Close();
