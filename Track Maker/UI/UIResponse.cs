@@ -44,6 +44,7 @@ namespace Track_Maker
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 Project CurProj = CurrentProject;
+
                 if (CurProj != null && CurProj.SelectedBasin != null && CurProj.SelectedBasin.CurrentLayer != null)
                 {
                     // if we have no storms, ask the user to create a storm instead of add a track point. 
@@ -62,13 +63,13 @@ namespace Track_Maker
 #else
                         StormTypeManager ST2Manager = GlobalState.GetST2Manager();
 #endif
-                        AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames(), e.GetPosition(HurricaneBasin));
+                        Storm SelectedStorm = CurProj.SelectedBasin.GetCurrentStorm();
+
+                        // build 547: implement season start time on window feature
+                        AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames(), e.GetPosition(HurricaneBasin), SelectedStorm.FormationDate);
                         ATPHost.Owner = this;
                         ATPHost.Show(); 
-                        /*
-                        AddTrackPoint Addtrwindow = new AddTrackPoint(e.GetPosition(HurricaneBasin));
-                        Addtrwindow.Owner = this;
-                        Addtrwindow.Show(); */
+
                     }
 
                 }

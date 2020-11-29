@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker.DanoUIHost.AddTrackPointHost"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="AddTrackPointHost" Height="237" Width="755">
+        Title="Add Track Point" Height="237" Width="755">
     <Grid>
         <Dano:AddTrackPoint x:Name="AddTrackPointControl" OKHit="OKHit"></Dano:AddTrackPoint>
     </Grid>

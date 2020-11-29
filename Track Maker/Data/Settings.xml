@@ -1,6 +1,7 @@
 <Settings>
   <AccentColour1>0,64,128</AccentColour1>
   <AccentColour2>150,189,254</AccentColour2>
+  <Dano_UseDeserialisation>False</Dano_UseDeserialisation>
   <DefaultCategorySystem>SSHWS</DefaultCategorySystem>
   <DotSize>8,8</DotSize>
   <ExperimentalMode>true</ExperimentalMode>

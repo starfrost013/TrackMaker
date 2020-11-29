@@ -22,12 +22,13 @@ namespace Track_Maker.DanoUIHost.AddTrackPointHost
     public partial class AddTrackPointHost : Window
     {
         public List<string> StormNameList { get; set; }
-        public AddTrackPointHost(List<string> StormNames, Point Position)
+        public AddTrackPointHost(List<string> StormNames, Point Position, DateTime SeasonStartTime)
         {
             InitializeComponent();
             AddTrackPointControl.TypeNames = StormNames;
             AddTrackPointControl.MousePosition = Position;
             StormNameList = StormNames;
+            AddTrackPointControl.StartTime = SeasonStartTime; 
         }
 
         public void OKHit(object sender, DanoEventArgs DEA)

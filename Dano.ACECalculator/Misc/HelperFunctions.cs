@@ -81,7 +81,7 @@ namespace Dano.ACECalculator
                 }
                 else
                 {
-
+                    // CANCER CODE
                     node.ACE = GenACE(node.Intensity, 1); // convert to knots 
 
                     if (intensity < 39)
@@ -123,6 +123,8 @@ namespace Dano.ACECalculator
                 {
                     TotalACE = 0; // dont do this if we are in single point mode
                 }
+
+                EnterKt.Text = ""; // v1.4: autoclear for usability.
                 return;
             }
             catch (FormatException) // someone entered gibberish

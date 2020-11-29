@@ -191,7 +191,7 @@ namespace Dano.ACECalculator
             if (Keyboard.IsKeyDown(Key.Enter))
             {
                 AddPoint();
-                EnterKt.Text = ""; // v1.4: autoclear for usability.
+
             }
         }
 

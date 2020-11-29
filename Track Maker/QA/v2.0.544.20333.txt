@@ -1,0 +1,116 @@
+Initialisation					[OK]
+Initialisation: ACE Calculator mode		[OK] - needs case sensitive parsing
+Initialisation: Advisory Generator mode		[OK] - needs case sensitive parsing
+Settings loading				[OK] - may need better error handling
+Basin loading					[OK]
+Category system loading				[OK]
+Storm type loading				[OK]
+Basin display					[OK]
+Project creation				[OK]
+Layer display					[PW] [6]
+Layer creation					[WB] [7]
+Layer creation display				[NA] - OK at init
+Layer deletion					[NA] Undemonstrable - UI NA - [CR] if background layer deleted, WE CAN'T HAVE THAT
+Layer display toggle				[NA]
+Layer manipulation				[CR] - trashes internal UI state, causes crash
+Storms only display in toggled layers		[NA]
+Storm addition					[OK]
+Node addition					[OK] - should add season start time TextBlock, incorrect window name (easy fix)
+Node display					[OK]
+Error Handling					[OK]
+Fullscreen mode					[NA] - some reports of [CR]...code seemingly not called?
+Zooming						[OK]
+Panning						[NA] - entirely broken
+Undo						[OK]
+Redo						[OK]
+GENERAL: ERROR HANDLING				[PW]
+Currently Open File display			[OK] - probably
+File menu: Save Current Project button		[NA]
+Import: ATCF					[CR] - trashes internal state
+Import: HURDAT2					[NA]
+Import: TProj2					[NA] - due to export bugs
+Export: ATCF					[OK]
+Export: HURDAT2					[OK] - some minor spacing issues, does it matter?
+Export: EasyTimeline				[OK]
+Export: Image					[OK]
+Export: Image [Non-Full Quality]		[NA] - error, attempts to resize 0x0 image
+Export: TProj2					[WP] - fails to save storm type...
+ExportUI: Cancellation				[WB] - [CR] in some situations...specifically, if no valid open project - MANDATE PROJECT CREATION
+ExportUI: Previews				[NA]
+ExportUI: ImageControl				[OK] - this *itself* works, image exporting code doesn't
+Exit Button					[OK]
+Season Edit: Storm List				[OK]	
+Season Edit: Selection				[OK]
+Season Edit: Renaming				[WB] - doesn't autofill with storm names, 1
+Season Edit: Deletion				[OK] - actually works
+Season Edit: Exiting				[OK]
+Category Viewer: Category System List		[OK]	
+Category Viewer: Changing category system works	[NA] - known
+Storm Names: Enable properly			[OK]
+Storm Names: Disable, re-enable			[OK]
+Basin: Clear					[OK]
+Basin Switcher: Basin List			[OK]		
+Basin Switcher: Switching			[OK]
+Basin Switcher: Exiting 			[OK]
+ACE Calculator: Initialisation			[OK]
+ACE Calculator: UI				[WB] - MANY UI display issues
+ACE Calculator: ACE Calculation			[WB] - doesn't auto-clear box after inputting ace
+ACE Calculator: Point Deletion			[WB] - fails to recalc total ACE for point after deleted point
+ACE Calculator: Date/Time Enable, re-disable	[WB] - UI almost unusable with invisible text, is cut off
+ACE Calculator: KTS Mode			[OK]
+ACE Calculator: MPH Mode			[OK]
+ACE Calculator: Mode Changes			[OK]
+ACE Calculator: Copy to Clipboard		[OK]
+ACE Calculator: Point Editing			[OK]	
+ACE Calculator: Storm Reset			[OK]
+ACE Calculator: Single Point Mode		[OK]
+ACE Calculator: About 				[WB] - UI display issue [1] 
+ACE Calculator: Error Handling			[WB] - will crash if too large a number input
+Advisory Generator: Initialisation		[OK] - AdvGen has no custom category support, should be implemented for Priscilla+
+Advisory Generator: UI				[WB] - invisible text
+Advisory Generator: Text Export NHC-style	[OK] - possibly missing newlines...?
+Advisory Generator: Text Export Wikitext-style	[OK]
+Advisory Generator: Text Export MCC-style	[WB] - not current MCC advisory format
+Advisory Generator: Warning Manager		[OK]
+Advisory Generator: Warning Manager: UI		[PW] - doesn't maintain state, button borders invisible, 1
+Advisory Generator: Warning Manager: ListView	[PW] - doesn't maintain state
+Advisory Generator: Forecast Manager		[WB] - UI issues
+Advisory Generator: Forecast Manager: UI	[WB] - invisible text
+Advisory Generator: Forecast Manager: ListView	[OK] - maintains state
+Advisory Generator: About			[WB] - UI issues, 
+Settings: Initialisation			[OK]			
+Settings: UI Display				[PW] - current basin setting removed and thus does not display, "Done" button should say Save,
+Settings: UI					[WB] - requires DanoUI port
+Settings: ColourPicker				[WB] - requires DanoUI port
+Settings: Adjustment [AccentColour]		[OK]
+Settings: Adjustment [Other]			[WB] - line size slider not positioned correctly
+Settings: Saving				[NA] - error 220
+About						[WB] - version information text too large
+
+Un-implemented V2 features:
+Help Launcher
+MORE HERE
+
+Common Issues:
+1: Text does not appear or does but is invisible
+2: Text is cut off
+3: Text runs on
+4: UI is incorrect colour (DanoUI issue)
+5: Text does not take accent colour into account
+6: Works during init, but threading issues cause further added layers to not display in UI
+7: Does not display in UI
+
+Test Information:
+Tests required for Beta			80%, including all basic functionality tests
+Tests required for RC			90%
+Tests required for Release		97%
+-----------------------------------------------------
+Total tests				88
+OK					50/88 [56.8%]
+WB					18/88 [20.5%]
+PW					5/88  [5.7%]
+NA 					13/88 [14.8%]
+CR					2/88 [2.7%]
+-----------------------------------------------------
+Score					55.7% 
+Delta-V	for Beta			+24.3% 

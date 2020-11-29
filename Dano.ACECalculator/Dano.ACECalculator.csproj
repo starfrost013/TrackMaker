@@ -69,7 +69,9 @@
     <Compile Include="Core\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\Modes\IntensityMeasurements.cs" />
     <Compile Include="Core\StormIntensityNode.cs" />
+    <Compile Include="Core\Modes\StormModes.cs" />
     <Compile Include="Edit\EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
     </Compile>

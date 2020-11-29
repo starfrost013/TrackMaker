@@ -8,11 +8,13 @@
     <Grid>
         <TextBlock x:Name="AddTrackPointTextBlock" Text="Add Track Point" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.411,-0.434" Height="58" Width="261" FontSize="36" FontStyle="Italic"/>
         <TextBlock x:Name="IntensityTextBlock" Text="Intensity (mph):" HorizontalAlignment="Left" Height="28" Margin="10,68,0,0" VerticalAlignment="Top" Width="134" FontSize="18"/>
-        <TextBox x:Name="IntensityTextBox" HorizontalAlignment="Left" Height="28" Margin="156,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="345" FontSize="18" FontStyle="Italic" Style="{StaticResource TextBox_BW}"/>
+        <TextBox x:Name="IntensityTextBox" HorizontalAlignment="Left" Height="28" Margin="175,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="345" FontSize="18" FontStyle="Italic" Style="{StaticResource TextBox_BW}"/>
 
-        <TextBlock x:Name="TypeTextBlock" Text="Type:" HorizontalAlignment="Left" Height="32" Margin="10,104,0,0" VerticalAlignment="Top" Width="44" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
-        <local:TypeSelectorBox x:Name="TypeSelect" x:FieldModifier="public" Margin="156,104,235,70" Width="345" Height="34" Loaded="TypeSelect_Loaded"></local:TypeSelectorBox>
-        <Button x:Name="TypeOK" Content="OK" HorizontalAlignment="Left" Margin="559,144,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="TypeOK_Click" Style="{StaticResource Button_Invert}"/>
+        <TextBlock x:Name="TypeTextBlock" Text="Type:" HorizontalAlignment="Left" Height="25" Margin="10,104,0,0" VerticalAlignment="Top" Width="44" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
+        <local:TypeSelectorBox x:Name="TypeSelect" x:FieldModifier="public" Margin="175,104,216,70" Width="345" Height="34" Loaded="TypeSelect_Loaded"></local:TypeSelectorBox>
+        <Button x:Name="TypeOK" Content="OK" HorizontalAlignment="Left" Margin="581,151,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="TypeOK_Click" Style="{StaticResource Button_Invert}"/>
+        <TextBlock x:Name="SeasonStartTime" Text="Season Start Time:" HorizontalAlignment="Left" Height="32" Margin="10,143,0,0" VerticalAlignment="Top" Width="163" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
+        <TextBlock x:Name="SeasonStartTimeText" Text="" HorizontalAlignment="Left" Height="32" Margin="175,143,0,0" VerticalAlignment="Top" Width="342" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
         <!-- Don't add options here, this is populated by the constructor (maybe a method for this) -->
     </Grid>
 </UserControl>

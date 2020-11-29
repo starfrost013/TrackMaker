@@ -21,13 +21,14 @@ namespace DanoUI
     public partial class AddTrackPoint : UserControl
     {
         public List<string> TypeNames { get; set; }
+        public DateTime StartTime { get; set; }
         public Point MousePosition { get; set; }
+
         /// <summary>
         /// DanoParameters [OKHit: OK button hit]
         /// 
         /// Param 0     Int     Intensity of this track node
         /// Param 1     String  Type of this track node 
-        /// *to fix invalid cast exception* 
         /// Param 2     Point   Mouse position  
         /// </summary>
         public EventHandler<DanoEventArgs> OKHit { get; set; }
@@ -38,8 +39,12 @@ namespace DanoUI
             UpdateLayout(); 
         }
 
+
         private void TypeSelect_Loaded(object sender, RoutedEventArgs e)
         {
+
+            // wow visual studio added a tostring format helper, when did they do that? 
+            SeasonStartTimeText.Text = StartTime.ToString("yyyy-MM-dd HH:mm:ss");
             TypeSelect.Setup(TypeNames); 
         }
 
@@ -57,9 +62,9 @@ namespace DanoUI
             catch (OverflowException err)
             {
 #if DEBUG
-                MessageBox.Show($"Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive!\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive.\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
 #else  
-                MessageBox.Show($"Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
 #endif
             }
             catch (FormatException err) 

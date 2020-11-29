@@ -145,7 +145,7 @@ namespace Track_Maker
             {
                 case FormatType.Import:
                     Project CurProj = ExpFormat.Import();
-                    MnWindow.TickTimer.Start();
+
 
 
                     if (CurProj.FileName == null)
@@ -163,6 +163,8 @@ namespace Track_Maker
 
                     // we are not setting current project before, usually you wouldn't need to do this hack
                     MnWindow.CurrentProject = CurProj;
+
+                    MnWindow.TickTimer.Start();
                     MnWindow.UpdateLayout();
                     
 
