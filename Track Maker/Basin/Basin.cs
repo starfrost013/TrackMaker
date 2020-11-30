@@ -384,6 +384,26 @@ namespace Track_Maker
 #endif
         }
 
+        public void AddLayer(Layer Lyr)
+        {
+#if PRISCILLA // V2.0 only (hack)
+            // TEMP
+
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+
+            // Forces this code to run on the UI thread, as we are updating UI. We are also not invoking a specific delegate so we just run this code.
+
+            MnWindow.Dispatcher.Invoke(() =>
+            {
+                Layers.Add(Lyr);
+
+                MnWindow.Layers.AddLayer(Lyr);
+
+            });
+
+#endif
+        }
+
         public void SelectLayer(string Name)
         {
             foreach (Layer Lyr in Layers)

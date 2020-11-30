@@ -1,4 +1,7 @@
-﻿using Microsoft.Win32;
+﻿// EVERYTHING ABOUT THIS IS TERRIBLE
+// IN V2.1 WE WILL MAKE THIS DESERIALISED
+
+using Microsoft.Win32;
 using Starfrost.UL5.StringUtilities;
 using System;
 using System.Collections.Generic;
@@ -307,6 +310,8 @@ namespace Track_Maker
 #endif
             if (!XDR.HasChildNodes) return XER;
 
+            List<Layer> Layers = new List<Layer>();  
+
             foreach (XmlNode XDRA in XDR.ChildNodes)
             {
                 switch (XDRA.Name)
@@ -500,29 +505,35 @@ namespace Track_Maker
                                                                 Error.Throw("Invalid basin!", "Layer with no name!", ErrorSeverity.Error, 125);
                                                                 return XER;
                                                             }
+                                                            else
+                                                            {
+                                                                Layers.Add(Lyr); 
+                                                            }
 
-                                                            Bas.AddLayer(Lyr.Name);
                                                             continue;
 
 
                                                     }
                                                     continue; 
                                                 }
-                                                Proj.AddBasin(Bas.Name);
-                                                continue; 
+
                                             }
-                                           
+                                                continue; 
                                     }
 
+
+                                    continue;
                                 }
 
 
                             }
 
                             List<string> IXmlParse = XDRA.InnerXml.InnerXml_Parse();
-
-
-                            /*
+                                
+                            // this is a complete hack,
+                            // in version 2.1 this code will be thrown out and replaced with xml deserialisation as this is genuinely terrible
+                            string BasinName = null; 
+                            
                             for (int i = 0; i < IXmlParse.Count; i++)
                             {
                                 string IXmlParseString = IXmlParse[i];
@@ -548,7 +559,21 @@ namespace Track_Maker
                                     }
                                 }
                             }
-                            */
+
+                            if (BasinName != null)
+                            {
+                                Basin NewBasin = Proj.GetBasinWithName(BasinName);
+
+                                // really dumb hack
+                                foreach (Layer Lyrs in Layers)
+                                {
+                                    NewBasin.AddLayer(Lyrs);
+                                }
+
+                                Proj.AddBasin(NewBasin, true);
+                                Proj.SelectedBasin = NewBasin;
+                            }
+
 
 
 
