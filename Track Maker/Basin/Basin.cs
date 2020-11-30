@@ -397,7 +397,7 @@ namespace Track_Maker
             {
                 Layers.Add(Lyr);
 
-                MnWindow.Layers.AddLayer(Lyr);
+                MnWindow.Layers.AddLayer(Lyr.Name);
 
             });
 
