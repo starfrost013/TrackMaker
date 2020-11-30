@@ -12,29 +12,23 @@ namespace Starfrost.UL5.ScaleUtilities
 {
     public static class ScaleUtilities
     {
-        public static BitmapImage ScaleToQuality(this BitmapImage Img, ImageQuality ImgQuality)
+        public static Point ScaleToQuality(BitmapImage Img, ImageQuality ImgQuality)
         {
 
             switch (ImgQuality)
             {
                 case ImageQuality.Full:
-                    return Img;
+                    return new Point(Img.PixelWidth, Img.PixelHeight);
                 case ImageQuality.Half:
-                    Img.DecodePixelWidth = Convert.ToInt32(Img.PixelWidth / 2); 
-                    Img.DecodePixelHeight = Convert.ToInt32(Img.PixelHeight / 2);
-                    return Img;
+                    return new Point(Img.PixelWidth / 2, Img.PixelHeight / 2);
                 case ImageQuality.Quarter:
-                    Img.DecodePixelWidth = Convert.ToInt32(Img.PixelWidth / 4);
-                    Img.DecodePixelHeight = Convert.ToInt32(Img.PixelHeight / 4);
-                    return Img;
+                    return new Point(Img.PixelWidth / 4, Img.PixelHeight / 4);
                 case ImageQuality.Eighth:
-                    Img.DecodePixelWidth = Convert.ToInt32(Img.PixelWidth / 8);
-                    Img.DecodePixelHeight = Convert.ToInt32(Img.PixelHeight / 8);
-                    return Img;
+                    return new Point(Img.PixelWidth / 8, Img.PixelHeight / 8);
             }
 
             // pre-v3
-            return null; 
+            return new Point(0, 0); 
         }
     }
 }

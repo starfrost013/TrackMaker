@@ -14,7 +14,7 @@
                     <ColumnDefinition Width="10*"/>
                     <ColumnDefinition Width="69*"/>
                 </Grid.ColumnDefinitions>
-                <CheckBox x:Name="QualityControl_FullQuality" x:FieldModifier="public" Content="Full Quality" HorizontalAlignment="Left" Height="16" Margin="9,10,0,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" Click="QualityControl_FullQuality_Click"/>
+                <CheckBox x:Name="QualityControl_FullQuality" x:FieldModifier="public" Content="Full Quality" HorizontalAlignment="Left" Height="16" Margin="9,10,0,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" IsChecked="True" Click="QualityControl_FullQuality_Click"/>
                 <CheckBox x:Name="QualityControl_HalfQuality" x:FieldModifier="public" Content="Half Quality" HorizontalAlignment="Left" Height="16" Margin="9,31,0,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" Click="QualityControl_HalfQuality_Click"/>
                 <CheckBox x:Name="QualityControl_QuarterQuality" x:FieldModifier="public" Content="Quarter Quality" HorizontalAlignment="Left" Height="16" Margin="9,52,0,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" Click="QualityControl_QuarterQuality_Click"/>
                 <CheckBox x:Name="QualityControl_EighthQuality" x:FieldModifier="public" Content="1/8th Quality" HorizontalAlignment="Left" Height="16" Margin="9,73,0,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" Click="QualityControl_EighthQuality_Click"/>

@@ -120,15 +120,17 @@ namespace Track_Maker
             BitmapImage Bitmap = new BitmapImage();
             Bitmap.BeginInit();
             Bitmap.UriSource = new Uri(Project.SelectedBasin.ImagePath, UriKind.RelativeOrAbsolute);
-
             Bitmap.EndInit();
             // dumb hack (build 558)
 
 
-            Bitmap = Bitmap.ScaleToQuality(Quality);
             TempCanvas.Background = new ImageBrush(Bitmap);
 
+            // should this still be an eXtension method? it doesn't manipulate the image object itself anymore so...
+            Point CanvasSize = ScaleUtilities.ScaleToQuality(Bitmap, Quality);
 
+            TempCanvas.Width = CanvasSize.X;
+            TempCanvas.Height = CanvasSize.Y;
 
             Project CurrentProject = Xwindow.CurrentProject;
 
