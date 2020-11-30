@@ -100,5 +100,11 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DanoUI\DanoUI.csproj">
+      <Project>{f24f47e1-4cf7-4777-b7dd-db1aec6278d9}</Project>
+      <Name>DanoUI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,12 +9,12 @@
     <Grid>
         <Label x:Name="SetStormStartDate" Content="Set storm start date" HorizontalAlignment="Left" Margin="5,1,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.382,-0.041" Height="61" Width="406" FontSize="36"/>
         <DatePicker x:Name="Ver14_DatePicker" HorizontalAlignment="Left" Margin="69,59,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Ver14_Date" Text="Date:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.109,0.267" Height="26" Width="69" FontSize="18" Margin="11,59,0,0"/>
+        <TextBlock x:Name="Ver14_Date" Text="Date:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.109,0.267" Height="26" Width="53" FontSize="18" Margin="11,59,0,0"/>
         <TextBlock x:Name="Ver14_Time" Text="Time:" HorizontalAlignment="Left" Margin="11,85,0,0" VerticalAlignment="Top"  Height="28" Width="53" FontSize="18"/>
-        <TextBox x:Name="Ver14_HoursBox" HorizontalAlignment="Left" Margin="69,88,0,47" TextWrapping="Wrap" Text="" Width="30" FontSize="18"/>
+        <TextBox x:Name="Ver14_HoursBox" HorizontalAlignment="Left" Margin="69,88,0,47" TextWrapping="Wrap" Text="" Width="30" FontSize="18" Height="Auto" Style="{StaticResource TextBox_BW}"/>
         <TextBlock x:Name="Ver14_Colon" Text=":" HorizontalAlignment="Left" Margin="104,85,0,0" VerticalAlignment="Top"  Height="28" Width="5" FontSize="18"/>
-        <TextBox x:Name="Ver14_MinutesBox" HorizontalAlignment="Left" Height="23" Margin="114,88,0,47" TextWrapping="Wrap" Text="" Width="30" FontSize="18"/>
-        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Height="33" Margin="288,106,0,0" VerticalAlignment="Top" Width="108" Click="OKButton_Click" FontSize="18"/>
+        <TextBox x:Name="Ver14_MinutesBox" HorizontalAlignment="Left" Height="23" Margin="114,88,0,47" TextWrapping="Wrap" Text="" Width="30" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Height="33" Margin="288,106,0,0" VerticalAlignment="Top" Width="108" Click="OKButton_Click" FontSize="18" Style="{StaticResource Button_Invert}"/>
 
     </Grid>
 </Window>

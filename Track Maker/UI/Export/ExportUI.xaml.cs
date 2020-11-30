@@ -211,5 +211,11 @@ namespace Track_Maker
 
             return false;
         }
+
+        // previewgenerator
+        private bool GeneratePreview()
+        {
+            throw new NotImplementedException(); 
+        }
     }
 }

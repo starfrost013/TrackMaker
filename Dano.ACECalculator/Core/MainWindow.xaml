@@ -1,5 +1,5 @@
-﻿<!-- starfrost's ACE Calculator Version 1.4.1
-    Part of starfrost's Track Maker
+﻿<!-- starfrost's ACE Calculator Version 1.5.3 (2020-11-30)
+    Part of starfrost's Track Maker version 2.0
     © 2020 starfrost. Open-source software.
     -->
 <Window x:Class="Dano.ACECalculator.CalcMainWindow"
@@ -49,7 +49,7 @@
         <TextBlock x:Name="NameLabel" Text="ACE Calculator" HorizontalAlignment="Left" Height="52" Margin="15,23,0,0" VerticalAlignment="Top" Width="241" FontSize="36"/>
         <TextBlock x:Name="ItCalculatesAce" Text="It calculates ACE!" HorizontalAlignment="Left" Height="23" Margin="15,65,0,0" VerticalAlignment="Top" Width="177" FontStyle="Italic" FontSize="18" MouseDown="ItCalculatesAce_MouseDown"/>
         <TextBlock x:Name="EnterStormIntensityLabel" Text="Enter storm intensity (in kt)..." HorizontalAlignment="Left" Height="26" Margin="15,93,0,0" VerticalAlignment="Top" Width="177" FontStyle="Italic"/>
-        <TextBox x:Name="EnterKt" HorizontalAlignment="Left" Height="21" Margin="15,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" KeyDown="EnterKt_KeyDown"/>
+        <TextBox x:Name="EnterKt" HorizontalAlignment="Left" Height="21" Margin="15,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" KeyDown="EnterKt_KeyDown" Style="{StaticResource TextBox_BW}"/>
         <Button x:Name="AddStorm" Content="Add" HorizontalAlignment="Left" Height="21" Margin="162,119,0,0" VerticalAlignment="Top" Width="52" Click="AddStorm_Click"/>
         <TextBlock x:Name="StormIntensitiesLabel" Text="Storm intensities:" HorizontalAlignment="Left" Height="21" Margin="15,150,0,0" VerticalAlignment="Top" Width="291" FontSize="16" FontStyle="Italic"/>
         <ListView x:Name="StormIntensities" HorizontalAlignment="Left" Height="331" Margin="15,181,0,0" VerticalAlignment="Top" Width="363">

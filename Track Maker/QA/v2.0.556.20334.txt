@@ -1,47 +1,50 @@
+Priscilla Version: 2.0.555.20334 (prebeta5)
+
 Initialisation					[OK]
-Initialisation: ACE Calculator mode		[OK] - needs case sensitive parsing
-Initialisation: Advisory Generator mode		[OK] - needs case sensitive parsing
+Initialisation: ACE Calculator mode		[OK] - case sensitive parsing implemented in build 549
+Initialisation: Advisory Generator mode		[OK] 
 Settings loading				[OK] - may need better error handling
 Basin loading					[OK]
 Category system loading				[OK]
 Storm type loading				[OK]
 Basin display					[OK]
 Project creation				[OK]
-Layer display					[PW] [6]
+Layer display					[PW] [6] - buttons fixed in build 548, context menu fixed in build 554
 Layer creation					[WB] [7]
-Layer creation display				[NA] - OK at init
-Layer deletion					[NA] Undemonstrable - UI NA - [CR] if background layer deleted, WE CAN'T HAVE THAT
-Layer display toggle				[NA]
+Layer creation display			[NA] - OK at init
+Layer deletion					[NA] Undemonstrable - UI NA - background layer cannot be deleted as of build 547
+Layer display toggle			[NA]
 Layer manipulation				[CR] - trashes internal UI state, causes crash
 Storms only display in toggled layers		[NA]
 Storm addition					[OK]
-Node addition					[OK] - should add season start time TextBlock, incorrect window name (easy fix)
+Node addition					[OK]
+Node addition: Time				[OK]
 Node display					[OK]
 Error Handling					[OK]
-Fullscreen mode					[NA] - some reports of [CR]...code seemingly not called?
+Fullscreen mode					[WB] NA => WB; scales in reverse order, UI misplaced
 Zooming						[OK]
 Panning						[NA] - entirely broken
-Undo						[OK]
+Undo						[OK] - should've been WB in 544 as ctrl+y/ctrl+z didn't work until 556
 Redo						[OK]
 GENERAL: ERROR HANDLING				[PW]
 Currently Open File display			[OK] - probably
 File menu: Save Current Project button		[NA]
-Import: ATCF					[CR] - trashes internal state
+Import: ATCF					[NA] - cannot get past ad screen, need to use FolderBrowserDialog (CR => NA)
 Import: HURDAT2					[NA]
-Import: TProj2					[NA] - due to export bugs
+Import: TProj2					[PW] - does not add storms to layers (NA => PW)
 Export: ATCF					[OK]
 Export: HURDAT2					[OK] - some minor spacing issues, does it matter?
-Export: EasyTimeline				[OK]
+Export: EasyTimeline			[OK]
 Export: Image					[OK]
-Export: Image [Non-Full Quality]		[NA] - error, attempts to resize 0x0 image
-Export: TProj2					[WP] - fails to save storm type...
-ExportUI: Cancellation				[WB] - [CR] in some situations...specifically, if no valid open project - MANDATE PROJECT CREATION
+Export: Image [Non-Full Quality][NA] - error, attempts to resize 0x0 image
+Export: TProj2					[OK] - WB => OK
+ExportUI: Cancellation			[OK] - WB => OK
 ExportUI: Previews				[NA]
-ExportUI: ImageControl				[OK] - this *itself* works, image exporting code doesn't
-Exit Button					[OK]
+ExportUI: ImageControl			[OK] - this *itself* works, image exporting code doesn't
+Exit Button						[OK]
 Season Edit: Storm List				[OK]	
 Season Edit: Selection				[OK]
-Season Edit: Renaming				[WB] - doesn't autofill with storm names, 1
+Season Edit: Renaming				[WB] - doesn't autofill with storm names
 Season Edit: Deletion				[OK] - actually works
 Season Edit: Exiting				[OK]
 Category Viewer: Category System List		[OK]	
@@ -54,7 +57,7 @@ Basin Switcher: Switching			[OK]
 Basin Switcher: Exiting 			[OK]
 ACE Calculator: Initialisation			[OK]
 ACE Calculator: UI				[WB] - MANY UI display issues
-ACE Calculator: ACE Calculation			[WB] - doesn't auto-clear box after inputting ace
+ACE Calculator: ACE Calculation			[OK] - WB => OK
 ACE Calculator: Point Deletion			[WB] - fails to recalc total ACE for point after deleted point
 ACE Calculator: Date/Time Enable, re-disable	[WB] - UI almost unusable with invisible text, is cut off
 ACE Calculator: KTS Mode			[OK]
@@ -79,14 +82,14 @@ Advisory Generator: Forecast Manager: UI	[WB] - invisible text
 Advisory Generator: Forecast Manager: ListView	[OK] - maintains state
 Advisory Generator: About			[WB] - UI issues, 
 Settings: Initialisation			[OK]			
-Settings: UI Display				[PW] - current basin setting removed and thus does not display, "Done" button should say Save,
+Settings: UI Display				[WB] - PW => WB, "Done" button should say Save, minor issues
 Settings: UI					[WB] - requires DanoUI port
 Settings: ColourPicker				[WB] - requires DanoUI port
 Settings: Adjustment [AccentColour]		[OK]
 Settings: Adjustment [Other]			[WB] - line size slider not positioned correctly
-Settings: Saving				[NA] - error 220
-About						[WB] - version information text too large
-
+Settings: Saving				[WB] - NA => WB, clobbers line size setting 
+About						[OK] - WB => OK
+TelemetryConsent					[PW] - works but message bo immediately disappears
 Un-implemented V2 features:
 Help Launcher
 MORE HERE
@@ -105,27 +108,21 @@ Tests required for Beta			80%, including all basic functionality tests
 Tests required for RC			90%
 Tests required for Release		97%
 -----------------------------------------------------
-Total tests				88
-OK					50/88 [56.8%]
-WB					18/88 [20.5%]
-PW					5/88  [5.7%]
-NA 					13/88 [14.8%]
-CR					2/88 [2.7%]
+Total tests				90
+OK					58/90 [64.4%]
+WB					25/90 [27.8%]
+PW					7/90  [7.8%]
+NA 					12/90 [13.3%]
+CR					1/90 [1.1%]
 -----------------------------------------------------
-Score						55.7% 
-Delta-V	for Beta			+24.3% 
+Score						64.4% 
+Delta-V	for Beta			+15.6% 
 
-Changes since this build:
-Version					Change
-v547					You can no longer delete the background layer.
-v547					Season start time now displayed in UI.
-v547					Layer display fixes.
-v548					Changed start time on AddTrackPoint to node time.
-v549					Fully fixed TProj2 exporting
-v549					Case-insensitive command line arguments
-v549					Removed legacy SelectedBasin setting
-v549					Fixed settings saving
-v550					TProj V2.3: Root node name change
+Changes since v544:
+OK					50/88 => 58/90 (+8 / +8.7%)
+WB					18/88 => 25/90 (+7 / +7.3%)
+PW					5/88  => 7/90  (+2 / +2.1%)
+NA					
 
 to fix:
 - multiple background layers issue

@@ -20,16 +20,16 @@ namespace Starfrost.UL5.ScaleUtilities
                 case ImageQuality.Full:
                     return Img;
                 case ImageQuality.Half:
-                    Img.DecodePixelWidth = Convert.ToInt32(Img.Width / 2); 
-                    Img.DecodePixelHeight = Convert.ToInt32(Img.Width / 2);
+                    Img.DecodePixelWidth = Convert.ToInt32(Img.PixelWidth / 2); 
+                    Img.DecodePixelHeight = Convert.ToInt32(Img.PixelHeight / 2);
                     return Img;
                 case ImageQuality.Quarter:
-                    Img.DecodePixelWidth = Convert.ToInt32(Img.Width / 4);
-                    Img.DecodePixelHeight = Convert.ToInt32(Img.Width / 4);
+                    Img.DecodePixelWidth = Convert.ToInt32(Img.PixelWidth / 4);
+                    Img.DecodePixelHeight = Convert.ToInt32(Img.PixelHeight / 4);
                     return Img;
                 case ImageQuality.Eighth:
-                    Img.DecodePixelWidth = Convert.ToInt32(Img.Width / 8);
-                    Img.DecodePixelHeight = Convert.ToInt32(Img.Width / 8);
+                    Img.DecodePixelWidth = Convert.ToInt32(Img.PixelWidth / 8);
+                    Img.DecodePixelHeight = Convert.ToInt32(Img.PixelHeight / 8);
                     return Img;
             }
 

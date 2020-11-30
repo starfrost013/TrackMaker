@@ -120,9 +120,12 @@ namespace Track_Maker
             BitmapImage Bitmap = new BitmapImage();
             Bitmap.BeginInit();
             Bitmap.UriSource = new Uri(Project.SelectedBasin.ImagePath, UriKind.RelativeOrAbsolute);
-            Bitmap = Bitmap.ScaleToQuality(Quality);
-            Bitmap.EndInit();
 
+            Bitmap.EndInit();
+            // dumb hack (build 558)
+
+
+            Bitmap = Bitmap.ScaleToQuality(Quality);
             TempCanvas.Background = new ImageBrush(Bitmap);
 
 

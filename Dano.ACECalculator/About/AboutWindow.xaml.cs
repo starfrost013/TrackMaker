@@ -26,7 +26,7 @@ namespace Dano.ACECalculator
             InitializeComponent();
             Assembly Assembly = Assembly.GetEntryAssembly();
             FileVersionInfo FileVersion = FileVersionInfo.GetVersionInfo(Assembly.Location); // get this program's location
-            Version.Text = $"Version 1.5.253.2 (for Track Maker version {FileVersion.ProductVersion}).";
+            Version.Text = $"Version 1.5.254.3 (for Track Maker version {FileVersion.ProductVersion}).";
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
