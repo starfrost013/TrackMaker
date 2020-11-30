@@ -27,7 +27,7 @@ namespace Dano.AdvisoryGenerator
             InitializeComponent();
             Assembly Assembly = Assembly.GetEntryAssembly();
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.Location);
-            Version.Text = $"Version 1.0.73.4 (for starfrost's Track Maker {FVI.ProductVersion})";
+            Version.Text = $"Version 1.1.74.0 (for starfrost's Track Maker {FVI.ProductVersion})";
         }
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)

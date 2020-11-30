@@ -60,7 +60,9 @@ Features:
 - Cone and graphic IModes?
 - Animate tracks feature (codenamed "Dynamo") using the XAF (XML Animation Format) file format
 - Upload to the Internet
+- Effects?
 - .NET Core optional
+- Something else I forgot :(
 
 Moved to 2.1: Delegate-based error system 
 

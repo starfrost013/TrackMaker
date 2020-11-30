@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dano.AdvisoryGenerator"
         mc:Ignorable="d"
-        Title="Forecast Manager" Height="450" Width="645.504">
+        Title="Forecast Manager" Height="450" Width="631.979">
     <Grid>
         <TextBlock x:Name="ForecastManagerLabel" Text="Forecast Manager" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="58" Width="300" FontSize="36"/>
         <TextBlock x:Name="IntensityLabel" Text="Winds:" HorizontalAlignment="Left" Height="34" Margin="10,79,0,0" VerticalAlignment="Top" Width="83" FontSize="18"/>
@@ -18,21 +18,22 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="IntensityBox" HorizontalAlignment="Left" Height="29" Margin="93,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="261" FontSize="18"/>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="422,79,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="AddButton_Click"/>
-        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="515,365,0,0" VerticalAlignment="Top" Width="113" FontSize="18" Click="OKButton_Click"/>
+        <TextBox x:Name="IntensityBox" HorizontalAlignment="Left" Height="29" Margin="93,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="261" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBlock x:Name="MPH" Text="mph" HorizontalAlignment="Left" Height="34" Margin="359,79,0,0" VerticalAlignment="Top" Width="45" FontSize="18"/>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="409,78,0,0" VerticalAlignment="Top" Width="80" FontSize="18" Click="AddButton_Click" Style="{StaticResource Button_Invert}" Height="29"/>
         <TextBlock x:Name="PositionLabel" Text="Position:" HorizontalAlignment="Left" Height="34" Margin="10,112,0,0" VerticalAlignment="Top" Width="83" FontSize="18"/>
-        <TextBox x:Name="PositionNS" HorizontalAlignment="Left" Height="29" Margin="93,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="76" FontSize="18"/>
+        <TextBox x:Name="PositionNS" HorizontalAlignment="Left" Height="29" Margin="93,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="76" FontSize="18" Style="{StaticResource TextBox_BW}"/>
         <ComboBox x:Name="PositionNSBox" HorizontalAlignment="Left" Height="29" Margin="178,112,0,0" VerticalAlignment="Top" Width="52" SelectedIndex="0" FontSize="18">
-            <ComboBoxItem Content="N"/>
-            <ComboBoxItem Content="S"/>
+            <ComboBoxItem x:Name="PositionNS_North" Content="N"/>
+            <ComboBoxItem x:Name="PositionNS_South" Content="S"/>
         </ComboBox>
-        <TextBox x:Name="PositionWE" HorizontalAlignment="Left" Height="29" Margin="235,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18"/>
+
+        <TextBox x:Name="PositionWE" HorizontalAlignment="Left" Height="29" Margin="235,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
         <ComboBox x:Name="PositionWEBox" HorizontalAlignment="Left" Height="29" Margin="320,112,0,0" VerticalAlignment="Top" Width="52" SelectedIndex="1" FontSize="18">
             <ComboBoxItem x:Name="PositionWE_West" Content="W"/>
             <ComboBoxItem x:Name="PositionWE_East" Content="E"/>
         </ComboBox>
-        <TextBlock x:Name="MPH" Text="mph" HorizontalAlignment="Left" Height="34" Margin="359,79,0,0" VerticalAlignment="Top" Width="45" FontSize="18" RenderTransformOrigin="0.516,0.613"/>
+        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="493,365,0,0" VerticalAlignment="Top" Width="113" FontSize="18" Click="OKButton_Click" Style="{StaticResource Button_Invert}"/>
 
     </Grid>
 </Window>

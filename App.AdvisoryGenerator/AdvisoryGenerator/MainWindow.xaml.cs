@@ -15,7 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+/// <summary>
+/// Everything about this is terrible and was written when I barely knew C#
+/// </summary>
 namespace Dano.AdvisoryGenerator
 {
     /// <summary>
@@ -36,6 +38,7 @@ namespace Dano.AdvisoryGenerator
             Mode = 0;
         }
 
+        
         public class Advisory
         {
             public string Name {get; set;}
