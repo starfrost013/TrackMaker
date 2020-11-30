@@ -287,7 +287,7 @@ namespace Track_Maker
                 return null;
             }
         }
-
+#if PRISCILLA
         public XMLImportResult ImportCore(string FileName)
         {
             XMLImportResult XER = new XMLImportResult();
@@ -588,8 +588,8 @@ namespace Track_Maker
             XER.Successful = true;
             XER.Project = Proj; 
             return XER;
-        } 
-
+        }
+#endif
         private protected NodeImportResult ImportNodes(XmlNode XNN)
         {
 

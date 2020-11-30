@@ -86,7 +86,7 @@ namespace Track_Maker
 
             string _DefaultCatsystem = Settings_Tab_General_DefaultCatSystemBox.Text;
             string _DotSize = $"{Settings_Tab_Appearance_DotSizeXText.Text},{Settings_Tab_Appearance_DotSizeYText.Text}";
-            string _LineSize = $"{Settings_Tab_Appearance_LineSizeText}";
+            string _LineSize = $"{Settings_Tab_Appearance_LineSizeText.Text}";
 
             // This is for autoupdating.
             EmeraldSettings.SetSetting("AccentColour1", _Accent1);
