@@ -24,6 +24,7 @@ namespace Track_Maker
     public class ExportBestTrack : IExportFormat
     {
         public bool AutoStart { get; set; }
+        public bool DisplayPreview { get; set; }
         public bool DisplayQualityControl { get; set; }
         public MainWindow MnWindow { get; set; }
         public string Name { get; set; }
