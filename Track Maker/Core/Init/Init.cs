@@ -59,12 +59,10 @@ namespace Track_Maker
             // Load Settings
             Logging.Log("Loading settings...");
             SettingsLoader.LoadSettings2();
-
+            Init_SetCurrentCategorySystem();
             GlobalStateP.LoadBasins(); 
-
+            
             Logging.Log("Checking for updates...");
-
-            TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
 
             Init_Phase2();
         }
@@ -95,10 +93,7 @@ namespace Track_Maker
             Title = "Track Maker 2.0 (Beta Release - not for production use!)";
 #endif
             // DisableUI test 
-            if (CurrentProject == null)
-            {
-                DisableButtons();
-            }
+            if (CurrentProject == null) DisableButtons();
 
             // V2
             Logging.Log("Initialising project...");
@@ -110,8 +105,34 @@ namespace Track_Maker
             Layers.UpdateLayout();
 
             UpdateLayout();
+
+            TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
+
             TickTimer.Start();
             Logging.Log("Initialisation completed.");
+        }
+
+        private void Init_SetCurrentCategorySystem()
+        {
+            foreach (CategorySystem CatSystem in Catman.CategorySystems)
+            {
+                // select the current category system
+                if (Setting.DefaultCategorySystem == CatSystem.Name)
+                {
+                    Catman.CurrentCategorySystem = CatSystem;
+                    break; 
+                }
+            }
+
+            if (Catman.CurrentCategorySystem == null)
+            {
+                Error.Throw("Error!", "An invalid category system was selected; you likely modified Settings.xml manually - the current category system has been restored to defaults. If you did not, this is a bug in the Track Maker. Contact me at starfrost#9088 on Discord for beta support.", ErrorSeverity.Error, 225); 
+                Catman.CurrentCategorySystem = Catman.CategorySystems[0];
+            }
+            else
+            {
+                return; 
+            }
         }
 
     }

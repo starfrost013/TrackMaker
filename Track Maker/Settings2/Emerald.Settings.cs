@@ -274,7 +274,6 @@ namespace Track_Maker
 
             if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting colour!", ErrorSeverity.FatalError, 19);
 
-
             Color RGB = XElement.InnerText.SplitRGB();
   
             return RGB;

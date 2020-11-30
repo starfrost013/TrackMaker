@@ -12,8 +12,7 @@ namespace Track_Maker
     {
         public static Color AccentColour1 { get; set; } // Accent colour 1
         public static Color AccentColour2 { get; set; } // Accent colour 2
-        public static bool DefaultBasin { get; set; } // What is the default category system at startup?
-        public static bool DefaultCategorySystem { get; set; } // What is the default category system at startup?
+        public static string DefaultCategorySystem { get; set; } // What is the default category system at startup? (v559: for some ungodly reason, this was a BOOLEAN?!)
         public static bool DefaultVisibleTextNames { get; set; } // Are hurricane names visible by default at startup?
         public static Point DotSize { get; set; } // Dot size
         public static WndStyle WindowStyle { get; set; } // Window style

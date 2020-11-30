@@ -26,25 +26,10 @@ namespace Track_Maker
             CategoryManager Catman = MnWindow.Catman;
 
 #endif
-            string CCatSystem = EmeraldSettings.GetString("DefaultCategorySystem");
-
-            foreach (CategorySystem CatSystem in Catman.CategorySystems)
-            {
-                // select the current category system
-                if (CCatSystem == CatSystem.Name)
-                {
-                    Catman.CurrentCategorySystem = CatSystem; 
-                }
-            }
-
-            if (Catman.CurrentCategorySystem == null)
-            {
-                MessageBox.Show("Invalid category system selected. Change the settings in Settings.xml or the Settings menu. The category system has been changed to the first category system installed - usually the SSHWS. If this continues to happen, contact me at starfrost#9088 on Discord.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                Catman.CurrentCategorySystem = Catman.CategorySystems[0]; 
-            }
-            
+            Setting.DefaultCategorySystem = EmeraldSettings.GetString("DefaultCategorySystem");
 
             Setting.DefaultVisibleTextNames = EmeraldSettings.GetBool("StormNamesVisible");
+
             Setting.DotSize = EmeraldSettings.GetPoint("DotSize"); 
             
             if (Setting.DotSize.X <= 0 || Setting.DotSize.Y <= 0)
