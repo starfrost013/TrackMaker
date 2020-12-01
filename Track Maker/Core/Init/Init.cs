@@ -8,6 +8,7 @@ using System.Text;
 using System.Reflection; 
 using System.Timers;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Track_Maker
 {
@@ -59,8 +60,10 @@ namespace Track_Maker
             // Load Settings
             Logging.Log("Loading settings...");
             SettingsLoader.LoadSettings2();
+            GlobalStateP.LoadBasins();
             Init_SetCurrentCategorySystem();
-            GlobalStateP.LoadBasins(); 
+            Init_SetAccentColour(); 
+
             
             Logging.Log("Checking for updates...");
 
@@ -135,5 +138,13 @@ namespace Track_Maker
             }
         }
 
+        private void Init_SetAccentColour()
+        {
+            if (!Setting.AccentEnabled)
+            {
+                Setting.AccentColour1 = new Color { A = 255, R = 255, G = 255, B = 255 };
+                Setting.AccentColour2 = new Color { A = 255, R = 255, G = 255, B = 255 };
+            }
+        }
     }
 }

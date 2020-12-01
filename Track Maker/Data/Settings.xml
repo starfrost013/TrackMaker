@@ -1,6 +1,7 @@
 <Settings>
   <AccentColour1>0,64,128</AccentColour1>
   <AccentColour2>150,189,254</AccentColour2>
+  <AccentEnabled>True</AccentEnabled>
   <Dano_UseDeserialisation>False</Dano_UseDeserialisation>
   <DefaultCategorySystem>SSHWS</DefaultCategorySystem>
   <DotSize>8,8</DotSize>
@@ -11,5 +12,4 @@
   <TelemetryConsent>Yes</TelemetryConsent>
   <WindowStyle>Fullscreen</WindowStyle>
   <UndoDepth>50</UndoDepth>
-  <UseGradient>True</UseGradient>
 </Settings>

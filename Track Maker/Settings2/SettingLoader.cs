@@ -34,16 +34,16 @@ namespace Track_Maker
             
             if (Setting.DotSize.X <= 0 || Setting.DotSize.Y <= 0)
             {
-                MessageBox.Show("Error LS1 - An invalid dot size was provided. The default dot size will be used.", "starfrost's Track Maker Fatal Error LS1", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Error", "An invalid dot size was provided. The default dot size will be used.", ErrorSeverity.Error, 230); 
                 //Recovery
-                Setting.DotSize = new Point(8, 8); // reinitialies
+                Setting.DotSize = new Point(8, 8); // reinitialise
             }
 
             Setting.LineSize = EmeraldSettings.GetInt("LineSize");
 
             if (Setting.LineSize <= 0)
             {
-                MessageBox.Show("Error LS2 - An invalid line size was provided. The default line size will be used.", "starfrost's Track Maker Fatal Error LS1", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Error", "Error LS1 - An invalid line size was provided. The default line size will be used.", ErrorSeverity.Error, 231);
                 //Recovery
                 Setting.LineSize = 2; // reinitialise
             }
@@ -52,13 +52,16 @@ namespace Track_Maker
             Setting.AccentColour1 = EmeraldSettings.GetColour("AccentColour1");
             Setting.AccentColour2 = EmeraldSettings.GetColour("AccentColour2");
 
+            // Load the accent enable setting
+            Setting.AccentEnabled = EmeraldSettings.GetBool("AccentEnabled"); 
+
             // Telemetry consent
             Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent"); 
+
             // Undo depth
             Setting.UndoDepth = EmeraldSettings.GetInt("UndoDepth");
 
-            // Do we use the gradient? 
-            Setting.UseGradient = EmeraldSettings.GetBool("UseGradient");
+
 
             // Load the window style
             Setting.WindowStyle = EmeraldSettings.GetWindowStyle("WindowStyle");
