@@ -61,8 +61,6 @@ namespace Track_Maker
             // Undo depth
             Setting.UndoDepth = EmeraldSettings.GetInt("UndoDepth");
 
-
-
             // Load the window style
             Setting.WindowStyle = EmeraldSettings.GetWindowStyle("WindowStyle");
 
