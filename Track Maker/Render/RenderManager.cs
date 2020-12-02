@@ -70,9 +70,9 @@ namespace Track_Maker
                                 case StormShape.Triangle:
                                     // draw the triangle
                                     Polygon Poly = new Polygon();
-                                    Poly.Points.Add(new Point(0, 8));
-                                    Poly.Points.Add(new Point(4, 0));
-                                    Poly.Points.Add(new Point(8, 8));
+                                    Poly.Points.Add(new Point(0, DotSize.Y));
+                                    Poly.Points.Add(new Point(DotSize.X / 2, 0));
+                                    Poly.Points.Add(new Point(DotSize.X, DotSize.Y));
 
                                     // Since there were many requests for an Invest/PTC storm type, here it is. 
                                     if (XNode.NodeType.ForceColour)
