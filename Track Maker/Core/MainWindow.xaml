@@ -30,15 +30,15 @@
                     </GradientStop>
                 </LinearGradientBrush>
             </Menu.Background>
-            <MenuItem x:Name="FileMenu" Header="File" Foreground="White">
+            <MenuItem x:Name="FileMenu" Header="File" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="FileMenu_SaveCurrent" Header="Save Current Project" Foreground="Black" IsEnabled="False"></MenuItem>
                 <Separator/>
-                <MenuItem x:Name="FileMenu_Import" Header="Import" Foreground="Black" Style="{StaticResource Style_Menu}">
+                <MenuItem x:Name="FileMenu_Import" Header="Import" Style="{StaticResource Style_Menu_Inverted}">
                     <MenuItem x:Name="FileMenu_Import_BT" Header="from Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Import_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_HURDAT" Header="from Best Track (HURDAT2)..." Foreground="Black" IsEnabled="False" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_XMLv2" Header="from Track Maker project..." Foreground="Black" Click="FileMenu_Import_XML2_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
-                <MenuItem x:Name="FileMenu_Export" Header="Export" Foreground="Black">
+                <MenuItem x:Name="FileMenu_Export" Header="Export" Style="{StaticResource Style_Menu_Inverted}">
                     <MenuItem x:Name="FileMenu_Export_BT" Header="to Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_HURDAT" Header="to Best Track (HURDAT2)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_HURDAT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_ET" Header="to EasyTimeline..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_ET_Click"></MenuItem>
@@ -49,26 +49,26 @@
                 <MenuItem x:Name="FileMenu_Exit" Header="Exit" Foreground="Black" Click="FileMenu_Exit_Click"></MenuItem>
             </MenuItem>
 
-            <MenuItem x:Name="ProjectMenu" Header="Project" Foreground="White">
+            <MenuItem x:Name="ProjectMenu" Header="Project" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="ProjectMenu_New" Header="New..." Foreground="Black" Click="ProjectMenu_New_Click" FontStyle="Italic"></MenuItem>
             </MenuItem>
 
-            <MenuItem x:Name="EditMenu" Header="Edit" Foreground="White">
+            <MenuItem x:Name="EditMenu" Header="Edit" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="EditMenu_Season_Dano" Header="Season" Foreground="Black" Click="EditMenu_Season_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="ViewMenu" Header="View" Foreground="White">
+            <MenuItem x:Name="ViewMenu" Header="View" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="ViewMenu_Categories" Header="Categories" Foreground="Black" Click="EditMenu_Categories_Click"></MenuItem>
                 <MenuItem x:Name="ViewMenu_Names" Header="Storm Names" Foreground="Black" IsCheckable="True" IsChecked="True" Click="ViewMenu_Names_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="StormMenu" Header="Storm" Foreground="White">
+            <MenuItem x:Name="StormMenu" Header="Storm" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="StormMenu_AddNew" Header="Add New Storm" Click="StormMenu_AddNew_Click" Foreground="Black"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="BasinMenu" Header="Basin"  Foreground="White">
+            <MenuItem x:Name="BasinMenu" Header="Basin"  Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="BasinMenu_Clear" Header="Clear Basin" Foreground="Black" Click="BasinMenu_Clear_Click"></MenuItem>
                 <Separator/>
                 <MenuItem x:Name="BasinMenu_BasinSwitch" Header="Switch Basins" Foreground="Black" Click="BasinMenu_BasinSwitch_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="ToolsMenu" Header="Tools" Foreground="White">
+            <MenuItem x:Name="ToolsMenu" Header="Tools" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="ToolsMenu_ACECalculator" Header="ACE Calculator" Foreground="Black" Click="ToolsMenu_ACECalculator_Click"></MenuItem>
                 <MenuItem x:Name="ToolsMenu_AdvisoryGenerator" Header="Advisory Generator" Foreground="Black" Click="ToolsMenu_AdvisoryGenerator_Click"></MenuItem>
             </MenuItem>
@@ -77,7 +77,7 @@
                 <MenuItem x:Name="ToolsMenu_ConeMaker" Header="Cone mode" Foreground="Black" IsEnabled="False"></MenuItem>
                 <MenuItem x:Name="ToolsMenu_GraphicMaker" Header="Graphic mode" Foreground="Black" IsEnabled="False"></MenuItem>
             </MenuItem>-->
-            <MenuItem x:Name="HelpMenu" Header="Help" Foreground="White">
+            <MenuItem x:Name="HelpMenu" Header="Help" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="HelpMenu_Help" Header="Help" Foreground="Black" IsEnabled="False"></MenuItem>
                 <MenuItem x:Name="HelpMenu_Preferences" Header="Settings" Foreground="Black" Click="HelpMenu_Preferences_Click"></MenuItem>
                 <Separator/>
@@ -130,7 +130,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <local:LayerControlHost x:Name="Layers" Margin="31,178,29,72"></local:LayerControlHost>
+            <local:LayerControlHost x:Name="Layers" Margin="30,120,29,130"></local:LayerControlHost>
             <Dano:ZoomControl x:Name="ZoomControl" Margin="0,542,-53,10" ZoomLevelChanged="ZoomLevelChanged"></Dano:ZoomControl>
 
 

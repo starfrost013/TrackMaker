@@ -338,15 +338,15 @@ namespace Track_Maker
                 Point CurPos = e.GetPosition(HurricaneBasin);
 
                 // Build a relative X.
-                double RelativeX = LastRightMouseClickPos.X / Width;
-                double RelativeY = LastRightMouseClickPos.Y / Height;
-
-                // Create a scale transform for actually moving the "camera"
-                ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
+                double RelativeX = CurPos.X / Width;
+                double RelativeY = CurPos.Y / Height;
 
                 // Store the current distance from the last mouse click. This allows smooth panning.
                 double MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
                 double MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
+
+                // Create a scale transform for actually moving the "camera"
+                ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, (Width * RelativeX) + MouseDistanceX, (Height * RelativeY) + MouseDistanceY);
 
                 // Translate the "camera" view 
                 TranslateTransform TranslateT = new TranslateTransform(MouseDistanceX, MouseDistanceY);
