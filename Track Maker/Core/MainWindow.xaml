@@ -83,10 +83,9 @@
                 <Separator/>
                 <MenuItem x:Name="HelpMenu_About" Header="About starfrost's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="Separator" Width="100" IsEnabled="False"></MenuItem>
+            <MenuItem x:Name="Separator" Width="350" IsEnabled="False"></MenuItem>
             <MenuItem x:Name="Priscilla_UndoButton" Header="Undo" Click="UndoButton_Click" Foreground="White"/>
             <MenuItem x:Name="Priscilla_RedoButton" Header="Redo" Click="RedoButton_Click" Foreground="White"/>
-            <ToolBarTray HorizontalAlignment="Left" Height="26" Width="160" Background="#00000000"/>
 
             <!--Removed because Priscilla isn't Dano and doesn't have (some) of Dano's features
             <MenuItem x:Name="DanoTest" Header="Dano Test" Foreground="White">

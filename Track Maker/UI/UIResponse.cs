@@ -80,7 +80,16 @@ namespace Track_Maker
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 // temporary code
-                CentrePosition = e.GetPosition(HurricaneBasin); 
+                // this should be a matrix transformation but /shrug
+                // not best practice
+
+                Point CurPos = e.GetPosition(HurricaneBasin);
+
+                double RelativeX = CurPos.X / Width;
+                double RelativeY = CurPos.Y / Height;
+
+
+                HurricaneBasin.RenderTransform = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeX); 
 
             }
         }
@@ -178,10 +187,6 @@ namespace Track_Maker
             AddNewStormHost ANSH = new AddNewStormHost();
             ANSH.Owner = this;
             ANSH.Show(); 
-
-            /* pre-build 507
-            AddNewStorm AddNewStorm = new AddNewStorm();
-            AddNewStorm.Show();*/
         }
 
         private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e)
