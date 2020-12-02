@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d" 
-        Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown" MouseMove="Window_MouseMove">
+        Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown" MouseMove="Window_MouseMove" MouseRightButtonUp="Window_MouseRightButtonUp">
 
     <Grid x:Name="Core">
 
@@ -31,7 +31,7 @@
                 </LinearGradientBrush>
             </Menu.Background>
             <MenuItem x:Name="FileMenu" Header="File" Style="{StaticResource Style_Menu_Inverted}">
-                <MenuItem x:Name="FileMenu_SaveCurrent" Header="Save Current Project" Foreground="Black" IsEnabled="False"></MenuItem>
+                <MenuItem x:Name="FileMenu_SaveCurrent" Header="Save currently open project" Foreground="Black" Click="FileMenu_SaveCurrent_Click"></MenuItem>
                 <Separator/>
                 <MenuItem x:Name="FileMenu_Import" Header="Import" Style="{StaticResource Style_Menu_Inverted}">
                     <MenuItem x:Name="FileMenu_Import_BT" Header="from Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Import_BT_Click"></MenuItem>

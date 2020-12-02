@@ -105,8 +105,8 @@ namespace Track_Maker
             double _ = NodePosition.X / MnWindow.Width;
             double _2 = NodePosition.Y / MnWindow.Height;
 
-            double FinalX = (X1 + (X2 - X1)) * _;
-            double FinalY = (Y1 + (Y2 - Y1)) * _2;
+            double FinalX = (X2 - X1)  * _;
+            double FinalY = (Y2 - Y1) * _2;
 
             string _s = FinalX.ToString();
             string _s2 = FinalY.ToString();

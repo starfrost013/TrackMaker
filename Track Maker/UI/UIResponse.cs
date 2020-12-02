@@ -327,7 +327,11 @@ namespace Track_Maker
             }
         }
 
-
+        /// <summary>
+        /// Smoothly pan.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.RightButton == MouseButtonState.Pressed)
@@ -346,7 +350,7 @@ namespace Track_Maker
                 double MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
 
                 // Create a scale transform for actually moving the "camera"
-                ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, (Width * RelativeX) + MouseDistanceX, (Height * RelativeY) + MouseDistanceY);
+                ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
 
                 // Translate the "camera" view 
                 TranslateTransform TranslateT = new TranslateTransform(MouseDistanceX, MouseDistanceY);
@@ -354,6 +358,7 @@ namespace Track_Maker
                 // Build the translation group
                 TG.Children.Add(ScaleT);
                 TG.Children.Add(TranslateT);
+
                 
                 // Apply the tanslations
                 HurricaneBasin.RenderTransform = TG;
@@ -362,6 +367,21 @@ namespace Track_Maker
             {
                 return; 
             }
+        }
+
+        /// <summary>
+        /// Reset the mouse position on end of drag
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            LastRightMouseClickPos = e.GetPosition(HurricaneBasin);
+        }
+
+        private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
