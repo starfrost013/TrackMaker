@@ -57,7 +57,11 @@ namespace Track_Maker
         public DependencyProperty CentrePositionProperty = DependencyProperty.Register("CentrePosition", typeof(Point), typeof(MainWindow)); 
 
         public Point CentrePosition { get => (Point)GetValue(CentrePositionProperty); set => SetValue(CentrePositionProperty, value); }
-
+        
+        /// <summary>
+        /// Last right mouse click position for smooth panning (v567)
+        /// </summary>
+        public Point LastRightMouseClickPos { get; set; } 
 
         public string ImagePath { get => CurrentProject.SelectedBasin.ImagePath; set
             {
@@ -130,5 +134,6 @@ namespace Track_Maker
         {
             TickTimer.Stop(); 
         }
+
     }
 }

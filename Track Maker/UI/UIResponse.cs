@@ -83,13 +83,7 @@ namespace Track_Maker
                 // this should be a matrix transformation but /shrug
                 // not best practice
 
-                Point CurPos = e.GetPosition(HurricaneBasin);
-
-                double RelativeX = CurPos.X / Width;
-                double RelativeY = CurPos.Y / Height;
-
-
-                HurricaneBasin.RenderTransform = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeX); 
+                LastRightMouseClickPos = e.GetPosition(HurricaneBasin); 
 
             }
         }
@@ -191,8 +185,9 @@ namespace Track_Maker
 
         private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e)
         {
+            List<Storm> StormList = CurrentProject.SelectedBasin.GetFlatListOfStorms();
 
-            if (CurrentProject.SelectedBasin.GetFlatListOfStorms().Count == 0)
+            if (StormList.Count == 0)
             {
                 MessageBox.Show("You must have at least one storm to export to this format.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return; 
@@ -205,7 +200,9 @@ namespace Track_Maker
 
         private void FileMenu_Export_BT_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentProject.SelectedBasin.GetFlatListOfStorms().Count == 0)
+            List<Storm> StormList = CurrentProject.SelectedBasin.GetFlatListOfStorms();
+
+            if (StormList.Count == 0)
             {
                 MessageBox.Show("You must have at least one storm to export to this format.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -330,5 +327,41 @@ namespace Track_Maker
             }
         }
 
+
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.RightButton == MouseButtonState.Pressed)
+            {
+                // Set up a translation group.
+                TransformGroup TG = new TransformGroup();
+
+                Point CurPos = e.GetPosition(HurricaneBasin);
+
+                // Build a relative X.
+                double RelativeX = LastRightMouseClickPos.X / Width;
+                double RelativeY = LastRightMouseClickPos.Y / Height;
+
+                // Create a scale transform for actually moving the "camera"
+                ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
+
+                // Store the current distance from the last mouse click. This allows smooth panning.
+                double MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
+                double MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
+
+                // Translate the "camera" view 
+                TranslateTransform TranslateT = new TranslateTransform(MouseDistanceX, MouseDistanceY);
+
+                // Build the translation group
+                TG.Children.Add(ScaleT);
+                TG.Children.Add(TranslateT);
+                
+                // Apply the tanslations
+                HurricaneBasin.RenderTransform = TG;
+            }
+            else
+            {
+                return; 
+            }
+        }
     }
 }

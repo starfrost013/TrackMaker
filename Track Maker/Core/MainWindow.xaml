@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d" 
-        Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown">
+        Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown" MouseMove="Window_MouseMove">
 
     <Grid x:Name="Core">
 
@@ -108,15 +108,7 @@
             </Canvas.Background>
 
             <Canvas.RenderTransform>
-                <ScaleTransform ScaleX="{Binding ZoomScaleX}" ScaleY="{Binding ZoomScaleY}">
-                    <ScaleTransform.CenterX>
-                        <Binding ElementName="CentrePosition" Path="X"></Binding>
-                    </ScaleTransform.CenterX>
-                    <ScaleTransform.CenterY>
-                        <Binding ElementName="CentrePosition" Path="Y"></Binding>
-                    </ScaleTransform.CenterY>
-
-                </ScaleTransform>
+                <ScaleTransform ScaleX="{Binding ZoomScaleX}" ScaleY="{Binding ZoomScaleY}"/>
             </Canvas.RenderTransform>
         </Canvas>
         <Grid x:Name="PriscillaSidebar" HorizontalAlignment="Left" Height="609" Margin="952,0,0,0" VerticalAlignment="Top" Width="183">
