@@ -32,6 +32,7 @@ namespace Track_Maker
         {
             Name = "Best-track (ATCF)";
             MnWindow = (MainWindow)Application.Current.MainWindow;
+            GlobalStateP.CurrentExportFormatName = GetType().ToString();
         }
 
         public string GetName()

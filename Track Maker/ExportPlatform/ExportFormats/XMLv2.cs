@@ -22,7 +22,7 @@ namespace Track_Maker
     /// 
     /// 2020-09-13
     /// 
-    /// Version 2.0a     Priscilla v442      Dummy only
+    /// Version 2.0      Priscilla v442      Dummy only
     /// Version 2.0b     Priscilla v443      Began functionality
     /// Version 2.0c     Priscilla v445      Based code off of v1 - added metadata and Proj based
     /// Version 2.1      Priscilla v447      Bug fixes, IsSelected & IsOpen
@@ -47,6 +47,7 @@ namespace Track_Maker
         public XMLv2()
         {
             Name = "Project";
+            GlobalStateP.CurrentExportFormatName = GetType().ToString();
         }
 
         /// <summary>

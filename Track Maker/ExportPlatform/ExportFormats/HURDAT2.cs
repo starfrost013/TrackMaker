@@ -20,6 +20,7 @@ namespace Track_Maker
         public ExportHURDAT2()
         {
             Name = "Best-track (HURDAT2)";
+            GlobalStateP.CurrentExportFormatName = GetType().ToString();
         }
 
         public string GetName() => Name;

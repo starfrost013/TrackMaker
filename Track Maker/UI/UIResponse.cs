@@ -393,7 +393,13 @@ namespace Track_Maker
 
         private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
         {
+            if (GlobalStateP.CurrentExportFormatName == null) return; 
 
+            Type EXType = Type.GetType(GlobalStateP.CurrentExportFormatName);
+
+            IExportFormat IEXF = (IExportFormat)Activator.CreateInstance(EXType);
+
+            IEXF.Export(CurrentProject); 
         }
     }
 }

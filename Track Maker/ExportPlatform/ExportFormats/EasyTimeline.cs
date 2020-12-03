@@ -32,6 +32,7 @@ namespace Track_Maker
         {
             MnWindow = (MainWindow)Application.Current.MainWindow;
             Name = "EasyTimeline";
+            GlobalStateP.CurrentExportFormatName = GetType().ToString();
         }
 
         public Project Import()

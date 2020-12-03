@@ -20,9 +20,12 @@ namespace Track_Maker
     /// </summary>
     public class GlobalStateP // move to Starfrost UL5 Version 5.3?. This may also be made a non-static class
     {
-        public static List<Basin> OpenBasins { get; set; }
+        /// <summary>
+        /// Name of the current export format
+        /// </summary>
+        public static string CurrentExportFormatName { get; set; }
         public static string CurrentlyOpenFile { get; set; }
-
+        public static List<Basin> OpenBasins { get; set; }
         public static void SetCurrentOpenFile(string FileName) => CurrentlyOpenFile = FileName;
         public static string GetCurrentOpenFile() => CurrentlyOpenFile;
 
