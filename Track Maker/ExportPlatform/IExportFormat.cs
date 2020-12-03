@@ -12,11 +12,12 @@ using System.Windows.Controls;
 /// 
 /// This allows us to write classes easily and quickly for exporting to any format we want. 
 /// 
-/// Version 1.7.0
-/// September 25, 2020
+/// Version 1.8.0
+/// December 3, 2020
 /// 
 /// (Priscilla - v559)
 /// 
+/// v2.0.571.0      V1.8        Removed AutoStart
 /// v2.0.559.0      V1.7        Add DisplayPreview, still haven't removed AutoStart yet
 /// v2.0.540.0      V1.6        Preparation for removal of autostart - split out IImageExportControl
 /// v2.0.485.0      V1.5        Added boolean property for displaying QualityControl
@@ -27,8 +28,6 @@ namespace Track_Maker
 {
     public interface IExportFormat
     {
-
-        bool AutoStart { get; set; } // Does it auto-start?
         string Name { get; set; } // The name of the file format to export to.
         string GetName(); // Returns the name of this ExportFormat. 
         Project Import(); // Import from this file format.

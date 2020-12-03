@@ -23,7 +23,6 @@ namespace Track_Maker
     /// </summary>
     public class ExportBestTrack : IExportFormat
     {
-        public bool AutoStart { get; set; }
         public bool DisplayPreview { get; set; }
         public bool DisplayQualityControl { get; set; }
         public MainWindow MnWindow { get; set; }
@@ -31,8 +30,7 @@ namespace Track_Maker
 
         public ExportBestTrack()
         {
-            AutoStart = true;
-            Name = "Best Track (ATCF)";
+            Name = "Best-track (ATCF)";
             MnWindow = (MainWindow)Application.Current.MainWindow;
         }
 
@@ -47,7 +45,7 @@ namespace Track_Maker
             {
                 OpenFileDialog OFD = new OpenFileDialog()
                 {
-                    Title = "Open ATCF format",
+                    Title = $"Open {GetName()} format folder",
                     Filter = "Folders|*."
                 };
 
@@ -174,7 +172,7 @@ namespace Track_Maker
             try
             {
                 SaveFileDialog SFD = new SaveFileDialog();
-                SFD.Title = "Save to best track - enter folder name";
+                SFD.Title = $"Save to {GetName()} - enter folder name";
                 SFD.Filter = "Folders|*.";
                 SFD.ShowDialog();
 

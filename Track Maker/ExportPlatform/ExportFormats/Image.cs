@@ -16,7 +16,6 @@ namespace Track_Maker
 {
     public class ExportImage : IImageExportFormat
     {
-        public bool AutoStart { get; set; }
         public bool DisplayPreview { get; set; }
         public bool DisplayQualityControl { get; set; }
         internal MainWindow Xwindow { get; set; }

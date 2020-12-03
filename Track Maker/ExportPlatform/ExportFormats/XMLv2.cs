@@ -30,12 +30,12 @@ namespace Track_Maker
     /// Version 2.2b     Priscilla v455      Add full importing code   
     /// Version 2.2c     Priscilla v540      Changed format name
     /// Version 2.3      Priscilla v550      Changed root node name from "Proj" to "Project" and changed extension from *.tproj to *.tproj2
+    /// Version 2.3b     Priscilla v571      Removed AutoStart
     /// 
     /// </summary>
 
     public class XMLv2 : IExportFormat
     {
-        public bool AutoStart { get; set; }
         public bool DisplayPreview { get; set; }
         public bool DisplayQualityControl { get; set; }
         public string Name { get; set; }
@@ -46,7 +46,6 @@ namespace Track_Maker
 
         public XMLv2()
         {
-            AutoStart = false;
             Name = "Project";
         }
 

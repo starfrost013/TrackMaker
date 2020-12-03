@@ -1,11 +1,24 @@
-<!-- Track Maker v2.1+ language z-->
+<!-- 
+Diffusion Localisation Services
+
+© 2020, 2021 starfrost.
+
+Track Maker Priscilla Plus localisation global XML definition file.
+-->
 <Diffusion>
+	<Global>
+		<GlobalFormatVersionMajor>1</GlobalFormatVersionMajor>
+		<GlobalFormatVersionMinor>1</GlobalFormatVersionMinor>
+		<Settings>
+			<DefaultLanguage>English</DefaultLanguage>
+		</Settings>
+	</Global>
 	<Languages>
 		<!-- English -->
 		<Language>
 			<Name>English (Default)</Name>
 			<Translator>starfrost</Translator>
-			<GUID>01234567-89ab-4def-0001-202011082232</GUID>
+			<GUID>01234567-89ab-4def-c000-202011082232</GUID>
 			<PercentCompleted>100</PercentCompleted>
 			<DiffusionVersion>
 				<VersionMajor>1</VersionMajor>

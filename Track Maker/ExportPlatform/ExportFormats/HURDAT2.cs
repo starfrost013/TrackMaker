@@ -13,16 +13,15 @@ namespace Track_Maker
 {
     public class ExportHURDAT2 : IExportFormat
     {
-        public bool AutoStart { get; set; }
         public bool DisplayPreview { get; set; }
         public bool DisplayQualityControl { get; set; }
         public string Name { get; set; }
 
         public ExportHURDAT2()
         {
-            AutoStart = false;
             Name = "Best-track (HURDAT2)";
         }
+
         public string GetName() => Name;
 
         public Project Import()
@@ -36,7 +35,7 @@ namespace Track_Maker
             {
                 SaveFileDialog SFD = new SaveFileDialog();
                 SFD.Filter = "Folder|*.";
-                SFD.Title = "Save to HURDAT2 ATCF Format - name folder";
+                SFD.Title = $"Save to {GetName()} - name folder";
                 SFD.ShowDialog();
 
                 if (SFD.FileName != "")

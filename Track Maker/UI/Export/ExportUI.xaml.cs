@@ -29,12 +29,6 @@ namespace Track_Maker
         public List<Storm> StormsToExport { get; set; }
         public ExportUI(FormatType FType, IExportFormat ExportFormat)
         {
-
-            if (ExportFormat.AutoStart)
-            {
-                this.Visibility = Visibility.Hidden; //try to make it never appear if autostart is true. 
-            }
-
             InitializeComponent();
             Export_Init(FType, ExportFormat);
    
@@ -68,29 +62,20 @@ namespace Track_Maker
         // Set the header using the Export Platform. 
         private void Setup()
         {
-            if (ExpFormat.AutoStart) // AutoStart for export-only no-preview formats. 
-            {
-                // Before version 515 (516?), we ran a very old version (probably version 0.3 or 0.9x) of the RunIEX method (which didn't exist before v515 of Priscilla) here.
-                // This is utterly fucking retarded.
-                RunIEX(); 
-            }
-            else
-            {
-                // Set the "Export to..." text based on the ExportFormat's Name and the Type supplied to us in the constructor. 
-                switch (Type)
-                {
-                    case FormatType.Import:
-                        ExportPlatform_ExportBtn.Content = "Import";
-                        ExportPlatform.Text = $"Import from {ExpFormat.GetName()}";
-                        Title = $"Import from {ExpFormat.GetName()}";
-                        return;
-                    case FormatType.Export:
-                        ExportPlatform.Text = $"Export to {ExpFormat.GetName()}";
-                        Title = $"Export to {ExpFormat.GetName()}";
-                        return;
-                }
-            }
 
+            // Set the "Export to..." text based on the ExportFormat's Name and the Type supplied to us in the constructor. 
+            switch (Type)
+            {
+                case FormatType.Import:
+                    ExportPlatform_ExportBtn.Content = "Import";
+                    ExportPlatform.Text = $"Import from {ExpFormat.GetName()}";
+                    Title = $"Import from {ExpFormat.GetName()}";
+                    return;
+                case FormatType.Export:
+                    ExportPlatform.Text = $"Export to {ExpFormat.GetName()}";
+                    Title = $"Export to {ExpFormat.GetName()}";
+                    return;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

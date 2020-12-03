@@ -346,8 +346,8 @@ namespace Track_Maker
                 double RelativeY = CurPos.Y / Height;
 
                 // Store the current distance from the last mouse click. This allows smooth panning.
-                double MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
-                double MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
+                double MouseDistanceX = (CurPos.X - LastRightMouseClickPos.X * 2); 
+                double MouseDistanceY = (CurPos.Y - LastRightMouseClickPos.Y * 2);
 
                 // Create a scale transform for actually moving the "camera"
                 ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
