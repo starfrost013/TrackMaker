@@ -125,8 +125,14 @@ namespace Track_Maker
 
             // DUMB HACK BEGIN
             // Temporary Code for Pre-Beta Only (HACK!!!!!!)
-            HurricaneBasin.RenderTransform.SetValue(ScaleTransform.ScaleXProperty, ZoomLevelX);
-            HurricaneBasin.RenderTransform.SetValue(ScaleTransform.ScaleYProperty, ZoomLevelY);
+
+            TransformGroup TG = new TransformGroup();
+
+            ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
+
+            TG.Children.Add(ST);
+
+            HurricaneBasin.RenderTransform = TG;
             // DUMB HACK END
         }
 

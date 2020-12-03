@@ -2,6 +2,7 @@
 using Dano.AdvisoryGenerator;
 using DanoUI;
 using Starfrost.UL5.Logging;
+using Starfrost.UL5.MathUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,7 +83,6 @@ namespace Track_Maker
                 // temporary code
                 // this should be a matrix transformation but /shrug
                 // not best practice
-
                 LastRightMouseClickPos = e.GetPosition(HurricaneBasin); 
 
             }
@@ -336,18 +336,31 @@ namespace Track_Maker
         {
             if (e.RightButton == MouseButtonState.Pressed)
             {
+                if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return; 
                 // Set up a translation group.
                 TransformGroup TG = new TransformGroup();
 
                 Point CurPos = e.GetPosition(HurricaneBasin);
 
                 // Build a relative X.
-                double RelativeX = CurPos.X / Width;
-                double RelativeY = CurPos.Y / Height;
+                double RelativeX = LastRightMouseClickPos.X / Width;
+                double RelativeY = LastRightMouseClickPos.Y / Height;
 
                 // Store the current distance from the last mouse click. This allows smooth panning.
-                double MouseDistanceX = (CurPos.X - LastRightMouseClickPos.X * 2); 
-                double MouseDistanceY = (CurPos.Y - LastRightMouseClickPos.Y * 2);
+
+                double MouseDistanceX = 0;
+                double MouseDistanceY = 0;
+
+                if (ZoomLevelX >= 2)
+                {
+                    MouseDistanceX = (CurPos.X - LastRightMouseClickPos.X) * 1 + ZoomLevelX;
+                    MouseDistanceY = (CurPos.Y - LastRightMouseClickPos.Y) * 1 + ZoomLevelY;
+                }
+                else
+                {
+                    MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
+                    MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
+                }
 
                 // Create a scale transform for actually moving the "camera"
                 ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
@@ -358,7 +371,6 @@ namespace Track_Maker
                 // Build the translation group
                 TG.Children.Add(ScaleT);
                 TG.Children.Add(TranslateT);
-
                 
                 // Apply the tanslations
                 HurricaneBasin.RenderTransform = TG;
