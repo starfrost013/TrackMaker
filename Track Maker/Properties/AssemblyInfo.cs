@@ -4,13 +4,24 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 
+// AssemblyInfo.cs
+
+// Holds Track Maker versioning information.
+
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Hurricane Track Maker (version 2.0 'Priscilla')")]
-[assembly: AssemblyDescription("Tools for creating tracks of hurricanes.")]
+
+#if DEBUG
+[assembly: AssemblyTitle("Hurricane Track Maker ['Priscilla' Debug]")]
+#else
+[assembly: AssemblyTitle("Track Maker 2.0")]
+#endif
+
+[assembly: AssemblyDescription("Create hurricane tracks easily and quickly.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
+
 [assembly: AssemblyProduct("Track Maker")]
 [assembly: AssemblyCopyright("Copyright © 2019-2020 starfrost")]
 [assembly: AssemblyTrademark("")]
@@ -50,8 +61,8 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.572.20338")]
-[assembly: AssemblyFileVersion("2.0.572.20338")]    
+[assembly: AssemblyVersion("2.0.575.20340")]
+[assembly: AssemblyFileVersion("2.0.575.20340")]    
 [assembly: AssemblyInformationalVersion("2.0 Beta Release")]
 
 #if DANO

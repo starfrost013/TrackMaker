@@ -12,7 +12,7 @@
 
     <Grid x:Name="Core">
 
-        <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="952">
+        <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="952" Panel.ZIndex="2">
             <Menu.Background>
                 <!-- menu background -->
                 <LinearGradientBrush>
@@ -31,19 +31,20 @@
                 </LinearGradientBrush>
             </Menu.Background>
             <MenuItem x:Name="FileMenu" Header="File" Style="{StaticResource Style_Menu_Inverted}">
-                <MenuItem x:Name="FileMenu_SaveCurrent" Header="Save currently open project" Foreground="Black" Click="FileMenu_SaveCurrent_Click"></MenuItem>
+                <MenuItem x:Name="BasinMenu_Clear" Header="New" Foreground="Black" Click="BasinMenu_Clear_Click"></MenuItem>
                 <Separator/>
-                <MenuItem x:Name="FileMenu_Import" Header="Import" Style="{StaticResource Style_Menu_Inverted}">
+                <MenuItem x:Name="FileMenu_Import" Header="Open" Style="{StaticResource Style_Menu_Inverted}">
                     <MenuItem x:Name="FileMenu_Import_BT" Header="from Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Import_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_HURDAT" Header="from Best Track (HURDAT2)..." Foreground="Black" IsEnabled="False" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_XMLv2" Header="from Track Maker project..." Foreground="Black" Click="FileMenu_Import_XML2_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
+                <MenuItem x:Name="FileMenu_SaveCurrent" Header="Save" Foreground="Black" Click="FileMenu_SaveCurrent_Click"></MenuItem>
                 <MenuItem x:Name="FileMenu_Export" Header="Export" Style="{StaticResource Style_Menu_Inverted}">
                     <MenuItem x:Name="FileMenu_Export_BT" Header="to Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_HURDAT" Header="to Best Track (HURDAT2)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_HURDAT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_ET" Header="to EasyTimeline..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Export_ET_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Export_Image" Header="to Image..." Foreground="Black" Click="FileMenu_SaveImage_Click" FontStyle="Italic"></MenuItem>
-                    <MenuItem x:Name="FileMenu_Export_XMLv2" Header="to Track Maker project ..." Foreground="Black" Click="FileMenu_Export_XML2_Click" FontStyle="Italic"></MenuItem>
+                    <MenuItem x:Name="FileMenu_Export_XMLv2" Header="to Track Maker project..." Foreground="Black" Click="FileMenu_Export_XML2_Click" FontStyle="Italic"></MenuItem>
                 </MenuItem>
                 <Separator/>
                 <MenuItem x:Name="FileMenu_Exit" Header="Exit" Foreground="Black" Click="FileMenu_Exit_Click"></MenuItem>
@@ -64,9 +65,7 @@
                 <MenuItem x:Name="StormMenu_AddNew" Header="Add New Storm" Click="StormMenu_AddNew_Click" Foreground="Black"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="BasinMenu" Header="Basin"  Style="{StaticResource Style_Menu_Inverted}">
-                <MenuItem x:Name="BasinMenu_Clear" Header="Clear Basin" Foreground="Black" Click="BasinMenu_Clear_Click"></MenuItem>
-                <Separator/>
-                <MenuItem x:Name="BasinMenu_BasinSwitch" Header="Switch Basins" Foreground="Black" Click="BasinMenu_BasinSwitch_Click"></MenuItem>
+                <MenuItem x:Name="BasinMenu_BasinSwitch" Header="Switch..." Foreground="Black" Click="BasinMenu_BasinSwitch_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="ToolsMenu" Header="Tools" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="ToolsMenu_ACECalculator" Header="ACE Calculator" Foreground="Black" Click="ToolsMenu_ACECalculator_Click"></MenuItem>
@@ -83,7 +82,7 @@
                 <Separator/>
                 <MenuItem x:Name="HelpMenu_About" Header="About starfrost's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="Separator" Width="350" IsEnabled="False"></MenuItem>
+            <MenuItem x:Name="Separator" Width="518" IsEnabled="False"></MenuItem>
             <MenuItem x:Name="Priscilla_UndoButton" Header="Undo" Click="UndoButton_Click" Style="{StaticResource Style_Menu_Inverted}"/>
             <MenuItem x:Name="Priscilla_RedoButton" Header="Redo" Click="RedoButton_Click" Style="{StaticResource Style_Menu_Inverted}"/>
 

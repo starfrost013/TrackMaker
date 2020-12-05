@@ -176,6 +176,9 @@ namespace Track_Maker
             // clean up by restoring the basin
             CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Smaller, new Point(Xwindow.Width, Xwindow.Height), new Point(TempCanvas.Width, TempCanvas.Height));
 
+            // on success
+            GlobalStateP.SetCurrentOpenFile(FileName);
+
             return true; // success
         }
 

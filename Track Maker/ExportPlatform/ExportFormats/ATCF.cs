@@ -212,6 +212,7 @@ namespace Track_Maker
 #endif
                 return false;
             }
+
             return true;
         }
 
@@ -345,6 +346,9 @@ namespace Track_Maker
                         SW.Write("genesis-num, ");
                         SW.Write(Utilities.PadZero(Storm.Id + 1, 2));
                         SW.Write(", \n"); // Write newline
+
+                        // on success
+                        GlobalStateP.SetCurrentOpenFile(FileName);
                     }
                 }
             }

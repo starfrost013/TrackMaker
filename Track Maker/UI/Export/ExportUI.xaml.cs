@@ -121,7 +121,7 @@ namespace Track_Maker
         /// </summary>
         private bool RunIEX()
         {
-            // Temporarily uncommented
+
             // Old code - dano move when we can do easy previews due to multitab
             // Stop the ticktimer while importing or exporting because we need to do this stuff.
             MnWindow.TickTimer.Stop();
@@ -186,6 +186,8 @@ namespace Track_Maker
 
                     // wish VS allowed the samE var names under different code paths
                     Project CurProject = MnWindow.CurrentProject;
+
+
 
                     if (CurProject.FileName != null && CurProject.FileName != "") MnWindow.Title = $"Track Maker 2.0 - {CurProject.FileName}";
                     MnWindow.UpdateLayout();

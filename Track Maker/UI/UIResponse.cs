@@ -257,6 +257,7 @@ namespace Track_Maker
 
             if (CurrentProject != null)
             {
+                // todo: stop here
                 Layers.AddLayer("Background");
             }
         }
@@ -399,7 +400,19 @@ namespace Track_Maker
 
             IExportFormat IEXF = (IExportFormat)Activator.CreateInstance(EXType);
 
-            IEXF.Export(CurrentProject); 
+            IEXF.Export(CurrentProject);
+
+            //refactoring probably needed
+
+            string CurrentlyOpenFile = GlobalStateP.GetCurrentOpenFile();
+
+            if (CurrentlyOpenFile == null || CurrentlyOpenFile == "")
+            {
+                Error.Throw("Error!", "Failed to set currently open file!", ErrorSeverity.Error, 231);
+                return; 
+            }
+
+            Title = $"Track Maker 2.0 - [{GlobalStateP.GetCurrentOpenFile()}]";
         }
     }
 }

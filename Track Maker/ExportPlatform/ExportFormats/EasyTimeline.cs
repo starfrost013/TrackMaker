@@ -205,6 +205,8 @@ namespace Track_Maker
             string[] Lines = File.ReadAllLines(FileName); //V2 LineArray
 
             Clipboard.SetText(Lines.ConvertArrayToString());
+            // on success
+            GlobalStateP.SetCurrentOpenFile(FileName);
 
             MessageBox.Show("Saving successful. The EasyTimeline syntax has also been copied to the clipboard.", "Information", MessageBoxButton.OK, MessageBoxImage.Information); 
             return true;

@@ -244,6 +244,8 @@ namespace Track_Maker
 
             XDoc.Save(FileName);
 
+            // on success
+            GlobalStateP.SetCurrentOpenFile(FileName);
             return true;
         }
 

@@ -140,6 +140,8 @@ namespace Track_Maker
 
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
+            // on success
+            GlobalStateP.SetCurrentOpenFile(FileName);
             return true; 
         }
     }

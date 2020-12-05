@@ -372,11 +372,13 @@ namespace Track_Maker
 
             MnWindow.Dispatcher.Invoke(() =>
             {
+                MnWindow.TickTimer.Stop();
                 Layer Layer = new Layer();
                 Layer.Name = Name;
                 Layers.Add(Layer);
 
                 MnWindow.Layers.AddLayer(Name);
+                MnWindow.TickTimer.Start();
 
             });
 
@@ -394,10 +396,11 @@ namespace Track_Maker
 
             MnWindow.Dispatcher.Invoke(() =>
             {
+                MnWindow.TickTimer.Stop();
                 Layers.Add(Lyr);
 
                 MnWindow.Layers.AddLayer(Lyr.Name);
-
+                MnWindow.TickTimer.Start();
             });
 
 #endif
