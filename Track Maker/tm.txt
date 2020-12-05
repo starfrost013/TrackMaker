@@ -62,6 +62,7 @@ Features:
 - Upload to the Internet
 - Effects?
 - .NET Core optional
+- MainWindowState enum in MainWindowHost
 - Something else I forgot :(
 
 Moved to 2.1: Delegate-based error system 

@@ -36,7 +36,9 @@ namespace DanoUI
         public EventHandler<DanoEventArgs> LayerDeleted { get; set; }
         public EventHandler<DanoEventArgs> LayerReordered { get; set; }
 
+#if v21_LayerBinding // change this to use Layer objects in v2.1
         public List<string> LayerNames { get; set; }
+#endif
         public LayerControl()
         {
             InitializeComponent();
@@ -55,6 +57,7 @@ namespace DanoUI
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             DanoEventArgs DEA = new DanoEventArgs();
+
             if (PriscillaUI_Layers_LayerListView.SelectedIndex != -1)
             {
                 DEA.DanoParameters.Add((string)PriscillaUI_Layers_LayerListView.SelectedItem);
@@ -67,6 +70,14 @@ namespace DanoUI
             }
         }
 
-        public void AddLayer(string Lyr) => LayerNames.Add(Lyr);
+        public void AddLayer(string Lyr)
+        {
+#if v21_LayerBinding
+            LayerNames.Add(Lyr);
+#endif
+            // SHITTY HACK
+            PriscillaUI_Layers_LayerListView.Items.Add(Lyr);
+            // END SHITTY HACK
+        } 
     }
 }

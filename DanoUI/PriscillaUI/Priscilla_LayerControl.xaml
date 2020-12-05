@@ -29,17 +29,21 @@
             <RowDefinition Height="57*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="PriscillaUI_Layers_LayerHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Layers" VerticalAlignment="Top" Foreground="White" Margin="39,10,0,0"/>
-        <ListView x:Name="PriscillaUI_Layers_LayerListView" x:FieldModifier="public" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="110" Background="#80FFFFFF" Foreground="White" ItemsSource="{Binding LayerNames}">
+        <ListView x:Name="PriscillaUI_Layers_LayerListView" x:FieldModifier="public" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="110" Background="#80FFFFFF" Foreground="White">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="100">
+                    <GridViewColumn Header="Name" Width="55">
 
                     </GridViewColumn>
-                    <!-- remove unless requested
-                    <GridViewColumn x:Name="PriscillaUI_Layers_LayerListView_IsEnabled" Width="20">
-                        <CheckBox x:Name="PriscillaUI_Layers_LayerListView_IsEnabled_ChkBox"></CheckBox>
+
+                    <GridViewColumn Header="Enabled" x:Name="PriscillaUI_Layers_LayerListView_IsEnabled" Width="45">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox x:Name="PriscillaUI_Layers_LayerListView_CheckBox"></CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    -->
+                    
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>

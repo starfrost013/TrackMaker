@@ -103,7 +103,7 @@ namespace Track_Maker
             HurricaneBasin.DataContext = this;
             //HurricaneBasinImage.DataContext = this; 
 
-            Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
+            //Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
             Layers.Layers.DataContext = this;
             Layers.UpdateLayout();
 

@@ -22,19 +22,29 @@ namespace Track_Maker
     /// </summary>
     public partial class LayerControlHost : UserControl
     {
-
+        /// <summary>
+        /// RESTORE BINDINGS ONCE THREADING ISSUES FIGURED OUT
+        /// </summary>
+        /// <param name="Name"></param>
         public void AddLayer(string Name)
         {
             Layers.AddLayer(Name);
             Layers.UpdateLayout(); 
         }
 
+
         public void RemoveLayer(string Name)
         {
-            Layers.LayerNames.Remove(Name);
+#if v21_LayerBinding
+            Layers.LayerNames.Add(Name);
+#else
+            Layers.PriscillaUI_Layers_LayerListView.Items.Remove(Name); 
+#endif
             Layers.UpdateLayout(); 
         }
-
+        /// <summary>
+        /// END RESTORE BINDING ONCE THREADING ISSUES FIGURED OUT
+        /// </summary>
 
         public LayerControlHost()
         {
@@ -73,7 +83,7 @@ namespace Track_Maker
                 MnWindow.CurrentProject.SelectedBasin.RemoveLayerWithName(LayerName);
             }
 
-#else 
+#else
             LayerManager LH = GlobalState.GetLCH();
 #endif
         }
