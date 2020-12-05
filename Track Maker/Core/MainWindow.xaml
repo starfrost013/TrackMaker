@@ -129,7 +129,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <local:LayerControlHost x:Name="Layers" Margin="30,120,29,130"></local:LayerControlHost>
+            <local:LayerControlHost x:Name="Layers" Margin="9,120,0,130"></local:LayerControlHost>
             <Dano:ZoomControl x:Name="ZoomControl" Margin="0,542,-53,10" ZoomLevelChanged="ZoomLevelChanged"></Dano:ZoomControl>
 
 

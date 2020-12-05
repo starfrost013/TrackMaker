@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Track_Maker"
              xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
-             mc:Ignorable="d" Width="123.771" Height="359.017">
+             mc:Ignorable="d" Width="174.438" Height="359.017">
     <Grid>
 
         <Dano:LayerControl x:Name="Layers" LayerCreated="Lyr_Created" LayerDeleted="Lyr_Deleted" Loaded="Layers_Loaded">

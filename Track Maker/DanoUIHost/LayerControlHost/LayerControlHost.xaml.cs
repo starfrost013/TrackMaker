@@ -76,7 +76,7 @@ namespace Track_Maker
                 if (LayerName == "Background")
                 {
                     // pending for when we move error handling to UL5
-                    MessageBox.Show("You cannot delete the background.", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("You cannot delete the background!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                     return; 
                 }
 
