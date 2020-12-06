@@ -10,7 +10,7 @@ namespace Track_Maker
     {
         public List<Storm> AssociatedStorms { get; set; }
         public Storm CurrentStorm { get; set; }
-        public bool Selected { get; set; }
+        public bool Enabled { get; set; }
         public string Name { get; set; }
         public Guid LayerId { get; set; }
         public int ZIndex { get; set; } // The ordering of this layer

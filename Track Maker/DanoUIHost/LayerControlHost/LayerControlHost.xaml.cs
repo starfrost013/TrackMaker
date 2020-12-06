@@ -76,15 +76,20 @@ namespace Track_Maker
                 if (LayerName == "Background")
                 {
                     // pending for when we move error handling to UL5
-                    MessageBox.Show("You cannot delete the background!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Error.Throw("Warning!", "You cannot delete the background!", ErrorSeverity.Warning, 227);
                     return; 
                 }
 
+#if v21_LayerBinding
+                Layers.LayerNames.Remove(LayerName);
+#else
+                Layers.PriscillaUI_Layers_LayerListView.Items.Remove(LayerName);
+#endif
                 MnWindow.CurrentProject.SelectedBasin.RemoveLayerWithName(LayerName);
             }
 
 #else
-            LayerManager LH = GlobalState.GetLCH();
+                LayerManager LH = GlobalState.GetLCH();
 #endif
         }
 
