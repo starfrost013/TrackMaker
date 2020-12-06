@@ -73,7 +73,7 @@ namespace Track_Maker
 
         public MainWindow()
         {
-            Init();
+            Init_Phase1();
         }
 
      

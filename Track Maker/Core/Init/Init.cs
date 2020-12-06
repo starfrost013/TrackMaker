@@ -19,7 +19,7 @@ namespace Track_Maker
     /// </summary>
     public partial class MainWindow
     {
-        public void Init()
+        public void Init_Phase1()
         {
             // Init logging (Priscilla v484)
 
@@ -91,7 +91,7 @@ namespace Track_Maker
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
 
 #if DANO
-            Title = "Track Maker Dano (version 3.0; pre-release (Alpha 2/M2) - do not use for production purposes!)";
+            Title = "Track Maker Dano (version 3.0 alpha) - do not use for production purposes!)";
 #elif PRISCILLA
             Title = "Track Maker 2.0 (Beta Release - not for production use!)";
 #endif
@@ -110,6 +110,8 @@ namespace Track_Maker
             UpdateLayout();
 
             TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
+
+            if (Setting.ShowBetaWarning) Error.ShowBetaWarning();
 
             TickTimer.Start();
             Logging.Log("Initialisation completed.");

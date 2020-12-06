@@ -12,11 +12,12 @@ namespace Track_Maker
     {
         public static Color AccentColour1 { get; set; } // Accent colour 1
         public static Color AccentColour2 { get; set; } // Accent colour 2
-        public static bool AccentEnabled { get; set; } // Accent Enabled
+        public static bool AccentEnabled { get; set; } // Is the accent enabled?
         public static string DefaultCategorySystem { get; set; } // What is the default category system at startup? (v559: for some ungodly reason, this was a BOOLEAN?!)
         public static bool DefaultVisibleTextNames { get; set; } // Are hurricane names visible by default at startup?
         public static Point DotSize { get; set; } // Dot size
         public static int LineSize { get; set; } // Line size
+        public static bool ShowBetaWarning { get; set; }
         public static TelemetryConsent TelemetryConsent { get; set; } // Telemetry consent
         public static int UndoDepth { get; set; } // Amount of undos allowed
         public static bool Dano_UseDeserialisation { get; set; } // Priscilla+ (version 2.1) - use XML Deserialisation
@@ -35,6 +36,7 @@ namespace Track_Maker
         public static bool Dano_UseTabUI { get; set; } // Dano (version 3.0) - use TabUI (MainWindowHost)
 #if SLEDGEHAMMER
         public static bool Sledgehammer_Enable { get; set; } // Sledgehammer (version 4.0?) 3D enabled
+        public static bool Sledgehammer_Drag { get; set; } // enable drag
         public static bool Collaboration_HeartbeatRequired { get; set; } // track-maker.com Heartbeat required for Sledgehammer
         public static bool Collaboration_P2PModeEnabled { get; set; } // p2p mode enabled for Sledgehammer Collaboration
         public static string Collaboration_NoHeartbeat_Username { get; set; } // username used for no-heartbeat collaboration

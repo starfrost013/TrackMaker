@@ -8,7 +8,8 @@
   <ExperimentalMode>true</ExperimentalMode>
   <LineSize>2</LineSize>
   <!--<SelectedBasin>Atlantic</SelectedBasin> legacy v1.0-->
-  <StormNamesVisible>true</StormNamesVisible>
+  <ShowBetaWarning>True</ShowBetaWarning>
+  <StormNamesVisible>True</StormNamesVisible>
   <TelemetryConsent>Yes</TelemetryConsent>
   <WindowStyle>Fullscreen</WindowStyle>
   <UndoDepth>50</UndoDepth>

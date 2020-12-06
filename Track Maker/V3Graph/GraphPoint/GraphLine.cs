@@ -15,6 +15,10 @@ namespace Track_Maker.Graphing
     {
         public List<GraphPoint2D> Points { get; set; } // The points of this point. 
         public Color Color { get; set; }
+ 
+        /// <summary>
+        /// Name of the axis
+        /// </summary>
         public string Name { get; set; }
         // 2D graphing only
         public Vector Scale { get; set; }
