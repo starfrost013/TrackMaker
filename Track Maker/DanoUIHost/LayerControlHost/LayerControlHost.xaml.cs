@@ -22,6 +22,10 @@ namespace Track_Maker
     /// </summary>
     public partial class LayerControlHost : UserControl
     {
+
+#if PRISCILLA
+        public MainWindow MnWindow { get; et; }
+#endif
         /// <summary>
         /// RESTORE BINDINGS ONCE THREADING ISSUES FIGURED OUT
         /// </summary>
@@ -49,6 +53,7 @@ namespace Track_Maker
         public LayerControlHost()
         {
             InitializeComponent();
+            MnWindow = (MainWindow)Application.Current.MainWindow; 
         }
 
         public void Lyr_Created(object sender, DanoEventArgs e)
@@ -63,8 +68,6 @@ namespace Track_Maker
         public void Lyr_Deleted(object sender, DanoEventArgs e)
         {
 #if PRISCILLA
-            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            // add remove layer function
 
             Debug.Assert(e.DanoParameters.Count == 1); 
 
@@ -76,7 +79,7 @@ namespace Track_Maker
                 if (LayerName == "Background")
                 {
                     // pending for when we move error handling to UL5
-                    Error.Throw("Warning!", "You cannot delete the background!", ErrorSeverity.Warning, 227);
+                    Error.Throw("Warning!", "You cannot delete the background layer!", ErrorSeverity.Warning, 227);
                     return; 
                 }
 
@@ -91,6 +94,34 @@ namespace Track_Maker
 #else
                 LayerManager LH = GlobalState.GetLCH();
 #endif
+        }
+
+        // don't throw an exception as ew could crash
+        private void Lyr_Disabled(object sender, DanoEventArgs e)
+        {
+            Debug.Assert(e.DanoParameters.Count == 1);
+
+            string LayerName = (string)e.DanoParameters[0];
+
+            Basin SBasin = MnWindow.CurrentProject.SelectedBasin;
+
+            SBasin.DisableLayerWithName(LayerName);
+
+            return;
+        }
+
+        private void Lyr_Enabled(object sender, DanoEventArgs e)
+        {
+
+            Debug.Assert(e.DanoParameters.Count == 1);
+
+            string LayerName = (string)e.DanoParameters[0];
+
+            Basin SBasin = MnWindow.CurrentProject.SelectedBasin;
+
+            SBasin.EnableLayerWithName(LayerName);
+
+            return; 
         }
 
         private void Layers_Loaded(object sender, RoutedEventArgs e)

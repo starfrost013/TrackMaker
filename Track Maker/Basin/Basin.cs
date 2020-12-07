@@ -658,5 +658,22 @@ namespace Track_Maker
                 return null;
             }
         }
+
+        private bool SetLayerVisibility(string Name, bool Visibility)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                if (Lyr.Name == Name)
+                {
+                    Lyr.Enabled = false;
+                    return true;
+                }    
+            }
+
+            return false;
+        }
+
+        public bool DisableLayerWithName(string Name) => SetLayerVisibility(Name, false);
+        public bool EnableLayerWithName(string Name) => SetLayerVisibility(Name, true); 
     }
 }

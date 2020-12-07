@@ -34,7 +34,19 @@ namespace DanoUI
         /// Parameter 0 - string - the layer to be deleted [2020-10-20] 
         /// </summary>
         public EventHandler<DanoEventArgs> LayerDeleted { get; set; }
+
+        /// <summary>
+        /// DanoEventArgs
+        /// 
+        /// Parameter 0 - string - the layer name to be disabled [2020-12-07]
+        /// </summary>
         public EventHandler<DanoEventArgs> LayerDisabled { get; set; }
+
+        /// <summary>
+        /// DanoEventArgs
+        /// 
+        /// Parameter 0 - string - the layer to be enabled [2020-12-07]
+        /// </summary>
         public EventHandler<DanoEventArgs> LayerEnabled { get; set; }
         public EventHandler<DanoEventArgs> LayerReordered { get; set; }
 
@@ -91,16 +103,26 @@ namespace DanoUI
         {
             CheckBox ChkBox = (CheckBox)PriscillaUI_Layers_LayerListView.Template.FindName("PriscillaUI_Layers_LayerListView_CheckBox", PriscillaUI_Layers_LayerListView);
             
+            if (ChkBox == null)
+            {
+                MessageBox.Show("TEMP: Failed to acquire CheckBox!"); 
+            }
+
             bool IsLayerEnabled = (bool)ChkBox.IsChecked;
+
+            DanoEventArgs DEA = new DanoEventArgs(); 
+            string SelItem = (string)PriscillaUI_Layers_LayerListView.SelectedItem;
+
+            DEA.DanoParameters.Add(SelItem);
 
             // temporary code
             if (!IsLayerEnabled)
             {
-                LayerDisabled(this, new DanoEventArgs());
+                LayerDisabled(this, DEA);
             }
             else
             {
-                LayerEnabled(this, new DanoEventArgs());
+                LayerEnabled(this, DEA);
             }
         }
     }
