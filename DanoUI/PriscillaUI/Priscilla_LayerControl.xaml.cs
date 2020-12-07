@@ -127,5 +127,10 @@ namespace DanoUI
                 LayerEnabled(this, DEA);
             }
         }
+
+        private void GetCheckBox()
+        {
+
+        }
     }
 }
