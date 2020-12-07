@@ -588,8 +588,16 @@ namespace Track_Maker
         {
             // Layer
 
-            return Layers.OrderBy(Layers => Layers.ZIndex).ToList();  
+            List<Layer> LayerList = Layers.OrderBy(Layers => Layers.ZIndex).ToList();  
 
+            // is this layer enabled?
+
+            foreach (Layer Layer in LayerList)
+            {
+                if (!Layer.Enabled) LayerList.Remove(Layer);
+            }
+
+            return LayerList;
         }
 
         /// <summary>

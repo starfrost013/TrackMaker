@@ -91,6 +91,7 @@ namespace DanoUI
 #endif
             // SHITTY HACK
             PriscillaUI_Layers_LayerListView.Items.Add(Lyr);
+            //todo: SET STATE WHEN ENABLED
             // END SHITTY HACK
         }
 
@@ -101,11 +102,12 @@ namespace DanoUI
         /// <param name="e"></param>
         private void PriscillaUI_Layers_LayerListView_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            CheckBox ChkBox = (CheckBox)PriscillaUI_Layers_LayerListView.Template.FindName("PriscillaUI_Layers_LayerListView_CheckBox", PriscillaUI_Layers_LayerListView);
-            
+            CheckBox ChkBox = (CheckBox)PriscillaUI_Layers_LayerListView.ItemTemplate.FindName("PriscillaUI_Layers_LayerListView_CheckBox", PriscillaUI_Layers_LayerListView);
+
             if (ChkBox == null)
             {
-                MessageBox.Show("TEMP: Failed to acquire CheckBox!"); 
+                MessageBox.Show("TEMP: Failed to acquire CheckBox!");
+                return;
             }
 
             bool IsLayerEnabled = (bool)ChkBox.IsChecked;

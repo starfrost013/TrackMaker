@@ -19,6 +19,7 @@ namespace Track_Maker
         public Layer()
         {
             AssociatedStorms = new List<Storm>();
+            Enabled = true;
             GenerateGUID();
         }
 

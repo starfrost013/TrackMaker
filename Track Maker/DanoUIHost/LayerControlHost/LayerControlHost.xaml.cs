@@ -24,7 +24,7 @@ namespace Track_Maker
     {
 
 #if PRISCILLA
-        public MainWindow MnWindow { get; et; }
+        public MainWindow MnWindow { get; set; }
 #endif
         /// <summary>
         /// RESTORE BINDINGS ONCE THREADING ISSUES FIGURED OUT
