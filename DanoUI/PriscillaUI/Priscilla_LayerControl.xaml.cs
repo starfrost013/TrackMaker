@@ -130,6 +130,14 @@ namespace DanoUI
 
         private void GetCheckBox()
         {
+            //ContentPresenter CPR = FindVis
+        }
+
+        /// <summary>
+        /// move this
+        /// </summary>
+        private void GetVisualChild()
+        {
 
         }
     }
