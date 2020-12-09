@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.WpfUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -102,7 +103,7 @@ namespace DanoUI
         /// <param name="e"></param>
         private void PriscillaUI_Layers_LayerListView_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            CheckBox ChkBox = (CheckBox)PriscillaUI_Layers_LayerListView.ItemTemplate.FindName("PriscillaUI_Layers_LayerListView_CheckBox", PriscillaUI_Layers_LayerListView);
+            CheckBox ChkBox = GetCheckBox();
 
             if (ChkBox == null)
             {
@@ -128,17 +129,22 @@ namespace DanoUI
             }
         }
 
-        private void GetCheckBox()
-        {
-            //ContentPresenter CPR = FindVis
-        }
+        private CheckBox GetCheckBox() => GetDataTemplateElement<CheckBox>("PriscillaUI_Layers_LayerListView_CheckBox"); 
 
         /// <summary>
-        /// move this
+        /// move this code
+        /// 
+        /// use Starfrost UL5 Util to do this
         /// </summary>
-        private void GetVisualChild()
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Name"></param>
+        /// <returns></returns>
+        private T GetDataTemplateElement<T>(string Name) where T : UIElement
         {
-
+            ContentPresenter CPR = DataTemplateUtil.FindVisualChild<ContentPresenter>(PriscillaUI_Layers_LayerListView);
+            T UIElement = (T)CPR.FindName(Name);
+            return UIElement; 
         }
+
     }
 }
