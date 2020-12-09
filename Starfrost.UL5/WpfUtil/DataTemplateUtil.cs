@@ -10,6 +10,12 @@ namespace Starfrost.UL5.WpfUtil
 {
     public static class DataTemplateUtil
     {
+        /// <summary>
+        /// bad and ugly
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="DO"></param>
+        /// <returns></returns>
         public static T FindVisualChild<T>(DependencyObject DO) where T : DependencyObject
         {
             int ChildCount = VisualTreeHelper.GetChildrenCount(DO);
@@ -32,14 +38,16 @@ namespace Starfrost.UL5.WpfUtil
                     }
                     else
                     {
-                        // find child of child
-                        // just call it again; we don't need duplicate code 
-                        FindVisualChild<T>(Child);
+                        // learning the hard way... (v582)
+                        T ChildItem = FindVisualChild<T>(Child);
+                        if (ChildItem != null) return ChildItem;
                     }
+
                 }
             }
 
             return null; 
+
         }
     }
 }

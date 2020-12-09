@@ -129,7 +129,7 @@ namespace DanoUI
             }
         }
 
-        private CheckBox GetCheckBox() => GetDataTemplateElement<CheckBox>("PriscillaUI_Layers_LayerListView_CheckBox"); 
+        private CheckBox GetCheckBox() => GetListViewDataTemplateElement<CheckBox>("PriscillaUI_Layers_LayerListView_CheckBox"); 
 
         /// <summary>
         /// move this code
@@ -139,12 +139,14 @@ namespace DanoUI
         /// <typeparam name="T"></typeparam>
         /// <param name="Name"></param>
         /// <returns></returns>
-        private T GetDataTemplateElement<T>(string Name) where T : UIElement
+        private T GetListViewDataTemplateElement<T>(string Name) where T : UIElement
         {
-            ContentPresenter CPR = DataTemplateUtil.FindVisualChild<ContentPresenter>(PriscillaUI_Layers_LayerListView);
-            T UIElement = (T)CPR.FindName(Name);
+            ContentPresenter IPR = DataTemplateUtil.FindVisualChild<ContentPresenter>(PriscillaUI_Layers_LayerListView);
+            T UIElement = (T)IPR.FindName(Name);
             return UIElement; 
         }
+
+        
 
     }
 }
