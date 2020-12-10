@@ -49,6 +49,12 @@ namespace DanoUI
         /// Parameter 0 - string - the layer to be enabled [2020-12-07]
         /// </summary>
         public EventHandler<DanoEventArgs> LayerEnabled { get; set; }
+
+        /// <summary>
+        /// DanoEventArgs
+        /// 
+        /// Parameter 0 - int - amount to move the layer by; negative is up, positive is down. 
+        /// </summary>
         public EventHandler<DanoEventArgs> LayerReordered { get; set; }
 
 #if v21_LayerBinding // change this to use Layer objects in v2.1
@@ -134,8 +140,18 @@ namespace DanoUI
 
             CheckBox CB = (CheckBox)e.OriginalSource;
             return CB; 
-        } 
+        }
+
+        private void MoveUp_Click(object sender, RoutedEventArgs e) => TriggerReorderedEvent(-1);
+
+        private void MoveDown_Click(object sender, RoutedEventArgs e) => TriggerReorderedEvent(1); 
 
 
+        private void TriggerReorderedEvent(int Amount)
+        {
+            DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(Amount);
+            LayerReordered(this, DEA);
+        }
     }
 }
