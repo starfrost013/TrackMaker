@@ -141,12 +141,8 @@ namespace DanoUI
         /// <returns></returns>
         private T GetListViewDataTemplateElement<T>(string Name) where T : UIElement
         {
-            ContentPresenter IPR = DataTemplateUtil.FindVisualChild<ContentPresenter>(PriscillaUI_Layers_LayerListView);
-            T UIElement = (T)IPR.FindName(Name);
-            return UIElement; 
+             return DataTemplateUtil.FindVisualChild<T>(PriscillaUI_Layers_LayerListView);
         }
-
-        
 
     }
 }
