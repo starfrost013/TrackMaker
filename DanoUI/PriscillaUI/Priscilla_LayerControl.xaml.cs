@@ -103,7 +103,7 @@ namespace DanoUI
         /// <param name="e"></param>
         private void PriscillaUI_Layers_LayerListView_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            CheckBox ChkBox = GetCheckBox();
+            CheckBox ChkBox = GetCheckBox(e);
 
             if (ChkBox == null)
             {
@@ -129,20 +129,13 @@ namespace DanoUI
             }
         }
 
-        private CheckBox GetCheckBox() => GetListViewDataTemplateElement<CheckBox>("PriscillaUI_Layers_LayerListView_CheckBox"); 
-
-        /// <summary>
-        /// move this code
-        /// 
-        /// use Starfrost UL5 Util to do this
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="Name"></param>
-        /// <returns></returns>
-        private T GetListViewDataTemplateElement<T>(string Name) where T : UIElement
+        private CheckBox GetCheckBox(RoutedEventArgs e)
         {
-             return DataTemplateUtil.FindVisualChild<T>(PriscillaUI_Layers_LayerListView);
-        }
+
+            CheckBox CB = (CheckBox)e.OriginalSource;
+            return CB; 
+        } 
+
 
     }
 }
