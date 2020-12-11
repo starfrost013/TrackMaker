@@ -141,5 +141,32 @@ namespace Track_Maker
             TickTimer.Stop(); 
         }
 
+#if PRISCILLA
+        public void StartTimer() => SetTimerState(true);
+        public void StopTimer() => SetTimerState(false); 
+
+        private void SetTimerState(bool SetTimerState)
+        {
+            // ugly.
+            if (TickTimer.Enabled == SetTimerState)
+            {
+                Error.Throw("Error!", "Attempted to start the render timer when running or stop the timer when stoppd!", ErrorSeverity.Error, 340);
+            }
+            else
+            {
+                // SET enabled?
+                if (SetTimerState)
+                {
+                    TickTimer.Start();
+                }
+                else
+                {
+                    TickTimer.Stop();
+                }
+            }
+        }
+         
+#elif IRIS
+#endif
     }
 }

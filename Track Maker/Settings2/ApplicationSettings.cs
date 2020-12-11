@@ -20,7 +20,7 @@ namespace Track_Maker
         public static bool ShowBetaWarning { get; set; }
         public static TelemetryConsent TelemetryConsent { get; set; } // Telemetry consent
         public static int UndoDepth { get; set; } // Amount of undos allowed
-        public static bool Dano_UseDeserialisation { get; set; } // Priscilla+ (version 2.1) - use XML Deserialisation
+        public static bool Dano_UseDeserialisation { get; set; } // Iris (version 2.1) - use XML Deserialisation
         public static bool UseGradient { get; set; } // Use the gradient
         public static WndStyle WindowStyle { get; set; } // Window style
 

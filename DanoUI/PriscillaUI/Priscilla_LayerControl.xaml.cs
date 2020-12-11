@@ -57,6 +57,13 @@ namespace DanoUI
         /// </summary>
         public EventHandler<DanoEventArgs> LayerReordered { get; set; }
 
+        /// <summary>
+        /// DanoEventArgs
+        /// 
+        /// Parameter 0 - string - the layer to select
+        /// </summary>
+        public EventHandler<DanoEventArgs> LayerSelected { get; set; }
+
 #if v21_LayerBinding // change this to use Layer objects in v2.1
         public List<string> LayerNames { get; set; }
 #endif
@@ -65,6 +72,7 @@ namespace DanoUI
             InitializeComponent();
         }
 
+        
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = this;
@@ -96,8 +104,9 @@ namespace DanoUI
 #if v21_LayerBinding
             LayerNames.Add(Lyr);
 #endif
-            // SHITTY HACK
+            // SHITTY HACK HITTY HACK!!!!
             PriscillaUI_Layers_LayerListView.Items.Add(Lyr);
+            PriscillaUI_Layers_LayerListView.SelectedIndex = PriscillaUI_Layers_LayerListView.Items.Count - 1;
             //todo: SET STATE WHEN ENABLED
             // END SHITTY HACK
         }
@@ -142,14 +151,15 @@ namespace DanoUI
             return CB; 
         }
 
-        private void MoveUp_Click(object sender, RoutedEventArgs e) => TriggerReorderedEvent(-1);
+        private void MoveUp_Click(object sender, RoutedEventArgs e) => TriggerReorderedEvent((string)PriscillaUI_Layers_LayerListView.SelectedItem, -1);
 
-        private void MoveDown_Click(object sender, RoutedEventArgs e) => TriggerReorderedEvent(1); 
+        private void MoveDown_Click(object sender, RoutedEventArgs e) => TriggerReorderedEvent((string)PriscillaUI_Layers_LayerListView.SelectedItem, 1); 
 
 
-        private void TriggerReorderedEvent(int Amount)
+        private void TriggerReorderedEvent(string Name, int Amount)
         {
             DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(Name); 
             DEA.DanoParameters.Add(Amount);
             LayerReordered(this, DEA);
         }

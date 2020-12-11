@@ -126,6 +126,11 @@ namespace Track_Maker
 
         private void Lyr_Reordered(object sender, DanoEventArgs e)
         {
+#if PRISCILLA
+            MainWindow MWindow = (MainWindow)Application.Current.MainWindow;
+#else // Dano: Use the Glue API
+#endif
+            MnWindow.StopTimer(); 
             Debug.Assert(e.DanoParameters.Count == 2);
 
             string LayerName = (string)e.DanoParameters[0];
@@ -136,6 +141,9 @@ namespace Track_Maker
             Layer Lyr = SBasin.GetLayerWithName(LayerName);
 
             Lyr.ZIndex += Amount;
+
+            // Prevent a "collection changed, can't enumerate" invalidoperationexception
+            MnWindow.StartTimer();
         }
 
         private void Layers_Loaded(object sender, RoutedEventArgs e)

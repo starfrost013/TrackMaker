@@ -199,6 +199,7 @@
     <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
     <Compile Include="V3Graph\IGraph.cs" />
+    <Compile Include="V3MWH\MainWindowState.cs" />
     <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -334,9 +335,7 @@
       <Name>Starfrost.UL5</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="V3MWH\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Data\BasinImages\T_AtlanticHighRes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
