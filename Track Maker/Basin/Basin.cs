@@ -545,7 +545,7 @@ namespace Track_Maker
         /// Get a layer-independent storm with the name Name. 
         /// </summary>
         /// <returns></returns>
-        public Storm GetFlatStormWithName(string Name)
+        public Storm GetStormWithName(string Name)
         {
             List<Storm> XS = GetFlatListOfStorms();
 
@@ -683,5 +683,19 @@ namespace Track_Maker
 
         public bool DisableLayerWithName(string Name) => SetLayerVisibility(Name, false);
         public bool EnableLayerWithName(string Name) => SetLayerVisibility(Name, true); 
+
+        public Layer GetLayerWithName(string Name)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                if (Lyr.Name == Name)
+                {
+                    return Lyr;
+                }
+            }
+
+            return null;
+        }
+
     }
 }

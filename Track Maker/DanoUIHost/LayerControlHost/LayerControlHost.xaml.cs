@@ -124,9 +124,25 @@ namespace Track_Maker
             return; 
         }
 
+        private void Lyr_Reordered(object sender, DanoEventArgs e)
+        {
+            Debug.Assert(e.DanoParameters.Count == 2);
+
+            string LayerName = (string)e.DanoParameters[0];
+            int Amount = (int)e.DanoParameters[1];
+
+            Basin SBasin = MnWindow.CurrentProject.SelectedBasin;
+
+            Layer Lyr = SBasin.GetLayerWithName(LayerName);
+
+            Lyr.ZIndex += Amount;
+        }
+
         private void Layers_Loaded(object sender, RoutedEventArgs e)
         {
             Layers.DataContext = Layers;
         }
+
+
     }
 }
