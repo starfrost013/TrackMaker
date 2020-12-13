@@ -113,8 +113,11 @@ namespace Track_Maker
 
             if (Setting.ShowBetaWarning) Error.ShowBetaWarning();
 
+            Layers.AddLayer("Background");
+
+            Logging.Log("Initialisation completed. Starting timer...");
             TickTimer.Start();
-            Logging.Log("Initialisation completed.");
+
         }
 
         private void Init_SetCurrentCategorySystem()

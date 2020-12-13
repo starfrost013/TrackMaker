@@ -99,7 +99,6 @@ namespace Track_Maker
             Bs.SelectLayerWithName(BgLayer.Name);
 #if PRISCILLA
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            MnWindow.Layers.AddLayer("Background"); 
 #endif
             OpenBasins.Add(Bs);
             SelectedBasin = Bs;
