@@ -58,11 +58,12 @@ namespace Track_Maker
 
         public void Lyr_Created(object sender, DanoEventArgs e)
         {
-
+            MnWindow.StopTimer();
             // no DEA
             CreateLayerHost CLH = new CreateLayerHost();
             CLH.Owner = Application.Current.MainWindow;
             CLH.Show();
+            MnWindow.StartTimer(); 
         }
 
         public void Lyr_Deleted(object sender, DanoEventArgs e)
@@ -99,6 +100,7 @@ namespace Track_Maker
         // don't throw an exception as ew could crash
         private void Lyr_Disabled(object sender, DanoEventArgs e)
         {
+            MnWindow.StopTimer();
             Debug.Assert(e.DanoParameters.Count == 1);
 
             string LayerName = (string)e.DanoParameters[0];
@@ -107,11 +109,15 @@ namespace Track_Maker
 
             SBasin.DisableLayerWithName(LayerName);
 
+            MnWindow.StartTimer(); 
             return;
+
+
         }
 
         private void Lyr_Enabled(object sender, DanoEventArgs e)
         {
+            MnWindow.StopTimer();
 
             Debug.Assert(e.DanoParameters.Count == 1);
 
@@ -121,6 +127,7 @@ namespace Track_Maker
 
             SBasin.EnableLayerWithName(LayerName);
 
+            MnWindow.StartTimer();
             return; 
         }
 
@@ -154,7 +161,7 @@ namespace Track_Maker
         {
 
             // not the best way to handle this at all
-            MnWindow.StopTimer();
+            // MnWindow.StopTimer();
             Debug.Assert(e.DanoParameters.Count == 1);
 
             // silently ail 
@@ -170,7 +177,7 @@ namespace Track_Maker
 
             SBasin.SelectLayerWithName(LayerSelected);
 
-            MnWindow.StartTimer(); 
+            //MnWindow.StartTimer(); 
         }
 
     }

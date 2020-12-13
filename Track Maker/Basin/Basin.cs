@@ -673,7 +673,7 @@ namespace Track_Maker
             {
                 if (Lyr.Name == Name)
                 {
-                    Lyr.Enabled = false;
+                    Lyr.Enabled = Visibility;
                     return true;
                 }    
             }
