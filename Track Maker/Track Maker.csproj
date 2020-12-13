@@ -337,6 +337,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Data\Auxillary\2bit-4dither.png" />
     <Content Include="Data\BasinImages\T_AtlanticHighRes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -367,6 +368,7 @@
     <Content Include="Data\CategorySystems.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\suzu.png" />
     <Resource Include="V2Icon_32x32.ico" />
     <Resource Include="Data\empty.png" />
     <Resource Include="Data\Languages\Languages.xml" />

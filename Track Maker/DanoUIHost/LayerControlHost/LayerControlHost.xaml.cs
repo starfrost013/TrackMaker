@@ -152,6 +152,9 @@ namespace Track_Maker
 
         private void Lyr_Selected(object sender, DanoEventArgs e)
         {
+
+            // not the best way to handle this at all
+            MnWindow.StopTimer();
             Debug.Assert(e.DanoParameters.Count == 1);
 
             // silently ail 
@@ -166,6 +169,8 @@ namespace Track_Maker
             string LayerSelected = SelectedList_Added[0];
 
             SBasin.SelectLayerWithName(LayerSelected);
+
+            MnWindow.StartTimer(); 
         }
 
     }

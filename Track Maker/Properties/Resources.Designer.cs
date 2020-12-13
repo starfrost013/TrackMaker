@@ -88,11 +88,21 @@ namespace Track_Maker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version 2.0x by starfrost.
+        ///   Looks up a localized string similar to Version 2.x by starfrost.
         /// </summary>
         internal static string _PRISCILLA {
             get {
                 return ResourceManager.GetString("_PRISCILLA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _suzuha_auxillary {
+            get {
+                object obj = ResourceManager.GetObject("_suzuha_auxillary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
