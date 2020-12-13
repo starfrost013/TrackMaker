@@ -104,7 +104,7 @@ namespace DanoUI
 #if v21_LayerBinding
             LayerNames.Add(Lyr);
 #endif
-            // SHITTY HACK HITTY HACK!!!!
+            // SHITTY HACK SHITTY HACK!!!!
             PriscillaUI_Layers_LayerListView.Items.Add(Lyr);
             PriscillaUI_Layers_LayerListView.SelectedIndex = PriscillaUI_Layers_LayerListView.Items.Count - 1;
             //todo: SET STATE WHEN ENABLED

@@ -375,6 +375,7 @@ namespace Track_Maker
                 MnWindow.TickTimer.Stop();
                 Layer Layer = new Layer();
                 Layer.Name = Name;
+                Layer.Enabled = true; 
                 Layers.Add(Layer);
 
                 MnWindow.Layers.AddLayer(Name);

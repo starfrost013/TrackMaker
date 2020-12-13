@@ -42,10 +42,14 @@ namespace Track_Maker
 #if v21_LayerBinding
             Layers.LayerNames.Add(Name);
 #else
-            Layers.PriscillaUI_Layers_LayerListView.Items.Remove(Name); 
+            Layers.PriscillaUI_Layers_LayerListView.Items.Remove(Name);
+            Basin CBasin = MnWindow.CurrentProject.SelectedBasin;
+
+            CBasin.RemoveLayerWithName(Name); 
 #endif
             Layers.UpdateLayout(); 
         }
+
         /// <summary>
         /// END RESTORE BINDING ONCE THREADING ISSUES FIGURED OUT
         /// </summary>
