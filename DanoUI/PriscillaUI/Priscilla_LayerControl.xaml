@@ -36,7 +36,7 @@
                     <GridViewColumn Header="Enabled" x:Name="PriscillaUI_Layers_LayerListView_IsEnabled" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="PriscillaUI_Layers_LayerListView_CheckBox" Checked="PriscillaUI_Layers_LayerListView_CheckBox_Checked"></CheckBox>
+                                <CheckBox x:Name="PriscillaUI_Layers_LayerListView_CheckBox" Click="PriscillaUI_Layers_LayerListView_CheckBox_Checked"></CheckBox>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

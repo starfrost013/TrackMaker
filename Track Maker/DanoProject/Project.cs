@@ -97,7 +97,7 @@ namespace Track_Maker
 
             Bs.Layers.Add(BgLayer);
             Bs.SelectLayerWithName(BgLayer.Name);
-
+            
             OpenBasins.Add(Bs);
             SelectedBasin = Bs;
         }
