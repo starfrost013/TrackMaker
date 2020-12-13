@@ -2,6 +2,7 @@
 using Starfrost.UL5.VersionUtilities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -351,6 +352,23 @@ namespace Starfrost.UL5.StringUtilities
             }
 
             return List0;
+        }
+
+        // where t, y : object
+        public static List<T> FromGenericList(List<object> OldList) 
+        {
+            List<T> NewList = new List<T>();
+
+            foreach (object Obj in OldList)
+            {
+                T ObjNT = (T)Obj;
+
+                Debug.Assert(ObjNT is T); 
+
+                NewList.Add(ObjNT);
+            }
+
+            return NewList; 
         }
     }
 }

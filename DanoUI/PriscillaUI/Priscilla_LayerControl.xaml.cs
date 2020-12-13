@@ -1,4 +1,4 @@
-﻿using Starfrost.UL5.WpfUtil;
+﻿using Starfrost.UL5.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -166,10 +166,12 @@ namespace DanoUI
 
         private void PriscillaUI_Layers_LayerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DanoEventArgs DEA = new DanoEventArgs();
-            List<string> AddedItems = (List<string>)e.AddedItems;
+            object[] AddedItems = (object[])e.AddedItems;
+            List<string> AddedItemsLZ = ListUtil<string>.ToList(AddedItems);
 
-            DEA.DanoParameters.Add(AddedItems);
+            DanoEventArgs DEA = new DanoEventArgs();
+
+            DEA.DanoParameters.Add(AddedItemsLZ);
 
             LayerSelected(this, DEA);
         }
