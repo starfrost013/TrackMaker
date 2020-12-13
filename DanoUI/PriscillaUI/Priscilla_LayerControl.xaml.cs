@@ -163,5 +163,15 @@ namespace DanoUI
             DEA.DanoParameters.Add(Amount);
             LayerReordered(this, DEA);
         }
+
+        private void PriscillaUI_Layers_LayerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DanoEventArgs DEA = new DanoEventArgs();
+            List<string> AddedItems = (List<string>)e.AddedItems;
+
+            DEA.DanoParameters.Add(AddedItems);
+
+            LayerSelected(this, DEA);
+        }
     }
 }

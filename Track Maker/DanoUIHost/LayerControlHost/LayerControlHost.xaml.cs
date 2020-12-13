@@ -127,7 +127,6 @@ namespace Track_Maker
         private void Lyr_Reordered(object sender, DanoEventArgs e)
         {
 #if PRISCILLA
-            MainWindow MWindow = (MainWindow)Application.Current.MainWindow;
 #else // Dano: Use the Glue API
 #endif
             MnWindow.StopTimer(); 
@@ -151,6 +150,23 @@ namespace Track_Maker
             Layers.DataContext = Layers;
         }
 
+        private void Lyr_Selected(object sender, DanoEventArgs e)
+        {
+            Debug.Assert(e.DanoParameters.Count == 1);
+
+            // silently ail 
+            List<string> SelectedList_Added = (List<string>)e.DanoParameters[0];
+
+            // SelectionMode is explicitly set to Single on the layercontrol,
+            // so this should be impossible
+            Debug.Assert(SelectedList_Added.Count == 1);
+
+            Basin SBasin = MnWindow.CurrentProject.SelectedBasin;
+
+            string LayerSelected = SelectedList_Added[0];
+
+            SBasin.SelectLayerWithName(LayerSelected);
+        }
 
     }
 }

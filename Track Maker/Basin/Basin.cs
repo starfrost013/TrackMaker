@@ -406,7 +406,7 @@ namespace Track_Maker
 #endif
         }
 
-        public void SelectLayer(string Name)
+        public void SelectLayerWithName(string Name)
         {
             foreach (Layer Lyr in Layers)
             {
@@ -414,7 +414,7 @@ namespace Track_Maker
             }
         }
 
-        public void DeleteLayer(string Name)
+        public void DeleteLayerWithName(string Name)
         {
             foreach (Layer Layer in Layers)
             {

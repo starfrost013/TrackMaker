@@ -1,6 +1,7 @@
 ﻿using Starfrost.UL5.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,8 @@ namespace Track_Maker
 
         /// <summary>
         /// 2020-11-27
+        /// 
+        /// Iris: replace with deserialisation
         /// </summary>
         internal static void LoadBasins()
         {
@@ -46,12 +49,12 @@ namespace Track_Maker
                 XmlDocument.Load(@"Data\Basins.xml"); // maybe change?
 
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
+
                 while (XmlRootNode.Name != "Basins")
                 {
                     if (XmlRootNode.NextSibling == null)
                     {
-                        MessageBox.Show("Basins.xml is corrupted or malformed. The Track Maker will now exit.", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Environment.Exit(1);
+                        Error.Throw("Fatal Error!", "Basins.xml is corrupted or malformed. The Track Maker will now exit.", ErrorSeverity.FatalError, 1);
                     }
 
                     XmlRootNode = XmlRootNode.NextSibling; //figure out what happens if the basin node doesn't exist.
@@ -65,8 +68,8 @@ namespace Track_Maker
 
                     if (XmlNode.Name != "Basin")
                     { // change this?
-                        MessageBox.Show("Basins.xml corrupt, exiting...", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Environment.Exit(2);
+                        Error.Throw("Fatal Error!", "Attempted to load non-basin node; exiting...", ErrorSeverity.Error, 2);
+                        return;
                     }
 
                     XmlAttributeCollection XmlAttributes = XmlNode.Attributes;
@@ -109,7 +112,16 @@ namespace Track_Maker
 
                         }
                     }
-                    //todo: additional error detection
+
+                    if (Basin.Name == null)
+                    {
+                        Error.Throw("Fatal Error!", "Fatal Error: Cannot load basin with no name!", ErrorSeverity.FatalError, 240);
+                    }
+
+                    if (Basin.Abbreviation == null) Basin.Abbreviation = "NA";
+
+                    Debug.Assert(Basin.Name != null && Basin.Abbreviation != null);
+                    
                     Logging.Log($"Successfully loaded basin {Basin.Name} with image {Basin.ImagePath}");
 
                     OpenBasins.Add(Basin);
@@ -118,7 +130,12 @@ namespace Track_Maker
             catch (XmlException err)
             {
                 //todo create fatalerror method
-                MessageBox.Show($"[Priscilla] Basins.xml corrupt, exiting...\n\n{err}", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
+#if DEBUG
+                Error.Throw("Fatal Error!", $"Basins.xml is corrupt or invalid!\n\n{err}", ErrorSeverity.FatalError, 203);
+#else
+                Error.Throw("Fatal Error!", "Basins.xml is corrupt or invalid!", ErrorSeverity.FatalError, 203); 
+#endif
+
                 Environment.Exit(203);
             }
         }

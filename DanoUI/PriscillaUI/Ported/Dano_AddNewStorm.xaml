@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DanoUI"
         mc:Ignorable="d"
-        Height="183.815" Width="653.517" FontSize="18">
+        Height="193.258" Width="650.369" FontSize="18">
     <Grid>
         <TextBlock x:Name="AddNewStormTextBlock" Text="Add New Storm" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" Height="55" Width="263" FontStyle="Italic"/>
         <TextBlock x:Name="NameTextBlock" Text="Name:" HorizontalAlignment="Left" Height="27" Margin="10,77,0,0" VerticalAlignment="Top" Width="57" FontSize="18"/>
@@ -16,7 +16,7 @@
         <TextBox x:Name="TimeHours" HorizontalAlignment="Left" Height="32" Margin="250,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32" Style="{StaticResource TextBox_BW}"/>
         <TextBlock x:Name="TimeColon" Text=":" HorizontalAlignment="Left" Height="26" Margin="287,114,0,0" VerticalAlignment="Top" Width="8" FontSize="18"/>
         <TextBox x:Name="TimeMinutes" HorizontalAlignment="Left" Height="32" Margin="296,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32" Style="{StaticResource TextBox_BW}"/>
-        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="490,124,0,0" VerticalAlignment="Top" Width="103" Click="OKButton_Click" RenderTransformOrigin="0.207,0.326" Style="{StaticResource Button_Invert}"/>
+        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="506,137,0,0" VerticalAlignment="Top" Width="121" Click="OKButton_Click" RenderTransformOrigin="0.207,0.326" Style="{StaticResource Button_Invert}"/>
         <!-- Maybe add warnings / agency select? -->
     </Grid>
 </UserControl>
