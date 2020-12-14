@@ -1,4 +1,5 @@
 ﻿using Starfrost.UL5.StringUtilities;
+using Starfrost.UL5.WpfUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,14 +100,17 @@ namespace DanoUI
             }
         }
 
-        public void AddLayer(string Lyr)
+        public void AddLayer(string Lyr, bool IsEnabled)
         {
 #if v21_LayerBinding
             LayerNames.Add(Lyr);
 #endif
             // SHITTY HACK SHITTY HACK!!!!
             PriscillaUI_Layers_LayerListView.Items.Add(Lyr);
+
+
             PriscillaUI_Layers_LayerListView.SelectedIndex = PriscillaUI_Layers_LayerListView.Items.Count - 1;
+
             //todo: SET STATE WHEN ENABLED
             // END SHITTY HACK
         }

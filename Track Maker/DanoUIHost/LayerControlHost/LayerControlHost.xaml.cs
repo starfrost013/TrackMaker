@@ -32,7 +32,7 @@ namespace Track_Maker
         /// <param name="Name"></param>
         public void AddLayer(string Name)
         {
-            Layers.AddLayer(Name);
+            Layers.AddLayer(Name, true);
             Layers.UpdateLayout(); 
         }
 
@@ -173,7 +173,12 @@ namespace Track_Maker
 
             // SelectionMode is explicitly set to Single on the layercontrol,
             // so this should be impossible
-            Debug.Assert(SelectedList_Added.Count == 1);
+            
+            if (SelectedList_Added.Count < 1)
+            {
+                // selection did not really change
+                return;
+            }
 
             Basin SBasin = MnWindow.CurrentProject.SelectedBasin;
 
