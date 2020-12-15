@@ -196,6 +196,7 @@
     </Compile>
     <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
+    <Compile Include="Util\TMParsingUtil\ParsingUtil.cs" />
     <Compile Include="Util\Utilities.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
