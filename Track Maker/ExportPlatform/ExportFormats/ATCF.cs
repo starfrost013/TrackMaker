@@ -44,10 +44,9 @@ namespace Track_Maker
         {
             try
             {
-                OpenFileDialog OFD = new OpenFileDialog()
+                System.Windows.Forms.FolderBrowserDialog OFD = new System.Windows.Forms.FolderBrowserDialog()
                 {
-                    Title = $"Open {GetName()} format folder",
-                    Filter = "Folders|*."
+                    Description = $"Open {GetName()} format folder",
                 };
 
 #if DANO
@@ -57,11 +56,23 @@ namespace Track_Maker
                 StormTypeManager ST2Manager = MnWindow.ST2Manager; 
 #endif
 
-                OFD.ShowDialog();
+                if (OFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
 
-                if (OFD.FileName == "") return null;
+                    if (OFD.SelectedPath == "") return null;
 
-                return ImportCore(ST2Manager, OFD.FileName); 
+                    return ImportCore(ST2Manager, OFD.SelectedPath);
+                }
+                else
+                {
+                    //temp
+                    return null; 
+                }
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Error.Throw("Fatal Error", "Attempted to import a nonexistent ATCF DatFolder", ErrorSeverity.Error, 241);
+                return null;
             }
             catch (PathTooLongException)
             {
@@ -114,13 +125,12 @@ namespace Track_Maker
                     // initialise the basin with the abbreviation loaded from XML
                     // we just use the name if there is no abbreviation specified in XML
 
-                    // we also don't check for null, etc because we just use the name of the basin if there's no specified abbreviation
-                    Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
-                    
-                    int Id = Convert.ToInt32(_StrId);
+                    // first iteration...
+                    if (i == 0) Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
 
+                    int Id = Convert.ToInt32(_StrId);
                     Coordinate Coord = Coordinate.FromSplitCoordinate(_StrCoordX, _StrCoordY);
-                    
+
                     int Intensity = Convert.ToInt32(_StrIntensity);
 
                     Sto.Name = _StrName;
@@ -159,7 +169,8 @@ namespace Track_Maker
 
 
             Proj.AddBasin(Bas);
-            return null; 
+
+            return Proj;
             
         }
 

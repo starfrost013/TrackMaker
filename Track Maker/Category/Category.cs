@@ -83,6 +83,7 @@ namespace Track_Maker
     public class Category
     {
         public string Abbreviation { get; set; } // the abbreviation of this category
+        public string ATCFAbbreviation { get; set; } // ATCF Abbreviation
         public Color Color { get; set; }
         public string Name { get; set; }
         public int LowerBound { get; set; }

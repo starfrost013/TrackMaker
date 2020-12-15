@@ -95,7 +95,7 @@ namespace Track_Maker
                             case "coordsTopLeft":
                             case "CoordsTopLeft":
                                 // Conversion
-                                Basin.CoordsLower = Coordinate.FromString(XmlAttribute.InnerText);
+                                Basin.CoordsLower = Coordinate.FromString(XmlAttribute.InnerText, CoordinateFormat.TrackMaker);
                                 continue;
                             case "coordsbottomright":
                             case "Coordsbottomright":
@@ -103,7 +103,7 @@ namespace Track_Maker
                             case "coordsBottomRight":
                             case "CoordsBottomRight":
                                 // Conversion
-                                Basin.CoordsHigher = Coordinate.FromString(XmlAttribute.InnerText);
+                                Basin.CoordsHigher = Coordinate.FromString(XmlAttribute.InnerText, CoordinateFormat.TrackMaker);
                                 continue;
                             case "name": // basin name
                             case "Name":

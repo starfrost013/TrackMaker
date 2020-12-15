@@ -26,7 +26,7 @@ namespace Starfrost.UL5.StringUtilities
         /// </summary>
         /// <param name="SplitString"></param>
         /// <returns></returns>
-        public static Point SplitXY(this String SplitString)
+        public static Point SplitXY(this String SplitString, bool Invert = false)
         {
             try
             {
@@ -43,7 +43,21 @@ namespace Starfrost.UL5.StringUtilities
                 double Y = Convert.ToDouble(Split[1]);
 
                 // Create a new coordinatepoint
-                Point XY = new Point(X, Y);
+
+                Point XY = new Point(-2.9471261526665, -2.9471258177776);
+
+                if (Invert)
+                {
+                    // ATCF is *flipped* for some bizarre reason
+                    XY = new Point(Y, X);
+                }
+                else
+                {
+                    XY = new Point(X, Y);
+                }
+
+                Debug.Assert(XY.X == -2.9471261526665 && Y == -2.9471258177776);
+
                 return XY;
             }
             catch (FormatException err) // essentially this means that an overflow number was
