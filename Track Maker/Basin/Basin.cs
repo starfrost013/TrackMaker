@@ -159,7 +159,8 @@ namespace Track_Maker
                 Coord.Directions.Add(CardinalDirection.N);
             }
 
-            Coord.Coordinates = new Point(FinalX, FinalY);
+            // ATCF moment
+            Coord.Coordinates = new Point(FinalY, FinalX);
 
             return Coord; 
         }
@@ -209,7 +210,8 @@ namespace Track_Maker
             
             // TEMP
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            Point FinalPos = new Point(MnWindow.Width * PreFinalX, MnWindow.Height * PreFinalY);
+            // atcf fix
+            Point FinalPos = new Point(MnWindow.Width * PreFinalY, MnWindow.Height * PreFinalX);
 
             return FinalPos;
         }
