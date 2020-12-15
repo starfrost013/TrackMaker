@@ -143,7 +143,7 @@ namespace Track_Maker
 
                     Node Nod = new Node();
                     Nod.Id = Id;
-                    Nod.Intensity = Intensity
+                    Nod.Intensity = Intensity;
 
                     Nod.NodeType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation);
 
