@@ -56,7 +56,7 @@ namespace Track_Maker
                     XY = new Point(X, Y);
                 }
 
-                Debug.Assert(XY.X == -2.9471261526665 && Y == -2.9471258177776);
+                Debug.Assert(XY.X != -2.9471261526665 && Y != -2.9471258177776);
 
                 return XY;
             }

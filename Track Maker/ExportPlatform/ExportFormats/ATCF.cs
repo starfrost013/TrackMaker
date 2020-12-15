@@ -125,29 +125,25 @@ namespace Track_Maker
                     // initialise the basin with the abbreviation loaded from XML
                     // we just use the name if there is no abbreviation specified in XML
 
+                    int Intensity = 0; 
                     // first iteration...
-                    if (i == 0) Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
+                    if (i == 0)
+                    {
+                        Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
+                        Intensity = Convert.ToInt32(_StrIntensity);
+                        _StrTime = _StrTime.Trim();
+                        Sto.FormationDate = DateTime.Parse(_StrTime);
+                        Sto.Name = _StrName;
+                    }
 
                     int Id = Convert.ToInt32(_StrId);
                     Coordinate Coord = Coordinate.FromSplitCoordinate(_StrCoordX, _StrCoordY);
-
-                    int Intensity = Convert.ToInt32(_StrIntensity);
-
-                    Sto.Name = _StrName;
 
                     // create a node and add it
 
                     Node Nod = new Node();
                     Nod.Id = Id;
-                    Nod.Intensity = Intensity;
-
-
-                    // get the storm formation date if we're reading the firt line. 
-                    if (i == 0)
-                    {
-                        Sto.FormationDate = DateTime.Parse(_StrTime);
-                        Sto.Name = _StrName; 
-                    }
+                    Nod.Intensity = Intensity
 
                     Nod.NodeType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation);
 
