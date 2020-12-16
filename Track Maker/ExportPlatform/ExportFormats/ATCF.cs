@@ -132,7 +132,7 @@ namespace Track_Maker
                         Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
                         Intensity = Convert.ToInt32(_StrIntensity);
                         _StrTime = _StrTime.Trim();
-                        Sto.FormationDate = DateTime.Parse(_StrTime);
+                        Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime); 
                         Sto.Name = _StrName;
                     }
 

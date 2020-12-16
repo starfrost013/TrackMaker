@@ -116,6 +116,7 @@ namespace Track_Maker
             Layers.AddLayer("Background");
 
             Logging.Log("Initialisation completed. Starting timer...");
+
             TickTimer.Start();
 
         }
