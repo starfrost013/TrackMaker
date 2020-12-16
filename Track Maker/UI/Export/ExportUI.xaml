@@ -13,26 +13,26 @@
         mc:Ignorable="d"
         Title="Export Tracks" Height="474.069" Width="918.198" Loaded="Window_Loaded">
     <Grid>
-        
+
         <!-- QualityControl -->
         <Dano:QualityControl x:Name="QualityControl"  Margin="10,67,636,218"></Dano:QualityControl>
-        
+
         <TextBlock x:Name="ExportPlatform" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Export to Whatever" VerticalAlignment="Top" Height="71" Width="492" FontSize="48" FontStyle="Italic"/>
         <!-- QualityControl disabled: [10,10,0,0] Size: 18pt 
              QualityControl enabled: [294,73,0,0] Size: 18pt -->
-        
+
         <TextBlock x:Name="ExportPlatform_PreviewTextBlock" HorizontalAlignment="Left" Margin="294,73,0,0" TextWrapping="Wrap" Text="Preview:" VerticalAlignment="Top" FontSize="18" FontStyle="Italic"/>
         <!-- Layer goes here -->
         <!-- QualityControl disabled: [10,118,0,0], size: [421,312]
              QualityControl enabled: [294,73,0,0], size: [421,312] -->
-        
+
         <Border x:Name="ExportPlatform_PreviewBorder" BorderBrush="#80000000" BorderThickness="1" HorizontalAlignment="Left" Height="312" Margin="294,97,0,0" VerticalAlignment="Top" Width="420">
             <Canvas x:Name="ExportPlatform_Preview" Width="421" Height="313"></Canvas>
             <!-- v0.93: prevent crashes -->
         </Border>
-        
+
         <!-- QualityControl disabled: [794,381,0,0] size:[76,default height] -->
-        <Button x:Name="ExportPlatform_ExportBtn" Content="Export" HorizontalAlignment="Left" Margin="780,381,0,0" VerticalAlignment="Top" Width="92" FontSize="18" Click="ExportPlatform_ExportBtn_Click" RenderTransformOrigin="0.305,0.417"/>
+        <Button x:Name="ExportPlatform_ExportBtn" Content="Export" HorizontalAlignment="Left" Margin="763,381,0,0" VerticalAlignment="Top" Width="109" FontSize="18" Click="ExportPlatform_ExportBtn_Click" Style="{StaticResource Button_Invert}"/>
 
     </Grid>
 </Window>

@@ -89,18 +89,19 @@ namespace Track_Maker
 
             string[] Storms = Directory.GetFiles(FolderName);
 
-            // this is terrible design and reloads the project but I want to get this done
+            // this is terrible design 
             Project Proj = new Project();
             Proj.FileName = $"{FolderName}/*.*";
             Basin Bas = new Basin();
 
+            // this is still a mess for now
             foreach (string StormFileName in Storms)
             {
                 string[] ATCFLines = File.ReadAllLines(StormFileName);
 
                 // holy fucking shit i hate the ATCF format so fucking muc
                 Storm Sto = new Storm(); 
-                string StormName = null;
+
                 StormType2 StormType = new StormType2();
                 DateTime StormFormationDT = new DateTime(1959, 3, 10);
 
@@ -120,7 +121,17 @@ namespace Track_Maker
                     string _StrCoordX = Components[7];
                     string _StrCoordY = Components[8];
                     string _StrIntensity = Components[9];
-                    string _StrName = Components[29]; // bleh 
+                    string _StrName = Components[28]; // bleh 
+
+                    // trim it
+                    _StrAbbreviation = _StrAbbreviation.Trim();
+                    _StrId = _StrId.Trim(); 
+                    _StrTime = _StrTime.Trim();
+                    _StrTimeSinceFormation = _StrTimeSinceFormation.Trim();
+                    _StrCoordX = _StrCoordX.Trim();
+                    _StrCoordY = _StrCoordY.Trim();
+                    _StrIntensity = _StrIntensity.Trim();
+                    _StrName = _StrName.Trim();
 
                     // initialise the basin with the abbreviation loaded from XML
                     // we just use the name if there is no abbreviation specified in XML
@@ -131,9 +142,19 @@ namespace Track_Maker
                     {
                         Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
                         Intensity = Convert.ToInt32(_StrIntensity);
-                        _StrTime = _StrTime.Trim();
-                        Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime); 
-                        Sto.Name = _StrName;
+
+                        Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime);
+                        
+
+                        if (_StrName == null)
+                        {
+                            Error.Throw("Error!", "Attempted to load storm with an invalid name!", ErrorSeverity.Error, 245);
+                        }
+                        else
+                        {
+                            Sto.Name = _StrName;
+                        }
+
                     }
 
                     int Id = Convert.ToInt32(_StrId);
@@ -150,16 +171,9 @@ namespace Track_Maker
                     Sto.AddNode(Nod);                    
                 }
 
-                if (StormName == null)
-                {
-                    Error.Throw("Error", "Invalid storm name detected - ATCF Parse Error 151", ErrorSeverity.Error, 151);
-                    return null;
-                }
-                else
-                {
-                    Bas.AddStorm(Sto);
-                    return Proj;
-                }
+                Bas.AddStorm(Sto);
+                return Proj;
+
 
             }
 
@@ -231,7 +245,7 @@ namespace Track_Maker
         public bool ExportCore(Project Project, string FileName)
         {
             Directory.CreateDirectory(FileName);
-            Directory.SetCurrentDirectory(FileName.Replace(".",""));
+            //Directory.SetCurrentDirectory(FileName.Replace(".",""));
 
             Basin SelBasin = Project.SelectedBasin;
 
