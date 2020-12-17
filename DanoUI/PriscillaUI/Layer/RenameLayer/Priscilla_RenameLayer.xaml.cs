@@ -18,7 +18,7 @@ namespace DanoUI
     /// <summary>
     /// Interaction logic for Priscilla_RenameLayer.xaml
     /// </summary>
-    public partial class Priscilla_RenameLayer : UserControl
+    public partial class RenameLayer : UserControl
     {
 
         /// <summary>
@@ -32,7 +32,8 @@ namespace DanoUI
         /// Parameter 0     string      The new layer name.
         /// </summary>
         public EventHandler<DanoEventArgs> OKHit { get; set; }
-        public Priscilla_RenameLayer()
+        
+        public RenameLayer()
         {
             InitializeComponent();
         }
@@ -46,6 +47,13 @@ namespace DanoUI
         {
             RenameLayer_NameBox.DataContext = this;
             UpdateLayout(); // required?
+        }
+
+        private void RenameLayer_OKButton_Click(object sender, RoutedEventArgs e)
+        {
+            string NewLayerName = RenameLayer_NameBox.Text;
+            DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(NewLayerName); 
         }
     }
 }

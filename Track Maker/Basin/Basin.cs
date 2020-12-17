@@ -702,5 +702,27 @@ namespace Track_Maker
             return null;
         }
 
+        // performlayeroperation 3.0?
+
+        /// <summary>
+        /// Rename the layer with name OriginalName to NewName.
+        /// </summary>
+        /// <param name="OriginalName">The name of the layer you wish to rename.</param>
+        /// <param name="NewName">The new name of the layer that you wish to rename to.</param>
+        /// <returns></returns>
+        public bool RenameLayerWithName(string OriginalName, string NewName)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                if (Lyr.Name == OriginalName)
+                {
+                    Lyr.Name == NewName;
+                    return true; 
+                }
+            }
+
+            return false; // could not find name
+        }
+
     }
 }
