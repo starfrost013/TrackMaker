@@ -716,7 +716,7 @@ namespace Track_Maker
             {
                 if (Lyr.Name == OriginalName)
                 {
-                    Lyr.Name == NewName;
+                    Lyr.Name = NewName;
                     return true; 
                 }
             }
