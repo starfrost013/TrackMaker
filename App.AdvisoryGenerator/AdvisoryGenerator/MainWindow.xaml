@@ -7,20 +7,20 @@
         mc:Ignorable="d"
         Title="Advisory Generator" Height="450" Width="700">
     <Grid>
-        <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="692">
-            <MenuItem x:Name="FileMenu" Header="File">
+        <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="692">
+            <MenuItem x:Name="FileMenu" Header="File" FontSize="18">
                 <MenuItem x:Name="FileMenu_Exit" Header="Exit" Click="FileMenu_Exit_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="TypeMenu" Header="Type">
+            <MenuItem x:Name="TypeMenu" Header="Type" FontSize="18">
                 <MenuItem x:Name="TypeMenu_NHC" Header="NHC-style" IsCheckable="True" IsChecked="True" Click="TypeMenu_NHC_Click"></MenuItem>
                 <MenuItem x:Name="TypeMenu_Wikitext" Header="Wikitext" IsCheckable="True" IsChecked="False" Click="TypeMenu_Wikitext_Click"></MenuItem>
                 <MenuItem x:Name="TypeMenu_MCC" Header="MCC style" IsCheckable="True" IsChecked="False" Click="TypeMenu_MCC_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="WarningsMenu" Header="Warnings &amp; Forecasts">
+            <MenuItem x:Name="WarningsMenu" Header="Warnings &amp; Forecasts" FontSize="18">
                 <MenuItem x:Name="WarningsMenu_AddWarnings" Header="Warning Manager" Click="WarningsMenu_AddWarnings_Click"></MenuItem>
                 <MenuItem x:Name="WarningsMenu_ForecastManager" Header="Forecast Manager" Click="WarningsMenu_ForecastManager_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="HelpMenu" Header="Help">
+            <MenuItem x:Name="HelpMenu" Header="Help" FontSize="18">
                 <MenuItem x:Name="HelpMenu_About" Header="About" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
         </Menu>
