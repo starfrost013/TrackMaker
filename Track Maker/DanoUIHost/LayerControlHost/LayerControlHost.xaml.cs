@@ -62,12 +62,12 @@ namespace Track_Maker
 
         public void Lyr_Created(object sender, DanoEventArgs e)
         {
-            MnWindow.StopTimer();
+            //MnWindow.StopTimer();
             // no DEA
             CreateLayerHost CLH = new CreateLayerHost();
             CLH.Owner = Application.Current.MainWindow;
             CLH.Show();
-            MnWindow.StartTimer(); 
+            //MnWindow.StartTimer(); 
         }
 
         public void Lyr_Deleted(object sender, DanoEventArgs e)
@@ -104,7 +104,7 @@ namespace Track_Maker
         // don't throw an exception as ew could crash
         private void Lyr_Disabled(object sender, DanoEventArgs e)
         {
-            MnWindow.StopTimer();
+            //MnWindow.StopTimer();
             Debug.Assert(e.DanoParameters.Count == 1);
 
             string LayerName = (string)e.DanoParameters[0];
@@ -113,7 +113,7 @@ namespace Track_Maker
 
             SBasin.DisableLayerWithName(LayerName);
 
-            MnWindow.StartTimer(); 
+            //MnWindow.StartTimer(); 
             return;
 
 
@@ -121,7 +121,7 @@ namespace Track_Maker
 
         private void Lyr_Enabled(object sender, DanoEventArgs e)
         {
-            MnWindow.StopTimer();
+            //MnWindow.StopTimer();
 
             Debug.Assert(e.DanoParameters.Count == 1);
 
@@ -131,7 +131,7 @@ namespace Track_Maker
 
             SBasin.EnableLayerWithName(LayerName);
 
-            MnWindow.StartTimer();
+            //MnWindow.StartTimer();
             return; 
         }
 
@@ -140,7 +140,7 @@ namespace Track_Maker
 #if PRISCILLA
 #else // Dano: Use the Glue API
 #endif
-            MnWindow.StopTimer(); 
+            //MnWindow.StopTimer(); 
             Debug.Assert(e.DanoParameters.Count == 2);
 
             string LayerName = (string)e.DanoParameters[0];
@@ -153,12 +153,26 @@ namespace Track_Maker
             Lyr.ZIndex += Amount;
 
             // Prevent a "collection changed, can't enumerate" invalidoperationexception
-            MnWindow.StartTimer();
+            //MnWindow.StartTimer();
         }
 
         private void Layers_Loaded(object sender, RoutedEventArgs e)
         {
             Layers.DataContext = Layers;
+        }
+
+        private void Lyr_Renamed(object sender, DanoEventArgs e)
+        {
+            Debug.Assert(e.DanoParameters.Count == 1);
+
+            string LayerToRename = (string)e.DanoParameters[0];
+
+            // showdialog to prevent closing of mainwindow while still open
+            RenameLayerHost RLH = new RenameLayerHost(LayerToRename);
+            RLH.Owner = Application.Current.MainWindow;
+            RLH.ShowDialog();
+
+            
         }
 
         private void Lyr_Selected(object sender, DanoEventArgs e)

@@ -49,7 +49,7 @@
                     <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_MoveUp" Header="Move Up" Click="MoveUp_Click"/>
                     <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_MoveDown" Header="Move Down" Click="MoveDown_Click"/>
                     <Separator/>
-                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Rename" Header="Rename"/>
+                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Rename" Header="Rename" Click="PriscillaUI_Layers_LayerListView_ContextMenu_Rename_Click"/>
                     <Separator/>
                     <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Delete" Header="Delete"/>
                 </ContextMenu>

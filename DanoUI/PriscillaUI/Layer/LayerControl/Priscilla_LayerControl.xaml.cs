@@ -61,6 +61,12 @@ namespace DanoUI
         /// <summary>
         /// DanoEventArgs
         /// 
+        /// Parameter 0 - string - layer name to rename
+        /// </summary>
+        public EventHandler<DanoEventArgs> LayerRenamed { get; set; }
+        /// <summary>
+        /// DanoEventArgs
+        /// 
         /// Parameter 0 - string - the layer to select
         /// </summary>
         public EventHandler<DanoEventArgs> LayerSelected { get; set; }
@@ -178,6 +184,17 @@ namespace DanoUI
             DEA.DanoParameters.Add(AddedItemsLZ);
 
             LayerSelected(this, DEA);
+        }
+
+        private void PriscillaUI_Layers_LayerListView_ContextMenu_Rename_Click(object sender, RoutedEventArgs e)
+        {
+            string ItemToRename = (string)PriscillaUI_Layers_LayerListView.SelectedItem;
+
+            DanoEventArgs DEA = new DanoEventArgs();
+
+            DEA.DanoParameters.Add(ItemToRename);
+
+            LayerRenamed(this, DEA);
         }
     }
 }
