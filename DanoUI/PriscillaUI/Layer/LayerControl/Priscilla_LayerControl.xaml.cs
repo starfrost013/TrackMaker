@@ -121,6 +121,22 @@ namespace DanoUI
             // END SHITTY HACK
         }
 
+        public void RenameLayer(string OriginalName, string NewName)
+        {
+            // for not foreach to prevent errors
+            for (int i = 0; i < PriscillaUI_Layers_LayerListView.Items.Count; i++)
+            {
+                string LayerName = (string)PriscillaUI_Layers_LayerListView.Items[i];
+
+                if (LayerName == OriginalName)
+                {
+                    // prevent "the collection was modified" errors by indirectly modifying it and then returning
+                    LayerName = NewName;
+                    return;
+                }
+            }
+        }
+
         /// <summary>
         /// On layer checked
         /// </summary>
@@ -189,10 +205,12 @@ namespace DanoUI
         private void PriscillaUI_Layers_LayerListView_ContextMenu_Rename_Click(object sender, RoutedEventArgs e)
         {
             string ItemToRename = (string)PriscillaUI_Layers_LayerListView.SelectedItem;
+            int LayerIndex = PriscillaUI_Layers_LayerListView.SelectedIndex;
 
             DanoEventArgs DEA = new DanoEventArgs();
 
             DEA.DanoParameters.Add(ItemToRename);
+            DEA.DanoParameters.Add(LayerIndex);
 
             LayerRenamed(this, DEA);
         }

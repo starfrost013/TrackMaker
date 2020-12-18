@@ -163,7 +163,7 @@ namespace Track_Maker
 
         private void Lyr_Renamed(object sender, DanoEventArgs e)
         {
-            Debug.Assert(e.DanoParameters.Count == 1);
+            Debug.Assert(e.DanoParameters.Count == 2);
 
             string LayerToRename = (string)e.DanoParameters[0];
 
@@ -172,8 +172,30 @@ namespace Track_Maker
             RLH.Owner = Application.Current.MainWindow;
             RLH.ShowDialog();
 
-            // UI goes here
+            Layers.RenameLayer(LayerToRename, GetNewName((int)e.DanoParameters[1]));
             
+        }
+
+        /// <summary>
+        /// A total hack to get the new name of the layer after it's already been renamed.
+        /// In V3 everything will be binded to GlobalState, GlueAPI etc so this will not be necessary.
+        /// </summary>
+        /// <param name="OldName">The old name</param>
+        /// <returns>The new name.</returns>
+        private string GetNewName(int LayerIndex)
+        {
+#if PRISCILLA
+            Basin CurrentProject = MnWindow.CurrentProject.SelectedBasin;
+#else
+            Project CurrentProject = GlobalState.GetCurrentProject();
+#endif
+
+            // this should never happen...most of this is terrible but will be fixed in v3
+            Debug.Assert(CurrentProject.Layers.Count > 0 && (CurrentProject.Layers.Count - 1) < LayerIndex);
+
+            Layer Lay = CurrentProject.Layers[LayerIndex];
+
+            return Lay.Name;
         }
 
         private void Lyr_Selected(object sender, DanoEventArgs e)
