@@ -51,12 +51,12 @@ namespace Track_Maker
 
             if (!CurBasin.RenameLayerWithName(PrevName, NewLayerName))
             {
-                Error.Throw("Fatal Error!", "Attempted to rename nonexistent layer!", ErrorSeverity.Error, 248); 
+                Error.Throw("Fatal Error!", "Attempted to rename nonexistent layer!", ErrorSeverity.Error, 248);
+                return;
             }
-            else
-            {
-                Close();
-            }
+
+            Close();
+
             
 #else
             // Glue API layer manager.... (Dano / 3.0) 

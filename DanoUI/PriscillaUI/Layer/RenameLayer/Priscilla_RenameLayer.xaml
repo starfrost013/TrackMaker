@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
-             mc:Ignorable="d" Height="134.016" Width="722.541" Loaded="UserControl_Loaded">
+             mc:Ignorable="d" Height="137.073" Width="726.108" Loaded="UserControl_Loaded">
     <Grid>
         <TextBlock x:Name="RenameLayer_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Rename Layer" VerticalAlignment="Top" FontSize="48"/>
         <TextBlock x:Name="RenameLayer_Name" HorizontalAlignment="Left" Height="32" Margin="10,79,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="73"/>

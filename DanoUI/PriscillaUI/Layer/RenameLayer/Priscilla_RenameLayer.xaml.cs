@@ -53,7 +53,8 @@ namespace DanoUI
         {
             string NewLayerName = RenameLayer_NameBox.Text;
             DanoEventArgs DEA = new DanoEventArgs();
-            DEA.DanoParameters.Add(NewLayerName); 
+            DEA.DanoParameters.Add(NewLayerName);
+            OKHit(this, DEA);
         }
     }
 }
