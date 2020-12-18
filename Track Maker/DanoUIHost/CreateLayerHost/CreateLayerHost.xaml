@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="Create Layer" Height="203.943" Width="765.54">
+        Title="Create Layer" Height="237.227" Width="757.042">
     <Grid>
-        <Dano:CreateLayer x:Name="CreateLayerUC" OKHit="OKHit" Margin="0,0,0,-4"></Dano:CreateLayer>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="147*"/>
+            <RowDefinition Height="26*"/>
+        </Grid.RowDefinitions>
+        <Dano:CreateLayer x:Name="CreateLayerUC" OKHit="OKHit" Margin="10,0,4,-18" Grid.RowSpan="2"></Dano:CreateLayer>
     </Grid>
 </Window>

@@ -131,7 +131,8 @@ namespace DanoUI
                 if (LayerName == OriginalName)
                 {
                     // prevent "the collection was modified" errors by indirectly modifying it and then returning
-                    LayerName = NewName;
+                    PriscillaUI_Layers_LayerListView.Items[i] = NewName;
+                    UpdateLayout();
                     return;
                 }
             }

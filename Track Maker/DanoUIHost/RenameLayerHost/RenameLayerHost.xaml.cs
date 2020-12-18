@@ -34,7 +34,7 @@ namespace Track_Maker
 
         public void OKHit(object sender, DanoEventArgs DEA)
         {
-            Debug.Assert(DEA.DanoParameters.Count == 0);
+            Debug.Assert(DEA.DanoParameters.Count == 1);
 
             string NewLayerName = (string)DEA.DanoParameters[0];
 

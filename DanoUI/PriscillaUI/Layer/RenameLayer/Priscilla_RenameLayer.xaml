@@ -8,8 +8,8 @@
     <Grid>
         <TextBlock x:Name="RenameLayer_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Rename Layer" VerticalAlignment="Top" FontSize="48"/>
         <TextBlock x:Name="RenameLayer_Name" HorizontalAlignment="Left" Height="32" Margin="10,79,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="73"/>
-        <TextBox x:Name="RenameLayer_NameBox" HorizontalAlignment="Left" Height="29" Margin="88,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="403" Style="{StaticResource TextBox_BW}" Text="{Binding PreviousName}"/>
-        <Button Style="{StaticResource Button_Invert}" x:Name="CreateLayer_OKButton" Content="OK" HorizontalAlignment="Left" Height="29" Margin="552,77,0,0" VerticalAlignment="Top" Width="123" Click="RenameLayer_OKButton_Click"/>
+        <TextBox x:Name="RenameLayer_NameBox" HorizontalAlignment="Left" Height="29" Margin="88,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="403" Style="{StaticResource TextBox_BW}" Text="{Binding PreviousName}"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="CreateLayer_OKButton" Content="OK" HorizontalAlignment="Left" Height="29" Margin="544,77,0,0" VerticalAlignment="Top" Width="123" Click="RenameLayer_OKButton_Click"/>
 
     </Grid>
 </UserControl>
