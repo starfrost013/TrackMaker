@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="Rename Layer" Height="450" Width="800">
+        Title="Rename Layer" Height="156.148" Width="726.23">
     <Grid>
         <Dano:RenameLayer x:Name="RenameLayerControl" OKHit="OKHit"></Dano:RenameLayer>
     </Grid>

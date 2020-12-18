@@ -191,7 +191,7 @@ namespace Track_Maker
 #endif
 
             // this should never happen...most of this is terrible but will be fixed in v3
-            Debug.Assert(CurrentProject.Layers.Count > 0 && (CurrentProject.Layers.Count - 1) < LayerIndex);
+            Debug.Assert(CurrentProject.Layers.Count > 0 && (CurrentProject.Layers.Count - 1) <= LayerIndex);
 
             Layer Lay = CurrentProject.Layers[LayerIndex];
 
