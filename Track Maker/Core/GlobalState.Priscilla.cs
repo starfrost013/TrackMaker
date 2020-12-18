@@ -66,8 +66,9 @@ namespace Track_Maker
                 {
                     Basin Basin = new Basin(); // create a new basin. 
 
-                    if (XmlNode.Name != "Basin")
+                    if (XmlNode.Name != "Basin" && !XmlNode.Name.Contains('#'))
                     { // change this?
+                        
                         Error.Throw("Fatal Error!", "Attempted to load non-basin node, discarding basin!", ErrorSeverity.Error, 2);
                         return;
                     }
