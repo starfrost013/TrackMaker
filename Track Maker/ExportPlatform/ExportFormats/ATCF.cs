@@ -118,8 +118,8 @@ namespace Track_Maker
                     string _StrId = Components[1];
                     string _StrTime = Components[2];
                     string _StrTimeSinceFormation = Components[3];
-                    string _StrCoordX = Components[7];
-                    string _StrCoordY = Components[8];
+                    string _StrCoordX = Components[6];
+                    string _StrCoordY = Components[7];
                     string _StrIntensity = Components[9];
                     string _StrName = Components[28]; // bleh 
 
