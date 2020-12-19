@@ -121,6 +121,9 @@ namespace Track_Maker
         public string GetAbbreviatedCategoryName(string SourceString, int NoOfWords, int StartWordIndex = 0, int LettersPerWord = 1, bool BTFormat = false)
         {
 
+            // if we have an abbreviation return it (v602c)
+            if (Abbreviation != null) return Abbreviation;
+
             string[] Words = SourceString.Split(' ');
 
             if (NoOfWords > Words.Length || NoOfWords < 0 || StartWordIndex > Words.Length)

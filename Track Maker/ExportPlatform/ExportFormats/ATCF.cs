@@ -121,6 +121,7 @@ namespace Track_Maker
                     string _StrCoordX = Components[6];
                     string _StrCoordY = Components[7];
                     string _StrIntensity = Components[9];
+                    string _StrCategory = Components[10];
                     string _StrName = Components[28]; // bleh 
 
                     // trim it
@@ -131,6 +132,7 @@ namespace Track_Maker
                     _StrCoordX = _StrCoordX.Trim();
                     _StrCoordY = _StrCoordY.Trim();
                     _StrIntensity = _StrIntensity.Trim();
+                    _StrCategory = _StrCategory.Trim();
                     _StrName = _StrName.Trim();
 
                     // initialise the basin with the abbreviation loaded from XML
@@ -166,7 +168,8 @@ namespace Track_Maker
                     Nod.Id = Id;
                     Nod.Intensity = Intensity;
 
-                    Nod.NodeType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation);
+                    Nod.Position = Proj.SelectedBasin.FromCoordinateToNodePosition(Coord);
+                    Nod.NodeType = GetStormType(_StrCategory);
 
                     Sto.AddNode(Nod);                    
                 }
@@ -265,6 +268,13 @@ namespace Track_Maker
                     // For each node. 
                     foreach (Node Node in Storm.NodeList)
                     {
+
+                        if (!Node.IsRealType())
+                        {
+                            Error.Throw("Error", "Custom storm types are not supported when exporting to ATCF/HURDAT2 format.", ErrorSeverity.Error, 248);
+                            return false;
+                        }
+
                         if (SelBasin.Abbreviation != null)
                         {
                             SW.Write($"{SelBasin.Abbreviation}, ");
@@ -376,9 +386,43 @@ namespace Track_Maker
             return true;
         }
 
+        private StormType2 GetStormType(string NodeType)
+        {
+            RealStormType RST = Export_IdentifyRealType(NodeType);
+#if PRISCILLA
+            StormTypeManager STM = MnWindow.ST2Manager;
+#else
+            StormTypeManager STM = MnWindow.GetST2Manager();
+#endif
+            StormType2 ST2 = STM.GetStormTypeWithRealStormTypeName(RST);
+
+            return ST2; 
+        }
+
         public void GeneratePreview(Canvas canvas)
         {
             throw new NotImplementedException(); 
+        }
+
+        private RealStormType Export_IdentifyRealType(string NodeType)
+        {
+            // This only needs to support SSHWS categories, as this is ATCF...
+            if (NodeType.ContainsCaseInsensitive("SS")
+                || NodeType.ContainsCaseInsensitive("SD"))
+            {
+                return RealStormType.Subtropical;
+            }
+            else
+            {
+                if (NodeType.ContainsCaseInsensitive("EX"))
+                {
+                    return RealStormType.Extratropical;
+                }
+                else
+                {
+                    return RealStormType.Tropical;
+                }
+            }
         }
 
     }

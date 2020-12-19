@@ -19,5 +19,22 @@ namespace Track_Maker
         public int Intensity { get; set; } // intensity mph
         public Point Position { get; set; } // the position
         public StormType2 NodeType { get; set; } // as any node can be any type.
+
+        public bool IsRealType()
+        {
+            if (NodeType == null)
+            {
+                Error.Throw("FATAL!!", "Attempted to call Node.IsRealType() on node with invalid NodeType", ErrorSeverity.FatalError, 247);
+                return false;
+            }
+
+            // Iris 2.1 / Dano 3.0: ID system
+            return (NodeType.Name == "Tropical"
+                || NodeType.Name == "Subtropical"
+                || NodeType.Name == "Extratropical");
+
+        }
+
+
     }
 }
