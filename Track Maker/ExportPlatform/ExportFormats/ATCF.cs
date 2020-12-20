@@ -143,6 +143,14 @@ namespace Track_Maker
                     if (i == 0)
                     {
                         Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
+
+
+                        if (Bas.CoordsHigher == null || Bas.CoordsLower == null)
+                        {
+                            Error.Throw("Error!", "This basin is not supported by the ATCF format as it does not have defined borders.", ErrorSeverity.Error, 249);
+                            return null;
+                        }
+
                         Intensity = Convert.ToInt32(_StrIntensity);
 
                         Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime);
@@ -151,6 +159,7 @@ namespace Track_Maker
                         if (_StrName == null)
                         {
                             Error.Throw("Error!", "Attempted to load storm with an invalid name!", ErrorSeverity.Error, 245);
+                            return null; 
                         }
                         else
                         {
@@ -168,7 +177,7 @@ namespace Track_Maker
                     Nod.Id = Id;
                     Nod.Intensity = Intensity;
 
-                    Nod.Position = Proj.SelectedBasin.FromCoordinateToNodePosition(Coord);
+                    Nod.Position = Bas.FromCoordinateToNodePosition(Coord);
                     Nod.NodeType = GetStormType(_StrCategory);
 
                     Sto.AddNode(Nod);                    
@@ -177,9 +186,7 @@ namespace Track_Maker
                 Bas.AddStorm(Sto);
                 return Proj;
 
-
             }
-
 
             Proj.AddBasin(Bas);
 
