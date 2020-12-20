@@ -31,6 +31,7 @@ namespace Track_Maker
     /// Version 2.2c     Priscilla v540      Changed format name
     /// Version 2.3      Priscilla v550      Changed root node name from "Proj" to "Project" and changed extension from *.tproj to *.tproj2
     /// Version 2.3b     Priscilla v571      Removed AutoStart
+    /// Version 2.4      Priscilla v604      PRISCILLA CODEFREEZE: Add local user name for author (2020-12-20)
     /// 
     /// </summary>
 
@@ -42,7 +43,7 @@ namespace Track_Maker
 
         // Format Version
         public static int FormatVersionMajor = 2;
-        public static int FormatVersionMinor = 3;
+        public static int FormatVersionMinor = 4;
 
         public XMLv2()
         {
@@ -103,13 +104,15 @@ namespace Track_Maker
             XmlNode XRoot = XDoc.CreateElement("Project");
             Proj.FileName = FileName;
             // Version 2.0: Write the metadata
-            XmlNode XMetadataNode = XDoc.CreateElement("Metadata"); 
+            XmlNode XMetadataNode = XDoc.CreateElement("Metadata");
             // Version of the format. 
+            XmlNode XAuthor = XDoc.CreateElement("Author");
             XmlNode XFormatVersionMajor = XDoc.CreateElement("FormatVersionMajor");
             XmlNode XFormatVersionMinor = XDoc.CreateElement("FormatVersionMinor");
 
             XmlNode XTimestamp = XDoc.CreateElement("Timestamp");
 
+            XAuthor.InnerText = Environment.UserName;
             XFormatVersionMajor.InnerText = FormatVersionMajor.ToString();
             XFormatVersionMinor.InnerText = FormatVersionMinor.ToString();
 
@@ -232,6 +235,7 @@ namespace Track_Maker
 
             // build metadata
 
+            XMetadataNode.AppendChild(XAuthor);
             XMetadataNode.AppendChild(XFormatVersionMajor);
             XMetadataNode.AppendChild(XFormatVersionMinor); 
 
