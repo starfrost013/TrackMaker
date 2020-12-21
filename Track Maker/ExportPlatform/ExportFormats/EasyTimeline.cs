@@ -35,7 +35,7 @@ namespace Track_Maker
             GlobalStateP.CurrentExportFormatName = GetType().ToString();
         }
 
-        public Project Import()
+        public ImportResult Import()
         {
             throw new NotImplementedException();  //EasyTimeline does not support import.
 

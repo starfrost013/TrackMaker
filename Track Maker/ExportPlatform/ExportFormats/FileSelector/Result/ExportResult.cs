@@ -4,28 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _86boxManager
+namespace Track_Maker
 {
     /// <summary>
-    /// 2020-12-08  Connor Hyde (starfrost)
+    /// Priscilla v604 2020-12-20 22:59
     /// 
-    /// Settings export result enum.
+    /// ImportResult
+    /// 
+    /// Result class for import and export
     /// </summary>
-    public enum ExportResult
+    public class ImportResult
     {
-        /// <summary>
-        /// The export was successful.
-        /// </summary>
-        OK = 0,
-        
-        /// <summary>
-        /// The user cancelled the export.
-        /// </summary>
-        Cancel = 1,
-
-        /// <summary>
-        /// There was an error during the export.
-        /// </summary>
-        Error = 2
+        public Project Project { get; set; }
+        public ExportResults Status { get; set; }
     }
 }

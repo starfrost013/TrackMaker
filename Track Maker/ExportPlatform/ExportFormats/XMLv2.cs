@@ -257,35 +257,42 @@ namespace Track_Maker
         /// I have to compromise against my old shit code
         /// </summary>
         /// <returns>The imported basin.</returns>
-        public Project Import()
+        public ImportResult Import()
         {
             // Implement later
 
             try
             {
+                ImportResult IR = new ImportResult();
+
                 OpenFileDialog OFD = new OpenFileDialog();
                 OFD.Title = $"Import from {GetName()}";
                 OFD.Filter = "Track Maker Project files|*.tproj2";
-                OFD.ShowDialog();
 
                 if (OFD.FileName == "")
                 {
-                    return null; 
+                    IR.Status = ExportResults.Cancelled;
+                    return null;
                 }
                 else
                 {
-                    XMLImportResult XER = ImportCore(OFD.FileName);
+                    XMLImportResult__DEPRECATED XER = ImportCore(OFD.FileName);
 
                     if (XER.Successful && !XER.Cancelled)
                     {
-                        return XER.Project;
+                        IR.Status = ExportResults.OK;
+                        IR.Project = XER.Project;
+                        return IR;
                     }
                     else
                     {
-                        return null; 
+                        IR.Status = ExportResults.Error;
+                        return IR;
                     }
-                    
+
                 }
+
+                
             }
             catch (XmlException)
             {
@@ -294,9 +301,9 @@ namespace Track_Maker
             }
         }
 #if PRISCILLA
-        public XMLImportResult ImportCore(string FileName)
+        public XMLImportResult__DEPRECATED ImportCore(string FileName)
         {
-            XMLImportResult XER = new XMLImportResult();
+            XMLImportResult__DEPRECATED XER = new XMLImportResult__DEPRECATED();
             XER.Successful = false;
             
             XmlDocument XD = new XmlDocument();

@@ -40,10 +40,13 @@ namespace Track_Maker
             return Name; 
         }
 
-        public Project Import()
+        public ImportResult Import()
         {
             try
             {
+
+                ImportResult IR = new ImportResult();
+
                 System.Windows.Forms.FolderBrowserDialog OFD = new System.Windows.Forms.FolderBrowserDialog()
                 {
                     Description = $"Open {GetName()} format folder",
@@ -53,7 +56,7 @@ namespace Track_Maker
                 StormTypeManager ST2Manager = GlobalState.GetST2Manager(); 
 #else
                 MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-                StormTypeManager ST2Manager = MnWindow.ST2Manager; 
+                StormTypeManager ST2Manager = MnWindow.ST2Manager;
 #endif
 
                 if (OFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -61,12 +64,26 @@ namespace Track_Maker
 
                     if (OFD.SelectedPath == "") return null;
 
-                    return ImportCore(ST2Manager, OFD.SelectedPath);
+                    Project Proj = ImportCore(ST2Manager, OFD.SelectedPath);
+
+                    if (Proj == null)
+                    {
+                        IR.Status = ExportResults.Error;
+                        return IR;
+                    }
+                    else
+                    {
+                        IR.Project = Proj;
+                        IR.Status = ExportResults.OK;
+                        return IR;
+                    }
                 }
                 else
                 {
                     //temp
-                    return null; 
+
+                    IR.Status = ExportResults.Cancelled;
+                    return IR; 
                 }
             }
             catch (DirectoryNotFoundException)
