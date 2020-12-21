@@ -253,6 +253,8 @@ namespace Track_Maker
             CPH.Owner = this;
             CPH.Show();
 
+            if (CurrentProject != null) Layers.AddLayer("Background");
+
         }
 
         private void UndoButton_Click(object sender, RoutedEventArgs e)
