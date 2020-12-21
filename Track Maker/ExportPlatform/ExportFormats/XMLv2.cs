@@ -269,10 +269,12 @@ namespace Track_Maker
                 OFD.Title = $"Import from {GetName()}";
                 OFD.Filter = "Track Maker Project files|*.tproj2";
 
+                OFD.ShowDialog();
+
                 if (OFD.FileName == "")
                 {
                     IR.Status = ExportResults.Cancelled;
-                    return null;
+                    return IR;
                 }
                 else
                 {
