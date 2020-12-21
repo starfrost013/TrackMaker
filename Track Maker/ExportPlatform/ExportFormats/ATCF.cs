@@ -121,6 +121,7 @@ namespace Track_Maker
 
                 // holy fucking shit i hate the ATCF format so fucking muc
                 Layer Lyr = new Layer();
+               
                 Storm Sto = new Storm(); 
 
                 StormType2 StormType = new StormType2();
@@ -129,7 +130,7 @@ namespace Track_Maker
                 
                 // XML OR JSON OR FUCKING ANYTHING PLS
                 // not foreach because it makes it slightly easier to set the date
-                for (int j = 0; i < ATCFLines.Length; j++)
+                for (int j = 0; j < ATCFLines.Length; j++)
                 {
                     string ATCFLine = ATCFLines[i];
 
@@ -175,11 +176,11 @@ namespace Track_Maker
                             }
                         }
 
-
                         Intensity = Convert.ToInt32(_StrIntensity);
 
                         Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime);
-                        
+
+                        Lyr.Name = _StrName; 
 
                         if (_StrName == null)
                         {
