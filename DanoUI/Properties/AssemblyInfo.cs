@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("\"Dano\" UI Library")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Track Maker 2.x UI Library")]
+[assembly: AssemblyDescription("WPF UC library for Track Maker, version 2.x.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DanoUI")]
+[assembly: AssemblyProduct("Track Maker 2.x")]
 [assembly: AssemblyCopyright("Copyright © starfrost 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.577.20340")]
-[assembly: AssemblyFileVersion("2.0.577.20340")]
+[assembly: AssemblyVersion("2.0.606.20356")]
+[assembly: AssemblyFileVersion("2.0.606.20356")]
