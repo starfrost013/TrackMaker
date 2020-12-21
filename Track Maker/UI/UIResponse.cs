@@ -204,7 +204,7 @@ namespace Track_Maker
 
             if (StormList.Count == 0)
             {
-                MessageBox.Show("You must have at least one storm to export to this format.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Error.Throw("Warning", "You must have at least one storm to export to this format.", ErrorSeverity.Warning, 261);
                 return;
             }
             
@@ -253,13 +253,6 @@ namespace Track_Maker
             CPH.Owner = this;
             CPH.Show();
 
-            // Terrible, but temporary. 
-
-            if (CurrentProject != null)
-            {
-                // todo: stop here
-                Layers.AddLayer("Background");
-            }
         }
 
         private void UndoButton_Click(object sender, RoutedEventArgs e)

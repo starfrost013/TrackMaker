@@ -39,6 +39,7 @@ Features:
 - XML Deserialisation
 - Graph Mode
 - Overhaul DanoUI to use actual objects from TrackMaker.Core.dll instead of strings (V3 Prep)
+- Clean up logs by default; allow the user to toggle this
 
 Track Maker 3.0
 Features:

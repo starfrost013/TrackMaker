@@ -10,12 +10,12 @@ Storm type loading					[OK]
 Basin display						[OK]
 Project creation					[OK]
 Layer display						[PW] [6] - buttons fixed in build 548, context menu fixed in build 554
-Layer creation						[WB] [7]
-Layer creation display				[NA] - OK at init
-Layer deletion						[NA] Undemonstrable - UI NA - background layer cannot be deleted as of build 547
-Layer display toggle				[NA]
-Layer manipulation					[CR] - trashes internal UI state, causes crash
-Storms only display in toggled layers		[NA]
+Layer creation						[OK] CR => OK
+Layer creation display				[OK] - OK at init
+Layer deletion						[OK] Undemonstrable - UI NA - background layer cannot be deleted as of build 547
+Layer display toggle				[WB] - need to have layer selected to disable
+Layer manipulation					[OK] - CR => OK
+Storms only display in toggled layers		[OK]
 Storm addition						[OK]
 Node addition						[OK]
 Node addition: Time					[OK]
@@ -28,8 +28,8 @@ Undo								[OK] - should've been WB in 544 as ctrl+y/ctrl+z didn't work until 5
 Redo								[OK]
 GENERAL: ERROR HANDLING				[PW]
 Currently Open File display			[OK] - probably
-File menu: Save Current Project button		[NA]
-Import: ATCF						[NA] - cannot get past ad screen, need to use FolderBrowserDialog (CR => NA)
+File menu: Save Current Project button		[OK]
+Import: ATCF						[WB / OK] 
 Import: HURDAT2						[NA]
 Import: TProj2						[PW] - does not add storms to layers (NA => PW)
 Export: ATCF						[OK]
@@ -59,7 +59,7 @@ ACE Calculator: Initialisation		[OK]
 ACE Calculator: UI					[WB] - some UI display issues
 ACE Calculator: ACE Calculation		[OK] - WB => OK
 ACE Calculator: Point Deletion		[WB] - fails to recalc total ACE for point after deleted point
-ACE Calculator: Date/Time Enable, re-disable	[WB] - UI almost unusable with invisible text, is cut off
+ACE Calculator: Date/Time Enable, re-disable	[OK] 
 ACE Calculator: KTS Mode			[OK]
 ACE Calculator: MPH Mode			[OK]
 ACE Calculator: Mode Changes		[OK]
@@ -67,7 +67,7 @@ ACE Calculator: Copy to Clipboard	[OK]
 ACE Calculator: Point Editing		[OK]	
 ACE Calculator: Storm Reset			[OK]
 ACE Calculator: Single Point Mode	[OK]
-ACE Calculator: About 				[WB] - UI display issue [1] 
+ACE Calculator: About 				[OK] 
 ACE Calculator: Error Handling		[WB] - will crash if too large a number input
 Advisory Generator: Initialisation	[OK] - AdvGen has no custom category support, should be implemented for Priscilla+
 Advisory Generator: UI				[OK] - WB => OK
@@ -87,7 +87,7 @@ Settings: UI						[WB] - requires DanoUI port
 Settings: ColourPicker				[WB] - requires DanoUI port
 Settings: Adjustment [AccentColour]	[OK]
 Settings: Adjustment [Other]		[WB] - line size slider not positioned correctly
-Settings: Saving					[OK] - 
+Settings: Saving					[OK] 
 About								[OK] - WB => OK
 TelemetryConsent					[PW] - works but message bo immediately disappears
 
@@ -105,7 +105,7 @@ Common Issues:
 7: Does not display in UI
 
 Test Information:
-Tests required for Beta			80%, including all basic functionality tests
+Tests required for Beta			80%, including all basic functionality tests (hurdat2 waived for my sanity)
 Tests required for RC			90%
 Tests required for Release		97%
 -----------------------------------------------------

@@ -48,6 +48,8 @@ namespace Track_Maker
 
             // Create the basins
 
+            // clean the UI (VERY TEMP; only use for beta - v605)
+            MnWindow.Layers.ClearLayers();
 
             Debug.Assert(e.DanoParameters.Count == 2);
 
@@ -64,8 +66,7 @@ namespace Track_Maker
 
             MnWindow.CurrentProject = TProj;
 
-            // clean the UI (VERY TEMP; only use for beta - v605)
-            MnWindow.Layers.ClearLayers();
+
             UpdateLayout();
             // Load basin
 
