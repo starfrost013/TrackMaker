@@ -207,7 +207,11 @@ namespace Track_Maker
 
             double PreFinalX = Coord.Coordinates.X / (HighX - LowX);
             double PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
-            
+
+            // make sure everything is available on screen...
+            if (PreFinalX < 0) PreFinalX = -PreFinalX;
+            if (PreFinalY < 0) PreFinalY = -PreFinalY;
+
             // TEMP
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             // atcf fix
