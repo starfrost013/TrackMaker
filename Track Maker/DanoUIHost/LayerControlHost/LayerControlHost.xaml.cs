@@ -226,5 +226,6 @@ namespace Track_Maker
             //MnWindow.StartTimer(); 
         }
 
+        public void ClearLayers() => Layers.ClearLayers(); 
     }
 }

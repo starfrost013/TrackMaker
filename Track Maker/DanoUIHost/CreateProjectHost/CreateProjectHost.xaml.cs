@@ -63,6 +63,9 @@ namespace Track_Maker
             MnWindow.ImagePath = NewBasin.ImagePath;
 
             MnWindow.CurrentProject = TProj;
+
+            // clean the UI (VERY TEMP; only use for beta - v605)
+            MnWindow.Layers.ClearLayers();
             UpdateLayout();
             // Load basin
 

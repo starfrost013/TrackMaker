@@ -127,7 +127,8 @@ namespace Track_Maker
             // Temporary Code for Pre-Beta Only (HACK!!!!!!)
 
             TransformGroup TG = new TransformGroup();
-
+            //TODO: fix zoom reset position by storing current transforms in a list
+            //in the mainwindow? or similar.
             ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
 
             TG.Children.Add(ST);

@@ -138,6 +138,8 @@ namespace DanoUI
             }
         }
 
+
+        public void ClearLayers() => PriscillaUI_Layers_LayerListView.Items.Clear(); 
         /// <summary>
         /// On layer checked
         /// </summary>
