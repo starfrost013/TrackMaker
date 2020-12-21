@@ -29,7 +29,8 @@ namespace Track_Maker
             
             Dano_CategoryManagerUC.BasinStrings = SystemList;
             Dano_CategoryManagerUC.CategoryStrings = NameList; 
-            Dano_CategoryManagerUC.UpdateLayout(); 
+            Dano_CategoryManagerUC.UpdateLayout();
+            
         }
 
         private void CloseHit(object sender, DanoEventArgs e)
@@ -44,6 +45,7 @@ namespace Track_Maker
                 // Temp (move to basin submethod)
                 MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
                 MnWindow.Catman.SetCategoryWithName(NewCategoryName);
+                Close();
             }
             catch (FormatException err)
             {

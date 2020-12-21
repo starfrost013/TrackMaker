@@ -159,7 +159,8 @@ namespace Track_Maker
                 Coord.Directions.Add(CardinalDirection.N);
             }
 
-            Coord.Coordinates = new Point(FinalX, FinalY);
+            // ATCF moment
+            Coord.Coordinates = new Point(FinalY, FinalX);
 
             return Coord; 
         }
@@ -206,10 +207,15 @@ namespace Track_Maker
 
             double PreFinalX = Coord.Coordinates.X / (HighX - LowX);
             double PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
-            
+
+            // make sure everything is available on screen...
+            if (PreFinalX < 0) PreFinalX = -PreFinalX;
+            if (PreFinalY < 0) PreFinalY = -PreFinalY;
+
             // TEMP
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            Point FinalPos = new Point(MnWindow.Width * PreFinalX, MnWindow.Height * PreFinalY);
+            // atcf fix
+            Point FinalPos = new Point(MnWindow.Width * PreFinalY, MnWindow.Height * PreFinalX);
 
             return FinalPos;
         }
@@ -375,6 +381,7 @@ namespace Track_Maker
                 MnWindow.TickTimer.Stop();
                 Layer Layer = new Layer();
                 Layer.Name = Name;
+                Layer.Enabled = true; 
                 Layers.Add(Layer);
 
                 MnWindow.Layers.AddLayer(Name);
@@ -406,7 +413,7 @@ namespace Track_Maker
 #endif
         }
 
-        public void SelectLayer(string Name)
+        public void SelectLayerWithName(string Name)
         {
             foreach (Layer Lyr in Layers)
             {
@@ -414,7 +421,7 @@ namespace Track_Maker
             }
         }
 
-        public void DeleteLayer(string Name)
+        public void DeleteLayerWithName(string Name)
         {
             foreach (Layer Layer in Layers)
             {
@@ -545,7 +552,7 @@ namespace Track_Maker
         /// Get a layer-independent storm with the name Name. 
         /// </summary>
         /// <returns></returns>
-        public Storm GetFlatStormWithName(string Name)
+        public Storm GetStormWithName(string Name)
         {
             List<Storm> XS = GetFlatListOfStorms();
 
@@ -588,8 +595,18 @@ namespace Track_Maker
         {
             // Layer
 
-            return Layers.OrderBy(Layers => Layers.ZIndex).ToList();  
+            List<Layer> LayerList = Layers.OrderBy(Layers => Layers.ZIndex).ToList();
 
+            // is this layer enabled?
+
+            List<Layer> NewList = new List<Layer>();
+
+            foreach (Layer Layer in LayerList)
+            {
+                if (Layer.Enabled) NewList.Add(Layer);
+            }
+
+            return NewList;
         }
 
         /// <summary>
@@ -658,5 +675,58 @@ namespace Track_Maker
                 return null;
             }
         }
+
+        private bool SetLayerVisibility(string Name, bool Visibility)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                if (Lyr.Name == Name)
+                {
+                    Lyr.Enabled = Visibility;
+                    return true;
+                }    
+            }
+
+            return false;
+        }
+
+        public bool DisableLayerWithName(string Name) => SetLayerVisibility(Name, false);
+        public bool EnableLayerWithName(string Name) => SetLayerVisibility(Name, true); 
+
+        public Layer GetLayerWithName(string Name)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                if (Lyr.Name == Name)
+                {
+                    return Lyr;
+                }
+            }
+
+            return null;
+        }
+
+        // performlayeroperation 3.0?
+
+        /// <summary>
+        /// Rename the layer with name OriginalName to NewName.
+        /// </summary>
+        /// <param name="OriginalName">The name of the layer you wish to rename.</param>
+        /// <param name="NewName">The new name of the layer that you wish to rename to.</param>
+        /// <returns></returns>
+        public bool RenameLayerWithName(string OriginalName, string NewName)
+        {
+            foreach (Layer Lyr in Layers)
+            {
+                if (Lyr.Name == OriginalName)
+                {
+                    Lyr.Name = NewName;
+                    return true; 
+                }
+            }
+
+            return false; // could not find name
+        }
+
     }
 }

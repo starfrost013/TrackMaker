@@ -1,0 +1,126 @@
+Priscilla Version: 2.0.555.20334 (prebeta5)
+
+Initialisation						[OK]
+Initialisation: ACE Calculator mode	[OK] - case sensitive parsing implemented in build 549
+Initialisation: Advisory Generator mode		[OK] 
+Settings loading					[OK] - may need better error handling
+Basin loading						[OK]
+Category system loading				[OK]
+Storm type loading					[OK]
+Basin display						[OK]
+Project creation					[OK]
+Layer display						[PW] [6] - buttons fixed in build 548, context menu fixed in build 554
+Layer creation						[OK] CR => OK
+Layer creation display				[OK] - OK at init
+Layer deletion						[OK] Undemonstrable - UI NA - background layer cannot be deleted as of build 547
+Layer display toggle				[WB] - need to have layer selected to disable
+Layer manipulation					[OK] - CR => OK
+Storms only display in toggled layers		[OK]
+Storm addition						[OK]
+Node addition						[OK]
+Node addition: Time					[OK]
+Node display						[OK]
+Error Handling						[OK]
+Fullscreen mode						[WB] NA => WB; scales in reverse order, UI misplaced
+Zooming								[OK]
+Panning								[NA] - entirely broken
+Undo								[OK] - should've been WB in 544 as ctrl+y/ctrl+z didn't work until 556
+Redo								[OK]
+GENERAL: ERROR HANDLING				[PW]
+Currently Open File display			[OK] - probably
+File menu: Save Current Project button		[OK]
+Import: ATCF						[WB / OK] 
+Import: HURDAT2						[NA]
+Import: TProj2						[PW] - does not add storms to layers (NA => PW)
+Export: ATCF						[OK]
+Export: HURDAT2						[OK] - some minor spacing issues, does it matter?
+Export: EasyTimeline				[OK]
+Export: Image						[OK]
+Export: Image [Non-Full Quality]	[OK] - NA => OK
+Export: TProj2						[OK] - WB => OK
+ExportUI: Cancellation				[OK] - WB => OK
+ExportUI: Previews					[NA]
+ExportUI: ImageControl				[OK]
+Exit Button							[OK]
+Season Edit: Storm List				[OK]	
+Season Edit: Selection				[OK]
+Season Edit: Renaming				[WB] - doesn't autofill with storm names
+Season Edit: Deletion				[OK] - actually works
+Season Edit: Exiting				[OK]
+Category Viewer: Category System List		[OK]	
+Category Viewer: Changing category system works	[NA] - known
+Storm Names: Enable properly		[OK]
+Storm Names: Disable, re-enable		[OK]
+Basin: Clear						[OK]
+Basin Switcher: Basin List			[OK]		
+Basin Switcher: Switching			[OK]
+Basin Switcher: Exiting 			[OK]
+ACE Calculator: Initialisation		[OK]
+ACE Calculator: UI					[WB] - some UI display issues
+ACE Calculator: ACE Calculation		[OK] - WB => OK
+ACE Calculator: Point Deletion		[WB] - fails to recalc total ACE for point after deleted point
+ACE Calculator: Date/Time Enable, re-disable	[OK] 
+ACE Calculator: KTS Mode			[OK]
+ACE Calculator: MPH Mode			[OK]
+ACE Calculator: Mode Changes		[OK]
+ACE Calculator: Copy to Clipboard	[OK]
+ACE Calculator: Point Editing		[OK]	
+ACE Calculator: Storm Reset			[OK]
+ACE Calculator: Single Point Mode	[OK]
+ACE Calculator: About 				[OK] 
+ACE Calculator: Error Handling		[WB] - will crash if too large a number input
+Advisory Generator: Initialisation	[OK] - AdvGen has no custom category support, should be implemented for Priscilla+
+Advisory Generator: UI				[OK] - WB => OK
+Advisory Generator: Text Export NHC-style	[OK] - possibly missing newlines...?
+Advisory Generator: Text Export Wikitext-style	[OK]
+Advisory Generator: Text Export MCC-style	[WB] - not current MCC advisory format
+Advisory Generator: Warning Manager	[OK]
+Advisory Generator: Warning Manager: UI		[PW] - doesn't maintain state, button borders invisible, 1
+Advisory Generator: Warning Manager: ListView	[PW] - doesn't maintain state
+Advisory Generator: Forecast Manager[WB] - UI issues
+Advisory Generator: Forecast Manager: UI	[WB] - invisible text
+Advisory Generator: Forecast Manager: ListView	[OK] - maintains state
+Advisory Generator: About			[WB] - UI issues, 
+Settings: Initialisation			[OK]			
+Settings: UI Display				[WB] - PW => WB, "Done" button should say Save, minor issues
+Settings: UI						[WB] - requires DanoUI port
+Settings: ColourPicker				[WB] - requires DanoUI port
+Settings: Adjustment [AccentColour]	[OK]
+Settings: Adjustment [Other]		[WB] - line size slider not positioned correctly
+Settings: Saving					[OK] 
+About								[OK] - WB => OK
+TelemetryConsent					[PW] - works but message bo immediately disappears
+
+Un-implemented V2 features:
+Help Launcher
+MORE HERE
+
+Common Issues:
+1: Text does not appear or does but is invisible
+2: Text is cut off
+3: Text runs on
+4: UI is incorrect colour (DanoUI issue)
+5: Text does not take accent colour into account
+6: Works during init, but threading issues cause further added layers to not display in UI
+7: Does not display in UI
+
+Test Information:
+Tests required for Beta			80%, including all basic functionality tests (hurdat2 waived for my sanity)
+Tests required for RC			90%
+Tests required for Release		97%
+-----------------------------------------------------
+Total tests			90
+OK					63/90 [70%]
+
+-----------------------------------------------------
+Score						70.0% 
+Delta-V	for Beta			+10.0% 
+
+Changes since v555:
+OK					58/90 => 63/90 (+5 / +5.6%)
+Changes since v544:
+OK					50/88 => 58/90 (+8 / +8.7%)
+
+
+to fix:
+- multiple background layers issue

@@ -40,28 +40,56 @@ namespace Track_Maker
             return Name; 
         }
 
-        public Project Import()
+        public ImportResult Import()
         {
             try
             {
-                OpenFileDialog OFD = new OpenFileDialog()
+
+                ImportResult IR = new ImportResult();
+
+                System.Windows.Forms.FolderBrowserDialog OFD = new System.Windows.Forms.FolderBrowserDialog()
                 {
-                    Title = $"Open {GetName()} format folder",
-                    Filter = "Folders|*."
+                    Description = $"Open {GetName()} format folder",
                 };
 
 #if DANO
                 StormTypeManager ST2Manager = GlobalState.GetST2Manager(); 
 #else
                 MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-                StormTypeManager ST2Manager = MnWindow.ST2Manager; 
+                StormTypeManager ST2Manager = MnWindow.ST2Manager;
 #endif
 
-                OFD.ShowDialog();
+                if (OFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
 
-                if (OFD.FileName == "") return null;
+                    if (OFD.SelectedPath == "") return null;
 
-                return ImportCore(ST2Manager, OFD.FileName); 
+                    Project Proj = ImportCore(ST2Manager, OFD.SelectedPath);
+
+                    if (Proj == null)
+                    {
+                        IR.Status = ExportResults.Error;
+                        return IR;
+                    }
+                    else
+                    {
+                        IR.Project = Proj;
+                        IR.Status = ExportResults.OK;
+                        return IR;
+                    }
+                }
+                else
+                {
+                    //temp
+
+                    IR.Status = ExportResults.Cancelled;
+                    return IR; 
+                }
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Error.Throw("Fatal Error", "Attempted to import a nonexistent ATCF DatFolder", ErrorSeverity.Error, 241);
+                return null;
             }
             catch (PathTooLongException)
             {
@@ -78,24 +106,31 @@ namespace Track_Maker
 
             string[] Storms = Directory.GetFiles(FolderName);
 
-            // this is terrible design and reloads the project but I want to get this done
+            // this is terrible design 
             Project Proj = new Project();
             Proj.FileName = $"{FolderName}/*.*";
             Basin Bas = new Basin();
 
-            foreach (string StormFileName in Storms)
+            // this is still a mess for now
+            // not foreach as we can use it for setting up the basin
+            for (int i = 0; i < Storms.Count(); i++)
             {
+                string StormFileName = Storms[i];
+
                 string[] ATCFLines = File.ReadAllLines(StormFileName);
 
                 // holy fucking shit i hate the ATCF format so fucking muc
+                Layer Lyr = new Layer();
+               
                 Storm Sto = new Storm(); 
-                string StormName = null;
+
                 StormType2 StormType = new StormType2();
                 DateTime StormFormationDT = new DateTime(1959, 3, 10);
 
+                
                 // XML OR JSON OR FUCKING ANYTHING PLS
                 // not foreach because it makes it slightly easier to set the date
-                for (int i = 0; i < ATCFLines.Length; i++)
+                for (int j = 0; j < ATCFLines.Length; j++)
                 {
                     string ATCFLine = ATCFLines[i];
 
@@ -106,24 +141,61 @@ namespace Track_Maker
                     string _StrId = Components[1];
                     string _StrTime = Components[2];
                     string _StrTimeSinceFormation = Components[3];
-                    string _StrCoordX = Components[7];
-                    string _StrCoordY = Components[8];
+                    string _StrCoordX = Components[6];
+                    string _StrCoordY = Components[7];
                     string _StrIntensity = Components[9];
-                    string _StrName = Components[29]; // bleh 
+                    string _StrCategory = Components[10];
+                    string _StrName = Components[28]; // bleh 
+
+                    // trim it
+                    _StrAbbreviation = _StrAbbreviation.Trim();
+                    _StrId = _StrId.Trim(); 
+                    _StrTime = _StrTime.Trim();
+                    _StrTimeSinceFormation = _StrTimeSinceFormation.Trim();
+                    _StrCoordX = _StrCoordX.Trim();
+                    _StrCoordY = _StrCoordY.Trim();
+                    _StrIntensity = _StrIntensity.Trim();
+                    _StrCategory = _StrCategory.Trim();
+                    _StrName = _StrName.Trim();
 
                     // initialise the basin with the abbreviation loaded from XML
                     // we just use the name if there is no abbreviation specified in XML
+                    int Intensity = 0; 
+                    // first iteration...
+                    if (j == 0)
+                    {
 
-                    // we also don't check for null, etc because we just use the name of the basin if there's no specified abbreviation
-                    Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
-                    
+                        if (i == 0)
+                        {
+                            Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
+
+                            if (Bas.CoordsHigher == null || Bas.CoordsLower == null)
+                            {
+                                Error.Throw("Error!", "This basin is not supported by the ATCF format as it does not have defined borders.", ErrorSeverity.Error, 249);
+                                return null;
+                            }
+                        }
+
+                        Intensity = Convert.ToInt32(_StrIntensity);
+
+                        Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime);
+
+                        Lyr.Name = _StrName; 
+
+                        if (_StrName == null)
+                        {
+                            Error.Throw("Error!", "Attempted to load storm with an invalid name!", ErrorSeverity.Error, 245);
+                            return null; 
+                        }
+                        else
+                        {
+                            Sto.Name = _StrName;
+                        }
+
+                    }
+
                     int Id = Convert.ToInt32(_StrId);
-
                     Coordinate Coord = Coordinate.FromSplitCoordinate(_StrCoordX, _StrCoordY);
-                    
-                    int Intensity = Convert.ToInt32(_StrIntensity);
-
-                    Sto.Name = _StrName;
 
                     // create a node and add it
 
@@ -131,35 +203,21 @@ namespace Track_Maker
                     Nod.Id = Id;
                     Nod.Intensity = Intensity;
 
-
-                    // get the storm formation date if we're reading the firt line. 
-                    if (i == 0)
-                    {
-                        Sto.FormationDate = DateTime.Parse(_StrTime);
-                        Sto.Name = _StrName; 
-                    }
-
-                    Nod.NodeType = ST2M.GetStormTypeWithAbbreviation(_StrAbbreviation);
+                    Nod.Position = Bas.FromCoordinateToNodePosition(Coord);
+                    Nod.NodeType = GetStormType(_StrCategory);
 
                     Sto.AddNode(Nod);                    
                 }
 
-                if (StormName == null)
-                {
-                    Error.Throw("Error", "Invalid storm name detected - ATCF Parse Error 151", ErrorSeverity.Error, 151);
-                    return null;
-                }
-                else
-                {
-                    Bas.AddStorm(Sto);
-                    return Proj;
-                }
+                Lyr.AddStorm(Sto);
+                Bas.AddLayer(Lyr);
+                
 
             }
 
-
             Proj.AddBasin(Bas);
-            return null; 
+
+            return Proj;
             
         }
 
@@ -224,7 +282,7 @@ namespace Track_Maker
         public bool ExportCore(Project Project, string FileName)
         {
             Directory.CreateDirectory(FileName);
-            Directory.SetCurrentDirectory(FileName.Replace(".",""));
+            //Directory.SetCurrentDirectory(FileName.Replace(".",""));
 
             Basin SelBasin = Project.SelectedBasin;
 
@@ -244,6 +302,13 @@ namespace Track_Maker
                     // For each node. 
                     foreach (Node Node in Storm.NodeList)
                     {
+
+                        if (!Node.IsRealType())
+                        {
+                            Error.Throw("Error", "Custom storm types are not supported when exporting to ATCF/HURDAT2 format.", ErrorSeverity.Error, 248);
+                            return false;
+                        }
+
                         if (SelBasin.Abbreviation != null)
                         {
                             SW.Write($"{SelBasin.Abbreviation}, ");
@@ -274,7 +339,6 @@ namespace Track_Maker
 
                         Category Cat = Storm.GetNodeCategory(Node, MnWindow.Catman.CurrentCategorySystem);
                         
-
                         Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position); 
 
                         SW.Write($"{X.Coordinates.X.ToString()}{X.Directions[0].ToString()},  {X.Coordinates.Y.ToString()}{X.Directions[1].ToString()},  ");
@@ -324,7 +388,6 @@ namespace Track_Maker
                         {
                             SW.Write(" ");
                         }
-
                         
                         SW.Write($"{CatString},  "); // todo: abbreviate (dano)
 
@@ -357,9 +420,43 @@ namespace Track_Maker
             return true;
         }
 
+        private StormType2 GetStormType(string NodeType)
+        {
+            RealStormType RST = Export_IdentifyRealType(NodeType);
+#if PRISCILLA
+            StormTypeManager STM = MnWindow.ST2Manager;
+#else
+            StormTypeManager STM = MnWindow.GetST2Manager();
+#endif
+            StormType2 ST2 = STM.GetStormTypeWithRealStormTypeName(RST);
+
+            return ST2; 
+        }
+
         public void GeneratePreview(Canvas canvas)
         {
             throw new NotImplementedException(); 
+        }
+
+        private RealStormType Export_IdentifyRealType(string NodeType)
+        {
+            // This only needs to support SSHWS categories, as this is ATCF...
+            if (NodeType.ContainsCaseInsensitive("SS")
+                || NodeType.ContainsCaseInsensitive("SD"))
+            {
+                return RealStormType.Subtropical;
+            }
+            else
+            {
+                if (NodeType.ContainsCaseInsensitive("EX"))
+                {
+                    return RealStormType.Extratropical;
+                }
+                else
+                {
+                    return RealStormType.Tropical;
+                }
+            }
         }
 
     }

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Advisory Generator tool for Track Maker 2.0+")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("starfrost's Advisory Generator DLL")]
+[assembly: AssemblyDescription("Contains code and resources for starfrost's Advisory Generator")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("starfrost's Track Maker 'Priscilla' ")]
-[assembly: AssemblyCopyright("Copyright © starfrost 2020")]
+[assembly: AssemblyProduct("Track Maker 2.x")]
+[assembly: AssemblyCopyright("Copyright © 2019-2020 starfrost")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
 // Hey RGD!
-[assembly: Guid("0000dead-0002-d15e-a5e0-122Edeadbeef")]
+[assembly: Guid("0000dead-0002-2020-0724-122Edeadbeef")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,5 +34,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.601.20340")]
-[assembly: AssemblyFileVersion("2.0.601.20340")]
+[assembly: AssemblyVersion("2.0.657.20356")]
+[assembly: AssemblyFileVersion("2.0.657.20356")]

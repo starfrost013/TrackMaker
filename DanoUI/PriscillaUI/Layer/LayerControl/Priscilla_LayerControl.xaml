@@ -28,15 +28,15 @@
             <RowDefinition Height="238*"/>
             <RowDefinition Height="57*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="PriscillaUI_Layers_LayerHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Layers" VerticalAlignment="Top" Foreground="White" Margin="60,10,0,0"/>
-        <ListView x:Name="PriscillaUI_Layers_LayerListView" x:FieldModifier="public" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="141" Background="#80FFFFFF" Foreground="White">
+        <TextBlock x:Name="PriscillaUI_Layers_LayerHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Layers" VerticalAlignment="Top" Foreground="White" Margin="56,10,0,0"/>
+        <ListView x:Name="PriscillaUI_Layers_LayerListView" x:FieldModifier="public" HorizontalAlignment="Left" Height="218" Margin="10,52,0,0" VerticalAlignment="Top" Width="141" Background="#80FFFFFF" Foreground="White" IsSynchronizedWithCurrentItem="True" SelectionChanged="PriscillaUI_Layers_LayerListView_SelectionChanged" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="80"/>
                     <GridViewColumn Header="Enabled" x:Name="PriscillaUI_Layers_LayerListView_IsEnabled" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="PriscillaUI_Layers_LayerListView_CheckBox" Checked="PriscillaUI_Layers_LayerListView_CheckBox_Checked"></CheckBox>
+                                <CheckBox x:Name="PriscillaUI_Layers_LayerListView_CheckBox" Click="PriscillaUI_Layers_LayerListView_CheckBox_Checked"></CheckBox>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -44,14 +44,14 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem IsCheckable="true" Header="Visible" Checked="PriscillaUI_Layers_LayerListView_CheckBox_Checked"/>
+                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Visible" IsCheckable="true" Header="Visible" Checked="PriscillaUI_Layers_LayerListView_CheckBox_Checked"/>
                     <Separator/>
-                    <MenuItem Header="Move Up"/>
-                    <MenuItem Header="Move Down"/>
+                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_MoveUp" Header="Move Up" Click="MoveUp_Click"/>
+                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_MoveDown" Header="Move Down" Click="MoveDown_Click"/>
                     <Separator/>
-                    <MenuItem Header="Rename"/>
+                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Rename" Header="Rename" Click="PriscillaUI_Layers_LayerListView_ContextMenu_Rename_Click"/>
                     <Separator/>
-                    <MenuItem Header="Delete"/>
+                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Delete" Header="Delete"/>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>

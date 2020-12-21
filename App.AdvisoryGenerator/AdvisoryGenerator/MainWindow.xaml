@@ -5,66 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dano.AdvisoryGenerator"
         mc:Ignorable="d"
-        Title="Advisory Generator" Height="450" Width="700">
+        Title="Advisory Generator" Height="450" Width="718.443">
     <Grid>
-        <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="692">
-            <MenuItem x:Name="FileMenu" Header="File">
+        <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="710">
+            <MenuItem x:Name="FileMenu" Header="File" FontSize="18">
                 <MenuItem x:Name="FileMenu_Exit" Header="Exit" Click="FileMenu_Exit_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="TypeMenu" Header="Type">
+            <MenuItem x:Name="TypeMenu" Header="Type" FontSize="18">
                 <MenuItem x:Name="TypeMenu_NHC" Header="NHC-style" IsCheckable="True" IsChecked="True" Click="TypeMenu_NHC_Click"></MenuItem>
                 <MenuItem x:Name="TypeMenu_Wikitext" Header="Wikitext" IsCheckable="True" IsChecked="False" Click="TypeMenu_Wikitext_Click"></MenuItem>
                 <MenuItem x:Name="TypeMenu_MCC" Header="MCC style" IsCheckable="True" IsChecked="False" Click="TypeMenu_MCC_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="WarningsMenu" Header="Warnings &amp; Forecasts">
+            <MenuItem x:Name="WarningsMenu" Header="Warnings &amp; Forecasts" FontSize="18">
                 <MenuItem x:Name="WarningsMenu_AddWarnings" Header="Warning Manager" Click="WarningsMenu_AddWarnings_Click"></MenuItem>
                 <MenuItem x:Name="WarningsMenu_ForecastManager" Header="Forecast Manager" Click="WarningsMenu_ForecastManager_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="HelpMenu" Header="Help">
+            <MenuItem x:Name="HelpMenu" Header="Help" FontSize="18">
                 <MenuItem x:Name="HelpMenu_About" Header="About" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
         </Menu>
         <TextBlock x:Name="AdvisoryGeneratorLabel" Text="Advisory Generator" HorizontalAlignment="Left" Height="58" Margin="5,19,0,0" VerticalAlignment="Top" Width="319" FontSize="36"/>
         <TextBlock x:Name="StormNameLabel" Text="Storm Name:" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="112" FontSize="18"/>
-        <TextBox x:Name="StormName" HorizontalAlignment="Left" Height="29" Margin="127,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBox x:Name="StormName" HorizontalAlignment="Left" Height="29" Margin="147,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197" FontSize="18" Style="{StaticResource TextBox_BW}"/>
         <TextBlock x:Name="HeadlineLabel" Text="Headline:" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Width="112" FontSize="18"/>
-        <TextBox x:Name="Headline" HorizontalAlignment="Left" Height="29" Margin="127,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="355" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBox x:Name="Headline" HorizontalAlignment="Left" Height="29" Margin="147,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="355" FontSize="18" Style="{StaticResource TextBox_BW}"/>
         <TextBlock x:Name="LocationLabel" Text="Location:" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Width="112" FontSize="18"/>
-        <TextBox x:Name="LocationNS" HorizontalAlignment="Left" Height="29" Margin="127,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <ComboBox x:Name="LocationNSBox" HorizontalAlignment="Left" Height="29" Margin="212,165,0,0" VerticalAlignment="Top" Width="52" SelectedIndex="0" FontSize="18">
+        <TextBox x:Name="LocationNS" HorizontalAlignment="Left" Height="29" Margin="147,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <ComboBox x:Name="LocationNSBox" HorizontalAlignment="Left" Height="29" Margin="232,165,0,0" VerticalAlignment="Top" Width="52" SelectedIndex="0" FontSize="18">
             <ComboBoxItem Content="N"/>
             <ComboBoxItem Content="S"/>
         </ComboBox>
-        <TextBox x:Name="LocationWE" HorizontalAlignment="Left" Height="29" Margin="269,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <ComboBox x:Name="LocationWEBox" HorizontalAlignment="Left" Height="29" Margin="354,165,0,0" VerticalAlignment="Top" Width="52" SelectedIndex="1" FontSize="18">
+        <TextBox x:Name="LocationWE" HorizontalAlignment="Left" Height="29" Margin="289,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <ComboBox x:Name="LocationWEBox" HorizontalAlignment="Left" Height="29" Margin="374,165,0,0" VerticalAlignment="Top" Width="52" SelectedIndex="1" FontSize="18">
             <ComboBoxItem x:Name="LocationWE_West" Content="W"/>
             <ComboBoxItem x:Name="LocationWE_East" Content="E"/>
         </ComboBox>
         <TextBlock x:Name="NearestAreaLabel" Text="Nearest area:" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Width="117" FontSize="18"/>
-        <TextBox x:Name="NearestArea" HorizontalAlignment="Left" Height="29" Margin="127,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <ComboBox x:Name="MeasureBox" HorizontalAlignment="Left" Height="29" Margin="212,204,0,0" VerticalAlignment="Top" Width="52" SelectedIndex="0" FontSize="18">
+        <TextBox x:Name="NearestArea" HorizontalAlignment="Left" Height="29" Margin="147,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <ComboBox x:Name="MeasureBox" HorizontalAlignment="Left" Height="29" Margin="232,204,0,0" VerticalAlignment="Top" Width="52" SelectedIndex="0" FontSize="18">
             <ComboBoxItem x:Name="MeasureBox_Miles" Content="mi"/>
             <ComboBoxItem x:Name="MeasureBox_Kilometres" Content="km"/>
         </ComboBox>
-        <TextBlock x:Name="AwayFromLabel" Text="away from" HorizontalAlignment="Left" Margin="272,204,0,0" VerticalAlignment="Top" Width="100" FontSize="18" RenderTransformOrigin="0.557,0.852"/>
-        <TextBox x:Name="AwayFrom" HorizontalAlignment="Left" Height="29" Margin="364,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="228" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBlock x:Name="AwayFromLabel" Text="away from" HorizontalAlignment="Left" Margin="292,204,0,0" VerticalAlignment="Top" Width="100" FontSize="18" RenderTransformOrigin="0.557,0.852"/>
+        <TextBox x:Name="AwayFrom" HorizontalAlignment="Left" Height="29" Margin="384,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="228" FontSize="18" Style="{StaticResource TextBox_BW}"/>
         <TextBlock x:Name="AdvisoryNumLabel" Text="Adv. num:" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Width="117" FontSize="18"/>
-        <TextBox x:Name="AdvisoryNum" HorizontalAlignment="Left" Height="29" Margin="127,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBox x:Name="AdvisoryNum" HorizontalAlignment="Left" Height="29" Margin="147,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
         <TextBlock x:Name="IntensityLabel" Text="Winds:" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="117" FontSize="18"/>
-        <TextBox x:Name="Intensity" HorizontalAlignment="Left" Height="29" Margin="127,284,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <TextBlock x:Name="GustsLabel" Text="Wind gusts:" HorizontalAlignment="Left" Margin="212,284,0,0" VerticalAlignment="Top" Width="117" FontSize="18"/>
-        <TextBox x:Name="GustsBox" HorizontalAlignment="Left" Height="29" Margin="314,284,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <TextBlock x:Name="MPH" Text="mph" HorizontalAlignment="Left" Height="34" Margin="399,284,0,0" VerticalAlignment="Top" Width="45" FontSize="18"/>
-        <TextBlock x:Name="PressureLabel" Text="Pressure:" HorizontalAlignment="Left" Margin="10,324,0,0" VerticalAlignment="Top" Width="112" FontSize="18"/>
-        <TextBox x:Name="Pressure" HorizontalAlignment="Left" Height="29" Margin="127,324,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <TextBlock x:Name="SpeedLabel" Text="Speed:" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Width="117" FontSize="18"/>
-        <TextBox x:Name="Speed" HorizontalAlignment="Left" Height="29" Margin="127,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <TextBlock x:Name="DateLabel" Text="Date:" HorizontalAlignment="Left" Margin="496,87,0,0" VerticalAlignment="Top" Width="52" FontSize="18"/>
-        <DatePicker x:Name="Date" HorizontalAlignment="Left" Margin="553,89,0,0" VerticalAlignment="Top" Width="103"/>
-        <TextBlock x:Name="TimeLabel" Text="Time:" HorizontalAlignment="Left" Margin="496,128,0,0" VerticalAlignment="Top" Width="52" FontSize="18" Height="34"/>
-        <TextBox x:Name="Hours" HorizontalAlignment="Left" Height="32" Margin="553,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <TextBlock x:Name="Colon" Text=":" HorizontalAlignment="Left" Height="16" Margin="603,128,0,0" VerticalAlignment="Top" Width="3"/>
-        <TextBox x:Name="Minutes" HorizontalAlignment="Left" Height="32" Margin="613,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43" FontSize="18" Style="{StaticResource TextBox_BW}"/>
-        <Button x:Name="SaveToTextFile" Content="Save" HorizontalAlignment="Left" Margin="566,362,0,0" VerticalAlignment="Top" Width="106" FontSize="18" Click="SaveToTextFile_Click" Height="31" Style="{StaticResource Button_Invert}"/>
+        <TextBox x:Name="Intensity" HorizontalAlignment="Left" Height="29" Margin="147,284,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBlock x:Name="GustsLabel" Text="Wind gusts:" HorizontalAlignment="Left" Margin="232,284,0,0" VerticalAlignment="Top" Width="117" FontSize="18"/>
+        <TextBox x:Name="GustsBox" HorizontalAlignment="Left" Height="29" Margin="334,284,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBlock x:Name="MPH" Text="mph" HorizontalAlignment="Left" Height="34" Margin="419,284,0,0" VerticalAlignment="Top" Width="45" FontSize="18"/>
+        <TextBlock x:Name="PressureLabel" Text="Pressure (mbar):" HorizontalAlignment="Left" Margin="10,324,0,0" VerticalAlignment="Top" Width="133" FontSize="18"/>
+        <TextBox x:Name="Pressure" HorizontalAlignment="Left" Height="29" Margin="148,324,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBlock x:Name="SpeedLabel" Text="Speed (mph):" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Width="117" FontSize="18"/>
+        <TextBox x:Name="Speed" HorizontalAlignment="Left" Height="29" Margin="148,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBlock x:Name="DateLabel" Text="Date:" HorizontalAlignment="Left" Margin="516,87,0,0" VerticalAlignment="Top" Width="52" FontSize="18"/>
+        <DatePicker x:Name="Date" HorizontalAlignment="Left" Margin="573,89,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBlock x:Name="TimeLabel" Text="Time:" HorizontalAlignment="Left" Margin="516,128,0,0" VerticalAlignment="Top" Width="52" FontSize="18" Height="34"/>
+        <TextBox x:Name="Hours" HorizontalAlignment="Left" Height="32" Margin="573,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <TextBlock x:Name="Colon" Text=":" HorizontalAlignment="Left" Height="16" Margin="623,128,0,0" VerticalAlignment="Top" Width="3"/>
+        <TextBox x:Name="Minutes" HorizontalAlignment="Left" Height="32" Margin="633,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43" FontSize="18" Style="{StaticResource TextBox_BW}"/>
+        <Button x:Name="SaveToTextFile" Content="Save" HorizontalAlignment="Left" Margin="586,362,0,0" VerticalAlignment="Top" Width="106" FontSize="18" Click="SaveToTextFile_Click" Height="31" Style="{StaticResource Button_Invert}"/>
     </Grid>
 </Window>

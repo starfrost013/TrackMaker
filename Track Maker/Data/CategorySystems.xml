@@ -10,7 +10,7 @@
 		<Category Abbreviation="C5" name="Category 5 hurricane" bounds="157,9999" color="255,96,96"/>
 	</CategorySystem>
   
-	<CategorySystem name="Extended SSHWS">
+	<CategorySystem name="Extended SSHWS (Example Custom Scale)">
 		<Category Abbreviation="TD" name="Tropical depression" bounds="0,38" color="94,186,255"/>
     <Category Abbreviation="TS" name="Tropical storm" bounds="39,73" color="0,250,244"/>
 		<Category Abbreviation="C1" name="Category 1 hurricane" bounds="74,95" color="255,255,204"/>
@@ -49,5 +49,33 @@
     <Category Abbreviation="TY" name="Typhoon" bounds="74,149" color="253,175,154"></Category>
     <Category Abbreviation="STY" name="Super Typhoon" bounds="150,9999" color="255,96,96"></Category>
   </CategorySystem>
-  
+
+  <CategorySystem Name="IMD cyclone scale">
+    <Category Abbreviation="TD" Name="Depression" Bounds="0,31" Colour="128,204,255"></Category>
+    <Category Abbreviation="DD" Name="Deep Depression" Bounds="31,38" Colour="94,186,255"></Category>
+    <Category Abbreviation="CS" Name="Cyclonic Storm" Bounds="38,54" Colour="0,250,244"></Category>
+    <Category Abbreviation="SCS" Name="Severe Cyclonic Storm" Bounds="54,73" Colour="204,255,255"></Category>
+    <Category Abbreviation="VCS" Name="Very Severe Cyclonic Storm" Bounds="73,102" Colour="255,204,204"></Category>
+    <Category Abbreviation="ECS" Name="Extremely Severe Cyclonic Storm" Bounds="102,137" Colour="255,193,64"></Category>
+    <Category Abbreviation="SSS" Name="Super Cyclonic Storm" Bounds="137,9999" Colour="255,96,96"></Category>
+  </CategorySystem>
+
+  <CategorySystem Name="SWIO cyclone scale">
+    <Category Abbreviation="TDI" Name="Tropical Disturbance" Bounds="0,32" Colour="128,204,255"></Category>
+    <Category Abbreviation="TD" Name="Tropical Depression" Bounds="32,38" Colour="94,186,255"></Category>
+    <Category Abbreviation="MTS" Name="Moderate Tropical Storm" Bounds="38,54" Colour="0,250,244"></Category>
+    <Category Abbreviation="STS" Name="Severe Tropical Storm" Bounds="54,73" Colour="204,255,255"></Category>
+    <Category Abbreviation="TC" Name="Tropical Cyclone" Bounds="73,102" Colour="255,204,204"></Category>
+    <Category Abbreviation="ITC" Name="Intense Tropical Cyclone" Bounds="102,132" Colour="255,193,64"></Category>
+    <Category Abbreviation="VTC" Name="Very Intense Tropical Cyclone" Bounds="132,9999" Colour="255,96,96"></Category>
+  </CategorySystem>
+
+  <CategorySystem Name="Australian tropical cyclone scale">
+    <Category Abbreviation="TL" Name="Tropical Depression" Bounds="0,38" Colour="128,204,255"></Category>
+    <Category Abbreviation="C1" Name="Category 1 Cyclone" Bounds="38,54" Colour="128,204,255"></Category>
+    <Category Abbreviation="C2" Name="Category 2 Cyclone" Bounds="54,73" Colour="94,186,255"></Category>
+    <Category Abbreviation="C3" Name="Category 3 Cyclone" Bounds="74,98" Colour="0,250,244"></Category>
+    <Category Abbreviation="C4" Name="Category 4 Cyclone" Bounds="98,123" Colour="204,255,255"></Category>
+    <Category Abbreviation="C5" Name="Category 5 Cyclone" Bounds="123,9999" Colour="255,204,204"></Category>
+  </CategorySystem>
 </CategorySystems>

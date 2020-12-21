@@ -96,8 +96,11 @@ namespace Track_Maker
             }
 
             Bs.Layers.Add(BgLayer);
-            Bs.SelectLayer(BgLayer.Name);
-
+            Bs.SelectLayerWithName(BgLayer.Name);
+#if PRISCILLA
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+             
+#endif
             OpenBasins.Add(Bs);
             SelectedBasin = Bs;
         }
@@ -137,6 +140,7 @@ namespace Track_Maker
             }
             return; 
         }
+
 
         //restorehistory
         public void Redo()

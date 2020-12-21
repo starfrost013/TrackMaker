@@ -11,10 +11,19 @@ namespace Starfrost.UL5.GameUtilities
     /// </summary>
     public enum Gender
     {
+        /// <summary>
+        /// Male
+        /// </summary>
         Male = 0,
 
+        /// <summary>
+        /// Female
+        /// </summary>
         Female = 1,
 
+        /// <summary>
+        /// Non-binary or other
+        /// </summary>
         Other = 2
     }
 }

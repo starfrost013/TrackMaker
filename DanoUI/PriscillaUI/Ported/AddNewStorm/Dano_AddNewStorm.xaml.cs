@@ -40,7 +40,8 @@ namespace DanoUI
             DEA.DanoParameters.Add(NameBox.Text);
 
             DateTime FinalTime = GetTime();
-            DEA.DanoParameters.Add(FinalTime); 
+            DEA.DanoParameters.Add(FinalTime);
+            
             // Remember when nothing happened?
             if (FinalTime == new DateTime(1989, 6, 4, 22, 16, 0)) // 最好忘記那些您不記得的事件。
             {

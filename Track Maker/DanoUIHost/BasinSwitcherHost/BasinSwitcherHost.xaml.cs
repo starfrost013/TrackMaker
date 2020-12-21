@@ -20,35 +20,26 @@ namespace Track_Maker
     /// </summary>
     public partial class DanoBasinSwitcherHost : Window
     {
-        public MainWindow TEMP3_WILLBEREMOVEDWITHPROJECT { get; set; }
+        public MainWindow MnWindow { get; set; }
         public DanoBasinSwitcherHost(List<string> XStrList)
         {
             InitializeComponent();
             Dano_BasinSwitcherUserControl.BasinString = XStrList;
             Dano_BasinSwitcherUserControl.UpdateLayout();
-            TEMP3_WILLBEREMOVEDWITHPROJECT = (MainWindow)Application.Current.MainWindow; 
-        }
-
-        // Move to Project.SetCurrentBasin() for Dano Milestone 2.
-        public void Temp2(string CurBasinName)
-        {
-            foreach (Basin Basin in GlobalStateP.OpenBasins)
-            {
-                if (Basin.Name == CurBasinName)
-                {
-                    TEMP3_WILLBEREMOVEDWITHPROJECT.CurrentProject.SelectedBasin = Basin;
-                    // Remove hack code.[m2]
-                    TEMP3_WILLBEREMOVEDWITHPROJECT.HurricaneBasin.Background = new ImageBrush(new BitmapImage(new Uri(Basin.ImagePath, UriKind.RelativeOrAbsolute)));
-                }
-            }
-
+            MnWindow = (MainWindow)Application.Current.MainWindow; 
         }
 
         // Event Handler for    Dano UI BasinSwitcher UserControl Closed event
 
         public void UC_Closed(object sender, DanoEventArgs e)
         {
-            Temp2((string)e.DanoParameters[0]); 
+            string NewBasinName = (string)e.DanoParameters[0];
+            Project Proj = MnWindow.CurrentProject;
+
+            Proj.SelectBasin(NewBasinName);
+            
+            // I'd move it into the selectbasin method but this is code that shouldn't really exist anyway
+            MnWindow.HurricaneBasin.Background = new ImageBrush(new BitmapImage(new Uri(Proj.SelectedBasin.ImagePath, UriKind.RelativeOrAbsolute)));
             Close();
         }
 
