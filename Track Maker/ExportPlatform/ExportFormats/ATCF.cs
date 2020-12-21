@@ -112,19 +112,24 @@ namespace Track_Maker
             Basin Bas = new Basin();
 
             // this is still a mess for now
-            foreach (string StormFileName in Storms)
+            // not foreach as we can use it for setting up the basin
+            for (int i = 0; i < Storms.Count(); i++)
             {
+                string StormFileName = Storms[i];
+
                 string[] ATCFLines = File.ReadAllLines(StormFileName);
 
                 // holy fucking shit i hate the ATCF format so fucking muc
+                Layer Lyr = new Layer();
                 Storm Sto = new Storm(); 
 
                 StormType2 StormType = new StormType2();
                 DateTime StormFormationDT = new DateTime(1959, 3, 10);
 
+                
                 // XML OR JSON OR FUCKING ANYTHING PLS
                 // not foreach because it makes it slightly easier to set the date
-                for (int i = 0; i < ATCFLines.Length; i++)
+                for (int j = 0; i < ATCFLines.Length; j++)
                 {
                     string ATCFLine = ATCFLines[i];
 
@@ -154,19 +159,22 @@ namespace Track_Maker
 
                     // initialise the basin with the abbreviation loaded from XML
                     // we just use the name if there is no abbreviation specified in XML
-
                     int Intensity = 0; 
                     // first iteration...
-                    if (i == 0)
+                    if (j == 0)
                     {
-                        Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
 
-
-                        if (Bas.CoordsHigher == null || Bas.CoordsLower == null)
+                        if (i == 0)
                         {
-                            Error.Throw("Error!", "This basin is not supported by the ATCF format as it does not have defined borders.", ErrorSeverity.Error, 249);
-                            return null;
+                            Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
+
+                            if (Bas.CoordsHigher == null || Bas.CoordsLower == null)
+                            {
+                                Error.Throw("Error!", "This basin is not supported by the ATCF format as it does not have defined borders.", ErrorSeverity.Error, 249);
+                                return null;
+                            }
                         }
+
 
                         Intensity = Convert.ToInt32(_StrIntensity);
 
@@ -200,7 +208,8 @@ namespace Track_Maker
                     Sto.AddNode(Nod);                    
                 }
 
-                Bas.AddStorm(Sto);
+                Lyr.AddStorm(Sto);
+                Bas.AddLayer(Lyr);
                 
 
             }
