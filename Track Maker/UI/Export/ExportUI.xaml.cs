@@ -129,34 +129,42 @@ namespace Track_Maker
             switch (Type)
             {
                 case FormatType.Import:
-                    Project CurProj = ExpFormat.Import();
+                    ImportResult IResult = ExpFormat.Import();
 
-                    if (CurProj == null)
+                    switch (IResult.Status)
                     {
-                        return false; 
+                        case ExportResults.Cancelled:
+                            MnWindow.TickTimer.Start();
+                            return true;
+                        case ExportResults.Error:
+                            MnWindow.TickTimer.Start();
+                            return false;
+                        case ExportResults.OK:
+                            if (IResult.Project.FileName == null)
+                            {
+                                Error.Throw("Fatal Error!", "Failed to set current file name", ErrorSeverity.Error, 190);
+                                return false; // possibly extend subsequent else 
+                            }
+                            else
+                            {
+                                GlobalStateP.SetCurrentOpenFile(IResult.Project.FileName);
+                            }
+
+                            //may bindings work?
+                            MnWindow.Title = $"Track Maker 2.0 - {GlobalStateP.GetCurrentOpenFile()}";
+
+                            // we are not setting current project before, usually you wouldn't need to do this hack
+                            MnWindow.CurrentProject = IResult.Project;
+
+                            MnWindow.TickTimer.Start();
+                            MnWindow.UpdateLayout();
+
+
+                            return true;
                     }
-
-                    if (CurProj.FileName == null)
-                    {
-                        Error.Throw("Fatal Error!", "Failed to set current file name", ErrorSeverity.Error, 190);
-                        return false; // possibly extend subsequent else 
-                    }
-                    else
-                    {
-                        GlobalStateP.SetCurrentOpenFile(CurProj.FileName);
-                    }
-
-                    //may bindings work?
-                    MnWindow.Title = $"Track Maker 2.0 - {GlobalStateP.GetCurrentOpenFile()}";
-
-                    // we are not setting current project before, usually you wouldn't need to do this hack
-                    MnWindow.CurrentProject = CurProj;
-
-                    MnWindow.TickTimer.Start();
-                    MnWindow.UpdateLayout();
+                    // this shouldn't run
+                    return true; 
                     
-
-                    return true;
                 case FormatType.Export:
 
                     if (ExpFormat is IImageExportFormat)
