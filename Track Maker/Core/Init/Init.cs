@@ -23,6 +23,7 @@ namespace Track_Maker
         {
             // Init logging (Priscilla v484)
 
+            InternalTransformGroup = new List<Transform>(); 
 #if PRISCILLA
             // create method to concanetate this for us.
 
@@ -67,7 +68,7 @@ namespace Track_Maker
             
             Logging.Log("Checking for updates...");
 
-            Init_Phase2();
+            
         }
 
         public void Init_Phase2()

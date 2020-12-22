@@ -53,8 +53,8 @@ namespace Track_Maker
         /// <summary> 
         /// To be moved with MWH in V3 (and turned into a DependencyProperty for the sake of code simplicity)
         /// </summary>
-        public double ZoomLevelX { get; set; }
-        public double ZoomLevelY { get; set; }
+        private double ZoomLevelX { get; set; }
+        private double ZoomLevelY { get; set; }
 
         public DependencyProperty CentrePositionProperty = DependencyProperty.Register("CentrePosition", typeof(Point), typeof(MainWindow)); 
 
@@ -63,7 +63,7 @@ namespace Track_Maker
         /// <summary>
         /// Last right mouse click position for smooth panning (v567)
         /// </summary>
-        public Point LastRightMouseClickPos { get; set; } 
+        private Point LastRightMouseClickPos { get; set; } 
 
         public string ImagePath { get => CurrentProject.SelectedBasin.ImagePath; set
             {
@@ -82,6 +82,7 @@ namespace Track_Maker
         public MainWindow()
         {
             Init_Phase1();
+            Init_Phase2();
         }
 
      
@@ -139,11 +140,11 @@ namespace Track_Maker
             //in the mainwindow? or similar.
             ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
 
-            TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
+            if (!InternalTransformGroup.Count == 0) TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
 
             TG.Children.Add(ST);
 
-            if (TG != null) TG.Children.Add(TT);
+            if (TT != null) TG.Children.Add(TT);
 
             HurricaneBasin.RenderTransform = TG;
             // DUMB HACK END

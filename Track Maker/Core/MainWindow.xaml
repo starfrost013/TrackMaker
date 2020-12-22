@@ -94,7 +94,6 @@
             </MenuItem>-->
         </Menu>
 
-
         <!-- this is where the basin image is loaded from xml -->
         <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="583" Margin="0,28,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
             <Canvas.Background>
@@ -105,10 +104,6 @@
                     </ImageBrush.ImageSource>
                 </ImageBrush>
             </Canvas.Background>
-
-            <Canvas.RenderTransform>
-                <ScaleTransform ScaleX="{Binding ZoomScaleX}" ScaleY="{Binding ZoomScaleY}"/>
-            </Canvas.RenderTransform>
         </Canvas>
         <Grid x:Name="PriscillaSidebar" HorizontalAlignment="Left" Height="609" Margin="952,0,0,0" VerticalAlignment="Top" Width="183">
             <Grid.Background>

@@ -18,7 +18,7 @@ namespace Starfrost.UL5.VersionUtilities
         public int Major { get; set; }
         public int Minor { get; set; } // Build minor
         public int Build { get; set; } // The build number
-        public int Revision { get; set; } // Build reviion
+        public int Revision { get; set; } // Build revision
         public Status Status { get; set; } // Release status of this build.
         public string FullStatus { get; set; } // eg "Beta"
 
