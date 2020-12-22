@@ -46,12 +46,13 @@ namespace Track_Maker
             {
                 Project CurProj = CurrentProject;
 
+                // fix retardation
                 if (CurProj != null && CurProj.SelectedBasin != null && CurProj.SelectedBasin.CurrentLayer != null)
                 {
                     // if we have no storms, ask the user to create a storm instead of add a track point. 
                     if (CurProj.SelectedBasin.CurrentLayer.CurrentStorm == null)
                     {
-                        AddNewStormHost Addstwindow = new AddNewStormHost();
+                        AddNewStormHost Addstwindow = new AddNewStormHost(CurProj.SelectedBasin.SeasonStartTime);
                         Addstwindow.Owner = this;
                         Addstwindow.Show();
                         return;
@@ -178,7 +179,9 @@ namespace Track_Maker
         {
             Logging.Log("Creating new storm window...");
 
-            AddNewStormHost ANSH = new AddNewStormHost();
+            Basin CurrentBasin = CurrentProject.SelectedBasin;
+
+            AddNewStormHost ANSH = new AddNewStormHost(CurrentBasin.SeasonStartTime);
             ANSH.Owner = this;
             ANSH.Show(); 
         }
