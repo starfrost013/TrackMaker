@@ -27,7 +27,7 @@ namespace Track_Maker
             // get the storm names
             
             // not nullable BY DEFAULT :(
-            if (SeasonStartTime == new DateTime(1, 0, 0, 0, 0, 0))
+            if (SeasonStartTime == new DateTime(1, 1, 1, 0, 0, 0))
             {
                 AddNewStorm.SeasonStartTime = "N/A";
             }
