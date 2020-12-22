@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Input;
-using Track_Maker.DanoUIHost.AddTrackPointHost;
 
 namespace Track_Maker
 {
@@ -280,9 +279,7 @@ namespace Track_Maker
                     CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Redo();
                 }
             }
-
         }
-
 
         private void FileMenu_Export_HURDAT_Click(object sender, RoutedEventArgs e)
         {
@@ -366,6 +363,10 @@ namespace Track_Maker
 
                 // Translate the "camera" view 
                 TranslateTransform TranslateT = new TranslateTransform(MouseDistanceX, MouseDistanceY);
+
+                // Build the internal translation group we use (this is a total mess)
+                InternalTransformGroup.Add(ScaleT);
+                InternalTransformGroup.Add(TranslateT);
 
                 // Build the translation group
                 TG.Children.Add(ScaleT);

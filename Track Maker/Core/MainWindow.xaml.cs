@@ -1,6 +1,7 @@
 ﻿using DanoUI;
 using Starfrost.UL5.Core;
-using Starfrost.UL5.Logging; 
+using Starfrost.UL5.Logging;
+using Starfrost.UL5.WpfUtil;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,6 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+
 namespace Track_Maker
 {
     /// <summary>
@@ -27,7 +29,7 @@ namespace Track_Maker
     /// 
     /// Created: 2019-11-07 (Start of Development)
     /// 
-    /// Edited: 2020-10-20
+    /// Edited: 2020-12-22 (Priscilla-v2release:2.0.607.20357)
     /// 
     /// Purpose: Interaction logic for MainWindow.xaml
     /// 
@@ -70,6 +72,12 @@ namespace Track_Maker
                 HurricaneBasin.Background = new ImageBrush(new BitmapImage(new Uri(value, UriKind.RelativeOrAbsolute))); 
             }
         }
+
+
+        /// <summary>
+        /// Used for transform persistence
+        /// </summary>
+        public List<Transform> InternalTransformGroup { get; set; }
 
         public MainWindow()
         {
@@ -131,7 +139,11 @@ namespace Track_Maker
             //in the mainwindow? or similar.
             ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
 
+            TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
+
             TG.Children.Add(ST);
+
+            if (TG != null) TG.Children.Add(TT);
 
             HurricaneBasin.RenderTransform = TG;
             // DUMB HACK END
@@ -151,7 +163,7 @@ namespace Track_Maker
             // ugly.
             if (TickTimer.Enabled == SetTimerState)
             {
-                Error.Throw("Error!", "Attempted to start the render timer when running or stop the timer when stoppd!", ErrorSeverity.Error, 340);
+                Error.Throw("Error!", "Attempted to start the render timer when running or stop the timer when stopped!", ErrorSeverity.Error, 340);
             }
             else
             {
