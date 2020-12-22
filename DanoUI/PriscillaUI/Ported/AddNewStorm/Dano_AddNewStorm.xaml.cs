@@ -29,6 +29,8 @@ namespace DanoUI
         /// 2   DateTime    The date and time of this storm.
         /// </summary>
         public EventHandler<DanoEventArgs> OKHit { get; set; }
+
+        public string SeasonStartTime { get; set; }
         public AddNewStorm()
         {
             InitializeComponent();
@@ -102,6 +104,16 @@ namespace DanoUI
                 return new DateTime(1989, 6, 4, 22, 16, 0);
             }
             
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Setup(); 
+        }
+
+        private void Setup()
+        {
+            SeasonStartDateText.DataContext = this;
         }
     }
 }

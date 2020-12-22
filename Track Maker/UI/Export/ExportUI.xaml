@@ -32,7 +32,7 @@
         </Border>
 
         <!-- QualityControl disabled: [794,381,0,0] size:[76,default height] -->
-        <Button x:Name="ExportPlatform_ExportBtn" Content="Export" HorizontalAlignment="Left" Margin="747,381,0,0" VerticalAlignment="Top" Width="109" FontSize="18" Click="ExportPlatform_ExportBtn_Click" Style="{StaticResource Button_Invert}"/>
+        <Button x:Name="ExportPlatform_ExportBtn" Content="Export" HorizontalAlignment="Left" Margin="751,381,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Click="ExportPlatform_ExportBtn_Click" Style="{StaticResource Button_Invert}"/>
 
     </Grid>
 </Window>

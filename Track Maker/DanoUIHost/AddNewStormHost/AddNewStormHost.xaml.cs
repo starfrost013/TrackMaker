@@ -21,19 +21,21 @@ namespace Track_Maker
     /// </summary>
     public partial class AddNewStormHost : Window
     {
-        public AddNewStormHost()
+        public AddNewStormHost(DateTime SeasonStartTime)
         {
             InitializeComponent();
             // get the storm names
-#if PRISCILLA
-            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            StormTypeManager ST2M = MnWindow.ST2Manager;
-            List<string> StormNames = ST2M.GetListOfStormTypeNames();
-#else
-            Basin = GlobalState.GetST2Manager();
-            List<string> StormNames = Basin.GetListOfStormTypeNames(); 
-#endif
+            
+            if (SeasonStartTime == null)
+            {
+                AddNewStorm.SeasonStartTime = "N/A";
+            }
+            else
+            {
+                AddNewStorm.SeasonStartTime = SeasonStartTime.ToString("yyyy-MM-dd HH:mm:ss");
+            }
 
+            AddNewStorm.UpdateLayout();
         }
 
         /// <summary>
@@ -49,9 +51,19 @@ namespace Track_Maker
             Basin Bas = Proj.SelectedBasin; 
 #else
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+
+            string StormName = (string)DEA.DanoParameters[0];
+            DateTime StormStartTime = (DateTime)DEA.DanoParameters[1];
+            
             Basin Bas = MnWindow.CurrentProject.SelectedBasin;
+            List<Storm> FlatList = Bas.GetFlatListOfStorms();
+
+            if (FlatList.Count == 0)
+            {
+                Bas.SeasonStartTime = StormStartTime;
+            }
 #endif
-            Bas.AddStorm((string)DEA.DanoParameters[0], (DateTime)DEA.DanoParameters[1]);
+            Bas.AddStorm(StormName, StormStartTime);
             Close(); 
         }
     }

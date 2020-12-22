@@ -52,7 +52,7 @@ namespace Track_Maker
         public bool IsOpen { get; set; } // is this basin open?
         public bool IsSelected { get; set; } // is this basin selected?
         public string UserTag { get; set; } // User-given season name (Priscilla v445)
-
+        public DateTime SeasonStartTime { get; set; } // The start time of the season
         public Basin()
         {
             Layers = new List<Layer>();
