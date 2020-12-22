@@ -140,7 +140,7 @@ namespace Track_Maker
             //in the mainwindow? or similar.
             ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
 
-            if (!InternalTransformGroup.Count == 0) TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
+            if (InternalTransformGroup.Count != 0) TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
 
             TG.Children.Add(ST);
 
