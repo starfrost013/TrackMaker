@@ -41,7 +41,7 @@ namespace Track_Maker
             return Name;
         }
 
-        public Project Import()
+        public ImportResult Import()
         {
             throw new NotImplementedException();
         }

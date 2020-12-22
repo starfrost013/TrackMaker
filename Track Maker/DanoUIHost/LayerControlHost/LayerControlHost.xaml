@@ -8,7 +8,7 @@
              mc:Ignorable="d" Width="174.438" Height="359.017">
     <Grid>
 
-        <Dano:LayerControl x:Name="Layers" LayerCreated="Lyr_Created" LayerDeleted="Lyr_Deleted" Loaded="Layers_Loaded">
+        <Dano:LayerControl x:Name="Layers" LayerCreated="Lyr_Created" LayerDisabled="Lyr_Disabled" LayerDeleted="Lyr_Deleted" LayerEnabled="Lyr_Enabled" LayerRenamed="Lyr_Renamed" LayerReordered="Lyr_Reordered" LayerSelected="Lyr_Selected" Loaded="Layers_Loaded">
 
         </Dano:LayerControl>
     </Grid>

@@ -13,8 +13,8 @@ namespace Starfrost.UL5.Core
     {
         public static int UL5MajorVersion = 5;
         public static int UL5MinorVersion = 2;
-        public static int UL5RevisionVersion = 3;
+        public static int UL5RevisionVersion = 4;
 
-        public static string UL5Status = "v5.2.3 r0 APIv20201120";  
+        public static string UL5Status = "v5.2.4 APIv20201213";  
     }
 }

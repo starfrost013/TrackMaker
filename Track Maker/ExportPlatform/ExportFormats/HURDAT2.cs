@@ -25,9 +25,9 @@ namespace Track_Maker
 
         public string GetName() => Name;
 
-        public Project Import()
+        public ImportResult Import()
         {
-            throw new NotImplementedException(); 
+            throw new NotImplementedException("HURDAT2 Export is not available in this build"); 
         }
 
         public bool Export(Project Proj)

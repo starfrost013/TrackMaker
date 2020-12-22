@@ -12,11 +12,12 @@ using System.Windows.Controls;
 /// 
 /// This allows us to write classes easily and quickly for exporting to any format we want. 
 /// 
-/// Version 1.8.0
-/// December 3, 2020
+/// Version 1.9.0
+/// December 20, 2020
 /// 
-/// (Priscilla - v559)
+/// (Priscilla - v604)
 /// 
+/// v2.0.604.0      V1.9        Import: ImportResult class implemented
 /// v2.0.571.0      V1.8        Removed AutoStart
 /// v2.0.559.0      V1.7        Add DisplayPreview, still haven't removed AutoStart yet
 /// v2.0.540.0      V1.6        Preparation for removal of autostart - split out IImageExportControl
@@ -30,7 +31,7 @@ namespace Track_Maker
     {
         string Name { get; set; } // The name of the file format to export to.
         string GetName(); // Returns the name of this ExportFormat. 
-        Project Import(); // Import from this file format.
+        ImportResult Import(); // Import from this file format.
         bool Export(Project Project); // Export from this file format. 
         bool ExportCore(Project Project, string FileName); // Does the actual exporting. 
         bool DisplayPreview { get; set; } // post-beta - display preview

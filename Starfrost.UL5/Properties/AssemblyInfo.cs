@@ -5,6 +5,9 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
+
+/// Useful Library 5.x
+/// Please don't put methods in here unless they are *application-independent*
 [assembly: AssemblyTitle("Useful Library 5.x (.NET Framework version)")]
 [assembly: AssemblyDescription("A collection of utilities and helper functions for .NET applications.")]
 [assembly: AssemblyConfiguration("")]
@@ -32,5 +35,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.23.60.20340")]
-[assembly: AssemblyFileVersion("5.23.60.20340")]
+[assembly: AssemblyVersion("5.24.93.20356")]
+[assembly: AssemblyFileVersion("5.24.93.20356")]

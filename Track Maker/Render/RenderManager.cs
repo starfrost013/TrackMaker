@@ -129,6 +129,7 @@ namespace Track_Maker
                             HurricaneBasin.Children.Add(Poly); 
                         }
                     }
+
                     if (Setting.DefaultVisibleTextNames) DrawText(XStorm, HurricaneBasin);
                 }
             }

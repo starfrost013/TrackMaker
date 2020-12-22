@@ -38,9 +38,9 @@ namespace Tiralen.UpdateServices.Settings
         /// <summary>
         /// Current release+1 
         /// 
-        /// User gets latest builds of the current release (currently Priscilla+ - 2.1 or 2.5)
+        /// User gets latest builds of the current release (currently Iris - 2.1 or 2.5)
         /// </summary>
-        PriscillaPlus = 3,
+        Iris = 3,
         
         /// <summary>
         /// Current release=2

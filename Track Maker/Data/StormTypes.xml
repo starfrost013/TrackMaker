@@ -38,22 +38,18 @@
     <BTAbbreviations>
       <Abbreviation>EX</Abbreviation>
     </BTAbbreviations>
-    
     <Abbreviation>IPTC</Abbreviation>
     <Shape>
       <PresetShape>Triangle</PresetShape>
     </Shape>
-
     <ForceColour>255,128,204,255</ForceColour>
   </StormType>  
 
   <StormType>
     <Name>Polar Low</Name>
-    
     <BTAbbreviations>
       <Abbreviation>EX</Abbreviation>
     </BTAbbreviations>
-  
     <Abbreviation>PL</Abbreviation>
     <Shape>
       <PresetShape>Triangle</PresetShape>

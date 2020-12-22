@@ -118,6 +118,7 @@ namespace Track_Maker
                                                 case "colours":
                                                 case "Color":
                                                 case "Colors":
+                                                case "Colour":
                                                 case "Colours": // category colour
                                                     // Load the colour using our string extension method
                                                     Category.Color = XGrandniece.Value.SplitRGB();

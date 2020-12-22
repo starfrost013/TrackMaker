@@ -1,0 +1,44 @@
+Track Maker: Tasks Remaining until Beta
+
+Layer Renaming
+ATCF Export
+HURDAT2 Export
+UI Improvements
+Season Start Time on AddNewStorm Dialog
+
+Tasks Remaining from Beta to RC
+- UI finalised
+- Change SplashScreen (image already finished)
+- LayerControl Fixes 
+- Remaining UI ported to DanoUI (ExportUI, Settings)
+- Previews
+- Selecting layers to export
+- Bugfixes
+- Help mostly finalised
+- Tutorial?
+
+Tasks Remaining from RC to Final
+- All Known Non-Trivial Bugs Fixed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

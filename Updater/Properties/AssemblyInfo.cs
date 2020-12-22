@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Track Maker Updater Application")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Update utility for the Track Maker.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Updater")]
+[assembly: AssemblyProduct("starfrost's Track Maker")]
 [assembly: AssemblyCopyright("Copyright © starfrost 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

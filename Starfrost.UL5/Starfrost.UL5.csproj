@@ -70,6 +70,7 @@
     <Compile Include="VersionUtil\Version.cs" />
     <Compile Include="W32X\N2M\SystemMetric.cs" />
     <Compile Include="W32X\NativeMethods.cs" />
+    <Compile Include="WpfUtil\DataTemplateUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

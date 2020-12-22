@@ -59,5 +59,15 @@ namespace Track_Maker
             }
             
         }
+
+        /// <summary>
+        /// Show a beta warning.
+        /// </summary>
+        public static void ShowBetaWarning() => MessageBox.Show("Information:\n\n" +
+                "You are running a pre-release version of the Track Maker.\n\n"
+                + "There may be issues, bugs, and impaired or inoperative functionality that would not exist in a final release.\n"
+                + "These may impair functionality in a way that would not be expected in a final release. There is no guarantee of quality provided with this version of the software.\n"
+                + "Please report any bugs that you discover at https://github.com/Cosmo224/TrackMaker. \n\n"
+                + "Thank you for using and testing the Track Maker. Your feedback is vital to its future and success!", "Beta Software Notice", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 }

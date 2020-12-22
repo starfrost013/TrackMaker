@@ -83,6 +83,7 @@ namespace Track_Maker
     public class Category
     {
         public string Abbreviation { get; set; } // the abbreviation of this category
+        public string ATCFAbbreviation { get; set; } // ATCF Abbreviation
         public Color Color { get; set; }
         public string Name { get; set; }
         public int LowerBound { get; set; }
@@ -119,6 +120,9 @@ namespace Track_Maker
         /// <returns></returns>
         public string GetAbbreviatedCategoryName(string SourceString, int NoOfWords, int StartWordIndex = 0, int LettersPerWord = 1, bool BTFormat = false)
         {
+
+            // if we have an abbreviation return it (v602c)
+            if (Abbreviation != null) return Abbreviation;
 
             string[] Words = SourceString.Split(' ');
 

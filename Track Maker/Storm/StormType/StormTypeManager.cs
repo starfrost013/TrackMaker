@@ -295,5 +295,21 @@ namespace Track_Maker
 
             return ST2List; 
         }
+
+        public StormType2 GetStormTypeWithRealStormTypeName(RealStormType RST)
+        {
+            switch (RST)
+            {
+                case RealStormType.Tropical:
+                    return GetStormTypeWithName("Tropical");
+                case RealStormType.Subtropical:
+                    return GetStormTypeWithName("Subtropical");
+                case RealStormType.Extratropical:
+                    return GetStormTypeWithName("Extratropical");
+            }
+
+            // pre v3/user input validaiton
+            return null;
+        }
     }
 }

@@ -341,7 +341,7 @@ namespace Track_Maker
         {
             try
             {
-                Logging.Log($"Setting the setting {SettingsElement} to {SettingsValue}");
+                Logging.Log($"[Saving settings] Setting {SettingsElement} to {SettingsValue}...");
                 // Load settings and get the first node.
                 XmlDocument XDoc = LoadSettingsXml();
                 XmlNode XRoot = GetFirstNode(XDoc);

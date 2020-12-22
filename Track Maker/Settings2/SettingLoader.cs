@@ -26,10 +26,13 @@ namespace Track_Maker
             CategoryManager Catman = MnWindow.Catman;
 
 #endif
+            // Load the default category system
             Setting.DefaultCategorySystem = EmeraldSettings.GetString("DefaultCategorySystem");
 
+            // Load the text name visibility setting
             Setting.DefaultVisibleTextNames = EmeraldSettings.GetBool("StormNamesVisible");
 
+            // Load the dot size
             Setting.DotSize = EmeraldSettings.GetPoint("DotSize"); 
             
             if (Setting.DotSize.X <= 0 || Setting.DotSize.Y <= 0)
@@ -43,7 +46,7 @@ namespace Track_Maker
 
             if (Setting.LineSize <= 0)
             {
-                Error.Throw("Error", "Error LS1 - An invalid line size was provided. The default line size will be used.", ErrorSeverity.Error, 231);
+                Error.Throw("Error", "An invalid line size was provided. The default line size will be used.", ErrorSeverity.Error, 231);
                 //Recovery
                 Setting.LineSize = 2; // reinitialise
             }
@@ -56,7 +59,10 @@ namespace Track_Maker
             Setting.AccentEnabled = EmeraldSettings.GetBool("AccentEnabled"); 
 
             // Telemetry consent
-            Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent"); 
+            Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent");
+
+            // Show the beta warning
+            Setting.ShowBetaWarning = EmeraldSettings.GetBool("ShowBetaWarning");
 
             // Undo depth
             Setting.UndoDepth = EmeraldSettings.GetInt("UndoDepth");

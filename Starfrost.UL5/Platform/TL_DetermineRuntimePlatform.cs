@@ -86,8 +86,7 @@ namespace Starfrost.UL5.PlatformUtilities
 
         private static bool IsWindows() => RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
         private static bool IsMacOS() => RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
-        private static bool IsLinux() => RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
         private static bool IsX64() => (RuntimeInformation.ProcessArchitecture == Architecture.X64);
-        private static bool IsArm64() => (RuntimeInformation.ProcessArchitecture == Architecture.Arm64);
+
     }
 }

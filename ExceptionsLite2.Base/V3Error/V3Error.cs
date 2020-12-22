@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ExceptionsLite2.Base
 {
     /// <summary>
-    /// Priscilla+ (v2.1) / Dano (v3.0) centralised error service
+    /// Iris (v2.1) / Dano (v3.0) centralised error service
     /// 
     /// Primarily for localisation purposes
     /// </summary>
