@@ -10,10 +10,11 @@
 ; v2.0.000.00003          Changed icon, fixed install path                          2020-12-22
 ; v2.0.000.00003 rev 2    Added this comment block                                  2020-12-22
 ; v2.0.000.00003 rev 3    Added more comments                                       2020-12-22 22:48
-                                     
+; v2.0.000.00004          Dynamic output dir                                        2020-12-22 22:5x
+                            
 ; CHANGE TO APP NAME AND VERSION FOR FINAL
 #define MyAppName "starfrost's Track Maker 2.0 [Beta 1.1 - Priscilla Setup Test]"
-#define MyAppVersion "2.0.000.00003" ; 2.0.463.20268 cb as of 2020/9/26
+#define MyAppVersion "2.0.000.00004" ; 2.0.463.20268 cb as of 2020/9/26
 ; END CHANGE TO NAME AND VERSION FOR FINAL
 #define MyAppPublisher "starfrost"
 #define MyAppURL "https://www.medicanecentre.org"
@@ -38,8 +39,13 @@ UsedUserAreasWarning=no
 ;InfoBeforeFile=C:\Users\FiercePC\FiercePC\TrackMaker\TrackMaker\Track Maker\bin\Debug\Installation\InstallFile.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Debug\Installation\InstallTst
-OutputBaseFilename=TrackMaker-Priscilla-2.0.000.00000-installtest
+
+OutputDir=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Installer\Install
+#ifdef DEBUG
+OutputBaseFilename=TrackMaker-Priscilla-Debug-{#MyAppVersion}
+#else
+OutputBaseFilename=TrackMaker-Priscilla-Release-{#MyAppVersion}
+#endif
 SetupIconFile=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\V2Icon_32x32.ico
 Compression=lzma
 SolidCompression=yes
