@@ -127,7 +127,6 @@ namespace Track_Maker
                 StormType2 StormType = new StormType2();
                 DateTime StormFormationDT = new DateTime(1959, 3, 10);
 
-                
                 // XML OR JSON OR FUCKING ANYTHING PLS
                 // not foreach because it makes it slightly easier to set the date
                 for (int j = 0; j < ATCFLines.Length; j++)
@@ -295,8 +294,9 @@ namespace Track_Maker
                     return false;
                 }
 
+                string StormFileName = Path.Combine(FileName, $@"{Storm.Name}.dat");
                 // Create a new file for each storm.
-                using (StreamWriter SW = new StreamWriter(new FileStream($@"{Storm.Name}.dat", FileMode.Create)))
+                using (StreamWriter SW = new StreamWriter(new FileStream(StormFileName, FileMode.Create)))
                 {
                     // For each node. 
                     foreach (Node Node in Storm.NodeList)
@@ -340,7 +340,7 @@ namespace Track_Maker
                         
                         Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position); 
 
-                        SW.Write($"{X.Coordinates.X.ToString()}{X.Directions[0].ToString()},  {X.Coordinates.Y.ToString()}{X.Directions[1].ToString()},  ");
+                        SW.Write($"{X.Coordinates.X}{X.Directions[0]},  {X.Coordinates.Y}{X.Directions[1]},  ");
 
                         // Intensity.
 

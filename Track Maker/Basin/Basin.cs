@@ -141,7 +141,7 @@ namespace Track_Maker
 
             if (FinalX < 0)
             {
-                FinalX = -FinalX;
+                //FinalX = -FinalX;
                 Coord.Directions.Add(CardinalDirection.W);
             }
             else
@@ -151,7 +151,7 @@ namespace Track_Maker
 
             if (FinalY < 0)
             {
-                FinalY = -FinalY;
+                //FinalY = -FinalY;
                 Coord.Directions.Add(CardinalDirection.S);
             }
             else
@@ -207,10 +207,6 @@ namespace Track_Maker
 
             double PreFinalX = Coord.Coordinates.X / (HighX - LowX);
             double PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
-
-            // make sure everything is available on screen...
-            if (PreFinalX < 0) PreFinalX = -PreFinalX;
-            if (PreFinalY < 0) PreFinalY = -PreFinalY;
 
             // TEMP
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
