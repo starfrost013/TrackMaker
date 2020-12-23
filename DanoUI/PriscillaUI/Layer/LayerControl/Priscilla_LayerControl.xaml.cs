@@ -101,7 +101,8 @@ namespace DanoUI
             }
             else
             {
-                MessageBox.Show("Error placeholder");
+                //iris: we will use the error system for this
+                MessageBox.Show("Error!", "Please select a layer before deleting it!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return; 
             }
         }
@@ -113,7 +114,6 @@ namespace DanoUI
 #endif
             // SHITTY HACK SHITTY HACK!!!!
             PriscillaUI_Layers_LayerListView.Items.Add(Lyr);
-
 
             PriscillaUI_Layers_LayerListView.SelectedIndex = PriscillaUI_Layers_LayerListView.Items.Count - 1;
 

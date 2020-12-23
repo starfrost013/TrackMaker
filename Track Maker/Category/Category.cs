@@ -75,6 +75,8 @@ namespace Track_Maker
         {
             Categories = new List<Category>();
         }
+
+        public Category GetHighestCategory() => Categories[Categories.Count - 1];
     }
 
     /// <summary>

@@ -361,7 +361,12 @@ namespace Track_Maker
 
                         // Write the category and a WHOLE bunch of information that we don't need or use yet - environmental pressure etc - I don't know what most of these are tbh
 
-                        Category Ct = Storm.GetNodeCategory(Node, MnWindow.Catman.CurrentCategorySystem);
+                        CategorySystem CurrentCategorySystem = MnWindow.Catman.CurrentCategorySystem;
+
+                        Category Ct = Storm.GetNodeCategory(Node, CurrentCategorySystem);
+
+                        // v610: fix crash when exporting projects with invalid categories (i.e. storm too intense) iris: add palceholder
+                        if (Ct == null) Ct = CurrentCategorySystem.GetHighestCategory();
 
                         string CatString = null;
 

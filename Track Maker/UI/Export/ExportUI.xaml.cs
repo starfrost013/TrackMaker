@@ -105,7 +105,7 @@ namespace Track_Maker
             Width = 918;
             ExportPlatform_PreviewTextBlock.Margin = new Thickness(10, 89, 0, 0); 
             ExportPlatform_PreviewBorder.Margin = new Thickness(10, 118, 0, 0);
-            ExportPlatform_ExportBtn.Margin = new Thickness(789, 381, 0, 0);
+            ExportPlatform_ExportBtn.Margin = new Thickness(782, 381, 0, 0);
 
             // Make the quality control uninteractable and invisible
             QualityControl.Height = 0;

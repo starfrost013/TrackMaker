@@ -45,8 +45,9 @@ namespace Track_Maker
             Logging.Log("@@@@@@@@@@ LOG STARTS HERE @@@@@@@@@@");
             Logging.Log("Starting phase 1 init..."); // log starting.
 
-            Logging.Log("Initialising category manager.");
+            Logging.Log("Initialising category manager...");
             Catman = new CategoryManager();
+            Logging.Log("Loading categories...");
             Catman.InitCategories();
 
 #if DANO
@@ -61,18 +62,17 @@ namespace Track_Maker
             // Load Settings
             Logging.Log("Loading settings...");
             SettingsLoader.LoadSettings2();
+            Logging.Log("Loading basins...");
             GlobalStateP.LoadBasins();
             Init_SetCurrentCategorySystem();
-            Init_SetAccentColour(); 
-
-            
-            Logging.Log("Checking for updates...");
+            Init_SetAccentColour();
 
             
         }
 
         public void Init_Phase2()
         {
+            Logging.Log("Phase 2 Initialisation now in progress. We successfully loaded settings and basins!");
             // Phase 2 Init
             CurrentProject = new Project();
             // temp dumb hack
@@ -99,24 +99,29 @@ namespace Track_Maker
             // DisableUI test 
             if (CurrentProject == null) DisableButtons();
 
-            // V2
-            Logging.Log("Initialising project...");
-            HurricaneBasin.DataContext = this;
-            //HurricaneBasinImage.DataContext = this; 
 
-            //Layers.Layers.LayerNames = CurrentProject.SelectedBasin.GetLayerNames();
+            Logging.Log("Initialising UI...");
+            HurricaneBasin.DataContext = this;
             Layers.Layers.DataContext = this;
             Layers.UpdateLayout();
 
             UpdateLayout();
 
+
+            Logging.Log("Obtaining user telemetry consent status and checking for updates...");
             TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
 
-            if (Setting.ShowBetaWarning) Error.ShowBetaWarning();
+            if (Setting.ShowBetaWarning)
+            {
+                Logging.Log("This is a pre-release build. Displaying beta warning...");
+                Error.ShowBetaWarning();
+            }
+
+           
 
             Layers.AddLayer("Background");
 
-            Logging.Log("Initialisation completed. Starting timer...");
+            Logging.Log("Initialisation completed. Starting render timer...");
 
             TickTimer.Start();
 
@@ -129,6 +134,7 @@ namespace Track_Maker
                 // select the current category system
                 if (Setting.DefaultCategorySystem == CatSystem.Name)
                 {
+                    Logging.Log("Default category system")
                     Catman.CurrentCategorySystem = CatSystem;
                     break; 
                 }
