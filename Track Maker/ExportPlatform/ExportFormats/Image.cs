@@ -124,10 +124,8 @@ namespace Track_Maker
             Bitmap.EndInit();
             // dumb hack (build 558)
 
-
             TempCanvas.Background = new ImageBrush(Bitmap);
 
-            // should this still be an eXtension method? it doesn't manipulate the image object itself anymore so...
             Point CanvasSize = ScaleUtilities.ScaleToQuality(Bitmap, Quality);
 
             TempCanvas.Width = CanvasSize.X;
@@ -182,6 +180,6 @@ namespace Track_Maker
             return true; // success
         }
 
-        
+       
     }
 }

@@ -2,6 +2,7 @@
 using Starfrost.UL5.ScaleUtilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,8 @@ namespace Track_Maker
             {
                 HideQualityControl();
             }
+
+            GeneratePreview(); 
 
             //completely different in Dano
             //ExportFormat.GeneratePreview(ExportPlatform_Preview);
@@ -210,7 +213,23 @@ namespace Track_Maker
         // previewgenerator
         private bool GeneratePreview()
         {
-            throw new NotImplementedException(); 
+            // in iris we will have proper temporary file management
+            string TempFileName = $"tmm_preview_{DateTime.Now.ToString("dddd-mm-yy HHmmss")}.png.tmp";
+
+            // there's gotta be better ways to do this
+            ExportImage EI = new ExportImage();
+            EI.ExportCore(MnWindow.CurrentProject, TempFileName);
+
+            // load it again
+            BitmapImage TempImage = new BitmapImage();
+            TempImage.BeginInit();
+            TempImage.UriSource = new Uri(TempFileName);
+            TempImage.EndInit();
+
+            ExportPlatform_Preview.Background = TempImage;
+
+            File.Delete(TempFileName);
+
         }
     }
 }
