@@ -11,7 +11,6 @@
         Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown" MouseMove="Window_MouseMove" MouseRightButtonUp="Window_MouseRightButtonUp">
 
     <Grid x:Name="Core">
-
         <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="952" Panel.ZIndex="2">
             <Menu.Background>
                 <!-- menu background -->
@@ -33,7 +32,7 @@
             <MenuItem x:Name="FileMenu" Header="File" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="BasinMenu_Clear" Header="New" Foreground="Black" Click="BasinMenu_Clear_Click"></MenuItem>
                 <Separator/>
-                <MenuItem x:Name="FileMenu_Import" Header="Open" Style="{StaticResource Style_Menu_Inverted}">
+                <MenuItem x:Name="FileMenu_Import" Header="Import" Style="{StaticResource Style_Menu_Inverted}">
                     <MenuItem x:Name="FileMenu_Import_BT" Header="from Best Track (ATCF)..." Foreground="Black" FontStyle="Italic" Click="FileMenu_Import_BT_Click"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_HURDAT" Header="from Best Track (HURDAT2)..." Foreground="Black" IsEnabled="False" FontStyle="Italic"></MenuItem>
                     <MenuItem x:Name="FileMenu_Import_XMLv2" Header="from Track Maker project..." Foreground="Black" Click="FileMenu_Import_XML2_Click" FontStyle="Italic"></MenuItem>

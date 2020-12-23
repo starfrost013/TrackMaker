@@ -65,7 +65,7 @@ namespace Track_Maker
         {
             Coordinate Coord = new Coordinate();
 
-            //Convert (coords lower/higher are alwa
+            //Convert 
             double X1 = CoordsLower.Coordinates.X;
             double Y1 = CoordsLower.Coordinates.Y;
             double X2 = CoordsHigher.Coordinates.X;
@@ -104,8 +104,8 @@ namespace Track_Maker
             double _ = NodePosition.X / MnWindow.Width;
             double _2 = NodePosition.Y / MnWindow.Height;
 
-            double FinalX = (X2 - X1)  * _;
-            double FinalY = (Y2 - Y1) * _2;
+            double FinalX = (X1 - X2)  * _;
+            double FinalY = (Y1 - Y2) * _2;
 
             string _s = FinalX.ToString();
             string _s2 = FinalY.ToString();
@@ -141,7 +141,7 @@ namespace Track_Maker
 
             if (FinalX < 0)
             {
-                //FinalX = -FinalX;
+                FinalX = -FinalX;
                 Coord.Directions.Add(CardinalDirection.W);
             }
             else
@@ -151,7 +151,7 @@ namespace Track_Maker
 
             if (FinalY < 0)
             {
-                //FinalY = -FinalY;
+                FinalY = -FinalY;
                 Coord.Directions.Add(CardinalDirection.S);
             }
             else
@@ -576,7 +576,7 @@ namespace Track_Maker
             }
 
             Layers.Clear();
-
+            
             return;
         }
 

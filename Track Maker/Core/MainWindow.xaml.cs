@@ -29,7 +29,7 @@ namespace Track_Maker
     /// 
     /// Created: 2019-11-07 (Start of Development)
     /// 
-    /// Edited: 2020-12-22 (Priscilla-v2release:2.0.607.20357)
+    /// Edited: 2020-12-23 (Priscilla-v2release:2.0.612.20358)
     /// 
     /// Purpose: Interaction logic for MainWindow.xaml
     /// 
@@ -182,7 +182,12 @@ namespace Track_Maker
                 }
             }
         }
-         
+
+        private void Shutdown(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
 #elif IRIS
 #endif
     }

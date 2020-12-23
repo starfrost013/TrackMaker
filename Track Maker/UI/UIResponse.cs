@@ -33,7 +33,13 @@ namespace Track_Maker
         private void BasinMenu_Clear_Click(object sender, RoutedEventArgs e)
         {
             CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm = null;
+            //MainWindow logic in MainWindow class (Hack till Iris Layer binding)
+            Layers.ClearLayers();
+            //end
+
             CurrentProject.SelectedBasin.ClearBasin();
+            // iris: move initbasin to selectedbasin
+            CurrentProject.InitBasin(CurrentProject.SelectedBasin);
         }
 
         private void ViewMenu_Names_Click(object sender, RoutedEventArgs e) => Setting.DefaultVisibleTextNames = !Setting.DefaultVisibleTextNames;
@@ -393,7 +399,7 @@ namespace Track_Maker
 
         private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
         {
-            if (GlobalStateP.CurrentExportFormatName == null) return; 
+            if (GlobalStateP.CurrentExportFormatName == null) GlobalStateP.CurrentExportFormatName = "XMLv2"; 
 
             Type EXType = Type.GetType(GlobalStateP.CurrentExportFormatName);
 
