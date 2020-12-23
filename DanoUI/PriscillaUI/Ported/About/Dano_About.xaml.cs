@@ -49,10 +49,9 @@ namespace DanoUI
 #if DEBUG
             //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.FileVersion}) (Debug)";
 
-            starfrostTrack_Version.Text = $"Version 2.0 Beta Release (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
+            starfrostTrack_Version.Text = $"Version 2.0.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
 #else
-            //starfrostTrack_Version.Text = $"Version 2.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion})";
-            starfrostTrack_Version.Text = $"Version 2.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion})";
+            starfrostTrack_Version.Text = $"Version 2.0.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion})";
 
 #endif
 

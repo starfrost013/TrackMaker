@@ -399,7 +399,7 @@ namespace Track_Maker
 
         private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
         {
-            if (GlobalStateP.CurrentExportFormatName == null) GlobalStateP.CurrentExportFormatName = "XMLv2"; 
+            if (GlobalStateP.CurrentExportFormatName == null) GlobalStateP.CurrentExportFormatName = "Track_Maker.XMLv2"; 
 
             Type EXType = Type.GetType(GlobalStateP.CurrentExportFormatName);
 
