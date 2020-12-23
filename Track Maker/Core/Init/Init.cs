@@ -134,7 +134,7 @@ namespace Track_Maker
                 // select the current category system
                 if (Setting.DefaultCategorySystem == CatSystem.Name)
                 {
-                    Logging.Log("Default category system")
+                    Logging.Log("Default category system");
                     Catman.CurrentCategorySystem = CatSystem;
                     break; 
                 }

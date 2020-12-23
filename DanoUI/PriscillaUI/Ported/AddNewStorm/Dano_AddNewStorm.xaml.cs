@@ -62,7 +62,8 @@ namespace DanoUI
 
                 if (PreHS == null)
                 {
-                    MessageBox.Show("Pre-Beta Error 188 - please select a valid date.");
+                    // iris: use error system
+                    MessageBox.Show("Error!", "Please select a valid date!", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return new DateTime(1989, 6, 4, 22, 16, 0); // pre3.0
                 }
 
@@ -72,7 +73,8 @@ namespace DanoUI
                 // bounds checking
                 if (Hours < 0 || Minutes < 0 || Hours >= 24 || Minutes >= 60)
                 {
-                    MessageBox.Show("Pre-Beta Error 189 - please enter a valid time!");
+                    // iris: use error system
+                    MessageBox.Show("Error!", "Please select a valid time!", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return new DateTime(1989, 6, 4, 22, 16, 0); 
                 }
                 else
@@ -87,19 +89,22 @@ namespace DanoUI
             catch (FormatException err)
             {
 #if DEBUG
-                MessageBox.Show($"Pre-Beta Error 190 - please enter a valid time!\n\n{err}");
+                // iris: use error system
+                MessageBox.Show("Error!", $"Please select a valid date and time!\n\n{err}", MessageBoxButton.OK, MessageBoxImage.Warning);
 #else
-                MessageBox.Show("Pre-Beta Error 190 - please enter a valid time!");
+                // iris: use error system
+                MessageBox.Show("Error!", $"Please select a valid date and time!", MessageBoxButton.OK, MessageBoxImage.Warning);
 #endif
-
                 return new DateTime(1989, 6, 4, 22, 16, 0);
             }
             catch (OverflowException err)
             {
 #if DEBUG
-                MessageBox.Show($"Pre-Beta Error 191 - please enter a valid time!\n\n{err}");
+                // iris: use error system
+                MessageBox.Show("Error!", $"Please select a valid date and time!\n\n{err}", MessageBoxButton.OK, MessageBoxImage.Warning);
 #else
-                MessageBox.Show("Pre-Beta Error 191 - please enter a valid time!");
+                // iris: use error system
+                MessageBox.Show("Error!", $"Please select a valid date and time!", MessageBoxButton.OK, MessageBoxImage.Warning);
 #endif
                 return new DateTime(1989, 6, 4, 22, 16, 0);
             }

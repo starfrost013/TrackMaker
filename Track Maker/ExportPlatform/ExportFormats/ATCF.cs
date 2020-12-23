@@ -282,7 +282,6 @@ namespace Track_Maker
         public bool ExportCore(Project Project, string FileName)
         {
             Directory.CreateDirectory(FileName);
-            //Directory.SetCurrentDirectory(FileName.Replace(".",""));
 
             Basin SelBasin = Project.SelectedBasin;
 
