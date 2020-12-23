@@ -67,7 +67,6 @@ namespace Track_Maker
             Init_SetCurrentCategorySystem();
             Init_SetAccentColour();
 
-            
         }
 
         public void Init_Phase2()
@@ -94,11 +93,10 @@ namespace Track_Maker
 #if DANO
             Title = "Track Maker Dano (version 3.0 alpha) - do not use for production purposes!)";
 #elif PRISCILLA
-            Title = "Track Maker 2.0 (Beta Release - not for production use!)";
+            Title = "Track Maker 2.0";
 #endif
             // DisableUI test 
             if (CurrentProject == null) DisableButtons();
-
 
             Logging.Log("Initialising UI...");
             HurricaneBasin.DataContext = this;
@@ -116,8 +114,6 @@ namespace Track_Maker
                 Logging.Log("This is a pre-release build. Displaying beta warning...");
                 Error.ShowBetaWarning();
             }
-
-           
 
             Layers.AddLayer("Background");
 

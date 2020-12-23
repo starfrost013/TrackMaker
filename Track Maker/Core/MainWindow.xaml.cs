@@ -185,7 +185,7 @@ namespace Track_Maker
 
         private void Shutdown(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            TickTimer.Stop();
         }
 
 #elif IRIS

@@ -395,9 +395,10 @@
     <Resource Include="Data\Undo16.png" />
     <Resource Include="Data\Undo32.png" />
     <Resource Include="Data\UndoFull.png" />
-    <SplashScreen Include="Data\Splash\Priscilla.png" />
+    <Resource Include="Data\Splash\Priscilla.png" />
     <Resource Include="Data\Splash\Priscilla2.png" />
     <Resource Include="Data\Splash\Priscilla3.png" />
+    <SplashScreen Include="Data\Splash\PriscillaRelease.png" />
     <Content Include="Data\StormTypes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
