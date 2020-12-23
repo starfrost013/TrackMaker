@@ -11,7 +11,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="Export Tracks" Height="474.069" Width="918.198" Loaded="Window_Loaded">
+        Title="Export Tracks" Height="474.069" Width="918.198" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
 
         <!-- QualityControl -->

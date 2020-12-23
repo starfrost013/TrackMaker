@@ -28,6 +28,11 @@ namespace Track_Maker
         public MainWindow MnWindow { get; set; }
         public FormatType Type { get; set; }
         public List<Storm> StormsToExport { get; set; }
+
+        /// <summary>
+        /// Preview file name
+        /// </summary>
+        public string TemporaryFileName { get; set; }
         public ExportUI(FormatType FType, IExportFormat ExportFormat)
         {
             InitializeComponent();
@@ -214,22 +219,34 @@ namespace Track_Maker
         private bool GeneratePreview()
         {
             // in iris we will have proper temporary file management
-            string TempFileName = $"tmm_preview_{DateTime.Now.ToString("dddd-mm-yy HHmmss")}.png.tmp";
+            TemporaryFileName = $"tmm_preview_{DateTime.Now.ToString("yyyy-mm-dd HHmmss")}.png.tmp";
 
             // there's gotta be better ways to do this
             ExportImage EI = new ExportImage();
-            EI.ExportCore(MnWindow.CurrentProject, TempFileName);
+            EI.ExportCore(MnWindow.CurrentProject, TemporaryFileName);
+
+            if (!File.Exists(TemporaryFileName))
+            {
+                Error.Throw("Wasted", "Dr. Freeman, there was an error writing a temporary file for export", ErrorSeverity.Error, 272);
+                return false;
+            }
 
             // load it again
             BitmapImage TempImage = new BitmapImage();
             TempImage.BeginInit();
-            TempImage.UriSource = new Uri(TempFileName);
+            // it is a relative uri
+            TempImage.UriSource = new Uri(TemporaryFileName, UriKind.Relative);
             TempImage.EndInit();
 
-            ExportPlatform_Preview.Background = TempImage;
+            ExportPlatform_Preview.Background = new ImageBrush(TempImage);
 
-            File.Delete(TempFileName);
+            return true; 
 
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (TemporaryFileName != null) File.Delete(TemporaryFileName);
         }
     }
 }
