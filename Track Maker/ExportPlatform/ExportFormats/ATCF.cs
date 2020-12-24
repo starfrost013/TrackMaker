@@ -19,8 +19,9 @@ namespace Track_Maker
     /// 
     /// Created: 2020-05-17
     /// 
-    /// Modified: 2020-09-25 (v2.0.462)
+    /// Modified: 2020-12-24
     /// </summary>
+    /// 
     public class ExportBestTrack : IExportFormat
     {
         public bool DisplayPreview { get; set; }
@@ -225,27 +226,28 @@ namespace Track_Maker
         /// <returns></returns>
         public bool Export(Project Project)
         {
+            // Change to FolderBrowserDialog (v616)
             try
             {
-                SaveFileDialog SFD = new SaveFileDialog();
-                SFD.Title = $"Save to {GetName()} - enter folder name";
-                SFD.Filter = "Folders|*.";
-                SFD.ShowDialog();
 
-                if (SFD.FileName == "") return true;
+                System.Windows.Forms.FolderBrowserDialog FFD = new System.Windows.Forms.FolderBrowserDialog();
+                FFD.Description = $"Save to {GetName()} - enter folder name";
+
+                FFD.ShowDialog();
+
+                if (FFD.SelectedPath == "") return true;
 
                 //utilfunc v2
-                if (File.Exists(SFD.FileName))
+                if (Directory.Exists(FFD.SelectedPath))
                 {
-                    File.Delete(SFD.FileName);
-                    FileStream FS = File.Create(SFD.FileName);
-                    FS.Close();
+                    Directory.Delete(FFD.SelectedPath);
+                    Directory.CreateDirectory(FFD.SelectedPath);
                 }
 
                 // Run the export and if we failed clean up 
-                if (!ExportCore(Project, SFD.FileName))
+                if (!ExportCore(Project, FFD.SelectedPath))
                 {
-                    string _ = SFD.FileName.Replace(".", "");
+                    string _ = FFD.SelectedPath.Replace(".", "");
                     foreach (string FileName in Directory.EnumerateFiles(_))
                     {
                         File.Delete(FileName);
