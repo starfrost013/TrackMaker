@@ -42,6 +42,7 @@ Features:
 - Clean up logs by default; allow the user to toggle this
 - Temporary file management API
 - Rename all DLLs, better integration 
+- Preview on/off setting (for slow disks) 
 
 Track Maker 3.0
 Features:

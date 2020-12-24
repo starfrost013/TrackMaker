@@ -210,8 +210,6 @@ namespace Track_Maker
 
                 Lyr.AddStorm(Sto);
                 Bas.AddLayer(Lyr);
-                
-
             }
 
             Proj.AddBasin(Bas);

@@ -89,7 +89,7 @@ namespace Track_Maker
             string _4 = $"{_2[0]},{_3[0]}";
 
 
-            Coord.Coordinates = _4.SplitXY();
+            Coord.Coordinates = _4.SplitXY(true);
 
             // aaaa
             Coord.Directions = new List<CardinalDirection>();

@@ -577,6 +577,7 @@ namespace Track_Maker
 
             Layers.Clear();
             
+
             return;
         }
 
