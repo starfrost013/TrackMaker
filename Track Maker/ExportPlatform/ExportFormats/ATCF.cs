@@ -240,18 +240,25 @@ namespace Track_Maker
                 //utilfunc v2
                 if (Directory.Exists(FFD.SelectedPath))
                 {
+
+                    string[] FilesInDir = Directory.GetFiles(FFD.SelectedPath);
+
+                    if (FilesInDir.Length == 0)
+                    {
+                        Export_DeleteAllFilesInSpecifiedDirectory(FFD.SelectedPath);
+                    }
+
                     Directory.Delete(FFD.SelectedPath);
                     Directory.CreateDirectory(FFD.SelectedPath);
+                    
                 }
 
                 // Run the export and if we failed clean up 
                 if (!ExportCore(Project, FFD.SelectedPath))
                 {
                     string _ = FFD.SelectedPath.Replace(".", "");
-                    foreach (string FileName in Directory.EnumerateFiles(_))
-                    {
-                        File.Delete(FileName);
-                    }
+
+                    Export_DeleteAllFilesInSpecifiedDirectory(FFD.SelectedPath);
 
                     Directory.Delete(_); 
                 }
@@ -273,6 +280,17 @@ namespace Track_Maker
             return true;
         }
 
+        private bool Export_DeleteAllFilesInSpecifiedDirectory(string DirectoryPath)
+        {
+            List<string> FilesInDirectory = Directory.EnumerateFiles(DirectoryPath).ToList();
+
+            foreach (string FileInDirectory in FilesInDirectory)
+            {
+                File.Delete(FileInDirectory);
+            }
+
+            return true; 
+        }
         /// <summary>
         /// Needs to be majorly updated and refactored for v2
         /// </summary>
