@@ -231,12 +231,18 @@ namespace Track_Maker
                 return false;
             }
 
-            // load it again
+            // load it again (priscilla only, not iris)
             BitmapImage TempImage = new BitmapImage();
-            TempImage.BeginInit();
-            // it is a relative uri
-            TempImage.UriSource = new Uri(TemporaryFileName, UriKind.Relative);
-            TempImage.EndInit();
+
+            using (var St = File.OpenRead(TemporaryFileName))
+            {
+                TempImage.BeginInit();
+                // it is a relative uri
+                TempImage.CacheOption = BitmapCacheOption.OnLoad;
+                TempImage.StreamSource = St;
+                TempImage.EndInit();
+
+            }
 
             ExportPlatform_Preview.Background = new ImageBrush(TempImage);
 
@@ -246,8 +252,7 @@ namespace Track_Maker
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            // force the image out of use (614e)
-            ExportPlatform_Preview.Background = new SolidColorBrush(new Color { A = 0, R = 0, G = 0, B = 0 });
+            File.Delete(TemporaryFileName); 
         }
     }
 }

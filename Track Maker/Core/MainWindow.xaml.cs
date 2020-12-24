@@ -155,25 +155,9 @@ namespace Track_Maker
         private void Shutdown(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TickTimer.Stop();
-
-            Shutdown_DeleteAllTempFiles();
         }
 #elif IRIS
 #endif
-        private void Shutdown_DeleteAllTempFiles()
-        {
-#if PRISCILLA
-            // delete all temp files (IN IRIS THERE WILL BE A PROPER API)
-            string CurrentDirectory = Directory.GetCurrentDirectory();
-
-            string[] FileList = Directory.GetFiles(CurrentDirectory);
-
-            foreach (string Fil in FileList)
-            {
-                if (Fil.Contains(".tmp")) File.Delete(Fil); 
-            }
-#endif
-        }
 
 
     }
