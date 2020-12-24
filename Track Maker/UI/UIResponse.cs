@@ -419,5 +419,39 @@ namespace Track_Maker
 
             Title = $"Track Maker 2.0 - [{GlobalStateP.GetCurrentOpenFile()}]";
         }
+
+        private void FileMenu_Import_BT_Click(object sender, RoutedEventArgs e)
+        {
+            ExportUI ExpUI = new ExportUI(FormatType.Import, new ExportBestTrack());
+            ExpUI.Owner = this;
+            ExpUI.Show();
+        }
+
+        private void ZoomLevelChanged(object sender, DanoEventArgs e)
+        {
+            double ZoomLevel = (double)e.DanoParameters[0];
+            ZoomLevelX = ZoomLevel / 100; // dumb hack 
+            ZoomLevelY = ZoomLevel / 100;
+
+            // DUMB HACK BEGIN
+            // Temporary Code for Pre-Beta Only (HACK!!!!!!)
+
+            TransformGroup TG = new TransformGroup();
+            //TODO: fix zoom reset position by storing current transforms in a list
+            //in the mainwindow? or similar.
+            ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
+
+
+            if (InternalTransformGroup.Count != 0)
+            {
+                TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
+                if (TT != null) TG.Children.Add(TT);
+            }
+
+            TG.Children.Add(ST);
+
+            HurricaneBasin.RenderTransform = TG;
+            // DUMB HACK END
+        }
     }
 }

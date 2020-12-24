@@ -246,7 +246,8 @@ namespace Track_Maker
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            if (TemporaryFileName != null) File.Delete(TemporaryFileName);
+            // force the image out of use (614e)
+            ExportPlatform_Preview.Background = new SolidColorBrush(new Color { A = 0, R = 0, G = 0, B = 0 });
         }
     }
 }

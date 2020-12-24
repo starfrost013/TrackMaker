@@ -5,6 +5,7 @@ using Starfrost.UL5.WpfUtil;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO; 
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -119,39 +120,7 @@ namespace Track_Maker
             ToolsMenu.IsEnabled = false;
         }
 
-        private void FileMenu_Import_BT_Click(object sender, RoutedEventArgs e)
-        {
-            ExportUI ExpUI = new ExportUI(FormatType.Import, new ExportBestTrack());
-            ExpUI.Owner = this;
-            ExpUI.Show(); 
-        }
-
-        private void ZoomLevelChanged(object sender, DanoEventArgs e)
-        {
-            double ZoomLevel = (double)e.DanoParameters[0];
-            ZoomLevelX = ZoomLevel / 100; // dumb hack 
-            ZoomLevelY = ZoomLevel / 100;
-
-            // DUMB HACK BEGIN
-            // Temporary Code for Pre-Beta Only (HACK!!!!!!)
-
-            TransformGroup TG = new TransformGroup();
-            //TODO: fix zoom reset position by storing current transforms in a list
-            //in the mainwindow? or similar.
-            ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
-
-
-            if (InternalTransformGroup.Count != 0)
-            {
-                TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
-                if (TT != null) TG.Children.Add(TT);
-            }
-
-            TG.Children.Add(ST);
-
-            HurricaneBasin.RenderTransform = TG;
-            // DUMB HACK END
-        }
+       
 
         private void Shutdown(object sender, EventArgs e)
         {
@@ -186,9 +155,26 @@ namespace Track_Maker
         private void Shutdown(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TickTimer.Stop();
-        }
 
+            Shutdown_DeleteAllTempFiles();
+        }
 #elif IRIS
 #endif
+        private void Shutdown_DeleteAllTempFiles()
+        {
+#if PRISCILLA
+            // delete all temp files (IN IRIS THERE WILL BE A PROPER API)
+            string CurrentDirectory = Directory.GetCurrentDirectory();
+
+            string[] FileList = Directory.GetFiles(CurrentDirectory);
+
+            foreach (string Fil in FileList)
+            {
+                if (Fil.Contains(".tmp")) File.Delete(Fil); 
+            }
+#endif
+        }
+
+
     }
 }
