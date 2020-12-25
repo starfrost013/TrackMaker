@@ -37,8 +37,6 @@ namespace Track_Maker
         {
             InitializeComponent();
             Export_Init(FType, ExportFormat);
-   
-
         }
 
         private void Export_Init(FormatType FType, IExportFormat ExportFormat)
@@ -60,11 +58,10 @@ namespace Track_Maker
                 HideQualityControl();
             }
 
-            GeneratePreview(); 
-
-            //completely different in Dano
-            //ExportFormat.GeneratePreview(ExportPlatform_Preview);
-            //ExportPlatform_Preview.UpdateLayout(); 
+            if (!GeneratePreview())
+            {
+                Error.Throw("Error!", "Error generating preview", ErrorSeverity.FatalError, 283);
+            }
         }
 
         // Set the header using the Export Platform. 
@@ -211,7 +208,6 @@ namespace Track_Maker
                         ExpFormat.Export(MnWindow.CurrentProject);
                     }
 
-
                     // wish VS allowed the same var names under different code paths
                     Project CurProject = MnWindow.CurrentProject;
 
@@ -231,7 +227,7 @@ namespace Track_Maker
         private bool GeneratePreview()
         {
             // in iris we will have proper temporary file management
-            TemporaryFileName = $"tmm_preview_{DateTime.Now.ToString("yyyy-mm-dd HHmmss")}.png.tmp";
+            TemporaryFileName = $"tmm_preview_{DateTime.Now.ToString("yyyy-MM-dd HHmmss")}.png.tmp";
 
             // there's gotta be better ways to do this
             ExportImage EI = new ExportImage();

@@ -19,9 +19,9 @@ namespace Track_Maker
     /// 
     /// Created: 2020-05-17
     /// 
-    /// Modified: 2020-12-24
+    /// Modified: 2020-12-25
     /// </summary>
-    /// 
+
     public class ExportBestTrack : IExportFormat
     {
         public bool DisplayPreview { get; set; }
@@ -65,10 +65,18 @@ namespace Track_Maker
 
                     if (OFD.SelectedPath == "") return null;
 
+                    // check the directory
+                    if (!Export_CheckDirectoryValidForImport(OFD.SelectedPath))
+                    {
+                        IR.Status = ExportResults.Error;
+                        return IR;
+                    }
+
                     Project Proj = ImportCore(ST2Manager, OFD.SelectedPath);
 
                     if (Proj == null)
                     {
+
                         IR.Status = ExportResults.Error;
                         return IR;
                     }
@@ -245,7 +253,7 @@ namespace Track_Maker
 
                     string[] FilesInDir = Directory.GetFiles(CurPath);
 
-                    if (FilesInDir.Length == 0)
+                    if (FilesInDir.Length != 0)
                     {
                         Export_DeleteAllFilesInSpecifiedDirectory(CurPath);
                     }
@@ -254,10 +262,6 @@ namespace Track_Maker
                     Directory.CreateDirectory(CurPath);
                     
                 }
-
-                // check the directory
-                if (!Export_CheckDirectoryValidForImport(CurPath)) return false;
-
 
                 // Run the export and if we failed clean up 
                 if (!ExportCore(Project, CurPath))
