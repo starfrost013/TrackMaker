@@ -108,13 +108,18 @@ namespace Track_Maker
             double FinalX = -2.999126165;
             double FinalY = -2.999126165;
 
+            if (X1 <= 0 && X2 <= 0) WindowMultiplierPositionX = -WindowMultiplierPositionX;
+            if (Y1 <= 0 && Y2 <= 0) WindowMultiplierPositionY = -WindowMultiplierPositionY;
+
             // this is so the user can input the coordinates in any way they want. 
             if (X2 < X1)
             {
+                
                 FinalX = (X1 - X2) * WindowMultiplierPositionX;
             }
             else
             {
+
                 FinalX = (X2 - X1) * WindowMultiplierPositionX;
             }
 
@@ -142,7 +147,7 @@ namespace Track_Maker
             if (_s3.Length != 0)
             {
                 // Truncate to the first decimal point if there are decimal points
-                string _s4 = _s3[1].Substring(0, 3 - _s3[0].Length);
+                string _s4 = _s3[1].Substring(0, 1);
 
                 // Concanectate
                 _s4 = $"{_s3[0]}{_s4}";
