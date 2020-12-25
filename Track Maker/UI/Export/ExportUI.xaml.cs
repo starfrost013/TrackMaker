@@ -101,8 +101,18 @@ namespace Track_Maker
             }
             else
             {
-                Error.Throw("Success!", "Export successful!", ErrorSeverity.Message, 274);
-                Close(); 
+                switch (Type)
+                {
+                    case FormatType.Import:
+                        Error.Throw("Success!", "Import successful!", ErrorSeverity.Message, 274);
+                        Close();
+                        return; 
+                    case FormatType.Export:
+                        Error.Throw("Success!", "Export successful!", ErrorSeverity.Message, 274);
+                        Close();
+                        return; 
+                }
+
             }
 
             return;

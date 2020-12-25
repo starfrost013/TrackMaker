@@ -111,22 +111,27 @@ namespace Track_Maker
             // this is so the user can input the coordinates in any way they want. 
             if (X2 < X1)
             {
-                FinalX = X1 + (X1 - X2) * WindowMultiplierPositionX;
+                FinalX = (X1 - X2) * WindowMultiplierPositionX;
             }
             else
             {
-                FinalX = X1 + (X2 - X1) * WindowMultiplierPositionX;
+                FinalX = (X2 - X1) * WindowMultiplierPositionX;
             }
 
             if (Y2 < Y1)
             {
-                FinalY = Y1 + (Y1 - Y2) * WindowMultiplierPositionY;
+                FinalY = (Y1 - Y2) * WindowMultiplierPositionY;
             }
             else
             {
-                FinalY = Y1 + (Y2 - Y1) * WindowMultiplierPositionY;
+                FinalY = (Y2 - Y1) * WindowMultiplierPositionY;
             }
 
+            if (FinalX == -2.999126165 || FinalY == -2.999126125)
+            {
+                Error.Throw("Error!", "Failed to set FinalX!", ErrorSeverity.Error, 277);
+                return null;
+            }
 
             string _s = FinalX.ToString();
             string _s2 = FinalY.ToString();
@@ -160,15 +165,6 @@ namespace Track_Maker
 
             Coord.Directions = new List<CardinalDirection>();
 
-            if (FinalX < 0)
-            {
-                FinalX = -FinalX;
-                Coord.Directions.Add(CardinalDirection.W);
-            }
-            else
-            {
-                Coord.Directions.Add(CardinalDirection.E);
-            }
 
             if (FinalY < 0)
             {
@@ -179,6 +175,17 @@ namespace Track_Maker
             {
                 Coord.Directions.Add(CardinalDirection.N);
             }
+
+            if (FinalX < 0)
+            {
+                FinalX = -FinalX;
+                Coord.Directions.Add(CardinalDirection.W);
+            }
+            else
+            {
+                Coord.Directions.Add(CardinalDirection.E);
+            }
+
 
             // ATCF moment
             Coord.Coordinates = new Point(FinalY, FinalX);
