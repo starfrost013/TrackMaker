@@ -101,6 +101,7 @@ namespace Track_Maker
             }
             else
             {
+                Error.Throw("Success!", "Export successful!", ErrorSeverity.Message, 274);
                 Close(); 
             }
 
@@ -200,14 +201,14 @@ namespace Track_Maker
                     }
 
 
-                    // wish VS allowed the samE var names under different code paths
+                    // wish VS allowed the same var names under different code paths
                     Project CurProject = MnWindow.CurrentProject;
-
-
 
                     if (CurProject.FileName != null && CurProject.FileName != "") MnWindow.Title = $"Track Maker 2.0 - {CurProject.FileName}";
                     MnWindow.UpdateLayout();
                     MnWindow.TickTimer.Start();
+
+
                     Close();
                     return true;
             }

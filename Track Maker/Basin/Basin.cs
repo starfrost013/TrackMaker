@@ -101,11 +101,32 @@ namespace Track_Maker
 
             // convert to 1. Get rid of this mainwindow shit asap in dano.
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow; 
-            double _ = NodePosition.X / MnWindow.Width;
-            double _2 = NodePosition.Y / MnWindow.Height;
 
-            double FinalX = (X1 - X2)  * _;
-            double FinalY = (Y1 - Y2) * _2;
+            double WindowMultiplierPositionX = NodePosition.X / MnWindow.Width;
+            double WindowMultiplierPositionY = NodePosition.Y / MnWindow.Height;
+
+            double FinalX = -2.999126165;
+            double FinalY = -2.999126165;
+
+            // this is so the user can input the coordinates in any way they want. 
+            if (X2 < X1)
+            {
+                FinalX = X1 + (X1 - X2) * WindowMultiplierPositionX;
+            }
+            else
+            {
+                FinalX = X1 + (X2 - X1) * WindowMultiplierPositionX;
+            }
+
+            if (Y2 < Y1)
+            {
+                FinalY = Y1 + (Y1 - Y2) * WindowMultiplierPositionY;
+            }
+            else
+            {
+                FinalY = Y1 + (Y2 - Y1) * WindowMultiplierPositionY;
+            }
+
 
             string _s = FinalX.ToString();
             string _s2 = FinalY.ToString();
