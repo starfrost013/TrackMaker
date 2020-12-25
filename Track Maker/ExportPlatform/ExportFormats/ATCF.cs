@@ -235,7 +235,7 @@ namespace Track_Maker
 
                 FFD.ShowDialog();
 
-                string CurPath = CurPath;
+                string CurPath = FFD.SelectedPath;
 
                 if (CurPath == "") return true;
 
