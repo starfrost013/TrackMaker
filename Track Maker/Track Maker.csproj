@@ -395,8 +395,8 @@
     <Resource Include="Data\Undo16.png" />
     <Resource Include="Data\Undo32.png" />
     <Resource Include="Data\UndoFull.png" />
-    <Resource Include="Data\Splash\Priscilla.png" />
-    <Resource Include="Data\Splash\Priscilla2.png" />
+    <None Include="Data\Splash\Priscilla.png" />
+    <None Include="Data\Splash\Priscilla2.png" />
     <Resource Include="Data\Splash\Priscilla3.png" />
     <SplashScreen Include="Data\Splash\PriscillaRelease.png" />
     <Content Include="Data\StormTypes.xml">
