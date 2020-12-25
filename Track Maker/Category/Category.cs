@@ -130,7 +130,7 @@ namespace Track_Maker
 
             if (NoOfWords > Words.Length || NoOfWords < 0 || StartWordIndex > Words.Length)
             {
-                Error.Throw("Fatal Error", $"Invalid call to Category.GetAbbreviatedCategoryName() - length was {Words.Length}, must be between 0 and {NoOfWords}!", ErrorSeverity.FatalError, 126);
+                Error.Throw("Fatal Error", $"Invalid call to Category.GetAbbreviatedCategoryName() - length was {Words.Length}, must be between 0 and {NoOfWords}!", ErrorSeverity.FatalError, 282);
                 return null;
             }
 
