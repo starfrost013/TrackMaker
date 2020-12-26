@@ -117,6 +117,7 @@
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\GlobalState.Priscilla.cs" />
     <Compile Include="Core\Init\Init.cs" />
+    <Compile Include="Core\InternalStateVerification\InternalStateVerifier.cs" />
     <Compile Include="DanoProject\Project.cs" />
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>

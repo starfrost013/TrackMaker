@@ -100,11 +100,10 @@ namespace Track_Maker
             {
                 switch (Type)
                 {
-                    /* Import is self-evident
+ 
                     case FormatType.Import:
-                        Error.Throw("Success!", "Import successful!", ErrorSeverity.Message, 274);
                         Close();
-                        return; */
+                        return;
                     case FormatType.Export:
                         Error.Throw("Success!", "Export successful!", ErrorSeverity.Message, 274);
                         Close();

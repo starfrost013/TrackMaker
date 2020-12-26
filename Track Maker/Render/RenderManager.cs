@@ -14,7 +14,8 @@ namespace Track_Maker
     {
         public void RenderContent(Canvas HurricaneBasin, Point DotSize, List<Storm> StormList = null)
         {
-            // optimise by clearing it every time
+           
+            // optimise by clearing it every time (this is optimisation per v0.x standards LMAO)
             HurricaneBasin.Children.Clear();
 
             foreach (Layer XLayer in CurrentProject.SelectedBasin.BuildListOfZOrderedLayers())
