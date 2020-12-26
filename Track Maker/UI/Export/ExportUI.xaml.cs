@@ -42,7 +42,7 @@ namespace Track_Maker
         private void Export_Init(FormatType FType, IExportFormat ExportFormat)
         {
             Logging.Log("ExportUI Initialising...");
-            Logging.Log($"Format type: {FType}, export format: {ExportFormat.Name}");
+            Logging.Log($"Format type: {FType}, export format: {ExportFormat.GetName()}");
             MnWindow = (MainWindow)Application.Current.MainWindow;
             ExpFormat = ExportFormat;
             StormsToExport = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); // feature pushed back to Dano, maybe even 3.0/"Aurora"

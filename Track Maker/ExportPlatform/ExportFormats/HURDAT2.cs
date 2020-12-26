@@ -1,4 +1,8 @@
-﻿using Microsoft.Win32;
+﻿// Type Redirection
+using DiagResult = System.Windows.Forms.DialogResult;
+using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
+
+using Microsoft.Win32;
 using Starfrost.UL5.ScaleUtilities;
 using System;
 using System.Collections.Generic;
@@ -7,7 +11,7 @@ using System.Linq;
 using System.Reflection; 
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows; 
+using System.Windows;
 
 namespace Track_Maker
 {
@@ -27,7 +31,33 @@ namespace Track_Maker
 
         public ImportResult Import()
         {
-            throw new NotImplementedException("HURDAT2 Export is not available in this build"); 
+            FolderBrowserDialog FBD = new FolderBrowserDialog();
+
+            FBD.Description = $"Open {GetName()} format folder";
+
+            ImportResult IR = new ImportResult();
+
+            DiagResult DR = FBD.ShowDialog();
+
+            switch (DR)
+            {
+                case DiagResult.OK:
+                    string SelectedPath = FBD.SelectedPath;
+                    return ImportCore(SelectedPath);
+                case DiagResult.Cancel:
+                    IR.Status = ExportResults.Cancelled;
+                    return IR;
+                default:
+                    Error.Throw("Fatal Error!!", $"Unhandled ExportResult {DR}!", ErrorSeverity.FatalError, 320);
+                    return null; // will not run
+            }
+
+            
+        }
+
+        public ImportResult ImportCore(string SelectedPath)
+        {
+            throw new NotImplementedException("HURDAT2 Export is not available in this build");
         }
 
         public bool Export(Project Proj)
