@@ -14,6 +14,10 @@ namespace Track_Maker
         public static void Throw(string Caption, string Text, ErrorSeverity Severity, int ID = 0)
         {
 
+#if PRISCILLA
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            MnWindow.TickTimer.Stop(); 
+#endif
             switch (Severity)
             {
                 case ErrorSeverity.Message:

@@ -238,9 +238,32 @@ namespace Track_Maker
 
             // get the multiplier from the coordshigher.
 
-            double PreFinalX = Coord.Coordinates.X / (HighX - LowX);
-            double PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
+            double PreFinalX = -2.991823613;
+            double PreFinalY = -2.991823613;
 
+            if (HighX > LowX)
+            {
+                PreFinalX = Coord.Coordinates.X / (HighX - LowX);
+            }
+            else
+            {
+                PreFinalX = Coord.Coordinates.X / (LowX - HighX);
+            }
+
+            if (HighY > LowY)
+            {
+                PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
+            }
+            else
+            {
+                PreFinalY = Coord.Coordinates.Y / (LowY - HighY);
+            }
+
+            if (PreFinalX == -2.991823613 || PreFinalY == -2.991823613)
+            {
+                Error.Throw("Error", "Error translating coordinates - internal ATCF import error", ErrorSeverity.Error, 320);
+                return new Point(-2.991823613, -2.991823613); 
+            }
             // TEMP
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             // atcf fix

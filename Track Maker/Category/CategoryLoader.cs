@@ -30,8 +30,7 @@ namespace Track_Maker
                     if (XParent.NextSibling == null)
                     {
                         // the last node - no valid root node
-                        MessageBox.Show("No category systems installed! - CategorySystems.xml empty or corrupted!", "Error C1", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Application.Current.Shutdown(0xC1);
+                        Error.Throw("Error!!", $"CategorySystems.xml is empty or corrupted. The Track Maker cannot start.", ErrorSeverity.FatalError, 193);
                     }
 
                     XParent = XParent.NextSibling;
@@ -40,8 +39,7 @@ namespace Track_Maker
                 // check that there are actually category systems installed.
                 if (!XParent.HasChildNodes)
                 {
-                    MessageBox.Show("No category systems installed! - CategorySystems.xml empty!", "Error C2", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Application.Current.Shutdown(0xC2);
+                    Error.Throw("Error!!", $"No category systems are installed. The Track Maker cannot start.", ErrorSeverity.FatalError, 194);
                 }
 
                 XmlNodeList XChildren = XParent.ChildNodes;
@@ -59,8 +57,8 @@ namespace Track_Maker
                             // can't load an empty category system
                             if (!XParent.HasChildNodes)
                             {
-                                MessageBox.Show("No category systems installed! - CategorySystems.xml empty!", "Error C3", MessageBoxButton.OK, MessageBoxImage.Error);
-                                Application.Current.Shutdown(0xC3);
+                                // don't throw a fatal error and continue anyways 
+                                continue; 
                             }
 
                             // can't load a non-named category system
@@ -152,8 +150,7 @@ namespace Track_Maker
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"CategorySystems.xml malformed.\n\n{err}", "Error C4", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(0xC4);
+                Error.Throw("Error!!", $"CategorySystems.xml is malformed. The Track Maker cannot start.\n\nExtended Error Information:\n{err}", ErrorSeverity.FatalError, 196);
             }
         }
     }

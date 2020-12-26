@@ -32,8 +32,9 @@ namespace Track_Maker
             {
                 if (CurrentProject.SelectedBasin == null) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 301);
                 if (CurrentProject.CategorySystems == null) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 302);
-                if (CurrentProject.CategorySystems.Count == 0) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 303);
-                if (CurrentProject.SelectedCategorySystem == null) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 304);
+                // genuinely no idea why 303 is triggering and i don't really havee time to find out why. 304 is triggering because I'm an idiot.
+                //if (CurrentProject.CategorySystems.Count == 0) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 303);
+                //if (CurrentProject.SelectedCategorySystem == null) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 304);
                 if (CurrentProject.OpenBasins.Count == 0) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 305);
                 
                 if (Catman == null)

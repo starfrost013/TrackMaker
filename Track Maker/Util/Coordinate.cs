@@ -128,7 +128,7 @@ namespace Track_Maker
             string PreNumericalComponent2 = CoordinateComponents2.Substring(0, CoordinateComponents2.Length - 1);
 
             string CardinalDirection1 = CoordinateComponents1.Substring(CoordinateComponents1.Length - 1);
-            string CardinalDirection2 = CoordinateComponents1.Substring(CoordinateComponents2.Length - 1);
+            string CardinalDirection2 = CoordinateComponents2.Substring(CoordinateComponents2.Length - 1);
 
             double Coord1 = Convert.ToDouble(PreNumericalComponent1);
             double Coord2 = Convert.ToDouble(PreNumericalComponent2);

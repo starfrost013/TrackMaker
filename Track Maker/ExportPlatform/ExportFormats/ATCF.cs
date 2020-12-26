@@ -140,7 +140,7 @@ namespace Track_Maker
                 // not foreach because it makes it slightly easier to set the date
                 for (int j = 0; j < ATCFLines.Length; j++)
                 {
-                    string ATCFLine = ATCFLines[i];
+                    string ATCFLine = ATCFLines[j];
 
                     string[] Components = ATCFLine.Split(',');
 
