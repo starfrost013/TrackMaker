@@ -79,6 +79,8 @@ namespace Track_Maker
                     {
                         string HD2String = Hurdat2Strings[j];
 
+                        Storm Sto = new Storm();
+
                         // non-header
                         if (j != 0)
                         {
@@ -116,6 +118,9 @@ namespace Track_Maker
                         else
                         {
                             // HURDAT2 Format Header
+                            string HD2Header = HD2String;
+
+                            List<string> HD2HeaderComponent = HD2Header.Split(',').ToList();
                         }
                         
                         // set up the basin if this is the first node of the first file
@@ -179,11 +184,13 @@ namespace Track_Maker
 
                         string Year = Sto.FormationDate.ToString("yyyy");
 
-                        int NoOfSpacesBeforeName = 19 - Sto.Name.Length;
+                        if (StormName.Length > 19) Sto.Name = Sto.Name.Substring(0, 19);
 
-                        string StormIdString = Sto.Id.ToString();
+                        int NoOfSpacesBeforeName = 19 - StormName.Length;
 
-                        int NoOfSpacesBeforeStormId = 7 - StormIdString.Length;
+                        if (StormID.Length > 7) Sto.Name = Sto.Name.Substring(0, 7);
+
+                        int NoOfSpacesBeforeStormId = 7 - StormID.Length;
 
                         string StDesignation = $"{BasAbbreviation}{StormID}{Year}";
 
