@@ -459,6 +459,8 @@ namespace Track_Maker
         private void FileMenu_Import_HURDAT2_Click(object sender, RoutedEventArgs e)
         {
             ExportUI EUI = new ExportUI(FormatType.Import, new ExportHURDAT2());
+            EUI.Owner = this;
+            EUI.Show(); 
         }
     }
 }
