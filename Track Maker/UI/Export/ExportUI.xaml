@@ -11,13 +11,13 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="Export Tracks" Height="474.069" Width="918.198" Loaded="Window_Loaded" Closed="Window_Closed">
+        Title="Export Tracks" Height="479.25" Width="918.198" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
 
         <!-- QualityControl -->
         <Dano:QualityControl x:Name="QualityControl"  Margin="10,67,636,218"></Dano:QualityControl>
 
-        <TextBlock x:Name="ExportPlatform" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Export to Whatever" VerticalAlignment="Top" Height="71" Width="492" FontSize="48" FontStyle="Italic"/>
+        <TextBlock x:Name="ExportPlatform" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Export to Whatever" VerticalAlignment="Top" Height="71" Width="704" FontSize="48" FontStyle="Italic"/>
         <!-- QualityControl disabled: [10,10,0,0] Size: 18pt 
              QualityControl enabled: [294,73,0,0] Size: 18pt -->
 
