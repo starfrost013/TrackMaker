@@ -159,6 +159,7 @@
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExportPlatform\ExportFormats\ATCF.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\ATCFHelper\ATCFHelperMethods.cs" />
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
     <Compile Include="ExportPlatform\ExportFormats\FileSelector\Result\ExportResultEnum.cs" />
     <Compile Include="ExportPlatform\ExportFormats\FileSelector\Result\ExportResult.cs" />

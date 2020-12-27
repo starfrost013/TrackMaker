@@ -57,7 +57,26 @@ namespace Track_Maker
 
         public ImportResult ImportCore(string SelectedPath)
         {
-            throw new NotImplementedException("HURDAT2 Export is not available in this build");
+            ImportResult IR = new ImportResult();
+
+            if (!Directory.Exists(SelectedPath)) 
+            {
+                Error.Throw("Fatal HURDAT2 Import Error", "Attempted to import nonexistent directory.", ErrorSeverity.Error, 321);
+                IR.Status = ExportResults.Error;
+                return IR;
+            }
+            else
+            {
+                List<string> FileList = Directory.EnumerateFiles(SelectedPath).ToList();
+
+                for (int i = 0; i < FileList.Count; i++)
+                {
+                    string FileName = FileList[i];
+
+                    // cba to convert to array
+                    string[] Hurdat2Strings = File.ReadAllLines(FileName);
+                }
+            }
         }
 
         public bool Export(Project Proj)
