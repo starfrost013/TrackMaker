@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Track_Maker
 {
@@ -122,6 +124,20 @@ namespace Track_Maker
                     
                 }
             }
+        }
+
+        public static StormType2 Export_GetStormType(string NodeType)
+        {
+            RealStormType RST = ATCFHelperMethods.Export_IdentifyRealType(NodeType);
+#if PRISCILLA
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            StormTypeManager STM = MnWindow.ST2Manager;
+#else
+            StormTypeManager STM = MnWindow.GetST2Manager();
+#endif
+            StormType2 ST2 = STM.GetStormTypeWithRealStormTypeName(RST);
+
+            return ST2;
         }
 
     }

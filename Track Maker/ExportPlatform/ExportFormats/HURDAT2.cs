@@ -59,6 +59,8 @@ namespace Track_Maker
         {
             ImportResult IR = new ImportResult();
 
+            Project Proj = new Project();
+            
             if (!ATCFHelperMethods.Export_CheckDirectoryValidForImport(SelectedPath)) 
             {
                 Error.Throw("Fatal HURDAT2 Import Error", "Attempted to import nonexistent directory.", ErrorSeverity.Error, 321);
@@ -69,17 +71,20 @@ namespace Track_Maker
             {
                 List<string> FileList = Directory.EnumerateFiles(SelectedPath).ToList();
 
+                Basin Bas = new Basin();
                 for (int i = 0; i < FileList.Count; i++)
                 {
                     string FileName = FileList[i];
 
                     List<string> Hurdat2Strings = File.ReadAllLines(FileName).ToList();
 
+                    Storm Sto = new Storm();
+
                     for (int j = 0; j < Hurdat2Strings.Count(); j++)
                     {
                         string HD2String = Hurdat2Strings[j];
 
-                        Storm Sto = new Storm();
+                        Node CN = new Node();
 
                         // non-header
                         if (j != 0)
@@ -113,6 +118,33 @@ namespace Track_Maker
                             _Latitude = _Latitude.Trim();
                             _Longitude = _Longitude.Trim();
                             _WindSpeed = _WindSpeed.Trim();
+
+                            // first real information
+                            if (j == 1)
+                            {
+                                string DateString = $"{_Date} {_Time}";
+                                Sto.FormationDate = DateTime.Parse(DateString);
+                            }
+
+                            CN.Id = j;
+                            RealStormType RST = ATCFHelperMethods.Export_IdentifyRealType(_Category);
+                            
+                            CN.Intensity = Convert.ToInt32(_WindSpeed);
+                            CN.NodeType = ATCFHelperMethods.Export_GetStormType(_Category);
+
+                            if (CN.NodeType == null)
+                            {
+                                Error.Throw("Error!", "Invalid or unknown stormtype detected!", ErrorSeverity.Error, 322);
+                                IR.Status = ExportResults.Error;
+                                return IR;
+                            }
+
+                            Coordinate Coordinate = Coordinate.FromSplitCoordinate(_Longitude, _Latitude);
+
+                            CN.Position = Bas.FromCoordinateToNodePosition(Coordinate);
+
+                            Sto.AddNode(CN);
+
                         }
                         // this can and will be refactored
                         else
@@ -120,14 +152,49 @@ namespace Track_Maker
                             // HURDAT2 Format Header
                             string HD2Header = HD2String;
 
-                            List<string> HD2HeaderComponent = HD2Header.Split(',').ToList();
+                            List<string> HD2HeaderComponents = HD2Header.Split(',').ToList();
+
+                            string HD2ID = HD2HeaderComponents[0];
+                            string HD2Name = HD2HeaderComponents[1];
+                            string HD2AdvisoryCount = HD2HeaderComponents[2]; // we don't use this
+
+                            if (HD2ID.Length != 8)
+                            {
+                                Error.Throw("Error!", "Invalid ID field in HURDAT2 storm header.", ErrorSeverity.Error, 322);
+                                IR.Status = ExportResults.Error;
+                                return IR;
+                            }
+
+                            string BasinAbbreviation = HD2ID.Substring(0, 2);
+
+                            // set up the basin if this is the first node of the first file
+
+                            if (i == 0)
+                            {
+                                Bas = Proj.GetBasinWithAbbreviation(BasinAbbreviation);
+
+                                if (Bas.CoordsLower == null || Bas.CoordsHigher == null)
+                                {
+                                    Error.Throw("Error!", "This basin is not supported by the HURDAT2 format as it does not have defined boundaries in Basins.xml.", ErrorSeverity.Error, 322);
+                                    IR.Status = ExportResults.Error;
+                                    return IR;
+                                }
+
+                                // sets up a background layer for us so we do not need to create one manually
+                                Proj.InitBasin(Bas); 
+                            }
+
+                            Sto.Name = HD2Name;
+                            continue; 
                         }
-                        
-                        // set up the basin if this is the first node of the first file
+
+                        Sto.AddNode(CN);
 
                         // set up the storm if this is the first node of any file (TERRIBLE SHIT NO GOOD)
 
                     }
+
+                    Bas.AddStorm(Sto); 
                 }
             }
         }
@@ -179,7 +246,7 @@ namespace Track_Maker
 
                         // should probably make this a method at some point
                         string BasAbbreviation = Bas.Abbreviation;
-                        string StormID = Utilities.PadZero(Sto.Id); // this should return an int
+                        string StormAdvisoryCount = Utilities.PadZero(Sto.NodeList.Count); // this should return an int
                         string StormName = Sto.Name;
 
                         string Year = Sto.FormationDate.ToString("yyyy");
@@ -188,11 +255,11 @@ namespace Track_Maker
 
                         int NoOfSpacesBeforeName = 19 - StormName.Length;
 
-                        if (StormID.Length > 7) Sto.Name = Sto.Name.Substring(0, 7);
+                        if (StormAdvisoryCount.Length > 7) Sto.Name = Sto.Name.Substring(0, 7);
 
-                        int NoOfSpacesBeforeStormId = 7 - StormID.Length;
+                        int NoOfSpacesBeforeStormId = 7 - StormAdvisoryCount.Length;
 
-                        string StDesignation = $"{BasAbbreviation}{StormID}{Year}";
+                        string StDesignation = $"{BasAbbreviation}{StormAdvisoryCount}{Year}";
 
                         SW.Write(StDesignation);
                         SW.Write(',');

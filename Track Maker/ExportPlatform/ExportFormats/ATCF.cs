@@ -172,14 +172,13 @@ namespace Track_Maker
                     // first iteration...
                     if (j == 0)
                     {
-
                         if (i == 0)
                         {
                             Bas = Proj.GetBasinWithAbbreviation(_StrAbbreviation);
 
                             if (Bas.CoordsHigher == null || Bas.CoordsLower == null)
                             {
-                                Error.Throw("Error!", "This basin is not supported by the ATCF format as it does not have defined borders.", ErrorSeverity.Error, 249);
+                                Error.Throw("Error!", "This basin is not supported by the ATCF format as it does not have defined borders in Basins.xml.", ErrorSeverity.Error, 249);
                                 return null;
                             }
                         }
@@ -212,9 +211,10 @@ namespace Track_Maker
                     Nod.Intensity = Intensity;
 
                     Nod.Position = Bas.FromCoordinateToNodePosition(Coord);
-                    Nod.NodeType = GetStormType(_StrCategory);
+                    Nod.NodeType = ATCFHelperMethods.Export_GetStormType(_StrCategory);
 
-                    Sto.AddNode(Nod);                    
+                    Sto.AddNode(Nod);
+                    
                 }
 
                 Lyr.AddStorm(Sto);
@@ -439,19 +439,6 @@ namespace Track_Maker
 
             
             return true;
-        }
-
-        private StormType2 GetStormType(string NodeType)
-        {
-            RealStormType RST = ATCFHelperMethods.Export_IdentifyRealType(NodeType);
-#if PRISCILLA
-            StormTypeManager STM = MnWindow.ST2Manager;
-#else
-            StormTypeManager STM = MnWindow.GetST2Manager();
-#endif
-            StormType2 ST2 = STM.GetStormTypeWithRealStormTypeName(RST);
-
-            return ST2; 
         }
 
         public void GeneratePreview(Canvas canvas)
