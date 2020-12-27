@@ -35,15 +35,51 @@ namespace Track_Maker
         public string TemporaryFileName { get; set; }
         public ExportUI(FormatType FType, IExportFormat ExportFormat)
         {
+            if (!Export_PreInit(FType, ExportFormat)) return; // do not initialise if preinit failed
             InitializeComponent();
             Export_Init(FType, ExportFormat);
+        }
+
+        // export_init should occur BEFORE UI loads
+        /// <summary>
+        /// ExportUI Preinit
+        /// 
+        /// returns true if successful (v627)
+        /// </summary>
+        /// <param name="FType"></param>
+        /// <param name="ExportFormat"></param>
+        /// <returns></returns>
+        private bool Export_PreInit(FormatType FType, IExportFormat ExportFormat)
+        {
+            MnWindow = (MainWindow)Application.Current.MainWindow;
+
+            if (FType == FormatType.Export)
+            {
+                Basin CurrentBasin = MnWindow.CurrentProject.SelectedBasin;
+
+                List<Storm> StormList = CurrentBasin.GetFlatListOfStorms();
+
+                if (StormList.Count == 0)
+                {
+                    Error.Throw("Warning", "You must have at least one storm to export!", ErrorSeverity.Warning, 340);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return true; // for now
+            }
         }
 
         private void Export_Init(FormatType FType, IExportFormat ExportFormat)
         {
             Logging.Log("ExportUI Initialising...");
             Logging.Log($"Format type: {FType}, export format: {ExportFormat.GetName()}");
-            MnWindow = (MainWindow)Application.Current.MainWindow;
+
             ExpFormat = ExportFormat;
             StormsToExport = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); // feature pushed back to Dano, maybe even 3.0/"Aurora"
             Type = FType;
