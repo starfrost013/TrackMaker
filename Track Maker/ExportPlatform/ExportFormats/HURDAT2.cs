@@ -31,25 +31,40 @@ namespace Track_Maker
 
         public ImportResult Import()
         {
-            FolderBrowserDialog FBD = new FolderBrowserDialog();
-
-            FBD.Description = $"Open {GetName()} format folder";
-
             ImportResult IR = new ImportResult();
 
-            DiagResult DR = FBD.ShowDialog();
-
-            switch (DR)
+            try
             {
-                case DiagResult.OK:
-                    string SelectedPath = FBD.SelectedPath;
-                    return ImportCore(SelectedPath);
-                case DiagResult.Cancel:
-                    IR.Status = ExportResults.Cancelled;
-                    return IR;
-                default:
-                    Error.Throw("Fatal Error!!", $"Unhandled ExportResult {DR}!", ErrorSeverity.FatalError, 320);
-                    return null; // will not run
+                FolderBrowserDialog FBD = new FolderBrowserDialog();
+
+                FBD.Description = $"Open {GetName()} format folder";
+
+                DiagResult DR = FBD.ShowDialog();
+
+                switch (DR)
+                {
+                    case DiagResult.OK:
+                        string SelectedPath = FBD.SelectedPath;
+                        return ImportCore(SelectedPath);
+                    case DiagResult.Cancel:
+                        IR.Status = ExportResults.Cancelled;
+                        return IR;
+                    default:
+                        Error.Throw("Fatal Error!!", $"Unhandled ExportResult {DR}!", ErrorSeverity.FatalError, 320);
+                        return null; // will not run
+                }
+            }
+            catch (FormatException err)
+            {
+                Error.Throw("Fatal HURDAT2 Import Error", $"Malformed HURDAT2 file - invalid format when converitng between types\n\n{err}", ErrorSeverity.Error, 325);
+                IR.Status = ExportResults.Error;
+                return IR;
+            }
+            catch (OverflowException err)
+            {
+                Error.Throw("Fatal HURDAT2 Import Error", $"Malformed HURDAT2 file - intensity overflow:\n\n{err}", ErrorSeverity.Error, 324);
+                IR.Status = ExportResults.Error;
+                return IR;
             }
 
             
@@ -72,6 +87,7 @@ namespace Track_Maker
                 List<string> FileList = Directory.EnumerateFiles(SelectedPath).ToList();
 
                 Basin Bas = new Basin();
+
                 for (int i = 0; i < FileList.Count; i++)
                 {
                     string FileName = FileList[i];
@@ -196,7 +212,13 @@ namespace Track_Maker
 
                     Bas.AddStorm(Sto); 
                 }
+
+                Proj.AddBasin(Bas);
             }
+
+            IR.Project = Proj;
+            IR.Status = ExportResults.OK;
+            return IR;
         }
 
         public bool Export(Project Proj)
