@@ -59,7 +59,7 @@ namespace Track_Maker
         {
             ImportResult IR = new ImportResult();
 
-            if (!Directory.Exists(SelectedPath)) 
+            if (!ATCFHelperMethods.Export_CheckDirectoryValidForImport(SelectedPath)) 
             {
                 Error.Throw("Fatal HURDAT2 Import Error", "Attempted to import nonexistent directory.", ErrorSeverity.Error, 321);
                 IR.Status = ExportResults.Error;
@@ -75,6 +75,16 @@ namespace Track_Maker
 
                     // cba to convert to array
                     string[] Hurdat2Strings = File.ReadAllLines(FileName);
+
+                    for (int j = 0; j < Hurdat2Strings.Count(); j++)
+                    {
+                        string HD2String = Hurdat2Strings[j];
+
+                        if (i == 0 && j == 0)
+                        {
+
+                        }
+                    }
                 }
             }
         }

@@ -30,6 +30,12 @@ namespace Track_Maker
         // Iris: genericised input validation
         public static bool Export_CheckDirectoryValidForImport(string PathToDirectory)
         {
+            if (!Directory.Exists(PathToDirectory))
+            {
+                Error.Throw("Error", "Import error: can't import nonexistent folder!", ErrorSeverity.Error, 282);
+                return false;
+            }
+
             List<string> FilesInDirectory = Directory.EnumerateFiles(PathToDirectory).ToList();
 
             if (FilesInDirectory.Count == 0)
@@ -105,7 +111,15 @@ namespace Track_Maker
                 }
                 else
                 {
-                    return RealStormType.Tropical;
+                    if (NodeType.ContainsCaseInsensitive("LO"))
+                    {
+                        return RealStormType.Invest;
+                    }
+                    else
+                    {
+                        return RealStormType.Tropical;
+                    }
+                    
                 }
             }
         }
