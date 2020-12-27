@@ -279,7 +279,7 @@ namespace Track_Maker
 
                         if (StormAdvisoryCount.Length > 7) Sto.Name = Sto.Name.Substring(0, 7);
 
-                        int NoOfSpacesBeforeStormId = 7 - StormAdvisoryCount.Length;
+                        int NoOfSpacesBeforeStormAdvisoryCount = 7 - StormAdvisoryCount.Length;
 
                         string StDesignation = $"{BasAbbreviation}{StormAdvisoryCount}{Year}";
 
@@ -291,8 +291,9 @@ namespace Track_Maker
                         SW.Write(StormName);
                         SW.Write(',');
 
-                        for (int i = 0; i < NoOfSpacesBeforeStormId; i++) SW.Write(' ');
+                        for (int i = 0; i < NoOfSpacesBeforeStormAdvisoryCount; i++) SW.Write(' ');
 
+                        SW.Write(StormAdvisoryCount);
                         SW.Write(',');
                         SW.WriteLine();
 
@@ -340,7 +341,7 @@ namespace Track_Maker
                             
                             // dumb fucking piece of shit hack because what the fuck is compatibility you fucking NOAA dumb fucks
                             CD.Coordinates = new Point(CD.Coordinates.X / 10, CD.Coordinates.Y / 10); 
-                            SW.Write($"{CD.Coordinates.X}{CD.Directions[0].ToString()}, {CD.Coordinates.Y}{CD.Directions[0]}, ");
+                            SW.Write($"{CD.Coordinates.X}{CD.Directions[0].ToString()}, {CD.Coordinates.Y}{CD.Directions[1]}, ");
 
 
                             // we don't save this data lol. 
