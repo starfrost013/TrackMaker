@@ -454,5 +454,11 @@ namespace Track_Maker
             HurricaneBasin.RenderTransform = TG;
             // DUMB HACK END
         }
+
+
+        private void FileMenu_Import_HURDAT2_Click(object sender, RoutedEventArgs e)
+        {
+            ExportUI EUI = new ExportUI(FormatType.Import, new ExportHURDAT2());
+        }
     }
 }
