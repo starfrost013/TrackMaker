@@ -73,17 +73,55 @@ namespace Track_Maker
                 {
                     string FileName = FileList[i];
 
-                    // cba to convert to array
-                    string[] Hurdat2Strings = File.ReadAllLines(FileName);
+                    List<string> Hurdat2Strings = File.ReadAllLines(FileName).ToList();
 
                     for (int j = 0; j < Hurdat2Strings.Count(); j++)
                     {
                         string HD2String = Hurdat2Strings[j];
 
-                        if (i == 0 && j == 0)
+                        // non-header
+                        if (j != 0)
                         {
+                            List<string> Components = HD2String.Split(',').ToList();
 
+                            // HURDAT2 Format components
+                            // 20151020, 0600,  , TD, 13.4N,  94.0W,  25, 1007,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+                            // 0 = date (YYYYMMDD)
+                            // 1 = time (YYYYMMDD) ignore this until iris when we will explictly store node dates
+                            // 2 = reserved, unused
+                            // 3 = category
+                            // 4 = latitude
+                            // 5 = longitude
+                            // 6 = wind speed
+                            // 7 = pressure
+                            // rest are wind radii 34/50/64kt
+                            // Currently we only care about 0, 1, 3, 4, 5, and 6
+
+                            string _Date = Components[0];
+                            string _Time = Components[1];
+                            string _Category = Components[3];
+                            string _Latitude = Components[4];
+                            string _Longitude = Components[5];
+                            string _WindSpeed = Components[6];
+
+                            // Trim everything.
+                            _Date = _Date.Trim();
+                            _Time = _Time.Trim();
+                            _Category = _Category.Trim();
+                            _Latitude = _Latitude.Trim();
+                            _Longitude = _Longitude.Trim();
+                            _WindSpeed = _WindSpeed.Trim();
                         }
+                        // this can and will be refactored
+                        else
+                        {
+                            // HURDAT2 Format Header
+                        }
+                        
+                        // set up the basin if this is the first node of the first file
+
+                        // set up the storm if this is the first node of any file (TERRIBLE SHIT NO GOOD)
+
                     }
                 }
             }
@@ -132,6 +170,36 @@ namespace Track_Maker
                 {
                     using (StreamWriter SW = new StreamWriter(new FileStream($"{Bas.Name}_{Sto.Name}.dat", FileMode.Create)))
                     {
+                        // write HURDAT2 Format Header
+
+                        // should probably make this a method at some point
+                        string BasAbbreviation = Bas.Abbreviation;
+                        string StormID = Utilities.PadZero(Sto.Id); // this should return an int
+                        string StormName = Sto.Name;
+
+                        string Year = Sto.FormationDate.ToString("yyyy");
+
+                        int NoOfSpacesBeforeName = 19 - Sto.Name.Length;
+
+                        string StormIdString = Sto.Id.ToString();
+
+                        int NoOfSpacesBeforeStormId = 7 - StormIdString.Length;
+
+                        string StDesignation = $"{BasAbbreviation}{StormID}{Year}";
+
+                        SW.Write(StDesignation);
+                        SW.Write(',');
+
+                        for (int i = 0; i < NoOfSpacesBeforeName; i++) SW.Write(' ');
+
+                        SW.Write(StormName);
+                        SW.Write(',');
+
+                        for (int i = 0; i < NoOfSpacesBeforeStormId; i++) SW.Write(' ');
+
+                        SW.Write(',');
+                        SW.WriteLine();
+
                         foreach (Node No in Sto.NodeList)
                         {
                             // this is going to go here, too tired for this
@@ -187,7 +255,6 @@ namespace Track_Maker
                             {
                                 SW.Write(","); 
                             }
-                           
                            
                             SW.WriteLine();
                         }
