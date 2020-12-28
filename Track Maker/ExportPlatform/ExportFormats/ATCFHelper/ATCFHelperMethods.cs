@@ -84,6 +84,14 @@ namespace Track_Maker
                             SecondCommaIndex = 14;
                         }
 
+                        long BytesRemaining = BR.BaseStream.Length - BR.BaseStream.Position;
+
+                        if (BytesRemaining < SecondCommaIndex)
+                        {
+                            Error.Throw("Error", "Invalid HURDAT2 format file - error verifying file format (stage 3)", ErrorSeverity.Error, 328);
+                            return false;
+                        }
+
                         byte[] Bytes = BR.ReadBytes(SecondCommaIndex + 1);
 
                         Debug.Assert(Bytes.Length == (SecondCommaIndex + 1));
