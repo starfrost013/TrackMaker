@@ -1,0 +1,9 @@
+Iris Modules:
+
+Track Maker.exe - main module
+TrackMaker.Core.dll - code that does not rely on UI - projects, basins, nodes, XML loading (deserialised), new delegate-based error handling
+TrackMaker.ExportPlatform.dll - export platform core; not sure if Extensible Core should be in Iris or 3.0/Yellowsteel
+TrackMaker.Tools.ACECalculator.dll - Dano.ACECalculator.dll; renamed
+TrackMaker.Tools.AdvisoryGenerator.dll 
+TrackMaker.UI.dll - DanoUI.dll + more UI; . MainWindow moved to this in 3.0.
+TrackMaker.Utilities.dll - Useful Library 6.0

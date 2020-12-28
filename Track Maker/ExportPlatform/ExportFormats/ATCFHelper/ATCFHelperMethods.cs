@@ -30,7 +30,7 @@ namespace Track_Maker
         /// <param name="PathToDirectory"></param>
         /// <returns></returns>
         // Iris: genericised input validation
-        public static bool Export_CheckDirectoryValidForImport(string PathToDirectory)
+        public static bool Export_CheckDirectoryValidForImport(string PathToDirectory, AgencyFormats AgencyFormat = AgencyFormats.ATCF)
         {
             if (!Directory.Exists(PathToDirectory))
             {
@@ -70,15 +70,25 @@ namespace Track_Maker
                         }
                     }
 
-                    // check 3: file data. Should defeat everyone without technical knowledge.
+                    // check 3: file data. Should defeat everyone without technical knowledge and everyone who is not intentionally attempting to insert invalid data.
 
                     using (BinaryReader BR = new BinaryReader(new FileStream(FileInDirectory, FileMode.Open)))
                     {
-                        byte[] Bytes = BR.ReadBytes(7);
 
-                        Debug.Assert(Bytes.Length == 7);
+                        int FirstCommaIndex = 2;
+                        int SecondCommaIndex = 6;
 
-                        if (Bytes[2] == 0x2C && Bytes[6] == 0x2C)
+                        if (AgencyFormat == AgencyFormats.HURDAT2)
+                        {
+                            FirstCommaIndex = 8;
+                            SecondCommaIndex = 14;
+                        }
+
+                        byte[] Bytes = BR.ReadBytes(SecondCommaIndex + 1);
+
+                        Debug.Assert(Bytes.Length == (SecondCommaIndex + 1));
+
+                        if (Bytes[FirstCommaIndex] == 0x2C && Bytes[SecondCommaIndex] == 0x2C)
                         {
                             BR.Close();
                             return true;

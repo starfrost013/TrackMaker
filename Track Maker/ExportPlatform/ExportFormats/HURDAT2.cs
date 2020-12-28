@@ -3,6 +3,7 @@ using DiagResult = System.Windows.Forms.DialogResult;
 using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 
 using Microsoft.Win32;
+using Starfrost.UL5.Logging;
 using Starfrost.UL5.ScaleUtilities;
 using System;
 using System.Collections.Generic;
@@ -176,7 +177,7 @@ namespace Track_Maker
 
                             if (HD2ID.Length != 8)
                             {
-                                Error.Throw("Error!", "Invalid ID field in HURDAT2 storm header.", ErrorSeverity.Error, 322);
+                                Error.Throw("Error!", "Invalid ID field in HURDAT2 storm header.", ErrorSeverity.Error, 323);
                                 IR.Status = ExportResults.Error;
                                 return IR;
                             }
@@ -191,7 +192,7 @@ namespace Track_Maker
 
                                 if (Bas.CoordsLower == null || Bas.CoordsHigher == null)
                                 {
-                                    Error.Throw("Error!", "This basin is not supported by the HURDAT2 format as it does not have defined boundaries in Basins.xml.", ErrorSeverity.Error, 322);
+                                    Error.Throw("Error!", "This basin is not supported by the HURDAT2 format as it does not have defined boundaries in Basins.xml.", ErrorSeverity.Error, 326);
                                     IR.Status = ExportResults.Error;
                                     return IR;
                                 }
@@ -255,8 +256,11 @@ namespace Track_Maker
 
             foreach (Basin Bas in Proj.OpenBasins)
             {
-                Directory.CreateDirectory(Bas.Name);
-                Directory.SetCurrentDirectory(Bas.Name);
+
+                //this feature is totally moot
+                //this will be reimplemented in 3.0 better
+                //Directory.CreateDirectory(Bas.Name);
+                //Directory.SetCurrentDirectory(Bas.Name);
 
                 List<Storm> FlatStorms = Bas.GetFlatListOfStorms(); 
 
@@ -329,6 +333,12 @@ namespace Track_Maker
                             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
 
                             Category Cat = Sto.GetNodeCategory(No, MnWindow.Catman.CurrentCategorySystem);
+
+                            if (Cat == null)
+                            {
+                                Logging.Log("Export Warning: Skipping node with nonexistent or illegal category");
+                                continue;
+                            }
 
                             string[] CatWords = Cat.Name.Split(' ');
 

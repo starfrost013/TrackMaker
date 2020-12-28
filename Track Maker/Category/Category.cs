@@ -153,6 +153,7 @@ namespace Track_Maker
 
             StringBuilder SB = new StringBuilder();
             
+            // Build each word
             for (int i = StartWordIndex; i < NoOfWords; i++ )
             {
                 string Wrd = Words[i];
