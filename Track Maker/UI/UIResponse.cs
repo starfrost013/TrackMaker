@@ -6,6 +6,8 @@ using Starfrost.UL5.MathUtil;
 using Starfrost.UL5.WpfUtil; 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO; 
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -481,6 +483,35 @@ namespace Track_Maker
             ExportUI EUI = new ExportUI(FormatType.Import, new ExportHURDAT2());
             EUI.Owner = this;
             EUI.Show(); */
+        }
+
+        private void HelpMenu_Help_Click(object sender, RoutedEventArgs e)
+        {
+            // build 630
+            // this is disabled for now as the help file doesn't actually exist now
+
+            // LaunchHelp()?
+
+            string HelpFileName = "TrackMaker.chm";
+
+            if (!File.Exists(HelpFileName))
+            {
+                Error.Throw("Error", $"Cannot find help file {HelpFileName}!", ErrorSeverity.Error, 342);
+                return; 
+            }
+            else
+            {
+                if (HelpFileName.Contains(' '))
+                {
+                    Process.Start($"hh \"{HelpFileName}\"");
+                }
+                else
+                {
+                    Process.Start($"hh {HelpFileName}");
+                }
+                
+            }
+            
         }
     }
 }

@@ -12,6 +12,16 @@ namespace Track_Maker
 {
     public partial class MainWindow : Window
     {
+
+        /// <summary>
+        /// Renders the contents of the project.
+        /// 
+        /// Need to refactor to reduce redundant code use.
+        /// 
+        /// </summary>
+        /// <param name="HurricaneBasin">The canvas containing the basin</param>
+        /// <param name="DotSize">The dot size setting. (NEEDS TO BE CHANGED)</param>
+        /// <param name="StormList">The storm list to rend</param>
         public void RenderContent(Canvas HurricaneBasin, Point DotSize, List<Storm> StormList = null)
         {
            
@@ -42,11 +52,27 @@ namespace Track_Maker
                                 // tropical systems
                                 case StormShape.Circle:
                                     Ellipse Ellipse = new Ellipse();
+
+                                    if (XNode.NodeType.ForceSize) DotSize = XNode.NodeType.ForcedSize;
+
                                     Ellipse.Width = DotSize.X;
                                     Ellipse.Height = DotSize.Y;
 
                                     // get the colour (Dano: refactor)
                                     Ellipse.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+
+                                    // Since there were many requests for an Invest/PTC storm type, here it is. 
+                                    // need to fix redundant code - rc2 or iris
+
+                                    if (XNode.NodeType.ForceColour)
+                                    {
+                                        // Invest / PTC uses [255,128,204,255] ARGB format
+                                        Ellipse.Fill = new SolidColorBrush(XNode.NodeType.ForcedColour);
+                                    }
+                                    else
+                                    {
+                                        Ellipse.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+                                    }
 
                                     // set the position
                                     Canvas.SetLeft(Ellipse, XNode.Position.X);
@@ -55,12 +81,29 @@ namespace Track_Maker
                                     HurricaneBasin.Children.Add(Ellipse);
                                     continue;
                                 case StormShape.Square:
+
                                     Rectangle Rect = new Rectangle();
+
+                                    if (XNode.NodeType.ForceSize) DotSize = XNode.NodeType.ForcedSize;
+
                                     Rect.Width = DotSize.X - DotSize.X / 8; // some people think the rects are too big (8/8 = 1) - this also means that all subtropical dots are 7/8ths the size of the other dots
                                     Rect.Height = DotSize.Y - DotSize.Y / 8;
 
                                     // get the colour
                                     Rect.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+
+                                    // Since there were many requests for an Invest/PTC storm type, here it is. 
+                                    // need to fix redundant code - rc2 or iris
+
+                                    if (XNode.NodeType.ForceColour)
+                                    {
+                                        // Invest / PTC uses [255,128,204,255] ARGB format
+                                        Rect.Fill = new SolidColorBrush(XNode.NodeType.ForcedColour);
+                                    }
+                                    else
+                                    {
+                                        Rect.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
+                                    }
 
                                     // set the position
                                     Canvas.SetLeft(Rect, XNode.Position.X);
@@ -69,8 +112,12 @@ namespace Track_Maker
                                     HurricaneBasin.Children.Add(Rect);
                                     continue;
                                 case StormShape.Triangle:
+
                                     // draw the triangle
                                     Polygon Poly = new Polygon();
+
+                                    if (XNode.NodeType.ForceSize) DotSize = XNode.NodeType.ForcedSize;
+
                                     Poly.Points.Add(new Point(0, DotSize.Y));
                                     Poly.Points.Add(new Point(DotSize.X / 2, 0));
                                     Poly.Points.Add(new Point(DotSize.X, DotSize.Y));
@@ -96,6 +143,8 @@ namespace Track_Maker
                         }
                         else // handle custom node handling
                         {
+
+                            // We ignore forcesize for custom shapes 
                             Polygon Poly = new Polygon(); 
 
                             foreach (Point Pt in XNode.NodeType.Shape.VPoints.Points) // needs some refactoring

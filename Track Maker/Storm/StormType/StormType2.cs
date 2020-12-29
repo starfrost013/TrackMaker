@@ -57,6 +57,16 @@ namespace Track_Maker
         /// </summary>
         public Color ForcedColour { get; set; }
 
+        /// <summary>
+        /// v630: user request [Hypercane] - force a size for this storm type. Overrides the setting.
+        /// </summary>
+        public bool ForceSize { get; set; }
+
+        /// <summary>
+        /// v630: user request [Hypercane] - the size to force to.
+        /// </summary>
+        public Point ForcedSize { get; set; }
+
         public StormType2() // for now init the shape here
         {
             Shape = new Shape();

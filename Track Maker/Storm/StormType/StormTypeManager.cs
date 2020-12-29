@@ -148,6 +148,10 @@ namespace Track_Maker
                                                 ST2.ForceColour = true;
                                                 ST2.ForcedColour = HStormInfo.InnerText.SplitARGB();
                                                 continue;
+                                            case "ForceSize":
+                                                ST2.ForceSize = true;
+                                                ST2.ForcedSize = HStormInfo.InnerText.SplitXY();
+                                                continue; 
                                             case "Name":
                                                 ST2.Name = HStormInfo.InnerText;
                                                 continue;
