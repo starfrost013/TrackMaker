@@ -25,7 +25,6 @@ namespace Track_Maker
         /// <param name="e"></param>
         private void BasinMenu_BasinSwitch_Click(object sender, RoutedEventArgs e)
         {
-
             DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(CurrentProject.GetBasinNames());
             DBSH.Owner = this;
             DBSH.Show(); 
@@ -151,16 +150,22 @@ namespace Track_Maker
 
         private void FileMenu_Import_XML2_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<XMLv2>(FormatType.Import);
+
+            /* pre-build 629
             ExportUI ExportUI = new ExportUI(FormatType.Import, new XMLv2());
             ExportUI.Owner = this;
-            ExportUI.Show(); 
+            ExportUI.Show(); */
         }
 
         private void FileMenu_Export_XML2_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<XMLv2>(FormatType.Export);
+            
+            /* pre-build 629
             ExportUI ExportUI = new ExportUI(FormatType.Export, new XMLv2());
             ExportUI.Owner = this;
-            ExportUI.Show();
+            ExportUI.Show(); */
         }
 
         private void ToolsMenu_ACECalculator_Click(object sender, RoutedEventArgs e)
@@ -197,6 +202,9 @@ namespace Track_Maker
 
         private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportEasyTimeline>(FormatType.Export);
+
+            /* pre-build 629 
             List<Storm> StormList = CurrentProject.SelectedBasin.GetFlatListOfStorms();
 
             if (StormList.Count == 0)
@@ -207,11 +215,14 @@ namespace Track_Maker
 
             ExportUI ExUI = new ExportUI(FormatType.Export, new ExportEasyTimeline());
             ExUI.Owner = this;
-            ExUI.Show(); 
+            ExUI.Show(); */
         }
 
         private void FileMenu_Export_BT_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportBestTrack>(FormatType.Export);
+
+            /* pre-build 629
             List<Storm> StormList = CurrentProject.SelectedBasin.GetFlatListOfStorms();
 
             if (StormList.Count == 0)
@@ -230,7 +241,7 @@ namespace Track_Maker
             {
                 Error.Throw("Error", "This export format is not supported by this basin. Please define coords!", ErrorSeverity.Warning, 123);
                 return; 
-            }
+            } */
 
         }
 
@@ -293,9 +304,12 @@ namespace Track_Maker
 
         private void FileMenu_Export_HURDAT_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportHURDAT2>(FormatType.Export);
+
+            /* pre-build 629
             ExportUI ExUI = new ExportUI(FormatType.Export, new ExportHURDAT2());
             ExUI.Owner = this;
-            ExUI.Show(); 
+            ExUI.Show(); */
         }
 
         // ok
@@ -461,9 +475,12 @@ namespace Track_Maker
 
         private void FileMenu_Import_HURDAT2_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportHURDAT2>(FormatType.Import);
+
+            /* pre-build 629
             ExportUI EUI = new ExportUI(FormatType.Import, new ExportHURDAT2());
             EUI.Owner = this;
-            EUI.Show(); 
+            EUI.Show(); */
         }
     }
 }

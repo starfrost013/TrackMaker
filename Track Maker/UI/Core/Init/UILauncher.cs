@@ -14,7 +14,7 @@ namespace Track_Maker
 
             Type Typ = TInstance.GetType();
 
-            if (!Typ.IsAssignableFrom(typeof(IExportFormat)))
+            if (!typeof(IExportFormat).IsAssignableFrom(Typ) && !typeof(IImageExportFormat).IsAssignableFrom(Typ))
             {
                 Error.Throw("Error", "Cannot pass non-IExportFormats to ExportUI!", ErrorSeverity.FatalError, 333);
                 return false; // will never run

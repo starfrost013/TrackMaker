@@ -36,8 +36,10 @@ namespace Track_Maker
         public ExportUI(FormatType FType, IExportFormat ExportFormat)
         {
             //if (!Export_PreInit(FType, ExportFormat)) return; // do not initialise if preinit failed
+            MnWindow = (MainWindow)Application.Current.MainWindow;
             InitializeComponent();
             Export_Init(FType, ExportFormat);
+            
         }
 
         private void Export_Init(FormatType FType, IExportFormat ExportFormat)
