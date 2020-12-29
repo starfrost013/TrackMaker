@@ -195,6 +195,7 @@
     <Compile Include="UI\Export\ExportUI.xaml.cs">
       <DependentUpon>ExportUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Core\Init\UILauncher.cs" />
     <Compile Include="UI\UIResponse.cs" />
     <Compile Include="Storm\Node.cs" />
     <Compile Include="Render\RenderManager.cs" />

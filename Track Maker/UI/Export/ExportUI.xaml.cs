@@ -35,44 +35,9 @@ namespace Track_Maker
         public string TemporaryFileName { get; set; }
         public ExportUI(FormatType FType, IExportFormat ExportFormat)
         {
-            if (!Export_PreInit(FType, ExportFormat)) return; // do not initialise if preinit failed
+            //if (!Export_PreInit(FType, ExportFormat)) return; // do not initialise if preinit failed
             InitializeComponent();
             Export_Init(FType, ExportFormat);
-        }
-
-        // export_init should occur BEFORE UI loads
-        /// <summary>
-        /// ExportUI Preinit
-        /// 
-        /// returns true if successful (v627)
-        /// </summary>
-        /// <param name="FType"></param>
-        /// <param name="ExportFormat"></param>
-        /// <returns></returns>
-        private bool Export_PreInit(FormatType FType, IExportFormat ExportFormat)
-        {
-            MnWindow = (MainWindow)Application.Current.MainWindow;
-
-            if (FType == FormatType.Export)
-            {
-                Basin CurrentBasin = MnWindow.CurrentProject.SelectedBasin;
-
-                List<Storm> StormList = CurrentBasin.GetFlatListOfStorms();
-
-                if (StormList.Count == 0)
-                {
-                    Error.Throw("Warning", "You must have at least one storm to export!", ErrorSeverity.Warning, 340);
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                return true; // for now
-            }
         }
 
         private void Export_Init(FormatType FType, IExportFormat ExportFormat)
@@ -130,7 +95,16 @@ namespace Track_Maker
             if (!RunIEX())
             {
                 // last error global thing in error probably needed
-                Error.Throw("Warning", "191: The export failed", ErrorSeverity.Warning, 191); 
+                switch (Type)
+                {
+                    case FormatType.Import:
+                        Error.Throw("Warning", "191: The import failed", ErrorSeverity.Warning, 191);
+                        return;
+                    case FormatType.Export:
+                        Error.Throw("Warning", "191: The export failed", ErrorSeverity.Warning, 191);
+                        return;
+                }
+                 
             }
             else
             {

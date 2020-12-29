@@ -81,7 +81,7 @@ namespace Track_Maker
                         if (AgencyFormat == AgencyFormats.HURDAT2)
                         {
                             FirstCommaIndex = 8;
-                            SecondCommaIndex = 14;
+                            SecondCommaIndex = 28;
                         }
 
                         long BytesRemaining = BR.BaseStream.Length - BR.BaseStream.Position;

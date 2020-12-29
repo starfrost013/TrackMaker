@@ -141,9 +141,12 @@ namespace Track_Maker
 
         private void FileMenu_SaveImage_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportImage>(FormatType.Export); 
+
+            /* pre-build 627
             ExportUI ExportUI = new ExportUI(FormatType.Export, new ExportImage());
-            ExportUI.Owner = this;
-            ExportUI.Show(); 
+            ExportUI.Owner = tthis;
+            ExportUI.Show(); */
         }
 
         private void FileMenu_Import_XML2_Click(object sender, RoutedEventArgs e)

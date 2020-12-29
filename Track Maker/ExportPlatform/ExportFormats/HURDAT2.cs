@@ -77,9 +77,8 @@ namespace Track_Maker
 
             Project Proj = new Project();
             
-            if (!ATCFHelperMethods.Export_CheckDirectoryValidForImport(SelectedPath)) 
+            if (!ATCFHelperMethods.Export_CheckDirectoryValidForImport(SelectedPath, AgencyFormats.HURDAT2)) 
             {
-                Error.Throw("Fatal HURDAT2 Import Error", "Attempted to import nonexistent directory.", ErrorSeverity.Error, 321);
                 IR.Status = ExportResults.Error;
                 return IR;
             }
@@ -139,8 +138,8 @@ namespace Track_Maker
                             // first real information
                             if (j == 1)
                             {
-                                string DateString = $"{_Date} {_Time}";
-                                Sto.FormationDate = DateTime.Parse(DateString);
+                                string DateString = $"{_Date}, {_Time}";
+                                Sto.FormationDate = ParsingUtil.ParseATCFDateTime(DateString, AgencyFormats.HURDAT2);
                             }
 
                             CN.Id = j;
