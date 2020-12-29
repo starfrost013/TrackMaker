@@ -150,20 +150,20 @@ namespace Track_Maker
 
         private void FileMenu_Import_XML2_Click(object sender, RoutedEventArgs e)
         {
-            InitExportUI<XMLv2>(FormatType.Import);
+            InitExportUI<ExportXMLv2>(FormatType.Import);
 
             /* pre-build 629
-            ExportUI ExportUI = new ExportUI(FormatType.Import, new XMLv2());
+            ExportUI ExportUI = new ExportUI(FormatType.Import, new ExportXMLv2());
             ExportUI.Owner = this;
             ExportUI.Show(); */
         }
 
         private void FileMenu_Export_XML2_Click(object sender, RoutedEventArgs e)
         {
-            InitExportUI<XMLv2>(FormatType.Export);
+            InitExportUI<ExportXMLv2>(FormatType.Export);
             
             /* pre-build 629
-            ExportUI ExportUI = new ExportUI(FormatType.Export, new XMLv2());
+            ExportUI ExportUI = new ExportUI(FormatType.Export, new ExportXMLv2());
             ExportUI.Owner = this;
             ExportUI.Show(); */
         }
@@ -417,7 +417,7 @@ namespace Track_Maker
 
         private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
         {
-            if (GlobalStateP.CurrentExportFormatName == null) GlobalStateP.CurrentExportFormatName = "Track_Maker.XMLv2"; 
+            if (GlobalStateP.CurrentExportFormatName == null) GlobalStateP.CurrentExportFormatName = "Track_Maker.ExportXMLv2"; 
 
             Type EXType = Type.GetType(GlobalStateP.CurrentExportFormatName);
 

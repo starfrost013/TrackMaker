@@ -8,7 +8,7 @@ namespace Track_Maker
 {
 
     /// <summary>
-    /// XMLv2 Import Result class
+    /// ExportXMLv2 Import Result class
     /// 
     /// 2020-09-18, modified 2020-09-19
     /// 

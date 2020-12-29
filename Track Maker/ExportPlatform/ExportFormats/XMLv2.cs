@@ -35,7 +35,7 @@ namespace Track_Maker
     /// 
     /// </summary>
 
-    public class XMLv2 : IExportFormat
+    public class ExportXMLv2 : IExportFormat
     {
         public bool DisplayPreview { get; set; }
         public bool DisplayQualityControl { get; set; }
@@ -45,14 +45,14 @@ namespace Track_Maker
         public static int FormatVersionMajor = 2;
         public static int FormatVersionMinor = 4;
 
-        public XMLv2()
+        public ExportXMLv2()
         {
             Name = "Project";
             GlobalStateP.CurrentExportFormatName = GetType().ToString();
         }
 
         /// <summary>
-        /// Get the name of the XMLv2 class. 
+        /// Get the name of the ExportXMLv2 class. 
         /// </summary>
         /// <returns></returns>
         public string GetName() => Name;
