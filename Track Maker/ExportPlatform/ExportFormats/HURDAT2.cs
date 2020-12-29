@@ -305,6 +305,17 @@ namespace Track_Maker
                         {
                             // this is going to go here, too tired for this
 
+                            //Temporary Code
+                            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+
+                            Category Cat = Sto.GetNodeCategory(No, MnWindow.Catman.CurrentCategorySystem);
+
+                            if (Cat == null)
+                            {
+                                Logging.Log("Export Warning: Skipping node with nonexistent or illegal category");
+                                continue;
+                            }
+
                             DateTime NoDate = Sto.GetNodeDate(No.Id);
 
                             // Write the node date
@@ -327,17 +338,6 @@ namespace Track_Maker
                             else
                             {
                                 SW.Write(",  , ");
-                            }
-
-                            //Temporary Code
-                            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-
-                            Category Cat = Sto.GetNodeCategory(No, MnWindow.Catman.CurrentCategorySystem);
-
-                            if (Cat == null)
-                            {
-                                Logging.Log("Export Warning: Skipping node with nonexistent or illegal category");
-                                continue;
                             }
 
                             string[] CatWords = Cat.Name.Split(' ');
