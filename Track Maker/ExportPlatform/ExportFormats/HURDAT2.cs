@@ -76,7 +76,8 @@ namespace Track_Maker
             ImportResult IR = new ImportResult();
 
             Project Proj = new Project();
-            
+            Proj.FileName = $@"{SelectedPath}\*.*";
+
             if (!ATCFHelperMethods.Export_CheckDirectoryValidForImport(SelectedPath, AgencyFormats.HURDAT2)) 
             {
                 IR.Status = ExportResults.Error;
@@ -122,10 +123,10 @@ namespace Track_Maker
 
                             string _Date = Components[0];
                             string _Time = Components[1];
-                            string _Category = Components[3];
-                            string _Latitude = Components[4];
-                            string _Longitude = Components[5];
-                            string _WindSpeed = Components[6];
+                            string _Category = Components[4];
+                            string _Latitude = Components[5];
+                            string _Longitude = Components[6];
+                            string _WindSpeed = Components[7];
 
                             // Trim everything.
                             _Date = _Date.Trim();
@@ -155,7 +156,7 @@ namespace Track_Maker
                                 return IR;
                             }
 
-                            Coordinate Coordinate = Coordinate.FromSplitCoordinate(_Longitude, _Latitude);
+                            Coordinate Coordinate = Coordinate.FromSplitCoordinate(_Longitude, _Latitude, CoordinateFormat.HURDAT2);
 
                             CN.Position = Bas.FromCoordinateToNodePosition(Coordinate);
 

@@ -10,6 +10,10 @@ namespace Track_Maker
     /// String formats used by the Track Maker.
     /// 
     /// Priscilla v2.0.591.0    2020-12-15
+    /// Priscilla v2.0.630.0    2020-12-29  Split ATCF and HURDAT2
+    /// 
+    /// Iris: Merge this and AgencyFormats somehow
+    /// 
     /// </summary>
     public enum CoordinateFormat
     {
@@ -21,6 +25,11 @@ namespace Track_Maker
         /// <summary>
         /// ATCF / HURDAT2 coordinate format
         /// </summary>
-        ATCF_HURDAT2 = 1
+        ATCF = 1,
+
+        /// <summary>
+        /// HURDAT2 coordinate format
+        /// </summary>
+        HURDAT2 = 2
     }
 }

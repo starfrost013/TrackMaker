@@ -109,6 +109,10 @@ namespace Track_Maker
                 string Date = DateComponents[0];
                 string Time = DateComponents[1];
 
+                // just in case
+                Date = Date.Trim();
+                Time = Time.Trim();
+
                 if (Date.Length != 8 || Time.Length != 4)
                 {
                     Error.Throw("Error!", "Attempted to convert an invalid HURDAT2-format DateTime.", ErrorSeverity.Error, 343);
@@ -122,6 +126,13 @@ namespace Track_Maker
                     string HourC = Time.Substring(0, 2);
                     string MinuteC = Time.Substring(2, 2);
 
+                    // Trim to prevent Error 344
+                    YearC = YearC.Trim();
+                    MonthC = MonthC.Trim();
+                    DayC = DayC.Trim();
+                    HourC = HourC.Trim();
+                    MinuteC = MinuteC.Trim(); 
+
                     int YearI = Convert.ToInt32(YearC);
                     int MonthI = Convert.ToInt32(MonthC);
                     int DayI = Convert.ToInt32(DayC);
@@ -132,7 +143,7 @@ namespace Track_Maker
                         || MonthI < 1 || MonthI > 12
                         || (MonthI == 2 && DayI > 28)
                         || DayI < 1 || DayI > 31 // YES THIS DOESN'T WORK WITH LEAP YEARS BUT WHO FUCKING CARES
-                        || HourI < 0 || HourI > 31
+                        || HourI < 0 || HourI > 23
                         || MinuteI < 0 || MinuteI > 59)
                     {
                         Error.Throw("Error!", "Attempted to convert an invalid HURDAT2-format DateTime: The date supplied was outside of the 01/01/0001 to 31/12/9999 bounds.", ErrorSeverity.Error, 344);
