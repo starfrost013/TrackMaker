@@ -10,7 +10,7 @@
         <TextBlock x:Name="Advisory" Text="Advisory" HorizontalAlignment="Left" Margin="10,-2,0,0" VerticalAlignment="Top" Height="64" Width="203" FontSize="48" FontFamily="Segoe UI Semibold"/>
         <TextBlock x:Name="Generator" Text="Generator" HorizontalAlignment="Left" Margin="213,0,0,0" VerticalAlignment="Top" Height="59" Width="243" FontSize="48"/>
         <TextBlock x:Name="Version" HorizontalAlignment="Left" Height="29" Margin="10,67,0,0" TextWrapping="Wrap" Text="Version" VerticalAlignment="Top" Width="441" FontSize="18"/>
-        <TextBlock x:Name="Copyright" Text="© 2019-2020 starfrost. Created for HHW by starfrost. Licensed under the MIT License. Open-source software." Height="29" Margin="10,96,20,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="Copyright" Text="© 2019-2021 starfrost. Created for HHW by starfrost. Licensed under the MIT License. Open-source software." Height="29" Margin="10,96,20,0" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Height="27" Margin="704,143,0,0" VerticalAlignment="Top" Width="101" FontSize="18" Click="OKButton_Click" Style="{StaticResource Button_Invert}"/>
         <TextBlock x:Name="FandomLink" HorizontalAlignment="Left" Height="30" Margin="10,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="394">
             <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://hypotheticalhurricanes.fandom.com">http://hypotheticalhurricanes.fandom.com</Hyperlink>

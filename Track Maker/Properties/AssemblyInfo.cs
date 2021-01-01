@@ -23,7 +23,7 @@ using System.Windows;
 [assembly: AssemblyCompany("")]
 
 [assembly: AssemblyProduct("Track Maker")]
-[assembly: AssemblyCopyright("Copyright © 2019-2020 starfrost")]
+[assembly: AssemblyCopyright("Copyright © 2019-2021 starfrost")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
