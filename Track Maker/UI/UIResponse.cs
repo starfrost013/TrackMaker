@@ -358,6 +358,9 @@ namespace Track_Maker
         {
             if (e.RightButton == MouseButtonState.Pressed)
             {
+
+                if (InternalTransformGroup.Count >= 2) InternalTransformGroup.Clear(); 
+
                 if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return; 
                 // Set up a translation group.
                 TransformGroup TG = new TransformGroup();
@@ -461,6 +464,7 @@ namespace Track_Maker
             //in the mainwindow? or similar.
             ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
 
+            TG.Children.Add(ST);
 
             if (InternalTransformGroup.Count != 0)
             {
@@ -468,7 +472,7 @@ namespace Track_Maker
                 if (TT != null) TG.Children.Add(TT);
             }
 
-            TG.Children.Add(ST);
+           
 
             HurricaneBasin.RenderTransform = TG;
             // DUMB HACK END
