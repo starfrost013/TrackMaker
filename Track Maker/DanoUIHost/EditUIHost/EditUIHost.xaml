@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="Edit Storm Info" Height="151.714" Width="617.428">
+        Title="Edit Storm Info" Height="151.714" Width="617.428" WindowStyle="ToolWindow">
     <Grid>
         <Dano:EditUI x:Name="EditUI" DoneHit="Done_Hit"></Dano:EditUI>
     </Grid>
