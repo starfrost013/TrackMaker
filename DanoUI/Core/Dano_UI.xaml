@@ -143,4 +143,14 @@
 
     </Style>
 
+    <Style TargetType="ListBox" x:Key="Bug3Workaround_PriscillaRC1">
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="IsSelected" Value="True"></Setter>
+            </Trigger>
+        </Style.Triggers>
+        
+    </Style>
+        
 </ResourceDictionary>
