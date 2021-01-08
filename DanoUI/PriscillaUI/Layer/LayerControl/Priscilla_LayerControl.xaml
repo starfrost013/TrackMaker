@@ -46,9 +46,6 @@
                 <ContextMenu>
                     <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Visible" IsCheckable="true" Header="Visible" Checked="PriscillaUI_Layers_LayerListView_CheckBox_Checked"/>
                     <Separator/>
-                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_MoveUp" Header="Move Up" Click="MoveUp_Click"/>
-                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_MoveDown" Header="Move Down" Click="MoveDown_Click"/>
-                    <Separator/>
                     <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Rename" Header="Rename" Click="PriscillaUI_Layers_LayerListView_ContextMenu_Rename_Click"/>
                     <Separator/>
                     <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Delete" Header="Delete"/>
