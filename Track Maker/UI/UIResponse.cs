@@ -472,8 +472,6 @@ namespace Track_Maker
                 if (TT != null) TG.Children.Add(TT);
             }
 
-           
-
             HurricaneBasin.RenderTransform = TG;
             // DUMB HACK END
         }

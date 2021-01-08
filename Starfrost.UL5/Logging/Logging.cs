@@ -76,7 +76,7 @@ namespace Starfrost.UL5.Logging
                 MessageBox.Show($"Error 301 (an error occurred writing to the log - Log not found)\n\n{err}", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
 #else
-                MessageBox.Show($"Error 301 (an error occurred writing to the log - Log not found}", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Error 301 (an error occurred writing to the log - Log not found", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
 #endif
             }

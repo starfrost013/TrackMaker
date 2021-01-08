@@ -350,6 +350,10 @@
       <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
       <Name>Starfrost.UL5</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Updater\Updater.csproj">
+      <Project>{e4517bb9-6590-4b3a-8355-9389c1376828}</Project>
+      <Name>Updater</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
