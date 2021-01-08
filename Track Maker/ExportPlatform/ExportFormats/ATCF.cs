@@ -151,7 +151,7 @@ namespace Track_Maker
                     string _StrTimeSinceFormation = Components[3];
                     string _StrCoordX = Components[6];
                     string _StrCoordY = Components[7];
-                    string _StrIntensity = Components[9];
+                    string _StrIntensity = Components[8];
                     string _StrCategory = Components[10];
                     string _StrName = Components[28]; // bleh 
 
@@ -168,7 +168,7 @@ namespace Track_Maker
 
                     // initialise the basin with the abbreviation loaded from XML
                     // we just use the name if there is no abbreviation specified in XML
-                    int Intensity = 0; 
+                    int Intensity = 0;
                     // first iteration...
                     if (j == 0)
                     {
@@ -183,22 +183,21 @@ namespace Track_Maker
                             }
                         }
 
-                        Intensity = Convert.ToInt32(_StrIntensity);
+                        Lyr.Name = _StrName;
+                    }
 
-                        Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime);
+                    Intensity = Convert.ToInt32(_StrIntensity);
 
-                        Lyr.Name = _StrName; 
+                    Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime, AgencyFormats.ATCF);
 
-                        if (_StrName == null)
-                        {
-                            Error.Throw("Error!", "Attempted to load storm with an invalid name!", ErrorSeverity.Error, 245);
-                            return null; 
-                        }
-                        else
-                        {
-                            Sto.Name = _StrName;
-                        }
-
+                    if (_StrName == null)
+                    {
+                        Error.Throw("Error!", "Attempted to load storm with an invalid name!", ErrorSeverity.Error, 245);
+                        return null;
+                    }
+                    else
+                    {
+                        Sto.Name = _StrName;
                     }
 
                     int Id = Convert.ToInt32(_StrId);

@@ -77,6 +77,7 @@ namespace DanoUI
         public LayerControl()
         {
             InitializeComponent();
+            
         }
 
         
