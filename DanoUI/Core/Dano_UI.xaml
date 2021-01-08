@@ -131,26 +131,15 @@
 
 
     <Style TargetType="ComboBox">
-        
+
         <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
         <Setter Property="Background" Value="#40FFFFFF"></Setter>
         <Setter Property="BorderBrush" Value="#FFFFFFFF"></Setter>
-        
+
         <Setter Property="Height" Value="32"></Setter>
 
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         <Setter Property="FontSize" Value="18"></Setter>
 
     </Style>
-
-    <Style TargetType="ListBox" x:Key="Bug3Workaround_PriscillaRC1">
-
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="IsSelected" Value="True"></Setter>
-            </Trigger>
-        </Style.Triggers>
-        
-    </Style>
-        
 </ResourceDictionary>

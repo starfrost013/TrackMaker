@@ -51,7 +51,7 @@ namespace DanoUI
 
             starfrostTrack_Version.Text = $"Version 2.0.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
 #else
-            starfrostTrack_Version.Text = $"Version 2.0.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion})";
+            starfrostTrack_Version.Text = $"Version 2.0.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Release)";
 
 #endif
 
