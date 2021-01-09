@@ -8,7 +8,7 @@
              Title="Warning Manager" Width="792.643" Height="454.905">
     <Grid>
         <TextBlock x:Name="WarningManagerLabel" Text="Warning Manager" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.068,-0.446" Height="60" Width="299" FontSize="36"/>
-        <ListView x:Name="Warnings" HorizontalAlignment="Left" Height="200" Margin="10,208,0,0" VerticalAlignment="Top" Width="550">
+        <ListView x:Name="Warnings" HorizontalAlignment="Left" Height="200" Margin="10,198,0,0" VerticalAlignment="Top" Width="577">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Type:" Width="110" DisplayMemberBinding="{Binding Type}"/>
@@ -19,8 +19,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock x:Name="TypeLabel" Text="Type:" HorizontalAlignment="Left" Height="32" Margin="10,78,0,0" VerticalAlignment="Top" Width="66" FontSize="18"/>
-        <ComboBox x:Name="TypeBox" HorizontalAlignment="Left" Height="32" Margin="76,75,0,0" VerticalAlignment="Top" Width="270" FontSize="18" SelectedIndex="1">
+        <TextBlock x:Name="TypeLabel" Text="Type:" HorizontalAlignment="Left" Height="32" Margin="10,68,0,0" VerticalAlignment="Top" Width="66" FontSize="18"/>
+        <ComboBox x:Name="TypeBox" HorizontalAlignment="Left" Height="32" Margin="76,65,0,0" VerticalAlignment="Top" Width="270" FontSize="18" SelectedIndex="1">
             <ComboBoxItem Content="Severe thunderstorm watch" FontSize="18"></ComboBoxItem>
             <ComboBoxItem Content="Severe thunderstorm warning" FontSize="18"></ComboBoxItem>
             <ComboBoxItem Content="Tornado watch" FontSize="18"></ComboBoxItem>
@@ -35,18 +35,18 @@
             <ComboBoxItem Content="Avalanche warning" FontSize="18"></ComboBoxItem>
             <ComboBoxItem Content="Blizzard warning" FontSize="18"></ComboBoxItem>
         </ComboBox>
-        <TextBlock x:Name="IssuingAgencyLabel" Text="Issuing agency:" HorizontalAlignment="Left" Height="34" Margin="10,110,0,0" VerticalAlignment="Top" Width="132" FontSize="18"/>
-        <TextBox x:Name="IssuingAgencyBox" HorizontalAlignment="Left" Height="25" Margin="149,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="227" FontSize="18"/>
-        <TextBlock x:Name="WarningAreaLabel" Text="Warning area:" HorizontalAlignment="Left" Height="34" Margin="10,142,0,0" VerticalAlignment="Top" Width="132" FontSize="18"/>
-        <TextBox x:Name="FromBox" HorizontalAlignment="Left" Height="25" Margin="202,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="227" FontSize="18"/>
-        <TextBlock x:Name="FromLabel" Text="From" HorizontalAlignment="Left" Height="32" Margin="149,142,0,0" VerticalAlignment="Top" Width="55" FontSize="18" RenderTransformOrigin="1.52,0.79"/>
-        <TextBlock x:Name="ToLabel" Text="to" HorizontalAlignment="Left" Height="32" Margin="439,142,0,0" VerticalAlignment="Top" Width="29" FontSize="18" RenderTransformOrigin="1.52,0.79"/>
-        <TextBox x:Name="ToBox" HorizontalAlignment="Left" Height="25" Margin="468,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="227" FontSize="18"/>
-        <TextBlock x:Name="WarningTextLabel" Text="Warning text:" HorizontalAlignment="Left" Height="32" Margin="10,174,0,0" VerticalAlignment="Top" Width="115" FontSize="18"/>
-        <TextBlock x:Name="OptionalLabel" Text="(optional)" HorizontalAlignment="Left" Height="24" Margin="118,181,0,0" VerticalAlignment="Top" Width="60" FontSize="11" FontStyle="Italic"/>
-        <TextBox x:Name="WarningTextBox" HorizontalAlignment="Left" Height="25" Margin="178,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="227" FontSize="18"/>
+        <TextBlock x:Name="IssuingAgencyLabel" Text="Issuing agency:" HorizontalAlignment="Left" Height="34" Margin="10,100,0,0" VerticalAlignment="Top" Width="132" FontSize="18"/>
+        <TextBox x:Name="IssuingAgencyBox" HorizontalAlignment="Left" Height="25" Margin="149,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="227" FontSize="18"/>
+        <TextBlock x:Name="WarningAreaLabel" Text="Warning area:" HorizontalAlignment="Left" Height="34" Margin="10,132,0,0" VerticalAlignment="Top" Width="132" FontSize="18"/>
+        <TextBox x:Name="FromBox" HorizontalAlignment="Left" Height="25" Margin="202,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="227" FontSize="18"/>
+        <TextBlock x:Name="FromLabel" Text="From" HorizontalAlignment="Left" Height="32" Margin="149,132,0,0" VerticalAlignment="Top" Width="55" FontSize="18" RenderTransformOrigin="1.52,0.79"/>
+        <TextBlock x:Name="ToLabel" Text="to" HorizontalAlignment="Left" Height="32" Margin="439,132,0,0" VerticalAlignment="Top" Width="29" FontSize="18" RenderTransformOrigin="1.52,0.79"/>
+        <TextBox x:Name="ToBox" HorizontalAlignment="Left" Height="25" Margin="468,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="227" FontSize="18"/>
+        <TextBlock x:Name="WarningTextLabel" Text="Warning text:" HorizontalAlignment="Left" Height="32" Margin="10,164,0,0" VerticalAlignment="Top" Width="115" FontSize="18"/>
+        <TextBlock x:Name="OptionalLabel" Text="(optional)" HorizontalAlignment="Left" Height="24" Margin="118,171,0,0" VerticalAlignment="Top" Width="60" FontSize="11" FontStyle="Italic"/>
+        <TextBox x:Name="WarningTextBox" HorizontalAlignment="Left" Height="25" Margin="178,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="227" FontSize="18"/>
         <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Height="24" Margin="476,178,0,0" VerticalAlignment="Top" Width="84" FontSize="16" Click="AddButton_Click"/>
-        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Height="31" Margin="650,377,0,0" VerticalAlignment="Top" Width="113" FontSize="18" Click="OKButton_Click"/>
+        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Height="31" Margin="646,367,0,0" VerticalAlignment="Top" Width="113" FontSize="18" Style="{StaticResource Button_Invert}" Click="OKButton_Click"/>
 
     </Grid>
 </Window>

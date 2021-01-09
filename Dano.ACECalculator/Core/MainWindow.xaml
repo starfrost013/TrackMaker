@@ -56,7 +56,7 @@
             <ListView.View>
                 <GridView>
                     <GridView.ColumnHeaderContainerStyle>
-                        <Style TargetType="GridViewColumnHeader">
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
                             <Setter Property="FontSize" Value="12"></Setter>
                         </Style>
                     </GridView.ColumnHeaderContainerStyle>
