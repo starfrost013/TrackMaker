@@ -147,7 +147,19 @@ namespace Track_Maker
             if (_s3.Length != 0)
             {
                 // Truncate to the first decimal point if there are decimal points
-                string _s4 = _s3[1].Substring(0, 1);
+
+                // rename this in iris
+                string _s4 = "";
+
+                if (_s3.Length == 1)
+                {
+                    _s4 = _s3[0]; 
+                }
+                else
+                {
+                    _s4 = _s3[1].Substring(0, 1);
+                }
+                
 
                 // Concanectate
                 _s4 = $"{_s3[0]}{_s4}";
@@ -159,8 +171,20 @@ namespace Track_Maker
             if (_s5.Length != 0)
             {
                 // Truncate to the first decimal point if there are decimal points
-                string _s6 = _s5[1].Substring(0, 1);
 
+                string _s6 = "";
+
+                // fixes crash with nodes that are very high up
+                // on the screen
+                if (_s5.Length == 1)
+                {
+                    _s6 = _s5[0];
+                }
+                else
+                {
+                    _s6 = _s5[1].Substring(0, 1);
+                }
+                
                 // Concanectate
                 _s6 = $"{_s5[0]}{_s6}";
 
