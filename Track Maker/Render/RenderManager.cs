@@ -264,7 +264,7 @@ namespace Track_Maker
         /// 
         /// Zooms and pans the HurricaneBasin. 
         /// </summary>
-        internal void Render_ZoomAndPan()
+        private void Render_ZoomAndPan()
         {
             if (InternalTransformGroup.Count == 0)
             {
@@ -279,7 +279,9 @@ namespace Track_Maker
                 STX.Children.Add(FirstScaleST);
                 STX.Children.Add(FirstTranslateTT);
 
-                HurricaneBasin.RenderTransform = STX; 
+                HurricaneBasin.RenderTransform = STX;
+
+                InternalTransformGroup.Clear(); 
             }
         }
 

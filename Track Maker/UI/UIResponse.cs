@@ -363,7 +363,6 @@ namespace Track_Maker
 
                 if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return; 
 
-
                 Point CurPos = e.GetPosition(HurricaneBasin);
 
                 // Build a relative X.
@@ -471,19 +470,15 @@ namespace Track_Maker
             ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
             TranslateTransform TT = null;
 
-            if (InternalTransformGroup.Count != 0)
+            InternalTransformGroup.Add(ST);
+
+            TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
+
+            if (TT != null)
             {
-                InternalTransformGroup.Clear();
-                InternalTransformGroup.Add(ST);
-
-                TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
-                
-                if (TT != null)
-                {
-                    InternalTransformGroup.Add(TT);
-                }
-
+                InternalTransformGroup.Add(TT);
             }
+
 
             if (!Setting.PriscillaRC2_Tmp_UseNewPZRendering)
             {

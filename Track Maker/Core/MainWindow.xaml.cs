@@ -125,8 +125,6 @@ namespace Track_Maker
             ToolsMenu.IsEnabled = false;
         }
 
-       
-
         private void Shutdown(object sender, EventArgs e)
         {
             TickTimer.Stop(); 
