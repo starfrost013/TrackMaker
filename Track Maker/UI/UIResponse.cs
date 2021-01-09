@@ -362,8 +362,7 @@ namespace Track_Maker
                 if (InternalTransformGroup.Count >= 2) InternalTransformGroup.Clear(); 
 
                 if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return; 
-                // Set up a translation group.
-                TransformGroup TG = new TransformGroup();
+
 
                 Point CurPos = e.GetPosition(HurricaneBasin);
 
@@ -398,11 +397,18 @@ namespace Track_Maker
                 InternalTransformGroup.Add(TranslateT);
 
                 // Build the translation group
-                TG.Children.Add(ScaleT);
-                TG.Children.Add(TranslateT);
-                
-                // Apply the tanslations
-                HurricaneBasin.RenderTransform = TG;
+
+                if (!Setting.PriscillaRC2_Tmp_UseNewPZRendering)
+                {
+                    // Set up a translation group.
+                    TransformGroup TG = new TransformGroup();
+                    TG.Children.Add(ScaleT);
+                    TG.Children.Add(TranslateT);
+
+                    // Apply the tanslations
+                    HurricaneBasin.RenderTransform = TG;
+                }
+
             }
             else
             {
@@ -459,30 +465,35 @@ namespace Track_Maker
             // DUMB HACK BEGIN
             // Temporary Code for Pre-Beta Only (HACK!!!!!!)
 
-            TransformGroup TG = new TransformGroup();
+
             //TODO: fix zoom reset position by storing current transforms in a list
             //in the mainwindow? or similar.
             ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
-
-            TG.Children.Add(ST);
+            TranslateTransform TT = null;
 
             if (InternalTransformGroup.Count != 0)
             {
                 InternalTransformGroup.Clear();
                 InternalTransformGroup.Add(ST);
 
-                TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
+                TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
                 
                 if (TT != null)
                 {
                     InternalTransformGroup.Add(TT);
-                    TG.Children.Add(TT);
                 }
 
-                
             }
 
-            HurricaneBasin.RenderTransform = TG;
+            if (!Setting.PriscillaRC2_Tmp_UseNewPZRendering)
+            {
+                TransformGroup TG = new TransformGroup();
+                TG.Children.Add(ST);
+                if (TT != null) TG.Children.Add(TT);
+                HurricaneBasin.RenderTransform = TG;
+            }
+
+            
             // DUMB HACK END
         }
 

@@ -182,9 +182,12 @@ namespace Track_Maker
                     }
 
                     if (Setting.DefaultVisibleTextNames) Render_DrawText(XStorm, HurricaneBasin);
+
+                    
                 }
             }
-            
+
+            if (Setting.PriscillaRC2_Tmp_UseNewPZRendering) Render_ZoomAndPan(); 
 
             // get WPF to render it
             UpdateLayout(); 
@@ -276,10 +279,8 @@ namespace Track_Maker
                 STX.Children.Add(FirstScaleST);
                 STX.Children.Add(FirstTranslateTT);
 
-                HurricaneBasin.RenderTransform = this; 
+                HurricaneBasin.RenderTransform = STX; 
             }
-
-
         }
 
     }
