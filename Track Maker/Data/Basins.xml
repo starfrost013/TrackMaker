@@ -2,13 +2,13 @@
 <!-- Edit this file to add new basins -->
 
 <Basins>
-	<Basin name="Atlantic" Abbreviation="AL" bgimage="Data\BasinImages\T_AtlanticHighRes.png" CoordsTopLeft="63.01;N 105.35;W" CoordsBottomRight="8.32;N 0.00;W"></Basin>
-	<Basin name="Australian" Abbreviation="SH" bgimage="Data\BasinImages\T_AusHighRes.png" CoordsTopLeft="0.00;S 99.11;E" CoordsBottomRight="47.31;S 154.86;E"></Basin>
-	<Basin name="Eastern &amp; Central Pacific" Abbreviation="EP" bgimage="Data\BasinImages\T_EpacCpacHighRes.png" CoordsTopLeft="38.79;N 171.62;E" CoordsBottomRight="2.79;N 79.07;W"></Basin>
-	<Basin name="Mediterranean Sea" Abbreviation="ME" bgimage="Data\BasinImages\T_MediLowRes.png" CoordsTopLeft="51.14;N 0.00;E" CoordsBottomRight="26.73;N 43.90;E"></Basin>
-	<Basin name="North Indian Ocean" Abbreviation="IO" bgimage="Data\BasinImages\T_NioHighRes.png" CoordsTopLeft="37.34;N 38.22;E" CoordsBottomRight="0.00;N 100.76;E"></Basin>
-	<Basin name="South Pacific" Abbreviation="SH" bgimage="Data\BasinImages\T_SpacHighRes.png" CoordsTopLeft="8.66;S 156.29;E" CoordsBottomRight="47.99;S 179.19;E"></Basin>
-	<Basin name="South-West Indian Ocean" Abbreviation="SH" bgimage="Data\BasinImages\T_SwioHighRes.png" CoordsTopLeft="0.00;S 27.67;E" CoordsBottomRight="32.09;S 71.43;E"></Basin>
-	<Basin name="Western Pacific" Abbreviation="WP" bgimage="Data\BasinImages\T_WpacHighRes.png" CoordsTopLeft="52.18;N 90.49;E" CoordsBottomRight="0.00;N 180.00;E"></Basin> 
+	<Basin name="Atlantic" Abbreviation="AL" bgimage="Data\BasinImages\T_AtlanticHighRes.png" CoordsTopLeft="60.00;N 140.00;W" CoordsBottomRight="0.00;N 0.00;W"></Basin>
+	<Basin name="Australian" Abbreviation="SH" bgimage="Data\BasinImages\T_AusHighRes.png" CoordsTopLeft="0.00;S 90.00;E" CoordsBottomRight="36.00;S 160.00;E"></Basin>
+	<Basin name="Eastern &amp; Central Pacific" Abbreviation="EP" bgimage="Data\BasinImages\T_EpacCpacHighRes.png" CoordsTopLeft="60.00;N 180.00;E" CoordsBottomRight="0.00;N 100.00;E"></Basin>
+	<Basin name="Mediterranean Sea" Abbreviation="ME" bgimage="Data\BasinImages\T_MediLowRes.png" CoordsTopLeft="52.00;N 0.00;E" CoordsBottomRight="27.00;N 45.00;E"></Basin>
+	<Basin name="North Indian Ocean" Abbreviation="IO" bgimage="Data\BasinImages\T_NioHighRes.png" CoordsTopLeft="40.00;N 45.00;E" CoordsBottomRight="0.00;N 100.00;E"></Basin>
+	<Basin name="South Pacific" Abbreviation="SH" bgimage="Data\BasinImages\T_SpacHighRes.png" CoordsTopLeft="0.00;S 90.00;E" CoordsBottomRight="40.00;S 160.00;E"></Basin>
+	<Basin name="South-West Indian Ocean" Abbreviation="SH" bgimage="Data\BasinImages\T_SwioHighRes.png" CoordsTopLeft="0.00;S 25.00;E" CoordsBottomRight="40.00;S 90.00;E"></Basin>
+	<Basin name="Western Pacific" Abbreviation="WP" bgimage="Data\BasinImages\T_WpacHighRes.png" CoordsTopLeft="60.00;N 100.00;E" CoordsBottomRight="0.00;N 180.00;E"></Basin> 
 	<!-- If you want to add the SATL SATL = LS, tell me if it should be included by default [2020-12-14] -->
 </Basins>
