@@ -388,6 +388,12 @@ namespace Track_Maker
                     MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
                 }
 
+                // THIS IS MULTIPLIER OF THE WINDOW SIZE NOT POSITION IN PIXELS (647_
+                if (RelativeX < 0) RelativeX = 0;
+                if (RelativeX > 1) RelativeX = 1;
+                if (RelativeY < 0) RelativeY = 0;
+                if (RelativeY > 1) RelativeY = 1; 
+
                 CurRelativePos = new Point(RelativeX, RelativeY);
                 // Create a scale transform for actually moving the "camera"
                 ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
@@ -465,6 +471,8 @@ namespace Track_Maker
             ZoomLevelX = ZoomLevel / 100; // dumb hack 
             ZoomLevelY = ZoomLevel / 100;
 
+            if (ZoomLevelX < 1) ZoomLevelX = 1;
+            if (ZoomLevelY < 1) ZoomLevelY = 1; 
             if (ZoomLevelX > 5) ZoomLevelX = 5;
             if (ZoomLevelY > 5) ZoomLevelY = 5;
 
