@@ -56,7 +56,10 @@ namespace Track_Maker
             Setting.AccentColour2 = EmeraldSettings.GetColour("AccentColour2");
 
             // Load the accent enable setting
-            Setting.AccentEnabled = EmeraldSettings.GetBool("AccentEnabled"); 
+            Setting.AccentEnabled = EmeraldSettings.GetBool("AccentEnabled");
+
+            // Load temporary RC2 setting
+            Setting.PriscillaRC2_Tmp_UseNewPZRendering = EmeraldSettings.GetBool("PriscillaRC2_Tmp_UseNewPZRendering"); 
 
             // Telemetry consent
             Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent");
@@ -71,7 +74,7 @@ namespace Track_Maker
             Setting.WindowStyle = EmeraldSettings.GetWindowStyle("WindowStyle");
 
             // V2.1
-            Setting.Dano_UseDeserialisation = EmeraldSettings.GetBool("Dano_UseDeserialisation"); 
+            Setting.Iris_UseDeserialisation = EmeraldSettings.GetBool("Iris_UseDeserialisation"); 
         }
     }
 }

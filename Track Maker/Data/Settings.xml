@@ -2,12 +2,13 @@
   <AccentColour1>0,64,128</AccentColour1>
   <AccentColour2>150,189,254</AccentColour2>
   <AccentEnabled>True</AccentEnabled>
-  <Dano_UseDeserialisation>False</Dano_UseDeserialisation>
   <DefaultCategorySystem>SSHWS</DefaultCategorySystem>
   <DotSize>8,8</DotSize>
   <ExperimentalMode>true</ExperimentalMode>
   <LineSize>2</LineSize>
+  <PriscillaRC2_Tmp_UseNewPZRendering>True</PriscillaRC2_Tmp_UseNewPZRendering>
   <!--<SelectedBasin>Atlantic</SelectedBasin> legacy v1.0-->
+  <Iris_UseDeserialisation>False</Iris_UseDeserialisation>
   <ShowBetaWarning>True</ShowBetaWarning>
   <StormNamesVisible>True</StormNamesVisible>
   <TelemetryConsent>Yes</TelemetryConsent>

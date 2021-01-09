@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.WpfUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,7 @@ namespace Track_Maker
                         }
                     }
 
-                    DrawLines(XStorm, DotSize, HurricaneBasin);
+                    Render_DrawLines(XStorm, DotSize, HurricaneBasin);
 
                     foreach (Node XNode in XStorm.NodeList)
                     {
@@ -180,7 +181,7 @@ namespace Track_Maker
                         }
                     }
 
-                    if (Setting.DefaultVisibleTextNames) DrawText(XStorm, HurricaneBasin);
+                    if (Setting.DefaultVisibleTextNames) Render_DrawText(XStorm, HurricaneBasin);
                 }
             }
             
@@ -211,7 +212,7 @@ namespace Track_Maker
         /// <summary>
         /// This draws the lines. INCREASING Y IS DOWN!
         /// </summary>
-        internal void DrawLines(Storm XStorm, Point DotSize, Canvas HurricaneBasin)
+        internal void Render_DrawLines(Storm XStorm, Point DotSize, Canvas HurricaneBasin)
         {
             for (int i = 0; i < XStorm.NodeList.Count - 1; i++)
             {
@@ -234,7 +235,7 @@ namespace Track_Maker
             }
         }
 
-        internal void DrawText(Storm XStorm, Canvas HurricaneBasin)
+        internal void Render_DrawText(Storm XStorm, Canvas HurricaneBasin)
         {
             // we draw by the first node so there's nowhere to draw it if there are no nodes
             if (XStorm.NodeList.Count == 0) return;
@@ -250,6 +251,34 @@ namespace Track_Maker
             Canvas.SetTop(txtblock, XStorm.NodeList[0].Position.Y + 15);
 
             HurricaneBasin.Children.Add(txtblock); 
+
+        }
+
+        /// <summary>
+        /// this is unoptimised lol
+        /// 
+        /// later on we'll introduce a check to see if the internaltransformgroup changed
+        /// 
+        /// Zooms and pans the HurricaneBasin. 
+        /// </summary>
+        internal void Render_ZoomAndPan()
+        {
+            if (InternalTransformGroup.Count == 0)
+            {
+                return; 
+            }
+            else
+            {
+                ScaleTransform FirstScaleST = TransformUtil<ScaleTransform>.FindTransformWithClass(InternalTransformGroup);
+                TranslateTransform FirstTranslateTT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
+
+                TransformGroup STX = new TransformGroup();
+                STX.Children.Add(FirstScaleST);
+                STX.Children.Add(FirstTranslateTT);
+
+                HurricaneBasin.RenderTransform = this; 
+            }
+
 
         }
 

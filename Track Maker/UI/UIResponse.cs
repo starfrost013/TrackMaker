@@ -468,8 +468,18 @@ namespace Track_Maker
 
             if (InternalTransformGroup.Count != 0)
             {
+                InternalTransformGroup.Clear();
+                InternalTransformGroup.Add(ST);
+
                 TranslateTransform TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
-                if (TT != null) TG.Children.Add(TT);
+                
+                if (TT != null)
+                {
+                    InternalTransformGroup.Add(TT);
+                    TG.Children.Add(TT);
+                }
+
+                
             }
 
             HurricaneBasin.RenderTransform = TG;
@@ -514,6 +524,12 @@ namespace Track_Maker
                 
             }
             
+        }
+
+        private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ZoomLevelX += e.Delta / 100;
+            ZoomLevelY += e.Delta / 100;
         }
     }
 }
