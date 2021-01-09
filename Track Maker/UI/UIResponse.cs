@@ -356,16 +356,19 @@ namespace Track_Maker
         /// <param name="e"></param>
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
+
+
             if (e.RightButton == MouseButtonState.Pressed)
             {
 
-                if (InternalTransformGroup.Count >= 2) InternalTransformGroup.Clear(); 
+                if (InternalTransformGroup.Count > 2) InternalTransformGroup.Clear();
 
-                if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return; 
+                if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return;
 
+                // set curpos at all times for rendering purposes
                 Point CurPos = e.GetPosition(HurricaneBasin);
 
-                // Build a relative X.
+                // Build relative positions. 
                 double RelativeX = LastRightMouseClickPos.X / Width;
                 double RelativeY = LastRightMouseClickPos.Y / Height;
 
@@ -385,6 +388,7 @@ namespace Track_Maker
                     MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
                 }
 
+                CurRelativePos = new Point(RelativeX, RelativeY);
                 // Create a scale transform for actually moving the "camera"
                 ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
 
@@ -461,35 +465,9 @@ namespace Track_Maker
             ZoomLevelX = ZoomLevel / 100; // dumb hack 
             ZoomLevelY = ZoomLevel / 100;
 
-            // DUMB HACK BEGIN
-            // Temporary Code for Pre-Beta Only (HACK!!!!!!)
+            if (ZoomLevelX > 5) ZoomLevelX = 5;
+            if (ZoomLevelY > 5) ZoomLevelY = 5;
 
-
-            //TODO: fix zoom reset position by storing current transforms in a list
-            //in the mainwindow? or similar.
-            ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
-            TranslateTransform TT = null;
-
-            InternalTransformGroup.Add(ST);
-
-            TT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
-
-            if (TT != null)
-            {
-                InternalTransformGroup.Add(TT);
-            }
-
-
-            if (!Setting.PriscillaRC2_Tmp_UseNewPZRendering)
-            {
-                TransformGroup TG = new TransformGroup();
-                TG.Children.Add(ST);
-                if (TT != null) TG.Children.Add(TT);
-                HurricaneBasin.RenderTransform = TG;
-            }
-
-            
-            // DUMB HACK END
         }
 
 
@@ -519,6 +497,7 @@ namespace Track_Maker
             }
             else
             {
+                // escape spaces for windows
                 if (HelpFileName.Contains(' '))
                 {
                     Process.Start($"hh \"{HelpFileName}\"");
@@ -532,10 +511,5 @@ namespace Track_Maker
             
         }
 
-        private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            ZoomLevelX += e.Delta / 100;
-            ZoomLevelY += e.Delta / 100;
-        }
     }
 }

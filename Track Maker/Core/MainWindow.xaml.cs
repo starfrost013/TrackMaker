@@ -80,6 +80,8 @@ namespace Track_Maker
         /// </summary>
         public List<Transform> InternalTransformGroup { get; set; }
 
+        public Point CurRelativePos { get; set; }
+
         public MainWindow()
         {
             Init_Phase1();

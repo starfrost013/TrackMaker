@@ -183,7 +183,6 @@ namespace Track_Maker
 
                     if (Setting.DefaultVisibleTextNames) Render_DrawText(XStorm, HurricaneBasin);
 
-                    
                 }
             }
 
@@ -272,7 +271,8 @@ namespace Track_Maker
             }
             else
             {
-                ScaleTransform FirstScaleST = TransformUtil<ScaleTransform>.FindTransformWithClass(InternalTransformGroup);
+                //ScaleTransform FirstScaleST = TransformUtil<ScaleTransform>.FindTransformWithClass(InternalTransformGroup);
+                ScaleTransform FirstScaleST = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * CurRelativePos.X, Height * CurRelativePos.Y);
                 TranslateTransform FirstTranslateTT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
 
                 TransformGroup STX = new TransformGroup();
@@ -281,7 +281,7 @@ namespace Track_Maker
 
                 HurricaneBasin.RenderTransform = STX;
 
-                InternalTransformGroup.Clear(); 
+                if (InternalTransformGroup.Count > 2) InternalTransformGroup.Clear(); 
             }
         }
 

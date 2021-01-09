@@ -38,10 +38,8 @@ namespace Starfrost.UL5.Logging
         public static void Log(string Text) // logs to file. 
         {
 
-#if DEBUG
             Trace.WriteLine($@"{LogHeader} [{DateTime.Now}] {Text}");
             LogFile(Text, false); 
-#endif
 
         }
 
