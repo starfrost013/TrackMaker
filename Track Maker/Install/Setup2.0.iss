@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 ; starfrost's Track Maker Version 2.0
-; Setup File v2.0.000.00003
+; Setup File v2.0.000.00005
 
 ; v2.0.000.00000          Initial version                                           2020-09-26
 ; v2.0.000.00001          Now compiles                                              2020-12-22
@@ -11,15 +11,16 @@
 ; v2.0.000.00003 rev 2    Added this comment block                                  2020-12-22
 ; v2.0.000.00003 rev 3    Added more comments                                       2020-12-22 22:48
 ; v2.0.000.00004          Dynamic output dir                                        2020-12-22 22:5x
+; v2.0.000.00005          Update for Priscilla final version                        2021-01-10
                             
 ; CHANGE TO APP NAME AND VERSION FOR FINAL
-#define MyAppName "starfrost's Track Maker 2.0 [Beta 1.1 - Priscilla Setup Test]"
-#define MyAppVersion "2.0.000.00004" ; 2.0.463.20268 cb as of 2020/9/26
+#define MyAppName "starfrost's Track Maker 2.0"
+#define MyAppVersion "2.0.651.21010" ; 2.0.463.20268 cb as of 2020/9/26
 ; END CHANGE TO NAME AND VERSION FOR FINAL
 #define MyAppPublisher "starfrost"
 #define MyAppURL "https://www.medicanecentre.org"
 #define MyAppExeName "Track Maker.exe"
-#define DEBUG
+;#define DEBUG
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -36,7 +37,11 @@ DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 ; The [Icons] "quicklaunchicon" entry uses {userappdata} but its [Tasks] entry has a proper IsAdminInstallMode Check.
 UsedUserAreasWarning=no
-;InfoBeforeFile=C:\Users\FiercePC\FiercePC\TrackMaker\TrackMaker\Track Maker\bin\Debug\Installation\InstallFile.txt
+#ifdef DEBUG
+InfoBeforeFile=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\help_info.txt
+#else
+InfoBeforeFile=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\help_info.txt
+#endif
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 
@@ -70,6 +75,7 @@ Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Prisci
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Updater.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\Basins.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\CategorySystems.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\help_info.txt"; DestDir: "{app}\Data"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\Settings.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\StormTypes.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
 ;Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\UpdateComplete.cmd"; DestDir: "{app}\Data"; Flags: ignoreversion
@@ -81,6 +87,7 @@ Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Prisci
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Dano.ACECalculator.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Dano.AdvisoryGenerator.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\DanoUI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\help_info.txt"; DestDir: "{app}\Data"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Starfrost.UL5.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Updater.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\Basins.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
