@@ -479,7 +479,15 @@ namespace Track_Maker
             
             if (File.Exists(HelpFileName))
             {
-                Process.Start($"notepad {HelpFileName}");
+                ProcessStartInfo PS = new ProcessStartInfo
+                {
+                    UseShellExecute = true,
+                    FileName = $"notepad", // iris; space handling
+                    Arguments = HelpFileName
+                    
+                };
+                
+                Process.Start(PS);
             }
             else
             {
