@@ -272,7 +272,15 @@ namespace Track_Maker
             else
             {
                 //ScaleTransform FirstScaleST = TransformUtil<ScaleTransform>.FindTransformWithClass(InternalTransformGroup);
-                ScaleTransform FirstScaleST = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * CurRelativePos.X, Height * CurRelativePos.Y);
+                double CX = Width * CurRelativePos.X;
+                double CY = Width * CurRelativePos.Y;
+
+                if (CX > Width) CX = Width;
+                if (CX < 0) CX = 0;
+                if (CY > Height) CY = Height;
+                if (CY < 0) CY = 0;
+
+                ScaleTransform FirstScaleST = new ScaleTransform(ZoomLevelX, ZoomLevelY, CX, CY);
                 TranslateTransform FirstTranslateTT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
 
                 TransformGroup STX = new TransformGroup();

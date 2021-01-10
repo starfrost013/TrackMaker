@@ -363,7 +363,7 @@ namespace Track_Maker
 
                 if (InternalTransformGroup.Count > 2) InternalTransformGroup.Clear();
 
-                if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return;
+                //if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return;
 
                 // set curpos at all times for rendering purposes
                 Point CurPos = e.GetPosition(HurricaneBasin);
@@ -389,10 +389,10 @@ namespace Track_Maker
                 }
 
                 // THIS IS MULTIPLIER OF THE WINDOW SIZE NOT POSITION IN PIXELS (647_
-                if (RelativeX < 0) RelativeX = 0;
-                if (RelativeX > 1) RelativeX = 1;
-                if (RelativeY < 0) RelativeY = 0;
-                if (RelativeY > 1) RelativeY = 1; 
+                //if (RelativeX < 0) RelativeX = 0;
+                //if (RelativeX > 1) RelativeX = 1;
+                //if (RelativeY < 0) RelativeY = 0;
+                //if (RelativeY > 1) RelativeY = 1; 
 
                 CurRelativePos = new Point(RelativeX, RelativeY);
                 // Create a scale transform for actually moving the "camera"
