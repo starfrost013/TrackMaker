@@ -9,7 +9,7 @@
   <PriscillaRC2_Tmp_UseNewPZRendering>True</PriscillaRC2_Tmp_UseNewPZRendering>
   <!--<SelectedBasin>Atlantic</SelectedBasin> legacy v1.0-->
   <Iris_UseDeserialisation>False</Iris_UseDeserialisation>
-  <ShowBetaWarning>True</ShowBetaWarning>
+  <ShowBetaWarning>False</ShowBetaWarning>
   <StormNamesVisible>True</StormNamesVisible>
   <TelemetryConsent>Yes</TelemetryConsent>
   <WindowStyle>Fullscreen</WindowStyle>

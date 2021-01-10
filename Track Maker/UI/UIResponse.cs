@@ -374,16 +374,17 @@ namespace Track_Maker
                 double MouseDistanceX = 0;
                 double MouseDistanceY = 0;
 
+                MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
+                MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
+
+                /*
+                restore this in iris with proper checks
                 if (ZoomLevelX >= 2)
                 {
                     MouseDistanceX = (CurPos.X - LastRightMouseClickPos.X) * 1 + (ZoomLevelX / 2.5);
                     MouseDistanceY = (CurPos.Y - LastRightMouseClickPos.Y) * 1 + (ZoomLevelY / 2.5);
                 }
-                else
-                {
-                    MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
-                    MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
-                }
+                */
 
                 CurRelativePos = new Point(RelativeX, RelativeY);
 
