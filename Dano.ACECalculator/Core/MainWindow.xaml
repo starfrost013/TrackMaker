@@ -55,6 +55,11 @@
         <ListView x:Name="StormIntensities" HorizontalAlignment="Left" Height="331" Margin="15,181,0,0" VerticalAlignment="Top" Width="363" >
             <ListView.View>
                 <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="FontSize" Value="12"></Setter>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
                     <GridViewColumn x:Name="StormIntensities_DateTime" Header="Date/Time" Width="125" DisplayMemberBinding="{Binding DateTime}"/>
                     <GridViewColumn x:Name="StormIntensities_Intensity" Header="Intensity" Width="50" DisplayMemberBinding="{Binding Intensity}"/>
                     <GridViewColumn x:Name="StormIntensities_ThisPeriod" Header="ACE for this period" Width="120" DisplayMemberBinding="{Binding ACE}"/>

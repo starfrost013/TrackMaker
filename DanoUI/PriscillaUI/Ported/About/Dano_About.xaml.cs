@@ -45,14 +45,13 @@ namespace DanoUI
 #elif PRISCILLA
 
             starfrostTrack_Copyright_HHW.Text = "";
-            starfrostTrack_Copyright.Text = "This version of the Track Maker is a beta release intended for evaluation purposes only and is not for operational usage. © 2019-2020 starfrost.";
+            starfrostTrack_Copyright.Text = "This version of the Track Maker is a beta release intended for evaluation purposes only and is not for operational usage. © 2019-2021 starfrost.";
 #if DEBUG
             //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.FileVersion}) (Debug)";
 
-            starfrostTrack_Version.Text = $"Version 2.0 Beta Release (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
+            starfrostTrack_Version.Text = $"Version 2.0.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
 #else
-            //starfrostTrack_Version.Text = $"Version 2.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion})";
-            starfrostTrack_Version.Text = $"Version 2.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion})";
+            starfrostTrack_Version.Text = $"Version 2.0.0 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Release)";
 
 #endif
 

@@ -13,10 +13,24 @@ namespace Track_Maker
     /// </summary>
     public enum RealStormType
     {
+        /// <summary>
+        /// Tropical cyclone
+        /// </summary>
         Tropical = 0,
 
+        /// <summary>
+        /// Subtropical cyclone
+        /// </summary>
         Subtropical = 1,
 
-        Extratropical = 2
+        /// <summary>
+        /// Extratropical cyclone
+        /// </summary>
+        Extratropical = 2,
+
+        /// <summary>
+        /// Low (HURDAT2 Only) (2020-12-27 for Beta4)
+        /// </summary>
+        Invest = 3
     }
 }

@@ -10,16 +10,7 @@
 
     <Grid>
         <Grid.Resources>
-            <Style TargetType="ListViewItem">
-                <Setter Property="Background" Value="#00FFFFFF"></Setter>
-                <Setter Property="BorderBrush" Value="#80FFFFFF"></Setter>
-                <Setter Property="BorderThickness" Value="1"></Setter>
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#80FFFFFF"></Setter>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+            
             <Style TargetType="GridViewColumnHeader">
                 <Setter Property="Background" Value="#80FFFFFF"></Setter>
             </Style>
@@ -44,16 +35,29 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Visible" IsCheckable="true" Header="Visible" Checked="PriscillaUI_Layers_LayerListView_CheckBox_Checked"/>
-                    <Separator/>
-                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_MoveUp" Header="Move Up" Click="MoveUp_Click"/>
-                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_MoveDown" Header="Move Down" Click="MoveDown_Click"/>
+                    <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Visible" IsCheckable="true" Header="Visible" Checked="PriscillaUI_Layers_LayerListView_ContextMenu_Visible_Checked"/>
                     <Separator/>
                     <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Rename" Header="Rename" Click="PriscillaUI_Layers_LayerListView_ContextMenu_Rename_Click"/>
                     <Separator/>
                     <MenuItem x:Name="PriscillaUI_Layers_LayerListView_ContextMenu_Delete" Header="Delete"/>
                 </ContextMenu>
             </ListView.ContextMenu>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="#00FFFFFF"></Setter>
+                    <Setter Property="BorderBrush" Value="#80FFFFFF"></Setter>
+                    <Setter Property="BorderThickness" Value="1"></Setter>
+                    <EventSetter Event="MouseEnter" Handler="ListViewItem_MouseEnter"></EventSetter>
+                    <EventSetter Event="MouseLeave" Handler="ListViewItem_MouseLeave"></EventSetter>
+                    <!-- extremely bad no good HACK until layer bindings -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#80FFFFFF"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                    <!-- end extremely bad no good HACK until layer bindings -->
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
 
         <!-- a hack of sorts -->

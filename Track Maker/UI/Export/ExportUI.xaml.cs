@@ -2,6 +2,7 @@
 using Starfrost.UL5.ScaleUtilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,19 +28,25 @@ namespace Track_Maker
         public MainWindow MnWindow { get; set; }
         public FormatType Type { get; set; }
         public List<Storm> StormsToExport { get; set; }
+
+        /// <summary>
+        /// Preview file name
+        /// </summary>
+        public string TemporaryFileName { get; set; }
         public ExportUI(FormatType FType, IExportFormat ExportFormat)
         {
+            //if (!Export_PreInit(FType, ExportFormat)) return; // do not initialise if preinit failed
+            MnWindow = (MainWindow)Application.Current.MainWindow;
             InitializeComponent();
             Export_Init(FType, ExportFormat);
-   
-
+            
         }
 
         private void Export_Init(FormatType FType, IExportFormat ExportFormat)
         {
             Logging.Log("ExportUI Initialising...");
-            Logging.Log($"Format type: {FType}, export format: {ExportFormat.Name}");
-            MnWindow = (MainWindow)Application.Current.MainWindow;
+            Logging.Log($"Format type: {FType}, export format: {ExportFormat.GetName()}");
+
             ExpFormat = ExportFormat;
             StormsToExport = MnWindow.CurrentProject.SelectedBasin.GetFlatListOfStorms(); // feature pushed back to Dano, maybe even 3.0/"Aurora"
             Type = FType;
@@ -54,9 +61,10 @@ namespace Track_Maker
                 HideQualityControl();
             }
 
-            //completely different in Dano
-            //ExportFormat.GeneratePreview(ExportPlatform_Preview);
-            //ExportPlatform_Preview.UpdateLayout(); 
+            if (!GeneratePreview())
+            {
+                Error.Throw("Error!", "Error generating preview", ErrorSeverity.FatalError, 283);
+            }
         }
 
         // Set the header using the Export Platform. 
@@ -89,11 +97,31 @@ namespace Track_Maker
             if (!RunIEX())
             {
                 // last error global thing in error probably needed
-                Error.Throw("Warning", "191: The export failed", ErrorSeverity.Warning, 191); 
+                switch (Type)
+                {
+                    case FormatType.Import:
+                        Error.Throw("Warning", "191: The import failed", ErrorSeverity.Warning, 191);
+                        return;
+                    case FormatType.Export:
+                        Error.Throw("Warning", "191: The export failed", ErrorSeverity.Warning, 191);
+                        return;
+                }
+                 
             }
             else
             {
-                Close(); 
+                switch (Type)
+                {
+ 
+                    case FormatType.Import:
+                        Close();
+                        return;
+                    case FormatType.Export:
+                        Error.Throw("Success!", "Export successful!", ErrorSeverity.Message, 274);
+                        Close();
+                        return; 
+                }
+
             }
 
             return;
@@ -105,7 +133,7 @@ namespace Track_Maker
             Width = 918;
             ExportPlatform_PreviewTextBlock.Margin = new Thickness(10, 89, 0, 0); 
             ExportPlatform_PreviewBorder.Margin = new Thickness(10, 118, 0, 0);
-            ExportPlatform_ExportBtn.Margin = new Thickness(789, 381, 0, 0);
+            ExportPlatform_ExportBtn.Margin = new Thickness(774, 385, 0, 0);
 
             // Make the quality control uninteractable and invisible
             QualityControl.Height = 0;
@@ -191,15 +219,14 @@ namespace Track_Maker
                         ExpFormat.Export(MnWindow.CurrentProject);
                     }
 
-
-                    // wish VS allowed the samE var names under different code paths
+                    // wish VS allowed the same var names under different code paths
                     Project CurProject = MnWindow.CurrentProject;
-
-
 
                     if (CurProject.FileName != null && CurProject.FileName != "") MnWindow.Title = $"Track Maker 2.0 - {CurProject.FileName}";
                     MnWindow.UpdateLayout();
                     MnWindow.TickTimer.Start();
+
+
                     Close();
                     return true;
             }
@@ -210,7 +237,41 @@ namespace Track_Maker
         // previewgenerator
         private bool GeneratePreview()
         {
-            throw new NotImplementedException(); 
+            // in iris we will have proper temporary file management
+            TemporaryFileName = $"tmm_preview_{DateTime.Now.ToString("yyyy-MM-dd HHmmss")}.png.tmp";
+
+            // there's gotta be better ways to do this
+            ExportImage EI = new ExportImage();
+            EI.ExportCore(MnWindow.CurrentProject, TemporaryFileName);
+
+            if (!File.Exists(TemporaryFileName))
+            {
+                Error.Throw("Wasted", "Dr. Freeman, there was an error writing a temporary file for export", ErrorSeverity.Error, 272);
+                return false;
+            }
+
+            // load it again (priscilla only, not iris)
+            BitmapImage TempImage = new BitmapImage();
+
+            using (var St = File.OpenRead(TemporaryFileName))
+            {
+                TempImage.BeginInit();
+                // it is a relative uri
+                TempImage.CacheOption = BitmapCacheOption.OnLoad;
+                TempImage.StreamSource = St;
+                TempImage.EndInit();
+
+            }
+
+            ExportPlatform_Preview.Background = new ImageBrush(TempImage);
+
+            return true; 
+
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            File.Delete(TemporaryFileName); 
         }
     }
 }

@@ -1,12 +1,12 @@
-﻿<Window x:Class="Track_Maker.DanoUIHost.AddTrackPointHost.AddTrackPointHost"
+﻿<Window x:Class="Track_Maker.AddTrackPointHost"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Track_Maker.DanoUIHost.AddTrackPointHost"
+        xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:DanoUI;assembly=DanoUI"
         mc:Ignorable="d"
-        Title="Add Track Point" Height="237" Width="755">
+        Title="Add Track Point" Height="237" Width="755" WindowStyle="ToolWindow">
     <Grid>
         <Dano:AddTrackPoint x:Name="AddTrackPointControl" OKHit="OKHit"></Dano:AddTrackPoint>
     </Grid>

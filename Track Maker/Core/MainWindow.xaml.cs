@@ -1,9 +1,11 @@
 ﻿using DanoUI;
 using Starfrost.UL5.Core;
-using Starfrost.UL5.Logging; 
+using Starfrost.UL5.Logging;
+using Starfrost.UL5.WpfUtil;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO; 
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -19,6 +21,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+
 namespace Track_Maker
 {
     /// <summary>
@@ -27,7 +30,7 @@ namespace Track_Maker
     /// 
     /// Created: 2019-11-07 (Start of Development)
     /// 
-    /// Edited: 2020-10-20
+    /// Edited: 2020-12-23 (Priscilla-v2release:2.0.612.20358)
     /// 
     /// Purpose: Interaction logic for MainWindow.xaml
     /// 
@@ -51,8 +54,8 @@ namespace Track_Maker
         /// <summary> 
         /// To be moved with MWH in V3 (and turned into a DependencyProperty for the sake of code simplicity)
         /// </summary>
-        public double ZoomLevelX { get; set; }
-        public double ZoomLevelY { get; set; }
+        private double ZoomLevelX { get; set; }
+        private double ZoomLevelY { get; set; }
 
         public DependencyProperty CentrePositionProperty = DependencyProperty.Register("CentrePosition", typeof(Point), typeof(MainWindow)); 
 
@@ -61,7 +64,7 @@ namespace Track_Maker
         /// <summary>
         /// Last right mouse click position for smooth panning (v567)
         /// </summary>
-        public Point LastRightMouseClickPos { get; set; } 
+        private Point LastRightMouseClickPos { get; set; } 
 
         public string ImagePath { get => CurrentProject.SelectedBasin.ImagePath; set
             {
@@ -71,9 +74,17 @@ namespace Track_Maker
             }
         }
 
+        /// <summary>
+        /// Current relative position for transforming.
+        /// </summary>
+        public Point CurRelativePos { get; set; }
+
+        public Point TranslatePosition { get; set; }
+
         public MainWindow()
         {
             Init_Phase1();
+            Init_Phase2();
         }
 
      
@@ -82,6 +93,11 @@ namespace Track_Maker
             // This code runs on the UI thread. 
             this.Dispatcher.Invoke(() =>
             {
+                // verify internal state
+                // exit if it returns false just in case an error wasn't thrown, as if this returned false it's likely not safe to keep running.
+                // if it returns false and it IS safe to continue, there is a bug in the MainWindow.TrackMaker_VerifyInternalState() method!
+                if (!TrackMaker_VerifyInternalState()) Environment.Exit(0x9999999); // 0x9999999 = Invalid Internal State
+
                 RenderContent(HurricaneBasin, Setting.DotSize); // Content Renderer 1.2 for v0.3+
                 return;
             });
@@ -110,33 +126,6 @@ namespace Track_Maker
             ToolsMenu.IsEnabled = false;
         }
 
-        private void FileMenu_Import_BT_Click(object sender, RoutedEventArgs e)
-        {
-            ExportUI ExpUI = new ExportUI(FormatType.Import, new ExportBestTrack());
-            ExpUI.Owner = this;
-            ExpUI.Show(); 
-        }
-
-        private void ZoomLevelChanged(object sender, DanoEventArgs e)
-        {
-            double ZoomLevel = (double)e.DanoParameters[0];
-            ZoomLevelX = ZoomLevel / 100; // dumb hack 
-            ZoomLevelY = ZoomLevel / 100;
-
-            // DUMB HACK BEGIN
-            // Temporary Code for Pre-Beta Only (HACK!!!!!!)
-
-            TransformGroup TG = new TransformGroup();
-            //TODO: fix zoom reset position by storing current transforms in a list
-            //in the mainwindow? or similar.
-            ScaleTransform ST = new ScaleTransform(ZoomLevelX, ZoomLevelY);
-
-            TG.Children.Add(ST);
-
-            HurricaneBasin.RenderTransform = TG;
-            // DUMB HACK END
-        }
-
         private void Shutdown(object sender, EventArgs e)
         {
             TickTimer.Stop(); 
@@ -151,7 +140,7 @@ namespace Track_Maker
             // ugly.
             if (TickTimer.Enabled == SetTimerState)
             {
-                Error.Throw("Error!", "Attempted to start the render timer when running or stop the timer when stoppd!", ErrorSeverity.Error, 340);
+                Error.Throw("Error!", "Attempted to start the render timer when running or stop the timer when stopped!", ErrorSeverity.Error, 340);
             }
             else
             {
@@ -166,7 +155,12 @@ namespace Track_Maker
                 }
             }
         }
-         
+
+        private void Shutdown(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TickTimer.Stop();
+        }
+
 #elif IRIS
 #endif
     }

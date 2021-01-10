@@ -117,6 +117,7 @@
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\GlobalState.Priscilla.cs" />
     <Compile Include="Core\Init\Init.cs" />
+    <Compile Include="Core\InternalStateVerification\InternalStateVerifier.cs" />
     <Compile Include="DanoProject\Project.cs" />
     <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>
@@ -158,6 +159,8 @@
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExportPlatform\ExportFormats\ATCF.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\ATCFHelper\AgencyFormats.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\ATCFHelper\ATCFHelperMethods.cs" />
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
     <Compile Include="ExportPlatform\ExportFormats\FileSelector\Result\ExportResultEnum.cs" />
     <Compile Include="ExportPlatform\ExportFormats\FileSelector\Result\ExportResult.cs" />
@@ -173,7 +176,7 @@
     <Compile Include="ExportPlatform\IImageExportFormat.cs" />
     <Compile Include="Network\TelemetryConsent.cs" />
     <Compile Include="Layer\Layer.cs" />
-    <Compile Include="Settings2\Emerald.Settings.cs" />
+    <Compile Include="Settings2\SettingsAPI.cs" />
     <Compile Include="Settings2\Enums\TelemetryConsent.cs" />
     <Compile Include="Settings2\Enums\WndStyle.cs" />
     <Compile Include="Settings2\ApplicationSettings.cs" />
@@ -192,6 +195,7 @@
     <Compile Include="UI\Export\ExportUI.xaml.cs">
       <DependentUpon>ExportUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Core\Init\UILauncher.cs" />
     <Compile Include="UI\UIResponse.cs" />
     <Compile Include="Storm\Node.cs" />
     <Compile Include="Render\RenderManager.cs" />
@@ -202,7 +206,7 @@
     </Compile>
     <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
-    <Compile Include="Util\TMParsingUtil\ParsingUtil.cs" />
+    <Compile Include="Util\ParsingUtil\ParsingUtil.cs" />
     <Compile Include="Util\Utilities.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
@@ -315,9 +319,6 @@
     <None Include="Core\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Core\ico256x256-v2.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
@@ -345,6 +346,10 @@
     <ProjectReference Include="..\Starfrost.UL5\Starfrost.UL5.csproj">
       <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
       <Name>Starfrost.UL5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Updater\Updater.csproj">
+      <Project>{e4517bb9-6590-4b3a-8355-9389c1376828}</Project>
+      <Name>Updater</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
@@ -382,30 +387,31 @@
     </Content>
     <None Include="Resources\suzu.png" />
     <Resource Include="V2Icon_32x32.ico" />
-    <Resource Include="Data\empty.png" />
+    <None Include="Data\empty.png" />
     <Resource Include="Data\Languages\Languages.xml" />
     <Resource Include="Data\Redo16.png" />
     <Resource Include="Data\Redo32.png" />
     <Resource Include="Data\RedoFull.png" />
     <Resource Include="Data\Icon\V2Icon_32x32.ico" />
-    <Resource Include="Data\Icon\V2Icon_32x32.png" />
+    <None Include="Data\Icon\V2Icon_32x32.png" />
     <Content Include="Data\Settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Data\Undo16.png" />
     <Resource Include="Data\Undo32.png" />
     <Resource Include="Data\UndoFull.png" />
-    <SplashScreen Include="Data\Splash\Priscilla.png" />
-    <Resource Include="Data\Splash\Priscilla2.png" />
+    <None Include="Data\Splash\Priscilla.png" />
+    <None Include="Data\Splash\Priscilla2.png" />
     <Resource Include="Data\Splash\Priscilla3.png" />
+    <SplashScreen Include="Data\Splash\PriscillaRelease.png" />
     <Content Include="Data\StormTypes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>echo Track Maker version 2.0 (codename "Priscilla", alternative name "Kallen").
-echo Copyright © 2019-2020 Connor Hyde.
+    <PreBuildEvent>echo Track Maker version 2.0 (codename "Priscilla").
+echo Copyright © 2019-2021 Connor Hyde (aka starfrost)
 echo Built: %25time%25, %25date%25
 
 </PreBuildEvent>

@@ -6,24 +6,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
-             mc:Ignorable="d" Height="279.942" Width="788" Loaded="UserControl_Loaded">
-    <UserControl.Background>
-        <LinearGradientBrush>
-            <!-- Temporary - We will bind to settings -->
-            <GradientStop Offset="0.0" Color="#004080"></GradientStop>
-            <GradientStop Offset="0.8" Color="#96bdfe"></GradientStop>
-        </LinearGradientBrush>
-    </UserControl.Background>
+             mc:Ignorable="d" Height="221.942" Width="773" Loaded="UserControl_Loaded">
+
     <Grid>
-        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Project" VerticalAlignment="Top" Height="71" Width="327" FontSize="48"/>
-        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_Name" HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Name:" FontSize="28" VerticalAlignment="Top"/>
-        <TextBox x:Name="Dano_UI_CreateProject_NameBox" HorizontalAlignment="Left" Height="32" Margin="108,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="351"/>
-        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="Dano_UI_CreateProject_InitialBasin" HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" Text="Basin:" FontSize="28" VerticalAlignment="Top" Width="80"/>
-        <ComboBox x:Name="Dano_UI_CreateProject_InitialBasinBox" HorizontalAlignment="Left" Margin="108,128,0,0" VerticalAlignment="Top" Width="351" Height="32" ItemsSource="{Binding DanoBasinList}">
+
+        <!-- Iris: make this shit work when we modularise everything
+        <UserControl.Background>
+            <LinearGradientBrush>
+                <GradientStop Offset="0.0" Color="#004080"></GradientStop>
+                <GradientStop Offset="0.8" Color="#96bdfe"></GradientStop>
+            </LinearGradientBrush>
+       </UserControl.Background>-->
+
+        <TextBlock x:Name="Dano_UI_CreateProject_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Project" VerticalAlignment="Top" Height="71" Width="327" FontSize="48" FontStyle="Italic"/>
+        <TextBlock x:Name="Dano_UI_CreateProject_Name" HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Name:" FontSize="28" VerticalAlignment="Top"/>
+        <TextBox x:Name="Dano_UI_CreateProject_NameBox" HorizontalAlignment="Left" Height="32" Margin="108,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="408"/>
+        <TextBlock  x:Name="Dano_UI_CreateProject_InitialBasin" HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" Text="Basin:" FontSize="28" VerticalAlignment="Top" Width="80"/>
+        <ComboBox x:Name="Dano_UI_CreateProject_InitialBasinBox" HorizontalAlignment="Left" Margin="108,128,0,0" VerticalAlignment="Top" Width="408" Height="32" SelectedIndex="0" ItemsSource="{Binding DanoBasinList}">
 
         </ComboBox>
-        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" Name="Dano_UI_CreateProject_Tip" HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" Text="You can add more seasons to this project by going to the Project menu. Seasons can use any installed basin." VerticalAlignment="Top" FontStyle="Italic" Width="553"/>
-        <Button x:Name="Dano_UI_CreateProject_Create" Content="Create" HorizontalAlignment="Left" Margin="691,236,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.268,0.607" Height="32" Click="Dano_UI_CreateProject_Create_Click"/>
+        <!--Delayed to 3.0: <TextBlock Style="{StaticResource Style_TextBlock_Invert}" Name="Dano_UI_CreateProject_Tip" HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" Text="You can add more seasons to this project by going to the Project menu. Seasons can use any installed basin." VerticalAlignment="Top" FontStyle="Italic" Width="553"/>-->
+        <Button x:Name="Dano_UI_CreateProject_Create" Content="Create" HorizontalAlignment="Left" Margin="618,170,0,0" VerticalAlignment="Top" Width="123" RenderTransformOrigin="0.268,0.607" Height="32" Click="Dano_UI_CreateProject_Create_Click" Style="{StaticResource Button_Invert}"/>
 
     </Grid>
 </UserControl>

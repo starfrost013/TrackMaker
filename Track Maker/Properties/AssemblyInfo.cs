@@ -13,7 +13,7 @@ using System.Windows;
 // associated with an assembly.
 
 #if DEBUG
-[assembly: AssemblyTitle("Hurricane Track Maker ['Priscilla' Debug]")]
+[assembly: AssemblyTitle("Track Maker ['Priscilla' Debug]")]
 #else
 [assembly: AssemblyTitle("Track Maker 2.0")]
 #endif
@@ -23,7 +23,7 @@ using System.Windows;
 [assembly: AssemblyCompany("")]
 
 [assembly: AssemblyProduct("Track Maker")]
-[assembly: AssemblyCopyright("Copyright © 2019-2020 starfrost")]
+[assembly: AssemblyCopyright("Copyright © 2019-2021 starfrost")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -61,9 +61,9 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.604.20356")]
-[assembly: AssemblyFileVersion("2.0.604.20356")]    
-[assembly: AssemblyInformationalVersion("2.0 Beta Release")]
+[assembly: AssemblyVersion("2.0.650.21010")]
+[assembly: AssemblyFileVersion("2.0.650.21010")]    
+[assembly: AssemblyInformationalVersion("2.0.0")]
 
 #if DANO
 [assembly: XmlnsDefinition("Dano_XAMLDependent", "Namespace")] 

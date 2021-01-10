@@ -39,8 +39,10 @@ namespace Track_Maker
                 {
                     case CoordinateFormat.TrackMaker:
                         return FromString_TrackMaker(Str);
-                    case CoordinateFormat.ATCF_HURDAT2:
+                    case CoordinateFormat.ATCF:
                         return FromString_ATCF(Str);
+                    case CoordinateFormat.HURDAT2:
+                        return FromString_ATCF(Str, AgencyFormats.HURDAT2);
                 }
             }
 
@@ -89,7 +91,7 @@ namespace Track_Maker
             string _4 = $"{_2[0]},{_3[0]}";
 
 
-            Coord.Coordinates = _4.SplitXY();
+            Coord.Coordinates = _4.SplitXY(true);
 
             // aaaa
             Coord.Directions = new List<CardinalDirection>();
@@ -107,7 +109,7 @@ namespace Track_Maker
         /// </summary>
         /// <param name="AtcfString"></param>
         /// <returns></returns>
-        public static Coordinate FromString_ATCF(string AtcfString)
+        public static Coordinate FromString_ATCF(string AtcfString, AgencyFormats AF = AgencyFormats.ATCF)
         {
 
             Coordinate Coord = new Coordinate();
@@ -128,14 +130,19 @@ namespace Track_Maker
             string PreNumericalComponent2 = CoordinateComponents2.Substring(0, CoordinateComponents2.Length - 1);
 
             string CardinalDirection1 = CoordinateComponents1.Substring(CoordinateComponents1.Length - 1);
-            string CardinalDirection2 = CoordinateComponents1.Substring(CoordinateComponents2.Length - 1);
+            string CardinalDirection2 = CoordinateComponents2.Substring(CoordinateComponents2.Length - 1);
 
             double Coord1 = Convert.ToDouble(PreNumericalComponent1);
             double Coord2 = Convert.ToDouble(PreNumericalComponent2);
 
             // ATCF format does not include decimal points and uses 1 d.p. of precision...
-            Coord1 /= 10.0;
-            Coord2 /= 10.0;
+
+            if (AF == AgencyFormats.ATCF)
+            {
+                Coord1 /= 10.0;
+                Coord2 /= 10.0;
+            }
+
 
             CardinalDirection CD1 = (CardinalDirection)Enum.Parse(typeof(CardinalDirection), CardinalDirection1);
             CardinalDirection CD2 = (CardinalDirection)Enum.Parse(typeof(CardinalDirection), CardinalDirection2);
@@ -154,9 +161,9 @@ namespace Track_Maker
         /// <param name="Str1">The X position of the coordinate.</param>
         /// <param name="Str2">The Y position of the coordinate.</param>
         /// <returns></returns>
-        public static Coordinate FromSplitCoordinate(string Str1, string Str2)
+        public static Coordinate FromSplitCoordinate(string Str1, string Str2, CoordinateFormat CF = CoordinateFormat.ATCF)
         {
-            return FromString($"{Str1},{Str2}", CoordinateFormat.ATCF_HURDAT2);
+            return FromString($"{Str1},{Str2}", CF);
         }
 
     }

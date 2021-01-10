@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Useful Library 5.x NetFX")]
-[assembly: AssemblyCopyright("Copyright © 2019-2020 starfrost")]
+[assembly: AssemblyCopyright("Copyright © 2019-2021 starfrost")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -35,5 +35,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.24.93.20356")]
-[assembly: AssemblyFileVersion("5.24.93.20356")]
+[assembly: AssemblyVersion("5.25.118.21010")]
+[assembly: AssemblyFileVersion("5.25.118.21010")]

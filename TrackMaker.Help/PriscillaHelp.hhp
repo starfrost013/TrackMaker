@@ -1,0 +1,16 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=PriscillaHelp.chm
+Contents file=TOC.hhc
+Default topic=Images\AboutScreen.png
+Display compile progress=No
+Index file=PriscillaHelp.hhk
+Language=0x809 English (United Kingdom)
+Title=Track Maker 2.0 Help
+
+
+[FILES]
+Content\index.html
+
+[INFOTYPES]
+

@@ -131,16 +131,15 @@
 
 
     <Style TargetType="ComboBox">
-        
+
         <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
         <Setter Property="Background" Value="#40FFFFFF"></Setter>
         <Setter Property="BorderBrush" Value="#FFFFFFFF"></Setter>
-        
+
         <Setter Property="Height" Value="32"></Setter>
 
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         <Setter Property="FontSize" Value="18"></Setter>
 
     </Style>
-
 </ResourceDictionary>

@@ -77,8 +77,8 @@ namespace DanoUI
         public LayerControl()
         {
             InitializeComponent();
+            
         }
-
         
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -101,7 +101,8 @@ namespace DanoUI
             }
             else
             {
-                MessageBox.Show("Error placeholder");
+                //iris: we will use the error system for this
+                MessageBox.Show("Error!", "Please select a layer before deleting it!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return; 
             }
         }
@@ -113,7 +114,6 @@ namespace DanoUI
 #endif
             // SHITTY HACK SHITTY HACK!!!!
             PriscillaUI_Layers_LayerListView.Items.Add(Lyr);
-
 
             PriscillaUI_Layers_LayerListView.SelectedIndex = PriscillaUI_Layers_LayerListView.Items.Count - 1;
 
@@ -155,15 +155,19 @@ namespace DanoUI
                 return;
             }
 
-            bool IsLayerEnabled = (bool)ChkBox.IsChecked;
+            ToggleSelectedLayer((bool)ChkBox.IsChecked);
+        }
 
-            DanoEventArgs DEA = new DanoEventArgs(); 
+        private void ToggleSelectedLayer(bool SelectedLayerState)
+        {
+
+            DanoEventArgs DEA = new DanoEventArgs();
             string SelItem = (string)PriscillaUI_Layers_LayerListView.SelectedItem;
 
             DEA.DanoParameters.Add(SelItem);
 
             // temporary code
-            if (!IsLayerEnabled)
+            if (!SelectedLayerState)
             {
                 LayerDisabled(this, DEA);
             }
@@ -195,7 +199,11 @@ namespace DanoUI
 
         private void PriscillaUI_Layers_LayerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            object[] AddedItems = (object[])e.AddedItems;
+            FireSelectedEvent((object[])e.AddedItems); 
+        }
+
+        private void FireSelectedEvent(object[] AddedItems)
+        {
             List<string> AddedItemsLZ = ListUtil<string>.ToList(AddedItems);
 
             DanoEventArgs DEA = new DanoEventArgs();
@@ -216,6 +224,37 @@ namespace DanoUI
             DEA.DanoParameters.Add(LayerIndex);
 
             LayerRenamed(this, DEA);
+        }
+
+        private void PriscillaUI_Layers_LayerListView_ContextMenu_Visible_Checked(object sender, RoutedEventArgs e)
+        {
+            // FIX CRASH BUG (rc1; v634)
+            ToggleSelectedLayer(PriscillaUI_Layers_LayerListView_ContextMenu_Visible.IsChecked); 
+        }
+
+        private void ListViewItem_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // as as it's usually a string
+            ListViewItem LVI = sender as ListViewItem;
+            LVI.IsSelected = true;
+
+            // HACK
+            object[] ObjArray = new object[] { (string)PriscillaUI_Layers_LayerListView.SelectedItem };
+            FireSelectedEvent(ObjArray);
+            // END HACK
+
+        }
+
+        private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // as as it's usually a string
+            ListViewItem LVI = sender as ListViewItem;
+            LVI.IsSelected = true;
+
+            // HACK
+            object[] ObjArray = new object[] { (string)PriscillaUI_Layers_LayerListView.SelectedItem };
+            FireSelectedEvent(ObjArray);
+            // END HACK
         }
     }
 }

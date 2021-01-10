@@ -3,15 +3,17 @@ using Dano.AdvisoryGenerator;
 using DanoUI;
 using Starfrost.UL5.Logging;
 using Starfrost.UL5.MathUtil;
+using Starfrost.UL5.WpfUtil; 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO; 
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Input;
-using Track_Maker.DanoUIHost.AddTrackPointHost;
 
 namespace Track_Maker
 {
@@ -25,7 +27,6 @@ namespace Track_Maker
         /// <param name="e"></param>
         private void BasinMenu_BasinSwitch_Click(object sender, RoutedEventArgs e)
         {
-
             DanoBasinSwitcherHost DBSH = new DanoBasinSwitcherHost(CurrentProject.GetBasinNames());
             DBSH.Owner = this;
             DBSH.Show(); 
@@ -34,7 +35,13 @@ namespace Track_Maker
         private void BasinMenu_Clear_Click(object sender, RoutedEventArgs e)
         {
             CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm = null;
+            //MainWindow logic in MainWindow class (Hack till Iris Layer binding)
+            Layers.ClearLayers();
+            //end
+
             CurrentProject.SelectedBasin.ClearBasin();
+            // iris: move initbasin to selectedbasin
+            CurrentProject.InitBasin(CurrentProject.SelectedBasin);
         }
 
         private void ViewMenu_Names_Click(object sender, RoutedEventArgs e) => Setting.DefaultVisibleTextNames = !Setting.DefaultVisibleTextNames;
@@ -46,12 +53,13 @@ namespace Track_Maker
             {
                 Project CurProj = CurrentProject;
 
+                // fix retardation
                 if (CurProj != null && CurProj.SelectedBasin != null && CurProj.SelectedBasin.CurrentLayer != null)
                 {
                     // if we have no storms, ask the user to create a storm instead of add a track point. 
                     if (CurProj.SelectedBasin.CurrentLayer.CurrentStorm == null)
                     {
-                        AddNewStormHost Addstwindow = new AddNewStormHost();
+                        AddNewStormHost Addstwindow = new AddNewStormHost(CurProj.SelectedBasin.SeasonStartTime);
                         Addstwindow.Owner = this;
                         Addstwindow.Show();
                         return;
@@ -134,23 +142,32 @@ namespace Track_Maker
 
         private void FileMenu_SaveImage_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportImage>(FormatType.Export); 
+
+            /* pre-build 627
             ExportUI ExportUI = new ExportUI(FormatType.Export, new ExportImage());
-            ExportUI.Owner = this;
-            ExportUI.Show(); 
+            ExportUI.Owner = tthis;
+            ExportUI.Show(); */
         }
 
         private void FileMenu_Import_XML2_Click(object sender, RoutedEventArgs e)
         {
-            ExportUI ExportUI = new ExportUI(FormatType.Import, new XMLv2());
+            InitExportUI<ExportXMLv2>(FormatType.Import);
+
+            /* pre-build 629
+            ExportUI ExportUI = new ExportUI(FormatType.Import, new ExportXMLv2());
             ExportUI.Owner = this;
-            ExportUI.Show(); 
+            ExportUI.Show(); */
         }
 
         private void FileMenu_Export_XML2_Click(object sender, RoutedEventArgs e)
         {
-            ExportUI ExportUI = new ExportUI(FormatType.Export, new XMLv2());
+            InitExportUI<ExportXMLv2>(FormatType.Export);
+            
+            /* pre-build 629
+            ExportUI ExportUI = new ExportUI(FormatType.Export, new ExportXMLv2());
             ExportUI.Owner = this;
-            ExportUI.Show();
+            ExportUI.Show(); */
         }
 
         private void ToolsMenu_ACECalculator_Click(object sender, RoutedEventArgs e)
@@ -178,13 +195,18 @@ namespace Track_Maker
         {
             Logging.Log("Creating new storm window...");
 
-            AddNewStormHost ANSH = new AddNewStormHost();
+            Basin CurrentBasin = CurrentProject.SelectedBasin;
+
+            AddNewStormHost ANSH = new AddNewStormHost(CurrentBasin.SeasonStartTime);
             ANSH.Owner = this;
             ANSH.Show(); 
         }
 
         private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportEasyTimeline>(FormatType.Export);
+
+            /* pre-build 629 
             List<Storm> StormList = CurrentProject.SelectedBasin.GetFlatListOfStorms();
 
             if (StormList.Count == 0)
@@ -195,11 +217,14 @@ namespace Track_Maker
 
             ExportUI ExUI = new ExportUI(FormatType.Export, new ExportEasyTimeline());
             ExUI.Owner = this;
-            ExUI.Show(); 
+            ExUI.Show(); */
         }
 
         private void FileMenu_Export_BT_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportBestTrack>(FormatType.Export);
+
+            /* pre-build 629
             List<Storm> StormList = CurrentProject.SelectedBasin.GetFlatListOfStorms();
 
             if (StormList.Count == 0)
@@ -218,7 +243,7 @@ namespace Track_Maker
             {
                 Error.Throw("Error", "This export format is not supported by this basin. Please define coords!", ErrorSeverity.Warning, 123);
                 return; 
-            }
+            } */
 
         }
 
@@ -277,15 +302,16 @@ namespace Track_Maker
                     CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Redo();
                 }
             }
-
         }
-
 
         private void FileMenu_Export_HURDAT_Click(object sender, RoutedEventArgs e)
         {
+            InitExportUI<ExportHURDAT2>(FormatType.Export);
+
+            /* pre-build 629
             ExportUI ExUI = new ExportUI(FormatType.Export, new ExportHURDAT2());
             ExUI.Owner = this;
-            ExUI.Show(); 
+            ExUI.Show(); */
         }
 
         // ok
@@ -330,15 +356,16 @@ namespace Track_Maker
         /// <param name="e"></param>
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
+
             if (e.RightButton == MouseButtonState.Pressed)
             {
-                if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return; 
-                // Set up a translation group.
-                TransformGroup TG = new TransformGroup();
 
+                if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return;
+
+                // set curpos at all times for rendering purposes
                 Point CurPos = e.GetPosition(HurricaneBasin);
 
-                // Build a relative X.
+                // Build relative positions. 
                 double RelativeX = LastRightMouseClickPos.X / Width;
                 double RelativeY = LastRightMouseClickPos.Y / Height;
 
@@ -347,29 +374,24 @@ namespace Track_Maker
                 double MouseDistanceX = 0;
                 double MouseDistanceY = 0;
 
+                MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
+                MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
+
+                /*
+                restore this in iris with proper checks
                 if (ZoomLevelX >= 2)
                 {
-                    MouseDistanceX = (CurPos.X - LastRightMouseClickPos.X) * 1 + ZoomLevelX;
-                    MouseDistanceY = (CurPos.Y - LastRightMouseClickPos.Y) * 1 + ZoomLevelY;
+                    MouseDistanceX = (CurPos.X - LastRightMouseClickPos.X) * 1 + (ZoomLevelX / 2.5);
+                    MouseDistanceY = (CurPos.Y - LastRightMouseClickPos.Y) * 1 + (ZoomLevelY / 2.5);
                 }
-                else
-                {
-                    MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
-                    MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
-                }
+                */
 
-                // Create a scale transform for actually moving the "camera"
-                ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
+                CurRelativePos = new Point(RelativeX, RelativeY);
 
                 // Translate the "camera" view 
-                TranslateTransform TranslateT = new TranslateTransform(MouseDistanceX, MouseDistanceY);
 
-                // Build the translation group
-                TG.Children.Add(ScaleT);
-                TG.Children.Add(TranslateT);
-                
-                // Apply the tanslations
-                HurricaneBasin.RenderTransform = TG;
+                TranslatePosition = new Point(MouseDistanceX, MouseDistanceY);
+
             }
             else
             {
@@ -389,7 +411,7 @@ namespace Track_Maker
 
         private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
         {
-            if (GlobalStateP.CurrentExportFormatName == null) return; 
+            if (GlobalStateP.CurrentExportFormatName == null) GlobalStateP.CurrentExportFormatName = "Track_Maker.ExportXMLv2"; 
 
             Type EXType = Type.GetType(GlobalStateP.CurrentExportFormatName);
 
@@ -409,5 +431,71 @@ namespace Track_Maker
 
             Title = $"Track Maker 2.0 - [{GlobalStateP.GetCurrentOpenFile()}]";
         }
+
+        private void FileMenu_Import_BT_Click(object sender, RoutedEventArgs e)
+        {
+            ExportUI ExpUI = new ExportUI(FormatType.Import, new ExportBestTrack());
+            ExpUI.Owner = this;
+            ExpUI.Show();
+        }
+
+        private void ZoomLevelChanged(object sender, DanoEventArgs e)
+        {
+            double ZoomLevel = (double)e.DanoParameters[0];
+
+            ZoomLevelX = ZoomLevel / 100; // dumb hack 
+            ZoomLevelY = ZoomLevel / 100;
+
+            // hack for 2.0 only
+            if (CurRelativePos.X == 0 || CurRelativePos.Y == 0) CurRelativePos = new Point(0.01, 0.01);
+
+            if (ZoomLevelX < 1) ZoomLevelX = 1;
+            if (ZoomLevelY < 1) ZoomLevelY = 1; 
+            if (ZoomLevelX > 5) ZoomLevelX = 5;
+            if (ZoomLevelY > 5) ZoomLevelY = 5;
+
+        }
+
+
+        private void FileMenu_Import_HURDAT2_Click(object sender, RoutedEventArgs e)
+        {
+            InitExportUI<ExportHURDAT2>(FormatType.Import);
+
+            /* pre-build 629
+            ExportUI EUI = new ExportUI(FormatType.Import, new ExportHURDAT2());
+            EUI.Owner = this;
+            EUI.Show(); */
+        }
+
+        private void HelpMenu_Help_Click(object sender, RoutedEventArgs e)
+        {
+            // build 630
+            // this is disabled for now as the help file doesn't actually exist now
+
+            // LaunchHelp()?
+
+            string HelpFileName = "TrackMaker.chm";
+
+            if (!File.Exists(HelpFileName))
+            {
+                Error.Throw("Error", $"Cannot find help file {HelpFileName}!", ErrorSeverity.Error, 342);
+                return; 
+            }
+            else
+            {
+                // escape spaces for windows
+                if (HelpFileName.Contains(' '))
+                {
+                    Process.Start($"hh \"{HelpFileName}\"");
+                }
+                else
+                {
+                    Process.Start($"hh {HelpFileName}");
+                }
+                
+            }
+            
+        }
+
     }
 }

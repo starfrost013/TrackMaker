@@ -76,7 +76,7 @@ namespace Track_Maker
             InitBasin(Bs); 
         }
 
-        private void InitBasin(Basin Bs, bool SelectNow = false)
+        public void InitBasin(Basin Bs, bool SelectNow = false)
         {
 #if DANO
             // ATTN: You can write anything you want if it's not covered by the currently defined ifdefs 
@@ -106,11 +106,35 @@ namespace Track_Maker
         }
 
         /// <summary>
+        /// Initialise a basin after project initialisation
+        /// </summary>
+        /// <param name="Bs"></param>
+        private void InitBasin(Basin Bs)
+        {
+#if DANO
+            // ATTN: You can write anything you want if it's not covered by the currently defined ifdefs 
+            Bs.SeasonHemisphere = Hemisphere;
+            Bs.SeasonType = Type;
+#endif
+            // load function goes here
+
+            // Create a background layer
+            Layer BgLayer = new Layer();
+            BgLayer.Name = "Background";
+
+            Bs.Layers.Add(BgLayer);
+            Bs.SelectLayerWithName(BgLayer.Name);
+
+            OpenBasins.Add(Bs);
+            SelectedBasin = Bs;
+        }
+
+        /// <summary>
         /// This loads the basins.
         /// 
         /// This should be a global thing, but in the interests of finishing Priscilla it is simply easier if we do it this way/
         /// </summary>
-        
+
         public void CreateNewProject(string Name, string ImagePath)
         {
             AddBasin(Name); 

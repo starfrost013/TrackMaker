@@ -31,7 +31,7 @@ Features:
 - Help
 - Codename "Priscilla" - feature-rich and easy to use
 
-Track Maker 2.1
+Track Maker 2.1 'Iris'
 Features:
 - Internationalisation (use Diffusion)
 - Namespaceisation / modularisation
@@ -40,6 +40,9 @@ Features:
 - Graph Mode
 - Overhaul DanoUI to use actual objects from TrackMaker.Core.dll instead of strings (V3 Prep)
 - Clean up logs by default; allow the user to toggle this
+- Temporary file management API
+- Rename all DLLs, better integration 
+- Preview on/off setting (for slow disks) 
 
 Track Maker 3.0
 Features:

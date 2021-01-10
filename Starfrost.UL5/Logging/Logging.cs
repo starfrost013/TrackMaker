@@ -32,16 +32,14 @@ namespace Starfrost.UL5.Logging
         private static string LogHeader = "Priscilla Debug:"; // log header
         public static void Init()
         {
-            LogFile("Track Maker\n\n© 2019-2020 starfrost. Open-source software under the MIT License.", true);
+            LogFile("Track Maker\n\n© 2019-2021 starfrost. Open-source software under the MIT License.", true);
         }
 
         public static void Log(string Text) // logs to file. 
         {
 
-#if DEBUG
             Trace.WriteLine($@"{LogHeader} [{DateTime.Now}] {Text}");
             LogFile(Text, false); 
-#endif
 
         }
 
@@ -76,7 +74,7 @@ namespace Starfrost.UL5.Logging
                 MessageBox.Show($"Error 301 (an error occurred writing to the log - Log not found)\n\n{err}", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
 #else
-                MessageBox.Show($"Error 301 (an error occurred writing to the log - Log not found}", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Error 301 (an error occurred writing to the log - Log not found", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
 #endif
             }

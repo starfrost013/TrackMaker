@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -29,10 +30,12 @@ namespace Track_Maker
                     "and you must do so manually.\n\n" +
                     "Do you wish to check for updates at each start of the Track Maker?", "Check for Updates?", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                 {
+                    Logging.Log("User accepted indirect telemetry, setting TelemetryConsent to TelemetryConsent.Yes...");
                     EmeraldSettings.SetSetting("TelemetryConsent", "Yes");
                 }
                 else
                 {
+                    Logging.Log("User denied indirect telemetry, setting TelemetryConsent to TelemetryConsent.No...");
                     EmeraldSettings.SetSetting("TelemetryConsent", "No");
                 }
             }
@@ -40,6 +43,7 @@ namespace Track_Maker
             {
                 if (Setting.TelemetryConsent == TelemetryConsent.Yes)
                 {
+                    Logging.Log("TelemetryConsent = TelemetryConsent.Yes, running updater..."); 
                     RunUpdater();
                 }
                 else

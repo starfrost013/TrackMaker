@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:DanoUI"
              mc:Ignorable="d" Height="183.959" Width="743.894">
     <Grid>
-        <TextBlock x:Name="CreateLayer_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Layer" VerticalAlignment="Top" FontSize="48"/>
+        <TextBlock x:Name="CreateLayer_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Layer" VerticalAlignment="Top" FontSize="48" FontStyle="Italic"/>
         <TextBlock x:Name="CreateLayer_Name" HorizontalAlignment="Left" Height="32" Margin="10,79,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="73"/>
         <TextBox x:Name="CreateLayer_NameBox" HorizontalAlignment="Left" Height="29" Margin="88,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="403" Style="{StaticResource TextBox_BW}"/>
-        <Button Style="{StaticResource Button_Invert}" x:Name="CreateLayer_OKButton" Content="OK" HorizontalAlignment="Left" Height="29" Margin="579,79,0,0" VerticalAlignment="Top" Width="123" Click="CreateLayer_OKButton_Click"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="CreateLayer_OKButton" Content="OK" HorizontalAlignment="Left" Height="29" Margin="557,79,0,0" VerticalAlignment="Top" Width="123" Click="CreateLayer_OKButton_Click"/>
         <CheckBox x:Name="CreateLayer_MoveToFront" Content="Force to Front" HorizontalAlignment="Left" Height="21" Margin="10,116,0,0" VerticalAlignment="Top" Width="162" FontSize="18"/>
         <CheckBox x:Name="CreateLayer_MoveToBack" Content="Force to Back" HorizontalAlignment="Left" Height="25" Margin="10,142,0,0" VerticalAlignment="Top" Width="167" FontSize="18"/>
 

@@ -52,7 +52,7 @@ namespace Track_Maker
         public bool IsOpen { get; set; } // is this basin open?
         public bool IsSelected { get; set; } // is this basin selected?
         public string UserTag { get; set; } // User-given season name (Priscilla v445)
-
+        public DateTime SeasonStartTime { get; set; } // The start time of the season
         public Basin()
         {
             Layers = new List<Layer>();
@@ -65,7 +65,7 @@ namespace Track_Maker
         {
             Coordinate Coord = new Coordinate();
 
-            //Convert (coords lower/higher are alwa
+            //Convert 
             double X1 = CoordsLower.Coordinates.X;
             double Y1 = CoordsLower.Coordinates.Y;
             double X2 = CoordsHigher.Coordinates.X;
@@ -101,11 +101,42 @@ namespace Track_Maker
 
             // convert to 1. Get rid of this mainwindow shit asap in dano.
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow; 
-            double _ = NodePosition.X / MnWindow.Width;
-            double _2 = NodePosition.Y / MnWindow.Height;
 
-            double FinalX = (X2 - X1)  * _;
-            double FinalY = (Y2 - Y1) * _2;
+            double WindowMultiplierPositionX = NodePosition.X / MnWindow.Width;
+            double WindowMultiplierPositionY = NodePosition.Y / MnWindow.Height;
+
+            double FinalX = -2.999126165;
+            double FinalY = -2.999126165;
+
+            if (X1 <= 0 && X2 <= 0) WindowMultiplierPositionX = -WindowMultiplierPositionX;
+            if (Y1 <= 0 && Y2 <= 0) WindowMultiplierPositionY = -WindowMultiplierPositionY;
+
+            // this is so the user can input the coordinates in any way they want. 
+            if (X2 < X1)
+            {
+                
+                FinalX = (X1 - X2) * WindowMultiplierPositionX;
+            }
+            else
+            {
+
+                FinalX = (X2 - X1) * WindowMultiplierPositionX;
+            }
+
+            if (Y2 < Y1)
+            {
+                FinalY = (Y1 - Y2) * WindowMultiplierPositionY;
+            }
+            else
+            {
+                FinalY = (Y2 - Y1) * WindowMultiplierPositionY;
+            }
+
+            if (FinalX == -2.999126165 || FinalY == -2.999126125)
+            {
+                Error.Throw("Error!", "Failed to set FinalX!", ErrorSeverity.Error, 277);
+                return null;
+            }
 
             string _s = FinalX.ToString();
             string _s2 = FinalY.ToString();
@@ -116,7 +147,19 @@ namespace Track_Maker
             if (_s3.Length != 0)
             {
                 // Truncate to the first decimal point if there are decimal points
-                string _s4 = _s3[1].Substring(0, 3 - _s3[0].Length);
+
+                // rename this in iris
+                string _s4 = "";
+
+                if (_s3.Length == 1)
+                {
+                    _s4 = _s3[0]; 
+                }
+                else
+                {
+                    _s4 = _s3[1].Substring(0, 1);
+                }
+                
 
                 // Concanectate
                 _s4 = $"{_s3[0]}{_s4}";
@@ -128,8 +171,20 @@ namespace Track_Maker
             if (_s5.Length != 0)
             {
                 // Truncate to the first decimal point if there are decimal points
-                string _s6 = _s5[1].Substring(0, 1);
 
+                string _s6 = "";
+
+                // fixes crash with nodes that are very high up
+                // on the screen
+                if (_s5.Length == 1)
+                {
+                    _s6 = _s5[0];
+                }
+                else
+                {
+                    _s6 = _s5[1].Substring(0, 1);
+                }
+                
                 // Concanectate
                 _s6 = $"{_s5[0]}{_s6}";
 
@@ -138,6 +193,17 @@ namespace Track_Maker
             }
 
             Coord.Directions = new List<CardinalDirection>();
+
+
+            if (FinalY < 0)
+            {
+                FinalY = -FinalY;
+                Coord.Directions.Add(CardinalDirection.S);
+            }
+            else
+            {
+                Coord.Directions.Add(CardinalDirection.N);
+            }
 
             if (FinalX < 0)
             {
@@ -149,15 +215,6 @@ namespace Track_Maker
                 Coord.Directions.Add(CardinalDirection.E);
             }
 
-            if (FinalY < 0)
-            {
-                FinalY = -FinalY;
-                Coord.Directions.Add(CardinalDirection.S);
-            }
-            else
-            {
-                Coord.Directions.Add(CardinalDirection.N);
-            }
 
             // ATCF moment
             Coord.Coordinates = new Point(FinalY, FinalX);
@@ -205,13 +262,32 @@ namespace Track_Maker
 
             // get the multiplier from the coordshigher.
 
-            double PreFinalX = Coord.Coordinates.X / (HighX - LowX);
-            double PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
+            double PreFinalX = -2.991823613;
+            double PreFinalY = -2.991823613;
 
-            // make sure everything is available on screen...
-            if (PreFinalX < 0) PreFinalX = -PreFinalX;
-            if (PreFinalY < 0) PreFinalY = -PreFinalY;
+            if (HighX > LowX)
+            {
+                PreFinalX = Coord.Coordinates.X / (HighX - LowX);
+            }
+            else
+            {
+                PreFinalX = Coord.Coordinates.X / (LowX - HighX);
+            }
 
+            if (HighY > LowY)
+            {
+                PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
+            }
+            else
+            {
+                PreFinalY = Coord.Coordinates.Y / (LowY - HighY);
+            }
+
+            if (PreFinalX == -2.991823613 || PreFinalY == -2.991823613)
+            {
+                Error.Throw("Error", "Error translating coordinates - internal ATCF import error", ErrorSeverity.Error, 320);
+                return new Point(-2.991823613, -2.991823613); 
+            }
             // TEMP
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             // atcf fix
@@ -580,6 +656,7 @@ namespace Track_Maker
             }
 
             Layers.Clear();
+            
 
             return;
         }

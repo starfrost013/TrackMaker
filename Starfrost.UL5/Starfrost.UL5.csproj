@@ -71,6 +71,7 @@
     <Compile Include="W32X\N2M\SystemMetric.cs" />
     <Compile Include="W32X\NativeMethods.cs" />
     <Compile Include="WpfUtil\DataTemplateUtil.cs" />
+    <Compile Include="WpfUtil\TransformUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

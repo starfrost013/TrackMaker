@@ -17,10 +17,15 @@ namespace Track_Maker
         public static bool DefaultVisibleTextNames { get; set; } // Are hurricane names visible by default at startup?
         public static Point DotSize { get; set; } // Dot size
         public static int LineSize { get; set; } // Line size
+
+        /// <summary>
+        /// Quality Assurance setting for Priscilla RC2 (build 640)
+        /// </summary>
+        public static bool PriscillaRC2_Tmp_UseNewPZRendering { get; set; }
         public static bool ShowBetaWarning { get; set; }
         public static TelemetryConsent TelemetryConsent { get; set; } // Telemetry consent
         public static int UndoDepth { get; set; } // Amount of undos allowed
-        public static bool Dano_UseDeserialisation { get; set; } // Iris (version 2.1) - use XML Deserialisation
+        public static bool Iris_UseDeserialisation { get; set; } // Iris (version 2.1) - use XML Deserialisation
         public static bool UseGradient { get; set; } // Use the gradient
         public static WndStyle WindowStyle { get; set; } // Window style
 
