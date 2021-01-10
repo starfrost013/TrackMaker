@@ -22,8 +22,6 @@ namespace Track_Maker
         public void Init_Phase1()
         {
             // Init logging (Priscilla v484)
-
-            InternalTransformGroup = new List<Transform>(); 
 #if PRISCILLA
             // create method to concanetate this for us.
 

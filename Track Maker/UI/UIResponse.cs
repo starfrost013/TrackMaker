@@ -360,8 +360,6 @@ namespace Track_Maker
             if (e.RightButton == MouseButtonState.Pressed)
             {
 
-                if (InternalTransformGroup.Count > 2) InternalTransformGroup.Clear();
-
                 if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return;
 
                 // set curpos at all times for rendering purposes
@@ -388,28 +386,10 @@ namespace Track_Maker
                 }
 
                 CurRelativePos = new Point(RelativeX, RelativeY);
-                // Create a scale transform for actually moving the "camera"
-                ScaleTransform ScaleT = new ScaleTransform(ZoomLevelX, ZoomLevelY, Width * RelativeX, Height * RelativeY);
 
                 // Translate the "camera" view 
-                TranslateTransform TranslateT = new TranslateTransform(MouseDistanceX, MouseDistanceY);
 
-                // Build the internal translation group we use (this is a total mess)
-                InternalTransformGroup.Add(ScaleT);
-                InternalTransformGroup.Add(TranslateT);
-
-                // Build the translation group
-
-                if (!Setting.PriscillaRC2_Tmp_UseNewPZRendering)
-                {
-                    // Set up a translation group.
-                    TransformGroup TG = new TransformGroup();
-                    TG.Children.Add(ScaleT);
-                    TG.Children.Add(TranslateT);
-
-                    // Apply the tanslations
-                    HurricaneBasin.RenderTransform = TG;
-                }
+                TranslatePosition = new Point(MouseDistanceX, MouseDistanceY);
 
             }
             else

@@ -74,13 +74,12 @@ namespace Track_Maker
             }
         }
 
-
         /// <summary>
-        /// Used for transform persistence
+        /// Current relative position for transforming.
         /// </summary>
-        public List<Transform> InternalTransformGroup { get; set; }
-
         public Point CurRelativePos { get; set; }
+
+        public Point TranslatePosition { get; set; }
 
         public MainWindow()
         {

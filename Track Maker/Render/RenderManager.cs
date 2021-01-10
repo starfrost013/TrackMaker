@@ -265,36 +265,22 @@ namespace Track_Maker
         /// </summary>
         private void Render_ZoomAndPan()
         {
-            if (InternalTransformGroup.Count == 0)
-            {
-                return; 
-            }
-            else
-            {
-                //ScaleTransform FirstScaleST = TransformUtil<ScaleTransform>.FindTransformWithClass(InternalTransformGroup);
-                double CX = Width * CurRelativePos.X;
-                double CY = Width * CurRelativePos.Y;
 
-                ScaleTransform FirstScaleST = new ScaleTransform(ZoomLevelX, ZoomLevelY, CX, CY);
-                TranslateTransform FirstTranslateTT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup, true);
+            double CX = Width * CurRelativePos.X;
+            double CY = Width * CurRelativePos.Y;
 
-                TransformGroup STX = new TransformGroup();
-                STX.Children.Add(FirstScaleST);
-                STX.Children.Add(FirstTranslateTT);
+            ScaleTransform FirstScaleST = new ScaleTransform(ZoomLevelX, ZoomLevelY, CX, CY);
+            TranslateTransform FirstTranslateTT = null;
 
-                HurricaneBasin.RenderTransform = STX;
+            if (TranslatePosition != null) = FirstTranslateTT new TranslateTransform(TranslatePosition.X, TranslatePosition.Y); 
 
-                // YOU SHOULD NEVER DO THIS
+            TransformGroup STX = new TransformGroup();
+            STX.Children.Add(FirstScaleST);
 
-                // NEVER
-                // EVER
-                // E V E R
-                // This code is so poorly written that I have no idea what it's even doing anymore. And I wrote every single line of it. 
-                // So I wrote this ridiculously shitty and godawful hack to ensure 
-                // that this comes out today. 
-                // Fuck me. Rewrite time. 
-                if (InternalTransformGroup.Count > 100) InternalTransformGroup.Clear(); 
-            }
+            if (FirstTranslateTT != null) STX.Children.Add(FirstTranslateTT);
+
+            HurricaneBasin.RenderTransform = STX;
+
         }
 
     }
