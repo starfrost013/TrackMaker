@@ -1,6 +1,7 @@
 ﻿using DanoUI; 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,10 +37,22 @@ namespace Track_Maker
             string NewBasinName = (string)e.DanoParameters[0];
             Project Proj = MnWindow.CurrentProject;
 
-            Proj.SelectBasin(NewBasinName);
-            
-            // I'd move it into the selectbasin method but this is code that shouldn't really exist anyway
-            MnWindow.HurricaneBasin.Background = new ImageBrush(new BitmapImage(new Uri(Proj.SelectedBasin.ImagePath, UriKind.RelativeOrAbsolute)));
+            // v650b: i just copied this to amke this work so lol
+            // Create the basins
+
+            // clean the UI (VERY TEMP; only use for beta - v605)
+            MnWindow.Layers.ClearLayers();
+
+            Basin NewBasin = Proj.GetBasinWithName(NewBasinName);
+
+            Proj.AddBasin(NewBasinName, true);
+
+            // set the UI-side image path.
+            MnWindow.ImagePath = NewBasin.ImagePath;
+
+            MnWindow.CurrentProject = Proj;
+
+            UpdateLayout();
             Close();
         }
 

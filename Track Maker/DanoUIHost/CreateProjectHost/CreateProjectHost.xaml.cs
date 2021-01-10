@@ -60,16 +60,13 @@ namespace Track_Maker
 
             TProj.AddBasin((string)e.DanoParameters[1], true);
 
-            
             // SHOULD work
             MnWindow.ImagePath = NewBasin.ImagePath;
 
             MnWindow.CurrentProject = TProj;
 
-
             UpdateLayout();
             // Load basin
-
 
             // Temp
             MnWindow.EnableButtons(); 
