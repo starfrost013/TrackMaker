@@ -13,7 +13,7 @@ using System.Windows;
 // associated with an assembly.
 
 #if DEBUG
-[assembly: AssemblyTitle("Track Maker ['Priscilla' Debug]")]
+[assembly: AssemblyTitle("Track Maker'Iris' Debug")]
 #else
 [assembly: AssemblyTitle("Track Maker 2.0")]
 #endif
@@ -61,8 +61,8 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.651.21010")]
-[assembly: AssemblyFileVersion("2.0.651.21010")]    
+[assembly: AssemblyVersion("2.1.651.21010")]
+[assembly: AssemblyFileVersion("2.1.651.21010")]    
 [assembly: AssemblyInformationalVersion("2.0.0")]
 
 #if DANO
