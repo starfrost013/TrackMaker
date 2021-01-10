@@ -474,6 +474,18 @@ namespace Track_Maker
 
             // LaunchHelp()?
 
+#if PRISCILLA
+            string HelpFileName = @"Data\Help.txt";
+            
+            if (File.Exists(HelpFileName))
+            {
+                Process.Start($"notepad {HelpFileName}");
+            }
+            else
+            {
+                Error.Throw("Warning!", "Cannot find help.", ErrorSeverity.Warning, 361);
+            }
+#else // Iris 2.1/Dano 3.0
             string HelpFileName = "TrackMaker.chm";
 
             if (!File.Exists(HelpFileName))
@@ -494,7 +506,11 @@ namespace Track_Maker
                 }
                 
             }
-            
+#endif
+
+
+
+
         }
 
     }

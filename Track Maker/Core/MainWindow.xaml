@@ -76,8 +76,8 @@
                 <MenuItem x:Name="ToolsMenu_GraphicMaker" Header="Graphic mode" Foreground="Black" IsEnabled="False"></MenuItem>
             </MenuItem>-->
             <MenuItem x:Name="HelpMenu" Header="Help" Style="{StaticResource Style_Menu_Inverted}">
-                <!-- DO NOT ENABLE THIS YET!! IT WILL CRASH!! THERE IS NO HELP YET!! -->
-                <MenuItem x:Name="HelpMenu_Help" Header="Help" Foreground="Black" IsEnabled="False" Click="HelpMenu_Help_Click"></MenuItem>
+                <!-- Help -->
+                <MenuItem x:Name="HelpMenu_Help" Header="Help" Foreground="Black" Click="HelpMenu_Help_Click"></MenuItem>
                 <MenuItem x:Name="HelpMenu_Preferences" Header="Settings" Foreground="Black" Click="HelpMenu_Preferences_Click"></MenuItem>
                 <Separator/>
                 <MenuItem x:Name="HelpMenu_About" Header="About starfrost's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>

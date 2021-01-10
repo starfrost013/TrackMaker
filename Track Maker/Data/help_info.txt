@@ -1,0 +1,37 @@
+Track Maker 2.0
+Help
+
+I was going to write a proper help file, but I ran out of time, so rip.
+
+Controls:
+- Use the zoom controls to zoom.
+- Use the right mouse button to pan.
+
+Pretty much it.
+
+Menus:
+File: Allows you to clear, import, export, and save the current project, as well as exit the Track Maker.
+Project: Allows you to create a new project.
+Edit: Allows you to edit the season
+View: Allows you to view the category systems and toggle storm name display.
+Storm: Allows you to add a new storm. 
+Basin: Allows you to switch basins. 
+Tools: Allows you to access the ACE Calculator and Advisory Generator.
+Help: Allows you to access this file, the settings, and the About Screen.
+
+New features:
+* HURDAT2 format export!
+* ATCF format import!
+* ATCF format export!
+* Layers!
+* Zooming!
+* Panning!
+* Integrated ACE Calculator! (use -InitAceCalc at the command line or the supplied Start Menu shortcut to launch it)
+* Integrated Advisory Generator! (use -InitAdvGen at the command line or the supplied Start Menu shortcut to launch it)
+* Season Start Time and Storm Start Time displays when adding new storms!
+* New project format!
+* Improved menu structure!
+* Previews!
+* More preinstalled category systems!
+* Logging!
+* Many bug fixes!
