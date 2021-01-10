@@ -357,13 +357,12 @@ namespace Track_Maker
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
 
-
             if (e.RightButton == MouseButtonState.Pressed)
             {
 
                 if (InternalTransformGroup.Count > 2) InternalTransformGroup.Clear();
 
-                //if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return;
+                if (ZoomLevelX < 1.05 || ZoomLevelY < 1.05) return;
 
                 // set curpos at all times for rendering purposes
                 Point CurPos = e.GetPosition(HurricaneBasin);
@@ -387,12 +386,6 @@ namespace Track_Maker
                     MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
                     MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
                 }
-
-                // THIS IS MULTIPLIER OF THE WINDOW SIZE NOT POSITION IN PIXELS (647_
-                //if (RelativeX < 0) RelativeX = 0;
-                //if (RelativeX > 1) RelativeX = 1;
-                //if (RelativeY < 0) RelativeY = 0;
-                //if (RelativeY > 1) RelativeY = 1; 
 
                 CurRelativePos = new Point(RelativeX, RelativeY);
                 // Create a scale transform for actually moving the "camera"
@@ -468,6 +461,7 @@ namespace Track_Maker
         private void ZoomLevelChanged(object sender, DanoEventArgs e)
         {
             double ZoomLevel = (double)e.DanoParameters[0];
+
             ZoomLevelX = ZoomLevel / 100; // dumb hack 
             ZoomLevelY = ZoomLevel / 100;
 

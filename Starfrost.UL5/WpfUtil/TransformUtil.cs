@@ -10,17 +10,31 @@ namespace Starfrost.UL5.WpfUtil
 {
     public static class TransformUtil<T> where T : Transform
     {
-        public static T FindTransformWithClass(List<Transform> TransformList)
+        public static T FindTransformWithClass(List<Transform> TransformList, bool UseShittyHack = false)
         {
-            foreach (Transform Tx in TransformList)
+            if (!UseShittyHack)
             {
-                if (Tx is T)
+                foreach (Transform Tx in TransformList)
                 {
-                    return (T)Tx;
+                    if (Tx is T)
+                    {
+                        return (T)Tx;
+                    }
                 }
             }
+            else
+            {
+                for (int i = TransformList.Count; i > -1; i--)
+                {
+                    Transform Tx = TransformList[i];
+
+                    if (Tx is T) return (T)Tx;
+                }
+            } 
 
             return null; // return null if not valid
         }
+
+        
     }
 }

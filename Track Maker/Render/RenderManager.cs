@@ -275,13 +275,8 @@ namespace Track_Maker
                 double CX = Width * CurRelativePos.X;
                 double CY = Width * CurRelativePos.Y;
 
-                if (CX > Width) CX = Width;
-                if (CX < 0) CX = 0;
-                if (CY > Height) CY = Height;
-                if (CY < 0) CY = 0;
-
                 ScaleTransform FirstScaleST = new ScaleTransform(ZoomLevelX, ZoomLevelY, CX, CY);
-                TranslateTransform FirstTranslateTT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup);
+                TranslateTransform FirstTranslateTT = TransformUtil<TranslateTransform>.FindTransformWithClass(InternalTransformGroup, true);
 
                 TransformGroup STX = new TransformGroup();
                 STX.Children.Add(FirstScaleST);
@@ -289,7 +284,16 @@ namespace Track_Maker
 
                 HurricaneBasin.RenderTransform = STX;
 
-                if (InternalTransformGroup.Count > 2) InternalTransformGroup.Clear(); 
+                // YOU SHOULD NEVER DO THIS
+
+                // NEVER
+                // EVER
+                // E V E R
+                // This code is so poorly written that I have no idea what it's even doing anymore. And I wrote every single line of it. 
+                // So I wrote this ridiculously shitty and godawful hack to ensure 
+                // that this comes out today. 
+                // Fuck me. Rewrite time. 
+                if (InternalTransformGroup.Count > 100) InternalTransformGroup.Clear(); 
             }
         }
 
