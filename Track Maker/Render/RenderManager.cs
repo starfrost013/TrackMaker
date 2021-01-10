@@ -269,17 +269,23 @@ namespace Track_Maker
             double CX = Width * CurRelativePos.X;
             double CY = Width * CurRelativePos.Y;
 
-            ScaleTransform FirstScaleST = new ScaleTransform(ZoomLevelX, ZoomLevelY, CX, CY);
+            ScaleTransform FirstScaleST = null;
             TranslateTransform FirstTranslateTT = null;
+            TransformGroup STX = null;
 
-            if (TranslatePosition != null) = FirstTranslateTT new TranslateTransform(TranslatePosition.X, TranslatePosition.Y); 
+            if (CX != 0 && CY != 0) FirstScaleST = new ScaleTransform(ZoomLevelX, ZoomLevelY, CX, CY);
 
-            TransformGroup STX = new TransformGroup();
-            STX.Children.Add(FirstScaleST);
+            if (TranslatePosition != null) FirstTranslateTT = new TranslateTransform(TranslatePosition.X, TranslatePosition.Y); 
 
-            if (FirstTranslateTT != null) STX.Children.Add(FirstTranslateTT);
+            if (FirstScaleST != null)
+            {
+                STX = new TransformGroup();
+                STX.Children.Add(FirstScaleST);
+            }
 
-            HurricaneBasin.RenderTransform = STX;
+            if (FirstTranslateTT != null && STX != null) STX.Children.Add(FirstTranslateTT);
+
+            if (STX != null) HurricaneBasin.RenderTransform = STX;
 
         }
 

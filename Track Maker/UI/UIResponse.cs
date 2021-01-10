@@ -376,8 +376,8 @@ namespace Track_Maker
 
                 if (ZoomLevelX >= 2)
                 {
-                    MouseDistanceX = (CurPos.X - LastRightMouseClickPos.X) * 1 + ZoomLevelX;
-                    MouseDistanceY = (CurPos.Y - LastRightMouseClickPos.Y) * 1 + ZoomLevelY;
+                    MouseDistanceX = (CurPos.X - LastRightMouseClickPos.X) * 1 + (ZoomLevelX / 2.5);
+                    MouseDistanceY = (CurPos.Y - LastRightMouseClickPos.Y) * 1 + (ZoomLevelY / 2.5);
                 }
                 else
                 {
@@ -444,6 +444,9 @@ namespace Track_Maker
 
             ZoomLevelX = ZoomLevel / 100; // dumb hack 
             ZoomLevelY = ZoomLevel / 100;
+
+            // hack for 2.0 only
+            if (CurRelativePos.X == 0 || CurRelativePos.Y == 0) CurRelativePos = new Point(0.01, 0.01);
 
             if (ZoomLevelX < 1) ZoomLevelX = 1;
             if (ZoomLevelY < 1) ZoomLevelY = 1; 
