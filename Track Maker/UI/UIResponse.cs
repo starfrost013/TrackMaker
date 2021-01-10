@@ -475,7 +475,7 @@ namespace Track_Maker
             // LaunchHelp()?
 
 #if PRISCILLA
-            string HelpFileName = @"Data\Help.txt";
+            string HelpFileName = @"Data\help_info.txt";
             
             if (File.Exists(HelpFileName))
             {
