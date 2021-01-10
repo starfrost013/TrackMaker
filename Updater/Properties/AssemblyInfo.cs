@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("starfrost's Track Maker")]
-[assembly: AssemblyCopyright("Copyright © starfrost 2020")]
+[assembly: AssemblyCopyright("Copyright © 2019-2021 starfrost")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.378.21010")]
-[assembly: AssemblyFileVersion("2.0.378.21010")]
+[assembly: AssemblyVersion("2.0.650.21010")]
+[assembly: AssemblyFileVersion("2.0.650.21010")]
