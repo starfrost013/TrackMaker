@@ -319,9 +319,6 @@
     <None Include="Core\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Core\ico256x256-v2.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
@@ -390,13 +387,13 @@
     </Content>
     <None Include="Resources\suzu.png" />
     <Resource Include="V2Icon_32x32.ico" />
-    <Resource Include="Data\empty.png" />
+    <None Include="Data\empty.png" />
     <Resource Include="Data\Languages\Languages.xml" />
     <Resource Include="Data\Redo16.png" />
     <Resource Include="Data\Redo32.png" />
     <Resource Include="Data\RedoFull.png" />
     <Resource Include="Data\Icon\V2Icon_32x32.ico" />
-    <Resource Include="Data\Icon\V2Icon_32x32.png" />
+    <None Include="Data\Icon\V2Icon_32x32.png" />
     <Content Include="Data\Settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
