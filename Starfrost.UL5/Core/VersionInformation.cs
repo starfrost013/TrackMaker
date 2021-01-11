@@ -12,9 +12,9 @@ namespace Starfrost.UL5.Core
     public static class VersionInformation
     {
         public static int UL5MajorVersion = 5;
-        public static int UL5MinorVersion = 2;
-        public static int UL5RevisionVersion = 5;
+        public static int UL5MinorVersion = 9;
+        public static int UL5RevisionVersion = 0;
 
-        public static string UL5Status = "v5.2.5 APIv20201222";  
+        public static string UL5Status = "v5.9.0/APIv20210111 for Track Maker 2.0/2.1";  
     }
 }

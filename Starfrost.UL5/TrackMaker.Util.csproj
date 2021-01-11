@@ -7,8 +7,8 @@
     <ProjectGuid>{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Starfrost.UL5</RootNamespace>
-    <AssemblyName>Starfrost.UL5</AssemblyName>
+    <RootNamespace>TrackMaker.Util</RootNamespace>
+    <AssemblyName>TrackMaker.Util</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

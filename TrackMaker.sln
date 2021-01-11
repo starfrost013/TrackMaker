@@ -7,15 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Track Maker", "Track Maker\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{E4517BB9-6590-4B3A-8355-9389C1376828}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanoUI", "DanoUI\DanoUI.csproj", "{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMaker.UI", "DanoUI\TrackMaker.UI.csproj", "{F24F47E1-4CF7-4777-B7DD-DB1AEC6278D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dano.AdvisoryGenerator", "App.AdvisoryGenerator\Dano.AdvisoryGenerator.csproj", "{F16114EB-5733-415E-9005-838A963FCB6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMaker.AdvisoryGenerator", "App.AdvisoryGenerator\TrackMaker.AdvisoryGenerator.csproj", "{F16114EB-5733-415E-9005-838A963FCB6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dano.ACECalculator", "Dano.ACECalculator\Dano.ACECalculator.csproj", "{D035CE54-62CE-4CFE-9A5E-F04D4424731F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMaker.ACECalculator", "Dano.ACECalculator\TrackMaker.ACECalculator.csproj", "{D035CE54-62CE-4CFE-9A5E-F04D4424731F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dano.UpdateServices", "Tiralen.UpdateServices\Dano.UpdateServices.csproj", "{CC7DBF52-6DDA-4F78-AE29-326DFA08AEF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starfrost.UL5", "Starfrost.UL5\Starfrost.UL5.csproj", "{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMaker.Util", "Starfrost.UL5\TrackMaker.Util.csproj", "{7582BDCA-ED7F-4697-8D0E-E10992FF04F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionsLite2.Base", "ExceptionsLite2.Base\ExceptionsLite2.Base.csproj", "{CC05CCB1-B833-4DCA-B50F-87D02A96C85E}"
 EndProject

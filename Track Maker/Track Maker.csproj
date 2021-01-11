@@ -331,21 +331,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App.AdvisoryGenerator\Dano.AdvisoryGenerator.csproj">
+    <ProjectReference Include="..\App.AdvisoryGenerator\TrackMaker.AdvisoryGenerator.csproj">
       <Project>{f16114eb-5733-415e-9005-838a963fcb6e}</Project>
-      <Name>Dano.AdvisoryGenerator</Name>
+      <Name>TrackMaker.AdvisoryGenerator</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dano.ACECalculator\Dano.ACECalculator.csproj">
+    <ProjectReference Include="..\Dano.ACECalculator\TrackMaker.ACECalculator.csproj">
       <Project>{d035ce54-62ce-4cfe-9a5e-f04d4424731f}</Project>
-      <Name>Dano.ACECalculator</Name>
+      <Name>TrackMaker.ACECalculator</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DanoUI\DanoUI.csproj">
+    <ProjectReference Include="..\DanoUI\TrackMaker.UI.csproj">
       <Project>{f24f47e1-4cf7-4777-b7dd-db1aec6278d9}</Project>
-      <Name>DanoUI</Name>
+      <Name>TrackMaker.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Starfrost.UL5\Starfrost.UL5.csproj">
+    <ProjectReference Include="..\Starfrost.UL5\TrackMaker.Util.csproj">
       <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
-      <Name>Starfrost.UL5</Name>
+      <Name>TrackMaker.Util</Name>
     </ProjectReference>
     <ProjectReference Include="..\Updater\Updater.csproj">
       <Project>{e4517bb9-6590-4b3a-8355-9389c1376828}</Project>

@@ -7,8 +7,8 @@
     <ProjectGuid>{D035CE54-62CE-4CFE-9A5E-F04D4424731F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dano.ACECalculator</RootNamespace>
-    <AssemblyName>Dano.ACECalculator</AssemblyName>
+    <RootNamespace>TrackMaker.ACECalculator</RootNamespace>
+    <AssemblyName>TrackMaker.ACECalculator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -101,9 +101,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DanoUI\DanoUI.csproj">
+    <ProjectReference Include="..\DanoUI\TrackMaker.UI.csproj">
       <Project>{f24f47e1-4cf7-4777-b7dd-db1aec6278d9}</Project>
-      <Name>DanoUI</Name>
+      <Name>TrackMaker.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
