@@ -101,9 +101,6 @@ namespace Track_Maker
             Layers.Layers.DataContext = this;
             Layers.UpdateLayout();
 
-            UpdateLayout();
-
-
             Logging.Log("Obtaining user telemetry consent status and checking for updates...");
             TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
 
@@ -116,6 +113,9 @@ namespace Track_Maker
             Layers.AddLayer("Background");
 
             Logging.Log("Initialisation completed. Starting render timer...");
+
+            UpdateLayout();
+            SetFullscreen(); 
 
             TickTimer.Start();
 
