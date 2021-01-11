@@ -116,6 +116,7 @@
     <Compile Include="Basin\Basin.cs" />
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\GlobalState.Priscilla.cs" />
+    <Compile Include="Core\InitResult\Phase0InitResult.cs" />
     <Compile Include="Core\Init\Init.cs" />
     <Compile Include="Core\InternalStateVerification\InternalStateVerifier.cs" />
     <Compile Include="DanoProject\Project.cs" />

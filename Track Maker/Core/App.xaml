@@ -7,7 +7,7 @@
          <!-- New for Dano. -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DanoUI;component/Core/Dano_UI.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/TrackMaker.UI;component/Core/Dano_UI.xaml"></ResourceDictionary>
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

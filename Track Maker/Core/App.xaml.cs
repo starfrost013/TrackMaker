@@ -31,6 +31,13 @@ namespace Track_Maker
             InitAdvGen = 2
         }
 
+        /// <summary>
+        /// Application Startup Phase 0
+        /// 
+        /// Initialise window; verify integrity
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Application_Startup(object sender, StartupEventArgs e)
         {
 
@@ -69,10 +76,10 @@ namespace Track_Maker
                         if (Argument.ContainsCaseInsensitive("-initadvgen")) return ParseArgResult.InitAdvGen;
                     }
 
-                    return ParseArgResult.DoNothing; 
+                    return ParseArgResult.DoNothing;
             }
-            
 
         }
+
     }
 }
