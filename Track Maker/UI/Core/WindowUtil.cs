@@ -11,10 +11,7 @@ namespace Track_Maker
     public enum Direction { Smaller, Larger }
     public partial class MainWindow : Window
     {
-        // Todo: Handle the Priscilla Sidebar
-        Thickness OldZoomControlMargin { get; set; }
-        
-        Thickness OldLayerControlMargin { get; set; }
+
         internal void SetFullscreen()
         {
             switch (Setting.WindowStyle)
@@ -30,11 +27,6 @@ namespace Track_Maker
                     HurricaneBasin.Height = SystemParameters.PrimaryScreenHeight - MainMenu.Height; // MOVE THIS CODE 
                     PriscillaSidebar.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - 181, 0, 0, 0);
                     PriscillaSidebar.Height = SystemParameters.PrimaryScreenHeight;
-                    OldLayerControlMargin = Layers.Margin;
-                    OldZoomControlMargin = ZoomControl.Margin; 
-                    ZoomControl.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - 191, SystemParameters.PrimaryScreenHeight - 62, 0, 0);
-                    // SHITTY AND HARDCODED BUT THIS IS A BUGFIX RELEASE
-                    Layers.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - 189, SystemParameters.PrimaryScreenHeight - 459, 0, 0); 
                     return;
                 case WndStyle.Fullscreen: // if it's true, turn it off
                     WindowState = WindowState.Normal;
@@ -43,8 +35,7 @@ namespace Track_Maker
                     HurricaneBasin.Width = Width;
                     HurricaneBasin.Height = Height - MainMenu.Height; // MOVE THIS CODE
                     PriscillaSidebar.Margin = new Thickness(Width - 191, 0, 0, 0);
-                    ZoomControl.Margin = OldZoomControlMargin;
-                    Layers.Margin = OldLayerControlMargin; 
+                    PriscillaSidebar.Height = 609;
                     CurrentProject.SelectedBasin.RecalculateNodePositions(false, new Point(Width, Height));
                     Setting.WindowStyle = WndStyle.Windowed;
                     return;
