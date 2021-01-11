@@ -291,7 +291,7 @@ namespace Track_Maker
             // TEMP
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             // atcf fix
-            Point FinalPos = new Point(MnWindow.Width * PreFinalY, MnWindow.Height * PreFinalX);
+            Point FinalPos = new Point(MnWindow.Height * PreFinalY, MnWindow.Width * PreFinalX);
 
             return FinalPos;
         }
