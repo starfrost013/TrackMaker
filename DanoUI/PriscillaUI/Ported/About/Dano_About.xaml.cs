@@ -44,7 +44,6 @@ namespace DanoUI
 
 #elif PRISCILLA
 
-            starfrostTrack_Copyright_HHW.Text = "";
             
 #if DEBUG
             //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.FileVersion}) (Debug)";
