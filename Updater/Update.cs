@@ -26,12 +26,28 @@ namespace Updater
 
                 string VersionString = NetConnection.DownloadString(@"https://trackmaker-update.medicanecentre.org/LatestVersion.txt");
 
+                string[] VersionComponents = null; 
                 if (VersionString.Contains("terminated"))
                 {
-                    MessageBox.Show("Update Services for Track Maker 1.x has been terminated. Please manually install Track Maker 2.0 at https://v2.trackmaker-update.medicanecentre.org/GetVersion?versionID=2.0"); 
+                    MessageBox.Show("Update Services for Track Maker 1.x has been terminated. Please manually install Track Maker 2.0 at https://v2.trackmaker-update.medicanecentre.org/GetVersion?versionID=2.0");
+                    Application.Current.Shutdown(4); 
                 }
+                
+                if (!VersionString.Contains("."))
+                {
+                    MessageBox.Show("Update Error 5: Error contacting the update server; it exists but did not return a valid response. It may be down.");
+                    Application.Current.Shutdown(5);
+                }
+                else
+                {
+                    VersionComponents = VersionString.Split('.');
 
-                string[] VersionComponents = VersionString.Split('.');
+                    if (VersionComponents.Count() < 2)
+                    {
+                        MessageBox.Show("Update Error 3: Error contacting the update server; it exists but did not return a a valid response. It may be down.");
+                        Application.Current.Shutdown(3);
+                    }
+                }
 
                 // 2 = build
                 double CurBuildNumber = Convert.ToDouble(VersionComponents[2]);

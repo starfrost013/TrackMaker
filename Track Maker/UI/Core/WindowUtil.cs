@@ -25,7 +25,7 @@ namespace Track_Maker
                     MainMenu.Width = SystemParameters.PrimaryScreenWidth;
                     HurricaneBasin.Width = SystemParameters.PrimaryScreenWidth;
                     HurricaneBasin.Height = SystemParameters.PrimaryScreenHeight - MainMenu.Height; // MOVE THIS CODE 
-                    PriscillaSidebar.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - 191, 0, 0, 0); 
+                    PriscillaSidebar.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - 181, 0, 0, 0); 
                     return;
                 case WndStyle.Fullscreen: // if it's true, turn it off
                     WindowState = WindowState.Normal;
