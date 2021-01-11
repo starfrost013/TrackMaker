@@ -91,7 +91,7 @@ namespace Track_Maker
 #if DANO
             Title = "Track Maker Dano (version 3.0 alpha) - do not use for production purposes!)";
 #elif PRISCILLA
-            Title = "Track Maker 2.0";
+            Title = "Track Maker 2.1";
 #endif
             // DisableUI test 
             if (CurrentProject == null) DisableButtons();
