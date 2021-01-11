@@ -1,0 +1,37 @@
+Iris
+Feature List
+(mostly final)
+
+Priority:
+1		Must have
+2		Should have
+3		Nice to have
+4		Not required
+
+==Priority 1 / 2==
+1. InstaPlace Mode
+Iris will have a setting that allows adding track points to be similar to Monsoon's Hypo TC Track Maker and the Legacy Track Maker; this will be accomplished by a global place mode setting. When InstaPlace is on, categories will be controlled by keys; these keys will be dynamically generated from the first letter of the second word of the category name - or in the case of the category name only having one word - the first word.
+
+2. Temporary File Management
+Iris will have 
+3. Delete Old Logs Setting
+4. Graphing
+5. Point dragging
+6. Help 
+7. Componentisation:
+Move non-UI-specific (MainWIndow) code to TrackMaker.Core.dll (TrackMaker.Core namespace)
+DanoUI.dll => TrackMaker.UI.dll
+Dano.ACECalculator.dll => TrackMaker.ACECalculator.dll
+Dano.AdvisoryGenerator.dll => TrackMaker.AdvisoryGenerator.dll
+8. Change binding system for layers to use layer objects for proper ListView binding and eliminate most 2.0 hacks; generally eliminate string binding for most things
+9. Refactor RenderManager to use the current basin information and not the v0.x remnant that currently exists
+10. ATCF/HURDAT2 loading improvements
+11. Rewrite ATCF/HURDAT2 importers to convert to TProj2 
+12. Internal state cohesion: show no basin by default until project created. 
+13. Start Page: Add a start page that allows the user to get started immediately before initialising any basin.
+14: Updater: Improve the updater's error toleration. 
+15. Allow previews to be toggleable in settings for those with slow disks (so you don't have to write several megabytes every time the export window is opened)
+16. Port remaining UI to TrackMaker.UI
+17. XGA7 compress (when XGA is ready) default basins to reduce download size.
+18. Restructure the entire program for flexibility and improve code design.
+19. Map scrolling, allows a global map. Implement using an extension of the present panning system.

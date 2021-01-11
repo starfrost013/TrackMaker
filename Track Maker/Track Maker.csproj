@@ -406,7 +406,8 @@
     <None Include="Data\Splash\Priscilla.png" />
     <None Include="Data\Splash\Priscilla2.png" />
     <Resource Include="Data\Splash\Priscilla3.png" />
-    <SplashScreen Include="Data\Splash\PriscillaRelease.png" />
+    <Resource Include="Data\Splash\PriscillaRelease.png" />
+    <SplashScreen Include="Data\Splash\Iris.png" />
     <Content Include="Data\StormTypes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -12,8 +12,8 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-#if DEBUG
-[assembly: AssemblyTitle("Track Maker'Iris' Debug")]
+#if DEBUG[
+[assembly: AssemblyTitle("Track Maker 'Iris' [Debug]")]
 #else
 [assembly: AssemblyTitle("Track Maker 2.0")]
 #endif
