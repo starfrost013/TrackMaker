@@ -11,7 +11,7 @@
         <TextBlock x:Name="StarfrostTrackMaker" HorizontalAlignment="Left" Margin="226,0,0,0" TextWrapping="Wrap" Text="track maker" VerticalAlignment="Top" FontSize="48" Foreground="#FF8293E2"/>
         <Line X1="0" X2="747.749" Y1="57" Y2="57" Stroke="#FF8293E2" StrokeThickness="1" SnapsToDevicePixels="True"></Line>
         <TextBlock x:Name="starfrostTrack_Version" HorizontalAlignment="Left" Margin="12,56,0,0" TextWrapping="Wrap" Text="Version " VerticalAlignment="Top" FontSize="20" Width="690"/>
-        <TextBlock x:Name="starfrostTrack_Copyright" HorizontalAlignment="Left" Margin="13,82,0,0" TextWrapping="Wrap" Text="Copyright © 2019-2020 starfrost. Open-source software under the Lesser GPL license." VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock x:Name="starfrostTrack_Copyright" HorizontalAlignment="Left" Margin="13,82,0,0" TextWrapping="Wrap" Text="Copyright © 2019-2021 starfrost. Open-source software under the Lesser GPL license." VerticalAlignment="Top" FontSize="14"/>
         <TextBlock x:Name="starfrostTrack_Copyright_HHW" HorizontalAlignment="Left" Margin="13,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14">
             <Run>
                 Created with ♥ for the weather community.
