@@ -160,8 +160,22 @@ namespace Track_Maker
             RenderTarget.Render(TempCanvas);
 
             // create a new PNG encoder and memory stream
+            BitmapEncoder PNGEncoder = null;
 
-            BitmapEncoder PNGEncoder = new PngBitmapEncoder();
+            ImageFormats ImgFormat = ImageFormatDeterminer.FromString(FileName);
+
+            // is this bad
+            if (ImgFormat == ImageFormats.PNG) PNGEncoder = new PngBitmapEncoder();
+            else if (ImgFormat == ImageFormats.BMP) PNGEncoder = new BmpBitmapEncoder();
+            else if (ImgFormat == ImageFormats.JPEG) PNGEncoder = new JpegBitmapEncoder();
+            else if (ImgFormat == ImageFormats.GIF) PNGEncoder = new GifBitmapEncoder();
+            else if (ImgFormat == ImageFormats.TIFF) PNGEncoder = new TiffBitmapEncoder();
+            else if (ImgFormat == ImageFormats.WMP) PNGEncoder = new WmpBitmapEncoder(); 
+            else
+            {
+                Error.Throw("Warning", "Error: unable to determine image format", ErrorSeverity.Error, 361);
+                return false; 
+            }
 
             PNGEncoder.Frames.Add(BitmapFrame.Create(RenderTarget));
 
