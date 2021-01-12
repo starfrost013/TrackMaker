@@ -46,7 +46,12 @@ namespace Track_Maker
         /// 
         /// Low size, very low quality, animated
         /// </summary>
-        GIF = 5
+        GIF = 5,
+
+        /// <summary>
+        /// Unknown
+        /// </summary>
+        Unknown = 6
 
     }
 }

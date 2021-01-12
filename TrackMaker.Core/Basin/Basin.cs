@@ -29,20 +29,20 @@ namespace TrackMaker.Core
 
     public class Basin
     {
-        [XmlElement("Abbreviation")]
+        [XmlAttribute("Abbreviation")]
         public string Abbreviation { get; set; } // the official abbreviation of this basin
         public BitmapImage Image { get; set; } // the basin image name
 
-        [XmlElement("ImagePath")]
+        [XmlAttribute("BGImage")]
         public string ImagePath { get; set; } // the basin image path. we only load what we need.
 
-        [XmlElement("Name")]
+        [XmlAttribute("Name")]
         public string Name { get; set; } // the name of the basin
 
-        [XmlElement("CoordsLower")]
+        [XmlAttribute("CoordsLower")]
         public Coordinate CoordsLower { get; set; } // The lower point of the coords of this basin
 
-        [XmlElement("CoordsHigher")]
+        [XmlAttribute("CoordsHigher")]
         public Coordinate CoordsHigher { get; set; } // The highest point of the coords of this basin
         // Storms removed for Priscilla 462 
         
@@ -59,7 +59,7 @@ namespace TrackMaker.Core
 
         // New for Priscilla.
 
-        [XmlElement("Layers")]
+        [XmlElement("Layers")] // for tproj2
         public List<Layer> Layers { get; set; } // new: list of layers
         public Layer CurrentLayer { get; set; } // set selected layer
         public bool IsOpen { get; set; } // is this basin open?

@@ -20,6 +20,7 @@ namespace Track_Maker
         public bool DisplayQualityControl { get; set; }
         internal MainWindow Xwindow { get; set; }
         public string Name { get; set; }
+        public ImageFormats Format { get; set; }
         public ImageQuality Quality { get; set; }
 
         public ExportImage()
@@ -55,7 +56,7 @@ namespace Track_Maker
             {
                 SaveFileDialog SFD = new SaveFileDialog();
                 SFD.Title = "Save image";
-                SFD.Filter = "PNG images|*.png";
+                SFD.Filter = "PNG images|*.png|JPG images|*.jpg|GIF images|*.gif|Bitmap images|*.bmp|TIFF images|*.tiff|Windows Media Picture images|*.wmp";
                 SFD.ShowDialog();
 
                 //utilfunc v2
@@ -161,7 +162,7 @@ namespace Track_Maker
             // create a new PNG encoder and memory stream
 
             BitmapEncoder PNGEncoder = new PngBitmapEncoder();
-            
+
             PNGEncoder.Frames.Add(BitmapFrame.Create(RenderTarget));
 
             MemoryStream TempCanvasms_ = new MemoryStream();

@@ -164,6 +164,7 @@
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
     <Compile Include="ExportPlatform\ExportFormats\FileSelector\Result\ExportResultEnum.cs" />
     <Compile Include="ExportPlatform\ExportFormats\FileSelector\Result\ExportResult.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormatDetermination\DetermineImageFormat.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormats.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageScaling.cs" />
     <Compile Include="ExportPlatform\ExportFormats\StringFormats\CoordinateFormats.cs" />

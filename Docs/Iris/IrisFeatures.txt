@@ -13,7 +13,7 @@ Priority:
 Iris will have a setting that allows adding track points to be similar to Monsoon's Hypo TC Track Maker and the Legacy Track Maker; this will be accomplished by a global place mode setting. When InstaPlace is on, categories will be controlled by keys; these keys will be dynamically generated from the first letter of the second word of the category name - or in the case of the category name only having one word - the first word.
 
 2. Temporary File Management
-Iris will have 
+Iris will have APIs for temporary file management. These will be used for the new ATCF importer (ATCF2Tproj) and 
 3. Delete Old Logs Setting
 4. Graphing
 5. Point dragging
@@ -35,3 +35,8 @@ Dano.AdvisoryGenerator.dll => TrackMaker.AdvisoryGenerator.dll
 17. XGA7 compress (when XGA is ready) default basins to reduce download size.
 18. Restructure the entire program for flexibility and improve code design.
 19. Map scrolling, allows a global map. Implement using an extension of the present panning system.
+20. Extend Image export to allow for all formats to be used.
+21. XML Serialisation
+
+==Priority 3==
+21. Start Page

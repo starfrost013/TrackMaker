@@ -49,10 +49,18 @@
     <Compile Include="Basin\BasinCollection.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Layer\LayerCollection.cs" />
+    <Compile Include="StormType\RealStormTypes\RealStormTypes.cs" />
+    <Compile Include="StormType\Shape\Shape.cs" />
+    <Compile Include="StormType\Shape\StormShape.cs" />
+    <Compile Include="StormType\StormType2.cs" />
+    <Compile Include="StormType\StormTypeManager.cs" />
+    <Compile Include="Storm\Node\Node.cs" />
+    <Compile Include="Storm\Node\NodeCollection.cs" />
     <Compile Include="Storm\Storm.cs" />
     <Compile Include="Storm\StormCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TProj2\TProj2File.cs" />
+    <Compile Include="TProj2\TProj2Metadata.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Starfrost.UL5\TrackMaker.Util.csproj">
@@ -60,6 +68,10 @@
       <Name>TrackMaker.Util</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Schema\Components\Basin.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

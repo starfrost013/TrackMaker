@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Basin"
+    targetNamespace="http://medicanecentre.org/SchemaFX/Basin.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/Basin.xsd"
+    xmlns:mstns="http://tempuri.org/Basin.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:complexType name="Basin">
+    <xs:sequence>
+      <xs:element name="Basin">
+        <xs:complexType>
+          <xs:attribute name="Name" id="Name" type="xs:string"></xs:attribute>
+          <xs:attribute name="Abbreviation" id="Abbreviation" type="xs:string"></xs:attribute>
+          <xs:attribute name="BGImage" id="ImagePath" type="xs:anyURI"></xs:attribute>
+          <xs:attribute name="CoordsTopLeft" id="CoordsLower" type="xs:string"></xs:attribute> <!-- string for now -->
+          <xs:attribute name="CoordsBottomRight" id="CoordsBottomRight" type="xs:string"></xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

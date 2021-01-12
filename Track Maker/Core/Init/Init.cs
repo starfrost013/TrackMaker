@@ -61,7 +61,7 @@ namespace Track_Maker
             Logging.Log("Loading settings...");
             SettingsLoader.LoadSettings2();
 
-            if (Setting.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled");
+            if (Setting.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled.");
             
             Logging.Log("Loading basins...");
             GlobalStateP.LoadBasins();
@@ -104,9 +104,6 @@ namespace Track_Maker
             Layers.Layers.DataContext = this;
             Layers.UpdateLayout();
 
-            UpdateLayout();
-
-
             Logging.Log("Obtaining user telemetry consent status and checking for updates...");
             TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
 
@@ -120,6 +117,8 @@ namespace Track_Maker
 
             Logging.Log("Initialisation completed. Starting render timer...");
 
+            SetFullscreen(); 
+            UpdateLayout();
             TickTimer.Start();
 
         }
