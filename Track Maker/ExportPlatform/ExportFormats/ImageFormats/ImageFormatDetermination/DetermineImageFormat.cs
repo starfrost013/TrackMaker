@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Media.Imaging; 
 namespace Track_Maker
 {
     /// <summary>
@@ -59,6 +59,27 @@ namespace Track_Maker
 
 
 
+        }
+
+        public static BitmapEncoder GetBitmapEncoder(ImageFormats ImageFormat)
+        {
+            switch (ImageFormat)
+            {
+                case ImageFormats.PNG:
+                    return new PngBitmapEncoder();
+                case ImageFormats.JPEG:
+                    return new JpegBitmapEncoder();
+                case ImageFormats.BMP:
+                    return new BmpBitmapEncoder();
+                case ImageFormats.TIFF:
+                    return new TiffBitmapEncoder();
+                case ImageFormats.WMP:
+                    return new WmpBitmapEncoder();
+                case ImageFormats.GIF:
+                    return new GifBitmapEncoder();
+                case ImageFormats.Unknown:
+                    return null;
+            }
         }
     }
 }
