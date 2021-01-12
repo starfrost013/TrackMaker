@@ -161,7 +161,6 @@ namespace Track_Maker
 
             // create a new PNG encoder and memory stream
 
-
             ImageFormats ImgFormat = ImageFormatDeterminer.FromString(FileName);
             // REFACTOR PROBABLY
             BitmapEncoder PNGEncoder = ImageFormatDeterminer.GetBitmapEncoder(ImgFormat);

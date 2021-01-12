@@ -9,7 +9,7 @@ namespace TrackMaker.Core
     /// <summary>
     /// TProj2 Header class for TrackMaker.Core
     /// </summary>
-    public class TProj2Header
+    public class TProj2Metadata
     {
         /// <summary>
         /// The author of this file.

@@ -66,47 +66,47 @@
     <Compile Include="Core\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Layer\RenameLayer\Priscilla_RenameLayer.xaml.cs">
+    <Compile Include="TrackMakerUI\Layer\RenameLayer\Priscilla_RenameLayer.xaml.cs">
       <DependentUpon>Priscilla_RenameLayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Ported\Core\Dano_TypeSelectorBox.xaml.cs">
+    <Compile Include="TrackMakerUI\Ported\Core\Dano_TypeSelectorBox.xaml.cs">
       <DependentUpon>Dano_TypeSelectorBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Ported\AddTrackPoint\Dano_AddTrackPoint.xaml.cs">
+    <Compile Include="TrackMakerUI\Ported\AddTrackPoint\Dano_AddTrackPoint.xaml.cs">
       <DependentUpon>Dano_AddTrackPoint.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Ported\EditUI\Dano_EditUI.xaml.cs">
+    <Compile Include="TrackMakerUI\Ported\EditUI\Dano_EditUI.xaml.cs">
       <DependentUpon>Dano_EditUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Ported\SeasonManager\Dano_SeasonManager.xaml.cs">
+    <Compile Include="TrackMakerUI\Ported\SeasonManager\Dano_SeasonManager.xaml.cs">
       <DependentUpon>Dano_SeasonManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Ported\AddNewStorm\Dano_AddNewStorm.xaml.cs">
+    <Compile Include="TrackMakerUI\Ported\AddNewStorm\Dano_AddNewStorm.xaml.cs">
       <DependentUpon>Dano_AddNewStorm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Layer\CreateLayer\Priscilla_CreateLayer.xaml.cs">
+    <Compile Include="TrackMakerUI\Layer\CreateLayer\Priscilla_CreateLayer.xaml.cs">
       <DependentUpon>Priscilla_CreateLayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Ported\About\Dano_About.xaml.cs">
+    <Compile Include="TrackMakerUI\Ported\About\Dano_About.xaml.cs">
       <DependentUpon>Dano_About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Ported\CategoryManager\Dano_CategoryManager.xaml.cs">
+    <Compile Include="TrackMakerUI\Ported\CategoryManager\Dano_CategoryManager.xaml.cs">
       <DependentUpon>Dano_CategoryManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Ported\BasinSwitcher\Dano_BasinSwitcher.xaml.cs">
+    <Compile Include="TrackMakerUI\Ported\BasinSwitcher\Dano_BasinSwitcher.xaml.cs">
       <DependentUpon>Dano_BasinSwitcher.xaml</DependentUpon>
     </Compile>
     <Compile Include="DanoEventArgs.cs" />
     <Compile Include="Dano_NewProject.xaml.cs">
       <DependentUpon>Dano_NewProject.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\Layer\LayerControl\Priscilla_LayerControl.xaml.cs">
+    <Compile Include="TrackMakerUI\Layer\LayerControl\Priscilla_LayerControl.xaml.cs">
       <DependentUpon>Priscilla_LayerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\QualityControl\Priscilla_QualityControl.xaml.cs">
+    <Compile Include="TrackMakerUI\QualityControl\Priscilla_QualityControl.xaml.cs">
       <DependentUpon>Priscilla_QualityControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PriscillaUI\ZoomControl\Priscilla_ZoomControl.xaml.cs">
+    <Compile Include="TrackMakerUI\ZoomControl\Priscilla_ZoomControl.xaml.cs">
       <DependentUpon>Priscilla_ZoomControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Priscilla_ErrorUI.xaml.cs">
@@ -122,43 +122,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Layer\RenameLayer\Priscilla_RenameLayer.xaml">
+    <Page Include="TrackMakerUI\Layer\RenameLayer\Priscilla_RenameLayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Ported\Core\Dano_TypeSelectorBox.xaml">
+    <Page Include="TrackMakerUI\Ported\Core\Dano_TypeSelectorBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Ported\AddTrackPoint\Dano_AddTrackPoint.xaml">
+    <Page Include="TrackMakerUI\Ported\AddTrackPoint\Dano_AddTrackPoint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Ported\EditUI\Dano_EditUI.xaml">
+    <Page Include="TrackMakerUI\Ported\EditUI\Dano_EditUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Ported\SeasonManager\Dano_SeasonManager.xaml">
+    <Page Include="TrackMakerUI\Ported\SeasonManager\Dano_SeasonManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Ported\AddNewStorm\Dano_AddNewStorm.xaml">
+    <Page Include="TrackMakerUI\Ported\AddNewStorm\Dano_AddNewStorm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Layer\CreateLayer\Priscilla_CreateLayer.xaml">
+    <Page Include="TrackMakerUI\Layer\CreateLayer\Priscilla_CreateLayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Ported\About\Dano_About.xaml">
+    <Page Include="TrackMakerUI\Ported\About\Dano_About.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PriscillaUI\Ported\CategoryManager\Dano_CategoryManager.xaml">
+    <Page Include="TrackMakerUI\Ported\CategoryManager\Dano_CategoryManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Ported\BasinSwitcher\Dano_BasinSwitcher.xaml">
+    <Page Include="TrackMakerUI\Ported\BasinSwitcher\Dano_BasinSwitcher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -174,15 +174,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\Layer\LayerControl\Priscilla_LayerControl.xaml">
+    <Page Include="TrackMakerUI\Layer\LayerControl\Priscilla_LayerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\QualityControl\Priscilla_QualityControl.xaml">
+    <Page Include="TrackMakerUI\QualityControl\Priscilla_QualityControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PriscillaUI\ZoomControl\Priscilla_ZoomControl.xaml">
+    <Page Include="TrackMakerUI\ZoomControl\Priscilla_ZoomControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,6 +197,8 @@
       <Name>TrackMaker.Util</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="TrackMakerUI\Graphing\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

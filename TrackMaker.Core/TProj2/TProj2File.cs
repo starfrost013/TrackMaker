@@ -17,6 +17,7 @@ namespace TrackMaker.Core
     [XmlRoot("Project")]
     public class TProj2File
     {
+        public TProj2Metadata Metadata { get; set; }
         //public Project TProject { get; set; }
     }
 }
