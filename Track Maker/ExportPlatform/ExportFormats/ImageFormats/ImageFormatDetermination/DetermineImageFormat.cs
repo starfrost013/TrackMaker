@@ -79,6 +79,8 @@ namespace Track_Maker
                     return new GifBitmapEncoder();
                 case ImageFormats.Unknown:
                     return null;
+                default:
+                    return null;
             }
         }
     }

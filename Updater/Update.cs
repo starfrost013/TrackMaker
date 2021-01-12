@@ -26,19 +26,37 @@ namespace Updater
 
                 string VersionString = NetConnection.DownloadString(@"https://trackmaker-update.medicanecentre.org/LatestVersion.txt");
 
+                string[] VersionComponents = null; 
+
                 if (VersionString.Contains("terminated"))
                 {
-                    MessageBox.Show("Update Services for Track Maker 1.x has been terminated. Please manually install Track Maker 2.0 at https://v2.trackmaker-update.medicanecentre.org/GetVersion?versionID=2.0"); 
+                    MessageBox.Show("Update Services for Track Maker 1.x has been terminated. Please manually install Track Maker 2.0 at https://v2.trackmaker-update.medicanecentre.org/GetVersion?versionID=2.0");
+                    Application.Current.Shutdown(4);
                 }
 
-                string[] VersionComponents = VersionString.Split('.');
+                if (!VersionString.Contains("."))
+                {
+                    MessageBox.Show("Update Error 5: Error contacting the update server; it exists but did not return a valid response. It may be down.");
+                    Application.Current.Shutdown(5);
+                }
+                else
+                {
+                    VersionComponents = VersionString.Split('.');
 
-                // 2 = build
+                    if (VersionComponents.Count() < 2)
+                    {
+                        MessageBox.Show("Update Error 3: Error contacting the update server; it exists but did not return a a valid response. It may be down.");
+                        Application.Current.Shutdown(3);
+                    }
+                }
+                 // 2 = build
+                double CurMajorVersion = Convert.ToDouble(VersionComponents[0]);
+                double CurMinorVersion = Convert.ToDouble(VersionComponents[1]);
                 double CurBuildNumber = Convert.ToDouble(VersionComponents[2]);
 
                 FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 
-                if (CurBuildNumber > FVI.FileBuildPart)
+                if (CurMajorVersion >= FVI.FileMajorPart && CurMinorVersion >= FVI.FileMinorPart && CurBuildNumber > FVI.FileBuildPart)
                 {
                     if (MessageBox.Show($"A Track Maker update is available.\n\nCurrent Version: {FVI.ProductVersion}.\nNew Version: {VersionString}.\n\nDo you wish to update?", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                     {
