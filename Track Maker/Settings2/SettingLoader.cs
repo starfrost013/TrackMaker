@@ -58,9 +58,6 @@ namespace Track_Maker
             // Load the accent enable setting
             Setting.AccentEnabled = EmeraldSettings.GetBool("AccentEnabled");
 
-            // Load temporary RC2 setting
-            Setting.PriscillaRC2_Tmp_UseNewPZRendering = EmeraldSettings.GetBool("PriscillaRC2_Tmp_UseNewPZRendering"); 
-
             // Telemetry consent
             Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent");
 

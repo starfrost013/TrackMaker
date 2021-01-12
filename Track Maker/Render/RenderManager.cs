@@ -186,7 +186,8 @@ namespace Track_Maker
                 }
             }
 
-            if (Setting.PriscillaRC2_Tmp_UseNewPZRendering) Render_ZoomAndPan(); 
+            // Zoom and pan. 
+            Render_ZoomAndPan();
 
             // get WPF to render it
             UpdateLayout(); 

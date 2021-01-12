@@ -6,7 +6,6 @@
   <DotSize>8,8</DotSize>
   <ExperimentalMode>true</ExperimentalMode>
   <LineSize>2</LineSize>
-  <PriscillaRC2_Tmp_UseNewPZRendering>True</PriscillaRC2_Tmp_UseNewPZRendering>
   <!--<SelectedBasin>Atlantic</SelectedBasin> legacy v1.0-->
   <Iris_UseDeserialisation>False</Iris_UseDeserialisation>
   <ShowBetaWarning>False</ShowBetaWarning>
