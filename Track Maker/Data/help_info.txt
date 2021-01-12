@@ -35,3 +35,35 @@ New features:
 * More preinstalled category systems!
 * Logging!
 * Many bug fixes!
+
+==Release Notes==
+v2.0.1 (11 January 2021):
+This is a bugfix release and fixes several issues identified since the release of Track Maker 2.0, improving your experience.
+
+- An issue resulting in tracks imported from ATCF/HURDAT2 data files having the wrong positions has been fixed.
+- The bottom text on the about screen has been fixed to display the proper text instead of the text used for pre-release builds.
+- Fullscreen mode has been fixed and looks less weird
+- Default window style (fullscreen / windowed) setting now works 
+properly. It isn't on the Settings menu yet, but it will be in a future release (I just wanted to get this out quickly)
+- Fixed an issue with the first fullscreen mode change not working properly.  
+- A minor cosmetic issue has been fixed with the ACE calculator.
+- Additional error handling for the updater to prevent a nasty crash if the server is up but doesn't send a proper response.
+
+v2.0 (10 January 2021):
+* HURDAT2 format export!
+* ATCF format import!
+* ATCF format export!
+* Layers!
+* Zooming!
+* Panning!
+* Integrated ACE Calculator! (use -InitAceCalc at the command line or the supplied Start Menu shortcut to launch it)
+* Integrated Advisory Generator! (use -InitAdvGen at the command line or the supplied Start Menu shortcut to launch it)
+* Season Start Time and Storm Start Time displays when adding new storms!
+* New project format!
+* Improved menu structure!
+* Previews!
+* More preinstalled category systems!
+* Logging!
+* Many bug fixes!
+v1.0.369.0 (May 2020):
+Initial Release
