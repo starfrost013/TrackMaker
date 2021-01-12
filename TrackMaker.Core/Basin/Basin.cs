@@ -18,7 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace TrackMaker.Core.Basin
+namespace TrackMaker.Core
 {
     // Custom hemispheres? (3.x)
 #if DANO

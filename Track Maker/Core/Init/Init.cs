@@ -60,6 +60,9 @@ namespace Track_Maker
             // Load Settings
             Logging.Log("Loading settings...");
             SettingsLoader.LoadSettings2();
+
+            if (Setting.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled");
+            
             Logging.Log("Loading basins...");
             GlobalStateP.LoadBasins();
             Init_SetCurrentCategorySystem();

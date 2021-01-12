@@ -8,11 +8,8 @@ using System.Xml.Serialization;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
-    //REMOVED V1.0 STORMTYPE!!!!
-    //public enum StormType { Tropical, Subtropical, Extratropical, InvestPTC, PolarLow }
-
     /// <summary>
     /// Holds an individual storm.
     /// 
