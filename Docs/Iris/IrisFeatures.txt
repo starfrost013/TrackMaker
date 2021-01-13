@@ -13,13 +13,15 @@ Priority:
 Iris will have a setting that allows adding track points to be similar to Monsoon's Hypo TC Track Maker and the Legacy Track Maker; this will be accomplished by a global place mode setting. When InstaPlace is on, categories will be controlled by keys; these keys will be dynamically generated from the first letter of the second word of the category name - or in the case of the category name only having one word - the first word.
 
 2. Temporary File Management
-Iris will have APIs for temporary file management. These will be used for the new ATCF importer (ATCF2Tproj) and 
+Iris will have APIs for temporary file management. These will be used for the new ATCF importer (ATCF2Tproj) and ExportUI. It will be independent of any UI and can be called right from the start of the program (currently App.xaml.cs). 
 3. Delete Old Logs Setting
+Logs will be moved to the Temp folder and copied to the main folder in the event of a crash.
+Priscilla creates a log every single time it is started and as a result of this pollutes its installatio folder. Iris will wipe all old logs by defaul; a setting will be added 
 4. Graphing
 5. Point dragging
 6. Help 
 7. Componentisation:
-Move non-UI-specific (MainWIndow) code to TrackMaker.Core.dll (TrackMaker.Core namespace)
+Move non-UI-specific (MainWindow) code to TrackMaker.Core.dll (TrackMaker.Core namespace)
 DanoUI.dll => TrackMaker.UI.dll
 Dano.ACECalculator.dll => TrackMaker.ACECalculator.dll
 Dano.AdvisoryGenerator.dll => TrackMaker.AdvisoryGenerator.dll
@@ -37,6 +39,7 @@ Dano.AdvisoryGenerator.dll => TrackMaker.AdvisoryGenerator.dll
 19. Map scrolling, allows a global map. Implement using an extension of the present panning system.
 20. Extend Image export to allow for all formats to be used.
 21. XML Serialisation
-
+All XML loaders will be rewritten to use schemas and serialisation. This will assist with code quality (the TProj2 importer is a mess.) 
+22. Add default window style setting to settings page. 
 ==Priority 3==
 21. Start Page

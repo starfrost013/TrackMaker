@@ -48,6 +48,7 @@ namespace DanoUI
 #if DEBUG
             //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.FileVersion}) (Debug)";
             starfrostTrack_Copyright.Text = "This version of the Track Maker is a pre-release intended for evaluation purposes only and is not for operational usage. © 2019-2021 starfrost.";
+            starfrostTrack_Copyright_HHW.Text = "";
 
             starfrostTrack_Version.Text = $"Version 2.1.0 (Iris v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
 #else

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
     /// <summary>
     /// StormType V2 (the ATCF format forced me to implement this against my will)

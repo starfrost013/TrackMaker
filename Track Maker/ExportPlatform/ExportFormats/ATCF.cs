@@ -188,7 +188,7 @@ namespace Track_Maker
 
                     Intensity = Convert.ToInt32(_StrIntensity);
 
-                    Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime, AgencyFormats.ATCF);
+                    Sto.FormationDate = ParsingUtil.ParseATCFDateTime(_StrTime, CoordinateFormat.ATCF);
 
                     if (_StrName == null)
                     {

@@ -159,7 +159,6 @@
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExportPlatform\ExportFormats\ATCF.cs" />
-    <Compile Include="ExportPlatform\ExportFormats\ATCFHelper\AgencyFormats.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ATCFHelper\ATCFHelperMethods.cs" />
     <Compile Include="ExportPlatform\ExportFormats\EasyTimeline.cs" />
     <Compile Include="ExportPlatform\ExportFormats\FileSelector\Result\ExportResultEnum.cs" />
@@ -167,7 +166,7 @@
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormatDetermination\DetermineImageFormat.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormats.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageScaling.cs" />
-    <Compile Include="ExportPlatform\ExportFormats\StringFormats\CoordinateFormats.cs" />
+    <Compile Include="ExportPlatform\ExportFormats\ATCFHelper\CoordinateFormats.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Validation\NodeImportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Validation\XMLImportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
@@ -206,7 +205,6 @@
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\Coordinate.cs" />
-    <Compile Include="Util\CoordinateUtil\CoordinateType.cs" />
     <Compile Include="Util\ParsingUtil\ParsingUtil.cs" />
     <Compile Include="Util\Utilities.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />

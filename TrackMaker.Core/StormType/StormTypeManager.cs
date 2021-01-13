@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Shapes;
 using System.Data.OleDb;
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
     public class StormTypeManager
     {

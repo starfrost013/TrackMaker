@@ -47,12 +47,16 @@
   <ItemGroup>
     <Compile Include="Basin\Basin.cs" />
     <Compile Include="Basin\BasinCollection.cs" />
+    <Compile Include="Coordinate\Coordinate.cs" />
+    <Compile Include="Coordinate\CoordinateSupport\CardinalDirection.cs" />
+    <Compile Include="Coordinate\CoordinateSupport\CoordinateFormats.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Layer\LayerCollection.cs" />
     <Compile Include="StormType\RealStormTypes\RealStormTypes.cs" />
     <Compile Include="StormType\Shape\Shape.cs" />
     <Compile Include="StormType\Shape\StormShape.cs" />
     <Compile Include="StormType\StormType2.cs" />
+    <Compile Include="StormType\StormTypeCollection.cs" />
     <Compile Include="StormType\StormTypeManager.cs" />
     <Compile Include="Storm\Node\Node.cs" />
     <Compile Include="Storm\Node\NodeCollection.cs" />

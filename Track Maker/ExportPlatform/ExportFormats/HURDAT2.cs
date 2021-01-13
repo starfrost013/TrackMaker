@@ -78,7 +78,7 @@ namespace Track_Maker
             Project Proj = new Project();
             Proj.FileName = $@"{SelectedPath}\*.*";
 
-            if (!ATCFHelperMethods.Export_CheckDirectoryValidForImport(SelectedPath, AgencyFormats.HURDAT2)) 
+            if (!ATCFHelperMethods.Export_CheckDirectoryValidForImport(SelectedPath, CoordinateFormat.HURDAT2)) 
             {
                 IR.Status = ExportResults.Error;
                 return IR;
@@ -140,7 +140,7 @@ namespace Track_Maker
                             if (j == 1)
                             {
                                 string DateString = $"{_Date}, {_Time}";
-                                Sto.FormationDate = ParsingUtil.ParseATCFDateTime(DateString, AgencyFormats.HURDAT2);
+                                Sto.FormationDate = ParsingUtil.ParseATCFDateTime(DateString, CoordinateFormat.HURDAT2);
                             }
 
                             CN.Id = j;

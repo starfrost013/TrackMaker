@@ -3,23 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
 using System.Windows;
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
-    /// <summary>
-    /// The cardinal directions.
-    /// </summary>
-    public enum CardinalDirection { N, S, W, E }
-
     /// <summary>
     /// Latitude / longitude coordinate. 
     /// </summary>
     public class Coordinate
     {
-        [XmlElement("Position")]
         public Point Coordinates { get; set; }
         public List<CardinalDirection> Directions { get; set; }
 
@@ -122,7 +114,7 @@ namespace Track_Maker
 
             if (CoordinateComponents.Length > 2 || CoordinateComponents.Length == 0)
             {
-                Error.Throw("Error!", "Cannot convert an invalid coordinate!", ErrorSeverity.Error, 243);
+                CoordinateFormat.Throw("Error!", "Cannot convert an invalid coordinate!", ErrorSeverity.Error, 243);
                 return null; // not successful - PRE 3.0
             }
 

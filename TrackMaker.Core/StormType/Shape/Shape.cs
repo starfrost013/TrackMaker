@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
     /// <summary>
     /// A shape for a track point / node. 

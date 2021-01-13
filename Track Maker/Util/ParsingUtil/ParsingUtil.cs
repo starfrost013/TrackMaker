@@ -13,15 +13,15 @@ namespace Track_Maker
         /// </summary>
         /// <param name="ATCFDTFormatString">ATCF formatted string</param>
         /// <returns>The DateTime you selected.</returns>
-        public static DateTime ParseATCFDateTime(string ATCFDTFormatString, AgencyFormats AF = AgencyFormats.HURDAT2)
+        public static DateTime ParseATCFDateTime(string ATCFDTFormatString, CoordinateFormat AF = CoordinateFormat.HURDAT2)
         {
             try
             {
                 switch (AF)
                 {
-                    case AgencyFormats.ATCF:
+                    case CoordinateFormat.ATCF:
                         return ParseATCFDateTime_ATCF(ATCFDTFormatString);
-                    case AgencyFormats.HURDAT2:
+                    case CoordinateFormat.HURDAT2:
                         return ParseATCFDateTime_HURDAT2(ATCFDTFormatString);
                 }
 

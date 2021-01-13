@@ -30,7 +30,7 @@ namespace Track_Maker
         /// <param name="PathToDirectory"></param>
         /// <returns></returns>
         // Iris: genericised input validation
-        public static bool Export_CheckDirectoryValidForImport(string PathToDirectory, AgencyFormats AgencyFormat = AgencyFormats.ATCF)
+        public static bool Export_CheckDirectoryValidForImport(string PathToDirectory, CoordinateFormat AgencyFormat = CoordinateFormat.ATCF)
         {
             if (!Directory.Exists(PathToDirectory))
             {
@@ -78,7 +78,7 @@ namespace Track_Maker
                         int FirstCommaIndex = 2;
                         int SecondCommaIndex = 6;
 
-                        if (AgencyFormat == AgencyFormats.HURDAT2)
+                        if (AgencyFormat == CoordinateFormat.HURDAT2)
                         {
                             FirstCommaIndex = 8;
                             SecondCommaIndex = 28;
