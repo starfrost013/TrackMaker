@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Track Maker 2.x UI Library")]
-[assembly: AssemblyDescription("WPF UC library for Track Maker, version 2.x.")]
+[assembly: AssemblyDescription("WPF UserControl library for Track Maker, version 2.x.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Track Maker 2.x")]
-[assembly: AssemblyCopyright("Copyright © starfrost 2020")]
+[assembly: AssemblyCopyright("Track Maker © 2019-2021 starfrost.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

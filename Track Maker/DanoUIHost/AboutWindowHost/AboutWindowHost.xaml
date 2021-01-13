@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="About starfrost's track maker" Height="191.174" Width="756.167" WindowStyle="ToolWindow">
     <Grid>
-        <Dano:AboutUI OnOKButtonHit="OnOkButtonHit" OnHyperlinkHit="HyperlinkHit"></Dano:AboutUI>
+        <Dano:AboutUI x:Name="AboutWindow" OnOKButtonHit="OnOkButtonHit" OnHyperlinkHit="HyperlinkHit"></Dano:AboutUI>
     </Grid>
 </Window>

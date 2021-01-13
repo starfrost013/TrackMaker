@@ -34,7 +34,7 @@ namespace DanoUI
         {
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 #if DANO // Track Maker 3.0 Debug
-            starfrostTrack_Copyright.Text = "This version of the Track Maker is an alpha release intended for development and experimental purposes only, and is not suitable for any other use. © 2021 starfrost."
+            starfrostTrack_Copyright.Text = "This version of the Track Maker is an alpha release intended for development and experimentation purposes only, and is not suitable for any other use. © 2021 starfrost."
             starfrostTrack_Copyright_HHW.Text = "";
 #if DEBUG
             starfrostTrack_Version.Text = $"Version 3.0 Alpha (Dano v{FVI.ProductVersion} Debug)";
@@ -49,7 +49,6 @@ namespace DanoUI
             //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.FileVersion}) (Debug)";
             starfrostTrack_Copyright.Text = "This version of the Track Maker is a pre-release intended for evaluation purposes only and is not for operational usage. © 2019-2021 starfrost.";
             starfrostTrack_Copyright_HHW.Text = "";
-
             starfrostTrack_Version.Text = $"Version 2.1.0 (Iris v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
 #else
             starfrostTrack_Version.Text = $"Version 2.1.0 (Iris v{FVI.FileVersion} - {FVI.ProductVersion} Release)";

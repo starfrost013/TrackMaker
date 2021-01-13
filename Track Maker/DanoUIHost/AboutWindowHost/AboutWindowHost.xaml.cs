@@ -25,6 +25,14 @@ namespace Track_Maker
         public AboutWindowHost()
         {
             InitializeComponent();
+
+            // VERY BAD NO GOOD CODE BEGIN
+            string IrisBuildDate = Properties.Resources.iris_build;
+
+            if (IrisBuildDate != null && IrisBuildDate.Length > 0) AboutWindow.starfrostTrack_BuildDate.Text = $"Debug or pre-release build: built on ${IrisBuildDate}";
+
+            // MOVE IRIS_BUILD.TXT TO TRACKMAKER.UI AND PUT THIS CODE I THE PROPER PLACE LATER.
+            // VERY BAD NO GOOD CODE END
         }
 
         private void HyperlinkHit(object sender, RequestNavigateEventArgs e)
