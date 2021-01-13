@@ -114,5 +114,14 @@ namespace Track_Maker.Properties {
                 return ResourceManager.GetString("_THANKS", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string iris_build {
+            get {
+                return ResourceManager.GetString("iris_build", resourceCulture);
+            }
+        }
     }
 }
