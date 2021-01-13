@@ -16,7 +16,7 @@ namespace TrackMaker.Core
         /// The list of storms associated with this layer
         /// </summary>
         /// 
-        [XmlElement("Storms")]; 
+        [XmlElement("Storms")]
         public StormCollection AssociatedStorms { get; set; }
         public Storm CurrentStorm { get; set; }
         public bool Enabled { get; set; }

@@ -47,6 +47,11 @@
   <ItemGroup>
     <Compile Include="Basin\Basin.cs" />
     <Compile Include="Basin\BasinCollection.cs" />
+    <Compile Include="Category\Category.cs" />
+    <Compile Include="Category\CategoryLoader.cs" />
+    <Compile Include="Category\CategoryManager.cs" />
+    <Compile Include="Category\CategorySystem.cs" />
+    <Compile Include="Category\CategorySystemCollection.cs" />
     <Compile Include="Coordinate\Coordinate.cs" />
     <Compile Include="Coordinate\CoordinateSupport\CardinalDirection.cs" />
     <Compile Include="Coordinate\CoordinateSupport\CoordinateFormats.cs" />
@@ -76,6 +81,9 @@
     <None Include="Schema\Components\Basin.xsd">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TFM\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

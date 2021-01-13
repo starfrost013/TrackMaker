@@ -42,6 +42,8 @@ namespace TrackMaker.Core
         /// Remove a Storm from this storm collection. 
         /// </summary>
         /// <param name="StormObject">The storm object to remove.</param>
-        public void Remove(Storm StormObject) => Storms.Remove(StormObject); 
+        public void Remove(Storm StormObject) => Storms.Remove(StormObject);
+
+        public void Clear(Storm StormObject) => Storms.Clear(); 
     }
 }
