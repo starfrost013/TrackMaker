@@ -51,10 +51,13 @@
     <Compile Include="Category\CategoryLoader.cs" />
     <Compile Include="Category\CategoryManager.cs" />
     <Compile Include="Category\CategorySystem.cs" />
-    <Compile Include="Category\CategorySystemCollection.cs" />
     <Compile Include="Coordinate\Coordinate.cs" />
     <Compile Include="Coordinate\CoordinateSupport\CardinalDirection.cs" />
     <Compile Include="Coordinate\CoordinateSupport\CoordinateFormats.cs" />
+    <Compile Include="Error\Error.cs" />
+    <Compile Include="Error\ErrorUI\ErrorHost\ErrorUIHost.xaml.cs">
+      <DependentUpon>ErrorUIHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Layer\LayerCollection.cs" />
     <Compile Include="StormType\RealStormTypes\RealStormTypes.cs" />
@@ -72,6 +75,10 @@
     <Compile Include="TProj2\TProj2Metadata.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DanoUI\TrackMaker.UI.csproj">
+      <Project>{f24f47e1-4cf7-4777-b7dd-db1aec6278d9}</Project>
+      <Name>TrackMaker.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Starfrost.UL5\TrackMaker.Util.csproj">
       <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
       <Name>TrackMaker.Util</Name>
@@ -84,6 +91,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TFM\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Error\ErrorUI\ErrorHost\ErrorUIHost.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

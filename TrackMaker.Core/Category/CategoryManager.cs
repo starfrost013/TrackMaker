@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 using System.Threading.Tasks;
 
 namespace TrackMaker.Core
 {
+    /// <summary>
+    /// XML deserialisation class for category systems
+    /// 
+    /// 2020-01-14 00:40   v2.1.659
+    /// </summary>
+    [XmlRoot("CategorySystems")]
     public partial class CategoryManager
     {
+        [XmlElement("CategorySystem")]
         public List<CategorySystem> CategorySystems { get; set; }
         public CategorySystem CurrentCategorySystem { get; set; }
         public CategoryManager()

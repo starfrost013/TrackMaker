@@ -13,9 +13,16 @@
         <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="193" Margin="10,156,0,0" VerticalAlignment="Top" Width="563">
             <TextBlock x:Name="Error_ErrorText" HorizontalAlignment="Left" Height="173" Margin="9,9,0,0" TextWrapping="Wrap" Text="{Binding ErrorString}" VerticalAlignment="Top" Width="544" Foreground="White"/>
         </Border>
-        <TextBlock x:Name="Error_Apology" HorizontalAlignment="Left" Height="35" Margin="10,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" Foreground="White" FontSize="18" Text="We apologise for the inconvenience. You may wish to file an error report."></TextBlock>
+        <TextBlock x:Name="Error_Apology" HorizontalAlignment="Left" Height="51" Margin="10,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="676" Foreground="White" FontSize="18" >
+            We apologise for the inconvenience. You should file a bug report at
+            <Hyperlink>
+                https://github.com/Cosmo224/TrackMaker
+            </Hyperlink> if you believe the crash was caused by a bug.
 
-        <TextBlock x:Name="Error_PressOKToExit" HorizontalAlignment="Left" Height="35" Margin="10,378,0,0" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" Foreground="White" FontSize="18" Text="Press OK to exit."/>
+        </TextBlock>
+
+        <TextBlock x:Name="Error_PressOKToExit" HorizontalAlignment="Left" Height="35" Margin="10,405,0,0" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" Foreground="White" FontSize="18" Text="Press OK to exit."/>
+
         <Button x:Name="Error_OKButton" Content="OK" HorizontalAlignment="Left" Height="35" Margin="647,405,0,0" VerticalAlignment="Top" Width="143" Click="Error_OKButton_Click"/>
 
     </Grid>

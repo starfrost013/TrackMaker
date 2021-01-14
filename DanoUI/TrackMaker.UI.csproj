@@ -109,7 +109,7 @@
     <Compile Include="TrackMakerUI\ZoomControl\Priscilla_ZoomControl.xaml.cs">
       <DependentUpon>Priscilla_ZoomControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Priscilla_ErrorUI.xaml.cs">
+    <Compile Include="TrackMakerUI\Error\Priscilla_ErrorUI.xaml.cs">
       <DependentUpon>Priscilla_ErrorUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,7 +186,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Priscilla_ErrorUI.xaml">
+    <Page Include="TrackMakerUI\Error\Priscilla_ErrorUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
