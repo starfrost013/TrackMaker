@@ -19,13 +19,13 @@ namespace TrackMaker.Core
             // Loads settings using the Emerald XML Settings API.
 
             // Load the default category system
-            Setting.DefaultCategorySystem = EmeraldSettings.GetString("DefaultCategorySystem");
+            Setting.DefaultCategorySystem = SettingsAPI.GetString("DefaultCategorySystem");
 
             // Load the text name visibility setting
-            Setting.DefaultVisibleTextNames = EmeraldSettings.GetBool("StormNamesVisible");
+            Setting.DefaultVisibleTextNames = SettingsAPI.GetBool("StormNamesVisible");
 
             // Load the dot size
-            Setting.DotSize = EmeraldSettings.GetPoint("DotSize"); 
+            Setting.DotSize = SettingsAPI.GetPoint("DotSize"); 
             
             if (Setting.DotSize.X <= 0 || Setting.DotSize.Y <= 0)
             {
@@ -34,7 +34,7 @@ namespace TrackMaker.Core
                 Setting.DotSize = new Point(8, 8); // reinitialise
             }
 
-            Setting.LineSize = EmeraldSettings.GetInt("LineSize");
+            Setting.LineSize = SettingsAPI.GetInt("LineSize");
 
             if (Setting.LineSize <= 0)
             {
@@ -44,26 +44,27 @@ namespace TrackMaker.Core
             }
 
             // Load the accent colours
-            Setting.AccentColour1 = EmeraldSettings.GetColour("AccentColour1");
-            Setting.AccentColour2 = EmeraldSettings.GetColour("AccentColour2");
+            Setting.AccentColour1 = SettingsAPI.GetColour("AccentColour1");
+            Setting.AccentColour2 = SettingsAPI.GetColour("AccentColour2");
 
             // Load the accent enable setting
-            Setting.AccentEnabled = EmeraldSettings.GetBool("AccentEnabled");
+            Setting.AccentEnabled = SettingsAPI.GetBool("AccentEnabled");
 
             // Telemetry consent
-            Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent");
+            Setting.TelemetryConsent = SettingsAPI.GetTelemetryConsent("TelemetryConsent");
 
             // Show the beta warning
-            Setting.ShowBetaWarning = EmeraldSettings.GetBool("ShowBetaWarning");
+            Setting.ShowBetaWarning = SettingsAPI.GetBool("ShowBetaWarning");
 
             // Undo depth
-            Setting.UndoDepth = EmeraldSettings.GetInt("UndoDepth");
+            Setting.UndoDepth = SettingsAPI.GetInt("UndoDepth");
 
             // Load the window style
-            Setting.WindowStyle = EmeraldSettings.GetWindowStyle("WindowStyle");
+            Setting.WindowStyle = SettingsAPI.GetWindowStyle("WindowStyle");
 
+            Setting.Iris_EnableGraphUI = SettingsAPI.GetBool("Iris_EnableGraphUI");
             // V2.1
-            Setting.Iris_UseDeserialisation = EmeraldSettings.GetBool("Iris_UseDeserialisation"); 
+            Setting.Iris_UseDeserialisation = SettingsAPI.GetBool("Iris_UseDeserialisation"); 
         }
     }
 }

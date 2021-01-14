@@ -35,7 +35,9 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,6 +66,7 @@
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Layer\LayerCollection.cs" />
     <Compile Include="Project\Project.cs" />
+    <Compile Include="Scale\Direction.cs" />
     <Compile Include="Settings2\ApplicationSettings.cs" />
     <Compile Include="Settings2\Enums\TelemetryConsent.cs" />
     <Compile Include="Settings2\Enums\WndStyle.cs" />

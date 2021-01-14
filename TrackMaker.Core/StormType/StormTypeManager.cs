@@ -1,4 +1,5 @@
 ﻿using Starfrost.UL5.Logging;
+using Starfrost.UL5.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO;

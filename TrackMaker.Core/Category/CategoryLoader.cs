@@ -1,4 +1,5 @@
 ﻿using Starfrost.UL5.Logging;
+using Starfrost.UL5.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Xml;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
     public partial class CategoryManager
     {

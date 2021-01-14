@@ -1,4 +1,5 @@
 ﻿using Starfrost.UL5.Logging;
+using Starfrost.UL5.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO; 
@@ -19,7 +20,7 @@ namespace TrackMaker.Core
     /// </summary>
     /// 
 
-    public static class EmeraldSettings
+    public static class SettingsAPI
     {
         internal static XmlNode LoadSettingsXmlGetNode()
         {

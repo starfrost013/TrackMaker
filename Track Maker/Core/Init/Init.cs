@@ -169,6 +169,7 @@ namespace Track_Maker
                 case true:
                     Logging.Log("Enabling GraphUI...");
                     GraphMenu.IsEnabled = true; 
+                    GraphMenu_GraphWindow.IsEnabled = true; 
                     
                     return; 
                 case false:

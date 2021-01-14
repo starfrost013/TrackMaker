@@ -74,7 +74,7 @@ namespace TrackMaker.Core
 
         
         // Basin API for Priscilla
-        public Coordinate FromNodePositionToCoordinate(Point NodePosition)
+        public Coordinate FromNodePositionToCoordinate(Point NodePosition, Point WindowSize)
         {
             Coordinate Coord = new Coordinate();
 
@@ -113,8 +113,8 @@ namespace TrackMaker.Core
             }
 
 
-            double WindowMultiplierPositionX = NodePosition.X / MnWindow.Width;
-            double WindowMultiplierPositionY = NodePosition.Y / MnWindow.Height;
+            double WindowMultiplierPositionX = NodePosition.X / WindowSize.X;
+            double WindowMultiplierPositionY = NodePosition.Y / WindowSize.Y;
 
             double FinalX = -2.999126165;
             double FinalY = -2.999126165;
@@ -351,18 +351,6 @@ namespace TrackMaker.Core
                         return false;
                     }
                 }
-
-#if DANO
-                StormTypeManager ST2Manager = GlobalState.GetST2Manager(); 
-#else
-                MainWindow Pre3MainWindow = (MainWindow)Application.Current.MainWindow;
-                StormTypeManager ST2Manager = Pre3MainWindow.ST2Manager;
-#endif
-
-                //Storm.StormType = ST2Manager.GetStormTypeWithName(Type); 
-
-
-                //Logging.Log($"Set storm type to {Storm.StormType}");
 
                 Logging.Log("Initializing node list...");
                 Storm.NodeList = new List<Node>(); // initalize the mode list

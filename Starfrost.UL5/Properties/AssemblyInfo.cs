@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 
 /// Useful Library 5.x
 /// Please don't put methods in here unless they are *application-independent*
-[assembly: AssemblyTitle("Useful Library 5.x (.NET Framework version)")]
-[assembly: AssemblyDescription("A collection of utilities and helper functions for .NET applications.")]
+[assembly: AssemblyTitle("Track Maker Utility DLL")]
+[assembly: AssemblyDescription("A collection of utilities and helper functions for the Track Maker, versions 2.1 and higher.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Useful Library 5.x NetFX")]
+[assembly: AssemblyProduct("Track Maker")]
 [assembly: AssemblyCopyright("Copyright © 2019-2021 starfrost")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -35,5 +35,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.25.125.21014")]
-[assembly: AssemblyFileVersion("5.25.125.21014")]
+[assembly: AssemblyVersion("5.99.127.21014")]
+[assembly: AssemblyFileVersion("5.99.127.21014")]

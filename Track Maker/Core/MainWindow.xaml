@@ -66,7 +66,7 @@
             <MenuItem x:Name="BasinMenu" Header="Basin"  Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="BasinMenu_BasinSwitch" Header="Switch..." Foreground="Black" Click="BasinMenu_BasinSwitch_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="GraphMenu" Header="Graph" Style="{StaticResource Style_Menu_Inverted}">
+            <MenuItem x:Name="GraphMenu" Header="Graph" Style="{StaticResource Style_Menu_Inverted}" IsEnabled="False">
                 <MenuItem x:Name="GraphMenu_GraphWindow" Header="Graph Now" Foreground="Black" IsEnabled="False"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="ToolsMenu" Header="Tools" Style="{StaticResource Style_Menu_Inverted}">

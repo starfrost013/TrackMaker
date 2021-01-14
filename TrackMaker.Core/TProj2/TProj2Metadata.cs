@@ -17,6 +17,10 @@ namespace TrackMaker.Core
         public string Author { get; set; }
 
         /// <summary>
+        /// The name of this project.
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
         /// Major version of the TProj format.
         /// </summary>
         public static int TProjFormatVersionMajor = 2;
@@ -28,7 +32,7 @@ namespace TrackMaker.Core
 
         public string TimeStamp { get; set; }
 
-        public TProj2Header()
+        public TProj2Metadata()
         {
             TimeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:SS");
         }
