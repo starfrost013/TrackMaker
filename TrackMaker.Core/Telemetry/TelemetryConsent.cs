@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows; 
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
     public static class TelemetryConsentAcquirer
     {
@@ -48,6 +48,7 @@ namespace Track_Maker
                 }
                 else
                 {
+                    Logging.Log("TelemetryConsent = TelemetryConsent.No, skipping updater...");
                     return;
                 }
             }

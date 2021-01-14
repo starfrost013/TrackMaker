@@ -10,7 +10,7 @@ using System.Xml;
 using System.Windows;
 using System.Windows.Media; 
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
     /// <summary>
     /// Emerald Settings
@@ -19,7 +19,7 @@ namespace Track_Maker
     /// </summary>
     /// 
 
-    public static class SettingsAPI
+    public static class EmeraldSettings
     {
         internal static XmlNode LoadSettingsXmlGetNode()
         {

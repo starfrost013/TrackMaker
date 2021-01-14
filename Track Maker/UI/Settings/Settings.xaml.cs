@@ -92,12 +92,12 @@ namespace Track_Maker
             string _LineSize = $"{Settings_Tab_Appearance_LineSizeText.Text}";
 
             // This is for autoupdating.
-            EmeraldSettings.SetSetting("AccentColour1", _Accent1);
-            EmeraldSettings.SetSetting("AccentColour2", _Accent2);
-            EmeraldSettings.SetSetting("AccentEnabled", _Accent3);
-            EmeraldSettings.SetSetting("DotSize", _DotSize);
-            EmeraldSettings.SetSetting("DefaultCategorySystem", _DefaultCatsystem);
-            EmeraldSettings.SetSetting("LineSize", _LineSize);
+            SettingsAPI.SetSetting("AccentColour1", _Accent1);
+            SettingsAPI.SetSetting("AccentColour2", _Accent2);
+            SettingsAPI.SetSetting("AccentEnabled", _Accent3);
+            SettingsAPI.SetSetting("DotSize", _DotSize);
+            SettingsAPI.SetSetting("DefaultCategorySystem", _DefaultCatsystem);
+            SettingsAPI.SetSetting("LineSize", _LineSize);
 
             Setting.DotSize = new Point(Settings_Tab_Appearance_DotSizeXSlider.Value, Settings_Tab_Appearance_DotSizeYSlider.Value);
 

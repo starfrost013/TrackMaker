@@ -40,6 +40,9 @@ Dano.AdvisoryGenerator.dll => TrackMaker.AdvisoryGenerator.dll
 20. Extend Image export to allow for all formats to be used.
 21. XML Serialisation
 All XML loaders will be rewritten to use schemas and serialisation. This will assist with code quality (the TProj2 importer is a mess.) 
-22. Add default window style setting to settings page. 
+22. Add default window style setting to settings page.
+23. Dynamic scaling
+24. Optional pressure display
+25. Project naming
 ==Priority 3==
-21. Start Page
+25. Start Page

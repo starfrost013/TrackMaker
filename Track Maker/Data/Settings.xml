@@ -7,6 +7,7 @@
   <ExperimentalMode>true</ExperimentalMode>
   <LineSize>2</LineSize>
   <!--<SelectedBasin>Atlantic</SelectedBasin> legacy v1.0-->
+  <Iris_EnableGraphUI>True</Iris_EnableGraphUI>
   <Iris_UseDeserialisation>False</Iris_UseDeserialisation>
   <ShowBetaWarning>False</ShowBetaWarning>
   <StormNamesVisible>True</StormNamesVisible>

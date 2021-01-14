@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Windows;
 
-namespace Track_Maker
+namespace TrackMaker.Core
 {
     public static class SettingsLoader
     {
@@ -18,22 +18,14 @@ namespace Track_Maker
         {
             // Loads settings using the Emerald XML Settings API.
 
-            // Get the GlobalState
-#if DANO
-            CategoryManager Catman = GlobalState.GetCategoryManager(); 
-#else
-            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            CategoryManager Catman = MnWindow.Catman;
-
-#endif
             // Load the default category system
-            Setting.DefaultCategorySystem = SettingsAPI.GetString("DefaultCategorySystem");
+            Setting.DefaultCategorySystem = EmeraldSettings.GetString("DefaultCategorySystem");
 
             // Load the text name visibility setting
-            Setting.DefaultVisibleTextNames = SettingsAPI.GetBool("StormNamesVisible");
+            Setting.DefaultVisibleTextNames = EmeraldSettings.GetBool("StormNamesVisible");
 
             // Load the dot size
-            Setting.DotSize = SettingsAPI.GetPoint("DotSize"); 
+            Setting.DotSize = EmeraldSettings.GetPoint("DotSize"); 
             
             if (Setting.DotSize.X <= 0 || Setting.DotSize.Y <= 0)
             {
@@ -42,7 +34,7 @@ namespace Track_Maker
                 Setting.DotSize = new Point(8, 8); // reinitialise
             }
 
-            Setting.LineSize = SettingsAPI.GetInt("LineSize");
+            Setting.LineSize = EmeraldSettings.GetInt("LineSize");
 
             if (Setting.LineSize <= 0)
             {
@@ -52,29 +44,26 @@ namespace Track_Maker
             }
 
             // Load the accent colours
-            Setting.AccentColour1 = SettingsAPI.GetColour("AccentColour1");
-            Setting.AccentColour2 = SettingsAPI.GetColour("AccentColour2");
+            Setting.AccentColour1 = EmeraldSettings.GetColour("AccentColour1");
+            Setting.AccentColour2 = EmeraldSettings.GetColour("AccentColour2");
 
             // Load the accent enable setting
-            Setting.AccentEnabled = SettingsAPI.GetBool("AccentEnabled");
+            Setting.AccentEnabled = EmeraldSettings.GetBool("AccentEnabled");
 
             // Telemetry consent
-            Setting.TelemetryConsent = SettingsAPI.GetTelemetryConsent("TelemetryConsent");
+            Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent");
 
             // Show the beta warning
-            Setting.ShowBetaWarning = SettingsAPI.GetBool("ShowBetaWarning");
+            Setting.ShowBetaWarning = EmeraldSettings.GetBool("ShowBetaWarning");
 
             // Undo depth
-            Setting.UndoDepth = SettingsAPI.GetInt("UndoDepth");
+            Setting.UndoDepth = EmeraldSettings.GetInt("UndoDepth");
 
             // Load the window style
-            Setting.WindowStyle = SettingsAPI.GetWindowStyle("WindowStyle");
+            Setting.WindowStyle = EmeraldSettings.GetWindowStyle("WindowStyle");
 
             // V2.1
-            Setting.Iris_EnableGraphUI = SettingsAPI.GetBool("Iris_EnableGraphUI"); 
-
-            // V2.1
-            Setting.Iris_UseDeserialisation = SettingsAPI.GetBool("Iris_UseDeserialisation"); 
+            Setting.Iris_UseDeserialisation = EmeraldSettings.GetBool("Iris_UseDeserialisation"); 
         }
     }
 }

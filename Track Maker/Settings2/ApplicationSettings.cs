@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media; 
+
 namespace Track_Maker
 {
-
     public class Setting
     {
         public static Color AccentColour1 { get; set; } // Accent colour 1
@@ -20,8 +20,13 @@ namespace Track_Maker
         public static bool ShowBetaWarning { get; set; }
         public static TelemetryConsent TelemetryConsent { get; set; } // Telemetry consent
         public static int UndoDepth { get; set; } // Amount of undos allowed
+
+        /// <summary>
+        /// Iris: Enable GraphUI
+        /// </summary>
+        public static bool Iris_EnableGraphUI { get; set; }
+
         public static bool Iris_UseDeserialisation { get; set; } // Iris (version 2.1) - use XML Deserialisation
-        public static bool UseGradient { get; set; } // Use the gradient
         public static WndStyle WindowStyle { get; set; } // Window style
 
         // more to come...

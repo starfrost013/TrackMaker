@@ -22,6 +22,13 @@ namespace TrackMaker.Core
         [XmlElement("Intensity")]
         public int Intensity { get; set; } // intensity mph
 
+        /// <summary>
+        /// The pressure of the storm at this node in the track.  (optional)
+        /// </summary>
+
+        [XmlElement("Pressure")]
+        public int Pressure { get; set; }
+
         [XmlElement("Position")]
         public Point Position { get; set; } // the position
         

@@ -8,7 +8,9 @@ using System.Text;
 using System.Reflection; 
 using System.Timers;
 using System.Threading.Tasks;
+using System.Windows.Controls; 
 using System.Windows.Media;
+using Starfrost.UL5.WpfUtil;
 
 namespace Track_Maker
 {
@@ -80,6 +82,7 @@ namespace Track_Maker
             //ImagePath = CurrentProject.SelectedBasin.ImagePath;
 
             InitializeComponent();
+
             // DUMB HACK 
 
             Logging.Log("Initialized window, starting phase 2...");
@@ -91,6 +94,7 @@ namespace Track_Maker
 
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
 
+            Logging.Log("Initialising UI...");
 #if DANO
             Title = "Track Maker Dano (version 3.0 alpha) - do not use for production purposes!)";
 #elif PRISCILLA
@@ -99,7 +103,9 @@ namespace Track_Maker
             // DisableUI test 
             if (CurrentProject == null) DisableButtons();
 
-            Logging.Log("Initialising UI...");
+            // Iris: configure graph UI
+            Init_ConfigureGraphUI();
+
             HurricaneBasin.DataContext = this;
             Layers.Layers.DataContext = this;
             Layers.UpdateLayout();
@@ -155,5 +161,25 @@ namespace Track_Maker
                 Setting.AccentColour2 = new Color { A = 255, R = 255, G = 255, B = 255 };
             }
         }
+
+        private void Init_ConfigureGraphUI()
+        {
+            switch (Setting.Iris_EnableGraphUI)
+            {
+                case true:
+                    Logging.Log("Enabling GraphUI...");
+                    GraphMenu.IsEnabled = true; 
+                    
+                    return; 
+                case false:
+                    Logging.Log("Disabling GraphUI..."); 
+                    MenuItem GraphMnu = MainMenu.FindMenuItemWithName("GraphMenu");
+                    MainMenu.Items.Remove(GraphMnu); 
+
+                    return; 
+            }
+        }
+
+        
     }
 }

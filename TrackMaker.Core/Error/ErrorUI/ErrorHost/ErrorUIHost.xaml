@@ -6,10 +6,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrackMaker.Core"
-        xmlns:Dano="clr-namespace:DanoUI;assembly=TrackMaker.UI"
         mc:Ignorable="d"
         Title="Fatal Error" Height="486.885" Width="817.213">
     <Grid>
-        <Dano:Priscilla_ErrorUI x:Name="ErrorUI" ErrorOKHit="EOKHit"></Dano:Priscilla_ErrorUI>
+        <local:Priscilla_ErrorUI x:Name="ErrorUI" ErrorOKHit="EOKHit"></local:Priscilla_ErrorUI>
     </Grid>
 </Window>
