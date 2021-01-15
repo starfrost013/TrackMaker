@@ -16,7 +16,7 @@ namespace TrackMaker.Core
     /// </summary>
     /// 
     [XmlRoot("Basins")]
-    public class BasinCollection
+    public class BasinCollection : IEnumerable<Basin>
     {
 
         /// <summary>
