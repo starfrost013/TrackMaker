@@ -90,7 +90,7 @@ namespace DanoUI
             {
 #if DEBUG
                 // iris: use error system
-                MessageBox.Show("Error!", $"Please select a valid date and time!\n\n{err}", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Please select a valid date and time!\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Warning);
 #else
                 // iris: use error system
                 MessageBox.Show("Error!", $"Please select a valid date and time!", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -101,7 +101,7 @@ namespace DanoUI
             {
 #if DEBUG
                 // iris: use error system
-                MessageBox.Show("Error!", $"Please select a valid date and time!\n\n{err}", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Please select a valid date and time!\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Warning);
 #else
                 // iris: use error system
                 MessageBox.Show("Error!", $"Please select a valid date and time!", MessageBoxButton.OK, MessageBoxImage.Warning);

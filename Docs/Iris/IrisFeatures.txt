@@ -44,5 +44,10 @@ All XML loaders will be rewritten to use schemas and serialisation. This will as
 23. Dynamic scaling
 24. Optional pressure display
 25. Project naming
+Allow the naming of projects.
 ==Priority 3==
 26. Start Page
+27. Coordinate saving
+Have a setting that would modify the Track Maker to use cooerdinate positions at all times; this would allow easy export to ATCF / HURDAT2 and also allow coordinate support to be added to TProj2.
+28. "Storm View"
+Monsoon simulator style storm view. 

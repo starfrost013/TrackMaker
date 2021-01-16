@@ -97,7 +97,7 @@
       <DependentUpon>Dano_BasinSwitcher.xaml</DependentUpon>
     </Compile>
     <Compile Include="DanoEventArgs.cs" />
-    <Compile Include="Dano_NewProject.xaml.cs">
+    <Compile Include="TrackMakerUI\CreateProject\Dano_NewProject.xaml.cs">
       <DependentUpon>Dano_NewProject.xaml</DependentUpon>
     </Compile>
     <Compile Include="TrackMakerUI\Layer\LayerControl\Priscilla_LayerControl.xaml.cs">
@@ -113,7 +113,7 @@
       <DependentUpon>Priscilla_ErrorUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dano_StartPage.xaml.cs">
+    <Compile Include="TrackMakerUI\StartPage\Dano_StartPage.xaml.cs">
       <DependentUpon>Dano_StartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -166,11 +166,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dano_NewProject.xaml">
+    <Page Include="TrackMakerUI\CreateProject\Dano_NewProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dano_StartPage.xaml">
+    <Page Include="TrackMakerUI\StartPage\Dano_StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
