@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
-using TrackMaker.UI.StringUtilities;
-using TrackMaker.UI.ScaleUtilities; 
+using TrackMaker.Util.StringUtilities;
+using TrackMaker.Util.ScaleUtilities; 
 using System;
 using System.Collections.Generic;
 using System.IO; 

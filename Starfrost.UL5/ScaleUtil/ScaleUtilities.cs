@@ -1,4 +1,4 @@
-﻿using TrackMaker.UI.Core;
+﻿using TrackMaker.Util.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace TrackMaker.UI.ScaleUtilities
+namespace TrackMaker.Util.ScaleUtilities
 {
     public static class ScaleUtilities
     {

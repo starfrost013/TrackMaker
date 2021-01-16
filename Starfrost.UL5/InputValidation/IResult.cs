@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI.InputValidation
+namespace TrackMaker.Util.InputValidation
 {
     public interface IResult
     {

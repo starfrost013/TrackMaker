@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI.InputValidation
+namespace TrackMaker.Util.InputValidation
 {
     public static class ResultFactory<T> where T : GenericResult<T>
     {

@@ -1,4 +1,4 @@
-﻿using TrackMaker.UI.Core;
+﻿using TrackMaker.Util.Core;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,7 +21,7 @@ using System.Windows;
 /// </summary>
 
 
-namespace TrackMaker.UI.Logging
+namespace TrackMaker.Util.Logging
 {
     /// <summary>
     /// A static class used for logging debug information.

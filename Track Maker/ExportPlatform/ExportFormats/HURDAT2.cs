@@ -3,9 +3,9 @@ using DiagResult = System.Windows.Forms.DialogResult;
 using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 
 using Microsoft.Win32;
-using TrackMaker.UI.Logging;
-using TrackMaker.UI.ScaleUtilities;
-using TrackMaker.UI.StringUtilities;
+using TrackMaker.Util.Logging;
+using TrackMaker.Util.ScaleUtilities;
+using TrackMaker.Util.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO;

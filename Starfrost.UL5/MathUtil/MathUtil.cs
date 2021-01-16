@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI.MathUtil
+namespace TrackMaker.Util.MathUtil
 {
     public static class MathUtil
     {

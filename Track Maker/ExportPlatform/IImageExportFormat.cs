@@ -1,4 +1,4 @@
-﻿using TrackMaker.UI.ScaleUtilities;
+﻿using TrackMaker.Util.ScaleUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

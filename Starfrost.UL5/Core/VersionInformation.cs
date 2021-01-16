@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI.Core
+namespace TrackMaker.Util.Core
 {
     /// <summary>
     /// Version information for the Useful Library (version 5.x)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace TrackMaker.UI.PlatformUtilities
+namespace TrackMaker.Util.PlatformUtilities
 {
     /// <summary>
     /// Valid Tiralen platforms.

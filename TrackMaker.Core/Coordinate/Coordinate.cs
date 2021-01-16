@@ -1,4 +1,4 @@
-﻿using TrackMaker.UI.StringUtilities;
+﻿using TrackMaker.Util.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

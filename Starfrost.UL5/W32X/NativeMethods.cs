@@ -1,12 +1,12 @@
 ﻿using BetterWin32Errors;
-using TrackMaker.UI.Logging;
+using TrackMaker.Util.Logging;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 
-namespace TrackMaker.UI.Win32X
+namespace TrackMaker.Util.Win32X
 {
     /// <summary>
     /// Win32 Native Methods

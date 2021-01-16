@@ -1,5 +1,5 @@
-﻿using TrackMaker.UI.LineEndingUtilities;
-using TrackMaker.UI.VersionUtilities;
+﻿using TrackMaker.Util.LineEndingUtilities;
+using TrackMaker.Util.VersionUtilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace TrackMaker.UI.StringUtilities
+namespace TrackMaker.Util.StringUtilities
 {
     /// <summary>
     /// String extension methods. 
     /// </summary>
-    public static class StringUtil
+    public static class Utilities
     {
         public static string ToStringEmerald(this Point XPoint)
         {
@@ -261,7 +261,7 @@ namespace TrackMaker.UI.StringUtilities
             return System.Drawing.Color.FromArgb(XColour.A, XColour.R, XColour.G, XColour.B);
         }
 
-        public static string ConvertArrayToString(this string[] String, bool UseNewline, LineEnding LE) // UseNewline and LineEnding added on conversion to UL5
+        public static string ConvertArrayToString(this string[] String, bool UseNewline = false, LineEnding LE = LineEnding.Windows) // UseNewline and LineEnding added on conversion to UL5
         {
             StringBuilder SB = new StringBuilder();
 

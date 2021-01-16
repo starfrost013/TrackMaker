@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI.GameUtilities
+namespace TrackMaker.Util.GameUtilities
 {
     /// <summary>
     /// Code to support a potential character customisation system. (Tiralen)

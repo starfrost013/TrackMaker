@@ -1,5 +1,5 @@
-﻿using TrackMaker.UI.StringUtilities;
-using TrackMaker.UI.WpfUtil;
+﻿using TrackMaker.Util.StringUtilities;
+using TrackMaker.Util.WpfUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;

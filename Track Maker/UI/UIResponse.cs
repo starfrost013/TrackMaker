@@ -1,9 +1,9 @@
 ﻿using Dano.ACECalculator; // move to dano.app.
 using Dano.AdvisoryGenerator;
 using DanoUI;
-using TrackMaker.UI.Logging;
-using TrackMaker.UI.MathUtil;
-using TrackMaker.UI.WpfUtil; 
+using TrackMaker.Util.Logging;
+using TrackMaker.Util.MathUtil;
+using TrackMaker.Util.WpfUtil; 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI.GFX
+namespace TrackMaker.Util.GFX
 {
     /// <summary>
     /// Implements an ARGB colour class.

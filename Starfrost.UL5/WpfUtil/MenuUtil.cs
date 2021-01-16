@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls; 
 
-namespace TrackMaker.UI.WpfUtil
+namespace TrackMaker.Util.WpfUtil
 {
     public static class MenuUtil
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI.LineEndingUtilities
+namespace TrackMaker.Util.LineEndingUtilities
 {
     public enum LineEnding
     { 

@@ -1,5 +1,5 @@
-﻿using TrackMaker.UI.Logging;
-using TrackMaker.UI.ScaleUtilities;
+﻿using TrackMaker.Util.Logging;
+using TrackMaker.Util.ScaleUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI
+namespace TrackMaker.Util
 {
     /// <summary>
     /// Valid statuses for a UL5 app

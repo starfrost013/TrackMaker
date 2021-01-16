@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackMaker.UI.VersionUtilities
+namespace TrackMaker.Util.VersionUtilities
 {
     /// <summary>
     /// Copyright © 2020 avant-gardé eyes

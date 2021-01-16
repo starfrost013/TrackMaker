@@ -1,7 +1,7 @@
 ﻿using DanoUI;
-using TrackMaker.UI.Core;
-using TrackMaker.UI.Logging;
-using TrackMaker.UI.WpfUtil;
+using TrackMaker.Util.Core;
+using TrackMaker.Util.Logging;
+using TrackMaker.Util.WpfUtil;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

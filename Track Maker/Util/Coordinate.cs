@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Windows;
+using TrackMaker.Util.StringUtilities;
 
 namespace Track_Maker
 {
