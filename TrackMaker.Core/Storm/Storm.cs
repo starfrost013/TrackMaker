@@ -59,8 +59,10 @@ namespace TrackMaker.Core
 
         /// <summary>
         /// Add a node to this storm.
+        /// 
+        /// STM is temporary until globalstate is ported over
         /// </summary>
-        public void AddNode(int Intensity, string Type, Point Pos) // String in this case bad but swnabhfabg
+        public void AddNode(int Intensity, string Type, Point Pos, StormTypeManager TEMPORARY__STM) // String in this case bad but swnabhfabg
         {
             Node NewNode = new Node();
 
@@ -76,7 +78,7 @@ namespace TrackMaker.Core
             StormTypeManager ST2Manager = MnWindow.ST2Manager;*/
 #endif
             // Get node type.
-            NewNode.NodeType = ST2Manager.GetStormTypeWithName(Type); 
+            NewNode.NodeType = TEMPORARY__STM.GetStormTypeWithName(Type); 
 
             // Get id.
             NewNode.Id = NodeList.Count;

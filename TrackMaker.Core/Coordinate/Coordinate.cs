@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.StringUtilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -114,7 +115,7 @@ namespace TrackMaker.Core
 
             if (CoordinateComponents.Length > 2 || CoordinateComponents.Length == 0)
             {
-                CoordinateFormat.Throw("Error!", "Cannot convert an invalid coordinate!", ErrorSeverity.Error, 243);
+                Error.Throw("Error!", "Cannot convert an invalid coordinate!", ErrorSeverity.Error, 243);
                 return null; // not successful - PRE 3.0
             }
 

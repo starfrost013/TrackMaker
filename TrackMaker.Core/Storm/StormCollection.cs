@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace TrackMaker.Core
     /// 
     /// Holds a collection of storms. 
     /// </summary>
-    public class StormCollection
+    public class StormCollection : IEnumerable
     {
 
         /// <summary>
@@ -44,6 +45,30 @@ namespace TrackMaker.Core
         /// <param name="StormObject">The storm object to remove.</param>
         public void Remove(Storm StormObject) => Storms.Remove(StormObject);
 
-        public void Clear() => Storms.Clear(); 
+        public void Clear() => Storms.Clear();
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
+
+        public StormEnumerator GetEnumerator() => new StormEnumerator();
+    }
+
+    public class StormEnumerator : IEnumerator
+    {
+        public object Current { get; set; }
+        public int Position { get; set; }
+
+        public Storm[] Storms { get; set; }
+
+        public bool MoveNext()
+        {
+            Position++;
+            Current = Storms[Position];
+            return (Position < Storms.Length); 
+        }
+
+        public void Reset() => throw new NotImplementedException("Do not call IrisEnumerator.Reset()!"); 
     }
 }

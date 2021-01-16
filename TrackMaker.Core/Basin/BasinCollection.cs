@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
+
 
 namespace TrackMaker.Core
 {
@@ -16,7 +18,7 @@ namespace TrackMaker.Core
     /// </summary>
     /// 
     [XmlRoot("Basins")]
-    public class BasinCollection : IEnumerable<Basin>
+    public class BasinCollection : IEnumerable
     {
 
         /// <summary>
@@ -36,5 +38,32 @@ namespace TrackMaker.Core
 
         public void Add(Basin BasinObject) => Basins.Add(BasinObject);
         public void Remove(Basin BasinObject) => Basins.Remove(BasinObject);
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
+
+        public BasinEnumerator GetEnumerator() => new BasinEnumerator(); 
+    }
+
+    public class BasinEnumerator : IEnumerator
+    {
+        public Basin[] BasinCollection { get; set; }
+        public object Current { get; set; }
+        public int Position { get; set; }
+
+        /// <summary>
+        /// IrisEnumerator: Move next
+        /// </summary>
+        public bool MoveNext()
+        {
+            Position++;
+            Current = BasinCollection;
+            return (Position < BasinCollection.Length);
+        }
+
+        public void Reset() => throw new NotImplementedException("Never call IrisEnumerator.Reset()!"); 
+
     }
 }
