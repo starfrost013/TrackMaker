@@ -33,7 +33,7 @@ namespace Track_Maker
         {
             Name = "Best-track (ATCF)";
             MnWindow = (MainWindow)Application.Current.MainWindow;
-            GlobalStateP.CurrentExportFormatName = GetType().ToString();
+            GlobalState.CurrentExportFormatName = GetType().ToString();
         }
 
         public string GetName()
@@ -431,7 +431,7 @@ namespace Track_Maker
                         SW.Write(", \n"); // Write newline
 
                         // on success
-                        GlobalStateP.SetCurrentOpenFile(FileName);
+                        GlobalState.SetCurrentOpenFile(FileName);
                     }
                 }
             }

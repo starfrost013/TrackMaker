@@ -175,11 +175,11 @@ namespace Track_Maker
                             }
                             else
                             {
-                                GlobalStateP.SetCurrentOpenFile(IResult.Project.FileName);
+                                GlobalState.SetCurrentOpenFile(IResult.Project.FileName);
                             }
 
                             //may bindings work?
-                            MnWindow.Title = $"Track Maker 2.0 - {GlobalStateP.GetCurrentOpenFile()}";
+                            MnWindow.Title = $"Track Maker 2.0 - {GlobalState.GetCurrentOpenFile()}";
 
                             // we are not setting current project before, usually you wouldn't need to do this hack
                             MnWindow.CurrentProject = IResult.Project;

@@ -411,9 +411,9 @@ namespace Track_Maker
 
         private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
         {
-            if (GlobalStateP.CurrentExportFormatName == null) GlobalStateP.CurrentExportFormatName = "Track_Maker.ExportXMLv2"; 
+            if (GlobalState.CurrentExportFormatName == null) GlobalState.CurrentExportFormatName = "Track_Maker.ExportXMLv2"; 
 
-            Type EXType = Type.GetType(GlobalStateP.CurrentExportFormatName);
+            Type EXType = Type.GetType(GlobalState.CurrentExportFormatName);
 
             IExportFormat IEXF = (IExportFormat)Activator.CreateInstance(EXType);
 
@@ -421,7 +421,7 @@ namespace Track_Maker
 
             //refactoring probably needed
 
-            string CurrentlyOpenFile = GlobalStateP.GetCurrentOpenFile();
+            string CurrentlyOpenFile = GlobalState.GetCurrentOpenFile();
 
             if (CurrentlyOpenFile == null || CurrentlyOpenFile == "")
             {
@@ -429,7 +429,7 @@ namespace Track_Maker
                 return; 
             }
 
-            Title = $"Track Maker 2.0 - [{GlobalStateP.GetCurrentOpenFile()}]";
+            Title = $"Track Maker 2.0 - [{GlobalState.GetCurrentOpenFile()}]";
         }
 
         private void FileMenu_Import_BT_Click(object sender, RoutedEventArgs e)

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls; 
 using System.Windows.Media;
 using Starfrost.UL5.WpfUtil;
+using TrackMaker.Core; 
 
 namespace Track_Maker
 {
@@ -27,7 +28,9 @@ namespace Track_Maker
 #if PRISCILLA
             // create method to concanetate this for us.
 
-            GlobalState.V52_Init("Priscilla");
+            /// DEPRECATED AS OF 2.1.661
+            Starfrost.UL5.Core.GlobalState.V52_Init("Priscilla");
+            /// END DEPRECATED AS OF 2.1.661
 #else
             GlobalState.V52_Init("Dano");
 
@@ -66,7 +69,7 @@ namespace Track_Maker
             if (Setting.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled.");
             
             Logging.Log("Loading basins...");
-            GlobalStateP.LoadBasins();
+            GlobalState.LoadBasins();
             Init_SetCurrentCategorySystem();
             Init_SetAccentColour();
 

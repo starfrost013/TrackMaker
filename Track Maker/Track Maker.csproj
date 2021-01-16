@@ -115,7 +115,6 @@
     </ApplicationDefinition>
     <Compile Include="Basin\Basin.cs" />
     <Compile Include="Core\GlobalState.cs" />
-    <Compile Include="Core\GlobalState.Priscilla.cs" />
     <Compile Include="Core\Init\Init.cs" />
     <Compile Include="Core\InternalStateVerification\InternalStateVerifier.cs" />
     <Compile Include="DanoProject\Project.cs" />
@@ -174,7 +173,6 @@
     <Compile Include="ExportPlatform\ExportFormats\HURDAT2.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />
     <Compile Include="ExportPlatform\IImageExportFormat.cs" />
-    <Compile Include="Network\TelemetryConsent.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Settings2\SettingsAPI.cs" />
     <Compile Include="Settings2\Enums\TelemetryConsent.cs" />
@@ -345,6 +343,10 @@
     <ProjectReference Include="..\Starfrost.UL5\TrackMaker.Util.csproj">
       <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
       <Name>TrackMaker.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrackMaker.Core\TrackMaker.Core.csproj">
+      <Project>{5cdc7224-2314-4ea9-971e-dbce8972279f}</Project>
+      <Name>TrackMaker.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Updater\Updater.csproj">
       <Project>{e4517bb9-6590-4b3a-8355-9389c1376828}</Project>

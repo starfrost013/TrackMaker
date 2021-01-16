@@ -28,7 +28,7 @@ namespace Track_Maker
             Name = "Image";
             Xwindow = (MainWindow)Application.Current.MainWindow; // convert
             DisplayQualityControl = true;
-            GlobalStateP.CurrentExportFormatName = GetType().ToString();
+            GlobalState.CurrentExportFormatName = GetType().ToString();
         }
 
         public void GeneratePreview(Canvas XCanvas) // test
@@ -184,7 +184,7 @@ namespace Track_Maker
             CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Smaller, new Point(Xwindow.Width, Xwindow.Height), new Point(TempCanvas.Width, TempCanvas.Height));
 
             // on success
-            GlobalStateP.SetCurrentOpenFile(FileName);
+            GlobalState.SetCurrentOpenFile(FileName);
 
             return true; // success
         }

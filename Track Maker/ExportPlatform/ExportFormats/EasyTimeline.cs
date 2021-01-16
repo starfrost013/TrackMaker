@@ -32,7 +32,7 @@ namespace Track_Maker
         {
             MnWindow = (MainWindow)Application.Current.MainWindow;
             Name = "EasyTimeline";
-            GlobalStateP.CurrentExportFormatName = GetType().ToString();
+            GlobalState.CurrentExportFormatName = GetType().ToString();
         }
 
         public ImportResult Import()
@@ -206,7 +206,7 @@ namespace Track_Maker
 
             Clipboard.SetText(Lines.ConvertArrayToString());
             // on success
-            GlobalStateP.SetCurrentOpenFile(FileName);
+            GlobalState.SetCurrentOpenFile(FileName);
 
             MessageBox.Show("Saving successful. The EasyTimeline syntax has also been copied to the clipboard.", "Information", MessageBoxButton.OK, MessageBoxImage.Information); 
             return true;

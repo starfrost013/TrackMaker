@@ -25,7 +25,7 @@ namespace Track_Maker
         public ExportHURDAT2()
         {
             Name = "Best-track (HURDAT2)";
-            GlobalStateP.CurrentExportFormatName = GetType().ToString();
+            GlobalState.CurrentExportFormatName = GetType().ToString();
         }
 
         public string GetName() => Name;
@@ -374,7 +374,7 @@ namespace Track_Maker
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
             // on success
-            GlobalStateP.SetCurrentOpenFile(FileName);
+            GlobalState.SetCurrentOpenFile(FileName);
             return true; 
         }
     }

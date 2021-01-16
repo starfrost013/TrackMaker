@@ -1,6 +1,7 @@
-﻿#if DANO
+﻿using Starfrost.UL5.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,46 +11,50 @@ using System.Windows;
 namespace Track_Maker
 {
     /// <summary>
-    /// Track Maker Globalstate (created Priscilla v449)
+    /// Priscilla   v514 (pre-beta release 3 stage)
     /// 
-    /// A static class containing core functionality required for the Track Maker.
+    /// GlobalState.Priscilla
+    /// 
+    /// Version 2.0 Global State
+    /// 
+    /// 10/31/20
     /// </summary>
-    /// 
-    
-    /// IMPLEMENTATION VERSION 0.3 (v479)
-    public class GlobalState
+    public class GlobalState // move to Starfrost UL5 Version 5.3?. This may also be made a non-static class
     {
-        public CategoryManager CategoryManager { get; set; }
-        public List<Basin> LoadedBasins { get; set; }
-        public Project CurrentProject { get; set; }
-        public static string CurrentFileName { get; set; }
-        public StormTypeManager ST2Manager { get; set; }
+        /// <summary>
+        /// Name of the current export format
+        /// </summary>
+        public static string CurrentExportFormatName { get; set; }
+        public static string CurrentlyOpenFile { get; set; }
+        public static List<Basin> OpenBasins { get; set; }
+        public static void SetCurrentOpenFile(string FileName) => CurrentlyOpenFile = FileName;
+        public static string GetCurrentOpenFile() => CurrentlyOpenFile;
 
-        public static void Init()
-        {
-            LoadedBasins = new List<Basin>();
-            CategoryManager.LoadCategories();
-            ST2Manager.Load();
-            LoadBasins_Priscilla(); 
-        }
+        /// <summary>
+        /// STATIC CLASS ONLY 
+        /// </summary>
+        private static void InitBasinList() => OpenBasins = new List<Basin>(); 
 
-        public static void SetCurrentFilename(string Name) => CurrentFileName = Name;
-
-        // move to basinmanager
-        internal static void LoadBasins_Dano()
+        /// <summary>
+        /// 2020-11-27
+        /// 
+        /// Iris: replace with deserialisation
+        /// </summary>
+        internal static void LoadBasins()
         {
             try
             {
+                InitBasinList(); 
                 XmlDocument XmlDocument = new XmlDocument();
                 XmlDocument.Load(@"Data\Basins.xml"); // maybe change?
 
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
+
                 while (XmlRootNode.Name != "Basins")
                 {
                     if (XmlRootNode.NextSibling == null)
                     {
-                        MessageBox.Show("Basins.xml is corrupted or malformed. The Track Maker will now exit.", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Environment.Exit(1);
+                        Error.Throw("Fatal Error!", "Basins.xml is corrupted or malformed. The Track Maker will now exit.", ErrorSeverity.FatalError, 1);
                     }
 
                     XmlRootNode = XmlRootNode.NextSibling; //figure out what happens if the basin node doesn't exist.
@@ -61,11 +66,16 @@ namespace Track_Maker
                 {
                     Basin Basin = new Basin(); // create a new basin. 
 
+                    if (XmlNode.Name.Contains('#')) continue;
+
                     if (XmlNode.Name != "Basin")
                     { // change this?
-                        MessageBox.Show("Basins.xml corrupt, exiting...", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Environment.Exit(2);
+                        
+                        Error.Throw("Fatal Error!", "Attempted to load non-basin node, discarding basin!", ErrorSeverity.Error, 2);
+                        return;
                     }
+
+                    
 
                     XmlAttributeCollection XmlAttributes = XmlNode.Attributes;
 
@@ -73,6 +83,11 @@ namespace Track_Maker
                     {
                         switch (XmlAttribute.Name) // go through all the attributes
                         {
+                            case "Abbreviation":
+                            case "Acronym":
+                            case "BasinCode":
+                                Basin.Abbreviation = XmlAttribute.Value;
+                                continue;
                             case "bgimage": // basin image path
                             case "Bgimage":
                             case "bgImage":
@@ -85,7 +100,7 @@ namespace Track_Maker
                             case "coordsTopLeft":
                             case "CoordsTopLeft":
                                 // Conversion
-                                Basin.CoordsLower = Coordinate.FromString(XmlAttribute.InnerText);
+                                Basin.CoordsLower = Coordinate.FromString(XmlAttribute.InnerText, CoordinateFormat.TrackMaker);
                                 continue;
                             case "coordsbottomright":
                             case "Coordsbottomright":
@@ -93,7 +108,7 @@ namespace Track_Maker
                             case "coordsBottomRight":
                             case "CoordsBottomRight":
                                 // Conversion
-                                Basin.CoordsHigher = Coordinate.FromString(XmlAttribute.InnerText);
+                                Basin.CoordsHigher = Coordinate.FromString(XmlAttribute.InnerText, CoordinateFormat.TrackMaker);
                                 continue;
                             case "name": // basin name
                             case "Name":
@@ -102,26 +117,32 @@ namespace Track_Maker
 
                         }
                     }
-                    //todo: additional error detection
+
+                    if (Basin.Name == null)
+                    {
+                        Error.Throw("Fatal Error!", "Fatal Error: Cannot load basin with no name!", ErrorSeverity.FatalError, 240);
+                    }
+
+                    if (Basin.Abbreviation == null) Basin.Abbreviation = "NA";
+
+                    Debug.Assert(Basin.Name != null && Basin.Abbreviation != null);
+                    
                     Logging.Log($"Successfully loaded basin {Basin.Name} with image {Basin.ImagePath}");
 
-                    LoadedBasins.Add(Basin);
+                    OpenBasins.Add(Basin);
                 }
             }
             catch (XmlException err)
             {
                 //todo create fatalerror method
-                MessageBox.Show($"[Priscilla] Basins.xml corrupt, exiting...\n\n{err}", "Track Maker", MessageBoxButton.OK, MessageBoxImage.Error);
+#if DEBUG
+                Error.Throw("Fatal Error!", $"Basins.xml is corrupt or invalid!\n\n{err}", ErrorSeverity.FatalError, 203);
+#else
+                Error.Throw("Fatal Error!", "Basins.xml is corrupt or invalid!", ErrorSeverity.FatalError, 203); 
+#endif
+
                 Environment.Exit(203);
             }
         }
-
-        public static StormTypeManager GetST2Manager() +> ST2Manager;
-        public static CategoryManager GetCategoryManager() => CategoryManager;
-        public static Project GetCurrentProject() => Project;
-        public static Basin GetCurrentBasin() => Project.SelectedBasin; 
-        public string GetCurrentOpenFile() => CurrentFileName;
-        public void SetCurrentOpenFile(string FileName) => CurrentlyOpenFile = FileName;
     }
 }
-#endif

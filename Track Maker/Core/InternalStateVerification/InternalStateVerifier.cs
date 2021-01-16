@@ -11,7 +11,6 @@ namespace Track_Maker
     {
         /// <summary>
         /// Verify the track maker's internal state
-        /// 
         /// </summary>
         /// <returns></returns>
         public bool TrackMaker_VerifyInternalState()
@@ -49,14 +48,14 @@ namespace Track_Maker
                     if (Catman.CategorySystems.Count == 0) Error.Throw(GeneralErrString, CategoryManagerErrString, ErrorSeverity.FatalError, 309);
                     
                     // globalstate checks
-                    if (GlobalStateP.OpenBasins == null)
+                    if (GlobalState.OpenBasins == null)
                     {
                         Error.Throw(GeneralErrString, GlobalStateErrString, ErrorSeverity.FatalError, 310);
                         return false;
                     }
                     else
                     {
-                        if (GlobalStateP.OpenBasins.Count == 0)
+                        if (GlobalState.OpenBasins.Count == 0)
                         {
                             Error.Throw(GeneralErrString, GlobalStateErrString, ErrorSeverity.FatalError, 311);
                         }

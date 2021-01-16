@@ -48,7 +48,7 @@ namespace Track_Maker
         public ExportXMLv2()
         {
             Name = "Project";
-            GlobalStateP.CurrentExportFormatName = GetType().ToString();
+            GlobalState.CurrentExportFormatName = GetType().ToString();
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace Track_Maker
             XDoc.Save(FileName);
 
             // on success
-            GlobalStateP.SetCurrentOpenFile(FileName);
+            GlobalState.SetCurrentOpenFile(FileName);
             return true;
         }
 
