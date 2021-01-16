@@ -52,20 +52,26 @@ namespace TrackMaker.Core
             return (IEnumerator)GetEnumerator();
         }
 
-        public StormEnumerator GetEnumerator() => new StormEnumerator();
+        public StormEnumerator GetEnumerator() => new StormEnumerator(Storms.ToArray());
     }
 
     public class StormEnumerator : IEnumerator
     {
-        public object Current { get; set; }
-        public int Position { get; set; }
+        public object Current { get => Storms[Position]; }
+
+        object IEnumerator.Current { get => Current; }
+        public int Position = -1; 
 
         public Storm[] Storms { get; set; }
+
+        public StormEnumerator(Storm[] StormList)
+        {
+            Storms = StormList;
+        }
 
         public bool MoveNext()
         {
             Position++;
-            Current = Storms[Position];
             return (Position < Storms.Length); 
         }
 

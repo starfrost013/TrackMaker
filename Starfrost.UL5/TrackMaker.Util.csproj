@@ -49,8 +49,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\App.cs" />
-    <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\VersionInformation.cs" />
     <Compile Include="GameUtil\Gender.cs" />
     <Compile Include="ScaleUtil\ImageQuality.cs" />

@@ -24,18 +24,10 @@ namespace Track_Maker
     {
         public void Init_Phase1()
         {
-            // Init logging (Priscilla v484)
-#if PRISCILLA
-            // create method to concanetate this for us.
-
-            /// DEPRECATED AS OF 2.1.661
-            TrackMaker.Util.Core.GlobalState.V52_Init("Priscilla");
-            /// END DEPRECATED AS OF 2.1.661
-#else
-            GlobalState.V52_Init("Dano");
-
-#endif
+            
+            // Init logging
             Logging.Init(); // temp
+
             Assembly Ass = Assembly.GetExecutingAssembly();
 
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Ass.Location);

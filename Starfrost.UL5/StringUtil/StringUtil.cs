@@ -246,20 +246,11 @@ namespace TrackMaker.Util.StringUtilities
             return FinalList;
         }
 
-        public static double RoundNearest(double x, double amount)
-        {
-            return Math.Round((x * amount) / amount);
-        }
+        public static double RoundNearest(double x, double amount) => Math.Round((x * amount) / amount);
 
-        public static Color ConvertWinformsToWpfColour(System.Drawing.Color XColour)
-        {
-            return Color.FromArgb(XColour.A, XColour.R, XColour.G, XColour.B);
-        }
+        public static Color ConvertWinformsToWpfColour(System.Drawing.Color XColour) => Color.FromArgb(XColour.A, XColour.R, XColour.G, XColour.B);
 
-        public static System.Drawing.Color ConvertWpfToWinformsColour(Color XColour)
-        {
-            return System.Drawing.Color.FromArgb(XColour.A, XColour.R, XColour.G, XColour.B);
-        }
+        public static System.Drawing.Color ConvertWpfToWinformsColour(Color XColour) => System.Drawing.Color.FromArgb(XColour.A, XColour.R, XColour.G, XColour.B);
 
         public static string ConvertArrayToString(this string[] String, bool UseNewline = false, LineEnding LE = LineEnding.Windows) // UseNewline and LineEnding added on conversion to UL5
         {
@@ -315,10 +306,7 @@ namespace TrackMaker.Util.StringUtilities
             return SB.ToString();
         }
 
-        public static bool ContainsCaseInsensitive(this string Text, string Value, StringComparison SC = StringComparison.CurrentCultureIgnoreCase)
-        {
-            return Text.IndexOf(Value, SC) >= 0;
-        }
+        public static bool ContainsCaseInsensitive(this string Text, string Value, StringComparison SC = StringComparison.CurrentCultureIgnoreCase) => Text.IndexOf(Value, SC) >= 0;
 
         /// <summary>
         /// Convert HT- / XA- / XML formatted string to plaintext - replaces the most common mnemonics

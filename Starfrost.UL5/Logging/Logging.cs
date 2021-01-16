@@ -29,7 +29,8 @@ namespace TrackMaker.Util.Logging
     public static class Logging
     {
         public static string FileName { get; set; }
-        private static string LogHeader = "Priscilla Debug:"; // log header
+        private static string LogHeader = "TrackMaker Iris Debug:"; // log header
+
         public static void Init()
         {
             LogFile("Track Maker\n\n© 2019-2021 starfrost. Open-source software under the MIT License.", true);
@@ -47,10 +48,11 @@ namespace TrackMaker.Util.Logging
         {
             try
             {
-                string AppName = GlobalState.GetAppName(); 
                 if (IsNew)
                 {
-                    FileName = $"{AppName}-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
+                    // Crippling this as we're integrating it with the track maker.
+                    FileName = $"Iris-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
+
                     using (StreamWriter SW = new StreamWriter(File.Create(FileName)))
                     {
                         SW.BaseStream.Seek(0, SeekOrigin.End);

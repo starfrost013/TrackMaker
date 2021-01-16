@@ -13,8 +13,8 @@ namespace TrackMaker.Util.Core
     {
         public static int UL5MajorVersion = 5;
         public static int UL5MinorVersion = 9;
-        public static int UL5RevisionVersion = 0;
+        public static int UL5RevisionVersion = 9;
 
-        public static string UL5Status = "v5.9.0/APIv20210111 for Track Maker 2.0/2.1";  
+        public static string UL5Status = "v5.9.9c/APIv20200116 for Track Maker 2.1+";  
     }
 }
