@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starfrost.UL5.InputValidation
+namespace TrackMaker.UI.InputValidation
 {
     public static class ResultFactory<T> where T : GenericResult<T>
     {

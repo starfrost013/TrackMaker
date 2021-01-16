@@ -1,4 +1,5 @@
-﻿using Starfrost.UL5.Logging;
+﻿using TrackMaker.UI.Logging;
+using TrackMaker.UI.StringUtilities; 
 using System;
 using System.Collections.Generic;
 using System.Linq;

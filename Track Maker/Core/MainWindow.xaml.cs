@@ -1,7 +1,7 @@
 ﻿using DanoUI;
-using Starfrost.UL5.Core;
-using Starfrost.UL5.Logging;
-using Starfrost.UL5.WpfUtil;
+using TrackMaker.UI.Core;
+using TrackMaker.UI.Logging;
+using TrackMaker.UI.WpfUtil;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,6 +21,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using TrackMaker.Core;
 
 namespace Track_Maker
 {

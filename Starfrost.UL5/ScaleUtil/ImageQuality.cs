@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starfrost.UL5.ScaleUtilities
+namespace TrackMaker.UI.ScaleUtilities
 {
     /// <summary>
     /// Image quality

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starfrost.UL5.MathUtil
+namespace TrackMaker.UI.MathUtil
 {
     public static class MathUtil
     {

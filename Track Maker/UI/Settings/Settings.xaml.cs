@@ -1,4 +1,5 @@
-﻿using Starfrost.UL5.Logging; 
+﻿using TrackMaker.UI.Logging;
+using TrackMaker.UI.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TrackMaker.Core;
 
 namespace Track_Maker
 {

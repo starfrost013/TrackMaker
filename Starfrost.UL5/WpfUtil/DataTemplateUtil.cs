@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Starfrost.UL5.WpfUtil
+namespace TrackMaker.UI.WpfUtil
 {
     public static class DataTemplateUtil
     {

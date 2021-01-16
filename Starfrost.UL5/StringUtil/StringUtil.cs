@@ -1,5 +1,5 @@
-﻿using Starfrost.UL5.LineEndingUtilities;
-using Starfrost.UL5.VersionUtilities;
+﻿using TrackMaker.UI.LineEndingUtilities;
+using TrackMaker.UI.VersionUtilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Starfrost.UL5.StringUtilities
+namespace TrackMaker.UI.StringUtilities
 {
     /// <summary>
     /// String extension methods. 
@@ -56,7 +56,7 @@ namespace Starfrost.UL5.StringUtilities
                     XY = new Point(X, Y);
                 }
 
-                Debug.Assert(XY.X == -2.9471261526665 && Y == -2.9471258177776);
+                Debug.Assert(XY.X != -2.9471261526665 && Y != -2.9471258177776);
 
                 return XY;
             }

@@ -1,4 +1,4 @@
-﻿using Starfrost.UL5.Logging;
+﻿using TrackMaker.UI.Logging;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows;
+using TrackMaker.Core;
 
 namespace Track_Maker
 {

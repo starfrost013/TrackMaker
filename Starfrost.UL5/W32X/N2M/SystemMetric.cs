@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Starfrost.UL5.Win32X
+namespace TrackMaker.UI.Win32X
 {
     /// <summary>
     /// Win32 System Metrics (8/26/20)

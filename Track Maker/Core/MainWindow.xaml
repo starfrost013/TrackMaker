@@ -6,6 +6,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Track_Maker"
+        xmlns:Core="clr-namespace:TrackMaker.Core;assembly=TrackMaker.Core"
         xmlns:Dano="clr-namespace:DanoUI;assembly=TrackMaker.UI"
         mc:Ignorable="d" 
         Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown" MouseMove="Window_MouseMove" MouseRightButtonUp="Window_MouseRightButtonUp" MouseRightButtonDown="Window_MouseRightButtonUp">
@@ -18,13 +19,13 @@
                     <GradientStop Offset="0.0">
                         <!-- Default = #FF420069 -->
                         <GradientStop.Color>
-                            <Binding Source="{x:Static local:Setting.AccentColour1}"></Binding>
+                            <Binding Source="{x:Static Core:Setting.AccentColour1}"></Binding>
                         </GradientStop.Color>
                     </GradientStop>
                     <GradientStop Offset="1.1">
                         <!-- Default = #FF205000 -->
                         <GradientStop.Color>
-                            <Binding Source="{x:Static local:Setting.AccentColour2}"></Binding>
+                            <Binding Source="{x:Static Core:Setting.AccentColour2}"></Binding>
                         </GradientStop.Color>
                     </GradientStop>
                 </LinearGradientBrush>
@@ -115,13 +116,13 @@
                     <GradientStop Offset="0.0">
                         <!-- Default = #FF420069 -->
                         <GradientStop.Color>
-                            <Binding Source="{x:Static local:Setting.AccentColour2}"></Binding>
+                            <Binding Source="{x:Static Core:Setting.AccentColour2}"></Binding>
                         </GradientStop.Color>
                     </GradientStop>
                     <GradientStop Offset="0.8">
                         <!-- Default = #FF205000 -->
                         <GradientStop.Color>
-                            <Binding Source="{x:Static local:Setting.AccentColour1}"></Binding>
+                            <Binding Source="{x:Static Core:Setting.AccentColour1}"></Binding>
                         </GradientStop.Color>
                     </GradientStop>
                 </LinearGradientBrush>

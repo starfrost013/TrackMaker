@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Starfrost.UL5.PlatformUtilities
+namespace TrackMaker.UI.PlatformUtilities
 {
     /// <summary>
     /// Valid Tiralen platforms.

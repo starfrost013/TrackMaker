@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starfrost.UL5.GFX
+namespace TrackMaker.UI.GFX
 {
     /// <summary>
     /// Implements an ARGB colour class.

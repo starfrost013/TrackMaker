@@ -3,8 +3,9 @@ using DiagResult = System.Windows.Forms.DialogResult;
 using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 
 using Microsoft.Win32;
-using Starfrost.UL5.Logging;
-using Starfrost.UL5.ScaleUtilities;
+using TrackMaker.UI.Logging;
+using TrackMaker.UI.ScaleUtilities;
+using TrackMaker.UI.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO;

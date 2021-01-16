@@ -1,9 +1,9 @@
 ﻿using Dano.ACECalculator; // move to dano.app.
 using Dano.AdvisoryGenerator;
 using DanoUI;
-using Starfrost.UL5.Logging;
-using Starfrost.UL5.MathUtil;
-using Starfrost.UL5.WpfUtil; 
+using TrackMaker.UI.Logging;
+using TrackMaker.UI.MathUtil;
+using TrackMaker.UI.WpfUtil; 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Input;
+using TrackMaker.Core;
 
 namespace Track_Maker
 {

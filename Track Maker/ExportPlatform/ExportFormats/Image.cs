@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
-using Starfrost.UL5.ScaleUtilities; 
+using TrackMaker.UI.StringUtilities;
+using TrackMaker.UI.ScaleUtilities; 
 using System;
 using System.Collections.Generic;
 using System.IO; 

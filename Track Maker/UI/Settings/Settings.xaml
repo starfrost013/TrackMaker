@@ -6,6 +6,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Core="clr-namespace:TrackMaker.Core;assembly=TrackMaker.Core"
         xmlns:local="clr-namespace:Track_Maker"
         mc:Ignorable="d"
         Title="Settings" Height="450" Width="800">
@@ -36,8 +37,8 @@
                     <CheckBox x:Name="Settings_Tab_Appearance_GradientEnabledCheckBox" Margin="5,84,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                     <TextBlock x:Name="Settings_Tab_Appearance_GradientEnabled" Text="Use accent colours for menus" Margin="0,74,330,155" FontSize="24" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="422"/>
                     <TextBlock x:Name="Settings_Tab_Appearance_GradientColour1" Text="Accent colours:" Margin="25,110,473,119" FontSize="24" Grid.ColumnSpan="2"/>
-                    <local:ColourPicker x:Name="Settings_Tab_Appearance_AccentColourPicker" SelectedColour="{x:Static local:Setting.AccentColour1}" Grid.Column="1" Margin="169,111,376,116" PreviewMouseDown="Settings_Tab_Appearance_AccentColourPicker_PreviewMouseDown"/>
-                    <local:ColourPicker x:Name="Settings_Tab_Appearance_MenuGradientSecondColourPicker" SelectedColour="{x:Static local:Setting.AccentColour2}" Grid.Column="1" Margin="371,111,174,116" PreviewMouseDown="Settings_Tab_Appearance_MenuGradientSecondColourPicker_PreviewMouseDown" ></local:ColourPicker>
+                    <local:ColourPicker x:Name="Settings_Tab_Appearance_AccentColourPicker" SelectedColour="{x:Static Core:Setting.AccentColour1}" Grid.Column="1" Margin="169,111,376,116" PreviewMouseDown="Settings_Tab_Appearance_AccentColourPicker_PreviewMouseDown"/>
+                    <local:ColourPicker x:Name="Settings_Tab_Appearance_MenuGradientSecondColourPicker" SelectedColour="{x:Static Core:Setting.AccentColour2}" Grid.Column="1" Margin="371,111,174,116" PreviewMouseDown="Settings_Tab_Appearance_MenuGradientSecondColourPicker_PreviewMouseDown" ></local:ColourPicker>
                     <TextBlock x:Name="Settings_Tab_Appearance_DefaultDotSize" Text="Dot size:" Margin="25,146,571,81" FontSize="24" Grid.ColumnSpan="2"/>
                     <TextBlock x:Name="Settings_Tab_Appearance_DotSizeX" HorizontalAlignment="Left" Margin="25,180,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2"/>
                     <Slider x:Name="Settings_Tab_Appearance_DotSizeXSlider" Grid.Column="1" HorizontalAlignment="Left" Margin="30,191,0,0" VerticalAlignment="Top" Height="21" Width="341" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="Settings_Tab_Appearance_DotSizeXSlider_ValueChanged"/>

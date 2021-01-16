@@ -1,12 +1,12 @@
 ﻿using BetterWin32Errors;
-using Starfrost.UL5.Logging;
+using TrackMaker.UI.Logging;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 
-namespace Starfrost.UL5.Win32X
+namespace TrackMaker.UI.Win32X
 {
     /// <summary>
     /// Win32 Native Methods

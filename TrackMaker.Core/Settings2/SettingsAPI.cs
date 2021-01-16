@@ -1,5 +1,5 @@
-﻿using Starfrost.UL5.Logging;
-using Starfrost.UL5.StringUtilities;
+﻿using TrackMaker.UI.Logging;
+using TrackMaker.UI.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO; 
@@ -110,16 +110,6 @@ namespace TrackMaker.Core
             return XRoot;
         }
 
-        /// <summary>
-        /// Temp (Priscilla 442)
-        /// </summary>
-        private static void GenerateSettings()
-        {
-            FileStream FStreamSettings = File.Create("Settings.xml");
-
-            FStreamSettings.Dispose(); 
-            // END TEMP
-        }
 
         /// <summary>
         /// Internal Api for getting nodes from the root node obtained by using LoadSettingsXml()/

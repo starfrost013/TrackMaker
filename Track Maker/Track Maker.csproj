@@ -174,10 +174,6 @@
     <Compile Include="ExportPlatform\IExportFormat.cs" />
     <Compile Include="ExportPlatform\IImageExportFormat.cs" />
     <Compile Include="Layer\Layer.cs" />
-    <Compile Include="Settings2\SettingsAPI.cs" />
-    <Compile Include="Settings2\Enums\TelemetryConsent.cs" />
-    <Compile Include="Settings2\Enums\WndStyle.cs" />
-    <Compile Include="Settings2\ApplicationSettings.cs" />
     <Compile Include="Category\Category.cs" />
     <Compile Include="Category\CategoryLoader.cs" />
     <Compile Include="Core\Error.cs" />
@@ -197,14 +193,12 @@
     <Compile Include="UI\UIResponse.cs" />
     <Compile Include="Storm\Node.cs" />
     <Compile Include="Render\RenderManager.cs" />
-    <Compile Include="Settings2\SettingLoader.cs" />
     <Compile Include="Storm\Storm.cs" />
     <Compile Include="UI\Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\ParsingUtil\ParsingUtil.cs" />
-    <Compile Include="Util\Utilities.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
     <Compile Include="V3Graph\IGraph.cs" />

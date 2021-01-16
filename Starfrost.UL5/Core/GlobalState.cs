@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starfrost.UL5.Core
+namespace TrackMaker.UI.Core
 {
     /// <summary>
     /// Starfrost Useful Library v5.2+ GlobalState

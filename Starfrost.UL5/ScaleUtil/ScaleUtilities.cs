@@ -1,4 +1,4 @@
-﻿using Starfrost.UL5.Core;
+﻿using TrackMaker.UI.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace Starfrost.UL5.ScaleUtilities
+namespace TrackMaker.UI.ScaleUtilities
 {
     public static class ScaleUtilities
     {

@@ -1,4 +1,4 @@
-﻿using Starfrost.UL5.Core;
+﻿using TrackMaker.UI.Core;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,7 +21,7 @@ using System.Windows;
 /// </summary>
 
 
-namespace Starfrost.UL5.Logging
+namespace TrackMaker.UI.Logging
 {
     /// <summary>
     /// A static class used for logging debug information.
