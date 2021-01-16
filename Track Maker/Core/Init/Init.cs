@@ -98,9 +98,8 @@ namespace Track_Maker
             // DisableUI test 
             if (CurrentProject == null) DisableButtons();
 
-            // Iris: configure graph UI
-            Init_ConfigureGraphUI();
-
+            Init_ConfigureUI();
+            
             HurricaneBasin.DataContext = this;
             Layers.Layers.DataContext = this;
             Layers.UpdateLayout();
@@ -157,6 +156,26 @@ namespace Track_Maker
             }
         }
 
+        private void Init_ConfigureUI()
+        {
+            Init_ConfigureDebugUI();
+            Init_ConfigureGraphUI(); 
+        }
+
+        private void Init_ConfigureDebugUI()
+        {
+            // it's enabled by default
+            if (!Setting.Iris_EnableDebugUI)
+            {
+                MenuItem DebugMnu = MainMenu.FindMenuItemWithName("DebugMenu");
+                MainMenu.Items.Remove(DebugMnu);
+            }
+            else
+            {
+                return; 
+            }
+        }
+
         private void Init_ConfigureGraphUI()
         {
             switch (Setting.Iris_EnableGraphUI)
@@ -175,6 +194,8 @@ namespace Track_Maker
                     return; 
             }
         }
+
+
 
         
     }

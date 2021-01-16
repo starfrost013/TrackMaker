@@ -89,6 +89,12 @@ namespace TrackMaker.Core
         public static int UndoDepth { get; set; }
 
         /// <summary>
+        /// Iris: Enable debug UI
+        /// </summary>
+        [XmlElement("Iris_EnableDebugUI")]
+        public static bool Iris_EnableDebugUI { get; set; }
+
+        /// <summary>
         /// Iris: Enable GraphUI
         /// </summary>
 

@@ -1,4 +1,4 @@
-﻿<!-- MainWindow 2.0 -->
+﻿<!-- MainWindow 2.1 (Iris) -->
 
 <Window x:Class="Track_Maker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -74,11 +74,9 @@
                 <MenuItem x:Name="ToolsMenu_ACECalculator" Header="ACE Calculator" Foreground="Black" Click="ToolsMenu_ACECalculator_Click"></MenuItem>
                 <MenuItem x:Name="ToolsMenu_AdvisoryGenerator" Header="Advisory Generator" Foreground="Black" Click="ToolsMenu_AdvisoryGenerator_Click"></MenuItem>
             </MenuItem>
-            <!--Removed. (v0.93)
-                <MenuItem x:Name="ModeMenu" Header="Mode" Foreground="White">
-                <MenuItem x:Name="ToolsMenu_ConeMaker" Header="Cone mode" Foreground="Black" IsEnabled="False"></MenuItem>
-                <MenuItem x:Name="ToolsMenu_GraphicMaker" Header="Graphic mode" Foreground="Black" IsEnabled="False"></MenuItem>
-            </MenuItem>-->
+            <MenuItem x:Name="DebugMenu" Header="Debug" Style="{StaticResource Style_Menu_Inverted}">
+                <MenuItem x:Name="DebugMenu_StartPageUITest" Header="StartPageUITest" Click="DebugMenu_StartPageUITest_Click"></MenuItem>
+            </MenuItem>
             <MenuItem x:Name="HelpMenu" Header="Help" Style="{StaticResource Style_Menu_Inverted}">
                 <!-- Help -->
                 <MenuItem x:Name="HelpMenu_Help" Header="Help" Foreground="Black" Click="HelpMenu_Help_Click"></MenuItem>
@@ -89,13 +87,6 @@
             <MenuItem x:Name="Separator" Width="400" IsEnabled="False"></MenuItem>
             <MenuItem x:Name="Priscilla_UndoButton" Header="Undo" Click="UndoButton_Click" Style="{StaticResource Style_Menu_Inverted}"/>
             <MenuItem x:Name="Priscilla_RedoButton" Header="Redo" Click="RedoButton_Click" Style="{StaticResource Style_Menu_Inverted}"/>
-
-            <!--Removed because Priscilla isn't Dano and doesn't have (some) of Dano's features
-            <MenuItem x:Name="DanoTest" Header="Dano Test" Foreground="White">
-                <MenuItem x:Name="DanoTest_StartPage" Header="[Dano Test] Start Page" Foreground="Black" Click="DanoTest_StartPage_Click"></MenuItem>
-                <MenuItem x:Name="DanoTest_CreateProject" Header="[Dano Test] Create Project" Foreground="Black" Click="DanoTest_CreateProject_Click"></MenuItem>
-                <MenuItem x:Name="DanoTest_PortTest" Header="[Dano Test] Basin Manager" Foreground="Black" Click="DanoTest_PortTest_Click"></MenuItem>
-            </MenuItem>-->
         </Menu>
 
         <!-- this is where the basin image is loaded from xml -->

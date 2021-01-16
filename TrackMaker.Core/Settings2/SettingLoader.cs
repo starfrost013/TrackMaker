@@ -62,7 +62,12 @@ namespace TrackMaker.Core
             // Load the window style
             Setting.WindowStyle = SettingsAPI.GetWindowStyle("WindowStyle");
 
+            // Load Iris debug UI setting
+            Setting.Iris_EnableDebugUI = SettingsAPI.GetBool("Iris_EnableDebugUI");
+
+            // Load Iris graph UI setting
             Setting.Iris_EnableGraphUI = SettingsAPI.GetBool("Iris_EnableGraphUI");
+
             // V2.1
             Setting.Iris_UseDeserialisation = SettingsAPI.GetBool("Iris_UseDeserialisation"); 
         }

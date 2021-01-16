@@ -4,47 +4,66 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DanoUI"
-             mc:Ignorable="d" 
-             d:DesignHeight="417.769" d:DesignWidth="875.62">
+             mc:Ignorable="d" Width="963.135" Height="354.436">
     <UserControl.Background>
         <LinearGradientBrush>
             <!-- Temporary - We will bind to settings when ux is done -->
-            <GradientStop Offset="0.0" Color="#004080"></GradientStop>
-            <GradientStop Offset="0.8" Color="#96bdfe"></GradientStop>
+            <GradientStop Offset="0.0" Color="#FF000000"></GradientStop>
+            <!--<GradientStop Offset="0.8" Color="#96bdfe"></GradientStop>-->
         </LinearGradientBrush>
     </UserControl.Background>
     <Grid>
-        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="DanoUI_StartPage_StartHere" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Welcome to Dano!" VerticalAlignment="Top" FontSize="60"/>
-        <TextBlock Style="{StaticResource Style_TextBlock_Invert}" x:Name="DanoUI_StartPage_QuickStart" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Quickstart" VerticalAlignment="Top" FontSize="32"/>
-        <Border x:Name="DanoUI_StartPage_CreateTrack" HorizontalAlignment="Left" Height="44" Margin="10,115,0,0" VerticalAlignment="Top" Width="225" BorderBrush="#00000000" PreviewMouseDown="DanoUI_StartPage_CreateTrack_PreviewMouseDown">
-            <Border.Style>
-                <Style TargetType="{x:Type Border}">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="White"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Border.Style>
-            <TextBlock x:Name="CreateTrack" Style="{StaticResource Style_TextBlock_Invert}" TextWrapping="Wrap" Text="Create Track" FontSize="26" Margin="25,2,-15,0"/>
-        </Border>
-        <Border x:Name="DanoUI_StartPage_CreateAnimation" HorizontalAlignment="Left" Height="44" Margin="240,115,0,0" VerticalAlignment="Top" Width="225" BorderBrush="#00000000" PreviewMouseDown="DanoUI_StartPage_CreateAnimation_PreviewMouseDown">
-            <Border.Style>
-                <Style TargetType="{x:Type Border}">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="White"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Border.Style>
-            <TextBlock x:Name="CreateAnimation" Style="{StaticResource Style_TextBlock_Invert}" TextWrapping="Wrap" Text="Create Animation" FontSize="26" Margin="0,2,-16,0" HorizontalAlignment="Right" Width="216"/>
-        </Border>
-        <TextBlock x:Name="DanoUI_StartPage_WhatsNewText"  Style="{StaticResource Style_TextBlock_Invert}" HorizontalAlignment="Left" Margin="600,96,0,0" TextWrapping="Wrap" Text="What's New:" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="502*"/>
+        </Grid.ColumnDefinitions>
 
-        <Border x:Name="DanoUI_StartPage_WhatsNew" HorizontalAlignment="Left" Height="235" Margin="600,125,0,0" VerticalAlignment="Top" Width="253"/>
-        <TextBlock x:Name="DanoUI_StartPage_TipsText" Style="{StaticResource Style_TextBlock_Invert}" HorizontalAlignment="Left" Margin="36,238,0,0" TextWrapping="Wrap" Text="Tips:" VerticalAlignment="Top" RenderTransformOrigin="-12.86,11.664"/>
-        <Border x:Name="DanoUI_StartPage_Tips" HorizontalAlignment="Left" Height="93" Margin="36,267,0,0" VerticalAlignment="Top" Width="535"/>
-        <Button x:Name="ExitButton"  HorizontalAlignment="Left" Margin="791,380,0,0" VerticalAlignment="Top" Width="75" Content="Exit" Click="ExitButton_Click"/>
+        <TextBlock x:Name="IrisStartPage_Welcome" HorizontalAlignment="Left" TextWrapping="Wrap" Text="welcome" VerticalAlignment="Top" Height="78" Width="253" FontSize="60" Foreground="#FFFFFFFF" Margin="7.697,0,0,0" Grid.Column="1"/>
+        <TextBlock x:Name="IrisStartPage_SelectAnOption" HorizontalAlignment="Left" Margin="7.697,69,0,0" TextWrapping="Wrap" Text="select an option to begin" Foreground="#FFFFFFFF" VerticalAlignment="Top" Grid.Column="1"/>
+        <Rectangle x:Name="IrisStartPage_Grid_StartNewProject" HorizontalAlignment="Left" Height="205" Margin="7.697,98,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="226" Grid.Column="1">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Offset="0.0" Color="#5050C0"></GradientStop>
+                    <GradientStop Offset="0.7" Color="#3030A0"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock x:Name="IrisUIPlaceholderNotification" HorizontalAlignment="Left" Height="17" Margin="848,0,0,0" TextWrapping="Wrap" Text="StartPageUITest v0.00" FontSize="11" VerticalAlignment="Top" Width="113" Foreground="#FFFFFFFF" Grid.Column="1"/>
+        <TextBlock x:Name="IrisStartPage_Grid_StartNewProjectText" HorizontalAlignment="Left" Height="63" Margin="12.697,236,0,0" TextWrapping="Wrap" Text="start a new project" VerticalAlignment="Top" Width="128" Foreground="#FFFFFFFF" FontSize="24" Grid.Column="1"/>
+
+        <Rectangle x:Name="IrisStartPage_Grid_LoadProject" HorizontalAlignment="Left" Height="205" Margin="245.697,98,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="226" Grid.Column="1">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="#2299DD"></GradientStop>
+                    <GradientStop Offset="0.7" Color="#447788"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBlock x:Name="IrisStartPage_Grid_LoadProjectText" HorizontalAlignment="Left" Height="63" Margin="249.697,236,0,0" TextWrapping="Wrap" Text="load a project" VerticalAlignment="Top" Width="128" Foreground="#FFFFFFFF" FontSize="24" Grid.Column="1"/>
+
+        <Rectangle x:Name="IrisStartPage_Grid_WhatsNew" HorizontalAlignment="Left" Height="205" Margin="483.697,98,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="226" Grid.Column="1">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Offset="0.0" Color="#CC8877"></GradientStop>
+                    <GradientStop Offset="0.7" Color="#AA4477"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBlock x:Name="IrisStartPage_Grid_WhatsNewText" HorizontalAlignment="Left" Height="27" Margin="487.697,272,0,0" TextWrapping="Wrap" Text="what's new" VerticalAlignment="Top" Width="128" Foreground="#FFFFFFFF" FontSize="24" Grid.Column="1"/>
+
+        <Rectangle x:Name="IrisStartPage_Grid_Exit" HorizontalAlignment="Left" Height="205" Margin="721.697,98,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="226" Grid.Column="1">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Offset="0.0" Color="#772277"></GradientStop>
+                    <GradientStop Offset="0.7" Color="#997799"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBlock x:Name="IrisStartPage_Grid_ExitText" HorizontalAlignment="Left" Height="27" Margin="726.697,272,0,0" TextWrapping="Wrap" Text="exit" VerticalAlignment="Top" Width="128" Foreground="#FFFFFFFF" FontSize="24" Grid.Column="1"/>
+        <TextBlock x:Name="IrisStartPage_Copyright" Grid.Column="1"  Height="22" Margin="809,308,-30,0" TextWrapping="Wrap" Text="© 2019-2021 starfrost" VerticalAlignment="Top" Width="182" Foreground="#FFFFFFFF" FontSize="14" HorizontalAlignment="Left"/>
+
     </Grid>
 </UserControl>

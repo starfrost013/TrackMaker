@@ -516,10 +516,13 @@ namespace Track_Maker
                 
             }
 #endif
+        }
 
-
-
-
+        private void DebugMenu_StartPageUITest_Click(object sender, RoutedEventArgs e)
+        {
+            StartPageHost SPH = new StartPageHost();
+            SPH.Owner = this;
+            SPH.Show();
         }
 
     }

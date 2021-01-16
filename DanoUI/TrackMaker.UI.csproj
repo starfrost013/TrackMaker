@@ -69,31 +69,31 @@
     <Compile Include="TrackMakerUI\Layer\RenameLayer\Priscilla_RenameLayer.xaml.cs">
       <DependentUpon>Priscilla_RenameLayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Ported\Core\Dano_TypeSelectorBox.xaml.cs">
+    <Compile Include="TrackMakerUI\Core\Dano_TypeSelectorBox.xaml.cs">
       <DependentUpon>Dano_TypeSelectorBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Ported\AddTrackPoint\Dano_AddTrackPoint.xaml.cs">
+    <Compile Include="TrackMakerUI\AddTrackPoint\Dano_AddTrackPoint.xaml.cs">
       <DependentUpon>Dano_AddTrackPoint.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Ported\EditUI\Dano_EditUI.xaml.cs">
+    <Compile Include="TrackMakerUI\EditUI\Dano_EditUI.xaml.cs">
       <DependentUpon>Dano_EditUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Ported\SeasonManager\Dano_SeasonManager.xaml.cs">
+    <Compile Include="TrackMakerUI\SeasonManager\Dano_SeasonManager.xaml.cs">
       <DependentUpon>Dano_SeasonManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Ported\AddNewStorm\Dano_AddNewStorm.xaml.cs">
+    <Compile Include="TrackMakerUI\AddNewStorm\Dano_AddNewStorm.xaml.cs">
       <DependentUpon>Dano_AddNewStorm.xaml</DependentUpon>
     </Compile>
     <Compile Include="TrackMakerUI\Layer\CreateLayer\Priscilla_CreateLayer.xaml.cs">
       <DependentUpon>Priscilla_CreateLayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Ported\About\Dano_About.xaml.cs">
+    <Compile Include="TrackMakerUI\About\Dano_About.xaml.cs">
       <DependentUpon>Dano_About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Ported\CategoryManager\Dano_CategoryManager.xaml.cs">
+    <Compile Include="TrackMakerUI\CategoryManager\Dano_CategoryManager.xaml.cs">
       <DependentUpon>Dano_CategoryManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Ported\BasinSwitcher\Dano_BasinSwitcher.xaml.cs">
+    <Compile Include="TrackMakerUI\BasinSwitcher\Dano_BasinSwitcher.xaml.cs">
       <DependentUpon>Dano_BasinSwitcher.xaml</DependentUpon>
     </Compile>
     <Compile Include="DanoEventArgs.cs" />
@@ -126,23 +126,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Ported\Core\Dano_TypeSelectorBox.xaml">
+    <Page Include="TrackMakerUI\Core\Dano_TypeSelectorBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Ported\AddTrackPoint\Dano_AddTrackPoint.xaml">
+    <Page Include="TrackMakerUI\AddTrackPoint\Dano_AddTrackPoint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Ported\EditUI\Dano_EditUI.xaml">
+    <Page Include="TrackMakerUI\EditUI\Dano_EditUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Ported\SeasonManager\Dano_SeasonManager.xaml">
+    <Page Include="TrackMakerUI\SeasonManager\Dano_SeasonManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Ported\AddNewStorm\Dano_AddNewStorm.xaml">
+    <Page Include="TrackMakerUI\AddNewStorm\Dano_AddNewStorm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,15 +150,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Ported\About\Dano_About.xaml">
+    <Page Include="TrackMakerUI\About\Dano_About.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TrackMakerUI\Ported\CategoryManager\Dano_CategoryManager.xaml">
+    <Page Include="TrackMakerUI\CategoryManager\Dano_CategoryManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Ported\BasinSwitcher\Dano_BasinSwitcher.xaml">
+    <Page Include="TrackMakerUI\BasinSwitcher\Dano_BasinSwitcher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -198,7 +198,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="TrackMakerUI\Export\" />
     <Folder Include="TrackMakerUI\Graphing\" />
+    <Folder Include="TrackMakerUI\Settings\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

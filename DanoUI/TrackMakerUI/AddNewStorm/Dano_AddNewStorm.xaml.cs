@@ -29,7 +29,6 @@ namespace DanoUI
         /// 2   DateTime    The date and time of this storm.
         /// </summary>
         public EventHandler<DanoEventArgs> OKHit { get; set; }
-
         public string SeasonStartTime { get; set; }
         public AddNewStorm()
         {
