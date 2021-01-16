@@ -177,11 +177,6 @@
     <Compile Include="Category\Category.cs" />
     <Compile Include="Category\CategoryLoader.cs" />
     <Compile Include="Core\Error.cs" />
-    <Compile Include="Storm\StormType\RealStormTypes\RealStormTypes.cs" />
-    <Compile Include="Storm\StormType\Shape\Shape.cs" />
-    <Compile Include="Storm\StormType\Shape\StormShape.cs" />
-    <Compile Include="Storm\StormType\StormType2.cs" />
-    <Compile Include="Storm\StormType\StormTypeManager.cs" />
     <Compile Include="UI\Core\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
     </Compile>

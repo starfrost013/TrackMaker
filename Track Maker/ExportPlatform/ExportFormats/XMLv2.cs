@@ -2,7 +2,6 @@
 // IN V2.1 WE WILL MAKE THIS DESERIALISED
 
 using Microsoft.Win32;
-using TrackMaker.Util.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
+using TrackMaker.Core;
+using TrackMaker.Util.StringUtilities;
 
 namespace Track_Maker
 {

@@ -3,9 +3,6 @@ using DiagResult = System.Windows.Forms.DialogResult;
 using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 
 using Microsoft.Win32;
-using TrackMaker.Util.Logging;
-using TrackMaker.Util.ScaleUtilities;
-using TrackMaker.Util.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +11,10 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using TrackMaker.Core;
+using TrackMaker.Util.Logging;
+using TrackMaker.Util.ScaleUtilities;
+using TrackMaker.Util.StringUtilities;
 
 namespace Track_Maker
 {

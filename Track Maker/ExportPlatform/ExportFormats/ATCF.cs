@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using TrackMaker.Util.StringUtilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms.VisualStyles;
+using TrackMaker.Core;
+using TrackMaker.Util.StringUtilities;
 
 namespace Track_Maker
 {

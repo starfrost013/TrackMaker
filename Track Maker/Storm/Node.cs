@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using TrackMaker.Core; 
 
 namespace Track_Maker
 {
-
     /// <summary>
     /// A track node.
     /// 
