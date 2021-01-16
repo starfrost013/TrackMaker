@@ -211,7 +211,7 @@ namespace Track_Maker
                     Nod.Id = Id;
                     Nod.Intensity = Intensity;
 
-                    Nod.Position = Bas.FromCoordinateToNodePosition(Coord);
+                    Nod.Position = Bas.FromCoordinateToNodePosition(Coord, new Point(MnWindow.Width, MnWindow.Height));
                     Nod.NodeType = ATCFHelperMethods.Export_GetStormType(_StrCategory);
 
                     Sto.AddNode(Nod);
@@ -356,7 +356,7 @@ namespace Track_Maker
 
                         Category Cat = Storm.GetNodeCategory(Node, MnWindow.Catman.CurrentCategorySystem);
                         
-                        Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position); 
+                        Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position, new Point(MnWindow.Width, MnWindow.Height)); 
 
                         SW.Write($"{X.Coordinates.X}{X.Directions[0]},  {X.Coordinates.Y}{X.Directions[1]},  ");
 

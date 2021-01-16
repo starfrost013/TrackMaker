@@ -160,7 +160,11 @@ namespace Track_Maker
 
                             Coordinate Coordinate = Coordinate.FromSplitCoordinate(_Longitude, _Latitude, CoordinateFormat.HURDAT2);
 
-                            CN.Position = Bas.FromCoordinateToNodePosition(Coordinate);
+                            // TEMP: MOVE WINDOW SIZE TO TRACKMAKER.CORE VOLATILESETTINGS CLASS
+
+                            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+
+                            CN.Position = Bas.FromCoordinateToNodePosition(Coordinate, new Point(MnWindow.Width, MnWindow.Height));
 
                             Sto.AddNode(CN);
 
@@ -349,7 +353,7 @@ namespace Track_Maker
 
                             SW.Write($"{Abbv}, ");
 
-                            Coordinate CD = Proj.SelectedBasin.FromNodePositionToCoordinate(No.Position);
+                            Coordinate CD = Proj.SelectedBasin.FromNodePositionToCoordinate(No.Position, new Point(MnWindow.Width, MnWindow.Height));
                             
                             // dumb fucking piece of shit hack because what the fuck is compatibility you fucking NOAA dumb fucks
                             CD.Coordinates = new Point(CD.Coordinates.X / 10, CD.Coordinates.Y / 10); 

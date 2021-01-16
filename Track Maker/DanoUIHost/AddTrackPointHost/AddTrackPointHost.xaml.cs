@@ -44,8 +44,8 @@ namespace Track_Maker
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             Storm Sto = MnWindow.CurrentProject.SelectedBasin.GetCurrentStorm();
 #endif
-
-            Sto.AddNode((int)DEA.DanoParameters[0], (string)DEA.DanoParameters[1], (Point)DEA.DanoParameters[2]);
+            // TEMP
+            Sto.AddNode((int)DEA.DanoParameters[0], (string)DEA.DanoParameters[1], (Point)DEA.DanoParameters[2], MnWindow.ST2Manager);
             Close();
         }
 

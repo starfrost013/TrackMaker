@@ -113,7 +113,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Basin\Basin.cs" />
     <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\Init\Init.cs" />
     <Compile Include="Core\InternalStateVerification\InternalStateVerifier.cs" />
@@ -165,7 +164,6 @@
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormatDetermination\DetermineImageFormat.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageFormats.cs" />
     <Compile Include="ExportPlatform\ExportFormats\ImageFormats\ImageScaling.cs" />
-    <Compile Include="ExportPlatform\ExportFormats\ATCFHelper\CoordinateFormats.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Validation\NodeImportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Validation\XMLImportResult.cs" />
     <Compile Include="ExportPlatform\ExportFormats\Image.cs" />
@@ -173,9 +171,6 @@
     <Compile Include="ExportPlatform\ExportFormats\HURDAT2.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />
     <Compile Include="ExportPlatform\IImageExportFormat.cs" />
-    <Compile Include="Layer\Layer.cs" />
-    <Compile Include="Category\Category.cs" />
-    <Compile Include="Category\CategoryLoader.cs" />
     <Compile Include="Core\Error.cs" />
     <Compile Include="UI\Core\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
@@ -186,12 +181,10 @@
     </Compile>
     <Compile Include="UI\Core\Init\UILauncher.cs" />
     <Compile Include="UI\UIResponse.cs" />
-    <Compile Include="Storm\Node.cs" />
     <Compile Include="Render\RenderManager.cs" />
     <Compile Include="UI\Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Util\Coordinate.cs" />
     <Compile Include="Util\ParsingUtil\ParsingUtil.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
     <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />

@@ -9,7 +9,6 @@ using TrackMaker.Core;
 
 namespace Track_Maker
 {
-    public enum Direction { Smaller, Larger }
     public partial class MainWindow : Window
     {
 
