@@ -188,7 +188,6 @@
     <Compile Include="UI\UIResponse.cs" />
     <Compile Include="Storm\Node.cs" />
     <Compile Include="Render\RenderManager.cs" />
-    <Compile Include="Storm\Storm.cs" />
     <Compile Include="UI\Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
