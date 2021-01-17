@@ -13,11 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DanoUI
+namespace TrackMaker.UI
 {
     /// <summary>
     /// 
-    /// DanoUI version of the Category Manager.
+    /// TrackMaker.UI version of the Category Manager.
     /// 
     /// 2020/09/03 [Priscilla build 427]
     /// 

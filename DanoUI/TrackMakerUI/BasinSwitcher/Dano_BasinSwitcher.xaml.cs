@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 /// <summary>
-/// DanoUI Basin Switcher testing
+/// TrackMaker.UI Basin Switcher testing
 /// 
 /// 2020-05-25
 /// </summary>
 
-namespace DanoUI
+namespace TrackMaker.UI
 {
     /// <summary>
     /// Interaction logic for BasinSwitcher.xaml

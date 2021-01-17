@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Core="clr-namespace:TrackMaker.Core;assembly=TrackMaker.Core"
-        xmlns:Dano="clr-namespace:DanoUI;assembly=TrackMaker.UI"
+        xmlns:Dano="clr-namespace:TrackMaker.UI;assembly=TrackMaker.UI"
         mc:Ignorable="d" 
         Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown" MouseMove="Window_MouseMove" MouseRightButtonUp="Window_MouseRightButtonUp" MouseRightButtonDown="Window_MouseRightButtonUp">
 

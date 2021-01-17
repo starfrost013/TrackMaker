@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DanoUI
+namespace TrackMaker.UI
 {
     /// <summary>
     /// Interaction logic for AboutWindow.xaml

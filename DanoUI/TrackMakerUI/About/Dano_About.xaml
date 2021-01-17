@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="DanoUI.AboutUI"
+﻿<UserControl x:Class="TrackMaker.UI.AboutUI"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DanoUI"
+        xmlns:local="clr-namespace:TrackMaker.UI"
         mc:Ignorable="d"
         d:DesignHeight="168.925" d:DesignWidth="747.749" Loaded="Window_Loaded">
     <UserControl.Background>

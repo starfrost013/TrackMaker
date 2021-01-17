@@ -13,10 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DanoUI
+namespace TrackMaker.UI
 {
     /// <summary>
-    /// DanoUI/PriscillaUI/Ported/Core/Dano_TypeSelectorBox.xaml.cs
+    /// TrackMaker.UI/PriscillaUI/Ported/Core/Dano_TypeSelectorBox.xaml.cs
     /// 
     /// © 2019 - 2020 starfrost (Version 2.00) for Priscilla v507+
     /// </summary>

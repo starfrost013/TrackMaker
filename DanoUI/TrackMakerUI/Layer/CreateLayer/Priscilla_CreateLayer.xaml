@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="DanoUI.CreateLayer"
+﻿<UserControl x:Class="TrackMaker.UI.CreateLayer"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DanoUI"
+             xmlns:local="clr-namespace:TrackMaker.UI"
              mc:Ignorable="d" Height="183.959" Width="743.894">
     <Grid>
         <TextBlock x:Name="CreateLayer_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Layer" VerticalAlignment="Top" FontSize="48" FontStyle="Italic"/>

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Track_Maker"
-        xmlns:Dano="clr-namespace:DanoUI;assembly=TrackMaker.UI"
+        xmlns:Dano="clr-namespace:TrackMaker.UI;assembly=TrackMaker.UI"
         mc:Ignorable="d"
         Title="Add New Storm" Height="248.271" Width="657.858" WindowStyle="ToolWindow">
     <Grid>

@@ -4,12 +4,12 @@
     
     -->
 
-<UserControl x:Class="DanoUI.Core.ErrorWindow"
+<UserControl x:Class="TrackMaker.UI.Core.ErrorWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DanoUI.Core"
+             xmlns:local="clr-namespace:TrackMaker.UI.Core"
              mc:Ignorable="d" Background="#a0a0a0" Height="259.754" Width="502.459">
     <Grid>
         <TextBlock x:Name="ErrorBox_Statement" Text="An error has occurred." FontSize="36" Margin="10,10,110,168"></TextBlock>

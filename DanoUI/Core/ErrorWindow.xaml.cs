@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DanoUI.Core
+namespace TrackMaker.UI.Core
 {
     /// <summary>
     /// Interaction logic for ErrorWindow.xaml

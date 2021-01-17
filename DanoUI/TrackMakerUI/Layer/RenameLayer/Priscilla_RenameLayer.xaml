@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="DanoUI.RenameLayer"
+﻿<UserControl x:Class="TrackMaker.UI.RenameLayer"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DanoUI"
+             xmlns:local="clr-namespace:TrackMaker.UI"
              mc:Ignorable="d" Height="137.073" Width="726.108" Loaded="UserControl_Loaded">
     <Grid>
         <TextBlock x:Name="RenameLayer_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Rename Layer" VerticalAlignment="Top" FontSize="48" FontStyle="Italic"/>

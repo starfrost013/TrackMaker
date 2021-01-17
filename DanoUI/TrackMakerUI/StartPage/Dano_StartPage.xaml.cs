@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DanoUI
+namespace TrackMaker.UI
 {
     /// PLS HAVE A WALK TODAY
     /// <summary>
@@ -47,7 +47,7 @@ namespace DanoUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DanoUI_StartPage_CreateTrack_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void TrackMaker.UI_StartPage_CreateTrack_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             CreateTrackHit(sender, e);
         }
@@ -57,7 +57,7 @@ namespace DanoUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DanoUI_StartPage_CreateAnimation_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void TrackMaker.UI_StartPage_CreateAnimation_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             CreateAnimationHit(sender, e);
         }

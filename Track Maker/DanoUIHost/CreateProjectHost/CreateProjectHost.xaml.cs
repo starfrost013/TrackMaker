@@ -1,4 +1,4 @@
-﻿using DanoUI;
+﻿using TrackMaker.UI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,7 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TrackMaker.Core;
 
-//Move to DanoUI.Host?
+//Move to TrackMaker.UI.Host?
+
 namespace Track_Maker
 {
     /// <summary>
