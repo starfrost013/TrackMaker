@@ -12,8 +12,8 @@ namespace TrackMaker.Core
     /// 
     /// Used to reduce MainWindow use
     /// </summary>
-    public class VolatileSettings
+    public static class VolatileSettings
     {
-        public Point WindowSize { get; set; }
+        public static Point WindowSize { get; set; }
     }
 }

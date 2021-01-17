@@ -9,7 +9,7 @@
         xmlns:Core="clr-namespace:TrackMaker.Core;assembly=TrackMaker.Core"
         xmlns:Dano="clr-namespace:TrackMaker.UI;assembly=TrackMaker.UI"
         mc:Ignorable="d" 
-        Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown" MouseMove="Window_MouseMove" MouseRightButtonUp="Window_MouseRightButtonUp" MouseRightButtonDown="Window_MouseRightButtonUp">
+        Title="starfrost's track maker" Height="640" Width="1143.361" PreviewKeyDown="Window_PreviewKeyDown" Closing="Shutdown" MouseMove="Window_MouseMove" MouseRightButtonUp="Window_MouseRightButtonUp" MouseRightButtonDown="Window_MouseRightButtonUp" SizeChanged="Window_SizeChanged">
 
     <Grid x:Name="Core">
         <Menu x:Name="MainMenu" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="952" Panel.ZIndex="2">

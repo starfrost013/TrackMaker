@@ -525,5 +525,9 @@ namespace Track_Maker
             SPH.Show();
         }
 
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            VolatileSettings.WindowSize = new Point(Width, Height);
+        }
     }
 }
