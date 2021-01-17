@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:TrackMaker.UI;assembly=TrackMaker.UI"
         mc:Ignorable="d"
-        Title="Start Page" Height="389.356" Width="969.239">
+        Title="Start Page" Height="383" Width="969.239">
     <Grid>
         <Dano:StartPage StartPageExit="Dano_StartPage_Exit"/>
     </Grid>

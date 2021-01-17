@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TrackMaker.UI
+namespace Track_Maker
 
 {
     /// <summary>
@@ -27,10 +27,10 @@ namespace TrackMaker.UI
     /// 
     /// Modified 2020-05-19 for Track Maker 1.0; enhanced to show the currently selected colour at start up.
     /// </summary>
-    public partial class Iris_ColourPicker : System.Windows.Controls.UserControl
+    public partial class ColourPicker : System.Windows.Controls.UserControl
     {
         public Color SelectedColour { get; set; }
-        public Iris_ColourPicker()
+        public ColourPicker()
         {
             InitializeComponent();
             UpdateRectangle(); 

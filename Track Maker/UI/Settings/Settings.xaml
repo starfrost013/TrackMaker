@@ -7,7 +7,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Core="clr-namespace:TrackMaker.Core;assembly=TrackMaker.Core"
-        xmlns:local="clr-namespace:TrackMaker.UI;assembly=TrackMaker.UI"
+        xmlns:local="clr-namespace:Track_Maker"
         mc:Ignorable="d"
         Title="Settings" Height="450" Width="800">
     <Grid>

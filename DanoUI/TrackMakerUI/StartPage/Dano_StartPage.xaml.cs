@@ -47,7 +47,7 @@ namespace TrackMaker.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TrackMaker.UI_StartPage_CreateTrack_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void DanoUI_StartPage_CreateTrack_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             CreateTrackHit(sender, e);
         }
@@ -57,7 +57,7 @@ namespace TrackMaker.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TrackMaker.UI_StartPage_CreateAnimation_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void DanoUI_StartPage_CreateAnimation_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             CreateAnimationHit(sender, e);
         }

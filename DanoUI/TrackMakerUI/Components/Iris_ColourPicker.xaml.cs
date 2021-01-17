@@ -69,7 +69,7 @@ namespace TrackMaker.UI
             }
         }
 
-        internal void UpdateRectangle()
+        public void UpdateRectangle()
         {
             PickColourButton.Fill = new SolidColorBrush(SelectedColour);
             UpdateLayout(); 

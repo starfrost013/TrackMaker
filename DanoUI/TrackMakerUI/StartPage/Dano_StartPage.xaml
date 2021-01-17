@@ -31,7 +31,7 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock x:Name="IrisUIPlaceholderNotification" HorizontalAlignment="Left" Height="17" Margin="840,0,0,0" TextWrapping="Wrap" Text="StartPageUITest v0.02b" FontSize="11" VerticalAlignment="Top" Width="113" Foreground="#FFFFFFFF"/>
+        <TextBlock x:Name="IrisUIPlaceholderNotification" HorizontalAlignment="Left" Height="17" Margin="840,0,0,0" TextWrapping="Wrap" Text="StartPageUITest v0.02c" FontSize="11" VerticalAlignment="Top" Width="113" Foreground="#FFFFFFFF"/>
         <TextBlock x:Name="IrisStartPage_Grid_StartNewProjectText" HorizontalAlignment="Left" Height="68" Margin="13,241,0,0" TextWrapping="Wrap" Text="start a new project" VerticalAlignment="Top" Width="128" Foreground="#FFFFFFFF" FontSize="24"/>
 
         <Rectangle x:Name="IrisStartPage_Grid_LoadProject" HorizontalAlignment="Left" Height="205" Margin="245.697,104,0,0" VerticalAlignment="Top" Width="226" Grid.Column="1" Style="{StaticResource GridUI}">
@@ -67,7 +67,7 @@
 
         <TextBlock x:Name="IrisStartPage_Grid_ExitText" HorizontalAlignment="Left" Height="27" Margin="726.697,276,0,0" TextWrapping="Wrap" Text="exit" VerticalAlignment="Top" Width="128" Foreground="#FFFFFFFF" FontSize="24" Grid.Column="1" />
 
-        <TextBlock x:Name="IrisStartPage_Copyright" Grid.Column="1"  Height="22" Margin="809,308,-30,0" TextWrapping="Wrap" Text="© 2019-2021 starfrost" VerticalAlignment="Top" Width="182" Foreground="#FFFFFFFF" FontSize="14" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="IrisStartPage_Copyright"  Height="22" Margin="809,0,-28,3" TextWrapping="Wrap" Text="© 2019-2021 starfrost" VerticalAlignment="Bottom" Width="182" Foreground="#FFFFFFFF" FontSize="14" HorizontalAlignment="Left"/>
 
     </Grid>
 </UserControl>

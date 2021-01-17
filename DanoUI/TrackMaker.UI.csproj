@@ -211,6 +211,10 @@
       <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
       <Name>TrackMaker.Util</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TrackMaker.Core\TrackMaker.Core.csproj">
+      <Project>{5cdc7224-2314-4ea9-971e-dbce8972279f}</Project>
+      <Name>TrackMaker.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TrackMakerUI\Graphing\" />

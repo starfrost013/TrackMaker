@@ -9,5 +9,6 @@
         Title="Category Manager" Height="544.673" Width="796.311" WindowStyle="ToolWindow">
     <Grid>
         <Dano:DanoCategoryManager x:Name="Dano_CategoryManagerUC" CloseHit="CloseHit"></Dano:DanoCategoryManager>
+        
     </Grid>
 </Window>
