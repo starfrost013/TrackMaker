@@ -8,15 +8,23 @@ using System.Windows;
 
 namespace TrackMaker.Core
 {
+
+    /// <summary>
+    /// Holds the settings loading code. 
+    /// </summary>
     public static class SettingsLoader
     {
-
         /// <summary>
-        /// Changed to static - does not require 
+        /// Loads settings.
+        /// 
+        /// Changed to static - does not require MainWindow (Priscilla)
+        /// Iris v2.1.664: move to TrackMaker.Core
         /// </summary>
         public static void LoadSettings2()
         {
             // Loads settings using the Emerald XML Settings API.
+
+            // TODO: make it not throw a fatal error on settings loading failing 
 
             // Load the default category system
             Setting.DefaultCategorySystem = SettingsAPI.GetString("DefaultCategorySystem");
