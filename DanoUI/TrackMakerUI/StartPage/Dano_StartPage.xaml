@@ -20,8 +20,8 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <TextBlock x:Name="IrisStartPage_Welcome" HorizontalAlignment="Left" TextWrapping="Wrap" Text="welcome" VerticalAlignment="Top" Height="78" Width="253" FontSize="60" Foreground="#FFFFFFFF" Margin="7.697,0,0,0" Grid.Column="1"/>
-        <TextBlock x:Name="IrisStartPage_SelectAnOption" HorizontalAlignment="Left" Margin="7.697,69,0,0" TextWrapping="Wrap" Text="select an option to begin" Foreground="#FFFFFFFF" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="IrisStartPage_Welcome" HorizontalAlignment="Left" TextWrapping="Wrap" Text="welcome" VerticalAlignment="Top" Height="78" Width="253" FontSize="68" Foreground="#FFFFFFFF" Margin="6,-4,0,0" FontFamily="Segoe UI Light"/>
+        <TextBlock x:Name="IrisStartPage_SelectAnOption" HorizontalAlignment="Left" Margin="7.697,69,0,0" TextWrapping="Wrap" Text="select an option to begin" Foreground="#FFFFFFFF" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
         <Rectangle x:Name="IrisStartPage_Grid_StartNewProject" HorizontalAlignment="Left" Height="205" Margin="7.697,104,0,0" VerticalAlignment="Top" Width="226" Grid.Column="1" Style="{StaticResource GridUI}">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
@@ -31,7 +31,7 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock x:Name="IrisUIPlaceholderNotification" HorizontalAlignment="Left" Height="17" Margin="840,0,0,0" TextWrapping="Wrap" Text="StartPageUITest v0.02c" FontSize="11" VerticalAlignment="Top" Width="113" Foreground="#FFFFFFFF"/>
+        <TextBlock x:Name="IrisUIPlaceholderNotification" HorizontalAlignment="Left" Height="17" Margin="840,0,0,0" TextWrapping="Wrap" Text="StartPageUITest v0.03" FontSize="11" VerticalAlignment="Top" Width="113" Foreground="#FFFFFFFF"/>
         <TextBlock x:Name="IrisStartPage_Grid_StartNewProjectText" HorizontalAlignment="Left" Height="68" Margin="13,241,0,0" TextWrapping="Wrap" Text="start a new project" VerticalAlignment="Top" Width="128" Foreground="#FFFFFFFF" FontSize="24"/>
 
         <Rectangle x:Name="IrisStartPage_Grid_LoadProject" HorizontalAlignment="Left" Height="205" Margin="245.697,104,0,0" VerticalAlignment="Top" Width="226" Grid.Column="1" Style="{StaticResource GridUI}">

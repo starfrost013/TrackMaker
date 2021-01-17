@@ -113,7 +113,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Core\GlobalState.cs" />
     <Compile Include="Core\Init\Init.cs" />
     <Compile Include="Core\InternalStateVerification\InternalStateVerifier.cs" />
     <Compile Include="DanoProject\Project.cs" />
@@ -182,10 +181,6 @@
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\ParsingUtil\ParsingUtil.cs" />
-    <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
-    <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
-    <Compile Include="V3Graph\IGraph.cs" />
-    <Compile Include="V3MWH\MainWindowState.cs" />
     <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

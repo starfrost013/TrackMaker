@@ -1,0 +1,10 @@
+addgrid
+
+Grid properties:
+- GradientColour1
+- GradientColour2
+- GradientDirection
+- GradientPoints (for each Gradient)
+- Text
+- Icon
+- Size (Point)
