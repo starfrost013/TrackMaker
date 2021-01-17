@@ -28,6 +28,31 @@ namespace Track_Maker
             // Init logging
             Logging.Init(); // temp
 
+            Init_WriteInitLog();
+            Init_InitSettings();
+            Init_InitBasins(); // to be merged with Init_InitGlobalState();
+            Init_InitGlobalState();
+            Init_SetCurrentCategorySystem();
+            Init_SetAccentColour();
+
+        }
+
+        public void Init_Phase2()
+        {
+            Logging.Log("Phase 2 Initialisation now in progress. We successfully loaded settings and basins!");
+            Init_InitProject();
+            Init_InitUI();
+            Init_InitLayers();
+            Init_InitUserTelemetry();
+            Logging.Log("Initialisation completed. Starting render timer...");
+            SetFullscreen(); 
+            UpdateLayout();
+            TickTimer.Start();
+
+        }
+
+        private void Init_WriteInitLog()
+        {
             Assembly Ass = Assembly.GetExecutingAssembly();
 
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Ass.Location);
@@ -40,69 +65,61 @@ namespace Track_Maker
             Logging.Log("@@@@@@@@@@ LOG STARTS HERE @@@@@@@@@@");
             Logging.Log("Starting phase 1 init..."); // log starting.
 
+        }
+
+        private void Init_InitGlobalState()
+        {
+            // doesn't init globalstate rn
+
+            // Initialise the category manager. 
             Logging.Log("Initialising category manager...");
             Catman = new CategoryManager();
             Logging.Log("Loading categories...");
             Catman.InitCategories();
 
-#if DANO
-            Logging.Log("Initialising global state...");
-            GlobalState.Init(); 
-#endif
-
+            // Initialise the storm type manager.
             Logging.Log("Initialising storm type manager...");
             ST2Manager = new StormTypeManager();
             ST2Manager.Init();
+        }
 
+        private void Init_InitSettings()
+        {
             // Load Settings
             Logging.Log("Loading settings...");
             SettingsLoader.LoadSettings2();
 
             if (Setting.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled.");
-            
-            Logging.Log("Loading basins...");
-            GlobalState.LoadBasins();
-            Init_SetCurrentCategorySystem();
-            Init_SetAccentColour();
-
         }
 
-        public void Init_Phase2()
+        private void Init_InitProject()
         {
-            Logging.Log("Phase 2 Initialisation now in progress. We successfully loaded settings and basins!");
             // Phase 2 Init
             CurrentProject = new Project();
             // temp dumb hack
             CurrentProject.AddBasin("Atlantic");
             //ImagePath = CurrentProject.SelectedBasin.ImagePath;
+        }
 
-            InitializeComponent();
+        /// <summary>
+        /// Initialise basins (temp)
+        /// </summary>
+        private void Init_InitBasins()
+        {
+            Logging.Log("Loading basins...");
+            GlobalState.LoadBasins();
+        }
 
-            // DUMB HACK 
+        /// <summary>
+        /// Temp
+        /// </summary>
+        private void Init_InitLayers()
+        {
+            Layers.AddLayer("Background");
+        }
 
-            Logging.Log("Initialized window, starting phase 2...");
-            TickTimer = new Timer();
-            TickTimer.Elapsed += TimerTicked;
-            TickTimer.Interval = 0.000001; // yes
-            TickTimer.Enabled = true;
-            Logging.Log("Initialized global update timer...");
-
-            Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
-
-            Logging.Log("Initialising UI...");
-#if DANO
-            Title = "Track Maker Dano (version 3.0 alpha) - do not use for production purposes!)";
-#elif PRISCILLA
-            Title = "Track Maker 2.1";
-#endif
-            // DisableUI test 
-            if (CurrentProject == null) DisableButtons();
-
-            Init_ConfigureUI();
-            
-            HurricaneBasin.DataContext = this;
-            Layers.Layers.DataContext = this;
-            Layers.UpdateLayout();
+        private void Init_InitUserTelemetry()
+        {
 
             Logging.Log("Obtaining user telemetry consent status and checking for updates...");
             TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
@@ -112,14 +129,6 @@ namespace Track_Maker
                 Logging.Log("This is a pre-release build. Displaying beta warning...");
                 Error.ShowBetaWarning();
             }
-
-            Layers.AddLayer("Background");
-
-            Logging.Log("Initialisation completed. Starting render timer...");
-
-            SetFullscreen(); 
-            UpdateLayout();
-            TickTimer.Start();
 
         }
 
@@ -154,6 +163,35 @@ namespace Track_Maker
                 Setting.AccentColour1 = new Color { A = 255, R = 255, G = 255, B = 255 };
                 Setting.AccentColour2 = new Color { A = 255, R = 255, G = 255, B = 255 };
             }
+        }
+
+        private void Init_InitUI()
+        {
+
+            Logging.Log("Initialising UI...");
+            InitializeComponent();
+
+            // DUMB HACK 
+
+            Logging.Log("Initialized window, starting phase 2...");
+            TickTimer = new Timer();
+            TickTimer.Elapsed += TimerTicked;
+            TickTimer.Interval = 0.000001; // yes
+            TickTimer.Enabled = true;
+            Logging.Log("Initialized global update timer...");
+
+            Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
+
+            Title = "Track Maker 2.1";
+            
+            // DisableUI test 
+            if (CurrentProject == null) DisableButtons();
+
+            Init_ConfigureUI();
+
+            HurricaneBasin.DataContext = this;
+            Layers.Layers.DataContext = this;
+            Layers.UpdateLayout();
         }
 
         private void Init_ConfigureUI()
