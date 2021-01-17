@@ -17,6 +17,29 @@ namespace TrackMaker.Core
             TemporaryFiles = new List<TemporaryFile>(); 
         }
 
+        public FileStream CreateNewFile(string FileName = null, TemporaryFileSettings TFS = null )
+        {
+            TemporaryFile TF = new TemporaryFile();
+
+            if (FileName == null)
+            {
+                return TF.Create();
+            }
+            else
+            {
+                if (TFS != null)
+                {
+                    TF.Settings = TFS;
+                }
+                else
+                {
+                    TF.Settings.Name = FileName;
+                }
+
+                return TF.Create();
+            }
+        }
+
         public void ClearAllFiles()
         {
             foreach (TemporaryFile TF in TemporaryFiles)
@@ -24,9 +47,16 @@ namespace TrackMaker.Core
                 if (File.Exists(TF.FullPath))
                 {
                     File.Delete(TF.FullPath);
+                    
                 }
-                
+                else
+                {
+                    continue; // do something later.
+                }
             }
+
+            TemporaryFiles.Clear();
+            return;
         }
     }
 }

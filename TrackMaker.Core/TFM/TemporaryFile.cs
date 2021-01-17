@@ -42,10 +42,11 @@ namespace TrackMaker.Core
             Settings.Name = $"Iris{XID}.tmp";
         }
 
-        public void Create()
+        public FileStream Create()
         {
             string FullPath = $@"{Settings.TemporaryFileLocation}\{Settings.Name}";
             Stream = new FileStream(FullPath, FileMode.OpenOrCreate);
+            return Stream;
             
         }
        
