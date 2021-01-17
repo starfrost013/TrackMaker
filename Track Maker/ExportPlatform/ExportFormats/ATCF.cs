@@ -356,7 +356,7 @@ namespace Track_Maker
 
                         Category Cat = Storm.GetNodeCategory(Node, MnWindow.Catman.CurrentCategorySystem);
                         
-                        Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position, new Point(MnWindow.Width, MnWindow.Height)); 
+                        Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position, VolatileSettings.WindowSize); 
 
                         SW.Write($"{X.Coordinates.X}{X.Directions[0]},  {X.Coordinates.Y}{X.Directions[1]},  ");
 
