@@ -73,6 +73,7 @@
     <Compile Include="Settings2\Enums\WndStyle.cs" />
     <Compile Include="Settings2\SettingLoader.cs" />
     <Compile Include="Settings2\SettingsAPI.cs" />
+    <Compile Include="Settings2\VolatileSettings.cs" />
     <Compile Include="StormType\RealStormTypes\RealStormTypes.cs" />
     <Compile Include="StormType\Shape\Shape.cs" />
     <Compile Include="StormType\Shape\StormShape.cs" />
@@ -96,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Schema\Components\Basin.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\Components\Settings.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -171,7 +171,6 @@
     <Compile Include="ExportPlatform\ExportFormats\HURDAT2.cs" />
     <Compile Include="ExportPlatform\IExportFormat.cs" />
     <Compile Include="ExportPlatform\IImageExportFormat.cs" />
-    <Compile Include="Core\Error.cs" />
     <Compile Include="UI\Core\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
     </Compile>

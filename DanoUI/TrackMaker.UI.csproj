@@ -53,6 +53,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -66,10 +67,16 @@
     <Compile Include="Core\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrackMakerUI\Components\Iris_ColourPicker.xaml.cs">
+      <DependentUpon>Iris_ColourPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrackMakerUI\Export\Iris_ExportUI.xaml.cs">
+      <DependentUpon>Iris_ExportUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TrackMakerUI\Layer\RenameLayer\Priscilla_RenameLayer.xaml.cs">
       <DependentUpon>Priscilla_RenameLayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrackMakerUI\Core\Dano_TypeSelectorBox.xaml.cs">
+    <Compile Include="TrackMakerUI\Components\Dano_TypeSelectorBox.xaml.cs">
       <DependentUpon>Dano_TypeSelectorBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="TrackMakerUI\AddTrackPoint\Dano_AddTrackPoint.xaml.cs">
@@ -106,11 +113,11 @@
     <Compile Include="TrackMakerUI\QualityControl\Priscilla_QualityControl.xaml.cs">
       <DependentUpon>Priscilla_QualityControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrackMakerUI\Settings\Iris_SettingsUI.xaml.cs">
+      <DependentUpon>Iris_SettingsUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TrackMakerUI\ZoomControl\Priscilla_ZoomControl.xaml.cs">
       <DependentUpon>Priscilla_ZoomControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TrackMakerUI\Error\Priscilla_ErrorUI.xaml.cs">
-      <DependentUpon>Priscilla_ErrorUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrackMakerUI\StartPage\Dano_StartPage.xaml.cs">
@@ -122,11 +129,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TrackMakerUI\Components\Iris_ColourPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TrackMakerUI\Export\Iris_ExportUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TrackMakerUI\Layer\RenameLayer\Priscilla_RenameLayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Core\Dano_TypeSelectorBox.xaml">
+    <Page Include="TrackMakerUI\Components\Dano_TypeSelectorBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,6 +185,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TrackMakerUI\Settings\Iris_SettingsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TrackMakerUI\StartPage\Dano_StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,10 +205,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackMakerUI\Error\Priscilla_ErrorUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Starfrost.UL5\TrackMaker.Util.csproj">
@@ -198,9 +213,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="TrackMakerUI\Export\" />
     <Folder Include="TrackMakerUI\Graphing\" />
-    <Folder Include="TrackMakerUI\Settings\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
