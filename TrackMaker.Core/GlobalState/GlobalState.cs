@@ -19,7 +19,7 @@ namespace TrackMaker.Core
     /// 
     /// 10/31/20
     /// </summary>
-    public class GlobalStateP // move to Starfrost UL5 Version 5.3?. This may also be made a non-static class
+    public class GlobalState // move to Starfrost UL5 Version 5.3?. This may also be made a non-static class
     {
         /// <summary>
         /// Category Manager (not static for now)
@@ -48,7 +48,7 @@ namespace TrackMaker.Core
         /// 
         /// Iris: replace with deserialisation
         /// </summary>
-        internal static void LoadBasins()
+        public static void LoadBasins()
         {
             try
             {

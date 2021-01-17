@@ -158,7 +158,7 @@ namespace TrackMaker.Core
 
         public void SelectBasin(string Name)
         {
-            foreach (Basin Basin in GlobalStateP.OpenBasins)
+            foreach (Basin Basin in GlobalState.OpenBasins)
             {
                 if (Basin.Name == Name) SelectedBasin = Basin;
                 break;
@@ -190,7 +190,7 @@ namespace TrackMaker.Core
         /// <returns></returns>
         public Basin GetBasinWithName(string Name)
         {
-            foreach (Basin Basin in GlobalStateP.OpenBasins)
+            foreach (Basin Basin in GlobalState.OpenBasins)
             {
                 if (Basin.Name == Name) return Basin;
             }
@@ -208,7 +208,7 @@ namespace TrackMaker.Core
             List<string> _ = new List<string>();
 
             // Iterate through all of the storms
-            foreach (Basin CurBasin in GlobalStateP.OpenBasins)
+            foreach (Basin CurBasin in GlobalState.OpenBasins)
             {
                 _.Add(CurBasin.Name);
             }
@@ -218,7 +218,7 @@ namespace TrackMaker.Core
 
         public Basin GetBasinWithAbbreviation(string Abbreviation)
         {
-            foreach (Basin Basin in GlobalStateP.OpenBasins)
+            foreach (Basin Basin in GlobalState.OpenBasins)
             {
                 if (Basin.Abbreviation == Abbreviation)
                 {

@@ -40,6 +40,8 @@ namespace TrackMaker.Core
             }
         }
 
+        public TemporaryFile CreateNewEmptyFile() => new TemporaryFile();
+
         public void ClearAllFiles()
         {
             foreach (TemporaryFile TF in TemporaryFiles)
@@ -57,6 +59,16 @@ namespace TrackMaker.Core
 
             TemporaryFiles.Clear();
             return;
+        }
+
+        public TemporaryFile GetTemporaryFileWithName(string Name)
+        {
+            foreach (TemporaryFile TF in TemporaryFiles)
+            {
+                if (TF.Settings.Name == Name) return TF; 
+            }
+
+            return null; 
         }
     }
 }
