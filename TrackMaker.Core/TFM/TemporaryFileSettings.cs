@@ -12,7 +12,11 @@ namespace TrackMaker.Core
     /// </summary>
     public class TemporaryFileSettings
     {
-
+        
+        /// <summary>
+        /// Internal: Full path to this file. 
+        /// </summary>
+        internal string FullPath { get; set; }
 
         /// <summary>
         /// The name of this temporary file.
@@ -28,6 +32,7 @@ namespace TrackMaker.Core
         /// Location to save this temporary file
         /// </summary>
         public string TemporaryFileLocation { get; set; }
+
 
         public TemporaryFileSettings()
         {

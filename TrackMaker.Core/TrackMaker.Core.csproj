@@ -66,6 +66,7 @@
     <Compile Include="GlobalState\GlobalState.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Layer\LayerCollection.cs" />
+    <Compile Include="Logging\Logging.cs" />
     <Compile Include="Project\Project.cs" />
     <Compile Include="Scale\Direction.cs" />
     <Compile Include="Settings2\ApplicationSettings.cs" />
@@ -91,9 +92,9 @@
     <Compile Include="TFM\TemporaryFileSettings.cs" />
     <Compile Include="TProj2\TProj2File.cs" />
     <Compile Include="TProj2\TProj2Metadata.cs" />
-    <Compile Include="V3Graph\GraphPoint\GraphLine.cs" />
-    <Compile Include="V3Graph\GraphPoint\GraphPoint2D.cs" />
-    <Compile Include="V3Graph\IGraph.cs" />
+    <Compile Include="Graphing\GraphPoint\GraphLine.cs" />
+    <Compile Include="Graphing\GraphPoint\GraphPoint2D.cs" />
+    <Compile Include="Graphing\IGraph.cs" />
     <Compile Include="V3MWH\MainWindowState.cs" />
   </ItemGroup>
   <ItemGroup>

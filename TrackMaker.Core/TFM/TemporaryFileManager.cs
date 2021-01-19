@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace TrackMaker.Core
 {
+
+    /// <summary>
+    /// Temporary File Manager API v1.2.0
+    /// 
+    /// 2021-01-18
+    /// </summary>
     public class TemporaryFileManager
     {
+        public static int TFMAPI_VersionMajor = 1;
+        public static int TFMAPI_VersionMinor = 2;
+        public static int TFMAPI_VersionRevision = 0;
 
         public List<TemporaryFile> TemporaryFiles { get; set; }
 
@@ -17,27 +26,24 @@ namespace TrackMaker.Core
             TemporaryFiles = new List<TemporaryFile>(); 
         }
 
-        public FileStream CreateNewFile(string FileName = null, TemporaryFileSettings TFS = null )
+        /// <summary>
+        /// Create a new temporary file with optional name and settings. Returns a FileStream that can be used for opening things.
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <param name="TFS"></param>
+        /// <returns></returns>
+        public FileStream CreateNewFile(TemporaryFileSettings TFS = null)
         {
             TemporaryFile TF = new TemporaryFile();
 
-            if (FileName == null)
+            if (TFS != null)
             {
-                return TF.Create();
+                TF.Settings = TFS;
+                
             }
-            else
-            {
-                if (TFS != null)
-                {
-                    TF.Settings = TFS;
-                }
-                else
-                {
-                    TF.Settings.Name = FileName;
-                }
 
-                return TF.Create();
-            }
+            return TF.Create(); 
+
         }
 
         public TemporaryFile CreateNewEmptyFile() => new TemporaryFile();
@@ -66,6 +72,28 @@ namespace TrackMaker.Core
             foreach (TemporaryFile TF in TemporaryFiles)
             {
                 if (TF.Settings.Name == Name) return TF; 
+            }
+
+            return null; 
+        }
+
+        public FileStream OpenTemporaryFileWithName(string Name)
+        {
+            foreach (TemporaryFile TF in TemporaryFiles)
+            {
+                if (TF.Settings.Name == Name)
+                {
+                    try
+                    {
+                        TF.Stream = new FileStream(TF.Settings.FullPath, FileMode.Open);
+                        return TF.Stream;
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        return null; 
+                    }
+
+                }
             }
 
             return null; 

@@ -17,11 +17,11 @@ using System.Windows;
 /// 
 /// File created: 2019-11-09
 /// 
-/// File modified: 2020-11-27   Priscilla v542
+/// File modified: 2021-01-18       Iris v676
 /// </summary>
 
 
-namespace TrackMaker.Util.Logging
+namespace TrackMaker.Core
 {
     /// <summary>
     /// A static class used for logging debug information.
@@ -48,12 +48,20 @@ namespace TrackMaker.Util.Logging
         {
             try
             {
+                FileName = $"Iris-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
+
+                TemporaryFileSettings TFS = new TemporaryFileSettings();
+                TFS.TemporaryFileLocation = ".";
+                TFS.Name = FileName;
+                TFS.Persistent = false;
+
                 if (IsNew)
                 {
                     // Crippling this as we're integrating it with the track maker.
-                    FileName = $"Iris-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
 
-                    using (StreamWriter SW = new StreamWriter(File.Create(FileName)))
+
+                    FileStream XF = GlobalState.TFM.CreateNewFile();
+                    using (StreamWriter SW = new StreamWriter(XF))
                     {
                         SW.BaseStream.Seek(0, SeekOrigin.End);
                         SW.WriteLine($@"{LogHeader} [{DateTime.Now}] - {Text}");

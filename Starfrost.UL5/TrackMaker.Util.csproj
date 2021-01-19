@@ -58,7 +58,6 @@
     <Compile Include="InputValidation\GenericResult.cs" />
     <Compile Include="InputValidation\ResultFactory\ResultFactory.cs" />
     <Compile Include="InputValidation\ValidationResult.cs" />
-    <Compile Include="Logging\Logging.cs" />
     <Compile Include="MathUtil\MathUtil.cs" />
     <Compile Include="Platform\TL_DetermineRuntimePlatform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

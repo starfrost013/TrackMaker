@@ -25,7 +25,6 @@ namespace TrackMaker.Core
         /// <summary>
         /// The settings used for saving this temporary file.
         /// </summary>
-        /// 
         public TemporaryFileSettings Settings { get; set; }
         /// <summary>
         /// The stream used for read/write this file. 

@@ -15,7 +15,7 @@ namespace TrackMaker.Core
     /// 
     /// GlobalState.Priscilla
     /// 
-    /// Version 2.0 Global State
+    /// Version 2.0 Global State - holds parts of the track maker state that are global; temporary until .0 when we have a proper main class.
     /// 
     /// 10/31/20
     /// </summary>
@@ -25,14 +25,24 @@ namespace TrackMaker.Core
         /// Category Manager (not static for now)
         /// </summary>
         public CategoryManager CategoryManager { get; set; }
+
         /// <summary>
         /// Name of the current export format
         /// </summary>
         public static string CurrentExportFormatName { get; set; }
+
+        /// <summary>
+        /// Name fo the currently open file
+        /// </summary>
         public static string CurrentlyOpenFile { get; set; }
         public static List<Basin> OpenBasins { get; set; }
         public static void SetCurrentOpenFile(string FileName) => CurrentlyOpenFile = FileName;
         public static string GetCurrentOpenFile() => CurrentlyOpenFile;
+        
+        /// <summary>
+        /// Temporary File Manager (Iris)
+        /// </summary>
+        public static TemporaryFileManager TFM { get; set; }
 
         /// <summary>
         /// Storm Type Manager (Iris)
