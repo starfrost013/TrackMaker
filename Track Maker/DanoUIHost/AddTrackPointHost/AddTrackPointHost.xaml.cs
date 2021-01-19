@@ -30,12 +30,36 @@ namespace Track_Maker
             AddTrackPointControl.TypeNames = StormNames;
             AddTrackPointControl.MousePosition = Position;
             StormNameList = StormNames;
-            AddTrackPointControl.StartTime = SeasonStartTime; 
+            AddTrackPointControl.StartTime = SeasonStartTime;
+            ToggleAdvancedSettings(false); // bad but will be improved
+        }
+
+        public void AdvancedSettingsToggleChanged(object sender, DanoEventArgs DEA)
+        {
+            Debug.Assert(DEA.DanoParameters.Count == 1); 
+
+            bool AdvancedSettingsToggleState = (bool)DEA.DanoParameters[0];
+
+            ToggleAdvancedSettings(AdvancedSettingsToggleState);
+
+        }
+
+        private void ToggleAdvancedSettings(bool AdvancedSettingsToggleState)
+        {
+            switch (AdvancedSettingsToggleState)
+            {
+                case true:
+                    Height = 300.331;
+                    return;
+                case false:
+                    Height = 257;
+                    return; 
+            }
         }
 
         public void OKHit(object sender, DanoEventArgs DEA)
         {
-            Debug.Assert(DEA.DanoParameters.Count == 3);
+            Debug.Assert(DEA.DanoParameters.Count == 4);
 
 #if DANO
             Basin CBasin = GlobalState.GetCurrentBasin(); // only valid when project valid
@@ -43,10 +67,27 @@ namespace Track_Maker
 #else
             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
             Storm Sto = MnWindow.CurrentProject.SelectedBasin.GetCurrentStorm();
+
+            try
+            {
+                int Intensity = (int)DEA.DanoParameters[0];
+                string Type = (string)DEA.DanoParameters[1];
+                Point Position = (Point)DEA.DanoParameters[2];
+                int Pressure = (int)DEA.DanoParameters[3];
+
+                Sto.AddNode(Intensity, Type, Position, Pressure, MnWindow.ST2Manager);
+                Close();
+            }
+            catch (InvalidCastException err)
+            {
+#if DEBUG
+                Error.Throw("Warning!", $"Internal error: Cannot convert DanoParameters to their actual types.\n\n{err}", ErrorSeverity.Warning, 403);
+#else
+                Error.Throw("Warning!", "Internal error: Cannot convert DanoParameters to their actual types.\n\n{err}", ErrorSeverity.Warning, 403); 
 #endif
-            // TEMP
-            Sto.AddNode((int)DEA.DanoParameters[0], (string)DEA.DanoParameters[1], (Point)DEA.DanoParameters[2], MnWindow.ST2Manager);
-            Close();
+#endif
+            }
+
         }
 
     }

@@ -65,7 +65,7 @@ namespace TrackMaker.Core
         public bool ForceColour { get; set; }
 
         /// <summary>
-        /// If ForceColour is true, the colour that is forced by this StormType.
+        /// If ForceColour is true, the colour that is forced by this StormType. Also used in GraphUI
         /// </summary>
         /// 
         [XmlElement("ForceColour")]

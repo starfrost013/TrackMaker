@@ -46,12 +46,16 @@ All XML loaders will be rewritten to use schemas and serialisation. This will as
 25. Project naming
 Allow the naming of projects.
 26. TScript + Autoexec.xml [Tentative]
-The Track Maker will support a basic scripting format called TScript. It will allow the user to dynamically configure the Track Maker at any point, as well as customising any part ona  set of predefined user actions. It will also support limited UI creation (adding buttons to the Menu) and opening up windows. Probably going to fully become available in 3.0; I haven't decided if I should do this.
+The Track Maker will support a basic scripting format called TScript. It will allow the user to dynamically configure the Track Maker at any point, as well as customising any part on a set of predefined user actions. It will also support limited UI creation (adding buttons to the Menu) and opening up windows. Probably going to fully become available in 3.0; I haven't decided if I should do this.
 
 Autoexec.xml is a file that will allow you to run a particular set of TScript commands at startup. It is combined with Init.tsc, a TScript setting fundamental TrackMaker variables.
+
+27. Settings classes
+Split many of the Node attributes into NodeSettings to reduce code use. Same for basins, storm types, and probably some other stuff.
+
 ==Priority 3==
-27. Start Page
-28. Coordinate saving
+28. Start Page
+29. Coordinate saving
 Have a setting that would modify the Track Maker to use cooerdinate positions at all times; this would allow easy export to ATCF / HURDAT2 and also allow coordinate support to be added to TProj2.
-29. "Storm View"
+30. "Storm View"
 Monsoon simulator style storm view. 

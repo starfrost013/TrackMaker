@@ -25,11 +25,21 @@ namespace TrackMaker.UI
         public Point MousePosition { get; set; }
 
         /// <summary>
+        /// Event triggered when the Advanced Settings togglebox is hit.
+        /// 
+        /// Param 0     Bool    The state of the Advanced Settings togglebox.
+        /// </summary>
+
+        public EventHandler<DanoEventArgs> AdvancedSettingsToggleChanged { get; set; }
+
+        /// <summary>
         /// DanoParameters [OKHit: OK button hit]
         /// 
         /// Param 0     Int     Intensity of this track node
         /// Param 1     String  Type of this track node 
         /// Param 2     Point   Mouse position  
+        /// Param 3     String  Pressure
+        /// 
         /// </summary>
         public EventHandler<DanoEventArgs> OKHit { get; set; }
         public AddTrackPoint()
@@ -57,6 +67,17 @@ namespace TrackMaker.UI
                 DEA.DanoParameters.Add(TypeSelect.GetSelectedItem());
                 DEA.DanoParameters.Add(MousePosition);
 
+                if (OptionalSetting_Pressure.Text == "")
+                {
+                    // Add a placeholder in the case the pressure has not been specified.
+                    DEA.DanoParameters.Add(1000);
+                }
+                else
+                {
+                    DEA.DanoParameters.Add(Convert.ToInt32(OptionalSetting_Pressure.Text));
+                }
+                
+
                 OKHit(this, DEA);
             }
             catch (OverflowException err)
@@ -78,5 +99,13 @@ namespace TrackMaker.UI
             }
         }
 
+        private void ShowOptionalSettings_Checked(object sender, RoutedEventArgs e)
+        {
+            bool AdvancedSettingsChecked = (bool)ShowOptionalSettings.IsChecked; 
+
+            DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(AdvancedSettingsChecked);
+            AdvancedSettingsToggleChanged(this, DEA);
+        }
     }
 }

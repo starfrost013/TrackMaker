@@ -1,5 +1,4 @@
 ﻿using BetterWin32Errors;
-using TrackMaker.Util.Logging;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -36,9 +35,9 @@ namespace TrackMaker.Util.Win32X
         /// <returns></returns>
         public static int GetSystemMetrics__Managed(SystemMetric SysMetric)
         {
-            LogLeavingCLR();
+            //LogLeavingCLR();
             int Result = GetSystemMetrics(SysMetric); 
-            LogEnteringCLR();
+           // LogEnteringCLR();
             CheckLastWin32Error(); 
 
             return Result;
@@ -46,20 +45,24 @@ namespace TrackMaker.Util.Win32X
 
         public static int MessageBox__Managed(string Text, string Caption, uint Type) // Enum required
         {
-            LogLeavingCLR();
+            //LogLeavingCLR();
 
             int HWND = GetForegroundWindow();
             CheckLastWin32Error();
             int MBResult = MessageBox(HWND, Text, Caption, Type);
             CheckLastWin32Error(); 
-            LogEnteringCLR();
+           // LogEnteringCLR();
             CheckLastWin32Error();
 
             return MBResult; 
         }
 
-        private static void LogEnteringCLR() => Logging.Logging.Log("Now entering managed code - Win32 function has been called");
-        private static void LogLeavingCLR() => Logging.Logging.Log("Now exiting managed code - calling Win32 function");
+        /*
+         * 
+         * for now due to code restructuring this doesn't work
+        private static void LogEnteringCLR() => Logging.Log("Now entering managed code - Win32 function has been called");
+        private static void LogLeavingCLR() => Logging.Log("Now exiting managed code - calling Win32 function");
+        */ 
 
         private static void CheckLastWin32Error()
         {

@@ -1,5 +1,4 @@
-﻿using TrackMaker.Util.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,8 +60,10 @@ namespace TrackMaker.Core
         /// Add a node to this storm.
         /// 
         /// STM is temporary until globalstate is ported over
+        /// 
+        /// create NodeInformation class later
         /// </summary>
-        public void AddNode(int Intensity, string Type, Point Pos, StormTypeManager TEMPORARY__STM) // String in this case bad but swnabhfabg
+        public void AddNode(int Intensity, string Type, Point Pos, int Pressure, StormTypeManager TEMPORARY__STM) // String in this case bad but swnabhfabg
         {
             Node NewNode = new Node();
 
@@ -82,6 +83,15 @@ namespace TrackMaker.Core
 
             // Get id.
             NewNode.Id = NodeList.Count;
+
+            if (Pressure < 0)
+            {
+                Error.Throw("Warning", "Pressure cannot be less than zero!", ErrorSeverity.Warning, 400);
+            }
+            else
+            {
+                NewNode.Pressure = Pressure; 
+            }
 
             // Set node position.
             NewNode.Position = Pos;

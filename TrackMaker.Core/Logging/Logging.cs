@@ -60,7 +60,7 @@ namespace TrackMaker.Core
                     // Crippling this as we're integrating it with the track maker.
 
 
-                    FileStream XF = GlobalState.TFM.CreateNewFile();
+                    FileStream XF = GlobalState.TFM.CreateNewFile(TFS);
                     using (StreamWriter SW = new StreamWriter(XF))
                     {
                         SW.BaseStream.Seek(0, SeekOrigin.End);
@@ -69,7 +69,8 @@ namespace TrackMaker.Core
                 }
                 else
                 {
-                    using (StreamWriter SW = new StreamWriter(File.Open(FileName, FileMode.OpenOrCreate))) // OpenOrCreate just in case
+                    FileStream XF = GlobalState.TFM.CreateNewFile(TFS);
+                    using (StreamWriter SW = new StreamWriter(XF)) // OpenOrCreate just in case
                     {
                         SW.BaseStream.Seek(0, SeekOrigin.End);
                         SW.WriteLine($@"{LogHeader} [{DateTime.Now}] - {Text}");

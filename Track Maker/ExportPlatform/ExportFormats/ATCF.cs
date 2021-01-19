@@ -92,7 +92,6 @@ namespace Track_Maker
                 else
                 {
                     //temp
-
                     IR.Status = ExportResults.Cancelled;
                     return IR; 
                 }
@@ -107,10 +106,21 @@ namespace Track_Maker
                 Error.Throw("Error", "The path to the file is longer than 260 characters. Please shorten it.", ErrorSeverity.Error, 150);
                 return null; 
             }
+            catch (FormatException)
+            {
+                Error.Throw("Error", "Attempted to import a node with invalid pressure or intensity!", ErrorSeverity.Error, 401);
+                return null;
+            }
+            catch (OverflowException)
+            {
+                Error.Throw("Error", "Attempted to import a node with invalid pressure or intensity!", ErrorSeverity.Error, 402);
+                return null;
+            }
             
         }
 
         // pre-globalstate...refactor this in Dano to not have that passed to it
+        // this code is terrible
         public Project ImportCore(StormTypeManager ST2M, string FolderName)
         {
             // this is one of the worst fucking file formats I have ever laid my fucking eyes on, NOAA are a bunch of fucking wanker twats, nobody should use this pile of crap
@@ -154,6 +164,7 @@ namespace Track_Maker
                     string _StrCoordX = Components[6];
                     string _StrCoordY = Components[7];
                     string _StrIntensity = Components[8];
+                    string _StrPressure = Components[9];
                     string _StrCategory = Components[10];
                     string _StrName = Components[28]; // bleh 
 
@@ -162,12 +173,13 @@ namespace Track_Maker
                     _StrId = _StrId.Trim(); 
                     _StrTime = _StrTime.Trim();
                     _StrTimeSinceFormation = _StrTimeSinceFormation.Trim();
+                    _StrPressure = _StrPressure.Trim();
                     _StrCoordX = _StrCoordX.Trim();
                     _StrCoordY = _StrCoordY.Trim();
                     _StrIntensity = _StrIntensity.Trim();
                     _StrCategory = _StrCategory.Trim();
                     _StrName = _StrName.Trim();
-
+                    
                     // initialise the basin with the abbreviation loaded from XML
                     // we just use the name if there is no abbreviation specified in XML
                     int Intensity = 0;
@@ -213,6 +225,7 @@ namespace Track_Maker
 
                     Nod.Position = Bas.FromCoordinateToNodePosition(Coord, new Point(MnWindow.Width, MnWindow.Height));
                     Nod.NodeType = ATCFHelperMethods.Export_GetStormType(_StrCategory);
+                    Nod.Pressure = Convert.ToInt32(_StrPressure); 
 
                     Sto.AddNode(Nod);
                     
@@ -374,7 +387,7 @@ namespace Track_Maker
                         SW.Write($"{Intensity}, ");
 
                         // Pressure. We don't do this until dano and even then it will be optional. Just put 1000mbars
-                        SW.Write("1000, ");
+                        SW.Write($"{Node.Pressure}, ");
 
                         // Write the category and a WHOLE bunch of information that we don't need or use yet - environmental pressure etc - I don't know what most of these are tbh
 

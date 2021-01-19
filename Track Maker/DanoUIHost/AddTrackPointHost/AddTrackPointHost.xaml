@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:Track_Maker"
         xmlns:Dano="clr-namespace:TrackMaker.UI;assembly=TrackMaker.UI"
         mc:Ignorable="d"
-        Title="Add Track Point" Height="237" Width="755" WindowStyle="ToolWindow">
+
+        Title="Add Track Point" Height="300.331" Width="755" WindowStyle="ToolWindow">
+    <!-- Advanced Settings disabled = 237 -->
     <Grid>
-        <Dano:AddTrackPoint x:Name="AddTrackPointControl" OKHit="OKHit"></Dano:AddTrackPoint>
+        <Dano:AddTrackPoint x:Name="AddTrackPointControl" AdvancedSettingsToggleChanged="OnAdvancedSettingsToggleChanged" OKHit="OKHit"></Dano:AddTrackPoint>
     </Grid>
 </Window>

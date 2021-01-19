@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using TrackMaker.Core;
-using TrackMaker.Util.Logging;
+
 using TrackMaker.Util.ScaleUtilities;
 using TrackMaker.Util.StringUtilities;
 
@@ -129,6 +129,7 @@ namespace Track_Maker
                             string _Latitude = Components[5];
                             string _Longitude = Components[6];
                             string _WindSpeed = Components[7];
+                            string _Pressure = Components[8];
 
                             // Trim everything.
                             _Date = _Date.Trim();
@@ -137,6 +138,7 @@ namespace Track_Maker
                             _Latitude = _Latitude.Trim();
                             _Longitude = _Longitude.Trim();
                             _WindSpeed = _WindSpeed.Trim();
+                            _Pressure = _Pressure.Trim();
 
                             // first real information
                             if (j == 1)
@@ -166,6 +168,7 @@ namespace Track_Maker
 
                             CN.Position = Bas.FromCoordinateToNodePosition(Coordinate, new Point(MnWindow.Width, MnWindow.Height));
 
+                            CN.Pressure = Convert.ToInt32(_Pressure); 
                             Sto.AddNode(CN);
 
                         }
@@ -362,7 +365,7 @@ namespace Track_Maker
 
                             // we don't save this data lol. 
                             // yes i could just write the comma 
-                            SW.Write($"{No.Intensity},   914,  150,  110,   90,  150,   80,   60,   50,   70,   45,   40,   30,   45");
+                            SW.Write($"{No.Intensity},   {No.Pressure},  150,  110,   90,  150,   80,   60,   50,   70,   45,   40,   30,   45");
                              
                             if (No.Id != Sto.NodeList.Count - 1)
                             {
