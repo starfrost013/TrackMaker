@@ -1,6 +1,5 @@
 ﻿using TrackMaker.UI;
 using TrackMaker.Util.Core;
-using TrackMaker.Util.Logging;
 using TrackMaker.Util.WpfUtil;
 using System;
 using System.Collections.Generic;
@@ -160,6 +159,7 @@ namespace Track_Maker
         private void Shutdown(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TickTimer.Stop();
+            GlobalState.TFM.ClearAllFiles(); 
         }
 
 

@@ -1,5 +1,4 @@
 ﻿using TrackMaker.Util.Core;
-using TrackMaker.Util.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,7 +23,8 @@ namespace Track_Maker
     {
         public void Init_Phase1()
         {
-            
+            // init order fucked, need to split subsystem init and subsystem data loading
+            Init_InitTFM();
             // Init logging
             Logging.Init(); // temp
 
@@ -67,6 +67,8 @@ namespace Track_Maker
 
         }
 
+        private void Init_InitTFM() => GlobalState.TFM = new TemporaryFileManager();
+
         private void Init_InitGlobalState()
         {
             // doesn't init globalstate rn
@@ -81,6 +83,8 @@ namespace Track_Maker
             Logging.Log("Initialising storm type manager...");
             ST2Manager = new StormTypeManager();
             ST2Manager.Init();
+
+
         }
 
         private void Init_InitSettings()

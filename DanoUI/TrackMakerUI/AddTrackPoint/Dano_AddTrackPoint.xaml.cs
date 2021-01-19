@@ -74,7 +74,7 @@ namespace TrackMaker.UI
                 }
                 else
                 {
-                    DEA.DanoParameters.Add(Convert.ToInt32(OptionalSetting_Pressure.Text));
+                    DEA.DanoParameters.Add(Convert.ToInt32(OptionalSetting_PressureBox.Text));
                 }
                 
 

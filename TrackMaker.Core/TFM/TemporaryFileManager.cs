@@ -48,7 +48,7 @@ namespace TrackMaker.Core
 
         public TemporaryFile CreateNewEmptyFile() => new TemporaryFile();
 
-        public void ClearAllFiles()
+        public void ClearAllFiles(bool KeepMostRecentFile = false)
         {
             foreach (TemporaryFile TF in TemporaryFiles)
             {

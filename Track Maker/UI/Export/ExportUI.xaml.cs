@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TrackMaker.Core;
-using TrackMaker.Util.Logging;
 using TrackMaker.Util.ScaleUtilities;
 
 namespace Track_Maker

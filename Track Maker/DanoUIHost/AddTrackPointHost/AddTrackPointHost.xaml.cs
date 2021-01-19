@@ -34,7 +34,7 @@ namespace Track_Maker
             ToggleAdvancedSettings(false); // bad but will be improved
         }
 
-        public void AdvancedSettingsToggleChanged(object sender, DanoEventArgs DEA)
+        private void OnAdvancedSettingsToggleChanged(object sender, DanoEventArgs DEA)
         {
             Debug.Assert(DEA.DanoParameters.Count == 1); 
 
@@ -52,7 +52,7 @@ namespace Track_Maker
                     Height = 300.331;
                     return;
                 case false:
-                    Height = 257;
+                    Height = 237;
                     return; 
             }
         }
