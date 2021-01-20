@@ -1,5 +1,5 @@
 ﻿// EVERYTHING ABOUT THIS IS TERRIBLE
-// IN V2.1 WE WILL MAKE THIS DESERIALISED
+// IN V2.1 WE WILL MAKE THIS SERIALISED
 
 using Microsoft.Win32;
 using System;
@@ -17,7 +17,7 @@ using TrackMaker.Util.StringUtilities;
 namespace Track_Maker
 {
     /// <summary>
-    /// TProj-v2 format
+    /// Track Maker Project version 2.x (TProj2) for Track Maker Priscilla (2.0) and Iris (2.1)
     /// 
     /// Priscilla v442
     /// 
@@ -33,6 +33,7 @@ namespace Track_Maker
     /// Version 2.3      Priscilla v550      Changed root node name from "Proj" to "Project" and changed extension from *.tproj to *.tproj2
     /// Version 2.3b     Priscilla v571      Removed AutoStart
     /// Version 2.4      Priscilla v604      PRISCILLA CODEFREEZE: Add local user name for author (2020-12-20)
+    /// Version 2.5      Iris      v682      Added pressure support; added version check preparation for schema-based rewrite
     /// 
     /// </summary>
 
@@ -44,7 +45,7 @@ namespace Track_Maker
 
         // Format Version
         public static int FormatVersionMajor = 2;
-        public static int FormatVersionMinor = 4;
+        public static int FormatVersionMinor = 5;
 
         public ExportXMLv2()
         {
@@ -87,14 +88,22 @@ namespace Track_Maker
             // error checking
             catch (IOException err)
             {
-                MessageBox.Show($"An error occurred while writing to XML format. [Error Code: EX1].\n\n{err}");
-                Application.Current.Shutdown(-0xE1);
+#if DEBUG
+                Error.Throw("Error!", $"An error occurred while writing the project.\n\n{err}", ErrorSeverity.Error, 404);
+#else
+                Error.Throw("Error!", "An error occurred while writing the project.", ErrorSeverity.Error, 404);
+#endif
+
                 return false;
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"An error occurred while saving the XML file. [Error Code: EX2].\n\n{err}");
-                Application.Current.Shutdown(-0xE2);
+#if DEBUG
+                Error.Throw("Error!", $"An error occurred while writing the project - XML malformed\n\n{err}", ErrorSeverity.Error, 405);
+#else
+                Error.Throw("Error!", "An error occurred while writing the project - XML malformed!", ErrorSeverity.Error, 405);
+#endif
+
                 return false;
             }
         }
@@ -170,16 +179,19 @@ namespace Track_Maker
                             XmlNode XNodeNode = XDoc.CreateElement("Node");
                             XmlNode XNodeIntensity = XDoc.CreateElement("Intensity");
                             XmlNode XNodePosition = XDoc.CreateElement("Position");
+                            XmlNode XNodePressure = XDoc.CreateElement("Pressure");
                             XmlNode XNodeType = XDoc.CreateElement("Type");
 
                             // set the info
                             XNodeIntensity.InnerText = XNode.Intensity.ToString();
                             XNodePosition.InnerText = XNode.Position.ToStringEmerald();
+                            XNodePressure.InnerText = XNode.Pressure.ToString();
                             XNodeType.InnerText = XNode.NodeType.Name;
 
                             // build the node list xml structure
                             XNodeNode.AppendChild(XNodeIntensity);
                             XNodeNode.AppendChild(XNodePosition);
+                            XNodeNode.AppendChild(XNodePressure); 
                             XNodeNode.AppendChild(XNodeType);
                             XStormNodeList.AppendChild(XNodeNode);
                         }
@@ -304,6 +316,13 @@ namespace Track_Maker
             }
         }
 #if PRISCILLA
+        /// <summary>
+        /// Imports from Tproj2.
+        /// 
+        /// This is a disaster and terrible. It shall soon be rewritten using the "magic" of XML schemas and serialisation...
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <returns></returns>
         public XMLImportResult__DEPRECATED ImportCore(string FileName)
         {
             XMLImportResult__DEPRECATED XER = new XMLImportResult__DEPRECATED();
@@ -317,6 +336,7 @@ namespace Track_Maker
             Project Proj = new Project();
             Proj.FileName = FileName;
 
+            Logging.Log("ALERT: Running complete disaster known as TProjv2 export code, stand by for any and all possible errors up to and including complete and utter obliteration of program state..."); 
 #if DANO
             Proj.Basins = GlobalState.LoadedBasins;
 #else
@@ -333,6 +353,50 @@ namespace Track_Maker
                 switch (XDRA.Name)
                 {
                     case "Metadata":
+                        // version check 
+
+                        XmlNodeList MetadataNodes = XDRA.ChildNodes;
+
+                        // 2.1 was the earliest TProj2 format version that worked, although it was 2.2c? / 2.3 for import
+                        int FileMajorFormatVersion = 2;
+                        int FileMinorFormatVersion = 1; 
+
+                        foreach (XmlNode MetadataNode in MetadataNodes)
+                        {
+                            switch (MetadataNode.Name)
+                            {
+                                case "FormatVersionMajor":
+                                    FileMajorFormatVersion = Convert.ToInt32(MetadataNode.InnerText);
+                                    continue;
+                                case "FormatVersionMinor":
+                                    FileMinorFormatVersion = Convert.ToInt32(MetadataNode.InnerText);
+                                    continue;
+                            }
+                        }
+
+                        string VersionString = $"{FileMajorFormatVersion}.{FileMinorFormatVersion}";
+                        string CurrentVersionString = $"{FormatVersionMajor}.{FormatVersionMinor}";
+
+                        // when new code is ready move this
+                        // switch statement? all of this is temporary
+                        if (FileMajorFormatVersion < FormatVersionMajor)
+                        {
+
+                            // Major versions break compatibility
+                            Error.Throw("Error!", $"This file uses version {VersionString}; the current version is {CurrentVersionString}. This project file is not compatible with this version of the Track Maker.", ErrorSeverity.Error, 405);
+
+                            XER.Successful = false;
+                            return XER;
+
+                        }
+                        else if (FileMajorFormatVersion > FormatVersionMajor)
+                        {
+                            Error.Throw("Error!", $"This file uses version {VersionString}; the current version is {CurrentVersionString}. This project file was created in a future version of the Track Maker and is not compatible with this version. You may wish to update.", ErrorSeverity.Error, 405);
+
+                            XER.Successful = false;
+                            return XER;
+                        }
+
                         continue;
                     case "Basins":
 
@@ -665,17 +729,7 @@ namespace Track_Maker
                 return NIR; 
             }
 
-
-
         }
         
-        /// <summary>
-        /// This will be removed - export formats will not generate previews in v2, the track maker will
-        /// </summary>
-        /// <param name="Canvas"></param>
-        public void GeneratePreview(Canvas Canvas)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

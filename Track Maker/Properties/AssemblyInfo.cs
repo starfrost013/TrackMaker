@@ -61,8 +61,8 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1.680.21019")]
-[assembly: AssemblyFileVersion("2.1.680.21019")]    
+[assembly: AssemblyVersion("2.1.681.21019")]
+[assembly: AssemblyFileVersion("2.1.681.21019")]    
 [assembly: AssemblyInformationalVersion("2.1.0")]
 
 #if DANO

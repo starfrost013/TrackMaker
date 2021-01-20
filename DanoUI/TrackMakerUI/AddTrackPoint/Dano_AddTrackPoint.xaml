@@ -16,7 +16,7 @@
         <Button x:Name="TypeOK" Content="OK" HorizontalAlignment="Left" Margin="598,220,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="TypeOK_Click" Style="{StaticResource Button_Invert}"/>
         <TextBlock x:Name="SeasonStartTime" Text="This Point's Time:" HorizontalAlignment="Left" Height="32" Margin="10,140,0,0" VerticalAlignment="Top" Width="163" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
         <TextBlock x:Name="SeasonStartTimeText" Text="" HorizontalAlignment="Left" Height="32" Margin="175,140,0,0" VerticalAlignment="Top" Width="345" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
-        <CheckBox x:Name="ShowOptionalSettings" Content="Show advanced track point settings (optional)" HorizontalAlignment="Left" Height="19" Margin="10,172,0,0" VerticalAlignment="Top" Width="346" Click="ShowOptionalSettings_Checked"/>
+        <CheckBox x:Name="ShowOptionalSettings" Content="Show advanced track point settings (optional)" HorizontalAlignment="Left" Height="19" Margin="10,172,0,0" VerticalAlignment="Top" Width="431" Click="ShowOptionalSettings_Checked"/>
         <TextBlock x:Name="OptionalSetting_Pressure" Text="Pressure:" HorizontalAlignment="Left" Height="23" Margin="9,203,0,0" VerticalAlignment="Top" Width="163" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
         <TextBox x:Name="OptionalSetting_PressureBox" HorizontalAlignment="Left" Height="28" Margin="174,201,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="345" FontSize="18" FontStyle="Italic" Style="{StaticResource TextBox_BW}" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
