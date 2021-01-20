@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,8 @@ namespace TrackMaker.Core
             // Loads settings using the Emerald XML Settings API.
 
             // TODO: make it not throw a fatal error on settings loading failing 
+
+            Setting.ClearLogs = SettingsAPI.GetBool("ClearLogs"); 
 
             // Load the default category system
             Setting.DefaultCategorySystem = SettingsAPI.GetString("DefaultCategorySystem");

@@ -145,11 +145,12 @@ namespace TrackMaker.Core
                 XmlNode XRoot = LoadSettingsXmlGetNode();
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
+                bool Val = false;
+
                 //throw an error if xelement is null
-                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting boolean!", ErrorSeverity.FatalError, 12);
+                if (XElement == null || XRoot == null) return Val;
 
-
-                bool Val = Convert.ToBoolean(XElement.InnerText);
+                Val = Convert.ToBoolean(XElement.InnerText);
 
                 XRoot = null;
                 XElement = null;
@@ -158,7 +159,7 @@ namespace TrackMaker.Core
             }
             catch (FormatException err)
             {
-                Error.Throw("An error has occurred.", $"Error converting string to boolean while loading xml!\n\n{err}", ErrorSeverity.FatalError, 11);
+                Error.Throw("An error has occurred.", $"Error converting string to boolean while loading xml!\n\n{err}", ErrorSeverity.Error, 11);
                 Application.Current.Shutdown(11);
                 return false;
             }
@@ -176,10 +177,12 @@ namespace TrackMaker.Core
                 XmlNode XRoot = LoadSettingsXmlGetNode();
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
-                //throw an error if xelement is null
-                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting double!", ErrorSeverity.FatalError, 13);
+                double Val = 0;
 
-                double Val = Convert.ToDouble(XElement.InnerText);
+                //throw an error if xelement is null
+                if (XElement == null || XRoot == null) return Val;
+
+                Val = Convert.ToDouble(XElement.InnerText);
 
                 return Val;
             }
@@ -203,16 +206,18 @@ namespace TrackMaker.Core
                 XmlNode XRoot = LoadSettingsXmlGetNode();
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
-                // throw an error if xelement is null
-                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting int!", ErrorSeverity.FatalError, 15);
+                int Val = 0;
 
-                int Val = Convert.ToInt32(XElement.InnerText);
+                // throw an error if xelement is null
+                if (XElement == null || XRoot == null) return Val;
+
+                Val = Convert.ToInt32(XElement.InnerText);
 
                 return Val;
             }
             catch (FormatException err)
             {
-                Error.Throw("An error has occurred.", $"Error converting string to int while loading xml!\n\n{err}", ErrorSeverity.FatalError, 16);
+                Error.Throw("An error has occurred.", $"Error converting string to int while loading xml!\n\n{err}", ErrorSeverity.Error, 16);
 
                 Application.Current.Shutdown(16); // Settings may be corrupted
 
@@ -229,10 +234,12 @@ namespace TrackMaker.Core
             XmlNode XRoot = LoadSettingsXmlGetNode();
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
-            // throw an error if xelement is null
-            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting string!", ErrorSeverity.FatalError, 17);
+            string Val = "";
 
-            string Val = XElement.InnerText;
+            // throw an error if xelement is null
+            if (XElement == null || XRoot == null) return Val;
+
+            Val = XElement.InnerText;
 
             return Val;
 
@@ -248,11 +255,12 @@ namespace TrackMaker.Core
             XmlNode XRoot = LoadSettingsXmlGetNode();
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
+            Point XY = new Point(0, 0);
             // throw an error if xelement is null
-            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting point!", ErrorSeverity.FatalError, 18);
+            if (XElement == null || XRoot == null) return XY;
 
 
-            Point XY = XElement.InnerText.SplitXY(); 
+            XY = XElement.InnerText.SplitXY(); 
 
             return XY;
         }
@@ -262,9 +270,11 @@ namespace TrackMaker.Core
             XmlNode XRoot = LoadSettingsXmlGetNode();
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
-            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting colour!", ErrorSeverity.FatalError, 19);
+            Color RGB = new Color { A = 255, R = 255, G = 255, B = 255 };
 
-            Color RGB = XElement.InnerText.SplitRGB();
+            if (XElement == null || XRoot == null) return RGB;
+
+            RGB = XElement.InnerText.SplitRGB();
   
             return RGB;
         }
@@ -282,7 +292,7 @@ namespace TrackMaker.Core
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 // If it doesn't exist crash (TEMP - add an IsOptional bool param for settings) 
-                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid TelemetryConsent setting!", ErrorSeverity.FatalError, 100); 
+                if (XElement == null || XRoot == null) return TelemetryConsent.No;
 
                 // Parse as TelemetryConsent 
                 return (TelemetryConsent)Enum.Parse(typeof(TelemetryConsent), XElement.InnerText);
@@ -308,7 +318,7 @@ namespace TrackMaker.Core
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
-                if (XElement == null || XRoot == null) Error.Throw("Fatal Error", "Attempted to load invalid WindowStyle setting!", ErrorSeverity.FatalError, 130);
+                if (XElement == null || XRoot == null) return WndStyle.Windowed;
 
                 // Parse as TelemetryConsent 
                 return (WndStyle)Enum.Parse(typeof(WndStyle), XElement.InnerText);

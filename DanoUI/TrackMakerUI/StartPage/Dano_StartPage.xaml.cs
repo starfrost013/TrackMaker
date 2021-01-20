@@ -21,45 +21,6 @@ namespace TrackMaker.UI
     /// </summary>
     public partial class StartPage : UserControl
     {
-        public EventHandler CreateAnimationHit { get; set; }
-        public EventHandler CreateTrackHit { get; set; }
-        public EventHandler StartPageExit { get; set; }
-        public EventHandler TipsTextPreload { get; set; }
-        public EventHandler WhatsNewTextPreload { get; set; }
-        public StartPage()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// Raises the start page exit event.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ExitButton_Click(object sender, RoutedEventArgs e)
-        {
-            EventHandler _test = StartPageExit;
-            _test.Invoke(sender, e);
-        }
-
-        /// <summary>
-        /// Raises the create track pressed event.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DanoUI_StartPage_CreateTrack_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            CreateTrackHit(sender, e);
-        }
-
-        /// <summary>
-        /// Raises the create animation pressed event.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DanoUI_StartPage_CreateAnimation_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            CreateAnimationHit(sender, e);
-        }
+       
     }
 }
