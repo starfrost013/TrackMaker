@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Settings"
+    targetNamespace="http://tempuri.org/Settings.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/Settings.xsd"
+    xmlns:mstns="http://tempuri.org/Settings.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:complexType name="Settings">
+    <xs:sequence>
+
+      <xs:element name="AccentColour1">
+        
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="X" type="xs:double"></xs:element>
+            <xs:element name="Y" type="xs:double"></xs:element>
+            <xs:element name="Z" type="xs:double"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AccentColour2">
+
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="X" type="xs:double"></xs:element>
+            <xs:element name="Y" type="xs:double"></xs:element>
+            <xs:element name="Z" type="xs:double"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      
+      <xs:element name="ClearLogs" type="xs:boolean"></xs:element>
+      <xs:element name="DefaultCategorySystem" type="xs:string"></xs:element>
+      <xs:element name="DefaultVisibleTextNames" type="xs:string"></xs:element>
+      
+      <!-- adding namespaces defined in local xsd schemas is janky so we do this shit -->
+      <xs:element name="DotSize">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="X" type="xs:double"></xs:element>
+            <xs:element name="Y" type="xs:double"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EnableAccent" type="xs:boolean"></xs:element>
+      
+      <xs:element name="LineSize" type="xs:int"></xs:element>
+      <xs:element name="ShowBetaWarning" type="xs:boolean"></xs:element>
+      <xs:element name="Iris_EnableDeserialisation" type="xs:boolean"></xs:element>
+      <xs:element name="Iris_EnableGraphUI" type="xs:boolean"></xs:element>
+      <xs:element name="WindowStyle" type="xs:string"></xs:element> <!-- TEMP -->
+    </xs:sequence>
+  </xs:complexType>
+
+
+  
+</xs:schema>

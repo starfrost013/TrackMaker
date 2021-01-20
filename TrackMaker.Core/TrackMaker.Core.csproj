@@ -107,7 +107,7 @@
     <None Include="Schema\Components\Basin.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Schema\Components\Settings.xsd">
+    <None Include="Schema\Settings.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
