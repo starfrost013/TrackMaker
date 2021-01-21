@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Track Maker 2.x UI Library")]
-[assembly: AssemblyDescription("WPF UserControl library for Track Maker, version 2.x.")]
+[assembly: AssemblyTitle("Track Maker Static XML Serialisation DLL")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Track Maker 2.x")]
-[assembly: AssemblyCopyright("Track Maker © 2019-2021 starfrost.")]
+[assembly: AssemblyProduct("starfrost's Track Maker")]
+[assembly: AssemblyCopyright("Copyright © 2021 starfrost. Based on some random stackoverflow sample by headkaze; © 2014 headkaze")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f24f47e1-4cf7-4777-b7dd-db1aec6278d9")]
+[assembly: Guid("38ab7380-7162-4c5f-bafc-37a932b34c6f")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1.696.21021")]
-[assembly: AssemblyFileVersion("2.1.696.21021")]
+[assembly: AssemblyVersion("2.0.686.21021")]
+[assembly: AssemblyFileVersion("2.0.686.21021")]

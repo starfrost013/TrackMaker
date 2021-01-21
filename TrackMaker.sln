@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionsLite2.Wpf.NetFX",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMaker.Core", "TrackMaker.Core\TrackMaker.Core.csproj", "{5CDC7224-2314-4EA9-971E-DBCE8972279F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMaker.Core.StaticSerialiser", "TrackMaker.Core.StaticSerialiser\TrackMaker.Core.StaticSerialiser.csproj", "{38AB7380-7162-4C5F-BAFC-37A932B34C6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Dano_Debug|Any CPU = Dano_Debug|Any CPU
@@ -153,6 +155,18 @@ Global
 		{5CDC7224-2314-4EA9-971E-DBCE8972279F}.Priscilla_Release|Any CPU.Build.0 = Release|Any CPU
 		{5CDC7224-2314-4EA9-971E-DBCE8972279F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CDC7224-2314-4EA9-971E-DBCE8972279F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Dano_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Dano_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Dano_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Dano_Release|Any CPU.Build.0 = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Priscilla_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Priscilla_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Priscilla_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Priscilla_Release|Any CPU.Build.0 = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

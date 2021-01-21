@@ -108,11 +108,28 @@ namespace TrackMaker.Core
         [XmlElement("Iris_UseDeserialisation")]
         public static bool Iris_UseDeserialisation { get; set; } 
 
+        public static WndStyle WindowStyle { get; set; }
+
         /// <summary>
         /// TODO: Merge WndStyle and prebuilt WPF windowstyle
         /// </summary>
-        [XmlElement("Iris_UseDeserialisation")]
-        public static WndStyle WindowStyle { get; set; } 
+        [XmlElement("WindowStyle")]
+        public static string WindowStyle_Internal
+        {
+            get => WindowStyle_Internal; set
+            {
+                WindowStyle_Internal = value;
+
+                try
+                {
+                    WindowStyle = (WndStyle)Enum.Parse(typeof(WndStyle), value);
+                }
+                catch (ArgumentException)
+                {
+                    Error.Throw("Error!", "Fatal Error: Attempted to convert to invalid WindowStyle", ErrorSeverity.FatalError, 408);
+                }
+            }
+        }
 
         // more to come...
 #if DANO

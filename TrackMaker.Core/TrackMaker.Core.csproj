@@ -105,6 +105,10 @@
       <Project>{7582bdca-ed7f-4697-8d0e-e10992ff04f6}</Project>
       <Name>TrackMaker.Util</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TrackMaker.Core.StaticSerialiser\TrackMaker.Core.StaticSerialiser.csproj">
+      <Project>{38ab7380-7162-4c5f-bafc-37a932b34c6f}</Project>
+      <Name>TrackMaker.Core.StaticSerialiser</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Schema\Components\Basin.xsd">
