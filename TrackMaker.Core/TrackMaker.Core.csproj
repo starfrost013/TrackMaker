@@ -44,6 +44,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -74,7 +75,9 @@
     <Compile Include="Settings2\Enums\WndStyle.cs" />
     <Compile Include="Settings2\SettingLoader.cs" />
     <Compile Include="Settings2\SettingsAPI.cs" />
-    <Compile Include="Settings2\VolatileSettings.cs" />
+    <Compile Include="Settings3\VolatileSettings.cs" />
+    <Compile Include="Settings3\ApplicationSettings.cs" />
+    <Compile Include="Settings3\SettingsSerialiser.cs" />
     <Compile Include="StormType\RealStormTypes\RealStormTypes.cs" />
     <Compile Include="StormType\Shape\Shape.cs" />
     <Compile Include="StormType\Shape\StormShape.cs" />
