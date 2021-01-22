@@ -40,20 +40,19 @@ namespace TrackMaker.Core
         private void SettingsSerialiser_Validate()
         {
 
-            string SettingsFilePath = @"Data/Core/Settings.xml";
-
-            FileStream SchemaReader = File.Open(SettingsFilePath, FileMode.Open);
-
-            XmlReader XR = XmlReader.Create(SchemaReader);
+            string SettingsFilePath = @"Data/Settings.xml";
+            string SchemaFilePath = @"Data/Core/Settings.xsd";
 
             XmlReaderSettings XRS = new XmlReaderSettings();
+            XRS.ValidationType = ValidationType.Schema;
+            XRS.ValidationEventHandler += SettingsSerialiser_ValidateFailed;
+            XRS.Schemas.Add(null, SchemaFilePath);
 
-            XRS.Schemas.Add(new XmlSchema());
+            XmlReader SchemaReader = XmlReader.Create(SettingsFilePath, XRS);
 
-            XmlSchema SettingsSchema = new XmlSchema();
+            XmlDocument XD = new XmlDocument();
 
-            XmlSchema.Read(SchemaReader, SettingsSerialiser_ValidateFailed); 
-            
+            XD.Load(SchemaReader);
             
         }
 
@@ -78,7 +77,7 @@ namespace TrackMaker.Core
 
         private StaticSerialisationResult SettingsSerialiser_Serialise()
         {
-            string Temp_SettingsFileName = @"Data/Core/Settings.xml";
+            string Temp_SettingsFileName = @"Data/Settings.xml";
 
             // rename this class...
             StaticSerialisationResult SR = StaticSerialiser.StaticSerialiser.Deserialize(typeof(ApplicationSettings), Temp_SettingsFileName);
