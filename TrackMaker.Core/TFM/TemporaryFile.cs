@@ -25,7 +25,7 @@ namespace TrackMaker.Core
         /// <summary>
         /// The settings used for saving this temporary file.
         /// </summary>
-        public TemporaryFileSettings Settings { get; set; }
+        public TemporaryFileApplicationSettings ApplicationSettings { get; set; }
         /// <summary>
         /// The stream used for read/write this file. 
         /// </summary>
@@ -33,17 +33,17 @@ namespace TrackMaker.Core
 
         public TemporaryFile()
         {
-            Settings = new TemporaryFileSettings();
+            ApplicationSettings = new TemporaryFileApplicationSettings();
 
             Random Rnd = new Random();
             int XID = Rnd.Next(100000, 999999);
 
-            Settings.Name = $"Iris{XID}.tmp";
+            ApplicationSettings.Name = $"Iris{XID}.tmp";
         }
 
         public FileStream Create()
         {
-            string FullPath = $@"{Settings.TemporaryFileLocation}\{Settings.Name}";
+            string FullPath = $@"{ApplicationSettings.TemporaryFileLocation}\{ApplicationSettings.Name}";
             Stream = new FileStream(FullPath, FileMode.OpenOrCreate);
             return Stream;
             

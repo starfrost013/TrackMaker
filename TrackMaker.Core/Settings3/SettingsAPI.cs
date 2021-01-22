@@ -13,20 +13,22 @@ using System.Windows.Media;
 namespace TrackMaker.Core
 {
     /// <summary>
-    /// Emerald Settings
+    /// Emerald ApplicationSettings
     /// 
     /// Ported from Emerald Lite/NetEmerald/Emerald Mini game engine
+    /// 
+    /// Enhanced for SettingsAPI 3.0; soon to be replaced with reserilisation so deprecated
     /// </summary>
     /// 
 
     public static class SettingsAPI
     {
-        internal static XmlNode LoadSettingsXmlGetNode()
+        internal static XmlNode LoadApplicationSettingsXmlGetNode()
         {
             try
             {
                 // Priscilla 442 - simplify
-                XmlDocument XDoc = LoadSettingsXml(); 
+                XmlDocument XDoc = LoadApplicationSettingsXml(); 
 
                 XmlNode XRoot = GetFirstNode(XDoc); 
 
@@ -35,7 +37,7 @@ namespace TrackMaker.Core
             // can't load serversettings.xml because it doesn't exist
             catch (FileNotFoundException err)
             {
-                MessageBox.Show($"Uh oh, something bad happened!! GenerateGameSettings() failed. Error 10!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Uh oh, something bad happened!! GenerateGameApplicationSettings() failed. Error 10!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
             // some error in parsing the xml
@@ -47,32 +49,32 @@ namespace TrackMaker.Core
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"Temp error. ServerSettings.xml corrupted or maflormed! Error 18!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Temp error. ServerApplicationSettings.xml corrupted or maflormed! Error 18!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }
 
-        internal static XmlDocument LoadSettingsXml()
+        internal static XmlDocument LoadApplicationSettingsXml()
         {
             try
             {
                 XmlDocument XDoc = new XmlDocument();
 
-                string SettingFile = @"Data\Settings.xml";
+                string ApplicationSettingsFile = @"Data\ApplicationSettings.xml";
 
-                if (!File.Exists(SettingFile))
+                if (!File.Exists(ApplicationSettingsFile))
                 {
-                    Error.Throw("Fatal error", "Settings.xml not found!", ErrorSeverity.FatalError, 110);
+                    Error.Throw("Fatal error", "ApplicationSettings.xml not found!", ErrorSeverity.FatalError, 110);
                 }
 
-                XDoc.Load(SettingFile);
+                XDoc.Load(ApplicationSettingsFile);
 
                 return XDoc;
             }
             // can't load serversettings.xml because it doesn't exist
             catch (FileNotFoundException err)
             {
-                MessageBox.Show($"Uh oh, something bad happened!! GenerateGameSettings() failed. Error 10!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Uh oh, something bad happened!! GenerateGameApplicationSettings() failed. Error 10!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
             // some error in parsing the xml
@@ -84,16 +86,16 @@ namespace TrackMaker.Core
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"Temp error. ServerSettings.xml corrupted or maflormed! Error 18!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Temp error. ServerApplicationSettings.xml corrupted or maflormed! Error 18!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }
 
         /// <summary>
-        /// This is used for write access to Settings.xml.  
+        /// This is used for write access to ApplicationSettings.xml.  
         /// </summary>
         /// <returns></returns>
-        internal static XmlNode GetFirstNode(XmlDocument XDoc, string VerifyString = "Settings")
+        internal static XmlNode GetFirstNode(XmlDocument XDoc, string VerifyString = "ApplicationSettings")
         {
             XmlNode XRoot = XDoc.FirstChild;
 
@@ -111,9 +113,9 @@ namespace TrackMaker.Core
 
 
         /// <summary>
-        /// Internal Api for getting nodes from the root node obtained by using LoadSettingsXml()/
+        /// Internal Api for getting nodes from the root node obtained by using LoadApplicationSettingsXml()/
         /// </summary>
-        /// <param name="XRoot">The root node of the ServerSettings Xml.</param>
+        /// <param name="XRoot">The root node of the ServerApplicationSettings Xml.</param>
         /// <param name="NodeName">The name of the setting to acquire.</param>
         /// <returns></returns>
         private static XmlNode GetNode(XmlNode XRoot, string NodeName)
@@ -136,14 +138,14 @@ namespace TrackMaker.Core
         /// <summary>
         /// Obtains a double setting.
         /// </summary>
-        /// <param name="SettingsElement">The name of the setting to acquire.</param>
+        /// <param name="ApplicationSettingsElement">The name of the setting to acquire.</param>
         /// <returns></returns>
-        public static bool GetBool(string SettingsElement)
+        public static bool GetBool(string ApplicationSettingsElement)
         {
             try
             {
-                XmlNode XRoot = LoadSettingsXmlGetNode();
-                XmlNode XElement = GetNode(XRoot, SettingsElement);
+                XmlNode XRoot = LoadApplicationSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
 
                 bool Val = false;
 
@@ -168,14 +170,14 @@ namespace TrackMaker.Core
         /// <summary>
         /// Obtains a double setting.
         /// </summary>
-        /// <param name="SettingsElement">The name of the setting to acquire.</param>
+        /// <param name="ApplicationSettingsElement">The name of the setting to acquire.</param>
         /// <returns></returns>
-        public static double GetDouble(string SettingsElement)
+        public static double GetDouble(string ApplicationSettingsElement)
         {
             try
             {
-                XmlNode XRoot = LoadSettingsXmlGetNode();
-                XmlNode XElement = GetNode(XRoot, SettingsElement);
+                XmlNode XRoot = LoadApplicationSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
 
                 double Val = 0;
 
@@ -197,14 +199,14 @@ namespace TrackMaker.Core
         /// <summary>
         /// Obtains an int setting.
         /// </summary>
-        /// <param name="SettingsElement">The name of the setting to acquire.</param>
+        /// <param name="ApplicationSettingsElement">The name of the setting to acquire.</param>
         /// <returns></returns>
-        public static int GetInt(string SettingsElement)
+        public static int GetInt(string ApplicationSettingsElement)
         {
             try
             {
-                XmlNode XRoot = LoadSettingsXmlGetNode();
-                XmlNode XElement = GetNode(XRoot, SettingsElement);
+                XmlNode XRoot = LoadApplicationSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
 
                 int Val = 0;
 
@@ -219,7 +221,7 @@ namespace TrackMaker.Core
             {
                 Error.Throw("An error has occurred.", $"Error converting string to int while loading xml!\n\n{err}", ErrorSeverity.Error, 16);
 
-                Application.Current.Shutdown(16); // Settings may be corrupted
+                Application.Current.Shutdown(16); // ApplicationSettings may be corrupted
 
                 return -1; 
             }
@@ -228,11 +230,11 @@ namespace TrackMaker.Core
         /// <summary>
         /// Obtains a string setting.
         /// </summary>
-        /// <param name="SettingsElement">The name of the setting to acquire.</param>
-        public static string GetString(string SettingsElement)
+        /// <param name="ApplicationSettingsElement">The name of the setting to acquire.</param>
+        public static string GetString(string ApplicationSettingsElement)
         {
-            XmlNode XRoot = LoadSettingsXmlGetNode();
-            XmlNode XElement = GetNode(XRoot, SettingsElement);
+            XmlNode XRoot = LoadApplicationSettingsXmlGetNode();
+            XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
 
             string Val = "";
 
@@ -248,12 +250,12 @@ namespace TrackMaker.Core
         /// <summary>
         /// Obtains a point setting.
         /// </summary>
-        /// <param name="SettingsElement">The element name to grab.</param>
+        /// <param name="ApplicationSettingsElement">The element name to grab.</param>
         /// <returns></returns>
-        public static Point GetPoint(string SettingsElement)
+        public static Point GetPoint(string ApplicationSettingsElement)
         {
-            XmlNode XRoot = LoadSettingsXmlGetNode();
-            XmlNode XElement = GetNode(XRoot, SettingsElement);
+            XmlNode XRoot = LoadApplicationSettingsXmlGetNode();
+            XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
 
             Point XY = new Point(0, 0);
             // throw an error if xelement is null
@@ -265,10 +267,10 @@ namespace TrackMaker.Core
             return XY;
         }
 
-        public static Color GetColour(string SettingsElement)
+        public static Color GetColour(string ApplicationSettingsElement)
         {
-            XmlNode XRoot = LoadSettingsXmlGetNode();
-            XmlNode XElement = GetNode(XRoot, SettingsElement);
+            XmlNode XRoot = LoadApplicationSettingsXmlGetNode();
+            XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
 
             Color RGB = new Color { A = 255, R = 255, G = 255, B = 255 };
 
@@ -283,13 +285,13 @@ namespace TrackMaker.Core
         /// Did we consent to telemetry?
         /// </summary>
         /// <returns></returns>
-        public static TelemetryConsent GetTelemetryConsent(string SettingsElement)
+        public static TelemetryConsent GetTelemetryConsent(string ApplicationSettingsElement)
         {
             try
             {
                 // Get the TelemetryConsent node
-                XmlNode XRoot = LoadSettingsXmlGetNode();
-                XmlNode XElement = GetNode(XRoot, SettingsElement);
+                XmlNode XRoot = LoadApplicationSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
 
                 // If it doesn't exist crash (TEMP - add an IsOptional bool param for settings) 
                 if (XElement == null || XRoot == null) return TelemetryConsent.No;
@@ -307,15 +309,15 @@ namespace TrackMaker.Core
         /// <summary>
         /// Easier to have an enum for this here.
         /// </summary>
-        /// <param name="SettingsElement"></param>
+        /// <param name="ApplicationSettingsElement"></param>
         /// <returns></returns>
-        public static WndStyle GetWindowStyle(string SettingsElement)
+        public static WndStyle GetWindowStyle(string ApplicationSettingsElement)
         {
             try
             {
                 // Get the TelemetryConsent node
-                XmlNode XRoot = LoadSettingsXmlGetNode();
-                XmlNode XElement = GetNode(XRoot, SettingsElement);
+                XmlNode XRoot = LoadApplicationSettingsXmlGetNode();
+                XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
 
                 // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
                 if (XElement == null || XRoot == null) return WndStyle.Windowed;
@@ -332,22 +334,22 @@ namespace TrackMaker.Core
         }
 
         /// <summary>
-        /// Saves a setting to Settings.xml.
+        /// Saves a setting to ApplicationSettings.xml.
         /// </summary>
-        /// <param name="SettingsElement">The name of the setting to change.</param>
-        /// <param name="SettingsValue">The value to change it to.</param>
+        /// <param name="ApplicationSettingsElement">The name of the setting to change.</param>
+        /// <param name="ApplicationSettingsValue">The value to change it to.</param>
         /// <returns></returns>
-        public static bool SetSetting(string SettingsElement, string SettingsValue)
+        public static bool SetSetting(string ApplicationSettingsElement, string ApplicationSettingsValue)
         {
             try
             {
-                Logging.Log($"[Saving settings] Setting {SettingsElement} to {SettingsValue}...");
+                Logging.Log($"[Saving settings] ApplicationSettings {ApplicationSettingsElement} to {ApplicationSettingsValue}...");
                 // Load settings and get the first node.
-                XmlDocument XDoc = LoadSettingsXml();
+                XmlDocument XDoc = LoadApplicationSettingsXml();
                 XmlNode XRoot = GetFirstNode(XDoc);
 
                 // Find the setting we need.
-                XmlNode XElement = GetNode(XRoot, SettingsElement);
+                XmlNode XElement = GetNode(XRoot, ApplicationSettingsElement);
                 
                 if (XElement == null || XRoot == null)
                 {
@@ -356,10 +358,10 @@ namespace TrackMaker.Core
                 }
 
                 // Update its inner text.
-                XElement.InnerText = SettingsValue;
+                XElement.InnerText = ApplicationSettingsValue;
 
                 // Save it.
-                XDoc.Save($@"{Directory.GetCurrentDirectory()}\Settings.xml");
+                XDoc.Save($@"{Directory.GetCurrentDirectory()}\ApplicationSettings.xml");
 
                 return true;
             }

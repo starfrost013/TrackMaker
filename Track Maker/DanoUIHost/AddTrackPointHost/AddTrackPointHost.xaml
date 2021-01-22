@@ -8,7 +8,7 @@
         mc:Ignorable="d"
 
         Title="Add Track Point" Height="300.331" Width="755" WindowStyle="ToolWindow">
-    <!-- Advanced Settings disabled = 237 -->
+    <!-- Advanced ApplicationSettings disabled = 237 -->
     <Grid>
         <Dano:AddTrackPoint x:Name="AddTrackPointControl" AdvancedSettingsToggleChanged="OnAdvancedSettingsToggleChanged" OKHit="OKHit"></Dano:AddTrackPoint>
     </Grid>

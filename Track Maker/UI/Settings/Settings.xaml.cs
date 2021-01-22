@@ -36,10 +36,10 @@ namespace Track_Maker
 
             Settings_Tab_General_DefaultCatSystemBox.DataContext = MnWindow.Catman.CategorySystems; // category system 
 
-            Settings_Tab_Appearance_DotSizeXSlider.Value = Setting.DotSize.X;
-            Settings_Tab_Appearance_DotSizeYSlider.Value = Setting.DotSize.Y;
+            Settings_Tab_Appearance_DotSizeXSlider.Value = ApplicationSettings.DotSize.X;
+            Settings_Tab_Appearance_DotSizeYSlider.Value = ApplicationSettings.DotSize.Y;
 
-            Settings_Tab_Appearance_GradientEnabledCheckBox.IsChecked = Setting.AccentEnabled;
+            Settings_Tab_Appearance_GradientEnabledCheckBox.IsChecked = ApplicationSettings.AccentEnabled;
 
             // Set up some more stuff (can we use bindings?)
 
@@ -51,11 +51,11 @@ namespace Track_Maker
 
             // Ugly hack, but I can't be bothered to create a dependency property when I have half-life 2 sitting on my desktop ready to be streamed again and being almost finished with this damn project that took way too long
             // for something that isn't really a big project. for emerald, sure, but not this. Move to dependencyproperty in Dano.
-            Settings_Tab_Appearance_AccentColourPicker.SelectedColour = Setting.AccentColour1;
+            Settings_Tab_Appearance_AccentColourPicker.SelectedColour = ApplicationSettings.AccentColour1;
             Settings_Tab_Appearance_AccentColourPicker.UpdateRectangle();
 
             // Ditto
-            Settings_Tab_Appearance_MenuGradientSecondColourPicker.SelectedColour = Setting.AccentColour2;
+            Settings_Tab_Appearance_MenuGradientSecondColourPicker.SelectedColour = ApplicationSettings.AccentColour2;
             Settings_Tab_Appearance_MenuGradientSecondColourPicker.UpdateRectangle();
 
         }
@@ -100,7 +100,7 @@ namespace Track_Maker
             SettingsAPI.SetSetting("DefaultCategorySystem", _DefaultCatsystem);
             SettingsAPI.SetSetting("LineSize", _LineSize);
 
-            Setting.DotSize = new Point(Settings_Tab_Appearance_DotSizeXSlider.Value, Settings_Tab_Appearance_DotSizeYSlider.Value);
+            ApplicationSettings.DotSize = new Point(Settings_Tab_Appearance_DotSizeXSlider.Value, Settings_Tab_Appearance_DotSizeYSlider.Value);
 
             // Show a message box telling the user they need to restart to save their settings
             MessageBox.Show("You must restart the Track Maker for these settings to take effect.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -130,6 +130,7 @@ namespace Track_Maker
         {
             Settings_Tab_Appearance_LineSizeText.Text = Utilities.RoundNearest(Settings_Tab_Appearance_LineSizeSlider.Value, 1).ToString(); 
         }
+
 
         // Priscilla/Dano - MOVE TO BINDINGS! //
     }

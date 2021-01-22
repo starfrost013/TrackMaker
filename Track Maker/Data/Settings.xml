@@ -1,4 +1,4 @@
-<Settings>
+<ApplicationSettings>
   <AccentColour1>
     <R>0</R>
     <G>64</G>
@@ -25,4 +25,4 @@
   <TelemetryConsent>Yes</TelemetryConsent>
   <WindowStyle>Fullscreen</WindowStyle>
   <UndoDepth>50</UndoDepth>
-</Settings>
+</ApplicationSettings>

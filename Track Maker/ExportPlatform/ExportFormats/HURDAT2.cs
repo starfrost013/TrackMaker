@@ -356,7 +356,7 @@ namespace Track_Maker
 
                             SW.Write($"{Abbv}, ");
 
-                            Coordinate CD = Proj.SelectedBasin.FromNodePositionToCoordinate(No.Position, VolatileSettings.WindowSize);
+                            Coordinate CD = Proj.SelectedBasin.FromNodePositionToCoordinate(No.Position, VolatileApplicationSettings.WindowSize);
                             
                             // dumb fucking piece of shit hack because what the fuck is compatibility you fucking NOAA dumb fucks
                             CD.Coordinates = new Point(CD.Coordinates.X / 10, CD.Coordinates.Y / 10); 

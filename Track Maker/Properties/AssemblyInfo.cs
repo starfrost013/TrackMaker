@@ -27,7 +27,7 @@ using System.Windows;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible
+// ApplicationSettings ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
@@ -61,8 +61,8 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1.684.21022")]
-[assembly: AssemblyFileVersion("2.1.684.21022")]    
+[assembly: AssemblyVersion("2.1.686.21022")]
+[assembly: AssemblyFileVersion("2.1.686.21022")]    
 [assembly: AssemblyInformationalVersion("2.1.0")]
 
 #if DANO

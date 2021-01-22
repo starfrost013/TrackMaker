@@ -182,7 +182,7 @@ namespace Track_Maker
                         }
                     }
 
-                    if (Setting.DefaultVisibleTextNames) Render_DrawText(XStorm, HurricaneBasin);
+                    if (ApplicationSettings.DefaultVisibleTextNames) Render_DrawText(XStorm, HurricaneBasin);
 
                 }
             }
@@ -225,7 +225,7 @@ namespace Track_Maker
                 // draw a line for each storm
 
                 Line XLine = new Line();
-                XLine.StrokeThickness = Setting.LineSize;
+                XLine.StrokeThickness = ApplicationSettings.LineSize;
 
                 XLine.X1 = a.Position.X + DotSize.X / 2;
                 XLine.X2 = b.Position.X + DotSize.X / 2; 

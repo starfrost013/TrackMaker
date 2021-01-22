@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="Settings"
-    targetNamespace="http://tempuri.org/Settings.xsd"
+<xs:schema id="ApplicationSettings"
+    targetNamespace="http://tempuri.org/ApplicationSettings.xsd"
     elementFormDefault="qualified"
-    xmlns="http://tempuri.org/Settings.xsd"
-    xmlns:mstns="http://tempuri.org/Settings.xsd"
+    xmlns="http://tempuri.org/ApplicationSettings.xsd"
+    xmlns:mstns="http://tempuri.org/ApplicationSettings.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
-  <xs:complexType name="Settings">
+  <xs:complexType name="ApplicationSettings">
     <xs:sequence>
 
       <xs:element name="AccentColour1">

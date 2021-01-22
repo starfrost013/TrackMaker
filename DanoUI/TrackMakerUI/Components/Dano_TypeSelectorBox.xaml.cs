@@ -43,7 +43,7 @@ namespace TrackMaker.UI
 
             //Logging.Log("Populated TypeBox...");
 
-            //Logging.Log("Setting selected index...");
+            //Logging.Log("ApplicationSettings selected index...");
             TypeBox.SelectedIndex = 0;
             UpdateLayout();
 

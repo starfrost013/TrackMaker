@@ -30,7 +30,7 @@ namespace Track_Maker
             Logging.Init(); // temp
 
             Init_WriteInitLog();
-            Init_InitSettings();
+            Init_InitApplicationSettings();
             Init_InitBasins(); // to be merged with Init_InitGlobalState();
             Init_InitGlobalState();
             Init_SetCurrentCategorySystem();
@@ -93,12 +93,12 @@ namespace Track_Maker
 
         }
 
-        private void Init_InitSettings()
+        private void Init_InitApplicationSettings()
         {
-            // Load Settings
+            // Load ApplicationSettings
             Logging.Log("Loading settings...");
 
-            //SettingsLoader.LoadSettings2();
+            //ApplicationSettingsLoader.LoadApplicationSettings2();
             SettingsSerialiser SS = new SettingsSerialiser();
             
             // Serialised Settings API 3.0
@@ -107,18 +107,18 @@ namespace Track_Maker
             // move this block? temp until corefiles.xml
             try
             {
-                SS.LoadSettings3();
+                SS.LoadApplicationSettings();
             }
             catch (FileNotFoundException err)
             {
 #if DEBUG
-                Error.Throw("Fatal Error", $"Cannot find Settings XML Schema!\n\n{err}", ErrorSeverity.FatalError, 409);
+                Error.Throw("Fatal Error", $"Cannot find settings XML schema!\n\n{err}", ErrorSeverity.FatalError, 409);
 #else
-                Error.Throw("Fatal Error", $"Cannot find Settings XML Schema!", ErrorSeverity.FatalError, 409);
+                Error.Throw("Fatal Error", $"Cannot find settings XML schema!", ErrorSeverity.FatalError, 409);
 #endif
             }
 
-            if (Setting.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled.");
+            if (ApplicationSettings.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled.");
         }
 
         private void Init_InitProject()
@@ -153,7 +153,7 @@ namespace Track_Maker
             Logging.Log("Obtaining user telemetry consent status and checking for updates...");
             TelemetryConsentAcquirer.Init_DetermineTelemetryConsentStatus();
 
-            if (Setting.ShowBetaWarning)
+            if (ApplicationSettings.ShowBetaWarning)
             {
                 Logging.Log("This is a pre-release build. Displaying beta warning...");
                 Error.ShowBetaWarning();
@@ -166,7 +166,7 @@ namespace Track_Maker
             foreach (CategorySystem CatSystem in Catman.CategorySystems)
             {
                 // select the current category system
-                if (Setting.DefaultCategorySystem == CatSystem.Name)
+                if (ApplicationSettings.DefaultCategorySystem == CatSystem.Name)
                 {
                     Logging.Log("Default category system");
                     Catman.CurrentCategorySystem = CatSystem;
@@ -176,7 +176,7 @@ namespace Track_Maker
 
             if (Catman.CurrentCategorySystem == null)
             {
-                Error.Throw("Error!", "An invalid category system was selected; you likely modified Settings.xml manually - the current category system has been restored to defaults. If you did not, this is a bug in the Track Maker. Contact me at starfrost#9088 on Discord for beta support.", ErrorSeverity.Error, 225); 
+                Error.Throw("Error!", "An invalid category system was selected; you likely modified ApplicationSettings.xml manually - the current category system has been restored to defaults. If you did not, this is a bug in the Track Maker. Contact me at starfrost#9088 on Discord for beta support.", ErrorSeverity.Error, 225); 
                 Catman.CurrentCategorySystem = Catman.CategorySystems[0];
             }
             else
@@ -187,10 +187,10 @@ namespace Track_Maker
 
         private void Init_SetAccentColour()
         {
-            if (!Setting.AccentEnabled)
+            if (!ApplicationSettings.AccentEnabled)
             {
-                Setting.AccentColour1 = new Color { A = 255, R = 255, G = 255, B = 255 };
-                Setting.AccentColour2 = new Color { A = 255, R = 255, G = 255, B = 255 };
+                ApplicationSettings.AccentColour1 = new Color { A = 255, R = 255, G = 255, B = 255 };
+                ApplicationSettings.AccentColour2 = new Color { A = 255, R = 255, G = 255, B = 255 };
             }
         }
 
@@ -232,7 +232,7 @@ namespace Track_Maker
         private void Init_ConfigureDebugUI()
         {
             // it's enabled by default
-            if (!Setting.Iris_EnableDebugUI)
+            if (!ApplicationSettings.Iris_EnableDebugUI)
             {
                 MenuItem DebugMnu = MainMenu.FindMenuItemWithName("DebugMenu");
                 MainMenu.Items.Remove(DebugMnu);
@@ -245,7 +245,7 @@ namespace Track_Maker
 
         private void Init_ConfigureGraphUI()
         {
-            switch (Setting.Iris_EnableGraphUI)
+            switch (ApplicationSettings.Iris_EnableGraphUI)
             {
                 case true:
                     Logging.Log("Enabling GraphUI...");

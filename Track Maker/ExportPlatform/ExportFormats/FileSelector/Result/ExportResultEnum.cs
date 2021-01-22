@@ -9,7 +9,7 @@ namespace Track_Maker
     /// <summary>
     /// 2020-12-08  Connor Hyde (starfrost)
     /// 
-    /// Settings export result enum.
+    /// ApplicationSettings export result enum.
     /// </summary>
     public enum ExportResults
     {

@@ -8,7 +8,7 @@ using System.Windows;
 namespace TrackMaker.UI
 {
     // Hmm
-    public enum DanoUIComponent { StartPage, NewProject, NewSeason, ProjectMain, Export2, Settings, AddNewStorm, AddTrackPoint, BasinSwitcher, CategoryManager, SeasonManager, PackInstaller, AnimationEditor }
+    public enum DanoUIComponent { StartPage, NewProject, NewSeason, ProjectMain, Export2, ApplicationSettings, AddNewStorm, AddTrackPoint, BasinSwitcher, CategoryManager, SeasonManager, PackInstaller, AnimationEditor }
     public class DanoEventArgs : EventArgs
     {
         public List<object> DanoParameters { get; set; }

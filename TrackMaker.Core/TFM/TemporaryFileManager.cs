@@ -35,13 +35,13 @@ namespace TrackMaker.Core
         /// <param name="FileName"></param>
         /// <param name="TFS"></param>
         /// <returns></returns>
-        public FileStream CreateNewFile(TemporaryFileSettings TFS = null)
+        public FileStream CreateNewFile(TemporaryFileApplicationSettings TFS = null)
         {
             TemporaryFile TF = new TemporaryFile();
 
             if (TFS != null)
             {
-                TF.Settings = TFS;
+                TF.ApplicationSettings = TFS;
                 
             }
 
@@ -63,9 +63,9 @@ namespace TrackMaker.Core
             {
                 if (File.Exists(TF.FullPath))
                 {
-                    if (!TF.Settings.Persistent)
+                    if (!TF.ApplicationSettings.Persistent)
                     {
-                        if (TF.Settings.DelayClearUntilNextStart && !IsShutdown)
+                        if (TF.ApplicationSettings.DelayClearUntilNextStart && !IsShutdown)
                         {
                             File.Delete(TF.FullPath);
                         }
@@ -90,7 +90,7 @@ namespace TrackMaker.Core
         {
             foreach (TemporaryFile TF in TemporaryFiles)
             {
-                if (TF.Settings.Name == Name) return TF; 
+                if (TF.ApplicationSettings.Name == Name) return TF; 
             }
 
             return null; 
@@ -100,11 +100,11 @@ namespace TrackMaker.Core
         {
             foreach (TemporaryFile TF in TemporaryFiles)
             {
-                if (TF.Settings.Name == Name)
+                if (TF.ApplicationSettings.Name == Name)
                 {
                     try
                     {
-                        TF.Stream = new FileStream(TF.Settings.FullPath, FileMode.Open);
+                        TF.Stream = new FileStream(TF.ApplicationSettings.FullPath, FileMode.Open);
                         return TF.Stream;
                     }
                     catch (FileNotFoundException)

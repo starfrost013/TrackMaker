@@ -51,7 +51,7 @@ namespace TrackMaker.Core
             {
                 FileName = $"Iris-Log-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.txt";
 
-                TemporaryFileSettings TFS = new TemporaryFileSettings();
+                TemporaryFileApplicationSettings TFS = new TemporaryFileApplicationSettings();
                 TFS.TemporaryFileLocation = ".";
                 TFS.Name = FileName;
                 TFS.DelayClearUntilNextStart = true; 

@@ -44,7 +44,7 @@ namespace Track_Maker
             CurrentProject.InitBasin(CurrentProject.SelectedBasin);
         }
 
-        private void ViewMenu_Names_Click(object sender, RoutedEventArgs e) => Setting.DefaultVisibleTextNames = !Setting.DefaultVisibleTextNames;
+        private void ViewMenu_Names_Click(object sender, RoutedEventArgs e) => ApplicationSettings.DefaultVisibleTextNames = !ApplicationSettings.DefaultVisibleTextNames;
 
         private void Window_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -186,9 +186,9 @@ namespace Track_Maker
 
         private void HelpMenu_Preferences_Click(object sender, RoutedEventArgs e)
         {
-            Settings Settings = new Settings();
-            Settings.Owner = this;
-            Settings.Show(); 
+            Settings ApplicationSettings = new Settings();
+            ApplicationSettings.Owner = this;
+            ApplicationSettings.Show(); 
         }
 
         private void StormMenu_AddNew_Click(object sender, RoutedEventArgs e)
@@ -526,7 +526,7 @@ namespace Track_Maker
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            VolatileSettings.WindowSize = new Point(Width, Height);
+            VolatileApplicationSettings.WindowSize = new Point(Width, Height);
         }
     }
 }

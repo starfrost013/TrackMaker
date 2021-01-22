@@ -16,7 +16,7 @@ namespace TrackMaker.Core
         public static void Init_DetermineTelemetryConsentStatus()
         {
             // Ask the user.
-            if (Setting.TelemetryConsent == TelemetryConsent.NotDone)
+            if (ApplicationSettings.TelemetryConsent == TelemetryConsent.NotDone)
             {
                 if (MessageBox.Show("The Track Maker has auto-updating functionality.\n\n" +
                     "To determine if an update is available, the Track Maker must connect to the Internet.\n\n" +
@@ -40,7 +40,7 @@ namespace TrackMaker.Core
             }
             else
             {
-                if (Setting.TelemetryConsent == TelemetryConsent.Yes)
+                if (ApplicationSettings.TelemetryConsent == TelemetryConsent.Yes)
                 {
                     Logging.Log("TelemetryConsent = TelemetryConsent.Yes, running updater..."); 
                     RunUpdater();

@@ -31,22 +31,22 @@ namespace Track_Maker
             AddTrackPointControl.MousePosition = Position;
             StormNameList = StormNames;
             AddTrackPointControl.StartTime = SeasonStartTime;
-            ToggleAdvancedSettings(false); // bad but will be improved
+            ToggleAdvancedApplicationSettings(false); // bad but will be improved
         }
 
         private void OnAdvancedSettingsToggleChanged(object sender, DanoEventArgs DEA)
         {
             Debug.Assert(DEA.DanoParameters.Count == 1); 
 
-            bool AdvancedSettingsToggleState = (bool)DEA.DanoParameters[0];
+            bool AdvancedApplicationSettingsToggleState = (bool)DEA.DanoParameters[0];
 
-            ToggleAdvancedSettings(AdvancedSettingsToggleState);
+            ToggleAdvancedApplicationSettings(AdvancedApplicationSettingsToggleState);
 
         }
 
-        private void ToggleAdvancedSettings(bool AdvancedSettingsToggleState)
+        private void ToggleAdvancedApplicationSettings(bool AdvancedApplicationSettingsToggleState)
         {
-            switch (AdvancedSettingsToggleState)
+            switch (AdvancedApplicationSettingsToggleState)
             {
                 case true:
                     Height = 300.331;

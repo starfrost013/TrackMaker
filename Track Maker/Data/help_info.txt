@@ -44,7 +44,7 @@ This is a bugfix release and fixes several issues identified since the release o
 - The bottom text on the about screen has been fixed to display the proper text instead of the text used for pre-release builds.
 - Fullscreen mode has been fixed and looks less weird
 - Default window style (fullscreen / windowed) setting now works 
-properly. It isn't on the Settings menu yet, but it will be in a future release (I just wanted to get this out quickly)
+properly. It isn't on the ApplicationSettings menu yet, but it will be in a future release (I just wanted to get this out quickly)
 - Fixed an issue with the first fullscreen mode change not working properly.  
 - A minor cosmetic issue has been fixed with the ACE calculator.
 - Additional error handling for the updater to prevent a nasty crash if the server is up but doesn't send a proper response.

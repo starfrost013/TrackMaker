@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tiralen.UpdateServices.Settings
+namespace Tiralen.UpdateServices.ApplicationSettings
 {
     /// <summary>
     /// Update Channels

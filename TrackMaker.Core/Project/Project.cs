@@ -142,13 +142,13 @@ namespace TrackMaker.Core
 
         public void CommitToHistory()
         {
-            if (History.Count > Setting.UndoDepth)
+            if (History.Count > ApplicationSettings.UndoDepth)
             {
                 History.RemoveAt(History.Count - 1);
 
-                if (CurrentHistoryPoint > Setting.UndoDepth)
+                if (CurrentHistoryPoint > ApplicationSettings.UndoDepth)
                 {
-                    CurrentHistoryPoint = Setting.UndoDepth;
+                    CurrentHistoryPoint = ApplicationSettings.UndoDepth;
                 }
             }
 

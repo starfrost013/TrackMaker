@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tiralen.UpdateServices.Settings
+namespace Tiralen.UpdateServices.ApplicationSettings
 {
     /// <summary>
     /// Update Services setting
     /// </summary>
-    public static class UpdaterSettings
+    public static class UpdaterApplicationSettings
     {
         /// <summary>
         /// The update server to use for acquiring updates

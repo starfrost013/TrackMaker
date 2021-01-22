@@ -126,7 +126,7 @@ namespace TrackMaker.Core.StaticSerialiser
 
         private static bool Deserialise_DeserialiseElement()
         {
-
+            throw new NotImplementedException(); 
         }
     }
 }

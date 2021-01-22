@@ -355,7 +355,7 @@ namespace TrackMaker.Core
                 Storm.NodeList = new List<Node>(); // initalize the mode list
                 Logging.Log("Adding Storm to basin Storm list...");
                 CurrentLayer.AssociatedStorms.Add(Storm);
-                Logging.Log("Setting current Storm...");
+                Logging.Log("ApplicationSettings current Storm...");
                 CurrentLayer.CurrentStorm = Storm; 
                 Logging.Log("Done! Closing...");
 

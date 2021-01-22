@@ -98,7 +98,7 @@ namespace Track_Maker
                 // if it returns false and it IS safe to continue, there is a bug in the MainWindow.TrackMaker_VerifyInternalState() method!
                 if (!TrackMaker_VerifyInternalState()) Environment.Exit(0x9999999); // 0x9999999 = Invalid Internal State
 
-                RenderContent(HurricaneBasin, Setting.DotSize); // Content Renderer 1.2 for v0.3+
+                RenderContent(HurricaneBasin, ApplicationSettings.DotSize); // Content Renderer 1.2 for v0.3+
                 return;
             });
 

@@ -14,12 +14,12 @@ namespace Track_Maker
 
         internal void SetFullscreen()
         {
-            switch (Setting.WindowStyle)
+            switch (ApplicationSettings.WindowStyle)
             {
                 // MOVE THIS CODE
                 case WndStyle.Windowed: // if it's false, turn it on
                     CurrentProject.SelectedBasin.RecalculateNodePositions(true, new Point(Width, Height));
-                    Setting.WindowStyle = WndStyle.Fullscreen;
+                    ApplicationSettings.WindowStyle = WndStyle.Fullscreen;
                     WindowState = WindowState.Maximized;
                     WindowStyle = WindowStyle.None;
                     MainMenu.Width = SystemParameters.PrimaryScreenWidth;
@@ -37,7 +37,7 @@ namespace Track_Maker
                     PriscillaSidebar.Margin = new Thickness(Width - 191, 0, 0, 0);
                     PriscillaSidebar.Height = 609;
                     CurrentProject.SelectedBasin.RecalculateNodePositions(false, new Point(Width, Height));
-                    Setting.WindowStyle = WndStyle.Windowed;
+                    ApplicationSettings.WindowStyle = WndStyle.Windowed;
                     return;
             }
         }

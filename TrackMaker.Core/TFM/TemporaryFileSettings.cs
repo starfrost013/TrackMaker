@@ -10,7 +10,7 @@ namespace TrackMaker.Core
     /// <summary>
     /// Contains settings for a temporary file.
     /// </summary>
-    public class TemporaryFileSettings
+    public class TemporaryFileApplicationSettings
     {
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace TrackMaker.Core
         public string TemporaryFileLocation { get; set; }
 
 
-        public TemporaryFileSettings()
+        public TemporaryFileApplicationSettings()
         {
             TemporaryFileLocation = $@"{System.IO.Path.GetTempPath()}\Iris"; 
         }

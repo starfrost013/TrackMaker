@@ -28,13 +28,13 @@
                     <GradientStop Offset="0.0">
                         <!-- Default = #FF420069 -->
                         <GradientStop.Color>
-                            <Binding Source="{x:Static Core:Setting.AccentColour1}"></Binding>
+                            <Binding Source="{x:Static Core:ApplicationSettings.AccentColour1}"></Binding>
                         </GradientStop.Color>
                     </GradientStop>
                     <GradientStop Offset="1.1">
                         <!-- Default = #FF205000 -->
                         <GradientStop.Color>
-                            <Binding Source="{x:Static Core:Setting.AccentColour2}"></Binding>
+                            <Binding Source="{x:Static Core:ApplicationSettings.AccentColour2}"></Binding>
                         </GradientStop.Color>
                     </GradientStop>
                 </LinearGradientBrush>
@@ -116,13 +116,13 @@
                     <GradientStop Offset="0.0">
                         <!-- Default = #FF420069 -->
                         <GradientStop.Color>
-                            <Binding Source="{x:Static Core:Setting.AccentColour2}"></Binding>
+                            <Binding Source="{x:Static Core:ApplicationSettings.AccentColour2}"></Binding>
                         </GradientStop.Color>
                     </GradientStop>
                     <GradientStop Offset="0.8">
                         <!-- Default = #FF205000 -->
                         <GradientStop.Color>
-                            <Binding Source="{x:Static Core:Setting.AccentColour1}"></Binding>
+                            <Binding Source="{x:Static Core:ApplicationSettings.AccentColour1}"></Binding>
                         </GradientStop.Color>
                     </GradientStop>
                 </LinearGradientBrush>

@@ -25,22 +25,22 @@ namespace TrackMaker.UI
             InitializeComponent();
         }
 
-        private void Settings_Tab_Appearance_DotSizeXSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void ApplicationSettings_Tab_Appearance_DotSizeXSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
         }
 
-        private void Settings_Tab_Appearance_DotSizeYSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void ApplicationSettings_Tab_Appearance_DotSizeYSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
         }
 
-        private void Settings_Tab_Appearance_LineSizeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void ApplicationSettings_Tab_Appearance_LineSizeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
         }
 
-        private void Settings_Tab_Appearance_Done_Click(object sender, RoutedEventArgs e)
+        private void ApplicationSettings_Tab_Appearance_Done_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -8,11 +8,11 @@ using System.Windows;
 namespace TrackMaker.Core
 {
     /// <summary>
-    /// Settings that are specific to the Track Maker session.
+    /// ApplicationSettings that are specific to the Track Maker session.
     /// 
     /// Used to reduce MainWindow use
     /// </summary>
-    public static class VolatileSettings
+    public static class VolatileApplicationSettings
     {
         public static Point WindowSize { get; set; }
     }

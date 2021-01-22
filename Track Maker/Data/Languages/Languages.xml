@@ -9,9 +9,9 @@ Track Maker Priscilla Plus localisation global XML definition file.
 	<Global>
 		<GlobalFormatVersionMajor>1</GlobalFormatVersionMajor>
 		<GlobalFormatVersionMinor>1</GlobalFormatVersionMinor>
-		<Settings>
+		<ApplicationSettings>
 			<DefaultLanguage>English</DefaultLanguage>
-		</Settings>
+		</ApplicationSettings>
 	</Global>
 	<Languages>
 		<!-- English -->
