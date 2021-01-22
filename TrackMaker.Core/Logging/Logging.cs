@@ -34,6 +34,7 @@ namespace TrackMaker.Core
         public static void Init()
         {
             LogFile("Track Maker\n\n© 2019-2021 starfrost. Open-source software under the MIT License.", true);
+            
         }
 
         public static void Log(string Text) // logs to file. 

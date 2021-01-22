@@ -58,7 +58,7 @@ namespace TrackMaker.Core.StaticSerialiser
 
         public static bool Deserialize(Type staticClass, XmlReader xmlReader)
         {
-            FieldInfo[] fieldArray = staticClass.GetFields(BindingFlags.Static | BindingFlags.Public);
+            FieldInfo[] fieldArray = staticClass.GetFields(BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
             string currentElement = null;
 
             while (xmlReader.Read())
@@ -80,7 +80,24 @@ namespace TrackMaker.Core.StaticSerialiser
                     if (fieldInfo.IsNotSerialized)
                         continue;
 
-                    if (fieldInfo.Name == currentElement)
+                    string FinalFieldName = null; 
+
+                    string[] FieldInfo_ExtractNamePre = fieldInfo.Name.Split('>');
+                    
+                    if (FieldInfo_ExtractNamePre.Length < 2)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        string[] Pre0 = FieldInfo_ExtractNamePre[0].Split('<');
+
+                        if (FieldInfo_ExtractNamePre.Length < 2) return false; 
+
+                        FinalFieldName = Pre0[1];
+                    }
+
+                    if (FinalFieldName == currentElement)
                     {
                         if (typeof(IDictionary).IsAssignableFrom(fieldType) || typeof(IList).IsAssignableFrom(fieldType))
                         {
@@ -88,6 +105,7 @@ namespace TrackMaker.Core.StaticSerialiser
 
                             fieldInfo.SetValueDirect(__makeref(fieldObject), fieldObject);
                         }
+                        // todo: tmrw: load some of this stuff
                         else if (xmlReader.NodeType == XmlNodeType.Text)
                         {
                             TypeConverter typeConverter = TypeDescriptor.GetConverter(fieldType);
@@ -95,11 +113,20 @@ namespace TrackMaker.Core.StaticSerialiser
 
                             fieldInfo.SetValue(fieldObject, value);
                         }
+                        else if (xmlReader.NodeType == XmlNodeType.Element)
+                        {
+
+                        }
                     }
                 }
             }
 
             return true;
+        }
+
+        private static bool Deserialise_DeserialiseElement()
+        {
+
         }
     }
 }

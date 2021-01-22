@@ -41,7 +41,7 @@ namespace TrackMaker.Core
         {
 
             string SettingsFilePath = @"Data/Settings.xml";
-            string SchemaFilePath = @"Data/Core/Settings.xsd";
+            string SchemaFilePath = @"Data/Core/Schema/Settings.xsd";
 
             XmlReaderSettings XRS = new XmlReaderSettings();
             XRS.ValidationType = ValidationType.Schema;
@@ -84,7 +84,7 @@ namespace TrackMaker.Core
             
             if (!SR.Successful)
             {
-                Error.Throw("Fatal Error!", "Error loading settings; failed to serialise the settings class.", ErrorSeverity.FatalError, 407);
+                Error.Throw("Fatal Error!", $"Error loading settings; failed to serialise the settings class\n\n{SR.Message}", ErrorSeverity.FatalError, 407);
                 return SR;
             }
             else

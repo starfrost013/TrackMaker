@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Reflection; 
@@ -67,7 +68,12 @@ namespace Track_Maker
 
         }
 
-        private void Init_InitTFM() => GlobalState.TFM = new TemporaryFileManager();
+        private void Init_InitTFM()
+        {
+            GlobalState.TFM = new TemporaryFileManager();
+            GlobalState.TFM.ClearAllFiles(true);
+        }
+       
 
         private void Init_InitGlobalState()
         {
@@ -97,7 +103,20 @@ namespace Track_Maker
             
             // Serialised Settings API 3.0
             // Validate and serialise the settings
-            SS.LoadSettings3();
+
+            // move this block? temp until corefiles.xml
+            try
+            {
+                SS.LoadSettings3();
+            }
+            catch (FileNotFoundException err)
+            {
+#if DEBUG
+                Error.Throw("Fatal Error", $"Cannot find Settings XML Schema!\n\n{err}", ErrorSeverity.FatalError, 409);
+#else
+                Error.Throw("Fatal Error", $"Cannot find Settings XML Schema!", ErrorSeverity.FatalError, 409);
+#endif
+            }
 
             if (Setting.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled.");
         }
