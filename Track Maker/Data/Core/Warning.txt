@@ -1,0 +1,7 @@
+Do not modify the files in this folder if you *do not know what you are doing*.
+
+Doing so may cause settings and projects to fail to import or export on other installations of the Track Maker, or in the case of improperly modifying the corefiles.xml file, can and will render your Track Maker installation *inoperable* until the file is repaired or the Track Maker is reinstalled.
+
+Message or email me if you want help.
+
+-starfrost

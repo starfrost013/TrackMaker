@@ -53,7 +53,7 @@ namespace TrackMaker.Core
                 TemporaryFileSettings TFS = new TemporaryFileSettings();
                 TFS.TemporaryFileLocation = ".";
                 TFS.Name = FileName;
-                TFS.Persistent = false;
+                TFS.DelayClearUntilNextStart = true; 
 
                 if (IsNew)
                 {

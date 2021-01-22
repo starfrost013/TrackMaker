@@ -272,6 +272,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Data\Core\Schema\Components\Basin.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Core\Schema\Settings.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Data\Splash\Priscilla.pdn" />
     <None Include="Data\Splash\Priscilla2.pdn" />
     <None Include="Data\Splash\Priscilla3.pdn" />
@@ -364,7 +372,13 @@
     <None Include="Data\RedoFull.png" />
     <Resource Include="Data\Icon\V2Icon_32x32.ico" />
     <None Include="Data\Icon\V2Icon_32x32.png" />
+    <Content Include="Data\Core\Warning.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\help_info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\license.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Settings.xml">

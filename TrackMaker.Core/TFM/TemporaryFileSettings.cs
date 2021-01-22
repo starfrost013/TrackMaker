@@ -24,6 +24,11 @@ namespace TrackMaker.Core
         public string Name { get; set; }
 
         /// <summary>
+        /// Delay deleting this file until the next time the Track Maker starts.
+        /// </summary>
+        public bool DelayClearUntilNextStart { get; set; }
+
+        /// <summary>
         /// Delete this file at startup and shutdown?
         /// </summary>
         public bool Persistent { get; set; }

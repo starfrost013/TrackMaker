@@ -91,7 +91,13 @@ namespace Track_Maker
         {
             // Load Settings
             Logging.Log("Loading settings...");
-            SettingsLoader.LoadSettings2();
+
+            //SettingsLoader.LoadSettings2();
+            SettingsSerialiser SS = new SettingsSerialiser();
+            
+            // Serialised Settings API 3.0
+            // Validate and serialise the settings
+            SS.LoadSettings3();
 
             if (Setting.Iris_UseDeserialisation) Logging.Log("XML (de)serialisation enabled.");
         }

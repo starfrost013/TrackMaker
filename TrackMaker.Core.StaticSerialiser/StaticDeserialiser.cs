@@ -26,12 +26,12 @@ namespace TrackMaker.Core.StaticSerialiser
 
                 Deserialize(staticClass, xmlReader);
 
-                SSR.Result = true;
+                SSR.Successful = true;
                 return SSR;
             }
             catch (Exception ex)
             {
-                SSR.Result = false;
+                SSR.Successful = false;
                 SSR.Message = ex.Message;
                 return SSR;
             }

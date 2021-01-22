@@ -110,14 +110,6 @@
       <Name>TrackMaker.Core.StaticSerialiser</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Schema\Components\Basin.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Schema\Settings.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Page Include="Error\ErrorUI\ErrorHost\ErrorUIHost.xaml">

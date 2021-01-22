@@ -36,14 +36,14 @@ namespace TrackMaker.Core.StaticSerialiser
 
                 xmlWriter.WriteEndDocument();
 
-                SSR.Result = true;
+                SSR.Successful = true;
 
                 return SSR;
             }
             catch (Exception ex)
             {
                 SSR.Message = ex.Message;
-                SSR.Result = false;
+                SSR.Successful = false;
                 return SSR;
             }
             finally

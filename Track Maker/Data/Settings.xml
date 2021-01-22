@@ -1,12 +1,22 @@
 <Settings>
-  <AccentColour1>0,64,128</AccentColour1>
-  <AccentColour2>150,189,254</AccentColour2>
+  <AccentColour1>
+    <R>0</R>
+    <G>64</G>
+    <B>128</B>
+  </AccentColour1>
+  <AccentColour2>
+    <R>150</R>
+    <G>189</G>
+    <B>254</B>
+  </AccentColour2>
   <AccentEnabled>True</AccentEnabled>
   <DefaultCategorySystem>SSHWS</DefaultCategorySystem>
-  <DotSize>8,8</DotSize>
+  <DotSize>
+    <X>8</X>
+    <Y>8</Y>
+  </DotSize>
   <ExperimentalMode>true</ExperimentalMode>
   <LineSize>2</LineSize>
-  <!--<SelectedBasin>Atlantic</SelectedBasin> legacy v1.0-->
   <Iris_EnableDebugUI>True</Iris_EnableDebugUI>
   <Iris_EnableGraphUI>True</Iris_EnableGraphUI>
   <Iris_UseDeserialisation>False</Iris_UseDeserialisation>

@@ -32,13 +32,17 @@ namespace TrackMaker.Core
             SettingsSerialiser_Validate();
             // throws an error if invalid.
             Logging.Log("Settings.xml valid");
-            Logging.Log("Serialising settings"); 
+            Logging.Log("Serialising settings");
+            SettingsSerialiser_Serialise();
+            Logging.Log("Serialisation successful!"); 
         }
         
         private void SettingsSerialiser_Validate()
         {
 
-            FileStream SchemaReader = File.Open(@"Data/Settings.xml", FileMode.Open);
+            string SettingsFilePath = @"Data/Core/Settings.xml";
+
+            FileStream SchemaReader = File.Open(SettingsFilePath, FileMode.Open);
 
             XmlReader XR = XmlReader.Create(SchemaReader);
 
@@ -74,7 +78,7 @@ namespace TrackMaker.Core
 
         private StaticSerialisationResult SettingsSerialiser_Serialise()
         {
-            string Temp_SettingsFileName = @"Data/Settings.xml";
+            string Temp_SettingsFileName = @"Data/Core/Settings.xml";
 
             // rename this class...
             StaticSerialisationResult SR = StaticSerialiser.StaticSerialiser.Deserialize(typeof(ApplicationSettings), Temp_SettingsFileName);
