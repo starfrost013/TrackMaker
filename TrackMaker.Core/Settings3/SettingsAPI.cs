@@ -60,11 +60,11 @@ namespace TrackMaker.Core
             {
                 XmlDocument XDoc = new XmlDocument();
 
-                string ApplicationSettingsFile = @"Data\ApplicationSettings.xml";
+                string ApplicationSettingsFile = @"Data\Settings.xml";
 
                 if (!File.Exists(ApplicationSettingsFile))
                 {
-                    Error.Throw("Fatal error", "ApplicationSettings.xml not found!", ErrorSeverity.FatalError, 110);
+                    Error.Throw("Fatal error", "Settings.xml not found!", ErrorSeverity.FatalError, 110);
                 }
 
                 XDoc.Load(ApplicationSettingsFile);

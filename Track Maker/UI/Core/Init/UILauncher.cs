@@ -29,7 +29,7 @@ namespace Track_Maker
 
                 if (StormList.Count == 0)
                 {
-                    Error.Throw("Warning", "You must have at least one storm to export!", ErrorSeverity.Warning, 340);
+                    Error.Throw("Warning", "You must have at least one storm to export!", ErrorSeverity.Warning, 341);
                     return false;
                 }
                 else

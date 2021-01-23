@@ -20,6 +20,7 @@ namespace TrackMaker.UI
     /// </summary>
     public partial class Iris_SettingsUI : UserControl
     {
+        public EventHandler<DanoEventArgs> SettingsSaved { get; set; }
         public Iris_SettingsUI()
         {
             InitializeComponent();

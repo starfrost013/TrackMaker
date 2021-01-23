@@ -6,27 +6,32 @@
     xmlns:mstns="http://tempuri.org/ApplicationSettings.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
+
+  <!-- Settings Schema v1.1
+  
+  2021-01-22 -->
+
   <xs:complexType name="ApplicationSettings">
     <xs:sequence>
 
-      <xs:element name="AccentColour1">
+      <xs:element name="AccentColour1" minOccurs="0">
         
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="X" type="xs:double"></xs:element>
-            <xs:element name="Y" type="xs:double"></xs:element>
-            <xs:element name="Z" type="xs:double"></xs:element>
+            <xs:element name="X" type="xs:double" minOccurs="0" default="0"></xs:element>
+            <xs:element name="Y" type="xs:double" minOccurs="0" default="64"></xs:element>
+            <xs:element name="Z" type="xs:double" minOccurs="0" default="128"></xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
 
-      <xs:element name="AccentColour2">
+      <xs:element name="AccentColour2" minOccurs="0">
 
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="X" type="xs:double"></xs:element>
-            <xs:element name="Y" type="xs:double"></xs:element>
-            <xs:element name="Z" type="xs:double"></xs:element>
+            <xs:element name="X" type="xs:double" minOccurs="0" default="150"></xs:element>
+            <xs:element name="Y" type="xs:double" minOccurs="0" default="189"></xs:element>
+            <xs:element name="Z" type="xs:double" minOccurs="0" default="254"></xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -36,17 +41,17 @@
       <xs:element name="DefaultVisibleTextNames" type="xs:string"></xs:element>
       
       <!-- adding namespaces defined in local xsd schemas is janky so we do this shit -->
-      <xs:element name="DotSize">
+      <xs:element name="DotSize" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="X" type="xs:double"></xs:element>
-            <xs:element name="Y" type="xs:double"></xs:element>
+            <xs:element name="X" type="xs:double" minOccurs="0" default="8"></xs:element>
+            <xs:element name="Y" type="xs:double" minOccurs="0" default="8"></xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="EnableAccent" type="xs:boolean"></xs:element>
       
-      <xs:element name="LineSize" type="xs:int"></xs:element>
+      <xs:element name="LineSize" type="xs:int" minOccurs="0" default="2"></xs:element>
       <xs:element name="ShowBetaWarning" type="xs:boolean"></xs:element>
       <xs:element name="Iris_EnableDeserialisation" type="xs:boolean"></xs:element>
       <xs:element name="Iris_EnableGraphUI" type="xs:boolean"></xs:element>

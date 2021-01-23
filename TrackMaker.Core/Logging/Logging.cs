@@ -54,8 +54,16 @@ namespace TrackMaker.Core
                 TemporaryFileApplicationSettings TFS = new TemporaryFileApplicationSettings();
                 TFS.TemporaryFileLocation = ".";
                 TFS.Name = FileName;
-                TFS.DelayClearUntilNextStart = true; 
-
+                
+                if (ApplicationSettings.ClearLogs)
+                {
+                    TFS.DelayClearUntilNextStart = true;
+                }
+                else
+                {
+                    TFS.Persistent = true;
+                }
+                                   
                 if (IsNew)
                 {
                     // Crippling this as we're integrating it with the track maker.

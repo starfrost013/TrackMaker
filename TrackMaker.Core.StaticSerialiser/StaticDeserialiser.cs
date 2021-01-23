@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -63,6 +64,8 @@ namespace TrackMaker.Core.StaticSerialiser
 
             while (xmlReader.Read())
             {
+
+                
                 if (xmlReader.NodeType == XmlNodeType.EndElement)
                     continue;
 
@@ -119,14 +122,14 @@ namespace TrackMaker.Core.StaticSerialiser
                         }
                     }
                 }
+                
             }
 
             return true;
         }
 
-        private static bool Deserialise_DeserialiseElement()
-        {
-            throw new NotImplementedException(); 
-        }
+     
+
+        
     }
 }

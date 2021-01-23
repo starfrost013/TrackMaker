@@ -29,15 +29,15 @@ namespace TrackMaker.Core
             Logging.Log("Loading settings...");
 
             Logging.Log("Validating settings using XML schema"); 
-            ApplicationSettingsSerialiser_Validate();
+            SettingsSerialiser_Validate();
             // throws an error if invalid.
-            Logging.Log("ApplicationSettings.xml valid");
+            Logging.Log("Settings.xml valid");
             Logging.Log("Serialising settings");
-            ApplicationSettingsSerialiser_Serialise();
+            SettingsSerialiser_Serialise();
             Logging.Log("Serialisation successful!"); 
         }
         
-        private void ApplicationSettingsSerialiser_Validate()
+        private void SettingsSerialiser_Validate()
         {
 
             string ApplicationSettingsFilePath = @"Data/Settings.xml";
@@ -45,7 +45,7 @@ namespace TrackMaker.Core
 
             XmlReaderSettings XRS = new XmlReaderSettings();
             XRS.ValidationType = ValidationType.Schema;
-            XRS.ValidationEventHandler += ApplicationSettingsSerialiser_ValidateFailed;
+            XRS.ValidationEventHandler += SettingsSerialiser_ValidateFailed;
             XRS.Schemas.Add(null, SchemaFilePath);
 
             XmlReader SchemaReader = XmlReader.Create(ApplicationSettingsFilePath, XRS);
@@ -61,7 +61,7 @@ namespace TrackMaker.Core
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="Args"></param>
-        private void ApplicationSettingsSerialiser_ValidateFailed(object sender, ValidationEventArgs Args)
+        private void SettingsSerialiser_ValidateFailed(object sender, ValidationEventArgs Args)
         {
             switch (Args.Severity)
             {
@@ -75,7 +75,7 @@ namespace TrackMaker.Core
             }
         }
 
-        private StaticSerialisationResult ApplicationSettingsSerialiser_Serialise()
+        private StaticSerialisationResult SettingsSerialiser_Serialise()
         {
             string Temp_ApplicationSettingsFileName = @"Data/Settings.xml";
 

@@ -176,7 +176,7 @@ namespace Track_Maker
 
             if (Catman.CurrentCategorySystem == null)
             {
-                Error.Throw("Error!", "An invalid category system was selected; you likely modified ApplicationSettings.xml manually - the current category system has been restored to defaults. If you did not, this is a bug in the Track Maker. Contact me at starfrost#9088 on Discord for beta support.", ErrorSeverity.Error, 225); 
+                Error.Throw("Error!", "An invalid category system was selected; you likely modified Settings.xml manually - the current category system has been restored to defaults. If you did not, this is a bug in the Track Maker. Contact me at starfrost#9088 on Discord for beta support.", ErrorSeverity.Error, 225); 
                 Catman.CurrentCategorySystem = Catman.CategorySystems[0];
             }
             else
