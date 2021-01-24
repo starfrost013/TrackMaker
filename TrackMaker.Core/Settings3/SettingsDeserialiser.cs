@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO; 
 using System.Linq;
 using System.Text;
@@ -52,8 +53,19 @@ namespace TrackMaker.Core
 
             XmlDocument XD = new XmlDocument();
 
-            XD.Load(SchemaReader);
-            
+            try
+            {
+                XD.Load(SchemaReader);
+            }
+            catch (XmlException err)
+            {
+#if DEBUG
+                Error.Throw("Fatal Error!", $"Error validating settings XML using schema: XML invalid.\n\n{err}", ErrorSeverity.FatalError, 412);
+#else
+                Error.Throw("Fatal Error!", "Error validating settings XML using schema: XML invalid.", ErrorSeverity.FatalError, 412);
+#endif
+            }
+
         }
 
         /// <summary>

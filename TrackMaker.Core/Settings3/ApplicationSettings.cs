@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Windows;
-using System.Windows.Media; 
+using System.Windows.Media;
+using TrackMaker.Util.StringUtilities;
 
 namespace TrackMaker.Core
 {
@@ -16,15 +17,33 @@ namespace TrackMaker.Core
         /// <summary>
         /// The first accent colour.
         /// </summary>
-        [XmlElement("AccentColour1")]
-        public static Color AccentColour1 { get; set; } 
+        
+        public static Color AccentColour1 { get; set; }
 
+        [XmlElement("AccentColour1")]
+        /// <summary>
+        /// AccentColour1 for Serialisation
+        /// </summary>
+        private static string AccentColour1_Internal { get => AccentColour1_Internal; set
+            {
+                AccentColour1 = AccentColour1_Internal.SplitRGB();
+            }
+
+        }
         /// <summary>
         /// The second accent colour
         /// </summary>
-        [XmlElement("AccentColour2")]
-        public static Color AccentColour2 { get; set; } 
+        
+        public static Color AccentColour2 { get; set; }
 
+        [XmlElement("AccentColour2")]
+        private static string AccentColour2_Internal
+        {
+            get => AccentColour2_Internal; set
+            {
+                AccentColour2 = AccentColour2_Internal.SplitRGB();
+            }
+        }
         /// <summary>
         /// Is the accent enabled?
         /// </summary>
@@ -57,9 +76,15 @@ namespace TrackMaker.Core
         /// Dot size for preset shapes
         /// </summary>
 
-        [XmlElement("DotSize")]
-        public static Point DotSize { get; set; } 
+        
+        public static Point DotSize { get; set; }
 
+        [XmlElement("DotSize")]
+        private static string DotSize_Internal { get => DotSize_Internal; set
+            {
+                DotSize = DotSize_Internal.SplitXY();
+            }  
+        }
         /// <summary>
         /// Line size 
         /// </summary>
@@ -78,8 +103,26 @@ namespace TrackMaker.Core
         /// User telemetry consent status (essentially glorified update checking, indirectly showing every time the Track Maker is launched if enabled)
         /// </summary>
 
+        
+        public static TelemetryConsent TelemetryConsent { get; set; }
+
         [XmlElement("TelemetryConsent")]
-        public static TelemetryConsent TelemetryConsent { get; set; } 
+        public static string TelemetryConsent_Internal { get => TelemetryConsent_Internal; set 
+            {
+                try
+                {
+                    TelemetryConsent = (TelemetryConsent)Enum.Parse(typeof(TelemetryConsent), TelemetryConsent_Internal);
+                }
+                catch (ArgumentException err)
+                {
+#if DEBUG
+                    Error.Throw("Error!", $"Fatal error converting TelemetryConsent!, Settings.TelemetryConsent is invalid!\n\n{err}", ErrorSeverity.Error, 410);
+#else
+#endif
+                }
+            }
+
+        }
 
         /// <summary>
         /// [Unused for now] Undo history level
