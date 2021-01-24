@@ -115,41 +115,43 @@
     </ApplicationDefinition>
     <Compile Include="Core\Init\Init.cs" />
     <Compile Include="Core\InternalStateVerification\InternalStateVerifier.cs" />
-    <Compile Include="DanoProject\Project.cs" />
-    <Compile Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
+    <Compile Include="UIHost\AboutWindowHost\AboutWindowHost.xaml.cs">
       <DependentUpon>AboutWindowHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\AddNewStormHost\AddNewStormHost.xaml.cs">
+    <Compile Include="UIHost\AddNewStormHost\AddNewStormHost.xaml.cs">
       <DependentUpon>AddNewStormHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\AddTrackPointHost\AddTrackPointHost.xaml.cs">
+    <Compile Include="UIHost\AddTrackPointHost\AddTrackPointHost.xaml.cs">
       <DependentUpon>AddTrackPointHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\CreateLayerHost\CreateLayerHost.xaml.cs">
+    <Compile Include="UIHost\CreateLayerHost\CreateLayerHost.xaml.cs">
       <DependentUpon>CreateLayerHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\CreateProjectHost\CreateProjectHost.xaml.cs">
+    <Compile Include="UIHost\CreateProjectHost\CreateProjectHost.xaml.cs">
       <DependentUpon>CreateProjectHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\BasinSwitcherHost\BasinSwitcherHost.xaml.cs">
+    <Compile Include="UIHost\BasinSwitcherHost\BasinSwitcherHost.xaml.cs">
       <DependentUpon>BasinSwitcherHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\CategoryManagerHost\CategoryManagerHost.xaml.cs">
+    <Compile Include="UIHost\CategoryManagerHost\CategoryManagerHost.xaml.cs">
       <DependentUpon>CategoryManagerHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\EditUIHost\EditUIHost.xaml.cs">
+    <Compile Include="UIHost\EditUIHost\EditUIHost.xaml.cs">
       <DependentUpon>EditUIHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\LayerControlHost\LayerControlHost.xaml.cs">
+    <Compile Include="UIHost\LayerControlHost\LayerControlHost.xaml.cs">
       <DependentUpon>LayerControlHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\RenameLayerHost\RenameLayerHost.xaml.cs">
+    <Compile Include="UIHost\RenameLayerHost\RenameLayerHost.xaml.cs">
       <DependentUpon>RenameLayerHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\SeasonManagerHost\SeasonManagerHost.xaml.cs">
+    <Compile Include="UIHost\SeasonManagerHost\SeasonManagerHost.xaml.cs">
       <DependentUpon>SeasonManagerHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DanoUIHost\StartPageHost\StartPageHost.xaml.cs">
+    <Compile Include="UIHost\SettingsHost\SettingsUIHost.xaml.cs">
+      <DependentUpon>SettingsUIHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHost\StartPageHost\StartPageHost.xaml.cs">
       <DependentUpon>StartPageHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExportPlatform\ExportFormats\ATCF.cs" />
@@ -181,51 +183,55 @@
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\ParsingUtil\ParsingUtil.cs" />
-    <Page Include="DanoUIHost\AboutWindowHost\AboutWindowHost.xaml">
+    <Page Include="UIHost\AboutWindowHost\AboutWindowHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\AddNewStormHost\AddNewStormHost.xaml">
+    <Page Include="UIHost\AddNewStormHost\AddNewStormHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\AddTrackPointHost\AddTrackPointHost.xaml">
+    <Page Include="UIHost\AddTrackPointHost\AddTrackPointHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\CreateLayerHost\CreateLayerHost.xaml">
+    <Page Include="UIHost\CreateLayerHost\CreateLayerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\CreateProjectHost\CreateProjectHost.xaml">
+    <Page Include="UIHost\CreateProjectHost\CreateProjectHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\BasinSwitcherHost\BasinSwitcherHost.xaml">
+    <Page Include="UIHost\BasinSwitcherHost\BasinSwitcherHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\CategoryManagerHost\CategoryManagerHost.xaml">
+    <Page Include="UIHost\CategoryManagerHost\CategoryManagerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\EditUIHost\EditUIHost.xaml">
+    <Page Include="UIHost\EditUIHost\EditUIHost.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DanoUIHost\LayerControlHost\LayerControlHost.xaml">
+    <Page Include="UIHost\LayerControlHost\LayerControlHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\RenameLayerHost\RenameLayerHost.xaml">
+    <Page Include="UIHost\RenameLayerHost\RenameLayerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\SeasonManagerHost\SeasonManagerHost.xaml">
+    <Page Include="UIHost\SeasonManagerHost\SeasonManagerHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DanoUIHost\StartPageHost\StartPageHost.xaml">
+    <Page Include="UIHost\SettingsHost\SettingsUIHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHost\StartPageHost\StartPageHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

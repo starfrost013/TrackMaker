@@ -85,6 +85,7 @@
             </MenuItem>
             <MenuItem x:Name="DebugMenu" Header="Debug" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="DebugMenu_StartPageUITest" Header="StartPageUITest" Click="DebugMenu_StartPageUITest_Click"></MenuItem>
+                <MenuItem x:Name="DebugMenu_IrisSettingsUITest" Header="SettingsUI (Iris)" Click="DebugMenu_IrisSettingsUITest_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="HelpMenu" Header="Help" Style="{StaticResource Style_Menu_Inverted}">
                 <!-- Help -->

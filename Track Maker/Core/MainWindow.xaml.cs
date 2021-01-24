@@ -162,7 +162,6 @@ namespace Track_Maker
             GlobalState.TFM.ClearAllFiles(); 
         }
 
-
 #elif IRIS
 #endif
     }

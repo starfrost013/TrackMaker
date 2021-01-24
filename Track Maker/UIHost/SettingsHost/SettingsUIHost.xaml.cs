@@ -10,19 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TrackMaker.UI
+namespace Track_Maker
 {
     /// <summary>
-    /// Interaction logic for Iris_ExportUI.xaml
+    /// Interaction logic for SettingsUIHost.xaml
     /// </summary>
-    public partial class ExportUI : UserControl
+    public partial class SettingsUIHost : Window
     {
-        public ExportUI()
+        public SettingsUIHost()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// "Cancel" button event handler (Iris v689)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelHit(object sender, EventArgs e) => Close(); 
     }
 }

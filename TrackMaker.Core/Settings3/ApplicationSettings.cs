@@ -20,13 +20,22 @@ namespace TrackMaker.Core
         
         public static Color AccentColour1 { get; set; }
 
+        private static string _accentcolour1_internal { get; set; }
+
         [XmlElement("AccentColour1")]
         /// <summary>
         /// AccentColour1 for Serialisation
         /// </summary>
-        private static string AccentColour1_Internal { get => AccentColour1_Internal; set
+        internal static string AccentColour1_Internal
+        {
+            get
             {
-                AccentColour1 = AccentColour1_Internal.SplitRGB();
+                return _accentcolour1_internal;
+            }
+            set
+            {
+                _accentcolour1_internal = value;
+                AccentColour1 = value.SplitRGB();
             }
 
         }
@@ -36,12 +45,19 @@ namespace TrackMaker.Core
         
         public static Color AccentColour2 { get; set; }
 
+        private static string _accentcolour2_internal { get; set; }
+
         [XmlElement("AccentColour2")]
-        private static string AccentColour2_Internal
+        internal static string AccentColour2_Internal
         {
-            get => AccentColour2_Internal; set
+            get
             {
-                AccentColour2 = AccentColour2_Internal.SplitRGB();
+                return _accentcolour2_internal;
+            }
+            set
+            {
+                _accentcolour2_internal = value;
+                AccentColour2 = value.SplitRGB();
             }
         }
         /// <summary>
@@ -59,7 +75,7 @@ namespace TrackMaker.Core
         public static bool ClearLogs { get; set; } 
 
         /// <summary>
-        /// The default category system to use.
+        /// The default category system to use. (may be changed to a CategorySystem soon)
         /// </summary>
 
         [XmlElement("DefaultCategorySystem")]
@@ -79,10 +95,18 @@ namespace TrackMaker.Core
         
         public static Point DotSize { get; set; }
 
+        private static string _dotsize_internal { get; set; }
+
         [XmlElement("DotSize")]
-        private static string DotSize_Internal { get => DotSize_Internal; set
+        internal static string DotSize_Internal
+        {
+            get
             {
-                DotSize = DotSize_Internal.SplitXY();
+                return _dotsize_internal;
+            }
+            set
+            {
+                _dotsize_internal = value.SplitXY();
             }  
         }
         /// <summary>
@@ -106,18 +130,26 @@ namespace TrackMaker.Core
         
         public static TelemetryConsent TelemetryConsent { get; set; }
 
+        private static string _telemetryconsent_internal { get; set; }
+
         [XmlElement("TelemetryConsent")]
-        public static string TelemetryConsent_Internal { get => TelemetryConsent_Internal; set 
+        internal static string TelemetryConsent_Internal {
+            get
+            {
+                return _telemetryconsent_internal;
+            }
+            set 
             {
                 try
                 {
-                    TelemetryConsent = (TelemetryConsent)Enum.Parse(typeof(TelemetryConsent), TelemetryConsent_Internal);
+                    TelemetryConsent = (TelemetryConsent)Enum.Parse(typeof(TelemetryConsent), value);
                 }
                 catch (ArgumentException err)
                 {
 #if DEBUG
                     Error.Throw("Error!", $"Fatal error converting TelemetryConsent!, Settings.TelemetryConsent is invalid!\n\n{err}", ErrorSeverity.Error, 410);
 #else
+                    Error.Throw("Error!", $"Fatal error converting TelemetryConsent!, Settings.TelemetryConsent is invalid!", ErrorSeverity.Error, 410);
 #endif
                 }
             }
@@ -153,15 +185,21 @@ namespace TrackMaker.Core
 
         public static WndStyle WindowStyle { get; set; }
 
+        private static string _windowstyle_internal { get; set; }
         /// <summary>
         /// TODO: Merge WndStyle and prebuilt WPF windowstyle
         /// </summary>
         [XmlElement("WindowStyle")]
-        public static string WindowStyle_Internal
+        internal static string WindowStyle_Internal
         {
-            get => WindowStyle_Internal; set
+            get
             {
-                WindowStyle_Internal = value;
+                return _windowstyle_internal;
+            }
+
+            set
+            {
+                _windowstyle_internal = value;
 
                 try
                 {

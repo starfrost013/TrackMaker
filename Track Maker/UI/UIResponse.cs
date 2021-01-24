@@ -140,35 +140,11 @@ namespace Track_Maker
             SMan.Show(); */
         }
 
-        private void FileMenu_SaveImage_Click(object sender, RoutedEventArgs e)
-        {
-            InitExportUI<ExportImage>(FormatType.Export); 
+        private void FileMenu_SaveImage_Click(object sender, RoutedEventArgs e) => InitExportUI<ExportImage>(FormatType.Export); 
 
-            /* pre-build 627
-            ExportUI ExportUI = new ExportUI(FormatType.Export, new ExportImage());
-            ExportUI.Owner = tthis;
-            ExportUI.Show(); */
-        }
+        private void FileMenu_Import_XML2_Click(object sender, RoutedEventArgs e) => InitExportUI<ExportXMLv2>(FormatType.Import);
 
-        private void FileMenu_Import_XML2_Click(object sender, RoutedEventArgs e)
-        {
-            InitExportUI<ExportXMLv2>(FormatType.Import);
-
-            /* pre-build 629
-            ExportUI ExportUI = new ExportUI(FormatType.Import, new ExportXMLv2());
-            ExportUI.Owner = this;
-            ExportUI.Show(); */
-        }
-
-        private void FileMenu_Export_XML2_Click(object sender, RoutedEventArgs e)
-        {
-            InitExportUI<ExportXMLv2>(FormatType.Export);
-            
-            /* pre-build 629
-            ExportUI ExportUI = new ExportUI(FormatType.Export, new ExportXMLv2());
-            ExportUI.Owner = this;
-            ExportUI.Show(); */
-        }
+        private void FileMenu_Export_XML2_Click(object sender, RoutedEventArgs e) => InitExportUI<ExportXMLv2>(FormatType.Export);
 
         private void ToolsMenu_ACECalculator_Click(object sender, RoutedEventArgs e)
         {
@@ -202,50 +178,9 @@ namespace Track_Maker
             ANSH.Show(); 
         }
 
-        private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e)
-        {
-            InitExportUI<ExportEasyTimeline>(FormatType.Export);
+        private void FileMenu_Export_ET_Click(object sender, RoutedEventArgs e) => InitExportUI<ExportEasyTimeline>(FormatType.Export);
 
-            /* pre-build 629 
-            List<Storm> StormList = CurrentProject.SelectedBasin.GetFlatListOfStorms();
-
-            if (StormList.Count == 0)
-            {
-                MessageBox.Show("You must have at least one storm to export to this format.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return; 
-            }
-
-            ExportUI ExUI = new ExportUI(FormatType.Export, new ExportEasyTimeline());
-            ExUI.Owner = this;
-            ExUI.Show(); */
-        }
-
-        private void FileMenu_Export_BT_Click(object sender, RoutedEventArgs e)
-        {
-            InitExportUI<ExportBestTrack>(FormatType.Export);
-
-            /* pre-build 629
-            List<Storm> StormList = CurrentProject.SelectedBasin.GetFlatListOfStorms();
-
-            if (StormList.Count == 0)
-            {
-                Error.Throw("Warning", "You must have at least one storm to export to this format.", ErrorSeverity.Warning, 261);
-                return;
-            }
-            
-            if (CurrentProject.SelectedBasin.CoordsLower != null || CurrentProject.SelectedBasin.CoordsHigher != null)
-            {
-                ExportUI ExUI = new ExportUI(FormatType.Export, new ExportBestTrack());
-                ExUI.Owner = this;
-                ExUI.Show();
-            }
-            else
-            {
-                Error.Throw("Error", "This export format is not supported by this basin. Please define coords!", ErrorSeverity.Warning, 123);
-                return; 
-            } */
-
-        }
+        private void FileMenu_Export_BT_Click(object sender, RoutedEventArgs e) => InitExportUI<ExportBestTrack>(FormatType.Export);
 
         //Test code. remove this.
 #if DANO
@@ -457,15 +392,7 @@ namespace Track_Maker
         }
 
 
-        private void FileMenu_Import_HURDAT2_Click(object sender, RoutedEventArgs e)
-        {
-            InitExportUI<ExportHURDAT2>(FormatType.Import);
-
-            /* pre-build 629
-            ExportUI EUI = new ExportUI(FormatType.Import, new ExportHURDAT2());
-            EUI.Owner = this;
-            EUI.Show(); */
-        }
+        private void FileMenu_Import_HURDAT2_Click(object sender, RoutedEventArgs e) => InitExportUI<ExportHURDAT2>(FormatType.Import);
 
         private void HelpMenu_Help_Click(object sender, RoutedEventArgs e)
         {
@@ -524,9 +451,15 @@ namespace Track_Maker
             SPH.Show();
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e) => VolatileApplicationSettings.WindowSize = new Point(Width, Height);
+
+        private void DebugMenu_IrisSettingsUITest_Click(object sender, RoutedEventArgs e)
         {
-            VolatileApplicationSettings.WindowSize = new Point(Width, Height);
+            SettingsUIHost SUIH = new SettingsUIHost();
+            SUIH.Owner = this;
+            SUIH.Show(); 
         }
+
+
     }
 }

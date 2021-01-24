@@ -1,11 +1,13 @@
-﻿using TrackMaker.Util.ScaleUtilities;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls; 
+using System.Windows.Controls;
+using TrackMaker.Core; 
+using TrackMaker.Util.ScaleUtilities;
 
 /// <summary>
 /// starfrost's Hurricane Track Maker Export Platform Interface
