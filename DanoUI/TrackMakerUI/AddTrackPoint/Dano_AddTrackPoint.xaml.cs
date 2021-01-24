@@ -67,7 +67,7 @@ namespace TrackMaker.UI
                 DEA.DanoParameters.Add(TypeSelect.GetSelectedItem());
                 DEA.DanoParameters.Add(MousePosition);
 
-                if (OptionalApplicationSettings_Pressure.Text == "")
+                if (OptionalApplicationSettings_Pressure.Text == string.Empty)
                 {
                     // Add a placeholder in the case the pressure has not been specified.
                     DEA.DanoParameters.Add(1000);
