@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Track_Maker.Graphing
+namespace TrackMaker.Core
 {
 
     /// <summary>

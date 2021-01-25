@@ -116,10 +116,7 @@ namespace TrackMaker.Core.StaticSerialiser
 
                             fieldInfo.SetValue(fieldObject, value);
                         }
-                        else if (xmlReader.NodeType == XmlNodeType.Element)
-                        {
 
-                        }
                     }
                 }
                 

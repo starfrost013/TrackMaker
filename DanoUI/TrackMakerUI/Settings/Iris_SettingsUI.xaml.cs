@@ -83,5 +83,14 @@ namespace TrackMaker.UI
             CancelHit(this, new EventArgs()); 
         }
 
+        private void ApplicationSettings_Tab_Appearance_AccentColour1Picker_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ApplicationSettings_Tab_Appearance_AccentColour2Picker_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

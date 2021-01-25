@@ -49,9 +49,12 @@ namespace Track_Maker
             switch (AdvancedApplicationSettingsToggleState)
             {
                 case true:
+                    AddTrackPointControl.TypeOK.Margin = new Thickness(598, 154, 0, 0);
                     Height = 300.331;
+
                     return;
                 case false:
+                    AddTrackPointControl.TypeOK.Margin = new Thickness(598, 220, 0, 0);
                     Height = 237;
                     return; 
             }

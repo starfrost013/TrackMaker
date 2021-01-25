@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Track_Maker.Graphing
+namespace TrackMaker.Core
 {
     /// <summary>
     /// Dano (3.0) graphing mode individual graph
     /// </summary>
     public interface IGraph
     {
-        string Name { get; set; }
+        GraphSettings Settings { get; set; }
         List<GraphLine> Lines { get; set; }
         bool Plot();
         GraphLine GetLineWithName();

@@ -106,7 +106,7 @@ namespace TrackMaker.Core
             }
             set
             {
-                _dotsize_internal = value.SplitXY();
+                DotSize = value.SplitXY();
             }  
         }
         /// <summary>
@@ -190,7 +190,7 @@ namespace TrackMaker.Core
         /// TODO: Merge WndStyle and prebuilt WPF windowstyle
         /// </summary>
         [XmlElement("WindowStyle")]
-        internal static string WindowStyle_Internal
+        public static string WindowStyle_Internal
         {
             get
             {

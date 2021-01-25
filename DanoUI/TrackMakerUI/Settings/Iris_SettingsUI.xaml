@@ -11,13 +11,17 @@
         <TabControl x:Name="ApplicationSettings_Tabber" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="782" Margin="0,0,-2,-31" Grid.RowSpan="2">
             <TabItem Header="General">
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="14*"/>
+                        <RowDefinition Height="17*"/>
+                    </Grid.RowDefinitions>
                     <TextBlock x:Name="ApplicationSettings_Tab_General_Header" HorizontalAlignment="Left" Margin="24,10,0,0" TextWrapping="Wrap" Text="General Settings" VerticalAlignment="Top" FontSize="48" FontStyle="Italic"></TextBlock>
                     <!-- change for v2 -->
-                    <TextBlock x:Name="ApplicationSettings_Tab_General_DefaultCategorySystem" TextWrapping="Wrap" Text="Default category system:" Margin="25,105,476,236" FontSize="24"/>
-                    <ComboBox x:Name="ApplicationSettings_Tab_General_DefaultCategorySystemBox" HorizontalAlignment="Left" Margin="305,110,0,0" VerticalAlignment="Top" Width="220" Height="28" ItemsSource="{x:Static Core:ApplicationSettings.DefaultCategorySystem}" SelectedIndex="0" FontSize="18"/>
-                    <CheckBox x:Name="ApplicationSettings_Tab_General_ClearLogs" Content="Clear Logs" VerticalContentAlignment="Center" Margin="25,74,0,0" VerticalAlignment="Top" FontSize="24" IsChecked="{x:Static Core:ApplicationSettings.ClearLogs}"/>
-                    <TextBlock x:Name="ApplicationSettings_Tab_General_DefaultWindowStyle" TextWrapping="Wrap" Text="Default window style:" Margin="25,138,476,203" FontSize="24"/>
-                    <ComboBox x:Name="ApplicationSettings_Tab_General_DefaultWindowStyleBox" HorizontalAlignment="Left" Margin="305,143,0,0" VerticalAlignment="Top" Width="220" Height="28" ItemsSource="{x:Static Core:ApplicationSettings.WindowStyle_Internal}" SelectedIndex="0" FontSize="18"/>
+                    <TextBlock x:Name="ApplicationSettings_Tab_General_DefaultCategorySystem" TextWrapping="Wrap" Text="Default category system:" Margin="24,113,477,20" FontSize="24"/>
+                    <ComboBox x:Name="ApplicationSettings_Tab_General_DefaultCategorySystemBox" HorizontalAlignment="Left" Margin="305,110,0,0" VerticalAlignment="Top" Width="220" Height="33" ItemsSource="{Binding}" DisplayMemberPath="{x:Static Core:ApplicationSettings.DefaultCategorySystem}" SelectedIndex="0" FontSize="18"/>
+                    <CheckBox x:Name="ApplicationSettings_Tab_General_ClearLogs" Content="Clear Logs" VerticalContentAlignment="Center" Margin="25,74,611,0" VerticalAlignment="Top" FontSize="24" IsChecked="{x:Static Core:ApplicationSettings.ClearLogs}"/>
+                    <TextBlock x:Name="ApplicationSettings_Tab_General_DefaultWindowStyle" TextWrapping="Wrap" Text="Default window style:" Margin="24,148,477,193" FontSize="24" Grid.RowSpan="2"/>
+                    <ComboBox x:Name="ApplicationSettings_Tab_General_DefaultWindowStyleBox" HorizontalAlignment="Left" Margin="305,148,0,0" VerticalAlignment="Top" Width="220" Height="33" ItemsSource="{Binding}" DisplayMemberPath="{x:Static Core:ApplicationSettings.WindowStyle_Internal}" SelectedIndex="0" FontSize="18" Grid.RowSpan="2"/>
 
                     <!-- TODO: Add setting for default window type -->
                 </Grid>
@@ -35,20 +39,20 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="ApplicationSettings_Tab_Appearance" HorizontalAlignment="Left" Margin="24,10,0,0" Text="Appearance Settings" VerticalAlignment="Top" FontSize="48" Grid.ColumnSpan="2" FontStyle="Italic"/>
                     <CheckBox x:Name="ApplicationSettings_Tab_Appearance_AccentEnabledCheckBox" Margin="5,84,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2" IsChecked="{x:Static Core:ApplicationSettings.AccentEnabled}"/>
-                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_AccentEnabled" Text="Use accent colours for menus" Margin="0,74,330,155" FontSize="24" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="422"/>
-                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_AccentColours" Text="Accent colours:" Margin="25,110,571,119" FontSize="24" Grid.ColumnSpan="2"/>
-                    <local:ColourPicker x:Name="ApplicationSettings_Tab_Appearance_AccentColour1Picker" SelectedColour="{x:Static Core:ApplicationSettings.AccentColour1}" Grid.Column="1" Margin="169,111,376,116" PreviewMouseDown="ApplicationSettings_Tab_Appearance_AccentColourPicker_PreviewMouseDown"/>
-                    <local:ColourPicker x:Name="ApplicationSettings_Tab_Appearance_AccentColour2Picker" SelectedColour="{x:Static Core:ApplicationSettings.AccentColour2}" Grid.Column="1" Margin="371,111,174,116" PreviewMouseDown="ApplicationSettings_Tab_Appearance_MenuGradientSecondColourPicker_PreviewMouseDown" ></local:ColourPicker>
-                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_DefaultDotSize" Text="Dot size:" Margin="25,146,622,81" FontSize="24" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_DotSizeX" HorizontalAlignment="Left" Margin="25,180,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_AccentEnabled" Text="Use accent colours for menus" Margin="0,74,330,145" FontSize="24" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="422"/>
+                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_AccentColours" Text="Accent colours:" Margin="25,110,571,109" FontSize="24" Grid.ColumnSpan="2"/>
+                    <local:ColourPicker x:Name="ApplicationSettings_Tab_Appearance_AccentColour1Picker" SelectedColour="{x:Static Core:ApplicationSettings.AccentColour1}" Grid.Column="1" Margin="169,111,376,116" PreviewMouseDown="ApplicationSettings_Tab_Appearance_AccentColour1Picker_PreviewMouseDown"/>
+                    <local:ColourPicker x:Name="ApplicationSettings_Tab_Appearance_AccentColour2Picker" SelectedColour="{x:Static Core:ApplicationSettings.AccentColour2}" Grid.Column="1" Margin="371,111,174,116" PreviewMouseDown="ApplicationSettings_Tab_Appearance_AccentColour2Picker_PreviewMouseDown" ></local:ColourPicker>
+                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_DefaultDotSize" Text="Dot size:" Margin="25,146,582,75" FontSize="24" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_DotSizeX" HorizontalAlignment="Left" Margin="25,180,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Height="38" Width="29"/>
                     <Slider x:Name="ApplicationSettings_Tab_Appearance_DotSizeXSlider" Grid.Column="1" HorizontalAlignment="Left" Margin="30,191,0,0" VerticalAlignment="Top" Height="21" Width="341" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" />
                     <TextBlock x:Name="ApplicationSettings_Tab_Appearance_DotSizeXText" TextWrapping="Wrap" Margin="394,187,281,37" Grid.Column="1" FontSize="24" />
-                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_DotSizeY" HorizontalAlignment="Left" Margin="25,223,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Width="20" />
+                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_DotSizeY" HorizontalAlignment="Left" Margin="25,223,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Width="29" Height="36" Grid.RowSpan="2" />
                     <TextBlock x:Name="ApplicationSettings_Tab_Appearance_DotSizeYText" TextWrapping="Wrap" Margin="394,223,281,1" Grid.Column="1" FontSize="24" Text="{Binding Value}"/>
                     <Slider x:Name="ApplicationSettings_Tab_Appearance_DotSizeYSlider" HorizontalAlignment="Left" Margin="30,235,0,0" VerticalAlignment="Top" Height="20" Width="341" Grid.Column="1" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="ApplicationSettings_Tab_Appearance_DotSizeYSlider_ValueChanged"/>
-                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_LineSize" Text="Line size:" Margin="25,4,571,82" FontSize="24" Grid.ColumnSpan="2" Grid.Row="1"/>
+                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_LineSize" Text="Line size:" Margin="25,4,640,67" FontSize="24" Grid.ColumnSpan="2" Grid.Row="1"/>
                     <Slider x:Name="ApplicationSettings_Tab_Appearance_LineSizeSlider" HorizontalAlignment="Left" Margin="107,15,0,0" VerticalAlignment="Top" Height="20" Width="341" Grid.Column="1" Maximum="32" TickPlacement="BottomRight" TickFrequency="4" ValueChanged="ApplicationSettings_Tab_Appearance_LineSizeSlider_ValueChanged" Grid.Row="1"/>
-                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_LineSizeText" TextWrapping="Wrap" Margin="466,4,209,79" Grid.Column="1" FontSize="24" Grid.Row="1" Text="{x:Static Core:ApplicationSettings.LineSize}"/>
+                    <TextBlock x:Name="ApplicationSettings_Tab_Appearance_LineSizeText" TextWrapping="Wrap" Margin="466,4,209,79" Grid.Column="1" FontSize="24" Grid.Row="1" Text="{Binding Source={x:Static Core:ApplicationSettings.LineSize}}"/>
 
 
                 </Grid>

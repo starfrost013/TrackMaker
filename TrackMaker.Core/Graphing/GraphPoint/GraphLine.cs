@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Track_Maker.Graphing
+namespace TrackMaker.Core
 {
     /// <summary>
     /// 3.0 (Dano) graph line

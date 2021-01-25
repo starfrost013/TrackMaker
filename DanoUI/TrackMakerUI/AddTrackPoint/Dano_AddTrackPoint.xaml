@@ -12,8 +12,8 @@
 
         <TextBlock x:Name="TypeTextBlock" Text="Type:" HorizontalAlignment="Left" Height="25" Margin="10,104,0,0" VerticalAlignment="Top" Width="44" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
         <local:TypeSelectorBox x:Name="TypeSelect" x:FieldModifier="public" Margin="175,101,216,131" Width="345" Height="34" Loaded="TypeSelect_Loaded"></local:TypeSelectorBox>
-        <!-- 154 when optional track point settings disabled -->
-        <Button x:Name="TypeOK" Content="OK" HorizontalAlignment="Left" Margin="598,220,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="TypeOK_Click" Style="{StaticResource Button_Invert}"/>
+        <!-- 154 when optional track point settings disabled (shouldn't be public but oh well) -->
+        <Button x:Name="TypeOK" x:FieldModifier="public" Content="OK" HorizontalAlignment="Left" Margin="598,220,0,0" VerticalAlignment="Top" Width="115" FontSize="18" Click="TypeOK_Click" Style="{StaticResource Button_Invert}"/>
         <TextBlock x:Name="SeasonStartTime" Text="This Point's Time:" HorizontalAlignment="Left" Height="32" Margin="10,140,0,0" VerticalAlignment="Top" Width="163" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
         <TextBlock x:Name="SeasonStartTimeText" Text="" HorizontalAlignment="Left" Height="32" Margin="175,140,0,0" VerticalAlignment="Top" Width="345" FontSize="18" RenderTransformOrigin="0.521,0.86"/>
         <CheckBox x:Name="ShowOptionalApplicationSettings" Content="Show advanced track point settings (optional)" HorizontalAlignment="Left" Height="19" Margin="10,172,0,0" VerticalAlignment="Top" Width="431" Click="ShowOptionalApplicationSettings_Checked"/>

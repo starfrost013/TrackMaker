@@ -65,6 +65,9 @@
       <DependentUpon>ErrorUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="GlobalState\GlobalState.cs" />
+    <Compile Include="Graphing\GraphSettings.cs" />
+    <Compile Include="Graphing\GraphType.cs" />
+    <Compile Include="Graphing\StormGraph.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Layer\LayerCollection.cs" />
     <Compile Include="Logging\Logging.cs" />
