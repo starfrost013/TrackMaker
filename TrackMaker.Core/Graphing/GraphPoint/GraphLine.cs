@@ -9,7 +9,7 @@ using System.Windows.Media;
 namespace TrackMaker.Core
 {
     /// <summary>
-    /// 3.0 (Dano) graph line
+    /// Defines a graph line
     /// </summary>
     public class GraphLine
     {
@@ -23,11 +23,24 @@ namespace TrackMaker.Core
         // 2D graphing only
         public Vector Scale { get; set; }
 
-        public void AddPoint(Point Pt)
+        public GraphPoint2D AddPoint(Point Pt)
         {
             GraphPoint2D GP2D = new GraphPoint2D();
             GP2D.Position = Pt;
             Points.Add(GP2D);
+            return GP2D;
+        }
+
+        public GraphPoint2D GetPointWithId(int Id)
+        {
+            if (Id < 0 || Id > (Points.Count - 1))
+            {
+                return null; // v3: result classes
+            }
+            else
+            {
+                return Points[Id];
+            }
         }
 
         public void RemovePointWithId(int Id) => Points.RemoveAt(Id);

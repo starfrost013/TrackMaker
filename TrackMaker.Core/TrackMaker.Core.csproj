@@ -67,6 +67,7 @@
     <Compile Include="GlobalState\GlobalState.cs" />
     <Compile Include="Graphing\GraphSettings.cs" />
     <Compile Include="Graphing\GraphType.cs" />
+    <Compile Include="Graphing\PerformanceGraph.cs" />
     <Compile Include="Graphing\StormGraph.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Layer\LayerCollection.cs" />

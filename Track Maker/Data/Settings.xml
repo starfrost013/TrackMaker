@@ -1,6 +1,6 @@
 <ApplicationSettings>
-  <AccentColour1_Internal>0,64,128</AccentColour1_Internal>
-  <AccentColour2_Internal>150,189,254</AccentColour2_Internal>
+  <AccentColour1>#004080</AccentColour1>
+  <AccentColour2>#96bdfe</AccentColour2>
   <AccentEnabled>True</AccentEnabled>
   <DefaultCategorySystem>SSHWS</DefaultCategorySystem>
   <DotSize>8,8</DotSize>

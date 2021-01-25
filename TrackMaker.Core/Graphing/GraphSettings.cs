@@ -39,7 +39,9 @@ namespace TrackMaker.Core
         /// <summary>
         /// The scale of this graph.
         /// </summary>
-        public Vector Scale { get; set; }
+
+        public Vector Smin { get; set; }
+        public Vector Smax { get; set; }
 
     }
 }

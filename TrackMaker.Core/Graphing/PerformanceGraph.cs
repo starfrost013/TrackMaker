@@ -9,13 +9,13 @@ namespace TrackMaker.Core
 {
 
     /// <summary>
-    /// 2020-01-25      Iris v692
+    /// 2020-01-25      Iris v694
     /// 
     /// StormGraph (Implements interface IGraph)
     /// 
-    /// Defines a class used for graphing individual storms.
+    /// Defines a class used for graphing the performance of the Track Maker
     /// </summary>
-    public class StormGraph : IGraph
+    public class PerformanceGraph : IGraph
     {
         public GraphSettings Settings { get; set; }
 

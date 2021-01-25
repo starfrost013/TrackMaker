@@ -24,10 +24,6 @@ namespace Track_Maker
         {
             InitializeComponent();
         }
-        
-        private void Dano_StartPage_Exit(object sender, EventArgs e)
-        {
-            Close(); 
-        }
+
     }
 }

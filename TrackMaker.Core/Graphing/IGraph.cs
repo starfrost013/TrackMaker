@@ -10,6 +10,8 @@ namespace TrackMaker.Core
 {
     /// <summary>
     /// Dano (3.0) graphing mode individual graph
+    /// 
+    /// Graph Interface Version 1.2.0
     /// </summary>
     public interface IGraph
     {
@@ -17,7 +19,7 @@ namespace TrackMaker.Core
         List<GraphLine> Lines { get; set; }
         bool Plot();
         GraphLine GetLineWithName();
-        void AddLine(string Name, Color LineColour);
+        GraphLine AddLine(string Name, Color LineColour);
         void DeleteLineWithName(string Name);
         void DeleteLineWithId(int Id); 
     }

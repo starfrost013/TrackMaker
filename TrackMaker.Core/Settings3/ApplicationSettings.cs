@@ -20,46 +20,12 @@ namespace TrackMaker.Core
         
         public static Color AccentColour1 { get; set; }
 
-        private static string _accentcolour1_internal { get; set; }
-
-        [XmlElement("AccentColour1")]
-        /// <summary>
-        /// AccentColour1 for Serialisation
-        /// </summary>
-        internal static string AccentColour1_Internal
-        {
-            get
-            {
-                return _accentcolour1_internal;
-            }
-            set
-            {
-                _accentcolour1_internal = value;
-                AccentColour1 = value.SplitRGB();
-            }
-
-        }
         /// <summary>
         /// The second accent colour
         /// </summary>
         
         public static Color AccentColour2 { get; set; }
 
-        private static string _accentcolour2_internal { get; set; }
-
-        [XmlElement("AccentColour2")]
-        internal static string AccentColour2_Internal
-        {
-            get
-            {
-                return _accentcolour2_internal;
-            }
-            set
-            {
-                _accentcolour2_internal = value;
-                AccentColour2 = value.SplitRGB();
-            }
-        }
         /// <summary>
         /// Is the accent enabled?
         /// </summary>
@@ -91,24 +57,8 @@ namespace TrackMaker.Core
         /// <summary>
         /// Dot size for preset shapes
         /// </summary>
-
-        
         public static Point DotSize { get; set; }
 
-        private static string _dotsize_internal { get; set; }
-
-        [XmlElement("DotSize")]
-        internal static string DotSize_Internal
-        {
-            get
-            {
-                return _dotsize_internal;
-            }
-            set
-            {
-                DotSize = value.SplitXY();
-            }  
-        }
         /// <summary>
         /// Line size 
         /// </summary>
@@ -125,6 +75,8 @@ namespace TrackMaker.Core
 
         /// <summary>
         /// User telemetry consent status (essentially glorified update checking, indirectly showing every time the Track Maker is launched if enabled)
+        /// 
+        /// TODO: Write IValueConverter for this!
         /// </summary>
 
         
