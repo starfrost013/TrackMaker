@@ -1,7 +1,7 @@
 <ApplicationSettings>
   <!-- Settings XML (Schema 1.1) -->
-  <AccentColour1>#004080</AccentColour1>
-  <AccentColour2>#96bdfe</AccentColour2>
+  <AccentColour1>#96bdfe</AccentColour1>
+  <AccentColour2>#99aacc</AccentColour2>
   <AccentEnabled>True</AccentEnabled>
   <DefaultCategorySystem>SSHWS</DefaultCategorySystem>
   <DotSize>8,8</DotSize>

@@ -61,11 +61,29 @@ namespace Track_Maker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright © 2020 starfrost. This product is open-source software..
+        ///   Looks up a localized string similar to Copyright © 2019-2021 starfrost. This product is open-source software..
         /// </summary>
         internal static string _COPYRIGHT {
             get {
                 return ResourceManager.GetString("_COPYRIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://github.com/starfrost013/TrackMaker.
+        /// </summary>
+        internal static string _GITHUB {
+            get {
+                return ResourceManager.GetString("_GITHUB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version 2.1 development started January 10, 2021.
+        /// </summary>
+        internal static string _IRIS {
+            get {
+                return ResourceManager.GetString("_IRIS", resourceCulture);
             }
         }
         
@@ -79,20 +97,11 @@ namespace Track_Maker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to September 18, 2020.
+        ///   Looks up a localized string similar to January 26, 2021.
         /// </summary>
         internal static string _MESSAGEDATE {
             get {
                 return ResourceManager.GetString("_MESSAGEDATE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Version 2.x by starfrost.
-        /// </summary>
-        internal static string _PRISCILLA {
-            get {
-                return ResourceManager.GetString("_PRISCILLA", resourceCulture);
             }
         }
         
@@ -116,7 +125,17 @@ namespace Track_Maker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The testers: Hypercane, Avery/Lori, King of Pain.
+        /// </summary>
+        internal static string _THANKS2 {
+            get {
+                return ResourceManager.GetString("_THANKS2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 23:15:11.22 26/01/2021 
+        ///.
         /// </summary>
         internal static string iris_build {
             get {

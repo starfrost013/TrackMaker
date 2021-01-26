@@ -463,16 +463,37 @@ namespace Track_Maker
             // This is too poorly written to not be bullshit
             // so we're doing it this way
 
-            if (VolatileApplicationSettings.WindowSize.X <= 300 || VolatileApplicationSettings.WindowSize.Y <= 250) return; 
-            
+            int MinWindowWidth = 300;
+            int MinWindowHeight = 250;
+
             VolatileApplicationSettings.WindowSize = new Point(Width, Height);
-            MainMenu.Width = Width;
+
+            if (VolatileApplicationSettings.WindowSize.X < MinWindowWidth)
+            {
+                VolatileApplicationSettings.WindowSize = new Point(MinWindowWidth, Height);
+                Width = MinWindowWidth;
+                return; 
+            }
+
+            if (VolatileApplicationSettings.WindowSize.Y < MinWindowHeight)
+            {
+                VolatileApplicationSettings.WindowSize = new Point(Width, MinWindowHeight);
+                Height = MinWindowHeight; 
+                return;
+            }
+
+            MainMenu.Width = Width; 
+
+            double SeparatorWidth = 440 * (Width / 1143.367);
+
+            if (SeparatorWidth < 0) SeparatorWidth = 0;
+            Separator.Width = SeparatorWidth;
             PriscillaSidebar.Height = Height;
-            PriscillaSidebar.Margin = new Thickness(Width - PriscillaSidebar.Width, 0, 0, 0);
+            PriscillaSidebar.Margin = new Thickness(MainMenu.Width - PriscillaSidebar.Width, 0, 0, 0);
             HurricaneBasin.Width = Width - PriscillaSidebar.Width;
             HurricaneBasin.Height = Height - MainMenu.Height; // yeah
             Layers.Margin = new Thickness(2, PriscillaSidebar.Height * 0.243, 0, PriscillaSidebar.Height * 0.166);
-            ZoomControl.Margin = new Thickness(0, PriscillaSidebar.Height * 0.89, PriscillaSidebar.Width * -0.29, PriscillaSidebar.Height * 0.016);
+            ZoomControl.Margin = new Thickness(0, PriscillaSidebar.Height * 0.88, PriscillaSidebar.Width * -0.29, PriscillaSidebar.Height * 0.016);
 
             CurrentProject.SelectedBasin.RecalculateNodePositions(false, VolatileApplicationSettings.WindowSize);
 

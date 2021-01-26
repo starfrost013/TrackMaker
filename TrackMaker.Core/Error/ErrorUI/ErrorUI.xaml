@@ -25,7 +25,11 @@
 
         <TextBlock x:Name="Error_PressOKToExit" HorizontalAlignment="Left" Height="35" Margin="10,405,0,0" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" Foreground="White" FontSize="18" Text="Press OK to exit."/>
 
-        <Button x:Name="Error_OKButton" Content="OK" HorizontalAlignment="Left" Height="35" Margin="647,405,0,0" VerticalAlignment="Top" Width="143" Click="Error_OKButton_Click" Foreground="White"/>
+        <Button x:Name="Error_OKButton" HorizontalAlignment="Left" Height="35" Margin="647,405,0,0" VerticalAlignment="Top" Width="143" Click="Error_OKButton_Click" Foreground="White">
+            <Button.Content>
+                <TextBlock Foreground="White" Text="Exit"></TextBlock>
+            </Button.Content>
+        </Button>
 
     </Grid>
 </UserControl>
