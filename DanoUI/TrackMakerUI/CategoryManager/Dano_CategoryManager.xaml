@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Height="515.507" Width="787.738" Loaded="UserControl_Loaded">
     <Grid>
-        <TextBlock x:Name="Catman" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Category Manager" VerticalAlignment="Top" FontSize="36" FontStyle="Italic"/>
+        <TextBlock x:Name="GlobalState.CategoryManager" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Category Manager" VerticalAlignment="Top" FontSize="36" FontStyle="Italic"/>
         <TextBlock x:Name="Catman_Systems" HorizontalAlignment="Left" Margin="129,63,0,0" TextWrapping="Wrap" Text="Category Systems:" VerticalAlignment="Top" Height="30" Width="147" FontSize="18"/>
         <ListBox x:Name="Catman_SystemsBox" HorizontalAlignment="Left" Height="306" Margin="82,93,0,0" VerticalAlignment="Top" Width="261" Foreground="#FF3030A0" ItemsSource="{Binding BasinStrings}"/>
         <TextBlock x:Name="Catman_Cats" HorizontalAlignment="Left" Margin="509,63,0,0" TextWrapping="Wrap" Text="Categories:" VerticalAlignment="Top" Height="30" Width="99" FontSize="18"/>

@@ -26,12 +26,12 @@ namespace TrackMaker.Core
             throw new NotImplementedException();
         }
 
-        public GraphLine GetLineWithName()
+        public GraphLine GetLineWithName(string KeyName)
         {
             throw new NotImplementedException();
         }
 
-        public GraphLine AddLine(string String, Color Colour)
+        public GraphLine AddLine(string KeyName, int StrokeThickness, Color Colour)
         {
             throw new NotImplementedException();
         }

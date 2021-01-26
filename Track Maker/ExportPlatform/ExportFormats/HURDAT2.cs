@@ -317,7 +317,7 @@ namespace Track_Maker
                             //Temporary Code
                             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
 
-                            Category Cat = Sto.GetNodeCategory(No, MnWindow.Catman.CurrentCategorySystem);
+                            Category Cat = Sto.GetNodeCategory(No, GlobalState.CategoryManager.CurrentCategorySystem);
 
                             if (Cat == null)
                             {

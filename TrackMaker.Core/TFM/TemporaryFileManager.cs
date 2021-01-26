@@ -9,10 +9,11 @@ namespace TrackMaker.Core
 {
 
     /// <summary>
-    /// Temporary File Manager API v1.3.0
+    /// Temporary File Manager API v1.3.1
     /// 
-    /// 2021-01-21
+    /// 2021-01-26
     /// 
+    /// v1.3.1      2021-01-26  Iris v695: bugfixes
     /// v1.3.0      2021-01-21  Iris v683: Add DelayClearUntilNextExit to allow most recent log to be preserved 
     /// v1.2.0      2021-01-18  Rename many APIs to have better names
     /// </summary>
@@ -20,7 +21,7 @@ namespace TrackMaker.Core
     {
         public static int TFMAPI_VersionMajor = 1;
         public static int TFMAPI_VersionMinor = 3;
-        public static int TFMAPI_VersionRevision = 0;
+        public static int TFMAPI_VersionRevision = 1;
 
         public List<TemporaryFile> TemporaryFiles { get; set; }
 
@@ -65,13 +66,20 @@ namespace TrackMaker.Core
                 {
                     if (!TF.ApplicationSettings.Persistent)
                     {
-                        if (TF.ApplicationSettings.DelayClearUntilNextStart && !IsShutdown)
+                        if (!IsShutdown)
                         {
                             File.Delete(TF.FullPath);
                         }
                         else
                         {
-                            continue; 
+                            if (TF.ApplicationSettings.DelayClearUntilNextStart)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                File.Delete(TF.FullPath); 
+                            }
                         }
                     }
 

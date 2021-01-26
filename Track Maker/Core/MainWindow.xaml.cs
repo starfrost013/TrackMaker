@@ -39,7 +39,7 @@ namespace Track_Maker
     public partial class MainWindow : Window
     {
         public Timer TickTimer { get; set; }
-        public CategoryManager Catman { get; set; }
+
 
         /// <summary>
         /// New for Priscilla.

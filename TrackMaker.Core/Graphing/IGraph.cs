@@ -18,8 +18,8 @@ namespace TrackMaker.Core
         GraphSettings Settings { get; set; }
         List<GraphLine> Lines { get; set; }
         bool Plot();
-        GraphLine GetLineWithName();
-        GraphLine AddLine(string Name, Color LineColour);
+        GraphLine GetLineWithName(string KeyName);
+        GraphLine AddLine(string KeyName, int StrokeThickness, Color Colour);
         void DeleteLineWithName(string Name);
         void DeleteLineWithId(int Id); 
     }

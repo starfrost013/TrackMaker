@@ -37,16 +37,16 @@ namespace Track_Maker
                 //if (CurrentProject.SelectedCategorySystem == null) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 304);
                 if (CurrentProject.OpenBasins.Count == 0) Error.Throw(GeneralErrString, ProjectErrorErrString, ErrorSeverity.FatalError, 305);
                 
-                if (Catman == null)
+                if (GlobalState.CategoryManager == null)
                 {
                     Error.Throw(GeneralErrString, CategoryManagerErrString, ErrorSeverity.FatalError, 306);
                     return false; // will never run
                 }
                 else
                 {
-                    if (Catman.CategorySystems == null) Error.Throw(GeneralErrString, CategoryManagerErrString, ErrorSeverity.FatalError, 307);
-                    if (Catman.CurrentCategorySystem == null) Error.Throw(GeneralErrString, CategoryManagerErrString, ErrorSeverity.FatalError, 308);
-                    if (Catman.CategorySystems.Count == 0) Error.Throw(GeneralErrString, CategoryManagerErrString, ErrorSeverity.FatalError, 309);
+                    if (GlobalState.CategoryManager.CategorySystems == null) Error.Throw(GeneralErrString, CategoryManagerErrString, ErrorSeverity.FatalError, 307);
+                    if (GlobalState.CategoryManager.CurrentCategorySystem == null) Error.Throw(GeneralErrString, CategoryManagerErrString, ErrorSeverity.FatalError, 308);
+                    if (GlobalState.CategoryManager.CategorySystems.Count == 0) Error.Throw(GeneralErrString, CategoryManagerErrString, ErrorSeverity.FatalError, 309);
                     
                     // globalstate checks
                     if (GlobalState.OpenBasins == null)

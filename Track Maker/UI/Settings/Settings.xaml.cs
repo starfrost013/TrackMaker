@@ -34,7 +34,7 @@ namespace Track_Maker
         private void Settings_Init()
         {
 
-            Settings_Tab_General_DefaultCatSystemBox.DataContext = MnWindow.Catman.CategorySystems; // category system 
+            Settings_Tab_General_DefaultCatSystemBox.DataContext = GlobalState.CategoryManager.CategorySystems; // category system 
 
             Settings_Tab_Appearance_DotSizeXSlider.Value = ApplicationSettings.DotSize.X;
             Settings_Tab_Appearance_DotSizeYSlider.Value = ApplicationSettings.DotSize.Y;

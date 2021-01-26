@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="GlobalState\GlobalState.cs" />
     <Compile Include="Graphing\GraphPoint\GraphLineSettings.cs" />
+    <Compile Include="Graphing\GraphPoint\GraphPointSettings.cs" />
     <Compile Include="Graphing\GraphSettings.cs" />
     <Compile Include="Graphing\GraphType.cs" />
     <Compile Include="Graphing\PerformanceGraph.cs" />
@@ -99,7 +100,7 @@
     <Compile Include="TProj2\TProj2File.cs" />
     <Compile Include="TProj2\TProj2Metadata.cs" />
     <Compile Include="Graphing\GraphPoint\GraphLine.cs" />
-    <Compile Include="Graphing\GraphPoint\GraphPoint2D.cs" />
+    <Compile Include="Graphing\GraphPoint\GraphPoint.cs" />
     <Compile Include="Graphing\IGraph.cs" />
     <Compile Include="V3MWH\MainWindowState.cs" />
   </ItemGroup>

@@ -200,7 +200,7 @@ namespace Track_Maker
             // category system
 
             // Moved to a function here
-            Category _ = XStorm.GetNodeCategory(XNode, Catman.CurrentCategorySystem);
+            Category _ = XStorm.GetNodeCategory(XNode, GlobalState.CategoryManager.CurrentCategorySystem);
 
             if (_ == null)
             {

@@ -23,7 +23,7 @@ namespace TrackMaker.Core
         /// <summary>
         /// Category Manager (not static for now)
         /// </summary>
-        public CategoryManager CategoryManager { get; set; }
+        public static CategoryManager CategoryManager { get; set; }
 
         /// <summary>
         /// Name of the current export format

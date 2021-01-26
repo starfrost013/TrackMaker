@@ -124,7 +124,7 @@ namespace Track_Maker
 
                 // Dynamically generate the colours - conversion system for 1.0/2.0?
 
-                foreach (Category Cat in MnWindow.Catman.CurrentCategorySystem.Categories)
+                foreach (Category Cat in GlobalState.CategoryManager.CurrentCategorySystem.Categories)
                 {
                     if (Cat.HigherBound < 1000)
                     {
@@ -155,7 +155,7 @@ namespace Track_Maker
                 {
                     // Get the peak storm category. 
                     Storm St = FlatList[i];
-                    Category Cat = St.GetPeakCategory(St, MnWindow.Catman.CurrentCategorySystem);
+                    Category Cat = St.GetPeakCategory(St, GlobalState.CategoryManager.CurrentCategorySystem);
 
                     // write the storm info in ddmmyyyy format
                     SW.WriteLine($"  from:{St.FormationDate.ToString("dd'/'MM'/'yyyy")} till:{St.GetDissipationDate().ToString("dd'/'MM'/'yyyy")} color:{Cat.Name.Replace(" ", "")} text:{St.Name} ({Cat.Name})");

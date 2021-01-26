@@ -367,7 +367,7 @@ namespace Track_Maker
 
                         // Node position.
 
-                        Category Cat = Storm.GetNodeCategory(Node, MnWindow.Catman.CurrentCategorySystem);
+                        Category Cat = Storm.GetNodeCategory(Node, GlobalState.CategoryManager.CurrentCategorySystem);
                         
                         Coordinate X = Project.SelectedBasin.FromNodePositionToCoordinate(Node.Position, VolatileApplicationSettings.WindowSize); 
 
@@ -391,7 +391,7 @@ namespace Track_Maker
 
                         // Write the category and a WHOLE bunch of information that we don't need or use yet - environmental pressure etc - I don't know what most of these are tbh
 
-                        CategorySystem CurrentCategorySystem = MnWindow.Catman.CurrentCategorySystem;
+                        CategorySystem CurrentCategorySystem = GlobalState.CategoryManager.CurrentCategorySystem;
 
                         Category Ct = Storm.GetNodeCategory(Node, CurrentCategorySystem);
 

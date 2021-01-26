@@ -81,9 +81,9 @@ namespace Track_Maker
 
             // Initialise the category manager. 
             Logging.Log("Initialising category manager...");
-            Catman = new CategoryManager();
+            GlobalState.CategoryManager = new CategoryManager();
             Logging.Log("Loading categories...");
-            Catman.InitCategories();
+            GlobalState.CategoryManager.InitCategories();
 
             // Initialise the storm type manager.
             Logging.Log("Initialising storm type manager...");
@@ -163,21 +163,21 @@ namespace Track_Maker
 
         private void Init_SetCurrentCategorySystem()
         {
-            foreach (CategorySystem CatSystem in Catman.CategorySystems)
+            foreach (CategorySystem CatSystem in GlobalState.CategoryManager.CategorySystems)
             {
                 // select the current category system
                 if (ApplicationSettings.DefaultCategorySystem == CatSystem.Name)
                 {
                     Logging.Log("Default category system");
-                    Catman.CurrentCategorySystem = CatSystem;
+                    GlobalState.CategoryManager.CurrentCategorySystem = CatSystem;
                     break; 
                 }
             }
 
-            if (Catman.CurrentCategorySystem == null)
+            if (GlobalState.CategoryManager.CurrentCategorySystem == null)
             {
                 Error.Throw("Error!", "An invalid category system was selected; you likely modified Settings.xml manually - the current category system has been restored to defaults. If you did not, this is a bug in the Track Maker. Contact me at starfrost#9088 on Discord for beta support.", ErrorSeverity.Error, 225); 
-                Catman.CurrentCategorySystem = Catman.CategorySystems[0];
+                GlobalState.CategoryManager.CurrentCategorySystem = GlobalState.CategoryManager.CategorySystems[0];
             }
             else
             {

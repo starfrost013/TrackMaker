@@ -45,7 +45,7 @@ namespace Track_Maker
 
                 // Temp (move to basin submethod)
                 MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-                MnWindow.Catman.SetCategoryWithName(NewCategoryName);
+                GlobalState.CategoryManager.SetCategoryWithName(NewCategoryName);
                 Close();
             }
             catch (FormatException err)
