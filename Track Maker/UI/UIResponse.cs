@@ -451,7 +451,34 @@ namespace Track_Maker
             SPH.Show();
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e) => VolatileApplicationSettings.WindowSize = new Point(Width, Height);
+        /// <summary>
+        /// Dynamic window scaling (Iris v696)
+        /// 
+        /// TIE THIS TO VOLATILEAPPLICATIONSETTINGS USING BINDINGS IN V3.0 OR LATER IN IRIS DEV
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            // This is too poorly written to not be bullshit
+            // so we're doing it this way
+
+            if (VolatileApplicationSettings.WindowSize.X <= 300 || VolatileApplicationSettings.WindowSize.Y <= 250) return; 
+            
+            VolatileApplicationSettings.WindowSize = new Point(Width, Height);
+            MainMenu.Width = Width;
+            PriscillaSidebar.Height = Height;
+            PriscillaSidebar.Margin = new Thickness(Width - PriscillaSidebar.Width, 0, 0, 0);
+            HurricaneBasin.Width = Width - PriscillaSidebar.Width;
+            HurricaneBasin.Height = Height - MainMenu.Height; // yeah
+            Layers.Margin = new Thickness(2, PriscillaSidebar.Height * 0.243, 0, PriscillaSidebar.Height * 0.166);
+            ZoomControl.Margin = new Thickness(0, PriscillaSidebar.Height * 0.89, PriscillaSidebar.Width * -0.29, PriscillaSidebar.Height * 0.016);
+
+            CurrentProject.SelectedBasin.RecalculateNodePositions(false, VolatileApplicationSettings.WindowSize);
+
+
+        }
+        
 
         private void DebugMenu_IrisSettingsUITest_Click(object sender, RoutedEventArgs e)
         {

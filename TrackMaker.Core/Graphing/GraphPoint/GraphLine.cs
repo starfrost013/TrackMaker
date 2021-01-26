@@ -13,7 +13,7 @@ namespace TrackMaker.Core
     /// </summary>
     public class GraphLine
     {
-        public List<GraphPoint2D> Points { get; set; } // The points of this point. 
+        public List<GraphPoint> Points { get; set; } // The points of this point. 
 
         /// <summary>
         /// The settings of this particular GraphLine. 
@@ -21,15 +21,15 @@ namespace TrackMaker.Core
         public GraphLineSettings Settings { get; set; }
 
 
-        public GraphPoint2D AddPoint(Point Pt)
+        public GraphPoint AddPoint(Point Pt)
         {
-            GraphPoint2D GP2D = new GraphPoint2D();
-            GP2D.Position = Pt;
+            GraphPoint GP2D = new GraphPoint();
+            GP2D.Settings.Position = Pt;
             Points.Add(GP2D);
             return GP2D;
         }
 
-        public GraphPoint2D GetPointWithId(int Id)
+        public GraphPoint GetPointWithId(int Id)
         {
             if (Id < 0 || Id > (Points.Count - 1))
             {

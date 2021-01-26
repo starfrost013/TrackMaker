@@ -11,8 +11,8 @@ namespace TrackMaker.Core
     /// <summary>
     /// 3.0 (Dano) graph points
     /// </summary>
-    public class GraphPoint2D
+    public class GraphPoint
     {
-        public Point Position { get; set; }
+        public GraphPointSettings Settings { get; set; }
     }
 }
