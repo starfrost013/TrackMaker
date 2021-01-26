@@ -14,14 +14,12 @@ namespace TrackMaker.Core
     public class GraphLine
     {
         public List<GraphPoint2D> Points { get; set; } // The points of this point. 
-        public Color Color { get; set; }
- 
+
         /// <summary>
-        /// Name of the axis
+        /// The settings of this particular GraphLine. 
         /// </summary>
-        public string Name { get; set; }
-        // 2D graphing only
-        public Vector Scale { get; set; }
+        public GraphLineSettings Settings { get; set; }
+
 
         public GraphPoint2D AddPoint(Point Pt)
         {
@@ -45,6 +43,5 @@ namespace TrackMaker.Core
 
         public void RemovePointWithId(int Id) => Points.RemoveAt(Id);
 
-        public void SetScale(double X, double Y) => Scale = new Vector(X, Y); 
     }
 }

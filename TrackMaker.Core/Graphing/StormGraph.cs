@@ -26,24 +26,57 @@ namespace TrackMaker.Core
             throw new NotImplementedException();
         }
 
-        public GraphLine GetLineWithName()
+        public GraphLine GetLineWithName(string KeyName)
         {
-            throw new NotImplementedException();
+            foreach (GraphLine Ln in Lines)
+            {
+                if (Ln.Settings.KeyName == KeyName) return Ln;
+
+            }
+
+            return null;
         }
 
-        public GraphLine AddLine(string String, Color Colour)
+        public GraphLine AddLine(string KeyName, int StrokeThickness, Color Colour)
         {
-            throw new NotImplementedException();
+
+            if (StrokeThickness < 0 || StrokeThickness > 100)
+            {
+                Error.Throw("Warning!", "Warning: invalid StrokeThickness - must be within the range [0,100]!", ErrorSeverity.Error, 411);
+                return null;
+            }
+
+            GraphLine Line = new GraphLine();
+            Line.Settings.Colour = Colour;
+            Line.Settings.KeyName = KeyName;
+            Line.Settings.StrokeThickness = StrokeThickness;
+            Lines.Add(Line);
+
+            return Line;
         }
 
         public void DeleteLineWithId(int Id)
         {
-            throw new NotImplementedException();
+            if (Id < 0 || Id > Lines.Count - 1)
+            {
+                Error.Throw("Error!", "Attempted to delete invalid GraphLine!", ErrorSeverity.Error, 412);
+                return;
+            }
+            else
+            {
+                Lines.RemoveAt(Id);
+            }
         }
 
         public void DeleteLineWithName(string Name)
         {
-            throw new NotImplementedException();
+            foreach (GraphLine Line in Lines)
+            {
+                if (Line.Settings.KeyName == Name)
+                {
+                    Lines.Remove(Line);
+                }
+            }
         }
     }
 }
