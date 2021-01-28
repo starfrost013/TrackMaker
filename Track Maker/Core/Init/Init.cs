@@ -101,6 +101,9 @@ namespace Track_Maker
 
         }
 
+        /// <summary>
+        /// Internal init function to set up DynaHotkeys hotkeys for the category systems. 
+        /// </summary>
         private void Init_InitGlobalState_SetUpDynaHotkeyHotkeys()
         {
             List<Category> CategoryList = GlobalState.CategoryManager.CurrentCategorySystem.Categories;
@@ -142,7 +145,7 @@ namespace Track_Maker
                             KeyName = FirstChar;
                             Key Key = (Key)KConverter.ConvertFromString(KeyName);
 
-                            DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { Key });
+                            if (!DHotkeyManager.CheckIfKeyIsDuplicated(Key)) DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { Key });
 
                             continue;  
                         default:
@@ -152,7 +155,7 @@ namespace Track_Maker
                             {
                                 KeyName = HotkeyName;
                                 Key NewHotkey = (Key)KConverter.ConvertFromString(KeyName);
-                                DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { NewHotkey }); 
+                                if (!DHotkeyManager.CheckIfKeyIsDuplicated(NewHotkey)) DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { NewHotkey }); 
                             }
                             else
                             {

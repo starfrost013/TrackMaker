@@ -82,7 +82,6 @@ namespace TrackMaker.Core
                 string Word = Words[i];
 
                 if (Word.Length < ShortestWordLength) ShortestWordLength = Word.Length;
-
             }
             
             if (LettersPerWord < 0 || LettersPerWord > ShortestWordLength)

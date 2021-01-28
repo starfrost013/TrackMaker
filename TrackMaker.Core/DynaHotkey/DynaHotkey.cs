@@ -41,7 +41,6 @@ namespace TrackMaker.Core
             {
                 Keys = KeyList;
                 return; 
-
             }
         }
 

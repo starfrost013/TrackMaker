@@ -24,6 +24,23 @@ namespace TrackMaker.Core
 
         }
 
+        /// <summary>
+        /// For single-key DynaHotkeys, check for duplication.  
+        /// </summary>
+        /// <param name="Key"></param>
+        public bool CheckIfKeyIsDuplicated(Key Key)
+        {
+            foreach (DynaHotkey Hotkey in Hotkeys)
+            {
+                if (Hotkey.Keys.Count == 1)
+                {
+                    if (Hotkey.Keys.Contains(Key)) return true; 
+                } 
+            }
+
+            return false;
+        }
+
         public void ClearAllHotkeys() => Hotkeys.Clear();
         public void DeleteHotkey(DynaHotkey DH) => Hotkeys.Remove(DH);
 
