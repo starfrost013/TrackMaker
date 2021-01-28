@@ -100,9 +100,6 @@ namespace Track_Maker
             Init_SetCurrentCategorySystem();
             Logging.Log("Setting up DynaHotkey hotkeys from current category system...");
             Init_InitGlobalState_SetUpDynaHotkey();
-
-
-
         }
 
         private void Init_InitGlobalState_SetUpDynaHotkey()
