@@ -99,10 +99,27 @@ namespace Track_Maker
             Logging.Log("Setting current category system...");
             Init_SetCurrentCategorySystem();
             Logging.Log("Setting up DynaHotkey hotkeys from current category system...");
-            Init_InitGlobalState_SetUpDynaHotkeyHotkeys();
+            Init_InitGlobalState_SetUpDynaHotkey();
 
 
 
+        }
+
+        private void Init_InitGlobalState_SetUpDynaHotkey()
+        {
+            try
+            {
+                Init_InitGlobalState_SetUpDynaHotkeyHotkeys();
+            }
+            catch (NotSupportedException err)
+            {
+#if DEBUG
+                Error.Throw("Error!", $"Error: the Track Maker generated an invalid DynaHotkey. Some hotkeys for category systems may not work.\n\n{err}", ErrorSeverity.Error, 416);
+#else
+                Error.Throw("Error!", $"Error: the Track Maker generated an invalid hotkey. Some hotkeys for category systems may not work.", ErrorSeverity.Error, 416);
+#endif
+                return; 
+            }
         }
 
         /// <summary>
