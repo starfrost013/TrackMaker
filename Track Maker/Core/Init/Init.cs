@@ -35,7 +35,7 @@ namespace Track_Maker
             Init_InitApplicationSettings();
             Init_InitBasins(); // to be merged with Init_InitGlobalState();
             Init_InitGlobalState();
-            Init_SetCurrentCategorySystem();
+
             Init_SetAccentColour();
 
         }
@@ -95,8 +95,12 @@ namespace Track_Maker
             Logging.Log("Initialising DynaHotkey manager...");
             // Initialise the DynaHotkey manager. (MAINWINDOW ONLY)
             DHotkeyManager = new DynaHotkeyManager();
+
+            Logging.Log("Setting current category system...");
+            Init_SetCurrentCategorySystem();
             Logging.Log("Setting up DynaHotkey hotkeys from current category system...");
             Init_InitGlobalState_SetUpDynaHotkeyHotkeys();
+
 
 
         }
