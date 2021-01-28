@@ -294,9 +294,10 @@ namespace Track_Maker
             }
             catch (IOException err)
             {
-                Error.Throw("Error", "An error occurred during export to ATCF BestTrack format.", ErrorSeverity.Error, 130);
 #if DEBUG
                 Error.Throw("Error", $"An error occurred during export to ATCF BestTrack format.\n\n{err}", ErrorSeverity.Error, 130);
+#else
+                Error.Throw("Error", "An error occurred during export to ATCF BestTrack format.", ErrorSeverity.Error, 130);
 #endif
                 return false;
             }

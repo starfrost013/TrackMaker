@@ -81,6 +81,11 @@ namespace Track_Maker
 
         public Point TranslatePosition { get; set; }
 
+        /// <summary>
+        /// Might move this to GlobalSttate
+        /// </summary>
+
+        public DynaHotkeyManager DHotkeyManager { get; set; }
         public MainWindow()
         {
             Init_Phase1();

@@ -14,6 +14,16 @@ namespace TrackMaker.Core
     /// </summary>
     public static class VolatileApplicationSettings
     {
+
+        /// <summary>
+        /// Used for Iris SettingsUI
+        /// </summary>
+        public static int DotSizeX { get; set; }
+
+        public static int DotSizeY { get; set; }
+
         public static Point WindowSize { get; set; }
+
+
     }
 }

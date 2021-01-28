@@ -11,10 +11,11 @@ namespace TrackMaker.Util.Core
     /// </summary>
     public static class VersionInformation
     {
-        public static int UL5MajorVersion = 5;
-        public static int UL5MinorVersion = 9;
-        public static int UL5RevisionVersion = 9;
+        // Do not change; these are deprecated as of 2020-01-27 
+        public static int UL5MajorVersion = 2;
+        public static int UL5MinorVersion = 1;
+        public static int UL5RevisionVersion = 701;
 
-        public static string UL5Status = "v5.9.9c/APIv20200116 for Track Maker 2.1+";  
+        public static string UL5Status = "DEPRECATED [v5.9.10 APIv20210127] reporting TrackMaker version 2.1.701";  
     }
 }

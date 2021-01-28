@@ -57,6 +57,8 @@
     <Compile Include="Coordinate\Coordinate.cs" />
     <Compile Include="Coordinate\CoordinateSupport\CardinalDirection.cs" />
     <Compile Include="Coordinate\CoordinateSupport\CoordinateFormats.cs" />
+    <Compile Include="DynaHotkey\DynaHotkey.cs" />
+    <Compile Include="DynaHotkey\DynaHotkeyManager.cs" />
     <Compile Include="Error\Error.cs" />
     <Compile Include="Error\ErrorUI\ErrorHost\ErrorUIHost.xaml.cs">
       <DependentUpon>ErrorUIHost.xaml</DependentUpon>

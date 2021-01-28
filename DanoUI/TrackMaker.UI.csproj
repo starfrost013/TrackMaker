@@ -73,6 +73,9 @@
     <Compile Include="TrackMakerUI\Export\Iris_ExportUI.xaml.cs">
       <DependentUpon>Iris_ExportUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrackMakerUI\Graphing\GraphUI.xaml.cs">
+      <DependentUpon>GraphUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TrackMakerUI\Layer\RenameLayer\Priscilla_RenameLayer.xaml.cs">
       <DependentUpon>Priscilla_RenameLayer.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TrackMakerUI\Export\Iris_ExportUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrackMakerUI\Graphing\GraphUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -216,8 +223,6 @@
       <Name>TrackMaker.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TrackMakerUI\Graphing\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

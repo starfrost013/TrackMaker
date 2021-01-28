@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
+
 namespace TrackMaker.Util.StringUtilities
 {
     /// <summary>
@@ -309,7 +310,70 @@ namespace TrackMaker.Util.StringUtilities
         public static bool ContainsCaseInsensitive(this string Text, string Value, StringComparison SC = StringComparison.CurrentCultureIgnoreCase) => Text.IndexOf(Value, SC) >= 0;
 
         /// <summary>
-        /// Convert HT- / XA- / XML formatted string to plaintext - replaces the most common mnemonics
+        /// Checks if a string contains numerical characters.
+        /// </summary>
+        /// <param name="Text">The string you wish to check for numerical characters.</param>
+        /// <returns>v2.1 only</returns>
+        public static bool ContainsNumeric(this string Text)
+        {
+            List<byte> TextByteArray = Text.ToByteList();
+            // v3.0: pervasive result classes and user input validation
+            if (TextByteArray == null) return false;
+
+            foreach (byte TextByte in TextByteArray)
+            {
+                if (IsNumeric(TextByte)) return true; 
+            }
+
+            return false; 
+        }
+
+
+        private static bool IsNumeric(byte Byte) => (Byte >= 0x48 && Byte <= 0x59);
+
+        /// <summary>
+        /// Gets the first index of a string that contains a numeric character.
+        /// </summary>
+        /// <param name="Text">The string you wish to pass</param>
+        /// <returns>The index of the first numeric byte in the string, or -1 if there are no numerical bytes in the string.</returns>
+        public static int GetFirstIndexOfNumeric(this string Text)
+        {
+            List<byte> TextByteList = Text.ToByteList();
+
+            for (int i = 0; i < TextByteList.Count; i++)
+            {
+                byte TextByte = TextByteList[i];
+
+                if (IsNumeric(TextByte)) return i;
+            }
+
+            return -1;
+        }
+
+        public static List<byte> ToByteList(this string Text)
+        {
+            List<byte> ByteList = new List<byte>(); 
+
+            foreach (char TextCharacter in Text)
+            {
+                // ASCII :heart:?
+                try
+                {
+                    byte TextByte = Convert.ToByte(TextCharacter);
+                    ByteList.Add(TextByte);
+                }
+                catch (FormatException)
+                {
+                    return null; 
+                }
+            }
+
+
+            return ByteList;
+        }
+
+        /// <summary>
+        /// Convert SGML-based (X(A)ML/HTML) formatted string to plaintext - replaces the most common mnemonics with their character equivalents
         /// </summary>
         /// <param name="HTXAMLFormattedString"></param>
         /// <returns></returns>
@@ -322,7 +386,7 @@ namespace TrackMaker.Util.StringUtilities
                 Fnl = Fnl.Replace("&amp;", "&"); 
             }
 
-            if (Fnl.Contains("&lt;")) Fnl = Fnl.Replace("&lt;", ">");
+            if (Fnl.Contains("&lt;")) Fnl = Fnl.Replace("&lt;", "<");
             if (Fnl.Contains("&gt;")) Fnl = Fnl.Replace("&gt;", ">");
             if (Fnl.Contains("&nbsp;")) Fnl = Fnl.Replace("&nbsp;", 0xA0.ToString());
 

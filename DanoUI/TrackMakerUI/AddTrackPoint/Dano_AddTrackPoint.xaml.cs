@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TrackMaker.Core; 
 
 namespace TrackMaker.UI
 {
@@ -74,7 +75,15 @@ namespace TrackMaker.UI
                 }
                 else
                 {
-                    DEA.DanoParameters.Add(Convert.ToInt32(OptionalApplicationSettings_PressureBox.Text));
+                    int Pressure = Convert.ToInt32(OptionalApplicationSettings_PressureBox.Text);
+
+                    if (Pressure < 0 || Pressure > 2147483647)
+                    {
+                        Error.Throw("Warning!", "Pressure must be between 0mbar and 2,147,483,647mbar", ErrorSeverity.Warning, 414);
+                        return; 
+                    }
+
+                    DEA.DanoParameters.Add(Pressure);
                 }
                 
 
@@ -83,18 +92,18 @@ namespace TrackMaker.UI
             catch (OverflowException err)
             {
 #if DEBUG
-                MessageBox.Show($"Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive.\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Error!", $"All numerical storm data must be between -2,147,483,647mph and 2,147,483,647mph inclusive.\n\n{err}", ErrorSeverity.Error, 413);
 #else  
-                MessageBox.Show($"Please enter an intensity between -2,147,483,647mph and 2,147,483,647mph inclusive.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Error!", $"All numerical storm data must be between -2,147,483,647mph and 2,147,483,647mph inclusive.", ErrorSeverity.Error, 413);
 #endif
             }
             catch (FormatException err) 
             {
                 // For (pre-)beta only
 #if DEBUG
-                MessageBox.Show($"Please enter a valid intensity!\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-#else  
-                MessageBox.Show($"Please enter a valid intensity!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                Error.Throw("Error!", $"All numerical storm data must be valid!\n\n{err}", ErrorSeverity.Error, 414);
+#else
+                Error.Throw("Error!", $"All numerical storm data must be valid!", ErrorSeverity.Error, 414); 
 #endif
             }
         }

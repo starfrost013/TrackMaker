@@ -8,10 +8,12 @@ using System.Text;
 using System.Reflection; 
 using System.Timers;
 using System.Threading.Tasks;
-using System.Windows.Controls; 
+using System.Windows.Controls;
+using System.Windows.Input; 
 using System.Windows.Media;
+using TrackMaker.Core;
+using TrackMaker.Util.StringUtilities;
 using TrackMaker.Util.WpfUtil;
-using TrackMaker.Core; 
 
 namespace Track_Maker
 {
@@ -90,7 +92,80 @@ namespace Track_Maker
             ST2Manager = new StormTypeManager();
             ST2Manager.Init();
 
+            Logging.Log("Initialising DynaHotkey manager...");
+            // Initialise the DynaHotkey manager. (MAINWINDOW ONLY)
+            DHotkeyManager = new DynaHotkeyManager();
+            Logging.Log("Setting up DynaHotkey hotkeys from current category system...");
+            Init_InitGlobalState_SetUpDynaHotkeyHotkeys();
 
+
+        }
+
+        private void Init_InitGlobalState_SetUpDynaHotkeyHotkeys()
+        {
+            List<Category> CategoryList = GlobalState.CategoryManager.CurrentCategorySystem.Categories;
+
+            KeyConverter KConverter = new KeyConverter();
+
+            foreach (Category Cat in CategoryList)
+            {
+                string CatName = Cat.Name;
+                string KeyName = null;
+
+                if (CatName.ContainsNumeric())
+                {
+                    int KeyPosition = CatName.GetFirstIndexOfNumeric();
+
+                    // should be impossible
+                    Debug.Assert(KeyPosition != -1);
+
+                    KeyName = KeyPosition.ToString();
+
+                    Key Key = (Key)KConverter.ConvertFromString(KeyName);
+
+                    DHotkeyManager.AddNewHotkey(CatName, new List<Key> { Key } );
+                    continue;
+                }
+                else
+                {
+                    string[] Words = Cat.Name.Split(' ');
+
+                    switch (Words.Length)
+                    {
+                        case 0:
+                            continue; // do nothing the category name is empty. This code shouldn't even run but just in case.
+                        case 1:
+                            string FirstWordOfCatName = Words[0];
+                            // not a char because of the methods used.
+                            string FirstChar = FirstWordOfCatName[0].ToString();
+
+                            KeyName = FirstChar;
+                            Key Key = (Key)KConverter.ConvertFromString(KeyName);
+
+                            DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { Key });
+
+                            continue;  
+                        default:
+                            string HotkeyName = Cat.GetAbbreviatedCategoryName(CatName, 1, 1, 1, false);
+
+                            if (HotkeyName.Length != 0)
+                            {
+                                KeyName = HotkeyName;
+                                Key NewHotkey = (Key)KConverter.ConvertFromString(KeyName);
+                                DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { NewHotkey }); 
+                            }
+                            else
+                            {
+                                Error.Throw("Warning!", "Error generating abbreviation; skipping this DynaHotkey", ErrorSeverity.Warning, 414);
+                                continue; 
+                            }
+
+                            continue; 
+                            
+                    }
+                }
+
+            } 
         }
 
         private void Init_InitApplicationSettings()
@@ -98,7 +173,6 @@ namespace Track_Maker
             // Load ApplicationSettings
             Logging.Log("Loading settings...");
 
-            //ApplicationSettingsLoader.LoadApplicationSettings2();
             SettingsSerialiser SS = new SettingsSerialiser();
             
             // Serialised Settings API 3.0

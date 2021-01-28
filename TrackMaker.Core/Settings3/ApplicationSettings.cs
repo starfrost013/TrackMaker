@@ -59,6 +59,7 @@ namespace TrackMaker.Core
         /// </summary>
         public static Point DotSize { get; set; }
 
+
         /// <summary>
         /// Line size 
         /// </summary>
