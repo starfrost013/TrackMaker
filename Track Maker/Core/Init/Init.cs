@@ -153,7 +153,7 @@ namespace Track_Maker
 
                             continue;  
                         default:
-                            string HotkeyName = Cat.GetAbbreviatedCategoryName(CatName, 1, 1, 1, false);
+                            string HotkeyName = Cat.GetAbbreviatedCategoryName(CatName, 1, 1, 1);
 
                             if (HotkeyName.Length != 0)
                             {

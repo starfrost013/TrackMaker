@@ -93,7 +93,7 @@ namespace TrackMaker.Core
             StringBuilder SB = new StringBuilder();
             
             // Build each word
-            for (int i = StartWordIndex; i < NoOfWords; i++ )
+            for (int i = StartWordIndex; i <= NoOfWords; i++ )
             {
                 string Wrd = Words[i];
                 
@@ -112,6 +112,61 @@ namespace TrackMaker.Core
 
             return Final;
         }
+
+        /// <summary>
+        /// Get an abbreviated category name. (v2.1.701.3+)
+        /// Added in Iris build 701.3. A "raw" variant of the previous method.
+        /// </summary>
+        /// <param name="CatLength">The length of the abbreviation you wish to obtain.</param>
+        /// <param name="BTFormat">Best track format - convert to uppercase before returning.</param>
+        /// <returns></returns>
+        public string GetAbbreviatedCategoryName(string SourceString, int NoOfWords, int StartWordIndex = 0, int LettersPerWord = 1)
+        {
+            string[] Words = SourceString.Split(' ');
+
+            if (NoOfWords > Words.Length || NoOfWords < 0 || StartWordIndex > Words.Length)
+            {
+                Error.Throw("Fatal Error", $"Invalid call to Category.GetAbbreviatedCategoryName() - length was {Words.Length}, must be between 0 and {NoOfWords}!", ErrorSeverity.FatalError, 282);
+                return null;
+            }
+
+            int ShortestWordLength = Words[0].Length;
+
+            for (int i = StartWordIndex; i < (StartWordIndex + NoOfWords); i++)
+            {
+                // we already ran a bounds check so we will iterate through all teh words we are checking 
+                string Word = Words[i];
+
+                if (Word.Length < ShortestWordLength) ShortestWordLength = Word.Length;
+            }
+
+            if (LettersPerWord < 0 || LettersPerWord > ShortestWordLength)
+            {
+                Error.Throw("Fatal Error", $"Invalid call to Category.GetAbbreviatedCategoryName() - letters per word were {LettersPerWord}, must be between 0 and {ShortestWordLength}!", ErrorSeverity.FatalError, 127);
+            }
+
+
+            StringBuilder SB = new StringBuilder();
+
+            // Build each word
+            for (int i = StartWordIndex; i <= NoOfWords; i++)
+            {
+                string Wrd = Words[i];
+
+                for (int j = 0; j < LettersPerWord; j++)
+                {
+                    // ok
+                    SB.Append(Wrd[j]);
+                }
+            }
+
+            string Final = SB.ToString();
+
+            Debug.Assert(Final != null);
+
+            return Final;
+        }
+
     }
 
 }
