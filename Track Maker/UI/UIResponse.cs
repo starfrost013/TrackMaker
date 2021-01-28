@@ -281,6 +281,32 @@ namespace Track_Maker
                         CurrentProject.SelectedBasin.CurrentLayer.CurrentStorm.Undo();
                     }
                     return;
+                default:
+                    Window_HandleCategorySystemDynaHotkeys(e.Key); 
+                    return; 
+            }
+        }
+
+        /// <summary>
+        /// bad dynahotkey impl
+        /// </summary>
+        /// <param name="HitKey"></param>
+        private void Window_HandleCategorySystemDynaHotkeys(Key HitKey)
+        {
+            CategorySystem CurrentCategorySystem = GlobalState.CategoryManager.CurrentCategorySystem;
+
+            foreach (Category Cat in CurrentCategorySystem.Categories)
+            {
+                if (Cat.Hotkey != null)
+                {
+                    // needs a refactoring to be done properly
+                    int MinIntensity = Cat.LowerBound;
+
+                    Storm CurrentStorm = CurrentProject.SelectedBasin.GetCurrentStorm();
+
+                    // temp
+                    if (CurrentStorm != null) CurrentStorm.AddNode(MinIntensity, "Tropical", new Point(0, 0), 1000, ST2Manager); 
+                }
             }
         }
 

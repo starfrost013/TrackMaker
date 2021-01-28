@@ -16,20 +16,42 @@ namespace TrackMaker.Core
     /// </summary>
     public class Category
     {
+
+        /// <summary>
+        /// Abbreviation of this category's name
+        /// </summary>
         [XmlElement("Abbreviation")]
         public string Abbreviation { get; set; } // the abbreviation of this category
 
+        /// <summary>
+        /// The colour used by track nodes/points in this category.
+        /// </summary>
         [XmlElement("Color")]
         public Color Color { get; set; }
 
+        /// <summary>
+        /// Name of this category
+        /// </summary>
         [XmlElement("Name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Lower bound of this category
+        /// </summary>
         [XmlElement("LowerBound")]
         public int LowerBound { get; set; }
 
+        /// <summary>
+        /// Higher bound of this category
+        /// </summary>
         [XmlElement("HigherBound")]
         public int HigherBound { get; set; }
+
+        /// <summary>
+        /// Hotkey for this category
+        /// </summary>
+        [XmlElement("ForceHotkey")]
+        public DynaHotkey Hotkey { get; set; }
 
         /// <summary>
         /// Get an abbreviated category name. (v2.0.463+)

@@ -9,6 +9,10 @@ namespace TrackMaker.Core
 {
     public class DynaHotkeyManager
     {
+        public static int DHAPI_Version_Major = 1;
+        public static int DHAPI_Version_Minor = 5;
+        public static int DHAPI_Version_Revision = 0;
+
         public List<DynaHotkey> Hotkeys { get; set; }
 
         public DynaHotkeyManager()
@@ -21,6 +25,21 @@ namespace TrackMaker.Core
         {
             DynaHotkey DK = new DynaHotkey(KeyName, Keys);
             Hotkeys.Add(DK);
+
+        }
+
+        /// <summary>
+        /// Adds a new hotkey and optionally adds it to the global list.
+        /// </summary>
+        /// <param name="KeyName"></param>
+        /// <param name="Keys">The keyboard keys that need to be pressed to load this key.</param>
+        /// <param name="AddToGlobalList">Add to the global list. Set this to false if your hotkeys only have a specific use.</param>
+        /// <returns></returns>
+        public DynaHotkey AddNewHotkey(string KeyName, List<Key> Keys = null, bool AddToGlobalList = true)
+        {
+            DynaHotkey DK = new DynaHotkey(KeyName, Keys);
+            if (AddToGlobalList) Hotkeys.Add(DK);
+            return DK; 
 
         }
 

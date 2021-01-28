@@ -736,8 +736,6 @@ namespace TrackMaker.Core
                 }
                 else
                 {
-                    // likely shouldn't be fatalerror
-                    Error.Throw("200", "Attempted to acquire current storm when there is no selected storm!", ErrorSeverity.FatalError, 200);
                     return null;
                 }
                 

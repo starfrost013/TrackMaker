@@ -63,23 +63,15 @@ namespace TrackMaker.Core
         /// 
         /// create NodeInformation class later
         /// </summary>
-        public void AddNode(int Intensity, string Type, Point Pos, int Pressure, StormTypeManager TEMPORARY__STM) // String in this case bad but swnabhfabg
+        public void AddNode(int Intensity, StormType2 Type, Point Pos, int Pressure) // String in this case bad but swnabhfabg
         {
             Node NewNode = new Node();
 
             // Determine intensity.
             NewNode.Intensity = Intensity;
 
-#if DANO
-            StormTypeManager ST2Manager = GlobalState.GetST2Manager();
-#else
-            /* 
-             to be moved to globalstate
-            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
-            StormTypeManager ST2Manager = MnWindow.ST2Manager;*/
-#endif
             // Get node type.
-            NewNode.NodeType = TEMPORARY__STM.GetStormTypeWithName(Type); 
+            NewNode.NodeType = Type; 
 
             // Get id.
             NewNode.Id = NodeList.Count;
@@ -91,6 +83,43 @@ namespace TrackMaker.Core
             else
             {
                 NewNode.Pressure = Pressure; 
+            }
+
+            // Set node position.
+            NewNode.Position = Pos;
+            Logging.Log($"Adding node");
+            // Add.
+            NodeList.Add(NewNode);
+
+        }
+
+        /// <summary>
+        /// Add a node to this storm.
+        /// 
+        /// STM is temporary until globalstate is ported over
+        /// 
+        /// create NodeInformation class later
+        /// </summary>
+        public void AddNode(int Intensity, string Type, Point Pos, int Pressure, StormTypeManager TEMP__ST2Manager) // String in this case bad but swnabhfabg
+        {
+            Node NewNode = new Node();
+
+            // Determine intensity.
+            NewNode.Intensity = Intensity;
+
+            // Get node type.
+            NewNode.NodeType = TEMP__ST2Manager.GetStormTypeWithName(Type);
+
+            // Get id.
+            NewNode.Id = NodeList.Count;
+
+            if (Pressure < 0)
+            {
+                Error.Throw("Warning", "Pressure cannot be less than zero!", ErrorSeverity.Warning, 400);
+            }
+            else
+            {
+                NewNode.Pressure = Pressure;
             }
 
             // Set node position.

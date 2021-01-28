@@ -163,7 +163,12 @@ namespace Track_Maker
                             KeyName = FirstChar;
                             Key Key = (Key)KConverter.ConvertFromString(KeyName);
 
-                            if (!DHotkeyManager.CheckIfKeyIsDuplicated(Key)) DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { Key });
+                            if (!DHotkeyManager.CheckIfKeyIsDuplicated(Key))
+                            {
+                                DynaHotkey DHotkey = DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { Key }, false);
+                                Cat.Hotkey = DHotkey;
+                            }
+
 
                             continue;  
                         default:
@@ -173,7 +178,16 @@ namespace Track_Maker
                             {
                                 KeyName = HotkeyName;
                                 Key NewHotkey = (Key)KConverter.ConvertFromString(KeyName);
-                                if (!DHotkeyManager.CheckIfKeyIsDuplicated(NewHotkey)) DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { NewHotkey }); 
+
+                                // as dynahotkeys can be used for anything, check for duplication and duplicate hotkey to categories
+                                // this is spaghettified so i'll probably slim it down to specifically one subclass of IHotkey
+                                if (!DHotkeyManager.CheckIfKeyIsDuplicated(NewHotkey))
+                                {
+                                    DynaHotkey DHotkey = DHotkeyManager.AddNewHotkey(CatName, new List<Key>() { NewHotkey }, false);
+                                    Cat.Hotkey = DHotkey;
+                                }
+
+                                
                             }
                             else
                             {
