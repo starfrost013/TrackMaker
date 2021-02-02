@@ -78,7 +78,6 @@ namespace Track_Maker
                 Point Position = (Point)DEA.DanoParameters[2];
                 int Pressure = (int)DEA.DanoParameters[3];
 
-                StormType2 StoType = MnWindow.
                 Sto.AddNode(Intensity, Type, Position, Pressure, MnWindow.ST2Manager);
                 Close();
             }

@@ -119,13 +119,25 @@ namespace Track_Maker
             XmlNode XAuthor = XDoc.CreateElement("Author");
             XmlNode XFormatVersionMajor = XDoc.CreateElement("FormatVersionMajor");
             XmlNode XFormatVersionMinor = XDoc.CreateElement("FormatVersionMinor");
+            XmlNode XProjectName = XDoc.CreateElement("ProjectName");
 
             XmlNode XTimestamp = XDoc.CreateElement("Timestamp");
 
             XAuthor.InnerText = Environment.UserName;
             XFormatVersionMajor.InnerText = FormatVersionMajor.ToString();
             XFormatVersionMinor.InnerText = FormatVersionMinor.ToString();
+            string ProjectName = Proj.Name;
 
+            if (ProjectName == null)
+            {
+                XProjectName.InnerText = Proj.Name;
+            }
+            else
+            {
+                XProjectName.InnerText = "Track Maker Project"; 
+
+            }
+            
             // ISO 8601 date format
             XTimestamp.InnerText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -250,7 +262,8 @@ namespace Track_Maker
 
             XMetadataNode.AppendChild(XAuthor);
             XMetadataNode.AppendChild(XFormatVersionMajor);
-            XMetadataNode.AppendChild(XFormatVersionMinor); 
+            XMetadataNode.AppendChild(XFormatVersionMinor);
+            XMetadataNode.AppendChild(XProjectName);
 
             XRoot.AppendChild(XMetadataNode);
            
