@@ -538,6 +538,7 @@ namespace TrackMaker.Core
                             NodetoRecalc.Position = new Point(NodetoRecalc.Position.X / (SystemParameters.PrimaryScreenWidth / CurWindowSize.X), NodetoRecalc.Position.Y / (SystemParameters.PrimaryScreenHeight / CurWindowSize.Y));
                             continue;
                         case false:
+                            
                             NodetoRecalc.Position = new Point(NodetoRecalc.Position.X * (SystemParameters.PrimaryScreenWidth / CurWindowSize.X), NodetoRecalc.Position.Y * (SystemParameters.PrimaryScreenHeight / CurWindowSize.Y));
                             continue;
 
