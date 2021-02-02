@@ -48,7 +48,7 @@ namespace TrackMaker.Core
             {
                 if (value < 0 || value > 1)
                 {
-                    Error.Throw("Error!", "Attempted to set invalid RelativePosition!", ErrorSeverity.Error, 415);
+                    Error.Throw("Error!", "Attempted to set invalid RelativePosition!", ErrorSeverity.Error, 416);
                 }
                 else
                 {
@@ -58,7 +58,18 @@ namespace TrackMaker.Core
 
             }
 
+        }
+
+        public RelativePosition(double NX, double NY)
+        {
+            X = NX;
+            Y = NY;
 
         }
+
+        public static RelativePosition operator +(RelativePosition X, RelativePosition Y) => new RelativePosition(X.X + Y.X, X.Y + Y.Y);
+        public static RelativePosition operator -(RelativePosition X, RelativePosition Y) => new RelativePosition(X.X - Y.X, X.Y - Y.Y);
+        public static RelativePosition operator *(RelativePosition X, RelativePosition Y) => new RelativePosition(X.X * Y.X, X.Y * Y.Y);
+        public static RelativePosition operator /(RelativePosition X, RelativePosition Y) => new RelativePosition(X.X / Y.X, X.Y / Y.Y);
     }
 }
