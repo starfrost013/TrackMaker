@@ -521,6 +521,9 @@ namespace TrackMaker.Core
             Image.EndInit();
         }
 
+        /*
+         * 
+         * should no longer be needed as of Iris v706.1
         /// <summary>
         /// When leaving or entering fullscreen mode, recalculate the position of each node so it doesn't end up in the wrong place.
         /// 
@@ -571,6 +574,7 @@ namespace TrackMaker.Core
 
             return;
         }
+        */
 
         public List<string> GetLayerNames()
         {

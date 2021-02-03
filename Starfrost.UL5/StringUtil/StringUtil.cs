@@ -1,6 +1,4 @@
-﻿using TrackMaker.Util.LineEndingUtilities;
-using TrackMaker.Util.VersionUtilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using TrackMaker.Util.LineEndingUtilities;
+using TrackMaker.Util.VersionUtilities;
 
 
 namespace TrackMaker.Util.StringUtilities

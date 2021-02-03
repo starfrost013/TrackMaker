@@ -30,7 +30,7 @@ namespace TrackMaker.Core
         public int Pressure { get; set; }
 
         [XmlElement("Position")]
-        public Point Position { get; set; } // the position
+        public RelativePosition Position { get; set; } // the position
         
         [XmlElement("StormType")]
         public StormType2 NodeType { get; set; } // as any node can be any type.

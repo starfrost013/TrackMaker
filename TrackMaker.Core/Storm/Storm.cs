@@ -86,7 +86,12 @@ namespace TrackMaker.Core
             }
 
             // Set node position.
-            NewNode.Position = Pos;
+
+            RelativePositionConverter RPC = new RelativePositionConverter();
+            RelativePosition RP = (RelativePosition)RPC.ConvertBack(Pos, typeof(RelativePosition), null, null);
+            
+            NewNode.Position = RP;
+
             Logging.Log($"Adding node");
             // Add.
             NodeList.Add(NewNode);
@@ -122,8 +127,11 @@ namespace TrackMaker.Core
                 NewNode.Pressure = Pressure;
             }
 
-            // Set node position.
-            NewNode.Position = Pos;
+            // dumb but it works!
+            RelativePositionConverter RPC = new RelativePositionConverter();
+            NewNode.Position = (RelativePosition)RPC.Convert(Pos, typeof(RelativePosition), null, null);
+
+
             Logging.Log($"Adding node");
             // Add.
             NodeList.Add(NewNode);

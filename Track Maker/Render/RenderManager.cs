@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -76,9 +77,16 @@ namespace Track_Maker
                                         Ellipse.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
                                     }
 
-                                    // set the position
+
                                     Canvas.SetLeft(Ellipse, XNode.Position.X);
                                     Canvas.SetTop(Ellipse, XNode.Position.Y);
+
+                                    // set the position
+                                    Binding Sbd = new Binding("Margin");
+                                    Sbd.Converter = new RelativePositionConverter();
+                                    Sbd.Source = Ellipse;
+
+                                    Ellipse.SetBinding(Ellipse.MarginProperty, Sbd);
 
                                     HurricaneBasin.Children.Add(Ellipse);
                                     continue;

@@ -196,7 +196,11 @@ namespace Track_Maker
 
                             // set the info
                             XNodeIntensity.InnerText = XNode.Intensity.ToString();
-                            XNodePosition.InnerText = XNode.Position.ToStringEmerald();
+
+                            RelativePositionConverter RPC = new RelativePositionConverter();
+                            Point RP = (Point)RPC.ConvertBack(XNode.Position, typeof(Point), null, null);
+
+                            XNodePosition.InnerText = RP.ToStringEmerald();
                             XNodePressure.InnerText = XNode.Pressure.ToString();
                             XNodeType.InnerText = XNode.NodeType.Name;
 
@@ -220,7 +224,11 @@ namespace Track_Maker
 
                             // set the info
                             XNodeIntensity.InnerText = XNode.Intensity.ToString();
-                            XNodePosition.InnerText = XNode.Position.ToStringEmerald();
+
+                            RelativePositionConverter RPC = new RelativePositionConverter();
+                            Point RP = (Point)RPC.ConvertBack(XNode.Position, typeof(Point), null, null);
+
+                            XNodePosition.InnerText = RP.ToStringEmerald();
                             XNodeType.InnerText = XNode.NodeType.Name;
 
                             // build the node list xml structure
@@ -723,7 +731,12 @@ namespace Track_Maker
                                     NewNode.Intensity = Convert.ToInt32(NodeInformationNode.InnerText);
                                     continue;
                                 case "Position":
-                                    NewNode.Position = NodeInformationNode.InnerText.SplitXY();
+
+                                    Point Npos = NodeInformationNode.InnerText.SplitXY();
+                                    RelativePositionConverter RPC = new RelativePositionConverter();
+                                    RelativePosition RP = (RelativePosition)RPC.Convert(Npos, typeof(RelativePosition), null, null);
+
+                                    NewNode.Position = RP;
                                     continue;
                                 case "Type":
                                     NewNode.NodeType = ST2Manager.GetStormTypeWithName(NodeInformationNode.InnerText);
