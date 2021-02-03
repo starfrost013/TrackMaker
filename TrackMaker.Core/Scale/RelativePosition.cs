@@ -60,6 +60,11 @@ namespace TrackMaker.Core
 
         }
 
+        public RelativePosition()
+        {
+
+        }
+
         public RelativePosition(double NX, double NY)
         {
             X = NX;
