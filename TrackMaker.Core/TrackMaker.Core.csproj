@@ -79,6 +79,7 @@
     <Compile Include="Project\Project.cs" />
     <Compile Include="Scale\Direction.cs" />
     <Compile Include="Scale\RelativePosition.cs" />
+    <Compile Include="Scale\RelativePositionConverter.cs" />
     <Compile Include="Settings3\Enums\TelemetryConsent.cs" />
     <Compile Include="Settings3\Enums\WndStyle.cs" />
     <Compile Include="Settings3\SettingsAPI.cs" />

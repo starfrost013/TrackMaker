@@ -165,7 +165,7 @@ namespace TrackMaker.Core
         {
             DateTime _t = FormationDate;
 
-            _t = _t.AddHours(6 * NodeId);
+            _t = _t.AddHours(ApplicationSettings.PeriodLengthHours * NodeId);
 
             return _t; 
         }

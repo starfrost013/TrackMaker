@@ -52,6 +52,7 @@
       <xs:element name="EnableAccent" type="xs:boolean"></xs:element>
       
       <xs:element name="LineSize" type="xs:int" minOccurs="0" default="2"></xs:element>
+      <xs:element name="PeriodLengthHours" type="xs:int" minOccurs="0" default="6"></xs:element>
       <xs:element name="ShowBetaWarning" type="xs:boolean"></xs:element>
       <xs:element name="Iris_EnableDeserialisation" type="xs:boolean"></xs:element>
       <xs:element name="Iris_EnableGraphUI" type="xs:boolean"></xs:element>

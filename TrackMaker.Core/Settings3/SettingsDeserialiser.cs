@@ -9,6 +9,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
+using System.Windows;
 using TrackMaker.Core.StaticSerialiser;
 
 namespace TrackMaker.Core
@@ -35,7 +36,8 @@ namespace TrackMaker.Core
             Logging.Log("Settings.xml valid");
             Logging.Log("Serialising settings");
             SettingsSerialiser_Serialise();
-            Logging.Log("Serialisation successful!"); 
+            Logging.Log("Serialisation successful!");
+            SettingsSerialiser_SetDefaults(); // set the defaults if some settings failed to load
         }
         
         private void SettingsSerialiser_Validate()
@@ -104,6 +106,25 @@ namespace TrackMaker.Core
                 return SR;
             }
             
+        }
+
+        /// <summary>
+        /// Set default settings
+        /// 
+        /// TODO: SETTINGSDEFAULTS CLASS
+        /// </summary>
+        private void SettingsSerialiser_SetDefaults()
+        {
+         
+            // need settingsdefault class
+            if (ApplicationSettings.DotSize.X <= 0 && ApplicationSettings.DotSize.Y <= 0) ApplicationSettings.DotSize = new Point(8, 8);
+            if (ApplicationSettings.LineSize == 0) ApplicationSettings.LineSize = 2;
+            if (ApplicationSettings.DefaultCategorySystem == null) ApplicationSettings.DefaultCategorySystem = "SSHWS";
+            if (ApplicationSettings.PeriodLengthHours == 0) ApplicationSettings.PeriodLengthHours = 6;
+            if (ApplicationSettings.UndoDepth == 0) ApplicationSettings.UndoDepth = 0;
+            // don't set accentcolour the user may want transparency
+
+
         }
     }
 }

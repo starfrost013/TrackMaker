@@ -10,6 +10,7 @@
   <Iris_EnableDebugUI>True</Iris_EnableDebugUI>
   <Iris_EnableGraphUI>True</Iris_EnableGraphUI>
   <Iris_UseDeserialisation>False</Iris_UseDeserialisation>
+  <PeriodLengthHours>6</PeriodLengthHours>
   <ShowBetaWarning>False</ShowBetaWarning>
   <StormNamesVisible>True</StormNamesVisible>
   <TelemetryConsent>Yes</TelemetryConsent>

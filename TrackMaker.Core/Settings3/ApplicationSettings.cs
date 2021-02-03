@@ -68,6 +68,11 @@ namespace TrackMaker.Core
         public static int LineSize { get; set; } 
 
         /// <summary>
+        /// Length of each point in hours
+        /// </summary>
+        [XmlElement("PeriodLengthHours")]
+        public static int PeriodLengthHours { get; set; }
+        /// <summary>
         /// Show the Beta Warning message box
         /// </summary>
 
@@ -79,8 +84,6 @@ namespace TrackMaker.Core
         /// 
         /// TODO: Write IValueConverter for this!
         /// </summary>
-
-        
         public static TelemetryConsent TelemetryConsent { get; set; }
 
         private static string _telemetryconsent_internal { get; set; }
@@ -167,7 +170,6 @@ namespace TrackMaker.Core
 
         // more to come...
 #if DANO
-        public static bool Dano_DisableGlobalState { get; set; } // Dano (version 3.0) - disable global state (act like Priscilla)
         public static bool Dano_EnableAnimation { get; set; } // Dano (version 3.0) - enable animation mode
         public static bool Dano_EnableOverlaySupport { get; set; } // Dano (version 3.0) - enable overlay support
         public static bool Dano_ResizableUIEnabled [ get; set; } // Dano (version 3.0) - Resizable UI Enabled
