@@ -13,7 +13,7 @@ namespace TrackMaker.Core
     {
         public object Convert(object Value, Type TargetType, object Parameter, CultureInfo Culture)
         {
-            if (!(Value is Point))
+            if (!(Value is Point) || TargetType != typeof(RelativePosition))
             {
                 Error.Throw("Error!", "Fatal Error: Attempted to convert a non-Point class to RelativePosition!", ErrorSeverity.FatalError, 417);
             }
@@ -34,7 +34,7 @@ namespace TrackMaker.Core
 
         public object ConvertBack(object Value, Type TargetType, object Parameter, CultureInfo Culture)
         {
-            if (!(Value is RelativePosition))
+            if (!(Value is RelativePosition) || TargetType != typeof(Point))
             {
                 Error.Throw("Error!", "Fatal error: Attempted to call RelativePositionConverter.ConvertBack() with parameter 0 (Value) not of type RelativePosition!", ErrorSeverity.Error, 418);
             }

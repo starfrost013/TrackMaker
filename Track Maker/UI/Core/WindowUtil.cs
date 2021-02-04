@@ -18,7 +18,7 @@ namespace Track_Maker
             {
                 // MOVE THIS CODE
                 case WndStyle.Windowed: // if it's false, turn it on
-                    CurrentProject.SelectedBasin.RecalculateNodePositions(true, new Point(Width, Height));
+                    //CurrentProject.SelectedBasin.RecalculateNodePositions(true, new Point(Width, Height));
                     ApplicationSettings.WindowStyle = WndStyle.Fullscreen;
                     WindowState = WindowState.Maximized;
                     WindowStyle = WindowStyle.None;
@@ -36,7 +36,7 @@ namespace Track_Maker
                     HurricaneBasin.Height = Height - MainMenu.Height; // MOVE THIS CODE
                     PriscillaSidebar.Margin = new Thickness(Width - 191, 0, 0, 0);
                     PriscillaSidebar.Height = 609;
-                    CurrentProject.SelectedBasin.RecalculateNodePositions(false, new Point(Width, Height));
+                    //CurrentProject.SelectedBasin.RecalculateNodePositions(false, new Point(Width, Height));
                     ApplicationSettings.WindowStyle = WndStyle.Windowed;
                     return;
             }

@@ -73,8 +73,11 @@ namespace TrackMaker.Core
 
         
         // Basin API for Priscilla
-        public Coordinate FromNodePositionToCoordinate(Point NodePosition, Point WindowSize)
+        public Coordinate FromNodePositionToCoordinate(RelativePosition NodePosition, Point WindowSize)
         {
+            RelativePositionConverter RPC = new RelativePositionConverter();
+            Point Pt = (Point)RPC.ConvertBack(NodePosition, typeof(Point), null, null);
+
             Coordinate Coord = new Coordinate();
 
             //Convert 
@@ -112,8 +115,8 @@ namespace TrackMaker.Core
             }
 
 
-            double WindowMultiplierPositionX = NodePosition.X / WindowSize.X;
-            double WindowMultiplierPositionY = NodePosition.Y / WindowSize.Y;
+            double WindowMultiplierPositionX = Pt.X / WindowSize.X;
+            double WindowMultiplierPositionY = Pt.Y / WindowSize.Y;
 
             double FinalX = -2.999126165;
             double FinalY = -2.999126165;
@@ -303,6 +306,82 @@ namespace TrackMaker.Core
             Point FinalPos = new Point(WindowSize.Y * PreFinalY, WindowSize.X * PreFinalX);
 
             return FinalPos;
+        }
+
+        public RelativePosition FromCoordinateToRelativeNodePosition(Coordinate Coord, Point WindowSize)
+        {
+
+            Debug.Assert(Coord.Directions.Count == 2);
+
+            double LowX = CoordsLower.Coordinates.X;
+            double LowY = CoordsLower.Coordinates.Y;
+            double HighX = CoordsHigher.Coordinates.X;
+            double HighY = CoordsHigher.Coordinates.Y;
+
+            // convert to absolute coordinate
+            foreach (CardinalDirection CD in CoordsLower.Directions)
+            {
+                switch (CD)
+                {
+                    case CardinalDirection.W:
+                        LowX = -LowX;
+                        continue;
+                    case CardinalDirection.S:
+                        LowY = -LowY;
+                        continue;
+                }
+            }
+
+            // convert to absolute coordinate
+            foreach (CardinalDirection CD in CoordsHigher.Directions)
+            {
+                switch (CD)
+                {
+                    case CardinalDirection.W:
+                        HighX = -HighX;
+                        continue;
+                    case CardinalDirection.S:
+                        HighY = -HighY;
+                        continue;
+                }
+            }
+
+            // get the multiplier from the coordshigher.
+
+            double PreFinalX = 0.991823613;
+            double PreFinalY = 0.991823613;
+
+            if (HighX > LowX)
+            {
+                PreFinalX = Coord.Coordinates.X / (HighX - LowX);
+            }
+            else
+            {
+                PreFinalX = Coord.Coordinates.X / (LowX - HighX);
+            }
+
+            if (HighY > LowY)
+            {
+                PreFinalY = Coord.Coordinates.Y / (HighY - LowY);
+            }
+            else
+            {
+                PreFinalY = Coord.Coordinates.Y / (LowY - HighY);
+            }
+
+            if (PreFinalX == 0.991823613 || PreFinalY == 0.991823613)
+            {
+                Error.Throw("Error", "Error translating coordinates - internal ATCF import error", ErrorSeverity.Error, 320);
+                return new RelativePosition(0.991823613, 0.991823613);
+            }
+
+            // atcf fix
+            Point FinalPos = new Point(WindowSize.Y * PreFinalY, WindowSize.X * PreFinalX);
+
+            RelativePositionConverter RPC = new RelativePositionConverter();
+            RelativePosition RP = (RelativePosition)RPC.Convert(FinalPos, typeof(RelativePosition), null, null);
+
+            return RP;
         }
 
         /// <summary>

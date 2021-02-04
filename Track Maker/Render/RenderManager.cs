@@ -77,16 +77,11 @@ namespace Track_Maker
                                         Ellipse.Fill = new SolidColorBrush(RenderBasedOnNodeIntensity(XStorm, XNode));
                                     }
 
+                                    RelativePositionConverter RPC = new RelativePositionConverter();
+                                    Point RP = (Point)RPC.ConvertBack(XNode.Position, typeof(Point), null, null);
 
-                                    Canvas.SetLeft(Ellipse, XNode.Position.X);
-                                    Canvas.SetTop(Ellipse, XNode.Position.Y);
-
-                                    // set the position
-                                    Binding Sbd = new Binding("Margin");
-                                    Sbd.Converter = new RelativePositionConverter();
-                                    Sbd.Source = Ellipse;
-
-                                    Ellipse.SetBinding(Ellipse.MarginProperty, Sbd);
+                                    Canvas.SetLeft(Ellipse, RP.X);
+                                    Canvas.SetTop(Ellipse, RP.Y);
 
                                     HurricaneBasin.Children.Add(Ellipse);
                                     continue;

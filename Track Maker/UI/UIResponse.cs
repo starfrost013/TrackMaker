@@ -521,7 +521,7 @@ namespace Track_Maker
             Layers.Margin = new Thickness(2, PriscillaSidebar.Height * 0.243, 0, PriscillaSidebar.Height * 0.166);
             ZoomControl.Margin = new Thickness(0, PriscillaSidebar.Height * 0.88, PriscillaSidebar.Width * -0.29, PriscillaSidebar.Height * 0.016);
 
-            CurrentProject.SelectedBasin.RecalculateNodePositions(false, VolatileApplicationSettings.WindowSize);
+            //CurrentProject.SelectedBasin.RecalculateNodePositions(false, VolatileApplicationSettings.WindowSize);
 
 
         }

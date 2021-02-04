@@ -223,7 +223,7 @@ namespace Track_Maker
                     Nod.Id = Id;
                     Nod.Intensity = Intensity;
 
-                    Nod.Position = Bas.FromCoordinateToNodePosition(Coord, new Point(MnWindow.Width, MnWindow.Height));
+                    Nod.Position = Bas.FromCoordinateToRelativeNodePosition(Coord, new Point(MnWindow.Width, MnWindow.Height));
                     Nod.NodeType = ATCFHelperMethods.Export_GetStormType(_StrCategory);
                     Nod.Pressure = Convert.ToInt32(_StrPressure); 
 

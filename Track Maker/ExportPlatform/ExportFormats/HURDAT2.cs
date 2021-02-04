@@ -166,7 +166,7 @@ namespace Track_Maker
 
                             MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
 
-                            CN.Position = Bas.FromCoordinateToNodePosition(Coordinate, new Point(MnWindow.Width, MnWindow.Height));
+                            CN.Position = Bas.FromCoordinateToRelativeNodePosition(Coordinate, new Point(MnWindow.Width, MnWindow.Height));
 
                             CN.Pressure = Convert.ToInt32(_Pressure); 
                             Sto.AddNode(CN);
