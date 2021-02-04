@@ -20,6 +20,7 @@ namespace TrackMaker.UI
     /// </summary>
     public partial class GraphUI : UserControl
     {
+        public EventHandler<DanoEventArgs> DisplayButtonHit { get; set; }
         public GraphUI()
         {
             InitializeComponent();
