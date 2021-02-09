@@ -32,7 +32,7 @@ namespace TrackMaker.Core
         {
             Name = KeyName; 
 
-            if (Keys == null)
+            if (KeyList == null)
             {
                 Keys = new List<Key>();
                 return;

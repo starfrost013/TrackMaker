@@ -34,6 +34,11 @@ namespace TrackMaker.Core
         public string Name { get; set; }
 
         /// <summary>
+        /// The last node placed.
+        /// </summary>
+        public Node LastNode { get; set; }
+
+        /// <summary>
         /// The nodes of this storm. 
         /// </summary>
         [XmlElement("Node")]

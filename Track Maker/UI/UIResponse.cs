@@ -48,52 +48,76 @@ namespace Track_Maker
 
         private void Window_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            // left mouse button clicked (no zoom)
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                Project CurProj = CurrentProject;
 
-                // fix retardation
-                if (CurProj != null && CurProj.SelectedBasin != null && CurProj.SelectedBasin.CurrentLayer != null)
+            Storm Sto = CurrentProject.SelectedBasin.GetCurrentStorm();
+
+            
+            if (Sto != null)
+            {
+                if (Sto.LastNode != null)
                 {
-                    // if we have no storms, ask the user to create a storm instead of add a track point. 
-                    if (CurProj.SelectedBasin.CurrentLayer.CurrentStorm == null)
+                    Node LastNode = Sto.LastNode;
+
+                    RelativePositionConverter RPC = new RelativePositionConverter();
+
+                    RelativePosition RP = (RelativePosition)RPC.Convert(e.GetPosition(HurricaneBasin), typeof(RelativePosition), null, null);
+                    LastNode.Position = RP;
+
+                    Sto.AddNode(LastNode);
+                    LastNode = null;
+                }
+
+            }
+            else
+            {
+                // left mouse button clicked (no zoom)
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    Project CurProj = CurrentProject;
+
+                    // fix retardation
+                    if (CurProj != null && CurProj.SelectedBasin != null && CurProj.SelectedBasin.CurrentLayer != null)
                     {
-                        AddNewStormHost Addstwindow = new AddNewStormHost(CurProj.SelectedBasin.SeasonStartTime);
-                        Addstwindow.Owner = this;
-                        Addstwindow.Show();
-                        return;
-                    }
-                    else
-                    {
-                        // build 524
+                        // if we have no storms, ask the user to create a storm instead of add a track point. 
+                        if (Sto == null)
+                        {
+                            AddNewStormHost Addstwindow = new AddNewStormHost(CurProj.SelectedBasin.SeasonStartTime);
+                            Addstwindow.Owner = this;
+                            Addstwindow.Show();
+                            return;
+                        }
+                        else
+                        {
+                            // build 524
 #if PRISCILLA
-                        StormTypeManager ST2M = ST2Manager;
+                            StormTypeManager ST2M = ST2Manager;
 #else
                         StormTypeManager ST2Manager = GlobalState.GetST2Manager();
 #endif
-                        Storm SelectedStorm = CurProj.SelectedBasin.GetCurrentStorm();
+                            Storm SelectedStorm = CurProj.SelectedBasin.GetCurrentStorm();
 
-                        int NodeCount = SelectedStorm.NodeList.Count - 1;
+                            int NodeCount = SelectedStorm.NodeList.Count - 1;
 
-                        // build 547: implement season start time on window feature
-                        AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames(), e.GetPosition(HurricaneBasin), SelectedStorm.GetNodeDate(NodeCount));
-                        ATPHost.Owner = this;
-                        ATPHost.Show(); 
+                            // build 547: implement season start time on window feature
+                            AddTrackPointHost ATPHost = new AddTrackPointHost(ST2M.GetListOfStormTypeNames(), e.GetPosition(HurricaneBasin), SelectedStorm.GetNodeDate(NodeCount));
+                            ATPHost.Owner = this;
+                            ATPHost.Show();
+
+                        }
 
                     }
 
                 }
+                else if (e.RightButton == MouseButtonState.Pressed)
+                {
+                    // temporary code
+                    // this should be a matrix transformation but /shrug
+                    // not best practice
+                    LastRightMouseClickPos = e.GetPosition(HurricaneBasin);
 
+                }
             }
-            else if (e.RightButton == MouseButtonState.Pressed)
-            {
-                // temporary code
-                // this should be a matrix transformation but /shrug
-                // not best practice
-                LastRightMouseClickPos = e.GetPosition(HurricaneBasin); 
-
-            }
+            
         }
 
         private void EditMenu_Categories_Click(object sender, RoutedEventArgs e)
@@ -304,9 +328,28 @@ namespace Track_Maker
 
                     Storm CurrentStorm = CurrentProject.SelectedBasin.GetCurrentStorm();
 
-                    // temp
-                    if (CurrentStorm != null) CurrentStorm.AddNode(MinIntensity, "Tropical", new Point(0, 0), 1000, ST2Manager); 
+                    Debug.Assert(Cat.Hotkey.Keys.Count > 0);
+
+                    // yeah
+                    if (Cat.Hotkey.Keys[0] == HitKey)
+                    {
+                        // temp
+                        if (CurrentStorm != null)
+                        {
+                            Node CNa = new Node()
+                            {
+                                Intensity = MinIntensity,
+                                NodeType = ST2Manager.GetStormTypeWithName("Tropical"),
+                                Position = new RelativePosition(0, 0)
+                            };
+
+                            CurrentStorm.LastNode = CNa;
+                        }
+                    }
+                    
                 }
+                    
+                
             }
         }
 
@@ -335,6 +378,7 @@ namespace Track_Maker
                 double MouseDistanceX = 0;
                 double MouseDistanceY = 0;
 
+                // simplify this to prevent jumping around
                 MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
                 MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
 
@@ -368,6 +412,7 @@ namespace Track_Maker
         private void Window_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             LastRightMouseClickPos = e.GetPosition(HurricaneBasin);
+
         }
 
         private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
@@ -390,7 +435,7 @@ namespace Track_Maker
                 return; 
             }
 
-            Title = $"Track Maker 2.0 - [{GlobalState.GetCurrentOpenFile()}]";
+            Title = $"Track Maker 2.1 - [{GlobalState.GetCurrentOpenFile()}]";
         }
 
         private void FileMenu_Import_BT_Click(object sender, RoutedEventArgs e)
@@ -520,8 +565,6 @@ namespace Track_Maker
             HurricaneBasin.Height = Height - MainMenu.Height; // yeah
             Layers.Margin = new Thickness(2, PriscillaSidebar.Height * 0.243, 0, PriscillaSidebar.Height * 0.166);
             ZoomControl.Margin = new Thickness(0, PriscillaSidebar.Height * 0.88, PriscillaSidebar.Width * -0.29, PriscillaSidebar.Height * 0.016);
-
-            //CurrentProject.SelectedBasin.RecalculateNodePositions(false, VolatileApplicationSettings.WindowSize);
 
 
         }

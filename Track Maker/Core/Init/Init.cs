@@ -144,7 +144,8 @@ namespace Track_Maker
 
                     Key Key = (Key)KConverter.ConvertFromString(KeyName);
 
-                    DHotkeyManager.AddNewHotkey(CatName, new List<Key> { Key } );
+                    DynaHotkey DHotkey = DHotkeyManager.AddNewHotkey(CatName, new List<Key> { Key }, false);
+                    Cat.Hotkey = DHotkey;
                     continue;
                 }
                 else

@@ -136,6 +136,7 @@ namespace Track_Maker
 
             Project CurrentProject = Xwindow.CurrentProject;
 
+            // 
             //CurrentProject.SelectedBasin.RecalculateNodePositions(Direction.Larger, new Point(Xwindow.Width, Xwindow.Height), new Point(TempCanvas.Width, TempCanvas.Height));
 
             //New scaling for picking up dev again - 2020-05-08 23:04
