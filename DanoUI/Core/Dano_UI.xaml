@@ -1,4 +1,6 @@
-﻿<!-- Style XAML 2.0 for Priscilla build 49x+ -->
+﻿<!-- IrisUI 
+    Iris main UI for TrackMaker v2.1.709+
+    -->
     <ResourceDictionary x:Class="TrackMaker.UI.Core.DanoStyle"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

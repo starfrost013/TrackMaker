@@ -15,12 +15,13 @@
                         <RowDefinition Height="14*"/>
                         <RowDefinition Height="17*"/>
                     </Grid.RowDefinitions>
+                    <CheckBox x:Name="ApplicationSettings_Tab_General_ClearLogs" Content="Clear Logs" VerticalContentAlignment="Center" Margin="25,74,611,0" VerticalAlignment="Top" FontSize="24" IsChecked="{x:Static Core:ApplicationSettings.ClearLogs}"/>
+                    <TextBlock x:Name="ApplicationSettings_Tab_General_DefaultWindowStyle" TextWrapping="Wrap" Text="Default window style:" Margin="24,148,477,193" FontSize="24" Grid.RowSpan="2"/>
                     <TextBlock x:Name="ApplicationSettings_Tab_General_Header" HorizontalAlignment="Left" Margin="24,10,0,0" TextWrapping="Wrap" Text="General Settings" VerticalAlignment="Top" FontSize="48" FontStyle="Italic"></TextBlock>
                     <!-- change for v2 -->
                     <TextBlock x:Name="ApplicationSettings_Tab_General_DefaultCategorySystem" TextWrapping="Wrap" Text="Default category system:" Margin="24,113,477,20" FontSize="24"/>
                     <ComboBox x:Name="ApplicationSettings_Tab_General_DefaultCategorySystemBox" HorizontalAlignment="Left" Margin="305,110,0,0" VerticalAlignment="Top" Width="220" Height="33" ItemsSource="{Binding}" DisplayMemberPath="{x:Static Core:ApplicationSettings.DefaultCategorySystem}" SelectedIndex="0" FontSize="18"/>
-                    <CheckBox x:Name="ApplicationSettings_Tab_General_ClearLogs" Content="Clear Logs" VerticalContentAlignment="Center" Margin="25,74,611,0" VerticalAlignment="Top" FontSize="24" IsChecked="{x:Static Core:ApplicationSettings.ClearLogs}"/>
-                    <TextBlock x:Name="ApplicationSettings_Tab_General_DefaultWindowStyle" TextWrapping="Wrap" Text="Default window style:" Margin="24,148,477,193" FontSize="24" Grid.RowSpan="2"/>
+                   
                     <ComboBox x:Name="ApplicationSettings_Tab_General_DefaultWindowStyleBox" HorizontalAlignment="Left" Margin="305,148,0,0" VerticalAlignment="Top" Width="220" Height="33" ItemsSource="{Binding}" DisplayMemberPath="{x:Static Core:ApplicationSettings.WindowStyle_Internal}" SelectedIndex="0" FontSize="18" Grid.RowSpan="2"/>
 
                     <!-- TODO: Add setting for default window type -->
