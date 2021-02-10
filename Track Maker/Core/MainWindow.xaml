@@ -15,8 +15,7 @@
         PreviewKeyDown="Window_PreviewKeyDown" 
         Closing="Shutdown" 
         MouseMove="Window_MouseMove" 
-        MouseRightButtonUp="Window_MouseRightButtonUp" 
-        MouseRightButtonDown="Window_MouseRightButtonUp" 
+
         SizeChanged="Window_SizeChanged" 
         SizeToContent="WidthAndHeight">
 
@@ -72,6 +71,7 @@
             </MenuItem>
             <MenuItem x:Name="StormMenu" Header="Storm" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="StormMenu_AddNew" Header="Add New Storm" Click="StormMenu_AddNew_Click" Foreground="Black"></MenuItem>
+                
             </MenuItem>
             <MenuItem x:Name="BasinMenu" Header="Basin"  Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="BasinMenu_BasinSwitch" Header="Switch..." Foreground="Black" Click="BasinMenu_BasinSwitch_Click"></MenuItem>
@@ -94,13 +94,18 @@
                 <Separator/>
                 <MenuItem x:Name="HelpMenu_About" Header="About starfrost's Track Maker" Foreground="Black" Click="HelpMenu_About_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="Separator" Width="440" IsEnabled="False"></MenuItem>
+            <MenuItem x:Name="Separator" Width="310" IsEnabled="False"></MenuItem>
+            <MenuItem x:Name="Iris_DynaHotkeyMode" Header="DynaHotkey: Disabled" Style="{StaticResource Style_Menu_Inverted}"/>
             <MenuItem x:Name="Priscilla_UndoButton" Header="Undo" Click="UndoButton_Click" Style="{StaticResource Style_Menu_Inverted}"/>
             <MenuItem x:Name="Priscilla_RedoButton" Header="Redo" Click="RedoButton_Click" Style="{StaticResource Style_Menu_Inverted}"/>
         </Menu>
 
         <!-- this is where the basin image is loaded from xml -->
-        <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="583" Margin="0,28,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
+        <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="583" Margin="0,28,0,-2" VerticalAlignment="Top" Width="952" 
+                PreviewMouseDown="Window_PreviewMouseDown"
+                MouseRightButtonUp="Window_MouseRightButtonUp" 
+                MouseRightButtonDown="Window_MouseRightButtonUp" 
+                >
             <Canvas.Background>
                 <ImageBrush x:Name="HurricaneBasinImage">
                     <ImageBrush.ImageSource>
