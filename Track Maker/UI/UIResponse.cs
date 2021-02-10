@@ -577,6 +577,12 @@ namespace Track_Maker
             SUIH.Show(); 
         }
 
+        private void GraphMenu_GraphNow_Click(object sender, RoutedEventArgs e)
+        {
+            GraphUIHost GUIH = new GraphUIHost();
+            GUIH.Owner = this;
+            GUIH.Show();
+        }
 
     }
 }

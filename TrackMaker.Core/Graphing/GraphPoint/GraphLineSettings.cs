@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media; 
 
-namespace TrackMaker.Core
+namespace TrackMaker.Core.Graphing
 {
     /// <summary>
     /// 2020-01-26               Iris v694

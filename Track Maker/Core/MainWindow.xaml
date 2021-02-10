@@ -77,7 +77,7 @@
                 <MenuItem x:Name="BasinMenu_BasinSwitch" Header="Switch..." Foreground="Black" Click="BasinMenu_BasinSwitch_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="GraphMenu" Header="Graph" Style="{StaticResource Style_Menu_Inverted}" IsEnabled="False">
-                <MenuItem x:Name="GraphMenu_GraphWindow" Header="Graph Now" Foreground="Black" IsEnabled="False"></MenuItem>
+                <MenuItem x:Name="GraphMenu_GraphWindow" Header="Graph Now" Foreground="Black" IsEnabled="False" Click="GraphMenu_GraphNow_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="ToolsMenu" Header="Tools" Style="{StaticResource Style_Menu_Inverted}">
                 <MenuItem x:Name="ToolsMenu_ACECalculator" Header="ACE Calculator" Foreground="Black" Click="ToolsMenu_ACECalculator_Click"></MenuItem>

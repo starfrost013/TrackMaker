@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace TrackMaker.Core
+namespace TrackMaker.Core.Graphing
 {
 
     /// <summary>
@@ -20,6 +20,10 @@ namespace TrackMaker.Core
     /// </summary>
     public class GraphSettings
     {
+        /// <summary>
+        /// Axes enabled
+        /// </summary>
+        public bool AxesEnabled { get; set; }
 
         /// <summary>
         /// Graph grid enabled
@@ -36,12 +40,47 @@ namespace TrackMaker.Core
         /// </summary>
         public GraphType Type { get; set; }
 
+        private Vector _smin; 
+
         /// <summary>
-        /// The scale of this graph.
+        /// Thetopleft point of this graph of this graph.
         /// </summary>
 
-        public Vector Smin { get; set; }
-        public Vector Smax { get; set; }
+        public Vector Smin 
+        {   get
+            {
+                return _smin; 
+            }
+            set
+            {
+                if (value.X > Smax.X || value.Y > Smax.Y)
+                {
+                    Error.Throw("Error", "GS: Fatal graphing error: GraphSettings.Smin < Smax!", ErrorSeverity.FatalError, 418);
+                }
+                else
+                {
+                    _smin = value; 
+                }
+            }
+        }
+        private Vector _smax { get; set; }
+        public Vector Smax 
+        {   get
+            {
+                return _smax;
+            }
+            set
+            {
+                if (value.X < Smin.X || value.Y < Smin.Y)
+                {
+                    Error.Throw("Error", "GS: Fatal graphing error: GraphSettings.Smin < Smax!", ErrorSeverity.FatalError, 418);
+                }
+                else
+                {
+                    _smax = value; 
+                }
+            }
+        }
 
     }
 }

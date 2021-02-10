@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace TrackMaker.Core
+namespace TrackMaker.Core.Graphing
 {
     /// <summary>
-    /// Dano (3.0) graphing mode individual graph
+    /// Graphing Subsystem
     /// 
-    /// Graph Interface Version 1.2.0
+    /// Version 2.1.0
     /// </summary>
     public interface IGraph
     {
