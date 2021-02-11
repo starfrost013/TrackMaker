@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="TrackMaker.UI.GraphDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TrackMaker.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Width="803.729">
+    <Grid>
+        <TextBlock x:Name="GraphDisplay_Header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Graph Display" VerticalAlignment="Top" FontSize="36"/>
+        <Canvas x:Name="GraphDisplay" HorizontalAlignment="Left" Height="351" Margin="10,63,0,0" VerticalAlignment="Top" Width="780"/>
+        <Button x:Name="GraphDisplay_Exit" Content="Exit" HorizontalAlignment="Left" Margin="681,27,0,0" VerticalAlignment="Top" Width="109" Style="{StaticResource Button_Invert}"/>
+
+    </Grid>
+</UserControl>

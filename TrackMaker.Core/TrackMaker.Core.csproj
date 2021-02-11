@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="GlobalState\GlobalState.cs" />
     <Compile Include="Graphing\GraphPoint\GraphLineSettings.cs" />
+    <Compile Include="Graphing\GraphPoint\GraphLineStyle.cs" />
     <Compile Include="Graphing\GraphPoint\GraphPointSettings.cs" />
     <Compile Include="Graphing\GraphSettings.cs" />
     <Compile Include="Graphing\GraphType.cs" />

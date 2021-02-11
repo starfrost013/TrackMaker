@@ -73,6 +73,9 @@
     <Compile Include="TrackMakerUI\Export\Iris_ExportUI.xaml.cs">
       <DependentUpon>Iris_ExportUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrackMakerUI\Graphing\Display\GraphDisplay.xaml.cs">
+      <DependentUpon>GraphDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TrackMakerUI\Graphing\GraphUI.xaml.cs">
       <DependentUpon>GraphUI.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TrackMakerUI\Export\Iris_ExportUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrackMakerUI\Graphing\Display\GraphDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

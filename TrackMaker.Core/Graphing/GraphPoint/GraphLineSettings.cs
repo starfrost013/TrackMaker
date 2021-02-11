@@ -31,8 +31,8 @@ namespace TrackMaker.Core.Graphing
         public int StrokeThickness { get; set; }
         
         /// <summary>
-        /// Is this line visible? If not, simply draw each point
+        /// The style of this line.
         /// </summary>
-        public bool Visible { get; set; } 
+        public GraphLineStyle LineStyle { get; set; }
     }
 }
