@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// Interaction logic for LayerControlHost.xaml

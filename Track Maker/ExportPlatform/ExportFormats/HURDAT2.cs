@@ -16,7 +16,7 @@ using TrackMaker.Core;
 using TrackMaker.Util.ScaleUtilities;
 using TrackMaker.Util.StringUtilities;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     public class ExportHURDAT2 : IExportFormat
     {

@@ -22,7 +22,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// 2020-12-08  Connor Hyde (starfrost)

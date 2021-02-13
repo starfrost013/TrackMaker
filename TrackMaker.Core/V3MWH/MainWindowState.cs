@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Track_Maker.MainWindowHost
+namespace TrackMaker.MainWindowHost
 {
     /// <summary>
     /// 'Iris' MainWindowState (track maker vNext = 2.1/3.0)

@@ -14,7 +14,7 @@ using System.Xml;
 using TrackMaker.Core;
 using TrackMaker.Util.StringUtilities;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// Track Maker Project version 2.x (TProj2) for Track Maker Priscilla (2.0) and Iris (2.1)

@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     public partial class MainWindow : Window
     {

@@ -17,7 +17,7 @@ using TrackMaker.Core;
 
 //Move to TrackMaker.UI.Host?
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// Interaction logic for CreateProjectHost.xaml

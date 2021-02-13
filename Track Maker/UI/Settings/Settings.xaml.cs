@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// Interaction logic for Settings.xaml

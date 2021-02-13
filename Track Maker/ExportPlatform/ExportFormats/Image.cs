@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     public class ExportImage : IImageExportFormat
     {

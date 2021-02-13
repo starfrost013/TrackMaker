@@ -12,7 +12,7 @@ using System.Windows.Forms.VisualStyles;
 using TrackMaker.Core;
 using TrackMaker.Util.StringUtilities;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// BestTrack export services

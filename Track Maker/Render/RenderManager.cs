@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     public partial class MainWindow : Window
     {

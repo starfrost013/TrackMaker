@@ -1,11 +1,11 @@
 ﻿<!-- MainWindow 2.1 (Iris) -->
 
-<Window x:Class="Track_Maker.MainWindow"
+<Window x:Class="TrackMaker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Track_Maker"
+        xmlns:local="clr-namespace:TrackMaker"
         xmlns:Core="clr-namespace:TrackMaker.Core;assembly=TrackMaker.Core"
         xmlns:Dano="clr-namespace:TrackMaker.UI;assembly=TrackMaker.UI"
         mc:Ignorable="d" 

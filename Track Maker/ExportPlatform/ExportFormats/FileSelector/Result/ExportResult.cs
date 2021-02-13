@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// Priscilla v604 2020-12-20 22:59

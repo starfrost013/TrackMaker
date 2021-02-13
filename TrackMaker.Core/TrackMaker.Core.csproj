@@ -70,6 +70,7 @@
     <Compile Include="Graphing\GraphPoint\GraphLineSettings.cs" />
     <Compile Include="Graphing\GraphPoint\GraphLineStyle.cs" />
     <Compile Include="Graphing\GraphPoint\GraphPointSettings.cs" />
+    <Compile Include="Graphing\StormGraphSubject.cs" />
     <Compile Include="Graphing\GraphSettings.cs" />
     <Compile Include="Graphing\GraphType.cs" />
     <Compile Include="Graphing\PerformanceGraph.cs" />

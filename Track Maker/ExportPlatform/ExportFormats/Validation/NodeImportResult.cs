@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// Result class for importing nodes

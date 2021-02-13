@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// Export format for images and other formats where a quality control may be required (ex: 3d model in v4)

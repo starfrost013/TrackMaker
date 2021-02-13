@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using TrackMaker.Core; 
 
-namespace Track_Maker
+namespace TrackMaker
 {
     public partial class MainWindow : Window
     {

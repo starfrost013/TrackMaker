@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Track Maker", "Track Maker\Track Maker.csproj", "{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMaker", "Track Maker\TrackMaker.csproj", "{C6F45C49-85F1-4C8B-AAC2-A5491346E9A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{E4517BB9-6590-4B3A-8355-9389C1376828}"
 EndProject

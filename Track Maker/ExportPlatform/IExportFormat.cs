@@ -28,7 +28,7 @@ using TrackMaker.Util.ScaleUtilities;
 /// v2.0.464.0      V1.4        Project now mandatory
 /// </summary>
 /// 
-namespace Track_Maker
+namespace TrackMaker
 {
     public interface IExportFormat
     {

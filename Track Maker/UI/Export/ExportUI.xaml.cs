@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using TrackMaker.Core;
 using TrackMaker.Util.ScaleUtilities;
 
-namespace Track_Maker
+namespace TrackMaker
 {
 
     public enum FormatType { Export, Import }

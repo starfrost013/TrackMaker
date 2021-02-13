@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// Interaction logic for GraphDisplayHost.xaml
     /// </summary>
     public partial class GraphDisplayHost : Window
     {
+
         public GraphDisplayHost()
         {
             InitializeComponent();

@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Input;
 using TrackMaker.Core;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     public partial class MainWindow : Window
     {
@@ -417,7 +417,7 @@ namespace Track_Maker
 
         private void FileMenu_SaveCurrent_Click(object sender, RoutedEventArgs e)
         {
-            if (GlobalState.CurrentExportFormatName == null) GlobalState.CurrentExportFormatName = "Track_Maker.ExportXMLv2"; 
+            if (GlobalState.CurrentExportFormatName == null) GlobalState.CurrentExportFormatName = "TrackMaker.ExportXMLv2"; 
 
             Type EXType = Type.GetType(GlobalState.CurrentExportFormatName);
 

@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using TrackMaker.Core;
 using TrackMaker.Util.StringUtilities;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     public static class ATCFHelperMethods
     {

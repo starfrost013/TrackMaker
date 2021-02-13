@@ -21,7 +21,7 @@ using TrackMaker.Util.StringUtilities;
 /// 
 /// TODO: Abbreviation for category names, replace godawful center tag 
 /// </summary>
-namespace Track_Maker
+namespace TrackMaker
 {
     public class ExportEasyTimeline : IExportFormat
     {

@@ -15,7 +15,7 @@ using TrackMaker.Core;
 using TrackMaker.Util.StringUtilities;
 using TrackMaker.Util.WpfUtil;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     /// <summary>
     /// TrackMaker Initialisation

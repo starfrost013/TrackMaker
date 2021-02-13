@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Track_Maker
+namespace TrackMaker
 {
     public enum ImageScaling
     {
