@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 ; starfrost's Track Maker Version 2.1.0
-; Setup File v2.1.001.00007
+; Setup File v2.1.002.00011
 
 ; v2.0.000.00000          Initial version                                           2020-09-26
 ; v2.0.000.00001          Now compiles                                              2020-12-22
@@ -14,7 +14,13 @@
 ; v2.0.000.00005          Update for Priscilla final version                        2021-01-10
 ; v2.0.000.00006          Update for v2.0.1                                         2021-01-11
 ; v2.0.001.00007          Iris update (v682); renamed all DLLs, added Core          2021-01-21
-                 
+; v2.1.001.00008          Iris update (v713.1); renamed Track Maker to TrackMaker   2021-02-13
+; v2.1.002.00009          Delete old files at isntall time and make
+;                         installation script portable to other machines            2021-02-13 
+; v2.1.002.00010          Fix installation, reduce redundancy                       2021-02-13
+; v2.1.002.00011          Whoops! install schemas; reduce redundancy further and    2021-02-13
+;                         delete old shortcuts  
+
 ; CHANGE TO APP NAME AND VERSION FOR FINAL
 #define MyAppName "starfrost's Track Maker 2.1"
 ; place version here when Iris complete
@@ -22,8 +28,17 @@
 ; END CHANGE TO NAME AND VERSION FOR FINAL
 #define MyAppPublisher "starfrost"
 #define MyAppURL "https://www.medicanecentre.org"
-#define MyAppExeName "Track Maker.exe"
-;#define DEBUG
+#define MyAppExeName "TrackMaker.exe"
+
+#define DEBUG
+
+; integrated tooling
+#define TrackMaker_Iris_ACName = "starfrost's ACE Calculator"
+#define TrackMaker_Iris_AGName = "starfrost's Advisory Generator"
+
+; previous versions
+#define TrackMaker_PVBranding_Priscilla = "starfrost's Track Maker 2.0" ; v2.0 ("Priscilla")
+#define TrackMaker_PVBranding_Arthur = "Cosmo's Track Maker" ; v1.0 ("Arthur")                              
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -41,20 +56,20 @@ DisableProgramGroupPage=yes
 ; The [Icons] "quicklaunchicon" entry uses {userappdata} but its [Tasks] entry has a proper IsAdminInstallMode Check.
 UsedUserAreasWarning=no
 #ifdef DEBUG
-InfoBeforeFile=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\help_info.txt
+InfoBeforeFile=..\bin\Priscilla_Debug\Data\help_info.txt
 #else
-InfoBeforeFile=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\help_info.txt
+InfoBeforeFile=..\bin\Priscilla_Release\Data\help_info.txt
 #endif
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 
-OutputDir=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Installer\Install
+OutputDir=..\bin\Installer\Install
 #ifdef DEBUG
 OutputBaseFilename=TrackMaker-Priscilla-Debug-{#MyAppVersion}
 #else
 OutputBaseFilename=TrackMaker-Priscilla-Release-{#MyAppVersion}
 #endif
-SetupIconFile=C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\V2Icon_32x32.ico
+SetupIconFile=..\V2Icon_32x32.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -69,50 +84,66 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 [Files]
 
 #ifdef DEBUG
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Track Maker.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\BetterWin32Errors.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\TrackMaker.ACECalculator.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\TrackMaker.AdvisoryGenerator.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\TrackMaker.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\TrackMaker.Core.StaticSerialiser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\TrackMaker.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
-;Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\TrackMaker.UI.PortlandUI.dll"; DestDir: "{app}"; Flags: ignoreversion Startpage Portland Design Language placeholder; doesn't exist yet
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\TrackMaker.Util.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Updater.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\Basins.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\CategorySystems.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\help_info.txt"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\Settings.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\StormTypes.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
-;Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\UpdateComplete.cmd"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Debug\Data\BasinImages\*"; DestDir: "{app}\Data\BasinImages"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\bin\Priscilla_Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\BetterWin32Errors.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\TrackMaker.ACECalculator.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\TrackMaker.AdvisoryGenerator.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\TrackMaker.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\TrackMaker.Core.StaticSerialiser.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\TrackMaker.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "..\bin\Priscilla_Debug\TrackMaker.UI.Portland.dll"; DestDir: "{app}"; Flags: ignoreversion Startpage 'portland' UI placeholder; doesn't exist yet
+Source: "..\bin\Priscilla_Debug\TrackMaker.Util.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\Updater.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\Data\Basins.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\Data\CategorySystems.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\Data\help_info.txt"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\Data\Settings.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\Data\StormTypes.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+;Source: "..\bin\Priscilla_Debug\Data\UpdateComplete.cmd"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Debug\Data\BasinImages\*"; DestDir: "{app}\Data\BasinImages"; Flags: ignoreversion recursesubdirs createallsubdirs
+; Core data and XML schemas (Core\Schema)
+Source: "..\bin\Priscilla_Debug\Data\Core\*"; DestDir: "{app}\Data\Core"; Flags: ignoreversion recursesubdirs createallsubdirs
+
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 #else
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Track Maker.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\BetterWin32Errors.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\TrackMaker.ACECalculator.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\TrackMaker.AdvisoryGenerator.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\TrackMaker.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\TrackMaker.Core.StaticSerialiser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\TrackMaker.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
-;Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\TrackMaker.UI.PortlandUI.dll"; DestDir: "{app}"; Flags: ignoreversion Startpage Portland Design Language placeholder; doesn't exist yet
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\TrackMaker.Util.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Updater.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\Basins.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\CategorySystems.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\help_info.txt"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\Settings.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\StormTypes.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
-;Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\UpdateComplete.cmd"; DestDir: "{app}\Data"; Flags: ignoreversion
-Source: "C:\Users\FiercePC\HHWTools\TrackMaker\TrackMaker\Track Maker\bin\Priscilla_Release\Data\BasinImages\*"; DestDir: "{app}\Data\BasinImages"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\bin\Priscilla_Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\BetterWin32Errors.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\TrackMaker.ACECalculator.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\TrackMaker.AdvisoryGenerator.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\TrackMaker.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\TrackMaker.Core.StaticSerialiser.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\TrackMaker.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "..\bin\Priscilla_Release\TrackMaker.UI.Portland.dll"; DestDir: "{app}"; Flags: ignoreversion Startpage 'Portland' UI placeholder; doesn't exist yet
+Source: "..\bin\Priscilla_Release\TrackMaker.Util.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\Updater.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\Data\Basins.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\Data\CategorySystems.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\Data\help_info.txt"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\Data\Settings.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\Data\StormTypes.xml"; DestDir: "{app}\Data"; Flags: ignoreversion
+;Source: "..\bin\Priscilla_Release\Data\UpdateComplete.cmd"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Priscilla_Release\Data\BasinImages\*"; DestDir: "{app}\Data\BasinImages"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\bin\Priscilla_Release\Data\Core\*"; DestDir: "{app}\Data\Core"; Flags: ignoreversion recursesubdirs createallsubdirs
 #endif
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{autoprograms}\{#MyAppName}\starfrost's ACE Calculator"; Filename: "{app}\{#MyAppExeName}"; Parameters: "-initacecalc"
-Name: "{autoprograms}\{#MyAppName}\starfrost's Advisory Generator"; Filename: "{app}\{#MyAppExeName}"; Parameters: "-initadvgen"
+Name: "{autoprograms}\{#MyAppName}\{#TrackMaker_Iris_ACName}"; Filename: "{app}\{#MyAppExeName}"; Parameters: "-initacecalc"
+Name: "{autoprograms}\{#MyAppName}\{#TrackMaker_Iris_AGName}"; Filename: "{app}\{#MyAppExeName}"; Parameters: "-initadvgen"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
+  
+[InstallDelete]
+Type: files; Name: "{app}\Dano.ACECalculator.dll"
+Type: files; Name: "{app}\Dano.AdvisoryGenerator.dll"
+Type: files; Name: "{app}\DanoUI.dll"
+Type: files; Name: "{app}\Starfrost.UL5.dll"
+Type: files; Name: "{app}\Track Maker.exe"
+Type: files; Name: "{app}\Priscilla-Log-*.txt"
+Type: files; Name: "{autoprograms}\{#TrackMaker_PVBranding_Priscilla}\*"
+Type: files; Name: "{autodesktop}\{#TrackMaker_PVBranding_Priscilla}"
+Type: files; Name: "{autoprograms}\{#TrackMaker_PVBranding_Arthur}"
+Type: files; Name: "{autodesktop}\{#TrackMaker_PVBranding_Arthur}"
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent

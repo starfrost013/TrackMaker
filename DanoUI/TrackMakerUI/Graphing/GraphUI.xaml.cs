@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TrackMaker.Core.Graphing; 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,23 @@ namespace TrackMaker.UI
     /// </summary>
     public partial class GraphUI : UserControl
     {
+        /// <summary>
+        /// The current graph.
+        /// 
+        /// Temp: move to GraphingGlobalState class
+        /// </summary>
+        public StormGraph CurrentGraph { get; set; }
         public EventHandler<DanoEventArgs> DisplayButtonHit { get; set; }
         public GraphUI()
         {
             InitializeComponent();
+        }
+
+        private void GraphUI_DisplayGraphButton_Click(object sender, RoutedEventArgs e)
+        {
+            DanoEventArgs DEA = new DanoEventArgs();
+            DEA.DanoParameters.Add(CurrentGraph);
+            DisplayButtonHit(this, DEA);
         }
     }
 }

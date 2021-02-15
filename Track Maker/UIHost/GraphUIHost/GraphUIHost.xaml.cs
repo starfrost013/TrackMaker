@@ -1,5 +1,8 @@
-﻿using System;
+﻿using TrackMaker.Core.Graphing;
+using TrackMaker.UI;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +25,19 @@ namespace TrackMaker
         public GraphUIHost()
         {
             InitializeComponent();
+        }
+
+        public void DisplayButtonHit(object Sender, DanoEventArgs DEA)
+        {
+            Debug.Assert(DEA.DanoParameters.Count == 1);
+
+            StormGraph SG = (StormGraph)DEA.DanoParameters[0];
+
+            // if (!SG.Show())
+
+            GraphDisplayHost GDH = new GraphDisplayHost(SG);
+            GDH.Owner = this;
+            GDH.Show();
         }
     }
 }

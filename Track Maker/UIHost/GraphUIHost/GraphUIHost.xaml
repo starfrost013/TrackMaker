@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="GraphUIHost" Height="482.32" Width="802.486">
     <Grid>
-        <UI:GraphUI></UI:GraphUI>
+        <UI:GraphUI DisplayButtonHit="DisplayButtonHit"></UI:GraphUI>
     </Grid>
 </Window>

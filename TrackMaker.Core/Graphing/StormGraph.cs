@@ -21,6 +21,12 @@ namespace TrackMaker.Core.Graphing
 
         public List<GraphLine> Lines { get; set; }
 
+        public StormGraph()
+        {
+            Settings = new GraphSettings();
+            Lines = new List<GraphLine>(); 
+        }
+
         public bool Plot()
         {
             throw new NotImplementedException();

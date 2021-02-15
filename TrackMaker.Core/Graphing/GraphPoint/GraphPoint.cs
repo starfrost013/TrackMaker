@@ -13,6 +13,10 @@ namespace TrackMaker.Core.Graphing
     /// </summary>
     public class GraphPoint
     {
+        /// <summary>
+        /// The value of this graph point.
+        /// </summary>
+        public object Value { get; set; } 
         public GraphPointSettings Settings { get; set; }
     }
 }

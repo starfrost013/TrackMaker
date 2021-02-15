@@ -31,7 +31,7 @@ Dano.AdvisoryGenerator.dll => TrackMaker.AdvisoryGenerator.dll
 11. Rewrite ATCF/HURDAT2 importers to convert to TProj2 
 12. Internal state cohesion: show no basin by default until project created. 
 13. Start Page: Add a start page that allows the user to get started immediately before initialising any basin.
-14: Updater: Improve the updater's error toleration. 
+14: Updater: Improve the updater's error tolerance. 
 15. Allow previews to be toggleable in settings for those with slow disks (so you don't have to write several megabytes every time the export window is opened)
 16. Port remaining UI to TrackMaker.UI
 17. XGA7 compress (when XGA is ready) default basins to reduce download size.
@@ -45,13 +45,15 @@ All XML loaders will be rewritten to use schemas and serialisation. This will as
 24. Optional pressure display
 25. Project naming
 Allow the naming of projects.
-26. TScript + Autoexec.xml [Tentative]
+26. TScript + Autoexec.xml [Tentative] [TSCRIPT DELAYED TO V3]
 The Track Maker will support a basic scripting format called TScript. It will allow the user to dynamically configure the Track Maker at any point, as well as customising any part on a set of predefined user actions. It will also support limited UI creation (adding buttons to the Menu) and opening up windows. Probably going to fully become available in 3.0; I haven't decided if I should do this.
 
 Autoexec.xml is a file that will allow you to run a particular set of TScript commands at startup. It is combined with Init.tsc, a TScript setting fundamental TrackMaker variables.
 
 27. Settings classes
 Split many of the Node attributes into NodeSettings to reduce code use. Same for basins, storm types, and probably some other stuff.
+28. Rename executable and main namespace from Track Maker.exe and Track_Maker to TrackMaker, for consistency.
+29. Generate XML at compile time containing version information as a resource within the executable to allow isntallation within Program Files
 
 ==Priority 3==
 28. Start Page
