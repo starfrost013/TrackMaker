@@ -24,7 +24,7 @@ namespace TrackMaker.UI
     public partial class GraphDisplay : UserControl
     {
         public StormGraph GraphToDisplay { get; set; }
-        public EventHandler<DanoEventArgs> ExitHit { get; set; }
+        public EventHandler ExitHit { get; set; }
         public GraphDisplay()
         {
             // parametersless constructor required for UC
@@ -35,10 +35,10 @@ namespace TrackMaker.UI
             GraphToDisplay = new StormGraph();
             GraphToDisplay.Settings.AxesEnabled = true;
             GraphToDisplay.Settings.GridEnabled = true;
-            GraphToDisplay.Settings.Smax = new Vector(0, 100);
+            GraphToDisplay.Settings.Smax = new Vector(0, 10);
             GraphToDisplay.Settings.Smin = new Vector(0, 0);
             DrawCurrentGraph();
-
+            
         }
 
         private void DrawGraphBoundaries()
@@ -76,6 +76,10 @@ namespace TrackMaker.UI
                     DistanceY = Math.Abs(Smax.Y) - Math.Abs(Smin.Y);
                 }
             }
+            else
+            {
+                DistanceY = Smax.Y - Smin.Y;
+            }
 
             Debug.Assert(DistanceX >= 0 && DistanceY >= 0);
 
@@ -83,25 +87,34 @@ namespace TrackMaker.UI
             double StepFactorY = GraphDisplay_Graph.Height / DistanceY;
 
             // used for the numerical drawing for loop
-            int DivisorX = Convert.ToInt32(GraphDisplay_Graph.Width / StepFactorX);
-            int DivisorY = Convert.ToInt32(GraphDisplay_Graph.Height / StepFactorY);
+            double TotalX = Convert.ToInt32(GraphDisplay_Graph.Width / StepFactorX);
+            double TotalY = Convert.ToInt32(GraphDisplay_Graph.Height / StepFactorY);
 
             Point SDX_Point = new Point(0, 0);
 
+            double CurrentY = 0;
+
             // draw grid lines and y-axis
-            for (int i = 0; i < DivisorY; i++)
+            for (int i = 0; i < TotalY; i++)
             {
-                SDX_Point = new Point(0, 0 + DivisorY);
+                // skip 
+                if (i % GraphToDisplay.Settings.Step != 0) continue; 
 
-                if (GraphToDisplay.Settings.GridEnabled)
+                double Multiplier = i / TotalY;
+
+                if (i != 0)
                 {
-
+                    CurrentY = GraphDisplay_Graph.Height * Multiplier;
                 }
 
-                double CYAxisVal = GraphDisplay_Graph.Height * SDX_Point.Y;
+                SDX_Point = new Point(0, 0 + CurrentY);
+
                 // tuberculosis block
                 TextBlock TB = new TextBlock();
-                TB.Text = CYAxisVal.ToString();
+
+                double CurPos = DistanceY * Multiplier;
+
+                TB.Text = CurPos.ToString();
 
                 Canvas.SetLeft(TB, SDX_Point.X);
                 Canvas.SetTop(TB, SDX_Point.Y);
@@ -112,8 +125,14 @@ namespace TrackMaker.UI
 
         public void DrawCurrentGraph()
         {
-            DrawGraphBoundaries(); 
+            DrawGraphBoundaries();
+            if (GraphToDisplay.Settings.GridEnabled) DrawGrid();
             //DrawGraphPoints();
+        }
+
+        public void DrawGrid()
+        {
+            ExitHit(this, new EventArgs()); 
         }
 
         private void DrawGraphPoints()
@@ -129,6 +148,11 @@ namespace TrackMaker.UI
                     
                 }
             }
+        }
+
+        private void GraphDisplay_Exit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

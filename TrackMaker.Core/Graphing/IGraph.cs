@@ -20,6 +20,7 @@ namespace TrackMaker.Core.Graphing
         bool Plot();
         GraphLine GetLineWithName(string KeyName);
         GraphLine AddLine(string KeyName, int StrokeThickness, Color Colour);
+        void AddLine(GraphLine Ln);
         void DeleteLineWithName(string Name);
         void DeleteLineWithId(int Id); 
     }

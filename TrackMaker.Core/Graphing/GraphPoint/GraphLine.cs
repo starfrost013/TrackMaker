@@ -20,6 +20,10 @@ namespace TrackMaker.Core.Graphing
         /// </summary>
         public GraphLineSettings Settings { get; set; }
 
+        public GraphLine()
+        {
+            Points = new List<GraphPoint>(); 
+        }
 
         public GraphPoint AddPoint(Point Pt)
         {

@@ -48,7 +48,7 @@ namespace TrackMaker.Core.Graphing
 
             if (StrokeThickness < 0 || StrokeThickness > 100)
             {
-                Error.Throw("Warning!", "Warning: invalid StrokeThickness - must be within the range [0,100]!", ErrorSeverity.Error, 411);
+                Error.Throw("Warning!", "GS: Warning: invalid StrokeThickness - must be within the range [0,100]!", ErrorSeverity.Error, 411);
                 return null;
             }
 
@@ -61,11 +61,26 @@ namespace TrackMaker.Core.Graphing
             return Line;
         }
 
+        public void AddLine(GraphLine Ln)
+        {
+            if (Ln == null)
+            {
+                // change to error?
+                Error.Throw("Error", "GS: Error: Attempted to add invalid line to graph!", ErrorSeverity.Error, 421);
+                return;
+            }
+            else
+            {
+                Lines.Add(Ln);
+                return;
+            }
+        }
+
         public void DeleteLineWithId(int Id)
         {
             if (Id < 0 || Id > Lines.Count - 1)
             {
-                Error.Throw("Error!", "Attempted to delete invalid GraphLine!", ErrorSeverity.Error, 412);
+                Error.Throw("Error!", "GS: Error: Attempted to delete invalid GraphLine!", ErrorSeverity.Error, 412);
                 return;
             }
             else

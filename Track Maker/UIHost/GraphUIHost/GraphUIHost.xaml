@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TrackMaker"
         xmlns:UI="clr-namespace:TrackMaker.UI;assembly=TrackMaker.UI"
         mc:Ignorable="d"
-        Title="GraphUIHost" Height="482.32" Width="802.486">
+        Title="GraphUIHost" Height="482.32" Width="821.139">
     <Grid>
         <UI:GraphUI DisplayButtonHit="DisplayButtonHit"></UI:GraphUI>
     </Grid>

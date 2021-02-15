@@ -36,6 +36,21 @@ namespace TrackMaker.Core.Graphing
             throw new NotImplementedException();
         }
 
+        public void AddLine(GraphLine Ln)
+        {
+            if (Ln == null)
+            {
+                // change to error?
+                Error.Throw("Error", "GS: Error: Attempted to add invalid line to graph!", ErrorSeverity.Error, 421);
+                return;
+            }
+            else
+            {
+                Lines.Add(Ln);
+                return;
+            }
+        }
+
         public void DeleteLineWithId(int Id)
         {
             throw new NotImplementedException();
@@ -45,5 +60,6 @@ namespace TrackMaker.Core.Graphing
         {
             throw new NotImplementedException();
         }
+
     }
 }

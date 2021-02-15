@@ -26,5 +26,10 @@ namespace TrackMaker.UI
             InitializeComponent();
             GraphDisplay.GraphToDisplay = SG;
         }
+
+        public void ExitHit(object sender, EventArgs e)
+        {
+            Close(); 
+        }
     }
 }

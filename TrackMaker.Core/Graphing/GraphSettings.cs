@@ -43,7 +43,7 @@ namespace TrackMaker.Core.Graphing
         private Vector _smin; 
 
         /// <summary>
-        /// Thetopleft point of this graph of this graph.
+        /// The top left point of this graph of this graph.
         /// </summary>
 
         public Vector Smin 
@@ -55,11 +55,34 @@ namespace TrackMaker.Core.Graphing
             {
                 if (value.X > Smax.X || value.Y > Smax.Y)
                 {
-                    Error.Throw("Error", "GS: Fatal graphing error: GraphSettings.Smin < Smax!", ErrorSeverity.FatalError, 418);
+                    Error.Throw("Error", "GS: Fatal graphing error: GraphSettings.Smin < Smax!", ErrorSeverity.Error, 418);
+                    return;
                 }
                 else
                 {
                     _smin = value; 
+                }
+            }
+        }
+
+        private double _step { get; set; }
+
+        /// <summary>
+        /// The step used
+        /// </summary>
+        public double Step { get
+            {
+                return _step;
+            }
+            set
+            {
+                if (value > Smax.Y)
+                {
+                    Error.Throw("Error", "GS: Error: GraphSettings.Step cannot be more than actual graph!", ErrorSeverity.Error, 420);
+                }
+                else
+                {
+                    _step = value; 
                 }
             }
         }
@@ -73,13 +96,22 @@ namespace TrackMaker.Core.Graphing
             {
                 if (value.X < Smin.X || value.Y < Smin.Y)
                 {
-                    Error.Throw("Error", "GS: Fatal graphing error: GraphSettings.Smin < Smax!", ErrorSeverity.FatalError, 418);
+                    Error.Throw("Error", "GS: Fatal graphing error: GraphSettings.Smin < Smax!", ErrorSeverity.Error, 419);
+                    return; 
                 }
                 else
                 {
                     _smax = value; 
                 }
             }
+        }
+        
+        /// <summary>
+        /// Constructor of GraphSettings, used to set defaults
+        /// </summary>
+        public GraphSettings()
+        {
+            Step = 1; 
         }
 
     }

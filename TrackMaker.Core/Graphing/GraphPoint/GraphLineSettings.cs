@@ -33,6 +33,6 @@ namespace TrackMaker.Core.Graphing
         /// <summary>
         /// The style of this line.
         /// </summary>
-        public GraphLineStyle LineStyle { get; set; }
+        public GraphLineStyle Style { get; set; }
     }
 }

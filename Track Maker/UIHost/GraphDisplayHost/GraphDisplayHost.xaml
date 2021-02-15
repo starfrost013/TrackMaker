@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="Graph Display" Height="445.028" Width="831.077">
     <Grid>
-        <UI:GraphDisplay x:Name="GraphDisplay"></UI:GraphDisplay>
+        <UI:GraphDisplay ExitHit="ExitHit" x:Name="GraphDisplay"></UI:GraphDisplay>
     </Grid>
 </Window>

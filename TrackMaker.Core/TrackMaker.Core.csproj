@@ -70,11 +70,11 @@
     <Compile Include="Graphing\GraphPoint\GraphLineSettings.cs" />
     <Compile Include="Graphing\GraphPoint\GraphLineStyle.cs" />
     <Compile Include="Graphing\GraphPoint\GraphPointSettings.cs" />
-    <Compile Include="Graphing\StormGraphSubject.cs" />
+    <Compile Include="Graphing\GraphTypes\StormGraphSubject.cs" />
     <Compile Include="Graphing\GraphSettings.cs" />
     <Compile Include="Graphing\GraphType.cs" />
-    <Compile Include="Graphing\PerformanceGraph.cs" />
-    <Compile Include="Graphing\StormGraph.cs" />
+    <Compile Include="Graphing\GraphTypes\PerformanceGraph.cs" />
+    <Compile Include="Graphing\GraphTypes\StormGraph.cs" />
     <Compile Include="Layer\Layer.cs" />
     <Compile Include="Layer\LayerCollection.cs" />
     <Compile Include="Logging\Logging.cs" />
