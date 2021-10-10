@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Starfrost.UL5.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace Track_Maker
             {
                 // MOVE THIS CODE
                 case WndStyle.Windowed: // if it's false, turn it on
+                    Logging.Log("Entering fullscreen mode...");
                     CurrentProject.SelectedBasin.RecalculateNodePositions(true, new Point(Width, Height));
                     Setting.WindowStyle = WndStyle.Fullscreen;
                     WindowState = WindowState.Maximized;
@@ -29,6 +31,7 @@ namespace Track_Maker
                     PriscillaSidebar.Height = SystemParameters.PrimaryScreenHeight;
                     return;
                 case WndStyle.Fullscreen: // if it's true, turn it off
+                    Logging.Log("Exiting fullscreen mode...");
                     WindowState = WindowState.Normal;
                     WindowStyle = WindowStyle.SingleBorderWindow;
                     MainMenu.Width = Width;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Reflection; 
 using System.Timers;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Track_Maker
@@ -43,6 +44,13 @@ namespace Track_Maker
             Logging.Log("@@@@@@@@@@ LOG STARTS HERE @@@@@@@@@@");
             Logging.Log("Starting phase 1 init..."); // log starting.
 
+            Logging.Log("Initialized global update timer...");
+            TickTimer = new Timer();
+            TickTimer.Elapsed += TimerTicked;
+            TickTimer.Interval = 0.000001; // yes
+
+           
+
             Logging.Log("Initialising category manager...");
             Catman = new CategoryManager();
             Logging.Log("Loading categories...");
@@ -64,7 +72,7 @@ namespace Track_Maker
             GlobalStateP.LoadBasins();
             Init_SetCurrentCategorySystem();
             Init_SetAccentColour();
-
+            Init_HandleEoS();
         }
 
         public void Init_Phase2()
@@ -80,14 +88,10 @@ namespace Track_Maker
             // DUMB HACK 
 
             Logging.Log("Initialized window, starting phase 2...");
-            TickTimer = new Timer();
-            TickTimer.Elapsed += TimerTicked;
-            TickTimer.Interval = 0.000001; // yes
-            TickTimer.Enabled = true;
-            Logging.Log("Initialized global update timer...");
+
 
             Logging.Log($"Starting global update timer...interval: {TickTimer.Interval}");
-
+            TickTimer.Enabled = true;
 #if DANO
             Title = "Track Maker Dano (version 3.0 alpha) - do not use for production purposes!)";
 #elif PRISCILLA
@@ -111,6 +115,8 @@ namespace Track_Maker
             }
 
             Layers.AddLayer("Background");
+            
+            Layers.Layers.ToggleSelectedLayer(true);
 
             Logging.Log("Initialisation completed. Starting render timer...");
 
@@ -151,6 +157,22 @@ namespace Track_Maker
             {
                 Setting.AccentColour1 = new Color { A = 255, R = 255, G = 255, B = 255 };
                 Setting.AccentColour2 = new Color { A = 255, R = 255, G = 255, B = 255 };
+            }
+        }
+
+        /// <summary>
+        /// Handles Track Maker End of Support
+        /// 
+        /// (v2.0.2 - Oct 10, 2021)
+        /// </summary>
+        private void Init_HandleEoS()
+        {
+            // WOW WHY IS THE ERROR HANDLING SO POORLY DESIGNED
+
+            if (!Setting.EoSNotificationAcknowledged)
+            {
+                MessageBox.Show($"Track Maker 1.0, 2.0, 2.0.1, and 2.0.2 are no longer supported as of October 10, 2021.\n\nNo further updates will be received for these versions (development was halted for Track Maker Legacy on September 23, 2021).\n\nBy continuing to use this software, you understand that the software that you are using is unsupported.\n\nNo further updates will be released.", "End of Support Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                EmeraldSettings.SetSetting("EoSNotificationAcknowledged", "True");
             }
         }
     }

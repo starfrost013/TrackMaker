@@ -94,17 +94,19 @@
             </MenuItem>-->
         </Menu>
 
+        <Viewbox Margin="-143,0,0,0">
         <!-- this is where the basin image is loaded from xml -->
-        <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="583" Margin="0,28,0,-2" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
-            <Canvas.Background>
-                <ImageBrush x:Name="HurricaneBasinImage">
-                    <ImageBrush.ImageSource>
-                        <!-- This is a default  -->
-                        <BitmapImage x:Name="HurricaneBasinImage_Bitmap" UriSource="..\Data\BasinImages\T_AtlanticHighRes.png"></BitmapImage>
-                    </ImageBrush.ImageSource>
-                </ImageBrush>
-            </Canvas.Background>
-        </Canvas>
+            <Canvas x:Name="HurricaneBasin" HorizontalAlignment="Left" Height="583" VerticalAlignment="Top" Width="952" PreviewMouseDown="Window_PreviewMouseDown">
+                <Canvas.Background>
+                    <ImageBrush x:Name="HurricaneBasinImage">
+                        <ImageBrush.ImageSource>
+                            <!-- This is a default  -->
+                            <BitmapImage x:Name="HurricaneBasinImage_Bitmap" UriSource="..\Data\BasinImages\T_AtlanticHighRes.png"></BitmapImage>
+                        </ImageBrush.ImageSource>
+                    </ImageBrush>
+                </Canvas.Background>
+            </Canvas>
+        </Viewbox>
         <Grid x:Name="PriscillaSidebar" HorizontalAlignment="Left" Height="609" Margin="952,0,0,0" VerticalAlignment="Top" Width="183">
             <Grid.Background>
                 <!-- menu background -->

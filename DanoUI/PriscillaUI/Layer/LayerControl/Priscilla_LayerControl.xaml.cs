@@ -114,9 +114,9 @@ namespace DanoUI
 #endif
             // SHITTY HACK SHITTY HACK!!!!
             PriscillaUI_Layers_LayerListView.Items.Add(Lyr);
-
+            
             PriscillaUI_Layers_LayerListView.SelectedIndex = PriscillaUI_Layers_LayerListView.Items.Count - 1;
-
+           
             //todo: SET STATE WHEN ENABLED
             // END SHITTY HACK
         }
@@ -158,7 +158,7 @@ namespace DanoUI
             ToggleSelectedLayer((bool)ChkBox.IsChecked);
         }
 
-        private void ToggleSelectedLayer(bool SelectedLayerState)
+        public void ToggleSelectedLayer(bool SelectedLayerState) // HACK FOR 2.0.2 AS ALL THIS CODE IS SHIT ANYWAY
         {
 
             DanoEventArgs DEA = new DanoEventArgs();

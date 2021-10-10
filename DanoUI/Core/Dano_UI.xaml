@@ -92,7 +92,7 @@
     <!-- Style for menus. -->
     <Style TargetType="MenuItem" x:Key="Style_Menu">
         <Setter Property="FontSize" Value="12"></Setter>
-        <Setter Property="Foreground" Value="#FF000000"></Setter>
+        <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
     </Style>
 
     <!-- Inverted style for menus. -->
@@ -142,4 +142,5 @@
         <Setter Property="FontSize" Value="18"></Setter>
 
     </Style>
+
 </ResourceDictionary>

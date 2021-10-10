@@ -14,6 +14,8 @@ namespace Updater
 {
     public class Update
     {
+        public static string UpdateServer => "https://trackmaker.starfrost.net";
+
         // Check for updates.
         static void Main(string[] args)
         {
@@ -24,12 +26,12 @@ namespace Updater
                 ServicePointManager.Expect100Continue = true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-                string VersionString = NetConnection.DownloadString(@"https://trackmaker-update.medicanecentre.org/LatestVersion.txt");
+                string VersionString = NetConnection.DownloadString($@"{UpdateServer}\LatestVersion.txt");
 
                 string[] VersionComponents = null; 
                 if (VersionString.Contains("terminated"))
                 {
-                    MessageBox.Show("Update Services for Track Maker 1.x has been terminated. Please manually install Track Maker 2.0 at https://v2.trackmaker-update.medicanecentre.org/GetVersion?versionID=2.0");
+                    MessageBox.Show("Update services for this version of the Track Maker have been terminated.");
                     Application.Current.Shutdown(4); 
                 }
                 
@@ -58,7 +60,7 @@ namespace Updater
                 {
                     if (MessageBox.Show($"A Track Maker update is available.\n\nCurrent Version: {FVI.ProductVersion}.\nNew Version: {VersionString}.\n\nDo you wish to update?", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                     {
-                        NetConnection.DownloadFile($"https://trackmaker-update.medicanecentre.org/TrackMaker-{VersionString}.zip", "new.zip");
+                        NetConnection.DownloadFile($"{UpdateServer}/TrackMaker-{VersionString}.zip", "new.zip");
                         
                         if (Directory.Exists(@".\update"))
                         {

@@ -63,7 +63,7 @@ namespace DanoUI
                 if (PreHS == null)
                 {
                     // iris: use error system
-                    MessageBox.Show("Error!", "Please select a valid date!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Please select a valid date!", "Error!",  MessageBoxButton.OK, MessageBoxImage.Warning);
                     return new DateTime(1989, 6, 4, 22, 16, 0); // pre3.0
                 }
 
@@ -74,7 +74,7 @@ namespace DanoUI
                 if (Hours < 0 || Minutes < 0 || Hours >= 24 || Minutes >= 60)
                 {
                     // iris: use error system
-                    MessageBox.Show("Error!", "Please select a valid time!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Please select a valid time!", "Error!",  MessageBoxButton.OK, MessageBoxImage.Warning);
                     return new DateTime(1989, 6, 4, 22, 16, 0); 
                 }
                 else
@@ -90,10 +90,10 @@ namespace DanoUI
             {
 #if DEBUG
                 // iris: use error system
-                MessageBox.Show("Error!", $"Please select a valid date and time!\n\n{err}", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Please select a valid date and time!\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Warning);
 #else
                 // iris: use error system
-                MessageBox.Show("Error!", $"Please select a valid date and time!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Please select a valid date and time!", "Error!", MessageBoxButton.OK, MessageBoxImage.Warning);
 #endif
                 return new DateTime(1989, 6, 4, 22, 16, 0);
             }
@@ -101,10 +101,10 @@ namespace DanoUI
             {
 #if DEBUG
                 // iris: use error system
-                MessageBox.Show("Error!", $"Please select a valid date and time!\n\n{err}", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Please select a valid date and time!\n\n{err}", "Error!", MessageBoxButton.OK, MessageBoxImage.Warning);
 #else
                 // iris: use error system
-                MessageBox.Show("Error!", $"Please select a valid date and time!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Please select a valid date and time!", "Error!", MessageBoxButton.OK, MessageBoxImage.Warning);
 #endif
                 return new DateTime(1989, 6, 4, 22, 16, 0);
             }

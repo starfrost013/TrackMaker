@@ -278,7 +278,13 @@ namespace Track_Maker
             CPH.Owner = this;
             CPH.Show();
 
-            if (CurrentProject != null) Layers.AddLayer("Background");
+            if (CurrentProject != null)
+            {
+                Layers.AddLayer("Background");
+                // HACK
+                Layers.Layers.ToggleSelectedLayer(true);
+                // END HACK
+            }
 
         }
 
@@ -371,11 +377,9 @@ namespace Track_Maker
 
                 // Store the current distance from the last mouse click. This allows smooth panning.
 
-                double MouseDistanceX = 0;
-                double MouseDistanceY = 0;
+                double MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
+                double MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
 
-                MouseDistanceX = CurPos.X - LastRightMouseClickPos.X;
-                MouseDistanceY = CurPos.Y - LastRightMouseClickPos.Y;
 
                 /*
                 restore this in iris with proper checks

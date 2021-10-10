@@ -26,7 +26,7 @@ namespace Dano.ACECalculator
             InitializeComponent();
             Assembly Assembly = Assembly.GetEntryAssembly();
             FileVersionInfo FileVersion = FileVersionInfo.GetVersionInfo(Assembly.Location); // get this program's location
-            Version.Text = $"Version 1.5.254.3 (for Track Maker version {FileVersion.ProductVersion}).";
+            Version.Text = $"Version 1.5.255.4 (for Track Maker version {FileVersion.ProductVersion}).";
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
@@ -36,7 +36,7 @@ namespace Dano.ACECalculator
 
         private void Version_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Version.Text = "free! // 2022";
+            Version.Text = "lightning bolt";
         }
 
         // new in v1.4: actually make this work - 2020-04-08

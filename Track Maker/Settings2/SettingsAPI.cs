@@ -110,17 +110,6 @@ namespace Track_Maker
         }
 
         /// <summary>
-        /// Temp (Priscilla 442)
-        /// </summary>
-        private static void GenerateSettings()
-        {
-            FileStream FStreamSettings = File.Create("Settings.xml");
-
-            FStreamSettings.Dispose(); 
-            // END TEMP
-        }
-
-        /// <summary>
         /// Internal Api for getting nodes from the root node obtained by using LoadSettingsXml()/
         /// </summary>
         /// <param name="XRoot">The root node of the ServerSettings Xml.</param>
@@ -156,7 +145,11 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 //throw an error if xelement is null
-                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting boolean!", ErrorSeverity.FatalError, 12);
+                if (XElement == null || XRoot == null)
+                {
+                    Error.Throw("An error has occurred.", "Attempted to load invalid setting boolean. A default value will be used.", ErrorSeverity.Warning, 12);
+                    return false; // 2.0.2 
+                }
 
 
                 bool Val = Convert.ToBoolean(XElement.InnerText);
@@ -168,8 +161,7 @@ namespace Track_Maker
             }
             catch (FormatException err)
             {
-                Error.Throw("An error has occurred.", $"Error converting string to boolean while loading xml!\n\n{err}", ErrorSeverity.FatalError, 11);
-                Application.Current.Shutdown(11);
+                Error.Throw("An error has occurred.", $"Error converting string to boolean while loading xml! A default message will be used.\n\n{err}", ErrorSeverity.Warning, 11);
                 return false;
             }
         }
@@ -187,7 +179,11 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 //throw an error if xelement is null
-                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting double!", ErrorSeverity.FatalError, 13);
+                if (XElement == null || XRoot == null) 
+                {
+                    Error.Throw("An error has occurred.", "Attempted to load invalid setting boolean. A default value will be used.", ErrorSeverity.Warning, 13);
+                    return 0; 
+                }
 
                 double Val = Convert.ToDouble(XElement.InnerText);
 
@@ -195,9 +191,8 @@ namespace Track_Maker
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"Error converting string to double while loading xml! Error 14!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(14);
-                return -1; 
+                Error.Throw("An error has occurred.", $"Error converting string to double while loading Settings XML! A default value will be used.\n\n{err}", ErrorSeverity.Error, 14);
+                return 0; 
             }
         }
 
@@ -214,7 +209,10 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 // throw an error if xelement is null
-                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting int!", ErrorSeverity.FatalError, 15);
+                if (XElement == null || XRoot == null)
+                {
+                    Error.Throw("An error has occurred.", "Attempted to load invalid Int32 setting. A default value will be used.", ErrorSeverity.Warning, 15);
+                }
 
                 int Val = Convert.ToInt32(XElement.InnerText);
 
@@ -222,11 +220,9 @@ namespace Track_Maker
             }
             catch (FormatException err)
             {
-                Error.Throw("An error has occurred.", $"Error converting string to int while loading xml!\n\n{err}", ErrorSeverity.FatalError, 16);
+                Error.Throw("An error has occurred.", $"Error converting string to int while loading xml! A default value will be used.\n\n{err}", ErrorSeverity.Error, 16);
 
-                Application.Current.Shutdown(16); // Settings may be corrupted
-
-                return -1; 
+                return 0;
             }
         }
 
@@ -240,7 +236,11 @@ namespace Track_Maker
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
             // throw an error if xelement is null
-            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting string!", ErrorSeverity.FatalError, 17);
+            if (XElement == null || XRoot == null)
+            {
+                Error.Throw("An error has occurred.", "Attempted to load invalid setting string! A default value will be used.", ErrorSeverity.Warning, 17);
+                return $"Setting {SettingsElement} has missing value!"; 
+            }
 
             string Val = XElement.InnerText;
 
@@ -259,7 +259,11 @@ namespace Track_Maker
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
             // throw an error if xelement is null
-            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting point!", ErrorSeverity.FatalError, 18);
+            if (XElement == null || XRoot == null) 
+            {
+                Error.Throw("An error has occurred.", "Attempted to load invalid setting point! A default value will be used.", ErrorSeverity.Warning, 18);
+                return new Point(0, 0);
+            }
 
 
             Point XY = XElement.InnerText.SplitXY(); 
@@ -272,7 +276,11 @@ namespace Track_Maker
             XmlNode XRoot = LoadSettingsXmlGetNode();
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
-            if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid setting colour!", ErrorSeverity.FatalError, 19);
+            if (XElement == null || XRoot == null)
+            {
+                Error.Throw("An error has occurred.", "Attempted to load invalid setting colour! A default value will be used.", ErrorSeverity.Warning, 19);
+                return new Color { A = 255, R = 255, G = 255, B = 255};
+            }
 
             Color RGB = XElement.InnerText.SplitRGB();
   
@@ -292,7 +300,11 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 // If it doesn't exist crash (TEMP - add an IsOptional bool param for settings) 
-                if (XElement == null || XRoot == null) Error.Throw("An error has occurred.", "Attempted to load invalid TelemetryConsent setting!", ErrorSeverity.FatalError, 100); 
+                if (XElement == null || XRoot == null)
+                {
+                    Error.Throw("An error has occurred.", "Attempted to load invalid TelemetryConsent setting! A default value will be used - you will be prompted every time until this issue is fixed.", ErrorSeverity.Warning, 100);
+                    return TelemetryConsent.No; // err on the side of caution
+                }
 
                 // Parse as TelemetryConsent 
                 return (TelemetryConsent)Enum.Parse(typeof(TelemetryConsent), XElement.InnerText);
@@ -318,14 +330,17 @@ namespace Track_Maker
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 // If it doesn't exist crash (TEMP - add an IsOptional bool param) 
-                if (XElement == null || XRoot == null) Error.Throw("Fatal Error", "Attempted to load invalid WindowStyle setting!", ErrorSeverity.FatalError, 130);
+                if (XElement == null || XRoot == null)
+                {
+                    Error.Throw("Fatal Error", "Attempted to load invalid WindowStyle setting! A default value will be used.", ErrorSeverity.Warning, 130);
+                }
 
                 // Parse as TelemetryConsent 
                 return (WndStyle)Enum.Parse(typeof(WndStyle), XElement.InnerText);
             }
             catch (ArgumentException err)
             {
-                Error.Throw("Fatal Error", $"Attempted to load invalid WindowStyle setting!\n\n{err}", ErrorSeverity.FatalError, 131);
+                Error.Throw("Fatal Error", $"Attempted to load invalid WindowStyle setting!\n\n{err}", ErrorSeverity.Warning, 131);
                 return WndStyle.Windowed;
             }
 
@@ -341,6 +356,12 @@ namespace Track_Maker
         {
             try
             {
+                if (SettingsElement == null || SettingsElement.Length == 0)
+                {
+                    Error.Throw("Error!", "Attempted to set an invalid (null or zero-length) setting!", ErrorSeverity.Error, 222);
+                    return false; 
+                }
+
                 Logging.Log($"[Saving settings] Setting {SettingsElement} to {SettingsValue}...");
                 // Load settings and get the first node.
                 XmlDocument XDoc = LoadSettingsXml();
@@ -349,17 +370,28 @@ namespace Track_Maker
                 // Find the setting we need.
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
                 
-                if (XElement == null || XRoot == null)
+                if (XRoot == null)
                 {
                     Error.Throw("Error!", "An error occurred while saving settings. Either settings.xml is empty or we attempted to modify an invalid setting.", ErrorSeverity.Error, 220);
                     return false; 
                 }
+                else
+                {
+                    if (XElement == null)
+                    {
+                        XmlNode XNewElement = XDoc.CreateElement(SettingsElement);
+                        XRoot.AppendChild(XNewElement);
+                    }
+                    else
+                    {
+                        // Update its inner text.
+                        XElement.InnerText = SettingsValue;
 
-                // Update its inner text.
-                XElement.InnerText = SettingsValue;
+                        // Save it.
+                        XDoc.Save($@"{Directory.GetCurrentDirectory()}\Settings.xml");
+                    }
+                }
 
-                // Save it.
-                XDoc.Save($@"{Directory.GetCurrentDirectory()}\Settings.xml");
 
                 return true;
             }

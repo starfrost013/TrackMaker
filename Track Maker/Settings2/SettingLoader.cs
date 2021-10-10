@@ -13,6 +13,8 @@ namespace Track_Maker
 
         /// <summary>
         /// Changed to static - does not require 
+        /// 
+        /// Overengineered piece of shit - just use XML (de)serialisation dammit!!!
         /// </summary>
         public static void LoadSettings2()
         {
@@ -58,8 +60,6 @@ namespace Track_Maker
             // Load the accent enable setting
             Setting.AccentEnabled = EmeraldSettings.GetBool("AccentEnabled");
 
-            // Load temporary RC2 setting
-            Setting.PriscillaRC2_Tmp_UseNewPZRendering = EmeraldSettings.GetBool("PriscillaRC2_Tmp_UseNewPZRendering"); 
 
             // Telemetry consent
             Setting.TelemetryConsent = EmeraldSettings.GetTelemetryConsent("TelemetryConsent");
@@ -74,7 +74,10 @@ namespace Track_Maker
             Setting.WindowStyle = EmeraldSettings.GetWindowStyle("WindowStyle");
 
             // V2.1
-            Setting.Iris_UseDeserialisation = EmeraldSettings.GetBool("Iris_UseDeserialisation"); 
+            Setting.Iris_UseDeserialisation = EmeraldSettings.GetBool("Iris_UseDeserialisation");
+
+            // V2.0.2
+            Setting.EoSNotificationAcknowledged = EmeraldSettings.GetBool("EoSNotificationAcknowledged");
         }
     }
 }

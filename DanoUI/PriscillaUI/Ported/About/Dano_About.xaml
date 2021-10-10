@@ -16,11 +16,11 @@
             <Run>
                 Created with ♥ for the weather community.
             </Run>
-            <Hyperlink NavigateUri="http://medicanecentre.org" RequestNavigate="Hyperlink_RequestNavigate">
-                https://medicanecentre.org
+            <Hyperlink NavigateUri="http://starfrost.net" RequestNavigate="Hyperlink_RequestNavigate">
+                http://starfrost.net
             </Hyperlink>
         </TextBlock>
-        <Button Style="{StaticResource Button_Invert}" x:Name="starfrostTrack_OKButton" Content="OK" HorizontalAlignment="Left" Margin="599,118,0,0" VerticalAlignment="Top" Width="108" Click="starfrostTrack_OKButton_Click" RenderTransformOrigin="0.438,-0.014" Height="29"/>
+        <Button Style="{StaticResource Button_Invert}" x:Name="StarfrostTrack_OKButton" Content="OK" HorizontalAlignment="Left" Margin="599,118,0,0" VerticalAlignment="Top" Width="108" Click="StarfrostTrack_OKButton_Click" Height="29"/>
         <TextBlock x:Name="StarfrostTrack_VersionBranding" HorizontalAlignment="Left" Height="31" Margin="474,10,0,0" TextWrapping="Wrap" Text="2.0" VerticalAlignment="Top" Width="38" FontSize="28" FontStyle="Italic" Foreground="#FF3E2670"/>
 
     </Grid>

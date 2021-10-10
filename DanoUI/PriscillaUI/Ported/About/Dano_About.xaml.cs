@@ -48,10 +48,10 @@ namespace DanoUI
 #if DEBUG
             //starfrostTrack_Version.Text = $"Version 2.0 Alpha (Priscilla v{FVI.FileVersion}) (Debug)";
 
-            starfrostTrack_Version.Text = $"Version 2.0.1 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
+            starfrostTrack_Version.Text = $"Version 2.0.2 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Debug)";
             starfrostTrack_Copyright.Text = "This version of the Track Maker is a pre-release intended for evaluation purposes only and is not for operational usage. © 2019-2021 starfrost.";
 #else
-            starfrostTrack_Version.Text = $"Version 2.0.1 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Release)";
+            starfrostTrack_Version.Text = $"Version 2.0.2 (Priscilla v{FVI.FileVersion} - {FVI.ProductVersion} Release)";
 
 #endif
 
@@ -71,7 +71,7 @@ namespace DanoUI
             OnHyperlinkHit(this, e); 
         }
 
-        private void starfrostTrack_OKButton_Click(object sender, RoutedEventArgs e)
+        private void StarfrostTrack_OKButton_Click(object sender, RoutedEventArgs e)
         {
             OnOKButtonHit(this, e); 
         }

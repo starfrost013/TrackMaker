@@ -186,7 +186,7 @@ namespace Track_Maker
                 }
             }
 
-            if (Setting.PriscillaRC2_Tmp_UseNewPZRendering) Render_ZoomAndPan(); 
+            Render_ZoomAndPan();
 
             // get WPF to render it
             UpdateLayout(); 
@@ -267,7 +267,7 @@ namespace Track_Maker
         {
 
             double CX = Width * CurRelativePos.X;
-            double CY = Width * CurRelativePos.Y;
+            double CY = Height * CurRelativePos.Y;
 
             ScaleTransform FirstScaleST = null;
             TranslateTransform FirstTranslateTT = null;
