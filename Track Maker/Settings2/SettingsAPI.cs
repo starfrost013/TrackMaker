@@ -388,7 +388,7 @@ namespace Track_Maker
                         XElement.InnerText = SettingsValue;
 
                         // Save it.
-                        XDoc.Save($@"{Directory.GetCurrentDirectory()}\Settings.xml");
+                        XDoc.Save($@"Data\Settings.xml");
                     }
                 }
 
