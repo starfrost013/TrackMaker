@@ -189,7 +189,7 @@ namespace Updater
 
             Directory.SetCurrentDirectory(@"..");
 
-            //
+            // delete the temp new.zip file.
 
             File.Delete("new.zip");
             // Completion batchfile that updates this updater.

@@ -362,7 +362,7 @@ namespace Track_Maker
                     return false; 
                 }
 
-                Logging.Log($"[Saving settings] Setting {SettingsElement} to {SettingsValue}...");
+                Logging.Log($"[Saving settings] Saving the setting {SettingsElement} to Settings.xml (value {SettingsValue}...");
                 // Load settings and get the first node.
                 XmlDocument XDoc = LoadSettingsXml();
                 XmlNode XRoot = GetFirstNode(XDoc);
@@ -381,15 +381,16 @@ namespace Track_Maker
                     {
                         XmlNode XNewElement = XDoc.CreateElement(SettingsElement);
                         XRoot.AppendChild(XNewElement);
+                        XRoot.Value = SettingsValue;
                     }
                     else
                     {
                         // Update its inner text.
                         XElement.InnerText = SettingsValue;
-
-                        // Save it.
-                        XDoc.Save($@"Data\Settings.xml");
                     }
+
+                    // Save it.
+                    XDoc.Save($@"Data\Settings.xml");
                 }
 
 
