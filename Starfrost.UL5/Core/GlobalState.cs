@@ -12,6 +12,11 @@ namespace Starfrost.UL5.Core
     public class GlobalState
     {
         private static App CApp { get; set; }
+
+        /// <summary>
+        /// Determines if this application has reached end of support.
+        /// </summary>
+        public static bool EoS => true; 
         public static void V52_Init(string AppName)
         {
             CApp = AppRegistration.RegisterApp(AppName); 

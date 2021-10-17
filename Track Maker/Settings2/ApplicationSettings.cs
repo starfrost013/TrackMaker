@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media; 
+
 namespace Track_Maker
 {
-
     public class Setting
     {
         public static Color AccentColour1 { get; set; } // Accent colour 1

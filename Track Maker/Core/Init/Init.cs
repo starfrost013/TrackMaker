@@ -171,8 +171,14 @@ namespace Track_Maker
 
             if (!Setting.EoSNotificationAcknowledged)
             {
-                MessageBox.Show($"Track Maker 1.0, 2.0, 2.0.1, and 2.0.2 are no longer supported as of October 10, 2021.\n\nNo further updates will be received for these versions (development was halted for Track Maker Legacy on September 23, 2021).\n\nBy continuing to use this software, you understand that the software that you are using is unsupported.\n\nNo further updates will be released.", "End of Support Notification", MessageBoxButton.OK, MessageBoxImage.Information);
-                EmeraldSettings.SetSetting("EoSNotificationAcknowledged", "True");
+                if (MessageBox.Show($"Track Maker 1.0, 2.0, 2.0.1, and 2.0.2 are no longer supported as of October 10, 2021.\n\n" +
+                $"No further updates will be received for these versions (development was halted for Track Maker Legacy on September 23, 2021).\n\n" +
+                $"By continuing to use this software, you understand that the software that you are using is unsupported.\n\n" +
+                $"No further updates will be released.", "End of Support Notification", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+                {
+                    EmeraldSettings.SetSetting("EoSNotificationAcknowledged", "True");
+                }
+                
             }
         }
     }

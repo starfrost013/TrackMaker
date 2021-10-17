@@ -29,6 +29,7 @@ namespace Updater
                 string VersionString = NetConnection.DownloadString($@"{UpdateServer}\LatestVersion.txt");
 
                 string[] VersionComponents = null; 
+
                 if (VersionString.Contains("terminated"))
                 {
                     MessageBox.Show("Update services for this version of the Track Maker have been terminated.");

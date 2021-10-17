@@ -1,4 +1,5 @@
-﻿using Starfrost.UL5.Logging;
+﻿using Starfrost.UL5.Core; 
+using Starfrost.UL5.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -44,7 +45,12 @@ namespace Track_Maker
                 if (Setting.TelemetryConsent == TelemetryConsent.Yes)
                 {
                     Logging.Log("TelemetryConsent = TelemetryConsent.Yes, running updater..."); 
-                    RunUpdater();
+                    
+                    if (!GlobalState.EoS)
+                    {
+                        RunUpdater();
+                    }
+                    
                 }
                 else
                 {
